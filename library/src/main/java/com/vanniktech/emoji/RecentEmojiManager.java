@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.annotation.NonNull;
 
 import com.vanniktech.emoji.emoji.Emoji;
@@ -74,7 +75,10 @@ final class RecentEmojiManager implements RecentEmoji {
 
             stringBuilder.setLength(stringBuilder.length() - EMOJI_DELIMITER.length());
 
-            getPreferences().edit().putString(RECENT_EMOJIS, stringBuilder.toString()).apply();
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)
+                getPreferences().edit().putString(RECENT_EMOJIS, stringBuilder.toString()).apply();
+            else
+                getPreferences().edit().putString(RECENT_EMOJIS, stringBuilder.toString()).commit();
         }
     }
 

@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +64,15 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     public void updateEmojis(final Collection<Emoji> emojis) {
         clear();
-        addAll(emojis);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            addAll(emojis);
+        } else {
+            for (Emoji e : emojis.toArray(new Emoji[emojis.size()])) {
+                add(e);
+            }
+        }
+
         notifyDataSetChanged();
     }
 
