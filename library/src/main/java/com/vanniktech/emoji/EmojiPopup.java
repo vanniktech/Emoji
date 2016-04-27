@@ -45,6 +45,47 @@ public final class EmojiPopup {
     @NonNull private final RecentEmoji recentEmoji;
 
     private final PopupWindow popupWindow;
+    private final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            final Rect rect = new Rect();
+            rootView.getWindowVisibleDisplayFrame(rect);
+
+            int heightDifference = getUsableScreenHeight() - (rect.bottom - rect.top);
+
+            final Resources resources = context.getResources();
+            final int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+
+            if (resourceId > 0) {
+                heightDifference -= resources.getDimensionPixelSize(resourceId);
+            }
+
+            if (heightDifference > MIN_KEYBOARD_HEIGHT) {
+                keyBoardHeight = heightDifference;
+                popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
+                popupWindow.setHeight(keyBoardHeight);
+
+                if (!isKeyboardOpen && onSoftKeyboardOpenListener != null) {
+                    onSoftKeyboardOpenListener.onKeyboardOpen(keyBoardHeight);
+                }
+
+                isKeyboardOpen = true;
+
+                if (isPendingOpen) {
+                    showAtBottom();
+                    isPendingOpen = false;
+                }
+            } else {
+                if (isKeyboardOpen) {
+                    isKeyboardOpen = false;
+
+                    if (onSoftKeyboardCloseListener != null) {
+                        onSoftKeyboardCloseListener.onKeyboardClose();
+                    }
+                }
+            }
+        }
+    };
 
     private EmojiPopup(final View rootView, final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
         this.context = rootView.getContext();
@@ -90,7 +131,6 @@ public final class EmojiPopup {
                 }
             }
         });
-        setSizeForSoftKeyboard();
     }
 
     private void showAtBottom() {
@@ -107,6 +147,8 @@ public final class EmojiPopup {
 
     public void toggle() {
         if (!popupWindow.isShowing()) {
+            rootView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+
             if (isKeyboardOpen) {
                 // If keyboard is visible, simply show the emoji popup
                 this.showAtBottom();
@@ -134,52 +176,9 @@ public final class EmojiPopup {
     }
 
     public void dismiss() {
+        Utils.removeOnGlobalLayoutListener(rootView, onGlobalLayoutListener);
         popupWindow.dismiss();
         recentEmoji.persist();
-    }
-
-    private void setSizeForSoftKeyboard() {
-        rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                final Rect rect = new Rect();
-                rootView.getWindowVisibleDisplayFrame(rect);
-
-                int heightDifference = getUsableScreenHeight() - (rect.bottom - rect.top);
-
-                final Resources resources = context.getResources();
-                final int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
-
-                if (resourceId > 0) {
-                    heightDifference -= resources.getDimensionPixelSize(resourceId);
-                }
-
-                if (heightDifference > MIN_KEYBOARD_HEIGHT) {
-                    keyBoardHeight = heightDifference;
-                    popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
-                    popupWindow.setHeight(keyBoardHeight);
-
-                    if (!isKeyboardOpen && onSoftKeyboardOpenListener != null) {
-                        onSoftKeyboardOpenListener.onKeyboardOpen(keyBoardHeight);
-                    }
-
-                    isKeyboardOpen = true;
-
-                    if (isPendingOpen) {
-                        showAtBottom();
-                        isPendingOpen = false;
-                    }
-                } else {
-                    if (isKeyboardOpen) {
-                        isKeyboardOpen = false;
-
-                        if (onSoftKeyboardCloseListener != null) {
-                            onSoftKeyboardCloseListener.onKeyboardClose();
-                        }
-                    }
-                }
-            }
-        });
     }
 
     private int getUsableScreenHeight() {
