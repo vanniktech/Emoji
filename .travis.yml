@@ -24,6 +24,7 @@ script: ./gradlew clean build
 
 after_success:
     - .buildscript/deploy_snapshot.sh
+    - codecov
 
 env:
     global:
@@ -33,9 +34,6 @@ env:
 branches:
     except:
         - gh-pages
-
-after_success:
-    - codecov
 
 notifications:
     email: false
