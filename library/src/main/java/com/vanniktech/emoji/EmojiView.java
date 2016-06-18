@@ -1,9 +1,5 @@
 package com.vanniktech.emoji;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -15,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.vanniktech.emoji.emoji.Cars;
 import com.vanniktech.emoji.emoji.Electronics;
@@ -27,10 +24,16 @@ import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 @SuppressLint("ViewConstructor")
-final class EmojiView extends FrameLayout implements ViewPager.OnPageChangeListener {
+final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
+    private static final int BACKGROUND_COLOR = 0xffeceff1;
+
     private static final int RECENT_INDEX = 0;
     private static final int PEOPLE_INDEX = 1;
     private static final int NATURE_INDEX = 2;
@@ -56,6 +59,9 @@ final class EmojiView extends FrameLayout implements ViewPager.OnPageChangeListe
         super(context);
 
         View.inflate(context, R.layout.emoji_view, this);
+
+        setOrientation(VERTICAL);
+        setBackgroundColor(BACKGROUND_COLOR);
 
         final ViewPager emojisPager = (ViewPager) findViewById(R.id.emojis_pager);
         emojisPager.addOnPageChangeListener(this);
