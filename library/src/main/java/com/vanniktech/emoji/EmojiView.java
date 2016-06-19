@@ -9,12 +9,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.vanniktech.emoji.emoji.Cars;
 import com.vanniktech.emoji.emoji.Electronics;
+import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.Food;
 import com.vanniktech.emoji.emoji.Nature;
 import com.vanniktech.emoji.emoji.People;
@@ -66,7 +66,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
         final ViewPager emojisPager = (ViewPager) findViewById(R.id.emojis_pager);
         emojisPager.addOnPageChangeListener(this);
 
-        final List<FrameLayout> views = getViews(context, onEmojiClickedListener, recentEmoji);
+        final List<? extends View> views = getViews(context, onEmojiClickedListener, recentEmoji);
         final EmojiPagerAdapter emojisAdapter = new EmojiPagerAdapter(views);
         emojisPager.setAdapter(emojisAdapter);
 
@@ -118,16 +118,24 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
     }
 
     @NonNull
-    private List<FrameLayout> getViews(final Context context, @Nullable final OnEmojiClickedListener onEmojiClickedListener, @NonNull final RecentEmoji recentEmoji) {
-        recentGridView = new RecentEmojiGridView(context, recentEmoji).init(onEmojiClickedListener);
-        final EmojiGridView peopleGridView = new EmojiGridView(context).init(People.DATA, onEmojiClickedListener);
-        final EmojiGridView natureGridView = new EmojiGridView(context).init(Nature.DATA, onEmojiClickedListener);
-        final EmojiGridView foodGridView = new EmojiGridView(context).init(Food.DATA, onEmojiClickedListener);
-        final EmojiGridView sportGridView = new EmojiGridView(context).init(Sport.DATA, onEmojiClickedListener);
-        final EmojiGridView carsGridView = new EmojiGridView(context).init(Cars.DATA, onEmojiClickedListener);
-        final EmojiGridView electronicsGridView = new EmojiGridView(context).init(Electronics.DATA, onEmojiClickedListener);
-        final EmojiGridView symbolsGridView = new EmojiGridView(context).init(Symbols.DATA, onEmojiClickedListener);
+    private List<? extends View> getViews(final Context context, @Nullable final OnEmojiClickedListener onEmojiClickedListener, @NonNull final RecentEmoji recentEmoji) {
+        recentGridView = new RecentEmojiGridView(context).init(onEmojiClickedListener, recentEmoji);
+        final EmojiGridView peopleGridView = createGridView(context, People.DATA, onEmojiClickedListener);
+        final EmojiGridView natureGridView = createGridView(context, Nature.DATA, onEmojiClickedListener);
+        final EmojiGridView foodGridView = createGridView(context, Food.DATA, onEmojiClickedListener);
+        final EmojiGridView sportGridView = createGridView(context, Sport.DATA, onEmojiClickedListener);
+        final EmojiGridView carsGridView = createGridView(context, Cars.DATA, onEmojiClickedListener);
+        final EmojiGridView electronicsGridView = createGridView(context, Electronics.DATA, onEmojiClickedListener);
+        final EmojiGridView symbolsGridView = createGridView(context, Symbols.DATA, onEmojiClickedListener);
         return Arrays.asList(recentGridView, peopleGridView, natureGridView, foodGridView, sportGridView, carsGridView, electronicsGridView, symbolsGridView);
+    }
+
+    private EmojiGridView createGridView(@NonNull final Context context, final Emoji[] emojis, @Nullable final OnEmojiClickedListener onEmojiClickedListener) {
+        final EmojiGridView emojiGridView = new EmojiGridView(context);
+        final EmojiArrayAdapter emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis);
+        emojiArrayAdapter.setOnEmojiClickedListener(onEmojiClickedListener);
+        emojiGridView.setAdapter(emojiArrayAdapter);
+        return emojiGridView;
     }
 
     @Override

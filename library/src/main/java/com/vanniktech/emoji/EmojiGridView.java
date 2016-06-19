@@ -1,27 +1,22 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.content.res.Resources;
 import android.widget.GridView;
 
-import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-
-final class EmojiGridView extends FrameLayout {
+class EmojiGridView extends GridView {
     EmojiGridView(final Context context) {
         super(context);
 
-        View.inflate(context, R.layout.emoji_grid, this);
-    }
+        final Resources resources = getResources();
 
-    public EmojiGridView init(final Emoji[] emojis, @Nullable final OnEmojiClickedListener onEmojiClickedListener) {
-        final GridView gridView = (GridView) findViewById(R.id.emoji_grid_view);
+        setColumnWidth(resources.getDimensionPixelSize(R.dimen.emoji_grid_view_column_width));
 
-        final EmojiArrayAdapter emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis);
-        emojiArrayAdapter.setOnEmojiClickedListener(onEmojiClickedListener);
-        gridView.setAdapter(emojiArrayAdapter);
-        return this;
+        final int spacing = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_spacing);
+        setHorizontalSpacing(spacing);
+        setVerticalSpacing(spacing);
+        setPadding(spacing, spacing, spacing, spacing);
+        setNumColumns(AUTO_FIT);
+        setClipToPadding(false);
     }
 }
