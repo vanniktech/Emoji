@@ -28,7 +28,12 @@
         <exclude name="AbstractNaming"/>
         <exclude name="ShortClassName"/>
     </rule>
-    <rule ref="rulesets/java/junit.xml"/>
+    <rule ref="rulesets/java/junit.xml">
+        <exclude name="UseAssertTrueInsteadOfAssertEquals"/>
+        <exclude name="JUnitTestsShouldIncludeAssert"/>
+        <exclude name="JUnitAssertionsShouldIncludeMessage"/>
+        <exclude name="JUnitTestContainsTooManyAsserts"/>
+    </rule>
     <rule ref="rulesets/java/migrating.xml"/>
     <rule ref="rulesets/java/strictexception.xml"/>
     <rule ref="rulesets/java/unnecessary.xml">

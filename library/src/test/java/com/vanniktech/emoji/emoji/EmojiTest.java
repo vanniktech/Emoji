@@ -20,27 +20,27 @@ public class EmojiTest {
 
     @Test
     public void getEmoji() {
-        final Emoji emoji = new Emoji("nik");
-        assertThat(emoji.getEmoji()).isEqualTo("nik");
+        final Emoji emoji = new Emoji("emoji");
+        assertThat(emoji.getEmoji()).isEqualTo("emoji");
     }
 
     @Test
     public void hash() {
         final Emoji nik = new Emoji("nik");
-        final Emoji test = new Emoji("test");
+        final Emoji foo = new Emoji("foo");
 
         assertThat(nik.hashCode()).isEqualTo(new Emoji("nik").hashCode());
-        assertThat(test.hashCode()).isEqualTo(new Emoji("test").hashCode());
-        assertThat(nik.hashCode()).isNotEqualTo(test.hashCode());
+        assertThat(foo.hashCode()).isEqualTo(new Emoji("foo").hashCode());
+        assertThat(nik.hashCode()).isNotEqualTo(foo.hashCode());
     }
 
     @Test
     public void equality() {
-        final Emoji nik = new Emoji("nik");
+        final Emoji bar = new Emoji("bar");
         final Emoji test = new Emoji("test");
 
-        assertThat(nik).isEqualTo(new Emoji("nik"));
+        assertThat(bar).isEqualTo(new Emoji("bar"));
         assertThat(test).isEqualTo(new Emoji("test"));
-        assertThat(nik).isNotEqualTo(test);
+        assertThat(bar).isNotEqualTo(test);
     }
 }
