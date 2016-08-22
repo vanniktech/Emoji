@@ -40,6 +40,7 @@ public final class RepeatListener implements View.OnTouchListener {
         this.clickListener = clickListener;
     }
 
+    @Override
     @SuppressLint("ClickableViewAccessibility")
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
