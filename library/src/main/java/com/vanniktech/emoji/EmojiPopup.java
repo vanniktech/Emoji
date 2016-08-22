@@ -24,6 +24,8 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
+import static com.vanniktech.emoji.Utils.checkNotNull;
+
 public final class EmojiPopup {
     private static final int MIN_KEYBOARD_HEIGHT = 100;
 
@@ -87,7 +89,7 @@ public final class EmojiPopup {
         }
     };
 
-    private EmojiPopup(final View rootView, final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
+    private EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
         this.context = rootView.getContext();
         this.rootView = rootView;
         this.emojiEditText = emojiEditText;
@@ -204,7 +206,7 @@ public final class EmojiPopup {
             return new Builder(rootView);
         }
 
-        private final View rootView;
+        @NonNull private final View rootView;
 
         @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
         @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
@@ -216,7 +218,7 @@ public final class EmojiPopup {
         @Nullable private RecentEmoji recentEmoji;
 
         private Builder(final View rootView) {
-            this.rootView = rootView;
+            this.rootView = checkNotNull(rootView, "The rootView can't be null");
         }
 
         public Builder setOnSoftKeyboardCloseListener(@Nullable final OnSoftKeyboardCloseListener listener) {
@@ -260,6 +262,8 @@ public final class EmojiPopup {
         }
 
         public EmojiPopup build(final EmojiEditText emojiEditText) {
+            checkNotNull(emojiEditText, "EmojiEditText can't be null");
+
             final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji);
             emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
             emojiPopup.onEmojiClickedListener = onEmojiClickedListener;
@@ -270,5 +274,4 @@ public final class EmojiPopup {
             return emojiPopup;
         }
     }
-
 }
