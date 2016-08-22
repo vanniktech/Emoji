@@ -1046,7 +1046,10 @@ final class EmojiHandler {
                 if (i + skip < textLength) {
                     final int followUnicode = Character.codePointAt(text, i + skip);
 
-                    if (followUnicode == 0xfe0f) {
+                    if (followUnicode >= 0x1f3fb && followUnicode <=0x1f3ff) {
+                        // Handle skin toned emojis by simply skipping them.
+                        skip += Character.charCount(followUnicode);
+                    } else if (followUnicode == 0xfe0f) {
                         int followSkip = Character.charCount(followUnicode);
                         if (i + skip + followSkip < textLength) {
 
