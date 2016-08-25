@@ -47,7 +47,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
     private static final int NORMAL_INTERVAL = 50;
 
     @ColorInt private final int themeAccentColor;
-    @Nullable private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+    @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
     private int emojiTabLastSelectedIndex = -1;
 

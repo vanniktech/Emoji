@@ -25,7 +25,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
         return list;
     }
 
-    @Nullable private OnEmojiClickedListener onEmojiClickedListener;
+    @Nullable OnEmojiClickedListener onEmojiClickedListener;
 
     @SuppressWarnings("PMD.UseVarargs")
     EmojiArrayAdapter(final Context context, final Emoji[] data) {

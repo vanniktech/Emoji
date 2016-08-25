@@ -8,12 +8,12 @@ import android.view.View;
 
 public final class RepeatListener implements View.OnTouchListener {
 
-    private final long                 normalInterval;
+    final long                 normalInterval;
     private final long                 initialInterval;
 
-    private final View.OnClickListener clickListener;
-    private final Handler              handler         = new Handler();
-    private View                       downView;
+    final View.OnClickListener clickListener;
+    final Handler              handler         = new Handler();
+    View                       downView;
 
     private final Runnable             handlerRunnable = new Runnable() {
                                                            @Override
