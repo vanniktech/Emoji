@@ -141,8 +141,8 @@ final class RecentEmojiManager implements RecentEmoji {
     }
 
     private static class Data {
-        private final Emoji emoji;
-        private final long timestamp;
+        final Emoji emoji;
+        final long timestamp;
 
         Data(final Emoji emoji, final long timestamp) {
             this.emoji = emoji;

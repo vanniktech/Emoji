@@ -30,23 +30,23 @@ public final class EmojiPopup {
     private static final int MIN_KEYBOARD_HEIGHT = 100;
 
     private final EmojiEditText emojiEditText;
-    private final View rootView;
-    private final Context context;
+    final View rootView;
+    final Context context;
 
-    private int keyBoardHeight;
-    private boolean isPendingOpen;
-    private boolean isKeyboardOpen;
+    int keyBoardHeight;
+    boolean isPendingOpen;
+    boolean isKeyboardOpen;
 
-    @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
-    @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
-    @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
-    @Nullable private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-    @Nullable private OnEmojiClickedListener onEmojiClickedListener;
-    @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+    @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
+    @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
+    @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
+    @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+    @Nullable OnEmojiClickedListener onEmojiClickedListener;
+    @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-    @NonNull private final RecentEmoji recentEmoji;
+    @NonNull final RecentEmoji recentEmoji;
 
-    private final PopupWindow popupWindow;
+    final PopupWindow popupWindow;
     private final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override
         public void onGlobalLayout() {
@@ -89,7 +89,7 @@ public final class EmojiPopup {
         }
     };
 
-    private EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
+    EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
         this.context = rootView.getContext();
         this.rootView = rootView;
         this.emojiEditText = emojiEditText;
@@ -135,7 +135,7 @@ public final class EmojiPopup {
         });
     }
 
-    private void showAtBottom() {
+    void showAtBottom() {
         popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
     }
 
@@ -183,7 +183,7 @@ public final class EmojiPopup {
         recentEmoji.persist();
     }
 
-    private int getUsableScreenHeight() {
+    int getUsableScreenHeight() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             final DisplayMetrics metrics = new DisplayMetrics();
 
@@ -253,7 +253,7 @@ public final class EmojiPopup {
 
         /**
          * allows you to pass your own implementation of recent emojis. If not provided the default one ({@link RecentEmojiManager} will be used
-         * 
+         *
          * @since 0.2.0
          */
         public Builder setRecentEmoji(@Nullable final RecentEmoji recent) {
