@@ -22,6 +22,14 @@ compile 'com.vanniktech:emoji:0.4.0-SNAPSHOT'
 
 Modules are located on [Maven Central](https://oss.sonatype.org/#nexus-search;gav~com.vanniktech~emoji~~~).
 
+In order to use the SNAPSHOT version please add:
+
+```groovy
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+}
+```
+
 # Example
 
 Declare your [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiEditText.java) in your layout xml file.
