@@ -103,12 +103,23 @@
 
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+        <module name="EmptyLineSeparatorCheck">
+            <property name="allowMultipleEmptyLines" value="false"/>
+            <property name="tokens" value="PACKAGE_DEF, IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, CTOR_DEF"/>
+        </module>
+        <module name="SingleSpaceSeparator"/>
         <module name="EmptyForIteratorPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround">
+            <property name="tokens" value="LITERAL_ASSERT,LITERAL_CATCH,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,LITERAL_SWITCH,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,DO_WHILE" />
+        </module>
+        <module name="EmptyForInitializerPad"/>
         <module name="GenericWhitespace"/>
         <module name="MethodParamPad"/>
         <module name="OperatorWrap"/>
         <module name="ParenPad"/>
         <module name="TypecastParenPad"/>
+        <module name="NoLineWrap"/>
 
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
@@ -131,7 +142,9 @@
         <module name="EqualsHashCode"/>
         <module name="CovariantEquals"/>
         <module name="EqualsAvoidNull"/>
-        <module name="VariableDeclarationUsageDistance"/>
+        <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="1"/>
+        </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber">
@@ -168,6 +181,7 @@
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
         <module name="FinalParameters"/>
+        <module name="OuterTypeFilename"/>
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 
@@ -182,29 +196,35 @@
         </module>
 
         <module name="RegexpSinglelineJava">
-           <property name="format" value="(final)?\s*[\w]+\s+a[A-Z]{1}[\w]+"/>
+           <property name="format" value="(final)?\s*[\w]+ a[A-Z]{1}[\w]+"/>
            <property name="message" value="aVariable notation is deprecated and should be variable instead"/>
         </module>
 
         <module name="RegexpSinglelineJava">
-           <property name="format" value="(final)?\s*[\w]+\s+an[A-Z]{1}[\w]+"/>
+           <property name="format" value="(final)?\s*[\w]+ an[A-Z]{1}[\w]+"/>
            <property name="message" value="anAwfulVariable notation is deprecated and should be variable instead"/>
         </module>
 
         <module name="RegexpSinglelineJava">
-           <property name="format" value="(final)?\s*[\w]+\s+p[A-Z]{1}[\w]+"/>
+           <property name="format" value="(final)?\s*[\w]+ p[A-Z]{1}[\w]+"/>
            <property name="message" value="pVariable notation is deprecated"/>
-        </module>
-
-        <module name="RegexpSinglelineJava">
-           <property name="format" value="(final)?\s*[\w]+\s+m[A-Z]{1}[\w]+"/>
-           <property name="message" value="Say no to mVariable"/>
         </module>
 
         <module name="RegexpSinglelineJava">
            <property name="format" value="this\.m[A-Z]"/>
            <property name="message" value="this.mNotation notation should not be used"/>
         </module>
+
+        <module name="RegexpSinglelineJava">
+            <property name="format" value="^(?!\s+\* $).*?\s+$"/>
+            <property name="message" value="Line has trailing spaces."/>
+        </module>
+
+        <!--<module name="RegexpSinglelineJava">
+           <property name="format" value="(B|b)oolean\s+(?=\S)(?!can|should|are|did|contains|is|must|has|will|needs|does|was)(?!.+\(.*\))"/>
+           <property name="message" value="boolean names should start with can, should, are, did, contains, is, must, has, needs, will, does or was."/>
+           <property name="ignoreComments" value="true"/>
+        </module>-->
 
         <module name="RegexpSinglelineJava">
            <property name="format" value='[\w]+.equals\(""\)'/>
@@ -218,4 +238,31 @@
 
     </module>
 
+    <module name="RegexpMultiline">
+        <property name="message" value="Blank line at start of block should be removed" />
+        <property name="format" value="(?&lt;=(?&lt;!^beans )\{\s{0,99}$)^$" />
+        <property name="fileExtensions" value="groovy,java" />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="message" value="Blank line at end of block should be removed" />
+        <property name="format" value="(?&lt;!\{\s{0,99}$)^$(?=^\s{0,99}\})" />
+        <property name="fileExtensions" value="groovy,java" />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="message" value="Blank line before start of block should be removed" />
+        <property name="format" value="(?&lt;=[!-:&lt;-~] {0,48}?\r\n {0,48}?)\r\n *(\{|else)" />
+        <property name="fileExtensions" value="groovy,java" />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="message" value="Extra blank line(s) should be removed" />
+        <property name="format" value="^(?:(?:\r\n){2,}|\r\n$)" />
+        <property name="fileExtensions" value="groovy,html,htm,java,jj,jjt,vm,xml,xsl" />
+    </module>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="code_quality_tools/checkstyle_suppressions.xml" />
+    </module>
 </module>
