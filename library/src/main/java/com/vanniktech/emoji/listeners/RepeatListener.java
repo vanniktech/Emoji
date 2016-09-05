@@ -7,24 +7,23 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public final class RepeatListener implements View.OnTouchListener {
-
-    final long                 normalInterval;
-    private final long                 initialInterval;
+    final long normalInterval;
+    private final long initialInterval;
 
     final View.OnClickListener clickListener;
-    final Handler              handler         = new Handler();
-    View                       downView;
+    final Handler handler = new Handler();
+    View downView;
 
-    private final Runnable             handlerRunnable = new Runnable() {
-                                                           @Override
-                                                           public void run() {
-                                                               if (downView != null) {
-                                                                   handler.removeCallbacksAndMessages(downView);
-                                                                   handler.postAtTime(this, downView, SystemClock.uptimeMillis() + normalInterval);
-                                                                   clickListener.onClick(downView);
-                                                               }
-                                                           }
-                                                       };
+    private final Runnable handlerRunnable = new Runnable() {
+       @Override
+       public void run() {
+           if (downView != null) {
+               handler.removeCallbacksAndMessages(downView);
+               handler.postAtTime(this, downView, SystemClock.uptimeMillis() + normalInterval);
+               clickListener.onClick(downView);
+           }
+       }
+    };
 
     public RepeatListener(final long initialInterval, final long normalInterval, final View.OnClickListener clickListener) {
         if (clickListener == null) {

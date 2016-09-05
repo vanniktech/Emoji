@@ -1,6 +1,5 @@
 package com.vanniktech.emoji;
 
-
 import com.pushtorefresh.private_constructor_checker.PrivateConstructorChecker;
 
 import org.junit.Rule;

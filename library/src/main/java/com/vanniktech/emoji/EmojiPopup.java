@@ -191,7 +191,6 @@ public final class EmojiPopup {
             windowManager.getDefaultDisplay().getMetrics(metrics);
 
             return metrics.heightPixels;
-
         } else {
             return rootView.getRootView().getHeight();
         }

@@ -22,12 +22,12 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class MainActivity extends AppCompatActivity {
-    private ChatAdapter   chatAdapter;
-    private EmojiPopup    emojiPopup;
+    private ChatAdapter chatAdapter;
+    private EmojiPopup emojiPopup;
 
     private EmojiEditText editText;
-    private ViewGroup     rootView;
-    private ImageView     emojiButton;
+    private ViewGroup rootView;
+    private ImageView emojiButton;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

@@ -7,10 +7,10 @@ import android.text.style.DynamicDrawableSpan;
 
 final class EmojiSpan extends DynamicDrawableSpan {
     private final Context context;
-    private final int     resourceId;
-    private final int     size;
+    private final int resourceId;
+    private final int size;
 
-    private Drawable      drawable;
+    private Drawable drawable;
 
     EmojiSpan(final Context context, final int resourceId, final int size) {
         this.context = context;

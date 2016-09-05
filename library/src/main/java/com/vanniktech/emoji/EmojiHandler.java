@@ -1052,7 +1052,6 @@ final class EmojiHandler {
                     } else if (followUnicode == 0xfe0f) {
                         int followSkip = Character.charCount(followUnicode);
                         if (i + skip + followSkip < textLength) {
-
                             final int nextFollowUnicode = Character.codePointAt(text, i + skip + followSkip);
                             if (nextFollowUnicode == 0x20e3) {
                                 int nextFollowSkip = Character.charCount(nextFollowUnicode);
