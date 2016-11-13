@@ -171,6 +171,9 @@ public final class EmojiPopup {
         } else {
             dismiss();
         }
+
+        // Manually dispatch the event. In some cases this does not work out of the box reliably.
+        rootView.getViewTreeObserver().dispatchOnGlobalLayout();
     }
 
     public boolean isShowing() {
