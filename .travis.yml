@@ -8,9 +8,6 @@ android:
         - android-25
         - extra-android-m2repository
 
-licenses:
-    - 'android-sdk-license-.+'
-
 jdk:
     - oraclejdk8
 
