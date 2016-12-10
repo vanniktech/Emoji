@@ -17,8 +17,6 @@ android {
 }
 
 dependencies {
-    compile rootProject.ext.supportV4CoreUi
-    compile rootProject.ext.supportV4Compat
     compile rootProject.ext.supportAppCompat
 
     testCompile rootProject.ext.testing.junit
