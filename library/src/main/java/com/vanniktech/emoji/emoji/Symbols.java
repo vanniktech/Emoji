@@ -1,9 +1,7 @@
 package com.vanniktech.emoji.emoji;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 public final class Symbols {
-    @SuppressFBWarnings("MS_MUTABLE_ARRAY") @SuppressWarnings("checkstyle:magicnumber") public static final Emoji[] DATA = new Emoji[]{
+    @SuppressWarnings("checkstyle:magicnumber") public static final Emoji[] DATA = new Emoji[]{
 //@formatter:off
         Emoji.fromChar((char) 0x2764),
         Emoji.fromCodePoint(0x1f49b),

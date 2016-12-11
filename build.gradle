@@ -58,8 +58,6 @@ ext {
     leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 
-    findbugsAnnotations = 'com.google.code.findbugs:annotations:3.0.1'
-
     testing = [
             junit             : 'junit:junit:4.12',
             robolectric       : 'org.robolectric:robolectric:3.1.2',

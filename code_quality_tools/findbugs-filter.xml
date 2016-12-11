@@ -32,4 +32,16 @@
         <Bug pattern="DM_BOXED_PRIMITIVE_FOR_COMPARE"/>
     </Match>
 
+    <!-- We know what the library is doing. -->
+    <Match>
+        <Package name="~com\.vanniktech\.emoji\.emoji.*"/>
+        <Bug pattern="MS_MUTABLE_ARRAY"/>
+    </Match>
+
+    <!-- Sample app. -->
+    <Match>
+        <Class name="~.*MainActivity*.*"/>
+        <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
+    </Match>
+
 </FindBugsFilter>

@@ -57,8 +57,6 @@ dependencies {
     compile rootProject.ext.supportAppCompat
     compile rootProject.ext.supportRecyclerView
 
-    provided rootProject.ext.findbugsAnnotations
-
     debugCompile rootProject.ext.leakCanaryDebug
     releaseCompile rootProject.ext.leakCanaryRelease
 }

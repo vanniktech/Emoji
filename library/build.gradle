@@ -11,8 +11,6 @@ android {
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion as int
-
-        consumerProguardFiles 'proguard-rules.txt'
     }
 
     resourcePrefix 'emoji'
@@ -22,8 +20,6 @@ dependencies {
     compile rootProject.ext.supportV4CoreUi
     compile rootProject.ext.supportV4Compat
     compile rootProject.ext.supportAppCompat
-
-    provided rootProject.ext.findbugsAnnotations
 
     testCompile rootProject.ext.testing.junit
     testCompile rootProject.ext.testing.mockito
