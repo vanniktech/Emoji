@@ -261,4 +261,8 @@
         <property name="format" value="^(?:(?:\r\n){2,}|\r\n$)" />
         <property name="fileExtensions" value="groovy,html,htm,java,jj,jjt,vm,xml,xsl" />
     </module>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="code_quality_tools/checkstyle_suppressions.xml" />
+    </module>
 </module>

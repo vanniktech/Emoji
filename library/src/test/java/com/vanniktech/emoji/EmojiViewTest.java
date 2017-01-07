@@ -1,9 +1,5 @@
 package com.vanniktech.emoji;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +7,12 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 @Config(sdk = 21, constants = BuildConfig.class)
 @RunWith(RobolectricGradleTestRunner.class)
-@SuppressWarnings("checkstyle:magicnumber")
 public class EmojiViewTest {
     private EmojiView emojiView;
     private RecentEmoji recentEmoji;

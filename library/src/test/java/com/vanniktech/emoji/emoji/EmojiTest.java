@@ -1,10 +1,9 @@
 package com.vanniktech.emoji.emoji;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.Test;
 
-@SuppressWarnings("checkstyle:magicnumber")
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class EmojiTest {
     @Test
     public void fromCodePoint() {
