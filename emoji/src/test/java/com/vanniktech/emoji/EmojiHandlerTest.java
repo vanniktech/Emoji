@@ -20,11 +20,8 @@ import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Config(manifest = Config.NONE)
-@RunWith(RobolectricTestRunner.class)
-public class EmojiHandlerTest {
-    @Before
-    public void setUp() {
+@Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public class EmojiHandlerTest {
+    @Before public void setUp() {
         EmojiManager.install(new EmojiProvider() {
             @NonNull
             @Override
@@ -51,18 +48,15 @@ public class EmojiHandlerTest {
         });
     }
 
-    @After
-    public void tearDown() {
+    @After public void tearDown() {
         EmojiManager.destroy();
     }
 
-    @Test
-    public void constructorShouldBePrivate() {
+    @Test public void constructorShouldBePrivate() {
         PrivateConstructorChecker.forClass(EmojiHandler.class).expectedTypeOfException(AssertionError.class).expectedExceptionMessage("No instances.").check();
     }
 
-    @Test
-    public void simple() {
+    @Test public void simple() {
         final Spannable text = new SpannableString(new String(new int[]{0x1234}, 0, 1));
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -70,8 +64,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
     }
 
-    @Test
-    public void inString() {
+    @Test public void inString() {
         final Spannable text = new SpannableString("test" + new String(new int[]{0x1234}, 0, 1) + "abc");
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -79,8 +72,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
     }
 
-    @Test
-    public void multiple() {
+    @Test public void multiple() {
         final Spannable text = new SpannableString(new String(new int[]{0x1234}, 0, 1) + new String(new int[]{0x5678}, 0, 1));
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -88,8 +80,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(2);
     }
 
-    @Test
-    public void multipleInString() {
+    @Test public void multipleInString() {
         final Spannable text = new SpannableString("abc" + new String(new int[]{0x1234}, 0, 1) + "cba" + new String(new int[]{0x5678}, 0, 1) + "xyz");
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -97,8 +88,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(2);
     }
 
-    @Test
-    public void halfPath() {
+    @Test public void halfPath() {
         final Spannable text = new SpannableString(new String(new int[]{0x1234, 0x4321}, 0, 1));
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -106,8 +96,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
     }
 
-    @Test
-    public void fullPath() {
+    @Test public void fullPath() {
         final Spannable text = new SpannableString(new String(new int[]{0x1234, 0x4321, 0x9999}, 0, 1));
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -115,8 +104,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
     }
 
-    @Test
-    public void takeLongest() {
+    @Test public void takeLongest() {
         final Spannable text = new SpannableString(new String(new int[]{0x1234, 0x4321}, 0, 1));
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -124,8 +112,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
     }
 
-    @Test
-    public void empty() {
+    @Test public void empty() {
         final Spannable text = new SpannableString("");
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
@@ -133,8 +120,7 @@ public class EmojiHandlerTest {
         assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(0);
     }
 
-    @Test
-    public void noneInString() {
+    @Test public void noneInString() {
         final Spannable text = new SpannableString("abcdefg");
 
         EmojiHandler.addEmojis(RuntimeEnvironment.application, text, 22);
