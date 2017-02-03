@@ -4,9 +4,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 
 public interface EmojiCategory {
-    @NonNull
-    Emoji[] getEmojis();
+  @NonNull Emoji[] getEmojis();
 
-    @DrawableRes
-    int getIcon();
+  @DrawableRes int getIcon();
 }

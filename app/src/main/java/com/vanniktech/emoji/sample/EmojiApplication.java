@@ -5,14 +5,14 @@ import android.os.StrictMode;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.vanniktech.emoji.EmojiManager;
-import com.vanniktech.emoji.ios.IOSEmojiProvider;
+import com.vanniktech.emoji.ios.IosEmojiProvider;
 
 public class EmojiApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
 
-        EmojiManager.install(new IOSEmojiProvider());
+        EmojiManager.install(new IosEmojiProvider());
 
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());

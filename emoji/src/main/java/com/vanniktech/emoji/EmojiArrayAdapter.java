@@ -1,11 +1,8 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.content.res.AppCompatResources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +12,13 @@ import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
-    @Nullable private final OnEmojiClickedListener listener;
+    @Nullable final OnEmojiClickedListener listener;
 
     @SuppressWarnings("PMD.UseVarargs")
     EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
@@ -82,37 +78,5 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
         clear();
         addAll(emojis);
         notifyDataSetChanged();
-    }
-
-    private static class ImageDownloaderTask extends AsyncTask<Integer, Void, Drawable> {
-        private final WeakReference<ImageView> imageViewReference;
-        private final WeakReference<Context> contextReference;
-
-        ImageDownloaderTask(final ImageView imageView) {
-            imageViewReference = new WeakReference<>(imageView);
-            contextReference = new WeakReference<>(imageView.getContext());
-        }
-
-        @Override
-        protected Drawable doInBackground(final Integer... resource) {
-            final Context context = contextReference.get();
-
-            if (context == null) {
-                return null;
-            } else {
-                return AppCompatResources.getDrawable(context, resource[0]);
-            }
-        }
-
-        @Override
-        protected void onPostExecute(final Drawable drawable) {
-            if (!isCancelled() && drawable != null) {
-                final ImageView imageView = imageViewReference.get();
-
-                if (imageView != null) {
-                    imageView.setImageDrawable(drawable);
-                }
-            }
-        }
     }
 }

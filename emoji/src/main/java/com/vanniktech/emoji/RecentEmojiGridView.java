@@ -17,11 +17,11 @@ final class RecentEmojiGridView extends EmojiGridView {
     }
 
     public RecentEmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener, final RecentEmoji recentEmoji) {
-        this.recentEmojis = recentEmoji;
+        recentEmojis = recentEmoji;
 
         final Collection<Emoji> emojis = recentEmojis.getRecentEmojis();
         emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis.toArray(new Emoji[emojis.size()]), onEmojiClickedListener);
-        this.setAdapter(emojiArrayAdapter);
+        setAdapter(emojiArrayAdapter);
 
         return this;
     }

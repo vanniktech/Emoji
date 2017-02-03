@@ -11,17 +11,11 @@ public class EmojiTextView extends AppCompatTextView {
     private int emojiSize;
 
     public EmojiTextView(final Context context) {
-        super(context);
-        init(null);
+        this(context, null);
     }
 
     public EmojiTextView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-        init(attrs);
-    }
-
-    public EmojiTextView(final Context context, final AttributeSet attrs, final int defStyle) {
-        super(context, attrs, defStyle);
         init(attrs);
     }
 

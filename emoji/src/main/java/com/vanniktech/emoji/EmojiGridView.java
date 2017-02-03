@@ -25,10 +25,10 @@ class EmojiGridView extends GridView {
         setClipToPadding(false);
     }
 
-    public EmojiGridView init(final @Nullable OnEmojiClickedListener onEmojiClickedListener,
-                     final @NonNull EmojiCategory category) {
+    public EmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener,
+                     @NonNull final EmojiCategory category) {
         emojiArrayAdapter = new EmojiArrayAdapter(getContext(), category.getEmojis(), onEmojiClickedListener);
-        this.setAdapter(emojiArrayAdapter);
+        setAdapter(emojiArrayAdapter);
 
         return this;
     }

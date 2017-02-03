@@ -224,32 +224,32 @@ public final class EmojiPopup {
         }
 
         public Builder setOnSoftKeyboardCloseListener(@Nullable final OnSoftKeyboardCloseListener listener) {
-            this.onSoftKeyboardCloseListener = listener;
+            onSoftKeyboardCloseListener = listener;
             return this;
         }
 
         public Builder setOnEmojiClickedListener(@Nullable final OnEmojiClickedListener listener) {
-            this.onEmojiClickedListener = listener;
+            onEmojiClickedListener = listener;
             return this;
         }
 
         public Builder setOnSoftKeyboardOpenListener(@Nullable final OnSoftKeyboardOpenListener listener) {
-            this.onSoftKeyboardOpenListener = listener;
+            onSoftKeyboardOpenListener = listener;
             return this;
         }
 
         public Builder setOnEmojiPopupShownListener(@Nullable final OnEmojiPopupShownListener listener) {
-            this.onEmojiPopupShownListener = listener;
+            onEmojiPopupShownListener = listener;
             return this;
         }
 
         public Builder setOnEmojiPopupDismissListener(@Nullable final OnEmojiPopupDismissListener listener) {
-            this.onEmojiPopupDismissListener = listener;
+            onEmojiPopupDismissListener = listener;
             return this;
         }
 
         public Builder setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener listener) {
-            this.onEmojiBackspaceClickListener = listener;
+            onEmojiBackspaceClickListener = listener;
             return this;
         }
 
@@ -259,7 +259,7 @@ public final class EmojiPopup {
          * @since 0.2.0
          */
         public Builder setRecentEmoji(@Nullable final RecentEmoji recent) {
-            this.recentEmoji = recent;
+            recentEmoji = recent;
             return this;
         }
 

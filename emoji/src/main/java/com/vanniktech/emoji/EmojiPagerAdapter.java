@@ -55,11 +55,11 @@ final class EmojiPagerAdapter extends PagerAdapter {
         return view.equals(object);
     }
 
-    public int numberOfRecentEmojis() {
+    int numberOfRecentEmojis() {
         return recentEmoji.getRecentEmojis().size();
     }
 
-    public void invalidateRecentEmojis() {
+    void invalidateRecentEmojis() {
         if (recentEmojiGridView != null) {
             recentEmojiGridView.invalidateEmojis();
         }
