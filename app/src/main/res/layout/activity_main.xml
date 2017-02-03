@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/main_activity_root_view"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,7 +11,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_activity_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,9 +27,10 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="center"
-            android:src="@drawable/emoji_people"
-            tools:ignore="ContentDescription"/>
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/emoji_category_people"
+            tools:ignore="ContentDescription" />
 
         <com.vanniktech.emoji.EmojiEditText
             android:id="@+id/main_activity_chat_bottom_message_edittext"
@@ -40,17 +40,16 @@
             android:imeOptions="actionSend"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="3"
-            app:emojiSize="26sp"/>
+            app:emojiSize="26sp" />
 
         <ImageView
             android:id="@+id/main_activity_send"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="center"
-            android:src="@drawable/ic_send_black_18dp"
-            tools:ignore="ContentDescription"/>
-
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_send"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
-
 </RelativeLayout>

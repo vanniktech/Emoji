@@ -1,14 +1,14 @@
 package com.vanniktech.emoji.sample;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.vanniktech.emoji.EmojiTextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
     private final List<String> texts = new ArrayList<>();

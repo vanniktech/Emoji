@@ -1,0 +1,17 @@
+{
+  "name": "emoji-parser",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node --harmony-async-await index.js"
+  },
+  "description": "Parser and extractor of emojis",
+  "main": "index.js",
+  "author": "Ruben Gees",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "download": "^5.0.3",
+    "fs-promise": "^1.0.0",
+    "underscore": "^1.8.3"
+  }
+}

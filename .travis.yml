@@ -34,7 +34,7 @@ branches:
 notifications:
     email: false
 
-sudo: false
+sudo: true
 
 cache:
     directories:

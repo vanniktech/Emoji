@@ -24,7 +24,7 @@ codeQualityTools {
 }
 
 junitJacoco {
-    ignoreProjects = ['app'] // Don't care about sample
+    ignoreProjects = ['app', 'emoji-ios', 'emoji-one'] // Don't care about sample and generated modules
 }
 
 subprojects {

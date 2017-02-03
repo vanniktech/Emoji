@@ -16,6 +16,8 @@ android {
         versionCode rootProject.ext.versionCode as int
         versionName rootProject.ext.versionName as String
 
+        vectorDrawables.useSupportLibrary = true
+
         setProperty("archivesBaseName", "app-$versionName")
     }
 
@@ -52,7 +54,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    compile project(':emoji-ios')
 
     compile rootProject.ext.supportAppCompat
     compile rootProject.ext.supportRecyclerView
