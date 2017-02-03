@@ -20,7 +20,7 @@ public final class EmojiManager {
         // No instances apart from singleton.
     }
 
-    public static EmojiManager getInstance() {
+    static EmojiManager getInstance() {
         return INSTANCE;
     }
 
@@ -38,18 +38,18 @@ public final class EmojiManager {
         }
     }
 
-    public static void destroy() {
+    static void destroy() {
         INSTANCE.categories = new ArrayList<>();
         INSTANCE.emojiTree = new EmojiTree();
     }
 
-    public List<EmojiCategory> getCategories() {
+    List<EmojiCategory> getCategories() {
         verifyInstalled();
 
         return new ArrayList<>(categories);
     }
 
-    @Nullable public Emoji findEmoji(@NonNull final CharSequence candiate) {
+    @Nullable Emoji findEmoji(@NonNull final CharSequence candiate) {
         verifyInstalled();
         return emojiTree.findEmoji(candiate);
     }
