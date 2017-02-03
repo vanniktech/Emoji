@@ -22,6 +22,6 @@ public final class <%= name %>Category implements EmojiCategory {
     @Override
     @DrawableRes
     public int getIcon() {
-        return R.drawable.emoji_category_<%= icon %>;
+        return R.drawable.emoji_<%= package %>_category_<%= icon %>;
     }
 }

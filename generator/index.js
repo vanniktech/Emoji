@@ -89,7 +89,7 @@ async function parseAndCopyImages(targets) {
                     row[target.imagePosition].children[0].attribs.src.replace(/^data:image\/png;base64,/, "") : null;
 
                 if (image) {
-                    await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${code}.png`, image, "base64");
+                    await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${code}.png`, image, "base64");
 
                     emoji[target.package] = true;
                 }
@@ -102,7 +102,7 @@ async function parseAndCopyImages(targets) {
 
                 for (const target of targets) {
                     await fs.copy(`img/${category.toLowerCase()}.xml`,
-                        `../emoji-${target.package}/src/main/res/drawable/emoji_category_${category.toLowerCase()}.xml`);
+                        `../emoji-${target.package}/src/main/res/drawable/emoji_${target.package}_category_${category.toLowerCase()}.xml`);
                 }
             }
         }
@@ -134,9 +134,9 @@ async function generateCode(map, targets) {
                 const unicodeParts = it.split("_");
 
                 if (unicodeParts.length == 1) {
-                    return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${it})`;
+                    return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it})`;
                 } else {
-                    return `new Emoji(new int[]{${unicodeParts.map(it => "0x" + it).join(", ")}}, R.drawable.emoji_${it})`;
+                    return `new Emoji(new int[]{${unicodeParts.map(it => "0x" + it).join(", ")}}, R.drawable.emoji_${target.package}_${it})`;
                 }
             }).join(",\n            ");
 

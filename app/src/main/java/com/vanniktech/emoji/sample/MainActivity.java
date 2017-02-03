@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         }).setOnEmojiPopupDismissListener(new OnEmojiPopupDismissListener() {
             @Override
             public void onEmojiPopupDismiss() {
-                emojiButton.setImageResource(R.drawable.emoji_category_people);
+                emojiButton.setImageResource(R.drawable.emoji_ios_category_people);
             }
         }).setOnSoftKeyboardCloseListener(new OnSoftKeyboardCloseListener() {
             @Override
