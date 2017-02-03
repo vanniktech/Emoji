@@ -9,7 +9,7 @@ import android.support.v4.util.SparseArrayCompat;
  * Datastructure for holding the emojis and allow easy finding later.
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY) public final class EmojiTree {
-  private final EmojiNode root = new EmojiNode(null);
+  private EmojiNode root = new EmojiNode(null);
 
   public void add(@NonNull final Emoji emoji) {
     final String unicode = emoji.getUnicode();
@@ -43,6 +43,10 @@ import android.support.v4.util.SparseArrayCompat;
 
   public boolean isEmpty() {
     return root.children.size() <= 0;
+  }
+
+  public void clear() {
+    root = new EmojiNode(null);
   }
 
   static class EmojiNode {

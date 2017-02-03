@@ -7,19 +7,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.vanniktech.emoji.EmojiEditText;
+import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
+import com.vanniktech.emoji.one.EmojiOneProvider;
 
 public class MainActivity extends AppCompatActivity {
     private ChatAdapter chatAdapter;
@@ -69,6 +74,33 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         setUpEmojiPopup();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+
+        menu.findItem(R.id.variantIos).setChecked(true);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.variantIos:
+                EmojiManager.install(new IosEmojiProvider());
+                recreate();
+
+                return true;
+            case R.id.variantEmojiOne:
+                EmojiManager.install(new EmojiOneProvider());
+                recreate();
+
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

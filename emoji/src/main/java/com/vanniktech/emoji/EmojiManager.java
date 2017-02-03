@@ -25,9 +25,8 @@ public final class EmojiManager {
     }
 
     public static void install(@NonNull final EmojiProvider provider) {
-        if (!INSTANCE.categories.isEmpty() || !INSTANCE.emojiTree.isEmpty()) {
-            throw new IllegalStateException("Please call the install method only once.");
-        }
+        INSTANCE.categories.clear();
+        INSTANCE.emojiTree.clear();
 
         for (final EmojiCategory entry : provider.getCategories()) {
             INSTANCE.categories.add(entry);

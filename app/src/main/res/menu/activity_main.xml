@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search_option"
+        android:icon="@drawable/ic_swap"
+        android:title="@string/variant_group_title"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/variantIos"
+                    android:title="@string/variant_ios_title" />
+                <item
+                    android:id="@+id/variantEmojiOne"
+                    android:title="@string/variant_emojione_title" />
+            </group>
+        </menu>
+    </item>
+</menu>
