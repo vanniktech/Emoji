@@ -70,9 +70,12 @@ import static org.assertj.core.api.Assertions.assertThat;
         EmojiManager.getInstance().findEmoji("abc");
     }
 
-    @Test(expected = IllegalStateException.class) public void installMultiple() {
+    @Test public void installMultiple() {
         EmojiManager.install(provider);
         EmojiManager.install(provider);
+
+        // No duplicate categories
+        assertThat(EmojiManager.getInstance().getCategories()).hasSize(1);
     }
 
     @Test public void findEmojiEmpty() {
