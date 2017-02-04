@@ -54,7 +54,7 @@ no-download
 Skips the download.
 
 ```
-no-optimization
+no-optimize
 ```
 
 Does not optimize the images.

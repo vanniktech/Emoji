@@ -9,15 +9,30 @@ public final class Emoji implements Serializable {
 
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
+  private final boolean skinToned;
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource) {
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.resource = resource;
+    this.skinToned = false;
   }
 
   public Emoji(final int codePoint, @DrawableRes final int resource) {
     this.unicode = new String(new int[] { codePoint }, 0, 1);
     this.resource = resource;
+    this.skinToned = false;
+  }
+
+  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource, final boolean skinToned) {
+    this.unicode = new String(codePoints, 0, codePoints.length);
+    this.resource = resource;
+    this.skinToned = skinToned;
+  }
+
+  public Emoji(final int codePoint, @DrawableRes final int resource, final boolean skinToned) {
+    this.unicode = new String(new int[] { codePoint }, 0, 1);
+    this.resource = resource;
+    this.skinToned = skinToned;
   }
 
   @NonNull public String getUnicode() {
@@ -30,6 +45,10 @@ public final class Emoji implements Serializable {
 
   public int getLength() {
     return unicode.length();
+  }
+
+  public boolean isSkinToned(){
+    return skinToned;
   }
 
   @Override public boolean equals(final Object o) {

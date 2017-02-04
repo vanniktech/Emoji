@@ -14,7 +14,6 @@ import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
@@ -23,19 +22,25 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     @SuppressWarnings("PMD.UseVarargs")
     EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
                       @Nullable final OnEmojiClickedListener listener) {
-        super(context, 0, toList(emojis));
+        super(context, 0, filter(emojis));
 
         this.listener = listener;
     }
 
     /**
-     * we need this because Arrays.asList does not support {@link Collection#clear()}
+     *
      */
     @SuppressWarnings("PMD.UseVarargs")
-    private static List<Emoji> toList(final Emoji[] emojis) {
-        final List<Emoji> list = new ArrayList<>(emojis.length);
-        Collections.addAll(list, emojis);
-        return list;
+    private static List<Emoji> filter(final Emoji[] emojis) {
+        final List<Emoji> result = new ArrayList<>();
+
+        for (final Emoji emoji : emojis) {
+            if (!emoji.isSkinToned()) {
+                result.add(emoji);
+            }
+        }
+
+        return result;
     }
 
     @NonNull

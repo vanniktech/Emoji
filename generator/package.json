@@ -15,7 +15,7 @@
     "fs-promise": "^1.0.0",
     "imagemin": "^5.2.2",
     "imagemin-optipng": "^5.2.1",
-    "imagemin-zopfli": "^5.0.0",
+    "stable": "^0.1.5",
     "underscore": "^1.8.3"
   }
 }

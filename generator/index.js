@@ -1,10 +1,10 @@
 const commandLineArgs = require("command-line-args");
 const fs = require("fs-promise");
+const stable = require("stable");
 const cheerio = require("cheerio");
 const _ = require("underscore");
 const imagemin = require("imagemin");
 const imageminOptipng = require("imagemin-optipng");
-const imageminZopfli = require('imagemin-zopfli');
 const download = require("download");
 
 Array.prototype.nestedLength = function flatten() {
@@ -79,20 +79,23 @@ async function parse() {
 
     const rows = $("tr").get()
         .map(it => it.children.filter(it => it.name === "td"))
-        .filter(it => it.length === 19 && it[1].attribs.class === "code")
-        .sort((first, second) => {
-            return emojiInfo.findIndex(it => it.description === getDescriptionForFinding(first[16].children[0].data)) -
-                emojiInfo.findIndex(it => it.description === getDescriptionForFinding(second[16].children[0].data))
-        });
+        .filter(it => it.length === 19 && it[1].attribs.class === "code");
 
-    for (const row of rows) {
+    const sortedRows = stable(rows, (first, second) => {
+        return emojiInfo.findIndex(it => it.description === getDescriptionForFinding(first[16].children[0].data)) -
+            emojiInfo.findIndex(it => it.description === getDescriptionForFinding(second[16].children[0].data))
+    });
+
+    for (const row of sortedRows) {
         const code = row[1].children[0].attribs.name;
+        const skinToned = row[16].children[0].data.includes("skin tone");
         const foundInfo = emojiInfo.find(it => it.description === getDescriptionForFinding(row[16].children[0].data));
         const category = foundInfo ? foundInfo.category : null;
 
         if (category) {
             const emoji = {
-                unicode: code
+                unicode: code,
+                skinToned: skinToned
             };
 
             for (const target of targets) {
@@ -204,13 +207,13 @@ async function generateCode(map, targets) {
         await fs.emptyDir(dir);
 
         for (const [category, emojis] of map.entries()) {
-            const data = emojis.filter(it => it[target.package]).map(it => it.unicode).map((it) => {
-                const unicodeParts = it.split("_");
+            const data = emojis.filter(it => it[target.package]).map((it) => {
+                const unicodeParts = it.unicode.split("_");
 
                 if (unicodeParts.length == 1) {
-                    return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it})`;
+                    return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
                 } else {
-                    return `new Emoji(new int[]{${unicodeParts.map(it => "0x" + it).join(", ")}}, R.drawable.emoji_${target.package}_${it})`;
+                    return `new Emoji(new int[]{${unicodeParts.map(it => "0x" + it).join(", ")}}, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
                 }
             }).join(",\n            ");
 
@@ -255,9 +258,9 @@ async function generateCode(map, targets) {
 async function run() {
     const options = commandLineArgs([
         {name: 'no-download', type: Boolean},
-        {name: 'no-copy', type: Number},
-        {name: 'no-optimization', type: Boolean,},
-        {name: 'no-generate', type: Number}
+        {name: 'no-copy', type: Boolean},
+        {name: 'no-optimize', type: Boolean,},
+        {name: 'no-generate', type: Boolean}
     ]);
 
     if (!options["no-download"]) {
@@ -267,7 +270,7 @@ async function run() {
     const map = await parse();
 
     if (!options["no-copy"]) {
-        if (!options["no-optimization"]) {
+        if (!options["no-optimize"]) {
             await optimizeImages(map, targets);
         }
 
