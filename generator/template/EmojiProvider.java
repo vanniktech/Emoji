@@ -9,9 +9,9 @@ import com.vanniktech.emoji.emoji.EmojiCategory;
 import java.util.Arrays;
 
 public final class <%= name %>Provider implements EmojiProvider {
-    @Override @NonNull public Iterable<EmojiCategory> getCategories() {
-        return Arrays.asList(
-                <%= categoryMapping %>
-        );
-    }
+  @Override @NonNull public Iterable<EmojiCategory> getCategories() {
+    return Arrays.asList(
+        <%= categoryMapping %>
+    );
+  }
 }

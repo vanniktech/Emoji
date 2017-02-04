@@ -213,9 +213,9 @@ async function generateCode(map, targets) {
                 if (unicodeParts.length == 1) {
                     return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
                 } else {
-                    return `new Emoji(new int[]{${unicodeParts.map(it => "0x" + it).join(", ")}}, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
+                    return `new Emoji(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
                 }
-            }).join(",\n            ");
+            }).join(",\n      ");
 
             await fs.writeFile(`${dir + category}Category.java`,
                 _(categoryTemplate).template()({
@@ -232,7 +232,7 @@ async function generateCode(map, targets) {
 
         const categoryMapping = [...map.keys()].map((category) => {
             return `new ${category}Category()`
-        }).join(",\n                ");
+        }).join(",\n        ");
 
         await fs.writeFile(`../emoji-${target.package}/src/main/java/com/vanniktech/emoji/${target.package}/${target.name}Provider.java`, _(emojiProviderTemplate).template()({
             package: target.package,

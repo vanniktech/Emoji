@@ -7,21 +7,16 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.<%= package %>.R;
 
-@SuppressWarnings({"checkstyle:magicnumber", "PMD.MethodReturnsInternalArray"})
-public final class <%= name %>Category implements EmojiCategory {
-    private static final Emoji[] DATA = new Emoji[]{
-            <%= data %>
-    };
+@SuppressWarnings("PMD.MethodReturnsInternalArray") public final class <%= name %>Category implements EmojiCategory {
+  private static final Emoji[] DATA = new Emoji[] {
+      <%= data %>
+  };
 
-    @Override
-    @NonNull
-    public Emoji[] getEmojis() {
-        return DATA;
-    }
+  @Override @NonNull public Emoji[] getEmojis() {
+    return DATA;
+  }
 
-    @Override
-    @DrawableRes
-    public int getIcon() {
-        return R.drawable.emoji_<%= package %>_category_<%= icon %>;
-    }
+  @Override @DrawableRes public int getIcon() {
+    return R.drawable.emoji_<%= package %>_category_<%= icon %>;
+  }
 }

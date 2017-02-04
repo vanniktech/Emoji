@@ -16,16 +16,16 @@ import com.vanniktech.emoji.ios.category.SymbolsCategory;
 import java.util.Arrays;
 
 public final class IosEmojiProvider implements EmojiProvider {
-    @Override @NonNull public Iterable<EmojiCategory> getCategories() {
-        return Arrays.asList(
-                new PeopleCategory(),
-                new NatureCategory(),
-                new FoodsCategory(),
-                new ActivityCategory(),
-                new PlacesCategory(),
-                new ObjectsCategory(),
-                new SymbolsCategory(),
-                new FlagsCategory()
-        );
-    }
+  @Override @NonNull public Iterable<EmojiCategory> getCategories() {
+    return Arrays.asList(
+        new PeopleCategory(),
+        new NatureCategory(),
+        new FoodsCategory(),
+        new ActivityCategory(),
+        new PlacesCategory(),
+        new ObjectsCategory(),
+        new SymbolsCategory(),
+        new FlagsCategory()
+    );
+  }
 }
