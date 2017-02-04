@@ -20,11 +20,11 @@ public final class EmojiOneProvider implements EmojiProvider {
         return Arrays.asList(
                 new PeopleCategory(),
                 new NatureCategory(),
+                new FoodsCategory(),
                 new ActivityCategory(),
                 new PlacesCategory(),
-                new SymbolsCategory(),
                 new ObjectsCategory(),
-                new FoodsCategory(),
+                new SymbolsCategory(),
                 new FlagsCategory()
         );
     }

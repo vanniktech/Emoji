@@ -38,6 +38,10 @@ async function downloadFile(url, dest) {
     console.log("");
 }
 
+function getDescriptionForFinding(description) {
+    return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
+}
+
 /**
  * Downloads the required files.
  * @returns {Promise.<void>} Empty promise.
@@ -70,13 +74,15 @@ async function parseAndCopyImages(targets) {
 
     const rows = $("tr").get()
         .map(it => it.children.filter(it => it.name === "td"))
-        .filter(it => it.length === 19 && it[1].attribs.class === "code");
+        .filter(it => it.length === 19 && it[1].attribs.class === "code")
+        .sort((first, second) => {
+            return emojiInfo.findIndex(it => it.description === getDescriptionForFinding(first[16].children[0].data)) -
+                emojiInfo.findIndex(it => it.description === getDescriptionForFinding(second[16].children[0].data))
+        });
 
     for (const row of rows) {
         const code = row[1].children[0].attribs.name;
-        const description = row[16].children[0].data;
-        const foundInfo = emojiInfo.find(it => it.description === (description.includes("skin tone") ?
-            description.substring(0, description.indexOf(":")) : description));
+        const foundInfo = emojiInfo.find(it => it.description === getDescriptionForFinding(row[16].children[0].data));
         const category = foundInfo ? foundInfo.category : null;
 
         if (category) {
