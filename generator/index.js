@@ -1,7 +1,23 @@
+const commandLineArgs = require("command-line-args");
 const fs = require("fs-promise");
 const cheerio = require("cheerio");
 const _ = require("underscore");
+const imagemin = require("imagemin");
+const imageminOptipng = require("imagemin-optipng");
+const imageminZopfli = require('imagemin-zopfli');
 const download = require("download");
+
+Array.prototype.nestedLength = function flatten() {
+    return this.reduce((sum, toSum) => sum + toSum.length, 0);
+};
+
+Array.prototype.flatten = function flatten() {
+    return this.reduce((flat, toFlatten) => flat.concat(Array.isArray(toFlatten) ? toFlatten.flatten() : toFlatten), []);
+};
+
+function getDescriptionForFinding(description) {
+    return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
+}
 
 /**
  * The targets for generating. Extend these for adding more emoji variants.
@@ -38,10 +54,6 @@ async function downloadFile(url, dest) {
     console.log("");
 }
 
-function getDescriptionForFinding(description) {
-    return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
-}
-
 /**
  * Downloads the required files.
  * @returns {Promise.<void>} Empty promise.
@@ -55,18 +67,11 @@ async function downloadFiles() {
 }
 
 /**
- * Parses the files, creates a map of categories to emojis and copies the images (including the category images) to the
- * destinations, specified by the passed targets.
- * @param targets The targets, providing the destination for copying.
+ * Parses the files and creates a map of categories to emojis, specified by the passed targets.
  * @returns {Promise.<Map>} Promise returning the map.
  */
-async function parseAndCopyImages(targets) {
-    console.log("Parsing files and extracting images...");
-
-    for (const target of targets) {
-        await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable`);
-        await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable-nodpi`);
-    }
+async function parse() {
+    console.log("Parsing files...");
 
     const map = new Map();
     const $ = cheerio.load(await fs.readFile("build/full-emoji-list.html"));
@@ -92,12 +97,10 @@ async function parseAndCopyImages(targets) {
 
             for (const target of targets) {
                 const image = row[target.imagePosition].children[0].name === "img" ?
-                    row[target.imagePosition].children[0].attribs.src.replace(/^data:image\/png;base64,/, "") : null;
+                    new Buffer(row[target.imagePosition].children[0].attribs.src.replace(/^data:image\/png;base64,/, ""), "base64") : null;
 
                 if (image) {
-                    await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${code}.png`, image, "base64");
-
-                    emoji[target.package] = true;
+                    emoji[target.package] = image;
                 }
             }
 
@@ -105,16 +108,81 @@ async function parseAndCopyImages(targets) {
                 map.get(category).push(emoji);
             } else {
                 map.set(category, new Array(emoji));
-
-                for (const target of targets) {
-                    await fs.copy(`img/${category.toLowerCase()}.xml`,
-                        `../emoji-${target.package}/src/main/res/drawable/emoji_${target.package}_category_${category.toLowerCase()}.xml`);
-                }
             }
         }
     }
 
     return map;
+}
+
+/**
+ * Optimizes the buffered images in the previously parsed map, based on the passed targets.
+ * @param map The map.
+ * @param targets The targets.
+ * @returns {Promise.<void>} Empty Promise.
+ */
+async function optimizeImages(map, targets) {
+    console.log("Optimizing images...");
+
+    const emojiAmount = [...map.values()].nestedLength();
+    let i = 0;
+
+    for (const emoji of [...map.values()].flatten()) {
+        process.stdout.write("\r" + (i + 1) + "/" + emojiAmount);
+
+        for (const target of targets) {
+            if (emoji[target.package]) {
+                emoji[target.package] = await imagemin.buffer(emoji[target.package], {
+                    plugins: [
+                        imageminOptipng({more: true})
+                    ]
+                });
+            }
+        }
+
+        i++;
+    }
+
+    console.log("");
+}
+
+/**
+ * Copies the images from the previously parsed map into the respective directories, based on the passed targets.
+ * @param map The map.
+ * @param targets The targets.
+ * @returns {Promise.<void>} Empty Promise.
+ */
+async function copyImages(map, targets) {
+    console.log("Copying images...");
+
+    for (const target of targets) {
+        await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable`);
+        await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable-nodpi`);
+    }
+
+    const emojiAmount = [...map.values()].nestedLength();
+    let i = 0;
+
+    for (const [category, emojis] of map) {
+        for (const target of targets) {
+            await fs.copy(`img/${category.toLowerCase()}.xml`,
+                `../emoji-${target.package}/src/main/res/drawable/emoji_${target.package}_category_${category.toLowerCase()}.xml`);
+        }
+
+        for (const emoji of emojis) {
+            process.stdout.write("\r" + (i + 1) + "/" + emojiAmount);
+
+            for (const target of targets) {
+                if (emoji[target.package]) {
+                    await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${emoji.unicode}.png`, emoji[target.package]);
+                }
+            }
+
+            i++;
+        }
+    }
+
+    console.log("");
 }
 
 /**
@@ -174,21 +242,41 @@ async function generateCode(map, targets) {
 
 /**
  * Runs the script.
- * This is separated into three parts:
+ * This is separated into five parts:
  * - Downloading the necessary files.
- * - Parsing the files and copying the images into the respective directories.
+ * - Parsing the files.
+ * - Optimizing the images.
+ * - Copying the images into the respective directories
  * - Generating the java code and copying it into the respective directories.
- * If the no-download command line option is passed, the download step is skipped. In that case the presence of the
- * relevant files is assumed.
+ * All tasks apart from the parsing can be disabled through a command line parameter. To skip downloading of the files
+ * (It is assumed they are in place then), one can pass no-download.
  * @returns {Promise.<void>} Empty Promise.
  */
 async function run() {
-    if (!(process.argv.length >= 3 && process.argv.includes("-no-download"))) {
+    const options = commandLineArgs([
+        {name: 'no-download', type: Boolean},
+        {name: 'no-copy', type: Number},
+        {name: 'no-optimization', type: Boolean,},
+        {name: 'no-generate', type: Number}
+    ]);
+
+    if (!options["no-download"]) {
         await downloadFiles();
     }
 
-    const map = await parseAndCopyImages(targets);
-    await generateCode(map, targets);
+    const map = await parse();
+
+    if (!options["no-copy"]) {
+        if (!options["no-optimization"]) {
+            await optimizeImages(map, targets);
+        }
+
+        await copyImages(map, targets);
+    }
+
+    if (!options["no-generate"]) {
+        await generateCode(map, targets);
+    }
 }
 
 run().then()
