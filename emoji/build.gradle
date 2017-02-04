@@ -11,8 +11,6 @@ android {
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion as int
-
-        vectorDrawables.useSupportLibrary = true
     }
 
     resourcePrefix 'emoji'

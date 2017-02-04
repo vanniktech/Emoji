@@ -168,8 +168,8 @@ async function copyImages(map, targets) {
 
     for (const [category, emojis] of map) {
         for (const target of targets) {
-            await fs.copy(`img/${category.toLowerCase()}.xml`,
-                `../emoji-${target.package}/src/main/res/drawable/emoji_${target.package}_category_${category.toLowerCase()}.xml`);
+            await fs.copy(`img/${category.toLowerCase()}.png`,
+                `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`);
         }
 
         for (const emoji of emojis) {
