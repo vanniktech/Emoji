@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
 
-    <com.vanniktech.emoji.EmojiTextView
-        android:id="@+id/adapter_chat_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="my text"/>
+  <com.vanniktech.emoji.EmojiTextView
+      android:id="@+id/adapter_chat_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textIsSelectable="true"
+      tools:text="my text"
+      />
 </LinearLayout>

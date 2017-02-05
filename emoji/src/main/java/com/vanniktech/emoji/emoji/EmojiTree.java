@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.SparseArrayCompat;
 
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+
 /**
- * Datastructure for holding the emojis and allow easy finding later.
+ * Data structure for holding the emojis and allow easy finding later.
  */
-@RestrictTo(RestrictTo.Scope.LIBRARY) public final class EmojiTree {
+@RestrictTo(LIBRARY) public final class EmojiTree {
   private EmojiNode root = new EmojiNode(null);
 
   public void add(@NonNull final Emoji emoji) {

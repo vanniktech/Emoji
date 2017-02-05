@@ -4,14 +4,16 @@ import android.support.annotation.NonNull;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 
 /**
- * Interface for custom implementation of an emoji providing class.
+ * Interface for a custom emoji implementation that can be used with {@link EmojiManager}
+ *
+ * @since 0.4.0
  */
 public interface EmojiProvider {
-    /**
-     * Returns a collection of categories.
-     *
-     * @return The collection of categories.
-     */
-    @NonNull
-    Iterable<EmojiCategory> getCategories();
+  /**
+   * Returns an array of categories.
+   *
+   * @return The Array of categories.
+   * @since 0.4.0
+   */
+  @NonNull EmojiCategory[] getCategories();
 }

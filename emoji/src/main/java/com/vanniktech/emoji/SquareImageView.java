@@ -5,7 +5,9 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
-@RestrictTo(RestrictTo.Scope.LIBRARY) public final class SquareImageView extends AppCompatImageView {
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+
+@RestrictTo(LIBRARY) public final class SquareImageView extends AppCompatImageView {
   public SquareImageView(final Context context, final AttributeSet attrs) {
     super(context, attrs);
   }
@@ -14,6 +16,7 @@ import android.util.AttributeSet;
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
     final int measuredWidth = getMeasuredWidth();
+    //noinspection SuspiciousNameCombination
     setMeasuredDimension(measuredWidth, measuredWidth);
   }
 }

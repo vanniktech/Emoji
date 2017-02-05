@@ -49,9 +49,7 @@
 
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
-    <module name="FileLength">
-        <property name="max" value="3000"/>
-    </module>
+    <module name="FileLength"/>
 
     <!-- Checks for whitespace                               -->
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
@@ -139,15 +137,38 @@
         <!-- See http://checkstyle.sf.net/config_coding.html -->
         <module name="FinalLocalVariable"/>
         <module name="EmptyStatement"/>
+        <module name="DefaultComesLast"/>
         <module name="EqualsHashCode"/>
         <module name="CovariantEquals"/>
         <module name="EqualsAvoidNull"/>
+        <module name="IllegalToken"/>
+        <module name="IllegalTokenText"/>
+        <module name="MultipleStringLiterals">
+            <property name="allowedDuplicates" value="2"/>
+        </module>
+        <module name="IllegalType"/>
+        <module name="MultipleVariableDeclarations"/>
+        <module name="OverloadMethodsDeclarationOrder"/>
+        <module name="ParameterAssignment"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="NestedForDepth">
+            <property name="max" value="2"/>
+        </module>
+        <module name="NestedIfDepth">
+            <property name="max" value="3"/>
+        </module>
+        <module name="NestedTryDepth"/>
         <module name="VariableDeclarationUsageDistance">
             <property name="allowedDistance" value="1"/>
+        </module>
+        <module name="RequireThis">
+            <property name="validateOnlyOverlapping" value="true"/>
         </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber">
+            <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2, 300"/>
             <property name="ignoreHashCodeMethod" value="true"/>
         </module>
         <module name="HiddenField">
@@ -184,6 +205,13 @@
         <module name="OuterTypeFilename"/>
         <module name="TodoComment"/>
         <module name="UpperEll"/>
+        <module name="Indentation">
+            <property name="basicOffset" value="2"/>
+            <property name="caseIndent" value="2"/>
+            <property name="throwsIndent" value="2"/>
+            <property name="arrayInitIndent" value="2"/>
+            <property name="lineWrappingIndentation" value="2"/>
+        </module>
 
         <!-- http://checkstyle.sourceforge.net/config_annotation.html -->
         <module name="MissingDeprecated"/>
@@ -220,12 +248,6 @@
             <property name="message" value="Line has trailing spaces."/>
         </module>
 
-        <!--<module name="RegexpSinglelineJava">
-           <property name="format" value="(B|b)oolean\s+(?=\S)(?!can|should|are|did|contains|is|must|has|will|needs|does|was)(?!.+\(.*\))"/>
-           <property name="message" value="boolean names should start with can, should, are, did, contains, is, must, has, needs, will, does or was."/>
-           <property name="ignoreComments" value="true"/>
-        </module>-->
-
         <module name="RegexpSinglelineJava">
            <property name="format" value='[\w]+.equals\(""\)'/>
            <property name="message" value='To reduce the chance of a NPE use "".equals(var)'/>
@@ -234,6 +256,40 @@
         <module name="RegexpSinglelineJava">
            <property name="format" value="[\w]+.equals\(''\)"/>
            <property name="message" value="To reduce the chance of a NPE use ''.equals(var)"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertEquals;"/>
+           <property name="message" value="Don't use JUnits assertEquals, AssertJ is prefered: assertThat(foo).isEqualTo();"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertNotEquals;"/>
+           <property name="message" value="Don't use JUnits assertNotEquals, AssertJ is prefered: assertThat(foo).isNotEqualTo();"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertSame;"/>
+           <property name="message" value="Don't use JUnits assertSame, AssertJ is prefered: assertThat(foo).isSameAs();"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertNull;"/>
+           <property name="message" value="Don't use JUnits assertNull, AssertJ is prefered: assertThat(foo).isNull()"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertNotNull;"/>
+           <property name="message" value="Don't use JUnits assertNotNull, AssertJ is prefered: assertThat(foo).isNotNull()"/>
+        </module>
+
+        <module name="RegexpSinglelineJava">
+           <property name="format" value="import static org\.junit\.Assert\.assertNotNull;"/>
+           <property name="message" value="Don't use JUnits assertNotNull, AssertJ is prefered: assertThat(foo).isNotNull()"/>
+        </module>
+
+        <module name="IllegalImport">
+            <property name="illegalPkgs" value="org.jetbrains.annotations"/>
         </module>
 
     </module>

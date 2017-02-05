@@ -7,4 +7,5 @@
     android:background="?attr/selectableItemBackgroundBorderless"
     android:padding="4dp"
     android:scaleType="fitCenter"
-    tools:ignore="ContentDescription,Overdraw"/>
+    tools:ignore="ContentDescription,Overdraw"
+    />

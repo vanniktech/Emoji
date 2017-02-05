@@ -12,15 +12,11 @@ public final class Emoji implements Serializable {
   private final boolean skinToned;
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource) {
-    this.unicode = new String(codePoints, 0, codePoints.length);
-    this.resource = resource;
-    this.skinToned = false;
+    this(codePoints, resource, false);
   }
 
   public Emoji(final int codePoint, @DrawableRes final int resource) {
-    this.unicode = new String(new int[] { codePoint }, 0, 1);
-    this.resource = resource;
-    this.skinToned = false;
+    this(codePoint, resource, false);
   }
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource, final boolean skinToned) {
@@ -55,18 +51,18 @@ public final class Emoji implements Serializable {
     if (this == o) {
       return true;
     }
-
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
 
     final Emoji emoji = (Emoji) o;
-    return resource == emoji.resource && unicode.equals(emoji.unicode);
+    return resource == emoji.resource && skinToned == emoji.skinToned && unicode.equals(emoji.unicode);
   }
 
   @Override public int hashCode() {
     int result = unicode.hashCode();
     result = 31 * result + resource;
+    result = 31 * result + (skinToned ? 1 : 0);
     return result;
   }
 }

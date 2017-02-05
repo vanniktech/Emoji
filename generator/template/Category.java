@@ -9,7 +9,7 @@ import com.vanniktech.emoji.<%= package %>.R;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class <%= name %>Category implements EmojiCategory {
   private static final Emoji[] DATA = new Emoji[] {
-      <%= data %>
+    <%= data %>
   };
 
   @Override @NonNull public Emoji[] getEmojis() {
