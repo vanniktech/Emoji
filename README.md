@@ -7,80 +7,100 @@
 
 A simple library to add Emoji support to your Android app. In a PopupWindow Emojis can be chosen. In order to edit and display text with Emojis this library provides public APIs: [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiEditText.java) & [`EmojiTextView`](library/src/main/java/com/vanniktech/emoji/EmojiTextView.java).
 
-<img src="preview_1.png" alt="Normal Keyboard" width="280">
-<img src="preview_2.png" alt="Emoji Keyboard" width="280">
-<img src="preview_3.png" alt="Recent Emojis" width="280">
+The library has 2 different providers to choose from.
 
-# Setup
+## iOS Emojis
 
-**build.gradle**
+<img src="preview_ios_1.png" alt="Normal Keyboard" width="280">
+<img src="preview_ios_2.png" alt="Emoji Keyboard" width="280">
+<img src="preview_ios_3.png" alt="Recent Emojis" width="280">
 
-```groovy
-compile 'com.vanniktech:emoji:0.3.0'
-compile 'com.vanniktech:emoji:0.4.0-SNAPSHOT'
-```
-
-Modules are located on [Maven Central](https://oss.sonatype.org/#nexus-search;gav~com.vanniktech~emoji~~~).
-
-In order to use the SNAPSHOT version please add:
+For getting the above iOS Emojis simply add the dependency and code below.
 
 ```groovy
-repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-}
+compile 'com.vanniktech:emoji-ios:0.4.0'
 ```
 
-# Example
+```java
+EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
+```
+
+## EmojiOne
+
+<img src="preview_one_1.png" alt="Normal Keyboard" width="280">
+<img src="preview_one_2.png" alt="Emoji Keyboard" width="280">
+<img src="preview_one_3.png" alt="Recent Emojis" width="280">
+
+For getting the above EmojiOne Emojis simply add the dependency and code below.
+
+```groovy
+compile 'com.vanniktech:emoji-one:0.4.0'
+```
+
+```java
+EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
+```
+
+#### Custom Emojis
+
+If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](library/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
+
+All of the core API lays in:
+
+```groovy
+compile 'com.vanniktech:emoji:0.4.0'
+```
+
+### Inserting Emojis
 
 Declare your [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiEditText.java) in your layout xml file.
 
 ```xml
 <com.vanniktech.emoji.EmojiEditText
-    android:id="@+id/emojiEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:imeOptions="actionSend"
-    android:inputType="textCapSentences|textMultiLine"
-    android:maxLines="3"
-    app:emojiSize="26sp"/>
+  android:id="@+id/emojiEditText"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:imeOptions="actionSend"
+  android:inputType="textCapSentences|textMultiLine"
+  android:maxLines="3"
+  app:emojiSize="26sp"/>
 ```
 
-To open the [`EmojiPopup`](library/src/main/java/com/vanniktech/emoji/EmojiPopup.java) execute the code above:
+To open the [`EmojiPopup`](library/src/main/java/com/vanniktech/emoji/EmojiPopup.java) execute the code below:
 
 ```java
 final EmojiPopup emojiPopup = EmojiPopup.Builder.fromRootView(rootView).build(emojiEditText);
-emojiPopup.toggle(); // Toggles visibility of the Popup
-emojiPopup.dismiss(); // Dismisses the Popup
-emojiPopup.isShowing(); // Returns true when Popup is showing
+emojiPopup.toggle(); // Toggles visibility of the Popup.
+emojiPopup.dismiss(); // Dismisses the Popup.
+emojiPopup.isShowing(); // Returns true when Popup is showing.
 ```
 
 The `rootView` is the rootView of your layout xml file which will be used for calculating the height of the keyboard.
 `emojiEditText` is the [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiEditText.java) that you declared in your layout xml file.
 
-## Displaying Emojis
+### Displaying Emojis
 
 ```xml
 <com.vanniktech.emoji.EmojiTextView
-    android:id="@+id/emojiTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+  android:id="@+id/emojiTextView"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"/>
 ```
 
-Just use the [`EmojiTextView`](library/src/main/java/com/vanniktech/emoji/EmojiTextView.java) and call `setText` with the String you got from [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiEditText.java) and you're done.
+Just use the [`EmojiTextView`](library/src/main/java/com/vanniktech/emoji/EmojiTextView.java) and call `setText` with the String that contains Unicode encoded Emojis.
 
 ## Listeners
 
-On the builder for the [`EmojiPopup`](library/src/main/java/com/vanniktech/emoji/EmojiPopup.java) you are able to declare several listeners.
+The [`EmojiPopup`](library/src/main/java/com/vanniktech/emoji/EmojiPopup.java) builder allows you to declare several listeners.
 
 ```java
-setOnSoftKeyboardCloseListener(final OnSoftKeyboardCloseListener listener);
-setOnEmojiClickedListener(final OnEmojiClickedListener listener);
-setOnSoftKeyboardOpenListener(final OnSoftKeyboardOpenListener listener);
-setOnEmojiPopupShownListener(final OnEmojiPopupShownListener listener);
-setOnEmojiPopupDismissListener(final OnEmojiPopupDismissListener listener);
-setOnEmojiBackspaceClickListener(final OnEmojiBackspaceClickListener listener);
+setOnSoftKeyboardCloseListener(OnSoftKeyboardCloseListener listener);
+setOnEmojiClickedListener(OnEmojiClickedListener listener);
+setOnSoftKeyboardOpenListener(OnSoftKeyboardOpenListener listener);
+setOnEmojiPopupShownListener(OnEmojiPopupShownListener listener);
+setOnEmojiPopupDismissListener(OnEmojiPopupDismissListener listener);
+setOnEmojiBackspaceClickListener(OnEmojiBackspaceClickListener listener);
 ```
-
 
 ### Custom recent Emoji implementation
 
