@@ -7,7 +7,7 @@ This library features a NodeJS script for updating the Emoji images and the gene
 The script does five things:
 
 - Downloading the required files
-- Extract the iamges and meta info
+- Extract the images and meta info
 - Optimize the images
 - Copy the images to the respective locations
 - Generate the Java code
@@ -48,25 +48,25 @@ yarn start
 Not all steps are always required. If the files were already downloaded for example, you would not need to re-download them. The following parameters are available:
 
 ```
-no-download
+--no-download
 ```
 
 Skips the download.
 
 ```
-no-optimize
+--no-optimize
 ```
 
 Does not optimize the images.
 
 ```
-no-copy
+--no-copy
 ```
 
 Does not copy the images and also implicitly not optimize them.
 
 ```
-no-generate
+--no-generate
 ```
 
 Does not regenerate the Java code.
