@@ -1,7 +1,6 @@
 # Emoji
 
 [![Build Status](https://travis-ci.org/vanniktech/Emoji.svg?branch=master)](https://travis-ci.org/vanniktech/Emoji?branch=master)
-[![Codecov](https://codecov.io/github/vanniktech/Emoji/coverage.svg?branch=master)](https://codecov.io/github/vanniktech/Emoji?branch=master)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Emoji-green.svg?style=true)](https://android-arsenal.com/details/1/3287)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -11,9 +10,9 @@ The library has 2 different providers to choose from.
 
 ## iOS Emojis
 
-<img src="preview_ios_1.png" alt="Normal Keyboard" width="280">
-<img src="preview_ios_2.png" alt="Emoji Keyboard" width="280">
-<img src="preview_ios_3.png" alt="Recent Emojis" width="280">
+<img src="preview.png" alt="Normal Keyboard" width="280">
+<img src="preview_ios_1.png" alt="Emoji Keyboard" width="280">
+<img src="preview_ios_2.png" alt="Recent Emojis" width="280">
 
 For getting the above iOS Emojis simply add the dependency and code below.
 
@@ -27,9 +26,9 @@ EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed 
 
 ## EmojiOne
 
-<img src="preview_one_1.png" alt="Normal Keyboard" width="280">
-<img src="preview_one_2.png" alt="Emoji Keyboard" width="280">
-<img src="preview_one_3.png" alt="Recent Emojis" width="280">
+<img src="preview.png" alt="Normal Keyboard" width="280">
+<img src="preview_one_1.png" alt="Emoji Keyboard" width="280">
+<img src="preview_one_2.png" alt="Recent Emojis" width="280">
 
 For getting the above EmojiOne Emojis simply add the dependency and code below.
 
@@ -38,10 +37,10 @@ compile 'com.vanniktech:emoji-one:0.4.0'
 ```
 
 ```java
-EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
+EmojiManager.install(new EmojiOneProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
 ```
 
-#### Custom Emojis
+### Custom Emojis
 
 If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](library/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
 
