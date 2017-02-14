@@ -252,7 +252,7 @@ public final class EmojiPopup {
 
     /**
      * allows you to pass your own implementation of recent emojis. If not provided the default one
-     * ({@link RecentEmojiManager} will be used
+     * {@link RecentEmojiManager} will be used
      *
      * @since 0.2.0
      */
@@ -262,6 +262,7 @@ public final class EmojiPopup {
     }
 
     @CheckResult public EmojiPopup build(@NonNull final EmojiEditText emojiEditText) {
+      EmojiManager.getInstance().verifyInstalled();
       checkNotNull(emojiEditText, "EmojiEditText can't be null");
 
       final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji);

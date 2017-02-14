@@ -8,6 +8,9 @@ import com.vanniktech.emoji.emoji.EmojiTree;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
+/**
+ * EmojiManager where an EmojiProvider can be installed for further usage.
+ */
 public final class EmojiManager {
   private static final EmojiManager INSTANCE = new EmojiManager();
 
@@ -22,6 +25,13 @@ public final class EmojiManager {
     return INSTANCE;
   }
 
+  /**
+   * Installs the given EmojiProvider.
+   *
+   * NOTE: That only one can be present at any time.
+   *
+   * @param provider the provider that should be installed.
+   */
   public static void install(@NonNull final EmojiProvider provider) {
     INSTANCE.categories = checkNotNull(provider.getCategories(), "categories == null");
     INSTANCE.emojiTree.clear();
@@ -47,9 +57,9 @@ public final class EmojiManager {
     return emojiTree.findEmoji(candiate);
   }
 
-  private void verifyInstalled() {
+  void verifyInstalled() {
     if (categories == null) {
-      throw new IllegalStateException("Please install an EmojiProvider through the install method first.");
+      throw new IllegalStateException("Please install an EmojiProvider through the EmojiManager.install() method first.");
     }
   }
 }
