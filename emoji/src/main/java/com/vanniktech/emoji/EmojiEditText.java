@@ -21,6 +21,10 @@ public class EmojiEditText extends AppCompatEditText {
   }
 
   private void init(@Nullable final AttributeSet attrs) {
+    if (!isInEditMode()) {
+      EmojiManager.getInstance().verifyInstalled();
+    }
+
     if (attrs == null) {
       emojiSize = (int) getTextSize();
     } else {
