@@ -4,15 +4,20 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
 
 final class EmojiPagerAdapter extends PagerAdapter {
   private final OnEmojiClickedListener listener;
+  private final OnEmojiLongClickedListener longListener;
   private final RecentEmoji recentEmoji;
 
   private RecentEmojiGridView recentEmojiGridView;
 
-  EmojiPagerAdapter(final OnEmojiClickedListener listener, final RecentEmoji recentEmoji) {
+  EmojiPagerAdapter(final OnEmojiClickedListener listener,
+                    final OnEmojiLongClickedListener longListener,
+                    final RecentEmoji recentEmoji) {
     this.listener = listener;
+    this.longListener = longListener;
     this.recentEmoji = recentEmoji;
     this.recentEmojiGridView = null;
   }
@@ -29,7 +34,8 @@ final class EmojiPagerAdapter extends PagerAdapter {
 
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
-      newView = new EmojiGridView(pager.getContext()).init(listener, EmojiManager.getInstance().getCategories()[position - 1]);
+      newView = new EmojiGridView(pager.getContext()).init(listener, longListener,
+              EmojiManager.getInstance().getCategories()[position - 1]);
     }
 
     pager.addView(newView);

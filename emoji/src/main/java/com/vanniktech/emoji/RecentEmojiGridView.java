@@ -18,7 +18,7 @@ final class RecentEmojiGridView extends EmojiGridView {
     recentEmojis = recentEmoji;
 
     final Collection<Emoji> emojis = recentEmojis.getRecentEmojis();
-    emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis.toArray(new Emoji[emojis.size()]), onEmojiClickedListener);
+    emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis.toArray(new Emoji[emojis.size()]), onEmojiClickedListener, null);
     setAdapter(emojiArrayAdapter);
 
     return this;

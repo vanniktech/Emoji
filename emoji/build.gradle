@@ -18,6 +18,7 @@ android {
 
 dependencies {
     compile rootProject.ext.supportAppCompat
+    compile rootProject.ext.supportCardView
 
     testCompile rootProject.ext.testing.junit
     testCompile rootProject.ext.testing.mockito

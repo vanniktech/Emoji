@@ -5,12 +5,19 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.SparseArrayCompat;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * Data structure for holding the emojis and allow easy finding later.
  */
 @RestrictTo(LIBRARY) public final class EmojiTree {
+  private static final int SKIN_TONED_RESULT_CAPACITY = 6;
+  private static final char SKIN_TONE_PART = '\uD83C';
+
   private EmojiNode root = new EmojiNode(null);
 
   public void add(@NonNull final Emoji emoji) {
@@ -28,15 +35,44 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
   @Nullable public Emoji findEmoji(@NonNull final CharSequence candidate) {
     EmojiNode current = root;
     Emoji result = null;
-    int i = 0;
 
-    for (; i < candidate.length(); i++) {
+    for (int i = 0; i < candidate.length(); i++) {
       current = current.getChild(candidate.charAt(i));
 
       if (current == null) {
         break;
       } else if (current.getEmoji() != null) {
         result = current.getEmoji();
+      }
+    }
+
+    return result;
+  }
+
+  public List<Emoji> findSkinTonedEmojis(@NonNull final Emoji emoji){
+    EmojiNode current = root;
+
+    for (int i = 0; i < emoji.getUnicode().length(); i++){
+      current = current.getChild(emoji.getUnicode().charAt(i));
+
+      if (current == null){
+        throw new IllegalArgumentException("Invalid emoji");
+      }
+    }
+
+    current = current.getChild(SKIN_TONE_PART);
+
+    if (current == null) {
+      return Collections.emptyList();
+    }
+
+    final List<Emoji> result = new ArrayList<>(SKIN_TONED_RESULT_CAPACITY);
+
+    for (int i = 0; i < current.children.size(); i++) {
+      final Emoji candidate = current.children.valueAt(i).getEmoji();
+
+      if (candidate != null && candidate.isSkinToned()) {
+        result.add(candidate);
       }
     }
 

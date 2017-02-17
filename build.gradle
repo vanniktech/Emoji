@@ -54,6 +54,7 @@ ext {
     supportV4CoreUi = "com.android.support:support-core-ui:$supportLibraryVersion"
     supportV4Compat = "com.android.support:support-compat:$supportLibraryVersion"
     supportRecyclerView = "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+    supportCardView = "com.android.support:cardview-v7:${supportLibraryVersion}"
 
     leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"

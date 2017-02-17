@@ -1,5 +1,6 @@
 package com.vanniktech.emoji;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -11,21 +12,30 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
+import java.util.List;
+
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
+@SuppressWarnings("PMD.ExcessiveImports")
 public final class EmojiPopup {
   private static final int MIN_KEYBOARD_HEIGHT = 100;
 
@@ -35,6 +45,7 @@ public final class EmojiPopup {
   @NonNull final RecentEmoji recentEmoji;
 
   final PopupWindow popupWindow;
+  private PopupWindow skinTonePopupWindow;
   private final EmojiEditText emojiEditText;
 
   int keyBoardHeight;
@@ -86,6 +97,18 @@ public final class EmojiPopup {
     }
   };
 
+  private final OnEmojiClickedListener internalOnEmojiClickedListener = new OnEmojiClickedListener() {
+    @Override
+    public void onEmojiClicked(final Emoji emoji) {
+      emojiEditText.input(emoji);
+      recentEmoji.addEmoji(emoji);
+
+      if (onEmojiClickedListener != null) {
+        onEmojiClickedListener.onEmojiClicked(emoji);
+      }
+    }
+  };
+
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
   @Nullable OnEmojiClickedListener onEmojiClickedListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
@@ -99,16 +122,22 @@ public final class EmojiPopup {
     popupWindow = new PopupWindow(context);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders & overdraw
 
-    final EmojiView emojiView = new EmojiView(context, new OnEmojiClickedListener() {
-      @Override public void onEmojiClicked(final Emoji emoji) {
-        emojiEditText.input(emoji);
-        recentEmoji.addEmoji(emoji);
+    final OnEmojiLongClickedListener longClickListener = new OnEmojiLongClickedListener() {
+      @Override
+      public void onEmojiLongClicked(final View view, final Emoji emoji) {
+        skinTonePopupWindow = buildSkinTonePopupWindow(view, emoji);
 
-        if (onEmojiClickedListener != null) {
-          onEmojiClickedListener.onEmojiClicked(emoji);
-        }
+        final int[] location = new int[2];
+        view.getLocationOnScreen(location);
+
+        final int x = location[0] - skinTonePopupWindow.getContentView().getMeasuredWidth() / 2 + view.getWidth() / 2;
+        final int y = location[1] - skinTonePopupWindow.getContentView().getMeasuredHeight();
+
+        skinTonePopupWindow.showAtLocation(((Activity) context).getWindow().getDecorView(), Gravity.NO_GRAVITY, x, y);
       }
-    }, recentEmoji);
+    };
+
+    final EmojiView emojiView = new EmojiView(context, internalOnEmojiClickedListener, longClickListener, recentEmoji);
 
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClicked(final View v) {
@@ -182,6 +211,51 @@ public final class EmojiPopup {
     Utils.removeOnGlobalLayoutListener(rootView, onGlobalLayoutListener);
     popupWindow.dismiss();
     recentEmoji.persist();
+
+    if (skinTonePopupWindow != null) {
+      skinTonePopupWindow.dismiss();
+    }
+  }
+
+  PopupWindow buildSkinTonePopupWindow(final View view, final Emoji emoji){
+    final View content = View.inflate(context, R.layout.emoji_skin_popup, null);
+    final LinearLayout imageContainer = (LinearLayout) content.findViewById(R.id.container);
+    final PopupWindow result = new PopupWindow(content,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+    );
+
+    final List<Emoji> skinTonedEmojis = EmojiManager.getInstance().findSkinTonedEmojis(emoji);
+    skinTonedEmojis.add(0, emoji);
+
+    for (final Emoji tonedEmoji : skinTonedEmojis) {
+      final ImageView emojiImage = (ImageView) LayoutInflater.from(context)
+              .inflate(R.layout.emoji_item, imageContainer, false);
+      final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
+      final int margin = (int) Utils.dpToPx(context, 4);
+
+      // Use the same size for Emojis as the picker
+      layoutParams.width = view.getWidth();
+      layoutParams.setMargins(margin, margin, margin, margin);
+      emojiImage.setImageResource(tonedEmoji.getResource());
+
+      emojiImage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(final View view) {
+          internalOnEmojiClickedListener.onEmojiClicked(tonedEmoji);
+        }
+      });
+
+      imageContainer.addView(emojiImage);
+    }
+
+    content.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+    result.setOutsideTouchable(true);
+    result.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
+
+    return result;
   }
 
   int getUsableScreenHeight() {

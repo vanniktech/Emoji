@@ -2,9 +2,12 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.emoji.EmojiTree;
+
+import java.util.List;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
@@ -55,6 +58,12 @@ public final class EmojiManager {
   @Nullable Emoji findEmoji(@NonNull final CharSequence candiate) {
     verifyInstalled();
     return emojiTree.findEmoji(candiate);
+  }
+
+  @NonNull
+  List<Emoji> findSkinTonedEmojis(@NonNull final Emoji emoji){
+    verifyInstalled();
+    return emojiTree.findSkinTonedEmojis(emoji);
   }
 
   void verifyInstalled() {

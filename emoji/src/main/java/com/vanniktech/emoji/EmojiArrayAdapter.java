@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,13 +19,18 @@ import java.util.List;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
-  @Nullable final OnEmojiClickedListener listener;
+  private static final String EMOJI_NULL_ERROR = "emoji == null";
 
-  EmojiArrayAdapter(@NonNull final Context context,
-      @NonNull final Emoji[] emojis, @Nullable final OnEmojiClickedListener listener) {
+  @Nullable final OnEmojiClickedListener listener;
+  @Nullable final OnEmojiLongClickedListener longListener;
+
+  EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
+                    @Nullable final OnEmojiClickedListener listener,
+                    @Nullable final OnEmojiLongClickedListener longListener) {
     super(context, 0, filter(emojis));
 
     this.listener = listener;
+    this.longListener = longListener;
   }
 
   private static List<Emoji> filter(final Emoji[] emojis) { // NOPMD
@@ -55,6 +62,23 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       }
     });
 
+    if (!EmojiManager.getInstance().findSkinTonedEmojis(checkNotNull(getItem(position), EMOJI_NULL_ERROR)).isEmpty()) {
+      image.setOnLongClickListener(new View.OnLongClickListener() {
+          @Override
+          public boolean onLongClick(final View v) {
+            if (longListener == null) {
+              return false;
+            } else {
+              longListener.onEmojiLongClicked(v, checkNotNull(getItem(position), EMOJI_NULL_ERROR));
+
+              return true;
+            }
+          }
+      });
+    } else {
+      image.setOnLongClickListener(null);
+    }
+
     ImageDownloaderTask task = (ImageDownloaderTask) image.getTag();
 
     if (task != null) {
@@ -65,7 +89,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     image.setTag(task);
 
-    final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
+    final Emoji emoji = checkNotNull(getItem(position), EMOJI_NULL_ERROR);
     task.execute(emoji.getResource());
 
     return image;
