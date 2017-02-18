@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public class EmojiManagerTest {
   @Rule public final ExpectedException expectedException = ExpectedException.none();

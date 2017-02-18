@@ -12,7 +12,7 @@ buildscript {
         classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.4.0'
 
         classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
         classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.8'
     }
 }
@@ -44,8 +44,8 @@ ext {
     targetSdkVersion = 25
     buildToolsVersion = '25.0.2'
 
-    supportLibraryVersion = '25.1.0'
-    leakCanaryVersion = '1.3.1'
+    supportLibraryVersion = '25.1.1'
+    leakCanaryVersion = '1.5'
 
     versionCode = VERSION_CODE
     versionName = VERSION_NAME
@@ -61,16 +61,16 @@ ext {
 
     testing = [
             junit             : 'junit:junit:4.12',
-            robolectric       : 'org.robolectric:robolectric:3.1.2',
-            mockito           : 'org.mockito:mockito-core:2.5.4',
+            robolectric       : 'org.robolectric:robolectric:3.2.2',
+            mockito           : 'org.mockito:mockito-core:2.7.7',
             privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-            assertJ           : 'org.assertj:assertj-core:1.7.1'
+            assertJ           : 'org.assertj:assertj-core:3.6.2'
     ]
 
     javaVersion = JavaVersion.VERSION_1_7
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2'
+    gradleVersion = '3.3'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
