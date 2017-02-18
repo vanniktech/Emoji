@@ -22,18 +22,19 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
                     @Nullable final OnEmojiClickedListener listener,
-                    @Nullable final OnEmojiLongClickedListener longListener) {
-    super(context, 0, filter(emojis));
+                    @Nullable final OnEmojiLongClickedListener longListener,
+                    final boolean filterSkinTonedEmojis) {
+    super(context, 0, filter(emojis, filterSkinTonedEmojis));
 
     this.listener = listener;
     this.longListener = longListener;
   }
 
-  private static List<Emoji> filter(final Emoji[] emojis) { // NOPMD
+  private static List<Emoji> filter(final Emoji[] emojis, final boolean filterSkinTonedEmojis) { // NOPMD
     final List<Emoji> result = new ArrayList<>(emojis.length);
 
     for (final Emoji emoji : emojis) {
-      if (!emoji.isSkinToned()) {
+      if (!(filterSkinTonedEmojis && emoji.isSkinToned())) {
         result.add(emoji);
       }
     }
@@ -60,7 +61,9 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       }
     });
 
-    if (!EmojiManager.getInstance().findSkinTonedEmojis(emoji).isEmpty()) {
+    final EmojiManager emojiManager = EmojiManager.getInstance();
+
+    if (!emojiManager.findSkinTonedEmojis(emoji.isSkinToned() ? emojiManager.findNonSkinTonedEmoji(emoji) : emoji).isEmpty()) {
       image.setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(final View v) {

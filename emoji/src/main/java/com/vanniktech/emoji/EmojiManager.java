@@ -64,6 +64,12 @@ public final class EmojiManager {
     return emojiTree.findSkinTonedEmojis(emoji);
   }
 
+  @NonNull
+  Emoji findNonSkinTonedEmoji(@NonNull final Emoji emoji){
+    verifyInstalled();
+    return emojiTree.findNonSkinTonedEmoji(emoji);
+  }
+
   void verifyInstalled() {
     if (categories == null) {
       throw new IllegalStateException("Please install an EmojiProvider through the EmojiManager.install() method first.");

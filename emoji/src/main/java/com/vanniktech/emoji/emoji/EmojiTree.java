@@ -15,6 +15,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
  */
 @RestrictTo(LIBRARY) public final class EmojiTree {
   private static final int SKIN_TONED_RESULT_CAPACITY = 6;
+  private static final int MINIMUM_SKIN_TONED_LENGTH = 3;
   private static final char SKIN_TONE_PART = '\uD83C';
 
   private EmojiNode root = new EmojiNode(null);
@@ -77,6 +78,16 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
 
     return Collections.emptyList();
+  }
+
+  public Emoji findNonSkinTonedEmoji(@NonNull final Emoji emoji){
+    final String unicode = emoji.getUnicode();
+
+    if (unicode.length() < MINIMUM_SKIN_TONED_LENGTH) {
+      throw new IllegalArgumentException("Invalid emoji");
+    }
+
+    return findEmoji(unicode.substring(0, unicode.length() - 2));
   }
 
   public boolean isEmpty() {

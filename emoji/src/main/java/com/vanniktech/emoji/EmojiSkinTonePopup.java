@@ -41,8 +41,9 @@ final class EmojiSkinTonePopup {
             WindowManager.LayoutParams.WRAP_CONTENT
     );
 
-    final List<Emoji> skinTonedEmojis = EmojiManager.getInstance().findSkinTonedEmojis(emoji);
-    skinTonedEmojis.add(0, emoji);
+    final Emoji emojiToUse = emoji.isSkinToned() ? EmojiManager.getInstance().findNonSkinTonedEmoji(emoji) : emoji;
+    final List<Emoji> skinTonedEmojis = EmojiManager.getInstance().findSkinTonedEmojis(emojiToUse);
+    skinTonedEmojis.add(0, emojiToUse);
 
     final LayoutInflater inflater = LayoutInflater.from(clickedImage.getContext());
 

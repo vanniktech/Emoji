@@ -27,7 +27,7 @@ class EmojiGridView extends GridView {
   public EmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener,
                             @Nullable final OnEmojiLongClickedListener onEmojiLongClickedListener,
                             @NonNull final EmojiCategory category) {
-    emojiArrayAdapter = new EmojiArrayAdapter(getContext(), category.getEmojis(), onEmojiClickedListener, onEmojiLongClickedListener);
+    emojiArrayAdapter = new EmojiArrayAdapter(getContext(), category.getEmojis(), onEmojiClickedListener, onEmojiLongClickedListener, true);
     setAdapter(emojiArrayAdapter);
 
     return this;
