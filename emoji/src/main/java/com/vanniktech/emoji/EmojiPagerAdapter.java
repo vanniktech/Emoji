@@ -4,7 +4,6 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
 
 final class EmojiPagerAdapter extends PagerAdapter {
   private final OnEmojiClickedListener listener;
@@ -34,8 +33,7 @@ final class EmojiPagerAdapter extends PagerAdapter {
 
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
-      newView = new EmojiGridView(pager.getContext()).init(listener, longListener,
-              EmojiManager.getInstance().getCategories()[position - 1]);
+      newView = new EmojiGridView(pager.getContext()).init(listener, longListener, EmojiManager.getInstance().getCategories()[position - 1]);
     }
 
     pager.addView(newView);

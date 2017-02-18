@@ -13,13 +13,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-
 import java.util.List;
 
-class EmojiSkinTonePopup {
+import static android.view.View.MeasureSpec.makeMeasureSpec;
+
+final class EmojiSkinTonePopup {
   private static final int MARGIN = 4;
 
   private PopupWindow popupWindow;
@@ -35,6 +35,7 @@ class EmojiSkinTonePopup {
 
     final View content = View.inflate(clickedImage.getContext(), R.layout.emoji_skin_popup, null);
     final LinearLayout imageContainer = (LinearLayout) content.findViewById(R.id.container);
+
     popupWindow = new PopupWindow(content,
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT
@@ -43,13 +44,14 @@ class EmojiSkinTonePopup {
     final List<Emoji> skinTonedEmojis = EmojiManager.getInstance().findSkinTonedEmojis(emoji);
     skinTonedEmojis.add(0, emoji);
 
-    for (final Emoji tonedEmoji : skinTonedEmojis) {
-      final ImageView emojiImage = (ImageView) LayoutInflater.from(clickedImage.getContext())
-              .inflate(R.layout.emoji_item, imageContainer, false);
-      final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
-      final int margin = (int) Utils.dpToPx(clickedImage.getContext(), MARGIN);
+    final LayoutInflater inflater = LayoutInflater.from(clickedImage.getContext());
 
-      // Use the same size for Emojis as the picker
+    for (final Emoji tonedEmoji : skinTonedEmojis) {
+      final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_item, imageContainer, false);
+      final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
+      final int margin = Utils.dpToPx(clickedImage.getContext(), MARGIN);
+
+      // Use the same size for Emojis as in the picker.
       layoutParams.width = clickedImage.getWidth();
       layoutParams.setMargins(margin, margin, margin, margin);
       emojiImage.setImageResource(tonedEmoji.getResource());
@@ -66,8 +68,7 @@ class EmojiSkinTonePopup {
       imageContainer.addView(emojiImage);
     }
 
-    content.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+    content.measure(makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 
     popupWindow.setOutsideTouchable(true);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(clickedImage.getContext().getResources(), (Bitmap) null));
@@ -78,7 +79,7 @@ class EmojiSkinTonePopup {
     final int x = location[0] - popupWindow.getContentView().getMeasuredWidth() / 2 + clickedImage.getWidth() / 2;
     final int y = location[1] - popupWindow.getContentView().getMeasuredHeight();
 
-    popupWindow.showAtLocation(((Activity) clickedImage.getContext()).getWindow().getDecorView(),
+    popupWindow.showAtLocation(((Activity) content.getContext()).getWindow().getDecorView(),
             Gravity.NO_GRAVITY, x, y);
   }
 

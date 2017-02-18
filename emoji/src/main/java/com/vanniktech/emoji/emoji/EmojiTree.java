@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.SparseArrayCompat;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,33 +49,34 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
   }
 
   public List<Emoji> findSkinTonedEmojis(@NonNull final Emoji emoji){
+    final String unicode = emoji.getUnicode();
     EmojiNode current = root;
 
-    for (int i = 0; i < emoji.getUnicode().length(); i++){
-      current = current.getChild(emoji.getUnicode().charAt(i));
+    for (int i = 0; i < unicode.length(); i++){
+      current = current.getChild(unicode.charAt(i));
 
-      if (current == null){
+      if (current == null) {
         throw new IllegalArgumentException("Invalid emoji");
       }
     }
 
     current = current.getChild(SKIN_TONE_PART);
 
-    if (current == null) {
-      return Collections.emptyList();
-    }
+    if (current != null) {
+      final List<Emoji> result = new ArrayList<>(SKIN_TONED_RESULT_CAPACITY);
 
-    final List<Emoji> result = new ArrayList<>(SKIN_TONED_RESULT_CAPACITY);
+      for (int i = 0; i < current.children.size(); i++) {
+        final Emoji candidate = current.children.valueAt(i).getEmoji();
 
-    for (int i = 0; i < current.children.size(); i++) {
-      final Emoji candidate = current.children.valueAt(i).getEmoji();
-
-      if (candidate != null && candidate.isSkinToned()) {
-        result.add(candidate);
+        if (candidate != null && candidate.isSkinToned()) {
+          result.add(candidate);
+        }
       }
+
+      return result;
     }
 
-    return result;
+    return Collections.emptyList();
   }
 
   public boolean isEmpty() {

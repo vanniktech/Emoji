@@ -28,8 +28,8 @@ final class Utils {
     return reference;
   }
 
-  public static float dpToPx(final Context context, final float dp) {
-    return dp * context.getResources().getDisplayMetrics().density;
+  public static int dpToPx(final Context context, final float dp) {
+    return (int) (dp * context.getResources().getDisplayMetrics().density);
   }
 
   private Utils() {

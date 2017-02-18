@@ -19,7 +19,6 @@ import android.widget.LinearLayout;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import java.util.concurrent.TimeUnit;
 

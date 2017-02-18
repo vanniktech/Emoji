@@ -2,11 +2,9 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.emoji.EmojiTree;
-
 import java.util.List;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;

@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickedListener;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,8 +17,6 @@ import java.util.List;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
-  private static final String EMOJI_NULL_ERROR = "emoji == null";
-
   @Nullable final OnEmojiClickedListener listener;
   @Nullable final OnEmojiLongClickedListener longListener;
 
@@ -53,6 +49,8 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       image = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
     }
 
+    final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
+
     image.setImageDrawable(null);
     image.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(final View v) {
@@ -62,17 +60,17 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       }
     });
 
-    if (!EmojiManager.getInstance().findSkinTonedEmojis(checkNotNull(getItem(position), EMOJI_NULL_ERROR)).isEmpty()) {
+    if (!EmojiManager.getInstance().findSkinTonedEmojis(emoji).isEmpty()) {
       image.setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(final View v) {
-            if (longListener == null) {
-              return false;
-            } else {
-              longListener.onEmojiLongClicked(v, checkNotNull(getItem(position), EMOJI_NULL_ERROR));
+            if (longListener != null) {
+              longListener.onEmojiLongClicked(v, emoji);
 
               return true;
             }
+
+            return false;
           }
       });
     } else {
@@ -86,10 +84,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     }
 
     task = new ImageDownloaderTask(image);
-
     image.setTag(task);
-
-    final Emoji emoji = checkNotNull(getItem(position), EMOJI_NULL_ERROR);
     task.execute(emoji.getResource());
 
     return image;
