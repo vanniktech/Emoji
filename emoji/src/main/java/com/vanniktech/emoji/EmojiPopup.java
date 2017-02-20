@@ -116,6 +116,8 @@ public final class EmojiPopup {
         if (onEmojiClickedListener != null) {
           onEmojiClickedListener.onEmojiClicked(emoji);
         }
+
+        variantPopup.dismiss();
       }
     };
 
