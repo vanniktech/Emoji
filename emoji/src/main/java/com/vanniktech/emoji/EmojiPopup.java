@@ -16,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
@@ -34,8 +33,7 @@ public final class EmojiPopup {
   final Context context;
 
   @NonNull final RecentEmoji recentEmoji;
-  @NonNull
-  final EmojiVariantPopup variantPopup;
+  @NonNull final EmojiVariantPopup variantPopup;
 
   final PopupWindow popupWindow;
   private final EmojiEditText emojiEditText;

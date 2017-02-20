@@ -2,7 +2,6 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.emoji.EmojiTree;
@@ -14,6 +13,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
  */
 public final class EmojiManager {
   private static final EmojiManager INSTANCE = new EmojiManager();
+
   private final EmojiTree emojiTree = new EmojiTree();
   private EmojiCategory[] categories;
 

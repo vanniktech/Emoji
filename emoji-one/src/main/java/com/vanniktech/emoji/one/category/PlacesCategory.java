@@ -2,7 +2,6 @@ package com.vanniktech.emoji.one.category;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.one.R;

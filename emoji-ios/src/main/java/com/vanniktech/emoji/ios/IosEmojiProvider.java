@@ -1,7 +1,6 @@
 package com.vanniktech.emoji.ios;
 
 import android.support.annotation.NonNull;
-
 import com.vanniktech.emoji.EmojiProvider;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.ios.category.ActivityCategory;

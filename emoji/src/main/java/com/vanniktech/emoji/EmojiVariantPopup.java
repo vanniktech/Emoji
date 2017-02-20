@@ -13,18 +13,17 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-
 import java.util.List;
 
 import static android.view.View.MeasureSpec.makeMeasureSpec;
 
 final class EmojiVariantPopup {
   private static final int MARGIN = 4;
-  @Nullable
-  private final OnEmojiClickedListener listener;
+
+  @Nullable private final OnEmojiClickedListener listener;
+
   private PopupWindow popupWindow;
 
   EmojiVariantPopup(@Nullable final OnEmojiClickedListener listener) {

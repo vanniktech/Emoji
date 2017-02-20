@@ -2,7 +2,6 @@ package com.vanniktech.emoji.emoji;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,11 +12,8 @@ public final class Emoji implements Serializable {
 
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
-  @NonNull
-  private List<Emoji> variants;
-  @SuppressWarnings("PMD.ImmutableField")
-  @NonNull
-  private Emoji base = this;
+  @NonNull private List<Emoji> variants;
+  @SuppressWarnings("PMD.ImmutableField") @NonNull private Emoji base = this;
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource) {
     this(codePoints, resource, new Emoji[0]);
@@ -49,13 +45,11 @@ public final class Emoji implements Serializable {
     return resource;
   }
 
-  @NonNull
-  public List<Emoji> getVariants() {
+  @NonNull public List<Emoji> getVariants() {
     return new ArrayList<>(variants);
   }
 
-  @NonNull
-  public Emoji getBase() {
+  @NonNull public Emoji getBase() {
     return base;
   }
 
