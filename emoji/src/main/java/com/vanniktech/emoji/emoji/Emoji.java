@@ -80,9 +80,9 @@ public final class Emoji implements Serializable {
 
     final Emoji emoji = (Emoji) o;
 
-    return resource == emoji.resource &&
-            unicode.equals(emoji.unicode) &&
-            variants.equals(emoji.variants);
+    return resource == emoji.resource
+            && unicode.equals(emoji.unicode)
+            && variants.equals(emoji.variants);
   }
 
   @Override public int hashCode() {
