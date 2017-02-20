@@ -4,9 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.SparseArrayCompat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
@@ -14,10 +11,6 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
  * Data structure for holding the emojis and allow easy finding later.
  */
 @RestrictTo(LIBRARY) public final class EmojiTree {
-  private static final int SKIN_TONED_RESULT_CAPACITY = 6;
-  private static final int MINIMUM_SKIN_TONED_LENGTH = 3;
-  private static final char SKIN_TONE_PART = '\uD83C';
-
   private EmojiNode root = new EmojiNode(null);
 
   public void add(@NonNull final Emoji emoji) {
@@ -30,6 +23,10 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
 
     current.appendLast(unicode.charAt(unicode.length() - 1), emoji);
+
+    for (final Emoji variant : emoji.getVariants()) {
+      add(variant);
+    }
   }
 
   @Nullable public Emoji findEmoji(@NonNull final CharSequence candidate) {
@@ -47,51 +44,6 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
 
     return result;
-  }
-
-  public List<Emoji> findSkinTonedEmojis(@NonNull final Emoji emoji){
-    final String unicode = emoji.getUnicode();
-    EmojiNode current = root;
-
-    for (int i = 0; i < unicode.length(); i++){
-      current = current.getChild(unicode.charAt(i));
-
-      if (current == null) {
-        throw new IllegalArgumentException("Invalid emoji");
-      }
-    }
-
-    current = current.getChild(SKIN_TONE_PART);
-
-    if (current != null) {
-      final List<Emoji> result = new ArrayList<>(SKIN_TONED_RESULT_CAPACITY);
-
-      for (int i = 0; i < current.children.size(); i++) {
-        final Emoji candidate = current.children.valueAt(i).getEmoji();
-
-        if (candidate != null && candidate.isSkinToned()) {
-          result.add(candidate);
-        }
-      }
-
-      return result;
-    }
-
-    return Collections.emptyList();
-  }
-
-  public Emoji findNonSkinTonedEmoji(@NonNull final Emoji emoji){
-    final String unicode = emoji.getUnicode();
-
-    if (unicode.length() < MINIMUM_SKIN_TONED_LENGTH) {
-      throw new IllegalArgumentException("Invalid emoji");
-    }
-
-    return findEmoji(unicode.substring(0, unicode.length() - 2));
-  }
-
-  public boolean isEmpty() {
-    return root.children.size() <= 0;
   }
 
   public void clear() {

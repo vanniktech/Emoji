@@ -2,10 +2,10 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.emoji.EmojiTree;
-import java.util.List;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
@@ -14,9 +14,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
  */
 public final class EmojiManager {
   private static final EmojiManager INSTANCE = new EmojiManager();
-
-  private EmojiCategory[] categories;
   private final EmojiTree emojiTree = new EmojiTree();
+  private EmojiCategory[] categories;
 
   private EmojiManager() {
     // No instances apart from singleton.
@@ -56,18 +55,6 @@ public final class EmojiManager {
   @Nullable Emoji findEmoji(@NonNull final CharSequence candiate) {
     verifyInstalled();
     return emojiTree.findEmoji(candiate);
-  }
-
-  @NonNull
-  List<Emoji> findSkinTonedEmojis(@NonNull final Emoji emoji){
-    verifyInstalled();
-    return emojiTree.findSkinTonedEmojis(emoji);
-  }
-
-  @NonNull
-  Emoji findNonSkinTonedEmoji(@NonNull final Emoji emoji){
-    verifyInstalled();
-    return emojiTree.findNonSkinTonedEmoji(emoji);
   }
 
   void verifyInstalled() {

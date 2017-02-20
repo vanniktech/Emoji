@@ -13,20 +13,21 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+
 import java.util.List;
 
 import static android.view.View.MeasureSpec.makeMeasureSpec;
 
-final class EmojiSkinTonePopup {
+final class EmojiVariantPopup {
   private static final int MARGIN = 4;
-
+  @Nullable
+  private final OnEmojiClickedListener listener;
   private PopupWindow popupWindow;
 
-  @Nullable private final OnEmojiClickedListener listener;
-
-  EmojiSkinTonePopup(@Nullable final OnEmojiClickedListener listener) {
+  EmojiVariantPopup(@Nullable final OnEmojiClickedListener listener) {
     this.listener = listener;
   }
 
@@ -41,13 +42,12 @@ final class EmojiSkinTonePopup {
             WindowManager.LayoutParams.WRAP_CONTENT
     );
 
-    final Emoji emojiToUse = emoji.isSkinToned() ? EmojiManager.getInstance().findNonSkinTonedEmoji(emoji) : emoji;
-    final List<Emoji> skinTonedEmojis = EmojiManager.getInstance().findSkinTonedEmojis(emojiToUse);
-    skinTonedEmojis.add(0, emojiToUse);
+    final List<Emoji> variants = emoji.getBase().getVariants();
+    variants.add(0, emoji.getBase());
 
     final LayoutInflater inflater = LayoutInflater.from(clickedImage.getContext());
 
-    for (final Emoji tonedEmoji : skinTonedEmojis) {
+    for (final Emoji variant : variants) {
       final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_item, imageContainer, false);
       final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
       final int margin = Utils.dpToPx(clickedImage.getContext(), MARGIN);
@@ -55,13 +55,13 @@ final class EmojiSkinTonePopup {
       // Use the same size for Emojis as in the picker.
       layoutParams.width = clickedImage.getWidth();
       layoutParams.setMargins(margin, margin, margin, margin);
-      emojiImage.setImageResource(tonedEmoji.getResource());
+      emojiImage.setImageResource(variant.getResource());
 
       emojiImage.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(final View view) {
           if (listener != null) {
-            listener.onEmojiClicked(tonedEmoji);
+            listener.onEmojiClicked(variant);
           }
         }
       });

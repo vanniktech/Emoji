@@ -19,6 +19,55 @@ function getDescriptionForFinding(description) {
     return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
 }
 
+function generateEmojiCode(target, emojis, indent = 4) {
+    let indentString = "";
+
+    for(let i = 0; i < indent; i++){
+        indentString += " ";
+    }
+
+    return emojis.filter(it => it[target.package]).map((it) => {
+        const unicodeParts = it.unicode.split("_");
+        let result = "";
+
+        if (unicodeParts.length == 1) {
+            result = `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it.unicode}`;
+        } else {
+            result = `new Emoji(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, R.drawable.emoji_${target.package}_${it.unicode}`;
+        }
+
+        if (it.variants.filter(it => it[target.package]).length > 0) {
+            result += `,\n${indentString}  ${generateEmojiCode(target, it.variants, indent + 2)}`;
+        }
+
+        return result + ")";
+    }).join(`,\n${indentString}`);
+}
+
+async function optimizeEmojiImage(target, emoji) {
+    if (emoji[target.package]) {
+        emoji[target.package] = await imagemin.buffer(emoji[target.package], {
+            plugins: [
+                imageminOptipng({more: true})
+            ]
+        });
+
+        for (const variant of emoji.variants) {
+            await optimizeEmojiImage(target, variant);
+        }
+    }
+}
+
+async function copyEmojiImage(target, emoji) {
+    if (emoji[target.package]) {
+        await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${emoji.unicode}.png`, emoji[target.package]);
+
+        for (const variant of emoji.variants) {
+            await copyEmojiImage(target, variant);
+        }
+    }
+}
+
 /**
  * The targets for generating. Extend these for adding more emoji variants.
  * @type {[*]} An array of target-objects.
@@ -87,15 +136,16 @@ async function parse() {
     });
 
     for (const row of sortedRows) {
-        const code = row[1].children[0].attribs.name;
-        const skinToned = row[16].children[0].data.includes("skin tone");
         const foundInfo = emojiInfo.find(it => it.description === getDescriptionForFinding(row[16].children[0].data));
         const category = foundInfo ? foundInfo.category : null;
 
         if (category) {
+            const code = row[1].children[0].attribs.name;
+            const isVariant = row[16].children[0].data.includes("skin tone");
+
             const emoji = {
                 unicode: code,
-                skinToned: skinToned
+                variants: []
             };
 
             for (const target of targets) {
@@ -107,10 +157,16 @@ async function parse() {
                 }
             }
 
-            if (map.has(category)) {
-                map.get(category).push(emoji);
+            if (isVariant) {
+                const array = map.get(category);
+
+                array[array.length - 1].variants.push(emoji);
             } else {
-                map.set(category, new Array(emoji));
+                if (map.has(category)) {
+                    map.get(category).push(emoji);
+                } else {
+                    map.set(category, new Array(emoji));
+                }
             }
         }
     }
@@ -134,16 +190,10 @@ async function optimizeImages(map, targets) {
         process.stdout.write("\r" + (i + 1) + "/" + emojiAmount);
 
         for (const target of targets) {
-            if (emoji[target.package]) {
-                emoji[target.package] = await imagemin.buffer(emoji[target.package], {
-                    plugins: [
-                        imageminOptipng({more: true})
-                    ]
-                });
-            }
+            await optimizeEmojiImage(target, emoji);
         }
 
-        i++;
+        i++
     }
 
     console.log("");
@@ -159,7 +209,6 @@ async function copyImages(map, targets) {
     console.log("Copying images...");
 
     for (const target of targets) {
-        await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable`);
         await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable-nodpi`);
     }
 
@@ -176,9 +225,7 @@ async function copyImages(map, targets) {
             process.stdout.write("\r" + (i + 1) + "/" + emojiAmount);
 
             for (const target of targets) {
-                if (emoji[target.package]) {
-                    await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${emoji.unicode}.png`, emoji[target.package]);
-                }
+                await copyEmojiImage(target, emoji);
             }
 
             i++;
@@ -207,15 +254,7 @@ async function generateCode(map, targets) {
         await fs.emptyDir(dir);
 
         for (const [category, emojis] of map.entries()) {
-            const data = emojis.filter(it => it[target.package]).map((it) => {
-                const unicodeParts = it.unicode.split("_");
-
-                if (unicodeParts.length == 1) {
-                    return `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
-                } else {
-                    return `new Emoji(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, R.drawable.emoji_${target.package}_${it.unicode}${it.skinToned ? ", true" : ""})`;
-                }
-            }).join(",\n    ");
+            const data = generateEmojiCode(target, emojis);
 
             await fs.writeFile(`${dir + category}Category.java`,
                 _(categoryTemplate).template()({

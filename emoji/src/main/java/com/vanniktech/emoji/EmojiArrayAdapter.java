@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
@@ -22,24 +24,11 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
                     @Nullable final OnEmojiClickedListener listener,
-                    @Nullable final OnEmojiLongClickedListener longListener,
-                    final boolean filterSkinTonedEmojis) {
-    super(context, 0, filter(emojis, filterSkinTonedEmojis));
+                    @Nullable final OnEmojiLongClickedListener longListener) {
+    super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
 
     this.listener = listener;
     this.longListener = longListener;
-  }
-
-  private static List<Emoji> filter(final Emoji[] emojis, final boolean filterSkinTonedEmojis) { // NOPMD
-    final List<Emoji> result = new ArrayList<>(emojis.length);
-
-    for (final Emoji emoji : emojis) {
-      if (!(filterSkinTonedEmojis && emoji.isSkinToned())) {
-        result.add(emoji);
-      }
-    }
-
-    return result;
   }
 
   @NonNull @Override
@@ -61,9 +50,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       }
     });
 
-    final EmojiManager emojiManager = EmojiManager.getInstance();
-
-    if (!emojiManager.findSkinTonedEmojis(emoji.isSkinToned() ? emojiManager.findNonSkinTonedEmoji(emoji) : emoji).isEmpty()) {
+    if (emoji.getBase().hasVariants()) {
       image.setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(final View v) {
