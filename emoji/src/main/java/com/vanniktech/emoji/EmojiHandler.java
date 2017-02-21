@@ -80,13 +80,5 @@ final class EmojiHandler {
       this.start = start;
       this.end = end;
     }
-
-    int getStart() {
-      return start;
-    }
-
-    int getEnd() {
-      return end;
-    }
   }
 }
