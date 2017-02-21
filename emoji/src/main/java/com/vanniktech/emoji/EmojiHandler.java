@@ -3,9 +3,7 @@ package com.vanniktech.emoji;
 import android.content.Context;
 import android.support.v4.util.Pair;
 import android.text.Spannable;
-
 import com.vanniktech.emoji.emoji.Emoji;
-
 import java.util.ArrayList;
 import java.util.List;
 
