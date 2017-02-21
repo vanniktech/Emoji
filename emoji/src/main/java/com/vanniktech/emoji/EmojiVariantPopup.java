@@ -20,7 +20,7 @@ import java.util.List;
 import static android.view.View.MeasureSpec.makeMeasureSpec;
 
 final class EmojiVariantPopup {
-  private static final int MARGIN = 4;
+  private static final int MARGIN = 2;
 
   @Nullable private final OnEmojiClickedListener listener;
 

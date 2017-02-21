@@ -13,8 +13,8 @@ import android.util.AttributeSet;
 import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
 @RestrictTo(LIBRARY) public final class EmojiImageView extends AppCompatImageView {
-  private static final int VARIANT_INDICATOR_PART_AMOUNT = 4;
-  private static final int VARIANT_INDICATOR_PART = 3;
+  private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
+  private static final int VARIANT_INDICATOR_PART = 5;
 
   private final Paint variantIndicatorPaint = new Paint();
   private final Path variantIndicatorPath = new Path();
