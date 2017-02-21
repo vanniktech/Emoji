@@ -1,10 +1,15 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
+import android.support.v4.util.Pair;
 import android.text.Spannable;
-import android.util.SparseIntArray;
 
 import com.vanniktech.emoji.emoji.Emoji;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.vanniktech.emoji.EmojiHandler.SpanRangeList.SPAN_NOT_FOUND;
 
 final class EmojiHandler {
   private EmojiHandler() {
@@ -12,36 +17,61 @@ final class EmojiHandler {
   }
 
   static void addEmojis(final Context context, final Spannable text, final int emojiSize) {
-    final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
-    final SparseIntArray existingSpanRanges = new SparseIntArray();
-
-    for (final EmojiSpan span : existingSpans) {
-      final int spanStart = text.getSpanStart(span);
-      final int spanEnd = text.getSpanEnd(span);
-
-      existingSpanRanges.append(spanStart, spanEnd);
-    }
-
-    int i = 0;
+    final SpanRangeList existingSpanRanges = new SpanRangeList(text);
     final EmojiManager emojiManager = EmojiManager.getInstance();
+    int index = 0;
 
-    while (i < text.length()) {
-      final int existingSpanEnd = existingSpanRanges.get(i, -1);
+    while (index < text.length()) {
+      final int existingSpanEnd = existingSpanRanges.spanEnd(index);
 
-      if (existingSpanEnd == -1) {
-        final Emoji found = emojiManager.findEmoji(text.subSequence(i, text.length()));
+      if (existingSpanEnd == SPAN_NOT_FOUND) {
+        final int nextSpanStart = existingSpanRanges.nextSpanStart(index);
+        final int searchRange = nextSpanStart == SPAN_NOT_FOUND ? text.length() : nextSpanStart;
+        final Emoji found = emojiManager.findEmoji(text.subSequence(index, searchRange));
 
         if (found != null) {
-          text.setSpan(new EmojiSpan(context, found.getResource(), emojiSize), i, i + found.getLength(),
+          text.setSpan(new EmojiSpan(context, found.getResource(), emojiSize), index, index + found.getLength(),
                   Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-          i += found.getLength();
+          index += found.getLength();
         } else {
-          i++;
+          index++;
         }
       } else {
-        i += existingSpanEnd - i;
+        index += existingSpanEnd - index;
       }
+    }
+  }
+
+  static class SpanRangeList {
+    static final int SPAN_NOT_FOUND = -1;
+
+    private final List<Pair<Integer, Integer>> spanRanges = new ArrayList<>();
+
+    SpanRangeList(final Spannable text) {
+      for (final EmojiSpan span : text.getSpans(0, text.length(), EmojiSpan.class)) {
+        spanRanges.add(new Pair<>(text.getSpanStart(span), text.getSpanEnd(span)));
+      }
+    }
+
+    int spanEnd(final int index) {
+      for (final Pair<Integer, Integer> spanRange : spanRanges) {
+        if (spanRange.first == index) {
+          return spanRange.second;
+        }
+      }
+
+      return -1;
+    }
+
+    int nextSpanStart(final int index) {
+      for (final Pair<Integer, Integer> spanRange : spanRanges) {
+        if (spanRange.first > index) {
+          return spanRange.first;
+        }
+      }
+
+      return -1;
     }
   }
 }
