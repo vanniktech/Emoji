@@ -1,7 +1,6 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.support.v4.util.Pair;
 import android.text.Spannable;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.util.ArrayList;
@@ -10,10 +9,6 @@ import java.util.List;
 import static com.vanniktech.emoji.EmojiHandler.SpanRangeList.SPAN_NOT_FOUND;
 
 final class EmojiHandler {
-  private EmojiHandler() {
-    throw new AssertionError("No instances.");
-  }
-
   static void addEmojis(final Context context, final Spannable text, final int emojiSize) {
     final SpanRangeList existingSpanRanges = new SpanRangeList(text);
     final EmojiManager emojiManager = EmojiManager.getInstance();
@@ -41,21 +36,25 @@ final class EmojiHandler {
     }
   }
 
+  private EmojiHandler() {
+    throw new AssertionError("No instances.");
+  }
+
   static final class SpanRangeList {
     static final int SPAN_NOT_FOUND = -1;
 
-    private final List<Pair<Integer, Integer>> spanRanges = new ArrayList<>();
+    private final List<Range> spanRanges = new ArrayList<>();
 
     SpanRangeList(final Spannable text) {
       for (final EmojiSpan span : text.getSpans(0, text.length(), EmojiSpan.class)) {
-        spanRanges.add(new Pair<>(text.getSpanStart(span), text.getSpanEnd(span)));
+        spanRanges.add(new Range(text.getSpanStart(span), text.getSpanEnd(span)));
       }
     }
 
     int spanEnd(final int index) {
-      for (final Pair<Integer, Integer> spanRange : spanRanges) {
-        if (spanRange.first == index) {
-          return spanRange.second;
+      for (final Range spanRange : spanRanges) {
+        if (spanRange.start == index) {
+          return spanRange.end;
         }
       }
 
@@ -63,13 +62,31 @@ final class EmojiHandler {
     }
 
     int nextSpanStart(final int index) {
-      for (final Pair<Integer, Integer> spanRange : spanRanges) {
-        if (spanRange.first > index) {
-          return spanRange.first;
+      for (final Range spanRange : spanRanges) {
+        if (spanRange.start > index) {
+          return spanRange.start;
         }
       }
 
       return SPAN_NOT_FOUND;
+    }
+  }
+
+  static final class Range {
+    final int start;
+    final int end;
+
+    Range(final int start, final int end) {
+      this.start = start;
+      this.end = end;
+    }
+
+    int getStart() {
+      return start;
+    }
+
+    int getEnd() {
+      return end;
     }
   }
 }
