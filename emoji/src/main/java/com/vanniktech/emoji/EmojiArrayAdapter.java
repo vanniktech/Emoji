@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -68,13 +66,13 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       image.setOnLongClickListener(null);
     }
 
-    ImageDownloaderTask task = (ImageDownloaderTask) image.getTag();
+    ImageLoadingTask task = (ImageLoadingTask) image.getTag();
 
     if (task != null) {
       task.cancel(true);
     }
 
-    task = new ImageDownloaderTask(image);
+    task = new ImageLoadingTask(image);
     image.setTag(task);
     task.execute(emoji.getResource());
 
