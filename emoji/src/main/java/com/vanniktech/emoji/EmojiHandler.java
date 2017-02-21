@@ -43,7 +43,7 @@ final class EmojiHandler {
     }
   }
 
-  static class SpanRangeList {
+  static final class SpanRangeList {
     static final int SPAN_NOT_FOUND = -1;
 
     private final List<Pair<Integer, Integer>> spanRanges = new ArrayList<>();
@@ -61,7 +61,7 @@ final class EmojiHandler {
         }
       }
 
-      return -1;
+      return SPAN_NOT_FOUND;
     }
 
     int nextSpanStart(final int index) {
@@ -71,7 +71,7 @@ final class EmojiHandler {
         }
       }
 
-      return -1;
+      return SPAN_NOT_FOUND;
     }
   }
 }
