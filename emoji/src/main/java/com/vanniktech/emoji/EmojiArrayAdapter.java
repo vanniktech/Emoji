@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
@@ -33,10 +32,10 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   @NonNull @Override
   public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
-    ImageView image = (ImageView) convertView;
+    EmojiImageView image = (EmojiImageView) convertView;
 
     if (image == null) {
-      image = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
+      image = (EmojiImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
     }
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
@@ -51,6 +50,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     });
 
     if (emoji.getBase().hasVariants()) {
+      image.setHasVariants(true);
       image.setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(final View v) {
@@ -64,6 +64,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
           }
       });
     } else {
+      image.setHasVariants(false);
       image.setOnLongClickListener(null);
     }
 
