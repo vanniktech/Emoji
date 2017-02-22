@@ -48,7 +48,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
         indentString += " ";
     }
 
-    return emojis.filter(it => it[target.package]).map((it) => {
+    return emojis.filter(it => it[target.package] && !target.ignore.includes(it.unicode)).map((it) => {
         const unicodeParts = it.unicode.split("_");
         let result = "";
 
@@ -73,7 +73,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
  * @returns {Promise.<void>} Empty Promise.
  */
 async function optimizeEmojiImage(target, emoji) {
-    if (emoji[target.package]) {
+    if (emoji[target.package] && !target.ignore.includes(emoji.unicode)) {
         emoji[target.package] = await imagemin.buffer(emoji[target.package], {
             plugins: [
                 imageminOptipng({more: true})
@@ -93,7 +93,7 @@ async function optimizeEmojiImage(target, emoji) {
  * @returns {Promise.<void>} Empty Promise.
  */
 async function copyEmojiImage(target, emoji) {
-    if (emoji[target.package]) {
+    if (emoji[target.package] && !target.ignore.includes(emoji.unicode)) {
         await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${emoji.unicode}.png`, emoji[target.package]);
 
         for (const variant of emoji.variants) {
@@ -109,15 +109,22 @@ async function copyEmojiImage(target, emoji) {
 const targets = [{
     package: "ios",
     name: "IosEmoji",
-    imagePosition: 4
+    imagePosition: 4,
+    ignore: []
 }, {
     package: "google",
     name: "GoogleEmoji",
-    imagePosition: 5
+    imagePosition: 5,
+    ignore: [
+        "1f1e7_1f1f1", "1f1e7_1f1f6", "1f1ea_1f1ed", "1f1eb_1f1f0", "1f1ec_1f1eb", "1f1ec_1f1f5", "1f1ec_1f1f8",
+        "1f1f2_1f1f6", "1f1f3_1f1e8", "1f1f5_1f1f2", "1f1f7_1f1ea", "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0",
+        "1f1fe_1f1f9"
+    ]
 }, {
     package: "one",
     name: "EmojiOne",
-    imagePosition: 7
+    imagePosition: 7,
+    ignore: []
 }];
 
 /**
