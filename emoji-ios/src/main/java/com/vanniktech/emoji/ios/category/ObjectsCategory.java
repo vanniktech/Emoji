@@ -2,7 +2,6 @@ package com.vanniktech.emoji.ios.category;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.ios.R;
@@ -95,12 +94,13 @@ import com.vanniktech.emoji.ios.R;
     new Emoji(0x1f6b0, R.drawable.emoji_ios_1f6b0),
     new Emoji(0x1f6bf, R.drawable.emoji_ios_1f6bf),
     new Emoji(0x1f6c1, R.drawable.emoji_ios_1f6c1),
-    new Emoji(0x1f6c0, R.drawable.emoji_ios_1f6c0),
-    new Emoji(new int[] { 0x1f6c0, 0x1f3fb }, R.drawable.emoji_ios_1f6c0_1f3fb, true),
-    new Emoji(new int[] { 0x1f6c0, 0x1f3fc }, R.drawable.emoji_ios_1f6c0_1f3fc, true),
-    new Emoji(new int[] { 0x1f6c0, 0x1f3fd }, R.drawable.emoji_ios_1f6c0_1f3fd, true),
-    new Emoji(new int[] { 0x1f6c0, 0x1f3fe }, R.drawable.emoji_ios_1f6c0_1f3fe, true),
-    new Emoji(new int[] { 0x1f6c0, 0x1f3ff }, R.drawable.emoji_ios_1f6c0_1f3ff, true),
+    new Emoji(0x1f6c0, R.drawable.emoji_ios_1f6c0,
+      new Emoji(new int[] { 0x1f6c0, 0x1f3fb }, R.drawable.emoji_ios_1f6c0_1f3fb),
+      new Emoji(new int[] { 0x1f6c0, 0x1f3fc }, R.drawable.emoji_ios_1f6c0_1f3fc),
+      new Emoji(new int[] { 0x1f6c0, 0x1f3fd }, R.drawable.emoji_ios_1f6c0_1f3fd),
+      new Emoji(new int[] { 0x1f6c0, 0x1f3fe }, R.drawable.emoji_ios_1f6c0_1f3fe),
+      new Emoji(new int[] { 0x1f6c0, 0x1f3ff }, R.drawable.emoji_ios_1f6c0_1f3ff)
+    ),
     new Emoji(0x1f6ce, R.drawable.emoji_ios_1f6ce),
     new Emoji(0x1f511, R.drawable.emoji_ios_1f511),
     new Emoji(0x1f5dd, R.drawable.emoji_ios_1f5dd),

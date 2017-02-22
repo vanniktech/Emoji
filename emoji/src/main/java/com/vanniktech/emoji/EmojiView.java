@@ -36,7 +36,10 @@ import java.util.concurrent.TimeUnit;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context, final OnEmojiClickedListener onEmojiClickedListener, @NonNull final RecentEmoji recentEmoji) {
+  EmojiView(final Context context,
+            final OnEmojiClickedListener onEmojiClickedListener,
+            final OnEmojiLongClickedListener onEmojiLongClickedListener,
+            @NonNull final RecentEmoji recentEmoji) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
@@ -64,7 +67,7 @@ import java.util.concurrent.TimeUnit;
 
     handleOnClicks(emojisPager);
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickedListener, recentEmoji);
+    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickedListener, onEmojiLongClickedListener, recentEmoji);
     emojisPager.setAdapter(emojiPagerAdapter);
 
     final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;

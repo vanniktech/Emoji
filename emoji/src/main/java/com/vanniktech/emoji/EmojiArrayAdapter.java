@@ -7,44 +7,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @Nullable final OnEmojiClickedListener listener;
+  @Nullable final OnEmojiLongClickedListener longListener;
 
-  EmojiArrayAdapter(@NonNull final Context context,
-      @NonNull final Emoji[] emojis, @Nullable final OnEmojiClickedListener listener) {
-    super(context, 0, filter(emojis));
+  EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
+                    @Nullable final OnEmojiClickedListener listener,
+                    @Nullable final OnEmojiLongClickedListener longListener) {
+    super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
 
     this.listener = listener;
-  }
-
-  private static List<Emoji> filter(final Emoji[] emojis) { // NOPMD
-    final List<Emoji> result = new ArrayList<>(emojis.length);
-
-    for (final Emoji emoji : emojis) {
-      if (!emoji.isSkinToned()) {
-        result.add(emoji);
-      }
-    }
-
-    return result;
+    this.longListener = longListener;
   }
 
   @NonNull @Override
   public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
-    ImageView image = (ImageView) convertView;
+    EmojiImageView image = (EmojiImageView) convertView;
 
     if (image == null) {
-      image = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
+      image = (EmojiImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
     }
+
+    final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
 
     image.setImageDrawable(null);
     image.setOnClickListener(new View.OnClickListener() {
@@ -55,17 +47,33 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       }
     });
 
-    ImageDownloaderTask task = (ImageDownloaderTask) image.getTag();
+    if (emoji.getBase().hasVariants()) {
+      image.setHasVariants(true);
+      image.setOnLongClickListener(new View.OnLongClickListener() {
+          @Override
+          public boolean onLongClick(final View v) {
+            if (longListener != null) {
+              longListener.onEmojiLongClicked(v, emoji);
+
+              return true;
+            }
+
+            return false;
+          }
+      });
+    } else {
+      image.setHasVariants(false);
+      image.setOnLongClickListener(null);
+    }
+
+    ImageLoadingTask task = (ImageLoadingTask) image.getTag();
 
     if (task != null) {
       task.cancel(true);
     }
 
-    task = new ImageDownloaderTask(image);
-
+    task = new ImageLoadingTask(image);
     image.setTag(task);
-
-    final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
     task.execute(emoji.getResource());
 
     return image;

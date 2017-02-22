@@ -33,6 +33,7 @@ public final class EmojiPopup {
   final Context context;
 
   @NonNull final RecentEmoji recentEmoji;
+  @NonNull final EmojiVariantPopup variantPopup;
 
   final PopupWindow popupWindow;
   private final EmojiEditText emojiEditText;
@@ -99,16 +100,30 @@ public final class EmojiPopup {
     popupWindow = new PopupWindow(context);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders & overdraw
 
-    final EmojiView emojiView = new EmojiView(context, new OnEmojiClickedListener() {
-      @Override public void onEmojiClicked(final Emoji emoji) {
+    final OnEmojiLongClickedListener longClickListener = new OnEmojiLongClickedListener() {
+      @Override
+      public void onEmojiLongClicked(final View view, final Emoji emoji) {
+        variantPopup.show(view, emoji);
+      }
+    };
+
+    final OnEmojiClickedListener clickListener = new OnEmojiClickedListener() {
+      @Override
+      public void onEmojiClicked(final Emoji emoji) {
         emojiEditText.input(emoji);
         recentEmoji.addEmoji(emoji);
 
         if (onEmojiClickedListener != null) {
           onEmojiClickedListener.onEmojiClicked(emoji);
         }
+
+        variantPopup.dismiss();
       }
-    }, recentEmoji);
+    };
+
+    variantPopup = new EmojiVariantPopup(clickListener);
+
+    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji);
 
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClicked(final View v) {
@@ -181,6 +196,7 @@ public final class EmojiPopup {
   public void dismiss() {
     Utils.removeOnGlobalLayoutListener(rootView, onGlobalLayoutListener);
     popupWindow.dismiss();
+    variantPopup.dismiss();
     recentEmoji.persist();
   }
 

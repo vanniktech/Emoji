@@ -23,14 +23,17 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
 
     current.appendLast(unicode.charAt(unicode.length() - 1), emoji);
+
+    for (final Emoji variant : emoji.getVariants()) {
+      add(variant);
+    }
   }
 
   @Nullable public Emoji findEmoji(@NonNull final CharSequence candidate) {
     EmojiNode current = root;
     Emoji result = null;
-    int i = 0;
 
-    for (; i < candidate.length(); i++) {
+    for (int i = 0; i < candidate.length(); i++) {
       current = current.getChild(candidate.charAt(i));
 
       if (current == null) {
@@ -41,10 +44,6 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
 
     return result;
-  }
-
-  public boolean isEmpty() {
-    return root.children.size() <= 0;
   }
 
   public void clear() {

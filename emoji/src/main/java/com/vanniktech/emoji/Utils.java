@@ -1,6 +1,7 @@
 package com.vanniktech.emoji;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -25,6 +26,10 @@ final class Utils {
     }
 
     return reference;
+  }
+
+  public static int dpToPx(final Context context, final float dp) {
+    return (int) (dp * context.getResources().getDisplayMetrics().density);
   }
 
   private Utils() {
