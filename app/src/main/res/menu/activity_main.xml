@@ -12,6 +12,9 @@
                     android:id="@+id/variantIos"
                     android:title="@string/variant_ios_title" />
                 <item
+                    android:id="@+id/variantGoogle"
+                    android:title="@string/variant_google_title" />
+                <item
                     android:id="@+id/variantEmojiOne"
                     android:title="@string/variant_emojione_title" />
             </group>

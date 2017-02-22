@@ -107,13 +107,13 @@ async function copyEmojiImage(target, emoji) {
  * @type {[*]} An array of target-objects.
  */
 const targets = [{
-    package: "google",
-    name: "GoogleEmoji",
-    imagePosition: 5
-}, {
     package: "ios",
     name: "IosEmoji",
     imagePosition: 4
+}, {
+    package: "google",
+    name: "GoogleEmoji",
+    imagePosition: 5
 }, {
     package: "one",
     name: "EmojiOne",

@@ -16,6 +16,7 @@ import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
     switch (item.getItemId()) {
       case R.id.variantIos:
         EmojiManager.install(new IosEmojiProvider());
+        recreate();
+        return true;
+      case R.id.variantGoogle:
+        EmojiManager.install(new GoogleEmojiProvider());
         recreate();
         return true;
       case R.id.variantEmojiOne:
