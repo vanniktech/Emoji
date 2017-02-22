@@ -1,1 +1,1 @@
-include ':app', ':emoji', ':emoji-ios', ':emoji-one'
+include ':app', ':emoji', ':emoji-ios', ':emoji-one', ':emoji-google'
