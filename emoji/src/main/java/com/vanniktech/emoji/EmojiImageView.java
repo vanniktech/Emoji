@@ -41,8 +41,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     setMeasuredDimension(measuredWidth, measuredWidth);
   }
 
-  @Override
-  protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh) {
+  @Override protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh) {
     super.onSizeChanged(w, h, oldw, oldh);
 
     variantIndicatorTop.x = w;
@@ -59,8 +58,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     variantIndicatorPath.close();
   }
 
-  @Override
-  protected void onDraw(final Canvas canvas) {
+  @Override protected void onDraw(final Canvas canvas) {
     super.onDraw(canvas);
 
     if (hasVariants) {
