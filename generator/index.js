@@ -7,18 +7,40 @@ const imagemin = require("imagemin");
 const imageminOptipng = require("imagemin-optipng");
 const download = require("download");
 
+/**
+ * Calculates the length of a nested Array by summing the lengths of all Arrays in this Array.
+ * Note that this works only for the first level of nesting.
+ * @returns {Number} The nested length of this Array.
+ */
 Array.prototype.nestedLength = function flatten() {
     return this.reduce((sum, toSum) => sum + toSum.length, 0);
 };
 
+/**
+ * Flattens a nested Array to a single one.
+ * @returns {Array} The flattened Array.
+ */
 Array.prototype.flatten = function flatten() {
     return this.reduce((flat, toFlatten) => flat.concat(Array.isArray(toFlatten) ? toFlatten.flatten() : toFlatten), []);
 };
 
+/**
+ * Returns the description, made usable for searching in the emoji.json. This means stripping the skin tone and special
+ * characters.
+ * @param description The description to adjust.
+ * @returns {string} The adjusted description.
+ */
 function getDescriptionForFinding(description) {
     return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
 }
 
+/**
+ * Generates the code for a list of emoji with their variants if present.
+ * @param target The target to generate for. It is checked if the target has support for the emoji before generating.
+ * @param emojis The emojis.
+ * @param indent The indent to use. Defaults to 4.
+ * @returns {string} The generated code.
+ */
 function generateEmojiCode(target, emojis, indent = 4) {
     let indentString = "";
 
@@ -44,6 +66,12 @@ function generateEmojiCode(target, emojis, indent = 4) {
     }).join(`,\n${indentString}`);
 }
 
+/**
+ * Optimizes the image of a single emoji in place.
+ * @param target The target to optimize for. It is checked if the target has support for the emoji before optimizing.
+ * @param emoji The emoji.
+ * @returns {Promise.<void>} Empty Promise.
+ */
 async function optimizeEmojiImage(target, emoji) {
     if (emoji[target.package]) {
         emoji[target.package] = await imagemin.buffer(emoji[target.package], {
@@ -58,6 +86,12 @@ async function optimizeEmojiImage(target, emoji) {
     }
 }
 
+/**
+ * Copies an emoji to the folder, specified by the target.
+ * @param target The target with info on where to copy the image. It is checked if the target has support for the emoji before copying.
+ * @param emoji The emoji.
+ * @returns {Promise.<void>} Empty Promise.
+ */
 async function copyEmojiImage(target, emoji) {
     if (emoji[target.package]) {
         await fs.writeFile(`../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_${emoji.unicode}.png`, emoji[target.package]);
@@ -290,8 +324,8 @@ async function generateCode(map, targets) {
  * - Optimizing the images.
  * - Copying the images into the respective directories
  * - Generating the java code and copying it into the respective directories.
- * All tasks apart from the parsing can be disabled through a command line parameter. To skip downloading of the files
- * (It is assumed they are in place then), one can pass no-download.
+ * All tasks apart from the parsing can be disabled through a command line parameter. If you want to skip the download
+ * of the required files (It is assumed they are in place then) for example, you can pass --no-download.
  * @returns {Promise.<void>} Empty Promise.
  */
 async function run() {
