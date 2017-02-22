@@ -99,7 +99,8 @@ import com.vanniktech.emoji.one.R;
       new Emoji(new int[] { 0x1f6c0, 0x1f3fc }, R.drawable.emoji_one_1f6c0_1f3fc),
       new Emoji(new int[] { 0x1f6c0, 0x1f3fd }, R.drawable.emoji_one_1f6c0_1f3fd),
       new Emoji(new int[] { 0x1f6c0, 0x1f3fe }, R.drawable.emoji_one_1f6c0_1f3fe),
-      new Emoji(new int[] { 0x1f6c0, 0x1f3ff }, R.drawable.emoji_one_1f6c0_1f3ff)),
+      new Emoji(new int[] { 0x1f6c0, 0x1f3ff }, R.drawable.emoji_one_1f6c0_1f3ff)
+    ),
     new Emoji(0x1f6ce, R.drawable.emoji_one_1f6ce),
     new Emoji(0x1f511, R.drawable.emoji_one_1f511),
     new Emoji(0x1f5dd, R.drawable.emoji_one_1f5dd),

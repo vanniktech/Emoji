@@ -22,7 +22,7 @@ function getDescriptionForFinding(description) {
 function generateEmojiCode(target, emojis, indent = 4) {
     let indentString = "";
 
-    for(let i = 0; i < indent; i++){
+    for (let i = 0; i < indent; i++) {
         indentString += " ";
     }
 
@@ -37,10 +37,10 @@ function generateEmojiCode(target, emojis, indent = 4) {
         }
 
         if (it.variants.filter(it => it[target.package]).length > 0) {
-            result += `,\n${indentString}  ${generateEmojiCode(target, it.variants, indent + 2)}`;
+            return `${result},\n${indentString}  ${generateEmojiCode(target, it.variants, indent + 2)}\n${indentString})`;
+        } else {
+            return `${result})`;
         }
-
-        return result + ")";
     }).join(`,\n${indentString}`);
 }
 
