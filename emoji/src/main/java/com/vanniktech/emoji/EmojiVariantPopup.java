@@ -69,8 +69,6 @@ final class EmojiVariantPopup {
 
           popupWindow.update(fixedOffsetX, fixedOffsetY, DONT_UPDATE_FLAG, DONT_UPDATE_FLAG);
         }
-
-        content.requestFocus();
       }
     });
   }
