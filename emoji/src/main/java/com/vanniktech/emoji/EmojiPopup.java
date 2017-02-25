@@ -137,6 +137,8 @@ public final class EmojiPopup {
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
+      // Remove any previous listeners to avoid duplicates.
+      Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
       context.getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
 
       if (isKeyboardOpen) {

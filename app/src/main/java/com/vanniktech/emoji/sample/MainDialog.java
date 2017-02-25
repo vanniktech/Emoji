@@ -126,9 +126,8 @@ public class MainDialog extends DialogFragment {
               }
             })
             .setOnSoftKeyboardCloseListener(new OnSoftKeyboardCloseListener() {
-              @Override
-              public void onKeyboardClose() {
-                emojiPopup.dismiss();
+              @Override public void onKeyboardClose() {
+                Log.d(TAG, "Closed soft keyboard");
               }
             })
             .build(editText);
