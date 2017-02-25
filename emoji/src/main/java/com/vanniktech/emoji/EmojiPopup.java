@@ -72,6 +72,9 @@ public final class EmojiPopup {
           if (onSoftKeyboardCloseListener != null) {
             onSoftKeyboardCloseListener.onKeyboardClose();
           }
+
+          dismiss();
+          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
         }
       }
     }
@@ -162,7 +165,6 @@ public final class EmojiPopup {
   }
 
   public void dismiss() {
-    Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
     popupWindow.dismiss();
     variantPopup.dismiss();
     recentEmoji.persist();

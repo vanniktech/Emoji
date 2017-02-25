@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         })
         .setOnSoftKeyboardCloseListener(new OnSoftKeyboardCloseListener() {
           @Override public void onKeyboardClose() {
-            emojiPopup.dismiss();
+            Log.d(TAG, "Closed soft keyboard");
           }
         })
         .build(editText);

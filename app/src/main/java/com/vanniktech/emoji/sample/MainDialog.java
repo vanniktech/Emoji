@@ -46,6 +46,14 @@ public class MainDialog extends DialogFragment {
     chatAdapter = new ChatAdapter();
   }
 
+  @Override public void onStop() {
+    if (emojiPopup != null) {
+      emojiPopup.dismiss();
+    }
+
+    super.onStop();
+  }
+
   @NonNull @Override
   public Dialog onCreateDialog(final Bundle savedInstanceState) {
     return new AlertDialog.Builder(getContext())
