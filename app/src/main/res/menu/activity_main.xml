@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/show_dialog"
+        android:icon="@drawable/ic_message"
+        android:title="@string/show_dialog_title"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_search_option"
         android:icon="@drawable/ic_swap"
@@ -10,13 +15,13 @@
             <group>
                 <item
                     android:id="@+id/variantIos"
-                    android:title="@string/variant_ios_title" />
+                    android:title="@string/variant_ios_title"/>
                 <item
                     android:id="@+id/variantGoogle"
-                    android:title="@string/variant_google_title" />
+                    android:title="@string/variant_google_title"/>
                 <item
                     android:id="@+id/variantEmojiOne"
-                    android:title="@string/variant_emojione_title" />
+                    android:title="@string/variant_emojione_title"/>
             </group>
         </menu>
     </item>

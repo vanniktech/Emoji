@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/main_activity_root_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/main_dialog_root_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              tools:context=".MainDialog">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_activity_recycler_view"
+        android:id="@+id/main_dialog_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/main_activity_emoji_bar"/>
+        android:layout_height="200dp"/>
 
     <LinearLayout
-        android:id="@+id/main_activity_emoji_bar"
+        android:id="@+id/main_dialog_emoji_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="#FFF"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="4dp">
 
         <ImageButton
-            android:id="@+id/main_activity_emoji"
+            android:id="@+id/main_dialog_emoji"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -35,7 +33,7 @@
             tools:ignore="ContentDescription"/>
 
         <com.vanniktech.emoji.EmojiEditText
-            android:id="@+id/main_activity_chat_bottom_message_edittext"
+            android:id="@+id/main_dialog_chat_bottom_message_edittext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,7 +43,7 @@
             app:emojiSize="26sp"/>
 
         <ImageView
-            android:id="@+id/main_activity_send"
+            android:id="@+id/main_dialog_send"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -54,4 +52,4 @@
             app:srcCompat="@drawable/ic_send"
             tools:ignore="ContentDescription"/>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

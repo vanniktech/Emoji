@@ -82,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
+      case R.id.show_dialog:
+        MainDialog.show(this);
+        return true;
       case R.id.variantIos:
         EmojiManager.install(new IosEmojiProvider());
         recreate();

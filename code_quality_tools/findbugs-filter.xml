@@ -44,4 +44,10 @@
         <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
     </Match>
 
+    <!-- Sample app. -->
+    <Match>
+        <Class name="~.*MainDialog*.*"/>
+        <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
+    </Match>
+
 </FindBugsFilter>

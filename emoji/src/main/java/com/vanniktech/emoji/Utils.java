@@ -1,7 +1,10 @@
 package com.vanniktech.emoji;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -28,8 +31,32 @@ final class Utils {
     return reference;
   }
 
-  public static int dpToPx(final Context context, final float dp) {
+  static int dpToPx(@NonNull final Context context, final float dp) {
     return (int) (dp * context.getResources().getDisplayMetrics().density);
+  }
+
+  static int screenHeight(@NonNull final Activity context) {
+    final Point size = new Point();
+
+    context.getWindowManager().getDefaultDisplay().getSize(size);
+
+    return size.y;
+  }
+
+  @NonNull static Point locationOnScreen(@NonNull final View view) {
+    final int[] location = new int[2];
+
+    view.getLocationOnScreen(location);
+
+    return new Point(location[0], location[1]);
+  }
+
+  @NonNull static Rect windowVisibleDisplayFrame(@NonNull final Activity context) {
+    final Rect result = new Rect();
+
+    context.getWindow().getDecorView().getWindowVisibleDisplayFrame(result);
+
+    return result;
   }
 
   private Utils() {
