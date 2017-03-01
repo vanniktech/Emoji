@@ -3,6 +3,7 @@ package com.vanniktech.emoji;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
@@ -60,6 +61,20 @@ final class Utils {
     context.getWindow().getDecorView().getWindowVisibleDisplayFrame(result);
 
     return result;
+  }
+
+  static Activity contextToActivity(@NonNull final Context context) {
+    Context result = context;
+
+    while(result instanceof ContextWrapper){
+      if(result instanceof Activity){
+        return (Activity) context;
+      }
+
+      result = ((ContextWrapper) context).getBaseContext();
+    }
+
+    throw new IllegalArgumentException("The passed Context is not an Activity");
   }
 
   static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {
