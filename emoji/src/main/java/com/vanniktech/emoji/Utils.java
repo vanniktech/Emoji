@@ -66,8 +66,8 @@ final class Utils {
   static Activity contextToActivity(@NonNull final Context context) {
     Context result = context;
 
-    while(result instanceof ContextWrapper){
-      if(result instanceof Activity){
+    while (result instanceof ContextWrapper) {
+      if (result instanceof Activity) {
         return (Activity) context;
       }
 
@@ -89,15 +89,15 @@ final class Utils {
           final int fixedOffsetX;
           final int fixedOffsetY;
 
-          if (actualLocation.x > desiredLocation.x)
-              fixedOffsetX = desiredLocation.x - differenceX;
-          else {
+          if (actualLocation.x > desiredLocation.x) {
+            fixedOffsetX = desiredLocation.x - differenceX;
+          } else {
               fixedOffsetX = desiredLocation.x + differenceX;
           }
 
-          if (actualLocation.y > desiredLocation.y)
-              fixedOffsetY = desiredLocation.y - differenceY;
-          else {
+          if (actualLocation.y > desiredLocation.y) {
+            fixedOffsetY = desiredLocation.y - differenceY;
+          } else {
               fixedOffsetY = desiredLocation.y + differenceY;
           }
 
