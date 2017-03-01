@@ -22,7 +22,6 @@ import static android.view.View.MeasureSpec.makeMeasureSpec;
 
 final class EmojiVariantPopup {
   private static final int MARGIN = 2;
-  private static final int DONT_UPDATE_FLAG = -1;
 
   @NonNull private final View rootView;
   @Nullable private final OnEmojiClickedListener listener;
@@ -48,29 +47,13 @@ final class EmojiVariantPopup {
     content.measure(makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 
     final Point location = Utils.locationOnScreen(clickedImage);
+    final Point desiredLocation = new Point(
+            location.x - content.getMeasuredWidth() / 2 + clickedImage.getWidth() / 2,
+            location.y - content.getMeasuredHeight()
+    );
 
-    final int x = location.x - content.getMeasuredWidth() / 2 + clickedImage.getWidth() / 2;
-    final int y = location.y - content.getMeasuredHeight();
-
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, x, y);
-
-    content.post(new Runnable() {
-      @Override public void run() {
-        final Point actualLocation = Utils.locationOnScreen(content);
-
-        // If the actual location the popup is shown at differs from the wanted (Can happen with
-        // dialogs), we have to fix it.
-        if (!(actualLocation.x == x && actualLocation.y == y)) {
-          final int differenceX = actualLocation.x - x;
-          final int differenceY = actualLocation.y - y;
-
-          final int fixedOffsetX = actualLocation.x > x ? x - differenceX : x + differenceX;
-          final int fixedOffsetY = actualLocation.y > y ? y - differenceY : y + differenceY;
-
-          popupWindow.update(fixedOffsetX, fixedOffsetY, DONT_UPDATE_FLAG, DONT_UPDATE_FLAG);
-        }
-      }
-    });
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
+    Utils.fixPopupLocation(popupWindow, desiredLocation);
   }
 
   void dismiss() {

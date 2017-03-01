@@ -3,6 +3,7 @@ package com.vanniktech.emoji;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.CheckResult;
@@ -173,7 +174,10 @@ public final class EmojiPopup {
   }
 
   void showAtBottom() {
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0, Utils.screenHeight(context));
+    final Point desiredLocation = new Point(0, Utils.screenHeight(context) - popupWindow.getHeight());
+
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
+    Utils.fixPopupLocation(popupWindow, desiredLocation);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();

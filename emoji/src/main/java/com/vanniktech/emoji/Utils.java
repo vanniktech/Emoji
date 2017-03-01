@@ -9,11 +9,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 
 final class Utils {
+  private static final int DONT_UPDATE_FLAG = -1;
+
   @TargetApi(JELLY_BEAN) static void removeOnGlobalLayoutListener(final View v, final ViewTreeObserver.OnGlobalLayoutListener listener) {
     if (SDK_INT < JELLY_BEAN) {
       //noinspection deprecation
@@ -57,6 +60,36 @@ final class Utils {
     context.getWindow().getDecorView().getWindowVisibleDisplayFrame(result);
 
     return result;
+  }
+
+  static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {
+    popupWindow.getContentView().post(new Runnable() {
+      @Override public void run() {
+        final Point actualLocation = Utils.locationOnScreen(popupWindow.getContentView());
+
+        if (!(actualLocation.x == desiredLocation.x && actualLocation.y == desiredLocation.y)) {
+          final int differenceX = actualLocation.x - desiredLocation.x;
+          final int differenceY = actualLocation.y - desiredLocation.y;
+
+          final int fixedOffsetX;
+          final int fixedOffsetY;
+
+          if (actualLocation.x > desiredLocation.x)
+              fixedOffsetX = desiredLocation.x - differenceX;
+          else {
+              fixedOffsetX = desiredLocation.x + differenceX;
+          }
+
+          if (actualLocation.y > desiredLocation.y)
+              fixedOffsetY = desiredLocation.y - differenceY;
+          else {
+              fixedOffsetY = desiredLocation.y + differenceY;
+          }
+
+          popupWindow.update(fixedOffsetX, fixedOffsetY, DONT_UPDATE_FLAG, DONT_UPDATE_FLAG);
+        }
+      }
+    });
   }
 
   private Utils() {
