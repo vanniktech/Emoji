@@ -63,7 +63,7 @@ final class Utils {
     return result;
   }
 
-  static Activity contextToActivity(@NonNull final Context context) {
+  static Activity asActivity(@NonNull final Context context) {
     Context result = context;
 
     while (result instanceof ContextWrapper) {
