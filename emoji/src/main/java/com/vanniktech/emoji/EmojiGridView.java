@@ -22,6 +22,9 @@ class EmojiGridView extends GridView {
     setPadding(spacing, spacing, spacing, spacing);
     setNumColumns(AUTO_FIT);
     setClipToPadding(false);
+
+    setVerticalScrollBarEnabled(false);
+
   }
 
   public EmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener,
