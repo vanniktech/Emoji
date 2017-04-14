@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class EmojiTest {
-  @Test public void multipleCodePoints(){
+  @Test public void multipleCodePoints() {
     final Emoji emoji = new Emoji(new int[]{0x1234, 0x5678}, R.drawable.emoji_backspace);
 
     assertThat(emoji.getUnicode()).hasSize(2).isEqualTo(new String(new int[]{0x1234, 0x5678}, 0, 2));

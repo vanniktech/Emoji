@@ -18,7 +18,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
   private EmojiProvider provider;
 
-  private Emoji emoji;
+  Emoji emoji;
 
   @Before public void setUp() {
     emoji = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent);
@@ -38,7 +38,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
           @Override public int getIcon() {
             return R.drawable.emoji_recent;
           }
-        }};
+        } };
       }
     };
   }

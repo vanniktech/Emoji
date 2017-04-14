@@ -16,7 +16,7 @@ import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 
 final class Utils {
-  private static final int DONT_UPDATE_FLAG = -1;
+  static final int DONT_UPDATE_FLAG = -1;
 
   @TargetApi(JELLY_BEAN) static void removeOnGlobalLayoutListener(final View v, final ViewTreeObserver.OnGlobalLayoutListener listener) {
     if (SDK_INT < JELLY_BEAN) {

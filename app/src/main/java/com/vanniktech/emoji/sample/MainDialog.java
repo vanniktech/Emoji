@@ -26,15 +26,15 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
 public class MainDialog extends DialogFragment {
-  private static final String FRAGMENT_MANAGER_TAG = "dialog_main";
-  private static final String TAG = "MainDialog";
+  static final String FRAGMENT_MANAGER_TAG = "dialog_main";
+  static final String TAG = "MainDialog";
 
-  private ChatAdapter chatAdapter;
-  private EmojiPopup emojiPopup;
+  ChatAdapter chatAdapter;
+  EmojiPopup emojiPopup;
 
-  private EmojiEditText editText;
-  private ViewGroup rootView;
-  private ImageView emojiButton;
+  EmojiEditText editText;
+  ViewGroup rootView;
+  ImageView emojiButton;
 
   public static void show(@NonNull final AppCompatActivity activity) {
     new MainDialog().show(activity.getSupportFragmentManager(), FRAGMENT_MANAGER_TAG);

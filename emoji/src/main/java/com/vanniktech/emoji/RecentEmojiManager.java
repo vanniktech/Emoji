@@ -18,7 +18,7 @@ final class RecentEmojiManager implements RecentEmoji {
   private static final String EMOJI_DELIMITER = "~";
   private static final String RECENT_EMOJIS = "recent-emojis";
   private static final int EMOJI_GUESS_SIZE = 5;
-  private static final int MAX_RECENTS = 40;
+  static final int MAX_RECENTS = 40;
 
   @NonNull private final Context context;
   @NonNull private EmojiList emojiList = new EmojiList(0);
@@ -27,7 +27,7 @@ final class RecentEmojiManager implements RecentEmoji {
     this.context = context.getApplicationContext();
   }
 
-  @SuppressWarnings("PMD.AvoidDeeplyNestedIfStmts") @NonNull @Override public Collection<Emoji> getRecentEmojis() {
+  @SuppressWarnings({ "PMD.AvoidDeeplyNestedIfStmts", "checkstyle:nestedifdepth" }) @NonNull @Override public Collection<Emoji> getRecentEmojis() {
     if (emojiList.size() == 0) {
       final String savedRecentEmojis = getPreferences().getString(RECENT_EMOJIS, "");
 
@@ -89,7 +89,7 @@ final class RecentEmojiManager implements RecentEmoji {
       }
     };
 
-    @NonNull private final List<Data> emojis;
+    @NonNull final List<Data> emojis;
 
     EmojiList(final int size) {
       emojis = new ArrayList<>(size);

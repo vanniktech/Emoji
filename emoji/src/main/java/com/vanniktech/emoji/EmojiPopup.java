@@ -25,7 +25,7 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 public final class EmojiPopup {
-  private static final int MIN_KEYBOARD_HEIGHT = 100;
+  static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
   final Activity context;
@@ -47,7 +47,7 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickedListener onEmojiClickedListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-  private final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+  final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
       final int heightDifference = Utils.screenHeight(context) - rect.bottom;

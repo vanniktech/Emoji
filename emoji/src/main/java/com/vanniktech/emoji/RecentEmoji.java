@@ -26,7 +26,7 @@ public interface RecentEmoji {
    *
    * @since 0.2.0
    */
-  void addEmoji(@NonNull final Emoji emoji);
+  void addEmoji(@NonNull Emoji emoji);
 
   /**
    * should persist all emojis

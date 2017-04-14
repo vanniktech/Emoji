@@ -32,7 +32,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
           @Override public int getIcon() {
             return R.drawable.emoji_recent;
           }
-        }};
+        } };
       }
     });
   }

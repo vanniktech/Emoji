@@ -27,14 +27,14 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import com.vanniktech.emoji.one.EmojiOneProvider;
 
 public class MainActivity extends AppCompatActivity {
-  private static final String TAG = "MainActivity";
+  static final String TAG = "MainActivity";
 
-  private ChatAdapter chatAdapter;
-  private EmojiPopup emojiPopup;
+  ChatAdapter chatAdapter;
+  EmojiPopup emojiPopup;
 
-  private EmojiEditText editText;
-  private ViewGroup rootView;
-  private ImageView emojiButton;
+  EmojiEditText editText;
+  ViewGroup rootView;
+  ImageView emojiButton;
 
   @Override protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

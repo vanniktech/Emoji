@@ -24,7 +24,7 @@ final class EmojiVariantPopup {
   private static final int MARGIN = 2;
 
   @NonNull private final View rootView;
-  @Nullable private final OnEmojiClickedListener listener;
+  @Nullable final OnEmojiClickedListener listener;
 
   @Nullable private PopupWindow popupWindow;
 
