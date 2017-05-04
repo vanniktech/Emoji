@@ -11,7 +11,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_dialog_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"/>
 
     <LinearLayout
         android:id="@+id/main_dialog_emoji_bar"
@@ -30,7 +30,7 @@
             android:padding="12dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/emoji_ios_category_people"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"/>
 
         <com.vanniktech.emoji.EmojiEditText
             android:id="@+id/main_dialog_chat_bottom_message_edittext"
@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:imeOptions="actionSend"
             android:inputType="textCapSentences|textMultiLine"
-            android:maxLines="3" />
+            android:maxLines="3"/>
 
         <ImageView
             android:id="@+id/main_dialog_send"
@@ -49,6 +49,6 @@
             android:padding="12dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_send"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"/>
     </LinearLayout>
 </LinearLayout>
