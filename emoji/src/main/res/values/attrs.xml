@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="emoji">
-        <attr name="emojiSize" format="dimension"/>
-    </declare-styleable>
-</resources>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/main_activity_root_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_activity_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/main_activity_emoji_bar"/>
+        android:layout_above="@+id/main_activity_emoji_bar" />
 
     <LinearLayout
         android:id="@+id/main_activity_emoji_bar"
@@ -32,7 +32,7 @@
             android:padding="12dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/emoji_ios_category_people"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
 
         <com.vanniktech.emoji.EmojiEditText
             android:id="@+id/main_activity_chat_bottom_message_edittext"
@@ -41,8 +41,7 @@
             android:layout_weight="1"
             android:imeOptions="actionSend"
             android:inputType="textCapSentences|textMultiLine"
-            android:maxLines="3"
-            app:emojiSize="26sp"/>
+            android:maxLines="3" />
 
         <ImageView
             android:id="@+id/main_activity_send"
@@ -52,6 +51,6 @@
             android:padding="12dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_send"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 </RelativeLayout>

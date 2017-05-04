@@ -1,40 +1,25 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public class EmojiEditText extends AppCompatEditText {
-  private int emojiSize;
-
   public EmojiEditText(final Context context) {
     this(context, null);
   }
 
   public EmojiEditText(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    init(attrs);
+
+    init();
   }
 
-  private void init(@Nullable final AttributeSet attrs) {
+  private void init() {
     if (!isInEditMode()) {
       EmojiManager.getInstance().verifyInstalled();
-    }
-
-    if (attrs == null) {
-      emojiSize = (int) getTextSize();
-    } else {
-      final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.emoji);
-
-      try {
-        emojiSize = (int) a.getDimension(R.styleable.emoji_emojiSize, getTextSize());
-      } finally {
-        a.recycle();
-      }
     }
 
     setText(getText());
@@ -42,11 +27,7 @@ public class EmojiEditText extends AppCompatEditText {
 
   @Override
   protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
-    EmojiHandler.addEmojis(getContext(), getText(), emojiSize);
-  }
-
-  public void setEmojiSize(final int pixels) {
-    emojiSize = pixels;
+    EmojiHandler.addEmojis(getContext(), getText(), getLineHeight());
   }
 
   public void backspace() {

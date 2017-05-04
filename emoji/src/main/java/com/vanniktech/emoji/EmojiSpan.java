@@ -1,6 +1,7 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -29,5 +30,10 @@ final class EmojiSpan extends DynamicDrawableSpan {
     }
 
     return drawable;
+  }
+
+  @Override public int getSize(final Paint paint, final CharSequence text, final int start,
+                               final int end, final Paint.FontMetricsInt fm) {
+    return size;
   }
 }
