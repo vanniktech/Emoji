@@ -244,6 +244,7 @@ import com.vanniktech.emoji.ios.R;
     new Emoji(0x1f515, R.drawable.emoji_ios_1f515),
     new Emoji(0x1f4e3, R.drawable.emoji_ios_1f4e3),
     new Emoji(0x1f4e2, R.drawable.emoji_ios_1f4e2),
+    new Emoji(0x1f5e8, R.drawable.emoji_ios_1f5e8),
     new Emoji(new int[] { 0x1f441, 0xfe0f, 0x200d, 0x1f5e8, 0xfe0f }, R.drawable.emoji_ios_1f441_fe0f_200d_1f5e8_fe0f),
     new Emoji(0x1f4ac, R.drawable.emoji_ios_1f4ac),
     new Emoji(0x1f4ad, R.drawable.emoji_ios_1f4ad),
