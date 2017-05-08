@@ -11,8 +11,8 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "command-line-args": "^4.0.1",
-    "download": "^5.0.3",
-    "fs-promise": "^2.0.0",
+    "download": "^6.0.0",
+    "fs-extra": "^3.0.1",
     "imagemin": "^5.2.2",
     "imagemin-optipng": "^5.2.1",
     "stable": "^0.1.5",
