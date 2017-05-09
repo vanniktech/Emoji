@@ -1,5 +1,5 @@
 const commandLineArgs = require("command-line-args");
-const fs = require("fs-promise");
+const fs = require("fs-extra");
 const stable = require("stable");
 const cheerio = require("cheerio");
 const _ = require("underscore");
@@ -25,13 +25,20 @@ Array.prototype.flatten = function flatten() {
 };
 
 /**
- * Returns the description, made usable for searching in the emoji.json. This means stripping the skin tone and special
- * characters.
- * @param description The description to adjust.
- * @returns {string} The adjusted description.
+ * Capitalizes the first character of an String.
+ * @returns {string} The capitalized String.
  */
-function getDescriptionForFinding(description) {
-    return description.includes("skin tone") ? description.substring(0, description.indexOf(":")) : description
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+/**
+ * Returns the properly formatted code point for finding the meta data in the "emoji.json" from the passed row.
+ * @param row The Html row to extract the code from.
+ * @returns {string} The extracted code.
+ */
+function getCodePointForFindingInfo(row) {
+    return row.children[0].attribs.name.replace(/_/g, "-");
 }
 
 /**
@@ -52,7 +59,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
         const unicodeParts = it.unicode.split("_");
         let result = "";
 
-        if (unicodeParts.length == 1) {
+        if (unicodeParts.length === 1) {
             result = `new Emoji(0x${unicodeParts[0]}, R.drawable.emoji_${target.package}_${it.unicode}`;
         } else {
             result = `new Emoji(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, R.drawable.emoji_${target.package}_${it.unicode}`;
@@ -109,21 +116,21 @@ async function copyEmojiImage(target, emoji) {
 const targets = [{
     package: "ios",
     name: "IosEmoji",
-    imagePosition: 4,
+    imagePosition: 3,
     ignore: []
 }, {
     package: "google",
     name: "GoogleEmoji",
-    imagePosition: 5,
+    imagePosition: 4,
     ignore: [
-        "1f1e7_1f1f1", "1f1e7_1f1f6", "1f1ea_1f1ed", "1f1eb_1f1f0", "1f1ec_1f1eb", "1f1ec_1f1f5", "1f1ec_1f1f8",
-        "1f1f2_1f1f6", "1f1f3_1f1e8", "1f1f5_1f1f2", "1f1f7_1f1ea", "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0",
-        "1f1fe_1f1f9"
+        "1f1e7_1f1f1", "1f1e7_1f1f6", "1f1e9_1f1ec", "1f1ea_1f1e6", "1f1ea_1f1ed", "1f1eb_1f1f0", "1f1ec_1f1eb",
+        "1f1ec_1f1f5", "1f1ec_1f1f8", "1f1f2_1f1eb", "1f1f2_1f1f6", "1f1f3_1f1e8", "1f1f5_1f1f2", "1f1f7_1f1ea",
+        "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0", "1f1fe_1f1f9"
     ]
 }, {
     package: "one",
     name: "EmojiOne",
-    imagePosition: 7,
+    imagePosition: 6,
     ignore: []
 }];
 
@@ -157,7 +164,7 @@ async function downloadFiles() {
 
     await fs.emptyDir("build");
     await downloadFile("http://unicode.org/emoji/charts/full-emoji-list.html", "build");
-    await downloadFile("https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json", "build");
+    await downloadFile("https://raw.githubusercontent.com/Ranks/emojione/master/emoji.json", "build");
 }
 
 /**
@@ -169,24 +176,29 @@ async function parse() {
 
     const map = new Map();
     const $ = cheerio.load(await fs.readFile("build/full-emoji-list.html"));
-    const emojiInfo = JSON.parse(await fs.readFile("build/emoji.json"));
+    const emojiInfo = Object.values(JSON.parse(await fs.readFile("build/emoji.json")));
 
     const rows = $("tr").get()
         .map(it => it.children.filter(it => it.name === "td"))
-        .filter(it => it.length === 19 && it[1].attribs.class === "code");
+        .filter(it => it.length === 17 && it[1].attribs.class === "code");
 
     const sortedRows = stable(rows, (first, second) => {
-        return emojiInfo.findIndex(it => it.description === getDescriptionForFinding(first[16].children[0].data)) -
-            emojiInfo.findIndex(it => it.description === getDescriptionForFinding(second[16].children[0].data))
+        return emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(first[1])).order -
+            emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(second[1])).order;
     });
 
     for (const row of sortedRows) {
-        const foundInfo = emojiInfo.find(it => it.description === getDescriptionForFinding(row[16].children[0].data));
+        const foundInfo = emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(row[1]));
         const category = foundInfo ? foundInfo.category : null;
+
+        if (foundInfo && foundInfo.display === 0) {
+            // This is a duplicate.
+            continue;
+        }
 
         if (category) {
             const code = row[1].children[0].attribs.name;
-            const isVariant = row[16].children[0].data.includes("skin tone");
+            const isVariant = row[15].children[0].data.includes("skin tone");
 
             const emoji = {
                 unicode: code,
@@ -213,6 +225,8 @@ async function parse() {
                     map.set(category, new Array(emoji));
                 }
             }
+        } else {
+            console.error(`Not found: ${row[15].children[0].data}`);
         }
     }
 
@@ -262,8 +276,8 @@ async function copyImages(map, targets) {
 
     for (const [category, emojis] of map) {
         for (const target of targets) {
-            await fs.copy(`img/${category.toLowerCase()}.png`,
-                `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`);
+            await fs.copy(`img/${category}.png`,
+                `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category}.png`);
         }
 
         for (const emoji of emojis) {
@@ -301,21 +315,21 @@ async function generateCode(map, targets) {
         for (const [category, emojis] of map.entries()) {
             const data = generateEmojiCode(target, emojis);
 
-            await fs.writeFile(`${dir + category}Category.java`,
+            await fs.writeFile(`${dir + category.capitalize()}Category.java`,
                 _(categoryTemplate).template()({
                     package: target.package,
-                    name: category,
+                    name: category.capitalize(),
                     data: data,
-                    icon: category.toLowerCase()
+                    icon: category
                 }));
         }
 
         const imports = [...map.keys()].sort().map((category) => {
-            return `import com.vanniktech.emoji.${target.package}.category.${category}Category;`
+            return `import com.vanniktech.emoji.${target.package}.category.${category.capitalize()}Category;`
         }).join("\n");
 
         const categoryMapping = [...map.keys()].map((category) => {
-            return `new ${category}Category()`
+            return `new ${category.capitalize()}Category()`
         }).join(",\n      ");
 
         await fs.writeFile(`../emoji-${target.package}/src/main/java/com/vanniktech/emoji/${target.package}/${target.name}Provider.java`, _(emojiProviderTemplate).template()({
