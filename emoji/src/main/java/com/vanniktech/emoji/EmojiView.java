@@ -80,6 +80,7 @@ import java.util.concurrent.TimeUnit;
       emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
     }
 
+    //noinspection AndroidLintClickableViewAccessibility
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(
         new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, new OnClickListener() {
           @Override public void onClick(final View view) {

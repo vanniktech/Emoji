@@ -17,8 +17,4 @@
 
   <!-- Ignore this one since it does not quite work together with ButterKnife & Dagger. -->
   <Match><Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/></Match>
-
-  <!-- Sample app. -->
-  <Match><Class name="~.*MainActivity*.*"/><Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/></Match>
-  <Match><Class name="~.*MainDialog*.*"/><Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/></Match>
 </FindBugsFilter>

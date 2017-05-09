@@ -1,66 +1,67 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion as int
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  buildToolsVersion rootProject.ext.buildToolsVersion as String
 
-    compileOptions {
-        sourceCompatibility rootProject.ext.javaVersion as JavaVersion
-        targetCompatibility rootProject.ext.javaVersion as JavaVersion
+  compileOptions {
+    sourceCompatibility rootProject.ext.javaVersion as JavaVersion
+    targetCompatibility rootProject.ext.javaVersion as JavaVersion
+  }
+
+  defaultConfig {
+    applicationId "com.vanniktech.emoji.sample"
+    minSdkVersion rootProject.ext.minSdkVersion as int
+    targetSdkVersion rootProject.ext.targetSdkVersion as int
+    versionCode rootProject.ext.versionCode as int
+    versionName rootProject.ext.versionName as String
+
+    vectorDrawables.useSupportLibrary = true
+
+    setProperty("archivesBaseName", "app-$versionName")
+  }
+
+  def shouldSign = project.hasProperty('RELEASE_STORE_FILE') && project.hasProperty('RELEASE_STORE_PASSWORD') && project.hasProperty('RELEASE_KEY_ALIAS') && project.hasProperty('RELEASE_KEY_PASSWORD')
+
+  if (shouldSign) {
+    signingConfigs {
+      release {
+        // http://stackoverflow.com/a/21020469/1979703
+        storeFile file(RELEASE_STORE_FILE)
+        storePassword RELEASE_STORE_PASSWORD
+        keyAlias RELEASE_KEY_ALIAS
+        keyPassword RELEASE_KEY_PASSWORD
+      }
     }
+  }
 
-    defaultConfig {
-        applicationId "com.vanniktech.emoji.sample"
-        minSdkVersion rootProject.ext.minSdkVersion as int
-        targetSdkVersion rootProject.ext.targetSdkVersion as int
-        versionCode rootProject.ext.versionCode as int
-        versionName rootProject.ext.versionName as String
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+      shrinkResources true
+      zipAlignEnabled true
 
-        vectorDrawables.useSupportLibrary = true
-
-        setProperty("archivesBaseName", "app-$versionName")
+      if (shouldSign) {
+        signingConfig signingConfigs.release
+      }
     }
+  }
 
-    def shouldSign = project.hasProperty('RELEASE_STORE_FILE') && project.hasProperty('RELEASE_STORE_PASSWORD') && project.hasProperty('RELEASE_KEY_ALIAS') && project.hasProperty('RELEASE_KEY_PASSWORD')
-
-    if (shouldSign) {
-        signingConfigs {
-            release {
-                // http://stackoverflow.com/a/21020469/1979703
-                storeFile file(RELEASE_STORE_FILE)
-                storePassword RELEASE_STORE_PASSWORD
-                keyAlias RELEASE_KEY_ALIAS
-                keyPassword RELEASE_KEY_PASSWORD
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            shrinkResources true
-            zipAlignEnabled true
-
-            if (shouldSign) {
-                signingConfig signingConfigs.release
-            }
-        }
-
-        debug {
-            versionNameSuffix '-RC'
-        }
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
 dependencies {
-    compile project(':emoji-ios')
-    compile project(':emoji-google')
-    compile project(':emoji-one')
+  compile project(':emoji-ios')
+  compile project(':emoji-google')
+  compile project(':emoji-one')
 
-    compile rootProject.ext.supportAppCompat
-    compile rootProject.ext.supportRecyclerView
+  compile rootProject.ext.supportAppCompat
+  compile rootProject.ext.supportRecyclerView
 
-    debugCompile rootProject.ext.leakCanaryDebug
-    releaseCompile rootProject.ext.leakCanaryRelease
+  debugCompile rootProject.ext.leakCanaryDebug
+  releaseCompile rootProject.ext.leakCanaryRelease
 }

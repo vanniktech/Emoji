@@ -17,13 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
-import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
-import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
-import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
-import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
 public class MainDialog extends DialogFragment {
   static final String FRAGMENT_MANAGER_TAG = "dialog_main";
@@ -54,11 +47,8 @@ public class MainDialog extends DialogFragment {
     super.onStop();
   }
 
-  @NonNull @Override
-  public Dialog onCreateDialog(final Bundle savedInstanceState) {
-    return new AlertDialog.Builder(getContext())
-            .setView(buildView())
-            .create();
+  @NonNull @Override public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    return new AlertDialog.Builder(getContext()).setView(buildView()).create();
   }
 
   private View buildView() {
@@ -72,20 +62,14 @@ public class MainDialog extends DialogFragment {
     emojiButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
-    emojiButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(final View v) {
-        emojiPopup.toggle();
-      }
-    });
-    sendButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(final View v) {
-        final String text = editText.getText().toString().trim();
+    emojiButton.setOnClickListener(v -> emojiPopup.toggle());
+    sendButton.setOnClickListener(v -> {
+      final String text = editText.getText().toString().trim();
 
-        if (text.length() > 0) {
-          chatAdapter.add(text);
+      if (text.length() > 0) {
+        chatAdapter.add(text);
 
-          editText.setText("");
-        }
+        editText.setText("");
       }
     });
 
@@ -100,36 +84,12 @@ public class MainDialog extends DialogFragment {
 
   private void setUpEmojiPopup() {
     emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
-            .setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-              @Override public void onEmojiBackspaceClicked(final View v) {
-                Log.d(TAG, "Clicked on Backspace");
-              }
-            })
-            .setOnEmojiClickedListener(new OnEmojiClickedListener() {
-              @Override public void onEmojiClicked(final Emoji emoji) {
-                Log.d(TAG, "Clicked on emoji");
-              }
-            })
-            .setOnEmojiPopupShownListener(new OnEmojiPopupShownListener() {
-              @Override public void onEmojiPopupShown() {
-                emojiButton.setImageResource(R.drawable.ic_keyboard);
-              }
-            })
-            .setOnSoftKeyboardOpenListener(new OnSoftKeyboardOpenListener() {
-              @Override public void onKeyboardOpen(final int keyBoardHeight) {
-                Log.d(TAG, "Opened soft keyboard");
-              }
-            })
-            .setOnEmojiPopupDismissListener(new OnEmojiPopupDismissListener() {
-              @Override public void onEmojiPopupDismiss() {
-                emojiButton.setImageResource(R.drawable.emoji_ios_category_people);
-              }
-            })
-            .setOnSoftKeyboardCloseListener(new OnSoftKeyboardCloseListener() {
-              @Override public void onKeyboardClose() {
-                Log.d(TAG, "Closed soft keyboard");
-              }
-            })
-            .build(editText);
+        .setOnEmojiBackspaceClickListener(v -> Log.d(TAG, "Clicked on Backspace"))
+        .setOnEmojiClickedListener(emoji -> Log.d(TAG, "Clicked on emoji"))
+        .setOnEmojiPopupShownListener(() -> emojiButton.setImageResource(R.drawable.ic_keyboard))
+        .setOnSoftKeyboardOpenListener(keyBoardHeight -> Log.d(TAG, "Opened soft keyboard"))
+        .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_people))
+        .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
+        .build(editText);
   }
 }

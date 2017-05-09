@@ -1,30 +1,30 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion as int
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  buildToolsVersion rootProject.ext.buildToolsVersion as String
 
-    compileOptions {
-        sourceCompatibility rootProject.ext.javaVersion as JavaVersion
-        targetCompatibility rootProject.ext.javaVersion as JavaVersion
-    }
+  compileOptions {
+    sourceCompatibility rootProject.ext.javaVersion as JavaVersion
+    targetCompatibility rootProject.ext.javaVersion as JavaVersion
+  }
 
-    defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion as int
-    }
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion as int
+  }
 
-    resourcePrefix 'emoji'
+  resourcePrefix 'emoji'
 }
 
 dependencies {
-    compile rootProject.ext.supportAppCompat
-    compile rootProject.ext.supportCardView
+  compile rootProject.ext.supportAppCompat
+  compile rootProject.ext.supportCardView
 
-    testCompile rootProject.ext.testing.junit
-    testCompile rootProject.ext.testing.mockito
-    testCompile rootProject.ext.testing.assertJ
-    testCompile rootProject.ext.testing.robolectric
-    testCompile rootProject.ext.testing.privateConstructor
+  testCompile rootProject.ext.testing.junit
+  testCompile rootProject.ext.testing.mockito
+  testCompile rootProject.ext.testing.assertJ
+  testCompile rootProject.ext.testing.robolectric
+  testCompile rootProject.ext.testing.privateConstructor
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
