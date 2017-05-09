@@ -118,6 +118,7 @@ const targets = [{
     name: "IosEmoji",
     imagePosition: 3,
     ignore: [
+        // Some duplicate flags, especially for this target.
         "1f1eb_1f1f7", "1f1f3_1f1f4", "1f1f8_1f1ed"
     ]
 }, {
@@ -125,6 +126,7 @@ const targets = [{
     name: "GoogleEmoji",
     imagePosition: 4,
     ignore: [
+        // Some invalid "?"-icons, especially for this target.
         "1f1e7_1f1f1", "1f1e7_1f1f6", "1f1e9_1f1ec", "1f1ea_1f1e6", "1f1ea_1f1ed", "1f1eb_1f1f0", "1f1ec_1f1eb",
         "1f1ec_1f1f5", "1f1ec_1f1f8", "1f1f2_1f1eb", "1f1f2_1f1f6", "1f1f3_1f1e8", "1f1f5_1f1f2", "1f1f7_1f1ea",
         "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0", "1f1fe_1f1f9", "1f1e8_1f1f5", "1f1e6_1f1fa", "1f1e7_1f1fb",
@@ -135,12 +137,13 @@ const targets = [{
     name: "EmojiOne",
     imagePosition: 6,
     ignore: [
+        // Some duplicate flags, especially for this target.
         "1f1f2_1f1e8", "1f1f3_1f1f4", "1f1f9_1f1e9"
     ]
 }];
 
 /**
- * Codes to globally ignore.
+ * Codes to globally ignore. These are currently duplicate flags. Extend for more emojis to globally ignore.
  * @type {[*]} An Array of codes to ignore.
  */
 const ignore = [
