@@ -111,13 +111,15 @@ async function copyEmojiImage(target, emoji) {
 
 /**
  * The targets for generating. Extend these for adding more emoji variants.
- * @type {[*]} An array of target-objects.
+ * @type {[*]} An Array of target-objects.
  */
 const targets = [{
     package: "ios",
     name: "IosEmoji",
     imagePosition: 3,
-    ignore: []
+    ignore: [
+        "1f1eb_1f1f7", "1f1f3_1f1f4", "1f1f8_1f1ed"
+    ]
 }, {
     package: "google",
     name: "GoogleEmoji",
@@ -125,14 +127,26 @@ const targets = [{
     ignore: [
         "1f1e7_1f1f1", "1f1e7_1f1f6", "1f1e9_1f1ec", "1f1ea_1f1e6", "1f1ea_1f1ed", "1f1eb_1f1f0", "1f1ec_1f1eb",
         "1f1ec_1f1f5", "1f1ec_1f1f8", "1f1f2_1f1eb", "1f1f2_1f1f6", "1f1f3_1f1e8", "1f1f5_1f1f2", "1f1f7_1f1ea",
-        "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0", "1f1fe_1f1f9"
+        "1f1f9_1f1eb", "1f1fc_1f1eb", "1f1fd_1f1f0", "1f1fe_1f1f9", "1f1e8_1f1f5", "1f1e6_1f1fa", "1f1e7_1f1fb",
+        "1f1fa_1f1f2", "1f1f3_1f1f4"
     ]
 }, {
     package: "one",
     name: "EmojiOne",
     imagePosition: 6,
-    ignore: []
+    ignore: [
+        "1f1f2_1f1e8", "1f1f3_1f1f4", "1f1f9_1f1e9"
+    ]
 }];
+
+/**
+ * Codes to globally ignore.
+ * @type {[*]} An Array of codes to ignore.
+ */
+const ignore = [
+    "1f1ea_1f1f8", "1f1ed_1f1f2", "1f1ee_1f1f4", "1f1f2_1f1eb", "1f1f8_1f1ef", "1f1f9_1f1e6",
+    "1f1fa_1f1f8"
+];
 
 /**
  * Downloads a single file and shows progress on the console.
@@ -199,6 +213,10 @@ async function parse() {
         if (category) {
             const code = row[1].children[0].attribs.name;
             const isVariant = row[15].children[0].data.includes("skin tone");
+
+            if (ignore.includes(code)) {
+                continue;
+            }
 
             const emoji = {
                 unicode: code,
