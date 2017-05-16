@@ -10,9 +10,7 @@ The library has 2 different providers to choose from.
 
 ## iOS Emojis
 
-<img src="preview.png" alt="Normal Keyboard" width="280">
-<img src="preview_ios_1.png" alt="Emoji Keyboard" width="280">
-<img src="preview_ios_2.png" alt="Recent Emojis" width="280">
+<img src="preview.png" alt="Normal Keyboard" width="270"><img src="preview_ios_1.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="preview_ios_2.png" alt="Recent Emojis" width="270">
 
 For getting the above iOS Emojis simply add the dependency and code below.
 
@@ -20,21 +18,23 @@ For getting the above iOS Emojis simply add the dependency and code below.
 compile 'com.vanniktech:emoji-ios:0.4.0'
 ```
 
+And install the provider (preferably in your Application class):
+
 ```java
 EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
 ```
 
 ## EmojiOne
 
-<img src="preview.png" alt="Normal Keyboard" width="280">
-<img src="preview_one_1.png" alt="Emoji Keyboard" width="280">
-<img src="preview_one_2.png" alt="Recent Emojis" width="280">
+<img src="preview.png" alt="Normal Keyboard" width="270"><img src="preview_one_1.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="preview_one_2.png" alt="Recent Emojis" width="280">
 
 For getting the above EmojiOne Emojis simply add the dependency and code below.
 
 ```groovy
 compile 'com.vanniktech:emoji-one:0.4.0'
 ```
+
+And install the provider (preferably in your Application class):
 
 ```java
 EmojiManager.install(new EmojiOneProvider()); // This line needs to be executed before any usage of EmojiTextView or EmojiEditText.
@@ -44,7 +44,7 @@ EmojiManager.install(new EmojiOneProvider()); // This line needs to be executed 
 
 If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](library/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
 
-All of the core API lays in:
+All of the core API lays in, which is being pulled in automatically by the provides implementations (iOS, EmojiOne & Google):
 
 ```groovy
 compile 'com.vanniktech:emoji:0.4.0'
@@ -61,8 +61,7 @@ Declare your [`EmojiEditText`](library/src/main/java/com/vanniktech/emoji/EmojiE
   android:layout_height="wrap_content"
   android:imeOptions="actionSend"
   android:inputType="textCapSentences|textMultiLine"
-  android:maxLines="3"
-  app:emojiSize="26sp"/>
+  android:maxLines="3"/>
 ```
 
 To open the [`EmojiPopup`](library/src/main/java/com/vanniktech/emoji/EmojiPopup.java) execute the code below:
@@ -86,7 +85,7 @@ The `rootView` is the rootView of your layout xml file which will be used for ca
   android:layout_height="wrap_content"/>
 ```
 
-Just use the [`EmojiTextView`](library/src/main/java/com/vanniktech/emoji/EmojiTextView.java) and call `setText` with the String that contains Unicode encoded Emojis.
+Just use the [`EmojiTextView`](library/src/main/java/com/vanniktech/emoji/EmojiTextView.java) and call `setText` with the String that contains Unicode encoded Emojis. To change the size of the displayed Emojis use the `lineHeight` property from TextView.
 
 ## Listeners
 
