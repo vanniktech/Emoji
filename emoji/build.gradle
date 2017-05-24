@@ -17,14 +17,14 @@ android {
 }
 
 dependencies {
-  compile rootProject.ext.supportAppCompat
-  compile rootProject.ext.supportCardView
+  implementation rootProject.ext.supportAppCompat
+  implementation rootProject.ext.supportCardView
 
-  testCompile rootProject.ext.testing.junit
-  testCompile rootProject.ext.testing.mockito
-  testCompile rootProject.ext.testing.assertJ
-  testCompile rootProject.ext.testing.robolectric
-  testCompile rootProject.ext.testing.privateConstructor
+  testImplementation rootProject.ext.testing.junit
+  testImplementation rootProject.ext.testing.mockito
+  testImplementation rootProject.ext.testing.assertJ
+  testImplementation rootProject.ext.testing.robolectric
+  testImplementation rootProject.ext.testing.privateConstructor
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
