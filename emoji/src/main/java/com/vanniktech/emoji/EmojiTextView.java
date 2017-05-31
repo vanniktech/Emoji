@@ -27,7 +27,7 @@ public class EmojiTextView extends AppCompatTextView {
   @Override public void setText(final CharSequence rawText, final BufferType type) {
     final CharSequence text = rawText == null ? "" : rawText;
     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
-    EmojiHandler.addEmojis(getContext(), spannableStringBuilder, getLineHeight());
+    EmojiHandler.replaceWithImages(getContext(), spannableStringBuilder, getLineHeight());
     super.setText(spannableStringBuilder, type);
   }
 }

@@ -27,7 +27,7 @@ public class EmojiEditText extends AppCompatEditText {
 
   @Override
   protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
-    EmojiHandler.addEmojis(getContext(), getText(), getLineHeight());
+    EmojiHandler.replaceWithImages(getContext(), getText(), getLineHeight());
   }
 
   public void backspace() {
