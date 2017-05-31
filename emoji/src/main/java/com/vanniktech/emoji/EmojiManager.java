@@ -60,20 +60,25 @@ public final class EmojiManager {
 
       //noinspection ForLoopReplaceableByForEach
       for (int j = 0; j < emojis.length; j++) {
-        final Emoji currentEmoji = emojis[j];
+        final Emoji emoji = emojis[j];
+        final String unicode = emoji.getUnicode();
+        final List<Emoji> currentVariants = emoji.getVariants();
 
-        INSTANCE.emojiMap.put(currentEmoji.getUnicode(), currentEmoji);
-        unicodesForPattern.add(currentEmoji.getUnicode());
+        INSTANCE.emojiMap.put(unicode, emoji);
+        unicodesForPattern.add(unicode);
 
-        for (final Emoji variant : currentEmoji.getVariants()) {
-          INSTANCE.emojiMap.put(variant.getUnicode(), variant);
-          unicodesForPattern.add(variant.getUnicode());
+        for (int k = 0; k < currentVariants.size(); k++) {
+          final Emoji variant = currentVariants.get(j);
+          final String variantUnicode = variant.getUnicode();
+
+          INSTANCE.emojiMap.put(variantUnicode, variant);
+          unicodesForPattern.add(variantUnicode);
         }
       }
     }
 
     if (unicodesForPattern.isEmpty()) {
-      throw new IllegalArgumentException("Your EmojiProvider must at least have one category with at least one emoji");
+      throw new IllegalArgumentException("Your EmojiProvider must at least have one category with at least one emoji.");
     }
 
     // We need to sort the unicodes by length so the longest one gets matched first.
@@ -125,26 +130,14 @@ public final class EmojiManager {
   }
 
   static class EmojiRange {
-    private final int start;
-    private final int end;
-    private final Emoji emoji;
+    final int start;
+    final int end;
+    final Emoji emoji;
 
     EmojiRange(final int start, final int end, @NonNull final Emoji emoji) {
       this.start = start;
       this.end = end;
       this.emoji = emoji;
-    }
-
-    public int getStart() {
-      return start;
-    }
-
-    public int getEnd() {
-      return end;
-    }
-
-    @NonNull public Emoji getEmoji() {
-      return emoji;
     }
   }
 }
