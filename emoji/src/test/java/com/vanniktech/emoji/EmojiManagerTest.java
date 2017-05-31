@@ -47,7 +47,17 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().getCategories()).isNotEmpty();
   }
 
-  @Test public void installEmptyCategory() {
+  @Test
+  public void noProviderInstalled() {
+    assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
+      @Override
+      public void call() throws Throwable {
+        EmojiManager.getInstance().findEmoji("test");
+      }
+    }).isInstanceOf(IllegalStateException.class).hasMessage("Please install an EmojiProvider through the EmojiManager.install() method first.");
+  }
+
+  @Test public void installEmptyProvider() {
     final EmojiProvider emptyProvider = new EmojiProvider() {
       @NonNull @Override public EmojiCategory[] getCategories() {
         return new EmojiCategory[0];
@@ -59,7 +69,32 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
       public void call() throws Throwable {
         EmojiManager.install(emptyProvider);
       }
-    }).isInstanceOf(IllegalArgumentException.class);
+    }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
+  }
+
+  @Test public void installEmptyCategory() {
+    final EmojiProvider emptyProvider = new EmojiProvider() {
+      @NonNull @Override public EmojiCategory[] getCategories() {
+        return new EmojiCategory[] {
+          new EmojiCategory() {
+            @NonNull @Override public Emoji[] getEmojis() {
+              return new Emoji[0];
+            }
+
+            @Override public int getIcon() {
+              return 0;
+            }
+          }
+        };
+      }
+    };
+
+    assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
+      @Override
+      public void call() throws Throwable {
+        EmojiManager.install(emptyProvider);
+      }
+    }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
   }
 
   @Test public void installNormalEmoji() {
