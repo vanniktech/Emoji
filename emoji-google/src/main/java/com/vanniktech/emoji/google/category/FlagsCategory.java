@@ -2,6 +2,7 @@ package com.vanniktech.emoji.google.category;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.google.R;
@@ -241,7 +242,8 @@ import com.vanniktech.emoji.google.R;
     new Emoji(new int[] { 0x1f1fe, 0x1f1ea }, R.drawable.emoji_google_1f1fe_1f1ea),
     new Emoji(new int[] { 0x1f1ff, 0x1f1f2 }, R.drawable.emoji_google_1f1ff_1f1f2),
     new Emoji(new int[] { 0x1f1ff, 0x1f1fc }, R.drawable.emoji_google_1f1ff_1f1fc),
-    new Emoji(new int[] { 0x1f1e6, 0x1f1e8 }, R.drawable.emoji_google_1f1e6_1f1e8)
+          new Emoji(new int[]{0x1f1e6, 0x1f1e8}, R.drawable.emoji_google_1f1e6_1f1e8),
+          new Emoji(new int[]{0x1f1fa, 0x1f1f3}, R.drawable.emoji_google_1f1fa_1f1f3)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {

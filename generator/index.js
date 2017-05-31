@@ -197,7 +197,16 @@ async function parse() {
 
     const rows = $("tr").get()
         .map(it => it.children.filter(it => it.name === "td"))
-        .filter(it => it.length === 17 && it[1].attribs.class === "code");
+        .filter(it => it.length === 16 && it[1].attribs.class === "code")
+        .filter(it => {
+            const presentInInfo = emojiInfo.find(info => info.code_points.output === getCodePointForFindingInfo(it[1]));
+
+            if (!presentInInfo) {
+                console.error(`Not found in emoji.json: ${it[15].children[0].data}`)
+            }
+
+            return presentInInfo;
+        });
 
     const sortedRows = stable(rows, (first, second) => {
         return emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(first[1])).order -
@@ -205,49 +214,45 @@ async function parse() {
     });
 
     for (const row of sortedRows) {
-        const foundInfo = emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(row[1]));
-        const category = foundInfo ? foundInfo.category : null;
+        const info = emojiInfo.find(it => it.code_points.output === getCodePointForFindingInfo(row[1]));
+        const category = info.category;
 
-        if (foundInfo && foundInfo.display === 0) {
+        if (info.display === 0) {
             // This is a duplicate.
             continue;
         }
 
-        if (category) {
-            const code = row[1].children[0].attribs.name;
-            const isVariant = row[15].children[0].data.includes("skin tone");
+        const code = row[1].children[0].attribs.name;
+        const isVariant = row[15].children[0].data.includes("skin tone");
 
-            if (ignore.includes(code)) {
-                continue;
+        if (ignore.includes(code)) {
+            continue;
+        }
+
+        const emoji = {
+            unicode: code,
+            variants: []
+        };
+
+        for (const target of targets) {
+            const image = row[target.imagePosition].children[0].name === "img" ?
+                new Buffer(row[target.imagePosition].children[0].attribs.src.replace(/^data:image\/png;base64,/, ""), "base64") : null;
+
+            if (image) {
+                emoji[target.package] = image;
             }
+        }
 
-            const emoji = {
-                unicode: code,
-                variants: []
-            };
+        if (isVariant) {
+            const array = map.get(category);
 
-            for (const target of targets) {
-                const image = row[target.imagePosition].children[0].name === "img" ?
-                    new Buffer(row[target.imagePosition].children[0].attribs.src.replace(/^data:image\/png;base64,/, ""), "base64") : null;
-
-                if (image) {
-                    emoji[target.package] = image;
-                }
-            }
-
-            if (isVariant) {
-                const array = map.get(category);
-
-                array[array.length - 1].variants.push(emoji);
-            } else {
-                if (map.has(category)) {
-                    map.get(category).push(emoji);
-                } else {
-                    map.set(category, new Array(emoji));
-                }
-            }
+            array[array.length - 1].variants.push(emoji);
         } else {
-            console.error(`Not found: ${row[15].children[0].data}`);
+            if (map.has(category)) {
+                map.get(category).push(emoji);
+            } else {
+                map.set(category, new Array(emoji));
+            }
         }
     }
 

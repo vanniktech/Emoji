@@ -9,7 +9,7 @@
   "author": "Ruben Gees",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0-rc.1",
     "command-line-args": "^4.0.1",
     "download": "^6.0.0",
     "fs-extra": "^3.0.1",
