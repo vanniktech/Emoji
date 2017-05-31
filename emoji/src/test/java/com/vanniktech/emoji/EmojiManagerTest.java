@@ -3,7 +3,6 @@ package com.vanniktech.emoji;
 import android.support.annotation.NonNull;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
-
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.Before;
 import org.junit.Rule;

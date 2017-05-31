@@ -2,9 +2,7 @@ package com.vanniktech.emoji;
 
 import android.content.Context;
 import android.text.Spannable;
-
 import com.vanniktech.emoji.EmojiManager.EmojiRange;
-
 import java.util.ArrayList;
 import java.util.List;
 
