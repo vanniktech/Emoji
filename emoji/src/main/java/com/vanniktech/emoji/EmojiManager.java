@@ -62,13 +62,13 @@ public final class EmojiManager {
       for (int j = 0; j < emojis.length; j++) {
         final Emoji emoji = emojis[j];
         final String unicode = emoji.getUnicode();
-        final List<Emoji> currentVariants = emoji.getVariants();
+        final List<Emoji> variants = emoji.getVariants();
 
         INSTANCE.emojiMap.put(unicode, emoji);
         unicodesForPattern.add(unicode);
 
-        for (int k = 0; k < currentVariants.size(); k++) {
-          final Emoji variant = currentVariants.get(j);
+        for (int k = 0; k < variants.size(); k++) {
+          final Emoji variant = variants.get(j);
           final String variantUnicode = variant.getUnicode();
 
           INSTANCE.emojiMap.put(variantUnicode, variant);
