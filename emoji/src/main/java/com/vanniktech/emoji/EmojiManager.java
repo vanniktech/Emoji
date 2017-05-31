@@ -76,7 +76,7 @@ public final class EmojiManager {
       throw new IllegalArgumentException("Your EmojiProvider must at least have one category with at least one emoji");
     }
 
-    // We need to sort the unicodes by length so the longest get matched first.
+    // We need to sort the unicodes by length so the longest one gets matched first.
     Collections.sort(unicodesForPattern, STRING_LENGTH_COMPARATOR);
 
     final StringBuilder patternBuilder = new StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH);
@@ -112,6 +112,9 @@ public final class EmojiManager {
 
   @Nullable Emoji findEmoji(@NonNull final CharSequence candiate) {
     verifyInstalled();
+
+    // We need to call toString on the candidate, since the emojiMap may not find the requested entry otherwise, because
+    // the type is different.
     return emojiMap.get(candiate.toString());
   }
 
