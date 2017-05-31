@@ -7,7 +7,7 @@ codeQualityTools {
     toolVersion = '7.7'
   }
   pmd {
-    toolVersion = '5.6.1'
+    toolVersion = '5.7.0'
   }
 }
 
@@ -18,10 +18,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.4.0'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.4.0'
+        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.6.0'
 
         classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
         classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.10'
     }
 }
@@ -51,10 +51,10 @@ ext {
     minSdkVersion = 15
     compileSdkVersion = 25
     targetSdkVersion = 25
-    buildToolsVersion = '25.0.2'
+    buildToolsVersion = '25.0.3'
 
-    supportLibraryVersion = '25.1.1'
-    leakCanaryVersion = '1.5'
+    supportLibraryVersion = '25.3.1'
+    leakCanaryVersion = '1.5.1'
 
     versionCode = VERSION_CODE
     versionName = VERSION_NAME
@@ -70,10 +70,10 @@ ext {
 
     testing = [
             junit             : 'junit:junit:4.12',
-            robolectric       : 'org.robolectric:robolectric:3.2.2',
-            mockito           : 'org.mockito:mockito-core:2.7.7',
+            robolectric       : 'org.robolectric:robolectric:3.3.2',
+            mockito           : 'org.mockito:mockito-core:2.8.9',
             privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-            assertJ           : 'org.assertj:assertj-core:3.6.2'
+            assertJ           : 'org.assertj:assertj-core:3.8.0'
     ]
 
     javaVersion = JavaVersion.VERSION_1_7
