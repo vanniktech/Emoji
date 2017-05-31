@@ -20,9 +20,9 @@ buildscript {
         classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.4.0'
         classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.4.0'
 
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
-        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.8'
+        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.10'
     }
 }
 
@@ -80,6 +80,6 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+    gradleVersion = '3.5'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }

@@ -133,7 +133,7 @@ final class RecentEmojiManager implements RecentEmoji {
       return emojis.size();
     }
 
-    @Override public Iterator<Data> iterator() {
+    @Override @NonNull public Iterator<Data> iterator() {
       return emojis.iterator();
     }
   }
