@@ -4,7 +4,7 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 codeQualityTools {
   checkstyle {
-    toolVersion = '7.7'
+    toolVersion = '7.8'
   }
   pmd {
     toolVersion = '5.7.0'
@@ -81,5 +81,5 @@ ext {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.5'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+    distributionType = Wrapper.DistributionType.ALL
 }
