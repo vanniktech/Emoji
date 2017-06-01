@@ -25,6 +25,7 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import com.vanniktech.emoji.one.EmojiOneProvider;
+import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 public class MainActivity extends AppCompatActivity {
   static final String TAG = "MainActivity";
@@ -91,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
       case R.id.variantGoogle:
         EmojiManager.install(new GoogleEmojiProvider());
+        recreate();
+        return true;
+      case R.id.variantTwitter:
+        EmojiManager.install(new TwitterEmojiProvider());
         recreate();
         return true;
       case R.id.variantEmojiOne:

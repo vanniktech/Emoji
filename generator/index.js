@@ -133,6 +133,14 @@ const targets = [{
         "1f1fa_1f1f2", "1f1f3_1f1f4"
     ]
 }, {
+    package: "twitter",
+    name: "TwitterEmoji",
+    imagePosition: 5,
+    ignore: [
+        // Some duplicate flags, especially for this target.
+        "1f1eb_1f1f7"
+    ]
+}, {
     package: "one",
     name: "EmojiOne",
     imagePosition: 6,
