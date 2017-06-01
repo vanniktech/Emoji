@@ -97,8 +97,7 @@ public final class EmojiPopup {
     };
 
     final OnEmojiClickedListener clickListener = new OnEmojiClickedListener() {
-      @Override
-      public void onEmojiClicked(final Emoji emoji) {
+      @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
         emojiEditText.input(emoji);
         recentEmoji.addEmoji(emoji);
 

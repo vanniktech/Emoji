@@ -33,7 +33,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,
-                               final int end, final Paint.FontMetricsInt fm) {
+      final int end, final Paint.FontMetricsInt fm) {
     return size;
   }
 }

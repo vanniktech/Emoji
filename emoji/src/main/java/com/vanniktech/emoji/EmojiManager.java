@@ -32,7 +32,7 @@ public final class EmojiManager {
     }
   };
 
-  private final Map<CharSequence, Emoji> emojiMap = new LinkedHashMap<>();
+  private final Map<String, Emoji> emojiMap = new LinkedHashMap<>();
   private EmojiCategory[] categories;
   private Pattern emojiPattern;
 

@@ -1,6 +1,7 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.GridView;
@@ -13,8 +14,9 @@ class EmojiGridView extends GridView {
   EmojiGridView(final Context context) {
     super(context);
 
-    final int width = getResources().getDimensionPixelSize(R.dimen.emoji_grid_view_column_width);
-    final int spacing = getResources().getDimensionPixelSize(R.dimen.emoji_grid_view_spacing);
+    final Resources resources = getResources();
+    final int width = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_column_width);
+    final int spacing = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_spacing);
 
     setColumnWidth(width);
     setHorizontalSpacing(spacing);
@@ -26,8 +28,8 @@ class EmojiGridView extends GridView {
   }
 
   public EmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener,
-                            @Nullable final OnEmojiLongClickedListener onEmojiLongClickedListener,
-                            @NonNull final EmojiCategory category) {
+      @Nullable final OnEmojiLongClickedListener onEmojiLongClickedListener,
+      @NonNull final EmojiCategory category) {
     emojiArrayAdapter = new EmojiArrayAdapter(getContext(), category.getEmojis(), onEmojiClickedListener, onEmojiLongClickedListener);
     setAdapter(emojiArrayAdapter);
 

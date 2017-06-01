@@ -15,8 +15,8 @@ final class RecentEmojiGridView extends EmojiGridView {
   }
 
   public RecentEmojiGridView init(@Nullable final OnEmojiClickedListener onEmojiClickedListener,
-                                  @Nullable final OnEmojiLongClickedListener onEmojiLongClickedListener,
-                                  @NonNull final RecentEmoji recentEmoji) {
+      @Nullable final OnEmojiLongClickedListener onEmojiLongClickedListener,
+      @NonNull final RecentEmoji recentEmoji) {
     recentEmojis = recentEmoji;
 
     final Collection<Emoji> emojis = recentEmojis.getRecentEmojis();

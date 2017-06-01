@@ -20,16 +20,14 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @Nullable final OnEmojiLongClickedListener longListener;
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
-                    @Nullable final OnEmojiClickedListener listener,
-                    @Nullable final OnEmojiLongClickedListener longListener) {
+      @Nullable final OnEmojiClickedListener listener, @Nullable final OnEmojiLongClickedListener longListener) {
     super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
 
     this.listener = listener;
     this.longListener = longListener;
   }
 
-  @NonNull @Override
-  public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
+  @NonNull @Override public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
     EmojiImageView image = (EmojiImageView) convertView;
 
     if (image == null) {
@@ -42,7 +40,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     image.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(final View v) {
         if (listener != null) {
-          listener.onEmojiClicked(getItem(position));
+          listener.onEmojiClicked(emoji);
         }
       }
     });
@@ -50,8 +48,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     if (emoji.getBase().hasVariants()) {
       image.setHasVariants(true);
       image.setOnLongClickListener(new View.OnLongClickListener() {
-          @Override
-          public boolean onLongClick(final View v) {
+          @Override public boolean onLongClick(final View v) {
             if (longListener != null) {
               longListener.onEmojiLongClicked(v, emoji);
 

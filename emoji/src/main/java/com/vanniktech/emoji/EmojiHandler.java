@@ -12,14 +12,20 @@ final class EmojiHandler {
     final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
     final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
 
-    for (final EmojiSpan existingSpan : existingSpans) {
-      existingSpanPositions.add(text.getSpanStart(existingSpan));
+    //noinspection ForLoopReplaceableByForEach
+    for (int i = 0; i < existingSpans.length; i++) {
+      existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
     }
 
-    for (final EmojiRange location : emojiManager.findAllEmojis(text)) {
+    final List<EmojiRange> findAllEmojis = emojiManager.findAllEmojis(text);
+
+    //noinspection ForLoopReplaceableByForEach
+    for (int i = 0; i < findAllEmojis.size(); i++) {
+      final EmojiRange location = findAllEmojis.get(i);
+
       if (!existingSpanPositions.contains(location.start)) {
         text.setSpan(new EmojiSpan(context, location.emoji.getResource(), emojiSize),
-                location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
       }
     }
   }

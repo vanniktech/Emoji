@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.Px;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -106,7 +107,7 @@ public class MainDialog extends DialogFragment {
               }
             })
             .setOnEmojiClickedListener(new OnEmojiClickedListener() {
-              @Override public void onEmojiClicked(final Emoji emoji) {
+              @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
                 Log.d(TAG, "Clicked on emoji");
               }
             })
@@ -116,7 +117,7 @@ public class MainDialog extends DialogFragment {
               }
             })
             .setOnSoftKeyboardOpenListener(new OnSoftKeyboardOpenListener() {
-              @Override public void onKeyboardOpen(final int keyBoardHeight) {
+              @Override public void onKeyboardOpen(@Px final int keyBoardHeight) {
                 Log.d(TAG, "Opened soft keyboard");
               }
             })

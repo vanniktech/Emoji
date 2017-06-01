@@ -49,17 +49,13 @@ final class Utils {
 
   @NonNull static Point locationOnScreen(@NonNull final View view) {
     final int[] location = new int[2];
-
     view.getLocationOnScreen(location);
-
     return new Point(location[0], location[1]);
   }
 
   @NonNull static Rect windowVisibleDisplayFrame(@NonNull final Activity context) {
     final Rect result = new Rect();
-
     context.getWindow().getDecorView().getWindowVisibleDisplayFrame(result);
-
     return result;
   }
 
@@ -74,7 +70,7 @@ final class Utils {
       result = ((ContextWrapper) context).getBaseContext();
     }
 
-    throw new IllegalArgumentException("The passed Context is not an Activity");
+    throw new IllegalArgumentException("The passed Context is not an Activity.");
   }
 
   static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {

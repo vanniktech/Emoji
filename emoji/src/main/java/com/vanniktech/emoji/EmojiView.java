@@ -36,10 +36,8 @@ import java.util.concurrent.TimeUnit;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context,
-            final OnEmojiClickedListener onEmojiClickedListener,
-            final OnEmojiLongClickedListener onEmojiLongClickedListener,
-            @NonNull final RecentEmoji recentEmoji) {
+  EmojiView(final Context context, final OnEmojiClickedListener onEmojiClickedListener,
+      final OnEmojiLongClickedListener onEmojiLongClickedListener, @NonNull final RecentEmoji recentEmoji) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
@@ -80,14 +78,13 @@ import java.util.concurrent.TimeUnit;
       emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
     }
 
-    emojiTabs[emojiTabs.length - 1].setOnTouchListener(
-        new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, new OnClickListener() {
-          @Override public void onClick(final View view) {
-            if (onEmojiBackspaceClickListener != null) {
-              onEmojiBackspaceClickListener.onEmojiBackspaceClicked(view);
-            }
-          }
-        }));
+    emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, new OnClickListener() {
+      @Override public void onClick(final View view) {
+        if (onEmojiBackspaceClickListener != null) {
+          onEmojiBackspaceClickListener.onEmojiBackspaceClicked(view);
+        }
+      }
+    }));
   }
 
   public void setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener) {
@@ -124,11 +121,11 @@ import java.util.concurrent.TimeUnit;
   }
 
   @Override public void onPageScrolled(final int i, final float v, final int i2) {
-    // Don't care.
+    // No-op.
   }
 
   @Override public void onPageScrollStateChanged(final int i) {
-    // Don't care.
+    // No-op.
   }
 
   static class EmojiTabsClickListener implements OnClickListener {

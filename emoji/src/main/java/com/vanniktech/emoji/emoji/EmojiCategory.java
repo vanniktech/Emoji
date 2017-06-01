@@ -10,14 +10,14 @@ import android.support.annotation.NonNull;
  */
 public interface EmojiCategory {
   /**
-   * returns all of the emojis it can display
+   * Returns all of the emojis it can display.
    *
    * @since 0.4.0
    */
   @NonNull Emoji[] getEmojis();
 
   /**
-   * returns the icon of the category that should be displayed
+   * Returns the icon of the category that should be displayed.
    *
    * @since 0.4.0
    */

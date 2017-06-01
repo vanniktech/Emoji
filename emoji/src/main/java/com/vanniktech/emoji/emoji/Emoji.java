@@ -5,16 +5,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public final class Emoji implements Serializable {
   private static final long serialVersionUID = 3L;
 
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
-  @NonNull private List<Emoji> variants;
-  @SuppressWarnings("PMD.ImmutableField") @Nullable private Emoji base;
+  @NonNull private final List<Emoji> variants;
+  @Nullable private Emoji base;
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource) {
     this(codePoints, resource, new Emoji[0]);
@@ -24,18 +25,18 @@ public final class Emoji implements Serializable {
     this(codePoint, resource, new Emoji[0]);
   }
 
+  public Emoji(final int codePoint, @DrawableRes final int resource, final Emoji... variants) {
+    this(new int[]{codePoint}, resource, variants);
+  }
+
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource, final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.resource = resource;
-    this.variants = Arrays.asList(variants);
+    this.variants = asList(variants);
 
     for (final Emoji variant : variants) {
       variant.base = this;
     }
-  }
-
-  public Emoji(final int codePoint, @DrawableRes final int resource, final Emoji... variants) {
-    this(new int[]{codePoint}, resource, variants);
   }
 
   @NonNull public String getUnicode() {

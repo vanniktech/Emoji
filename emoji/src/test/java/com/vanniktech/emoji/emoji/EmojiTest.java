@@ -7,9 +7,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class EmojiTest {
   @Test public void multipleCodePoints() {
-    final Emoji emoji = new Emoji(new int[]{0x1234, 0x5678}, R.drawable.emoji_backspace);
+    final Emoji emoji = new Emoji(new int[]{ 0x1234, 0x5678 }, R.drawable.emoji_backspace);
 
-    assertThat(emoji.getUnicode()).hasSize(2).isEqualTo(new String(new int[]{0x1234, 0x5678}, 0, 2));
+    assertThat(emoji.getUnicode()).hasSize(2).isEqualTo(new String(new int[]{ 0x1234, 0x5678 }, 0, 2));
   }
 
   @Test public void baseWithoutVariant() {
@@ -41,5 +41,20 @@ public class EmojiTest {
 
     assertThat(variantOfVariant.getBase()).isSameAs(emoji);
     assertThat(variant.getBase()).isSameAs(emoji);
+  }
+
+  @Test public void hasVariants() {
+    assertThat(new Emoji(new int[]{ 0x1234, 0x5678 }, R.drawable.emoji_backspace).hasVariants()).isFalse();
+
+    assertThat(new Emoji(0x1f3cb, R.drawable.emoji_backspace, new Emoji(new int[] { 0x1f3cb, 0x1f3fb }, R.drawable.emoji_backspace)).hasVariants()).isTrue();
+  }
+
+  @Test public void getResource() {
+    assertThat(new Emoji(new int[]{ 0x1234, 0x5678 }, R.drawable.emoji_backspace).getResource()).isEqualTo(R.drawable.emoji_backspace);
+  }
+
+  @Test public void getLength() {
+    assertThat(new Emoji(0x1234, R.drawable.emoji_backspace).getLength()).isEqualTo(1);
+    assertThat(new Emoji(new int[]{ 0x1234, 0x5678 }, R.drawable.emoji_backspace).getLength()).isEqualTo(2);
   }
 }
