@@ -2,8 +2,10 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,7 +27,10 @@ public final class EmojiManager {
 
   private static final Comparator<String> STRING_LENGTH_COMPARATOR = new Comparator<String>() {
     @Override public int compare(final String first, final String second) {
-      return second.length() - first.length();
+      final int firstLength = first.length();
+      final int secondLength = second.length();
+
+      return firstLength < secondLength ? 1 : (firstLength == secondLength ? 0 : -1);
     }
   };
 
@@ -67,8 +72,9 @@ public final class EmojiManager {
         INSTANCE.emojiMap.put(unicode, emoji);
         unicodesForPattern.add(unicode);
 
+        //noinspection ForLoopReplaceableByForEach
         for (int k = 0; k < variants.size(); k++) {
-          final Emoji variant = variants.get(j);
+          final Emoji variant = variants.get(k);
           final String variantUnicode = variant.getUnicode();
 
           INSTANCE.emojiMap.put(variantUnicode, variant);
@@ -91,6 +97,12 @@ public final class EmojiManager {
     }
 
     INSTANCE.emojiPattern = Pattern.compile(patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString());
+  }
+
+  static void destroy() {
+    INSTANCE.emojiMap.clear();
+    INSTANCE.categories = null;
+    INSTANCE.emojiPattern = null;
   }
 
   EmojiCategory[] getCategories() {
@@ -138,6 +150,26 @@ public final class EmojiManager {
       this.start = start;
       this.end = end;
       this.emoji = emoji;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+
+      EmojiRange that = (EmojiRange) o;
+
+      if (start != that.start) return false;
+      if (end != that.end) return false;
+      return emoji.equals(that.emoji);
+    }
+
+    @Override
+    public int hashCode() {
+      int result = start;
+      result = 31 * result + end;
+      result = 31 * result + emoji.hashCode();
+      return result;
     }
   }
 }

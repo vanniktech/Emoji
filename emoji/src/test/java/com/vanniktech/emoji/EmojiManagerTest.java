@@ -1,9 +1,13 @@
 package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
+
+import com.vanniktech.emoji.EmojiManager.EmojiRange;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
+
 import org.assertj.core.api.ThrowableAssert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,6 +43,11 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
         } };
       }
     };
+  }
+
+  @After
+  public void tearDown() {
+    EmojiManager.destroy();
   }
 
   @Test public void installNormalCategory() {
@@ -112,10 +121,44 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().getCategories()).hasSize(1);
   }
 
+  @Test
+  public void destroy() {
+    EmojiManager.destroy();
+
+    assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
+      @Override
+      public void call() throws Throwable {
+        EmojiManager.getInstance().findEmoji("test");
+      }
+    }).isInstanceOf(IllegalStateException.class).hasMessage("Please install an EmojiProvider through the EmojiManager.install() method first.");
+  }
+
+  @Test
+  public void findEmojiNormal() {
+    EmojiManager.install(provider);
+
+    assertThat(EmojiManager.getInstance().findEmoji(new String(new int[]{0x5678}, 0, 1)))
+            .isEqualTo(new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace));
+  }
+
   @Test public void findEmojiEmpty() {
     EmojiManager.install(provider);
 
     assertThat(EmojiManager.getInstance().findEmoji("")).isNull();
+  }
+
+  @Test
+  public void findAllEmojisNormal() {
+    EmojiManager.install(provider);
+
+    final String text = "te" + new String(new int[]{0x5678}, 0, 1) +
+            "st" + new String(new int[]{0x1234}, 0, 1);
+
+    final EmojiRange firstExpectedRange = new EmojiRange(2, 3, new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace));
+    final EmojiRange secondExpectedRange = new EmojiRange(5, 6, new Emoji(new int[]{0x1234}, R.drawable.emoji_recent));
+
+    assertThat(EmojiManager.getInstance().findAllEmojis(text))
+            .containsExactly(firstExpectedRange, secondExpectedRange);
   }
 
   @Test public void findAllEmojisEmpty() {
