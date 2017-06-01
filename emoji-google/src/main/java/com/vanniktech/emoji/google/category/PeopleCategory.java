@@ -2,7 +2,6 @@ package com.vanniktech.emoji.google.category;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.google.R;
@@ -915,13 +914,13 @@ import com.vanniktech.emoji.google.R;
       new Emoji(new int[] { 0x1f486, 0x1f3fe, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f486_1f3fe_200d_2642_fe0f),
       new Emoji(new int[] { 0x1f486, 0x1f3ff, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f486_1f3ff_200d_2642_fe0f)
     ),
-          new Emoji(0x1f574, R.drawable.emoji_google_1f574,
-                  new Emoji(new int[]{0x1f574, 0x1f3fb}, R.drawable.emoji_google_1f574_1f3fb),
-                  new Emoji(new int[]{0x1f574, 0x1f3fc}, R.drawable.emoji_google_1f574_1f3fc),
-                  new Emoji(new int[]{0x1f574, 0x1f3fd}, R.drawable.emoji_google_1f574_1f3fd),
-                  new Emoji(new int[]{0x1f574, 0x1f3fe}, R.drawable.emoji_google_1f574_1f3fe),
-                  new Emoji(new int[]{0x1f574, 0x1f3ff}, R.drawable.emoji_google_1f574_1f3ff)
-          ),
+    new Emoji(0x1f574, R.drawable.emoji_google_1f574,
+      new Emoji(new int[] { 0x1f574, 0x1f3fb }, R.drawable.emoji_google_1f574_1f3fb),
+      new Emoji(new int[] { 0x1f574, 0x1f3fc }, R.drawable.emoji_google_1f574_1f3fc),
+      new Emoji(new int[] { 0x1f574, 0x1f3fd }, R.drawable.emoji_google_1f574_1f3fd),
+      new Emoji(new int[] { 0x1f574, 0x1f3fe }, R.drawable.emoji_google_1f574_1f3fe),
+      new Emoji(new int[] { 0x1f574, 0x1f3ff }, R.drawable.emoji_google_1f574_1f3ff)
+    ),
     new Emoji(0x1f483, R.drawable.emoji_google_1f483,
       new Emoji(new int[] { 0x1f483, 0x1f3fb }, R.drawable.emoji_google_1f483_1f3fb),
       new Emoji(new int[] { 0x1f483, 0x1f3fc }, R.drawable.emoji_google_1f483_1f3fc),
