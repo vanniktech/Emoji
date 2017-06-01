@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="emoji_background">#13100e</color>
+    <color name="emoji_icons">#61ffffff</color>
+    <color name="emoji_divider">#1fffffff</color>
+</resources>
