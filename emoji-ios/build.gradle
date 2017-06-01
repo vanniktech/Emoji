@@ -18,14 +18,6 @@ android {
 
 dependencies {
     compile project(':emoji')
-
-    compile rootProject.ext.supportV4Compat
-
-    testCompile rootProject.ext.testing.junit
-    testCompile rootProject.ext.testing.mockito
-    testCompile rootProject.ext.testing.assertJ
-    testCompile rootProject.ext.testing.robolectric
-    testCompile rootProject.ext.testing.privateConstructor
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
