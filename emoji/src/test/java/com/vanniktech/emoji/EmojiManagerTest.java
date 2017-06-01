@@ -1,11 +1,9 @@
 package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
-
 import com.vanniktech.emoji.EmojiManager.EmojiRange;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
-
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.After;
 import org.junit.Before;
@@ -121,8 +119,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().getCategories()).hasSize(1);
   }
 
-  @Test
-  public void destroy() {
+  @Test public void destroy() {
     EmojiManager.destroy();
 
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
@@ -133,8 +130,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     }).isInstanceOf(IllegalStateException.class).hasMessage("Please install an EmojiProvider through the EmojiManager.install() method first.");
   }
 
-  @Test
-  public void findEmojiNormal() {
+  @Test public void findEmojiNormal() {
     EmojiManager.install(provider);
 
     assertThat(EmojiManager.getInstance().findEmoji(new String(new int[]{0x5678}, 0, 1)))
@@ -147,8 +143,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().findEmoji("")).isNull();
   }
 
-  @Test
-  public void findAllEmojisNormal() {
+  @Test public void findAllEmojisNormal() {
     EmojiManager.install(provider);
 
     final String text = "te" + new String(new int[]{0x5678}, 0, 1) +

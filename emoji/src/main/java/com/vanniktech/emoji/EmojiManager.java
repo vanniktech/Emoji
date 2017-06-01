@@ -2,10 +2,8 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -152,8 +150,7 @@ public final class EmojiManager {
       this.emoji = emoji;
     }
 
-    @Override
-    public boolean equals(Object o) {
+    @SuppressWarnings("SimplifiableIfStatement") @Override public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
 
@@ -164,8 +161,7 @@ public final class EmojiManager {
       return emoji.equals(that.emoji);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
       int result = start;
       result = 31 * result + end;
       result = 31 * result + emoji.hashCode();
