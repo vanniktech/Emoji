@@ -43,8 +43,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     };
   }
 
-  @After
-  public void tearDown() {
+  @After public void tearDown() {
     EmojiManager.destroy();
   }
 
@@ -57,8 +56,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
   @Test
   public void noProviderInstalled() {
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
-      @Override
-      public void call() throws Throwable {
+      @Override public void call() throws Throwable {
         EmojiManager.getInstance().findEmoji("test");
       }
     }).isInstanceOf(IllegalStateException.class).hasMessage("Please install an EmojiProvider through the EmojiManager.install() method first.");
@@ -72,8 +70,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     };
 
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
-      @Override
-      public void call() throws Throwable {
+      @Override public void call() throws Throwable {
         EmojiManager.install(emptyProvider);
       }
     }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
@@ -97,8 +94,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     };
 
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
-      @Override
-      public void call() throws Throwable {
+      @Override public void call() throws Throwable {
         EmojiManager.install(emptyProvider);
       }
     }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
@@ -123,8 +119,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     EmojiManager.destroy();
 
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
-      @Override
-      public void call() throws Throwable {
+      @Override public void call() throws Throwable {
         EmojiManager.getInstance().findEmoji("test");
       }
     }).isInstanceOf(IllegalStateException.class).hasMessage("Please install an EmojiProvider through the EmojiManager.install() method first.");
