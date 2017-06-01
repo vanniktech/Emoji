@@ -141,8 +141,8 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
   @Test public void findAllEmojisNormal() {
     EmojiManager.install(provider);
 
-    final String text = "te" + new String(new int[]{0x5678}, 0, 1) +
-            "st" + new String(new int[]{0x1234}, 0, 1);
+    final String text = "te" + new String(new int[]{0x5678}, 0, 1)
+            + "st" + new String(new int[]{0x1234}, 0, 1);
 
     final EmojiRange firstExpectedRange = new EmojiRange(2, 3, new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace));
     final EmojiRange secondExpectedRange = new EmojiRange(5, 6, new Emoji(new int[]{0x1234}, R.drawable.emoji_recent));

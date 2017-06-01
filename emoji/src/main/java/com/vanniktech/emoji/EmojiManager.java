@@ -28,7 +28,7 @@ public final class EmojiManager {
       final int firstLength = first.length();
       final int secondLength = second.length();
 
-      return firstLength < secondLength ? 1 : (firstLength == secondLength ? 0 : -1);
+      return firstLength < secondLength ? 1 : firstLength == secondLength ? 0 : -1;
     }
   };
 
@@ -150,15 +150,20 @@ public final class EmojiManager {
       this.emoji = emoji;
     }
 
-    @SuppressWarnings("SimplifiableIfStatement") @Override public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
+    @Override public boolean equals(final Object o) {
+      if (this == o) {
+        return true;
+      }
 
-      EmojiRange that = (EmojiRange) o;
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
 
-      if (start != that.start) return false;
-      if (end != that.end) return false;
-      return emoji.equals(that.emoji);
+      final EmojiRange that = (EmojiRange) o;
+
+      return start == that.start
+              && end == that.end
+              && emoji.equals(that.emoji);
     }
 
     @Override public int hashCode() {
