@@ -5,10 +5,5 @@
         <ignore regexp="library_emoji_strings.xml"/>
     </issue>
 
-    <!-- Obviously unused since AboutLibraries will consume it -->
-    <issue id="UnusedResources">
-        <ignore regexp="library_emoji_strings.xml"/>
-    </issue>
-
     <issue id="IconMissingDensityFolder" severity="ignore" />
 </lint>
