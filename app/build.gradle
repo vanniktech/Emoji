@@ -19,6 +19,8 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         setProperty("archivesBaseName", "app-$versionName")
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     def shouldSign = project.hasProperty('RELEASE_STORE_FILE') && project.hasProperty('RELEASE_STORE_PASSWORD') && project.hasProperty('RELEASE_KEY_ALIAS') && project.hasProperty('RELEASE_KEY_PASSWORD')
@@ -64,4 +66,15 @@ dependencies {
 
     debugCompile rootProject.ext.leakCanaryDebug
     releaseCompile rootProject.ext.leakCanaryRelease
+
+    androidTestCompile deps.support.test.espresso
+    androidTestCompile deps.support.test.runner
+    androidTestCompile deps.support.test.rules
+    androidTestCompile deps.fastLaneScreenGrab
+}
+
+configurations.all {
+    resolutionStrategy {
+        force rootProject.ext.supportAnnotations
+    }
 }

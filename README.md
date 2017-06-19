@@ -10,7 +10,7 @@ The library has 2 different providers to choose from.
 
 ## iOS Emojis
 
-<img src="preview.png" alt="Normal Keyboard" width="270"><img src="preview_ios_1.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="preview_ios_2.png" alt="Recent Emojis" width="270">
+<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/ios_1_1497981857129.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/ios_2_1497981858910.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/ios_3_1497981861270.png" alt="Recent Emojis" width="270">
 
 For getting the above iOS Emojis simply add the dependency and code below.
 
@@ -26,7 +26,7 @@ EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed 
 
 ## EmojiOne
 
-<img src="preview.png" alt="Normal Keyboard" width="270"><img src="preview_one_1.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="preview_one_2.png" alt="Recent Emojis" width="280">
+<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_1_1497981847755.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_2_1497981849678.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_3_1497981852339.png" alt="Recent Emojis" width="280">
 
 For getting the above EmojiOne Emojis simply add the dependency and code below.
 

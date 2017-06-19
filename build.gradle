@@ -12,8 +12,24 @@ codeQualityTools {
 }
 
 buildscript {
+    ext.versions = [
+        testRules: '0.5',
+    ]
+
+    ext.deps = [
+        'support': [
+           'test': [
+                'espresso': 'com.android.support.test.espresso:espresso-core:2.2.2',
+                'runner': "com.android.support.test:runner:${versions.testRules}",
+                'rules': "com.android.support.test:rules:${versions.testRules}",
+            ],
+        ],
+        'fastLaneScreenGrab': "tools.fastlane:screengrab:1.0.3",
+    ]
+
     repositories {
         jcenter()
+        google()
         maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
@@ -39,6 +55,7 @@ junitJacoco {
 subprojects {
     repositories {
         jcenter()
+        google()
     }
 
     group = GROUP
@@ -53,7 +70,7 @@ ext {
     targetSdkVersion = 25
     buildToolsVersion = '25.0.3'
 
-    supportLibraryVersion = '25.3.1'
+    supportLibraryVersion = '25.4.0'
     leakCanaryVersion = '1.5.1'
 
     versionCode = VERSION_CODE
@@ -62,8 +79,9 @@ ext {
     supportAppCompat = "com.android.support:appcompat-v7:$supportLibraryVersion"
     supportV4CoreUi = "com.android.support:support-core-ui:$supportLibraryVersion"
     supportV4Compat = "com.android.support:support-compat:$supportLibraryVersion"
-    supportRecyclerView = "com.android.support:recyclerview-v7:${supportLibraryVersion}"
-    supportCardView = "com.android.support:cardview-v7:${supportLibraryVersion}"
+    supportRecyclerView = "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    supportCardView = "com.android.support:cardview-v7:$supportLibraryVersion"
+    supportAnnotations = "com.android.support:support-annotations:$supportLibraryVersion"
 
     leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
@@ -80,6 +98,6 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
+    gradleVersion = '4.0'
     distributionType = Wrapper.DistributionType.ALL
 }

@@ -1,0 +1,9 @@
+app_package_name 'com.vanniktech.emoji.sample'
+use_tests_in_packages ['com.vanniktech.emoji.sample.screenshots']
+
+app_apk_path 'app/build/outputs/apk/app-0.5.0-SNAPSHOT-debug.apk'
+tests_apk_path 'app/build/outputs/apk/app-0.5.0-SNAPSHOT-debug-androidTest.apk'
+
+locales ['en-US']
+
+clear_previous_screenshots true

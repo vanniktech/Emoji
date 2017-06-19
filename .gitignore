@@ -40,3 +40,6 @@ Thumbs.db
 
 # Oh my zsh plugins
 .gradletasknamecache
+
+# Fastlane
+fastlane/metadata/android/screenshots.html
