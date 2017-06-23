@@ -2,7 +2,9 @@ package com.vanniktech.emoji;
 
 import android.content.Context;
 import android.text.Spannable;
+
 import com.vanniktech.emoji.EmojiManager.EmojiRange;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ final class EmojiHandler {
     final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
 
     //noinspection ForLoopReplaceableByForEach
-    for (int i = 0; i < existingSpans.length; i++) {
+    for (int i = 0, size = existingSpans.length; i < size; i++) {
       existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
     }
 

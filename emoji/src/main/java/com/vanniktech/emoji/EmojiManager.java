@@ -32,7 +32,7 @@ public final class EmojiManager {
     }
   };
 
-  private final Map<String, Emoji> emojiMap = new LinkedHashMap<>();
+  private final Map<String, Emoji> emojiMap = new LinkedHashMap<>(GUESSED_UNICODE_AMOUNT);
   private EmojiCategory[] categories;
   private Pattern emojiPattern;
 
@@ -58,11 +58,11 @@ public final class EmojiManager {
     final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
 
     //noinspection ForLoopReplaceableByForEach
-    for (int i = 0; i < INSTANCE.categories.length; i++) {
+    for (int i = 0, categoriesSize = INSTANCE.categories.length; i < categoriesSize; i++) {
       final Emoji[] emojis = checkNotNull(INSTANCE.categories[i].getEmojis(), "emojies == null");
 
       //noinspection ForLoopReplaceableByForEach
-      for (int j = 0; j < emojis.length; j++) {
+      for (int j = 0, emojisSize = emojis.length; j < emojisSize; j++) {
         final Emoji emoji = emojis[j];
         final String unicode = emoji.getUnicode();
         final List<Emoji> variants = emoji.getVariants();
@@ -90,8 +90,8 @@ public final class EmojiManager {
 
     final StringBuilder patternBuilder = new StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH);
 
-    for (final String unicode : unicodesForPattern) {
-      patternBuilder.append(Pattern.quote(unicode)).append('|');
+    for (int i = 0, unicodesForPatternSize = unicodesForPattern.size(); i < unicodesForPatternSize; i++) {
+      patternBuilder.append(Pattern.quote(unicodesForPattern.get(i))).append('|');
     }
 
     INSTANCE.emojiPattern = Pattern.compile(patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString());
@@ -125,12 +125,12 @@ public final class EmojiManager {
     return result;
   }
 
-  @Nullable Emoji findEmoji(@NonNull final CharSequence candiate) {
+  @Nullable Emoji findEmoji(@NonNull final CharSequence candidate) {
     verifyInstalled();
 
     // We need to call toString on the candidate, since the emojiMap may not find the requested entry otherwise, because
     // the type is different.
-    return emojiMap.get(candiate.toString());
+    return emojiMap.get(candidate.toString());
   }
 
   void verifyInstalled() {

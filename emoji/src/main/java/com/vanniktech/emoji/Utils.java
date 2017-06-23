@@ -76,7 +76,7 @@ final class Utils {
   static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {
     popupWindow.getContentView().post(new Runnable() {
       @Override public void run() {
-        final Point actualLocation = Utils.locationOnScreen(popupWindow.getContentView());
+        final Point actualLocation = locationOnScreen(popupWindow.getContentView());
 
         if (!(actualLocation.x == desiredLocation.x && actualLocation.y == desiredLocation.y)) {
           final int differenceX = actualLocation.x - desiredLocation.x;
@@ -88,13 +88,13 @@ final class Utils {
           if (actualLocation.x > desiredLocation.x) {
             fixedOffsetX = desiredLocation.x - differenceX;
           } else {
-              fixedOffsetX = desiredLocation.x + differenceX;
+            fixedOffsetX = desiredLocation.x + differenceX;
           }
 
           if (actualLocation.y > desiredLocation.y) {
             fixedOffsetY = desiredLocation.y - differenceY;
           } else {
-              fixedOffsetY = desiredLocation.y + differenceY;
+            fixedOffsetY = desiredLocation.y + differenceY;
           }
 
           popupWindow.update(fixedOffsetX, fixedOffsetY, DONT_UPDATE_FLAG, DONT_UPDATE_FLAG);
