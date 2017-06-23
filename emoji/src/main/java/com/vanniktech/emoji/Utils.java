@@ -106,4 +106,8 @@ final class Utils {
   private Utils() {
     throw new AssertionError("No instances.");
   }
+
+  static boolean isEmpty(@Nullable String text) {
+    return text == null || text.isEmpty();
+  }
 }
