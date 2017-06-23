@@ -42,15 +42,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
           .check();
   }
 
-  @Test public void isOnlyEmojis_empty() {
+  @Test public void isOnlyEmojisEmpty() {
     assertThat(EmojiUtils.isOnlyEmojis("")).isFalse();
   }
 
-  @Test public void isOnlyEmojis_null() {
+  @Test public void isOnlyEmojisNull() {
     assertThat(EmojiUtils.isOnlyEmojis(null)).isFalse();
   }
 
-  @Test public void isOnlyEmojis_text() {
+  @Test public void isOnlyEmojisText() {
     assertThat(EmojiUtils.isOnlyEmojis("hello world!")).isFalse();
   }
 
@@ -82,15 +82,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
     assertThat(EmojiUtils.isOnlyEmojis("hello" + EMOJI_1 + "world")).isFalse();
   }
 
-  @Test public void emojisCount_empty() {
+  @Test public void emojisCountEmpty() {
     assertThat(EmojiUtils.emojisCount("")).isEqualTo(0);
   }
 
-  @Test public void emojisCount_null() {
+  @Test public void emojisCountNull() {
     assertThat(EmojiUtils.emojisCount(null)).isEqualTo(0);
   }
 
-  @Test public void emojisCount_text() {
+  @Test public void emojisCountText() {
     assertThat(EmojiUtils.emojisCount("hello world!")).isEqualTo(0);
   }
 
