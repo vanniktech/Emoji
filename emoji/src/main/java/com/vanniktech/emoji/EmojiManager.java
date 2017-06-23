@@ -2,10 +2,8 @@ package com.vanniktech.emoji;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
