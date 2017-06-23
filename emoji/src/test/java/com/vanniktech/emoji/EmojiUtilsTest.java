@@ -6,10 +6,13 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-public class EmojiUtilsTest {
+@Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public class EmojiUtilsTest {
   private static final String EMOJI_1 = "\u1234";
   private static final String EMOJI_2 = "\u4321";
 
