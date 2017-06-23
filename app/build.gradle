@@ -60,13 +60,11 @@ dependencies {
     compile project(':emoji-google')
     compile project(':emoji-twitter')
     compile project(':emoji-one')
-
+    compile project(':emoji-kotlin')
     compile rootProject.ext.supportAppCompat
     compile rootProject.ext.supportRecyclerView
-
     debugCompile rootProject.ext.leakCanaryDebug
     releaseCompile rootProject.ext.leakCanaryRelease
-
     androidTestCompile deps.support.test.espresso
     androidTestCompile deps.support.test.runner
     androidTestCompile deps.support.test.rules
