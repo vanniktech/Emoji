@@ -22,15 +22,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
         return new EmojiCategory[]{new EmojiCategory() {
           @NonNull @Override public Emoji[] getEmojis() {
             return new Emoji[]{
-                  new Emoji(EMOJI_1.codePointAt(0), R.drawable.emoji_recent),
-                  new Emoji(EMOJI_2.codePointAt(0), R.drawable.emoji_backspace),
+              new Emoji(EMOJI_1.codePointAt(0), R.drawable.emoji_recent),
+              new Emoji(EMOJI_2.codePointAt(0), R.drawable.emoji_backspace),
             };
           }
 
           @Override public int getIcon() {
             return R.drawable.emoji_recent;
           }
-        }};
+        } };
       }
     });
   }

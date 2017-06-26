@@ -95,7 +95,7 @@ public final class EmojiManager {
       patternBuilder.append(Pattern.quote(unicodesForPattern.get(i))).append('|');
     }
 
-    String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
+    final String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
     INSTANCE.emojiPattern = Pattern.compile(regex);
     INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+");
   }
