@@ -58,12 +58,14 @@ public final class EmojiManager {
 
     final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
 
+    final int categoriesSize = INSTANCE.categories.length;
     //noinspection ForLoopReplaceableByForEach
-    for (int i = 0, categoriesSize = INSTANCE.categories.length; i < categoriesSize; i++) {
+    for (int i = 0; i < categoriesSize; i++) {
       final Emoji[] emojis = checkNotNull(INSTANCE.categories[i].getEmojis(), "emojies == null");
 
+      final int emojisSize = emojis.length;
       //noinspection ForLoopReplaceableByForEach
-      for (int j = 0, emojisSize = emojis.length; j < emojisSize; j++) {
+      for (int j = 0; j < emojisSize; j++) {
         final Emoji emoji = emojis[j];
         final String unicode = emoji.getUnicode();
         final List<Emoji> variants = emoji.getVariants();
@@ -91,7 +93,8 @@ public final class EmojiManager {
 
     final StringBuilder patternBuilder = new StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH);
 
-    for (int i = 0, unicodesForPatternSize = unicodesForPattern.size(); i < unicodesForPatternSize; i++) {
+    final int unicodesForPatternSize = unicodesForPattern.size();
+    for (int i = 0; i < unicodesForPatternSize; i++) {
       patternBuilder.append(Pattern.quote(unicodesForPattern.get(i))).append('|');
     }
 
