@@ -12,8 +12,9 @@ final class EmojiHandler {
     final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
     final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
 
+    final int size = existingSpans.length;
     //noinspection ForLoopReplaceableByForEach
-    for (int i = 0, size = existingSpans.length; i < size; i++) {
+    for (int i = 0; i < size; i++) {
       existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
     }
 

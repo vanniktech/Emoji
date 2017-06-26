@@ -14,7 +14,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public class EmojiUtilsTest {
   private static final String EMOJI_1 = "\u1234";
+  public static final int CODE_POINT_1 = EMOJI_1.codePointAt(0);
   private static final String EMOJI_2 = "\u4321";
+  public static final int CODE_POINT_2 = EMOJI_2.codePointAt(0);
 
   @Before public void setUp() {
     EmojiManager.install(new EmojiProvider() {
@@ -22,15 +24,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
         return new EmojiCategory[]{new EmojiCategory() {
           @NonNull @Override public Emoji[] getEmojis() {
             return new Emoji[]{
-                  new Emoji(EMOJI_1.codePointAt(0), R.drawable.emoji_recent),
-                  new Emoji(EMOJI_2.codePointAt(0), R.drawable.emoji_backspace),
+              new Emoji(CODE_POINT_1, R.drawable.emoji_recent),
+              new Emoji(CODE_POINT_2, R.drawable.emoji_backspace),
             };
           }
 
           @Override public int getIcon() {
             return R.drawable.emoji_recent;
           }
-        }};
+        } };
       }
     });
   }
