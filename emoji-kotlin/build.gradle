@@ -1,3 +1,10 @@
+buildscript {
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
@@ -27,3 +34,6 @@ dependencies {
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+repositories {
+    mavenCentral()
+}

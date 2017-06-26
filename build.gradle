@@ -40,7 +40,6 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
         classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.10'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
