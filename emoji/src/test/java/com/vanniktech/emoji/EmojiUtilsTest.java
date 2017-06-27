@@ -13,10 +13,10 @@ import org.robolectric.annotation.Config;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public class EmojiUtilsTest {
-  private static final String EMOJI_1 = "\u1234";
-  public static final int CODE_POINT_1 = EMOJI_1.codePointAt(0);
-  private static final String EMOJI_2 = "\u4321";
-  public static final int CODE_POINT_2 = EMOJI_2.codePointAt(0);
+  static final String EMOJI_1 = "\u1234";
+  static final int CODE_POINT_1 = EMOJI_1.codePointAt(0);
+  static final String EMOJI_2 = "\u4321";
+  static final int CODE_POINT_2 = EMOJI_2.codePointAt(0);
 
   @Before public void setUp() {
     EmojiManager.install(new EmojiProvider() {
