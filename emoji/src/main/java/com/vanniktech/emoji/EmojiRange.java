@@ -1,0 +1,37 @@
+package com.vanniktech.emoji;
+
+import android.support.annotation.NonNull;
+import com.vanniktech.emoji.emoji.Emoji;
+
+final class EmojiRange {
+  final int start;
+  final int end;
+  final Emoji emoji;
+
+  EmojiRange(final int start, final int end, @NonNull final Emoji emoji) {
+    this.start = start;
+    this.end = end;
+    this.emoji = emoji;
+  }
+
+  @Override public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    final EmojiRange that = (EmojiRange) o;
+
+    return start == that.start && end == that.end && emoji.equals(that.emoji);
+  }
+
+  @Override public int hashCode() {
+    int result = start;
+    result = 31 * result + end;
+    result = 31 * result + emoji.hashCode();
+    return result;
+  }
+}

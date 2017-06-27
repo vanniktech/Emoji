@@ -3,7 +3,6 @@ package com.vanniktech.emoji;
 import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
-import com.vanniktech.emoji.EmojiManager.EmojiRange;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import org.assertj.core.api.ThrowableAssert;
