@@ -31,11 +31,9 @@ final class RecentVariantManager {
     public Emoji getMostRecentVariant(@NonNull final Emoji desiredEmoji, Context context){
         if(recentVariantsList.isEmpty()){
             final String savedRecentVariants = getPreferences(context.getApplicationContext()).getString(RECENT_VARIANTS, "");
-
             if(savedRecentVariants.length() > 0){
                 final StringTokenizer stringTokenizer = new StringTokenizer(savedRecentVariants, EMOJI_DELIMITER);
                 recentVariantsList = new ArrayList<>(stringTokenizer.countTokens());
-
                 while (stringTokenizer.hasMoreTokens()) {
                     final String token = stringTokenizer.nextToken();
 
@@ -47,7 +45,6 @@ final class RecentVariantManager {
                 }
             }
         }
-
         if(recentVariantsList.size() > 0) {
             for (Emoji emoji : recentVariantsList) {
                 if (desiredEmoji.getBase() == emoji.getBase()) return emoji;
@@ -83,9 +80,7 @@ final class RecentVariantManager {
                 stringBuilder.append(emoji.getUnicode())
                         .append(EMOJI_DELIMITER);
             }
-
             stringBuilder.setLength(stringBuilder.length() - EMOJI_DELIMITER.length());
-
             getPreferences(context.getApplicationContext()).edit().putString(RECENT_VARIANTS, stringBuilder.toString()).apply();
         }
     }

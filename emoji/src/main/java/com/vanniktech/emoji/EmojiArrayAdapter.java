@@ -36,7 +36,6 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     final Emoji emoji = RecentVariantManager.getInstance().getMostRecentVariant(checkNotNull(getItem(position), "emoji == null"), getContext());
 
-
     image.setImageDrawable(null);
     image.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(final View v) {
