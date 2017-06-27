@@ -28,6 +28,7 @@ public final class EmojiPopup {
   static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
+  private final EmojiView emojiView;
   final Activity context;
 
   @NonNull final RecentEmoji recentEmoji;
@@ -100,7 +101,9 @@ public final class EmojiPopup {
       @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
         emojiEditText.input(emoji);
         recentEmoji.addEmoji(emoji);
-
+        if(RecentVariantManager.getInstance().addRecentVariant(emoji)) {
+          emojiView.notifyCurrentPageChanged();
+        }
         if (onEmojiClickedListener != null) {
           onEmojiClickedListener.onEmojiClicked(emoji);
         }
@@ -111,7 +114,7 @@ public final class EmojiPopup {
 
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji);
+    this.emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji);
 
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClicked(final View v) {
@@ -170,6 +173,7 @@ public final class EmojiPopup {
     popupWindow.dismiss();
     variantPopup.dismiss();
     recentEmoji.persist();
+    RecentVariantManager.getInstance().persist(context);
   }
 
   void showAtBottom() {

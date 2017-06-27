@@ -35,4 +35,8 @@ class EmojiGridView extends GridView {
 
     return this;
   }
+
+  public void notifyCurrentPageChanged(){
+    emojiArrayAdapter.notifyDataSetChanged();
+  }
 }

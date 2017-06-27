@@ -34,7 +34,8 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
       image = (EmojiImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
     }
 
-    final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
+    final Emoji emoji = RecentVariantManager.getInstance().getMostRecentVariant(checkNotNull(getItem(position), "emoji == null"), getContext());
+
 
     image.setImageDrawable(null);
     image.setOnClickListener(new View.OnClickListener() {

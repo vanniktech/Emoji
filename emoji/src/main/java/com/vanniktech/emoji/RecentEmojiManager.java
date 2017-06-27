@@ -104,8 +104,7 @@ final class RecentEmojiManager implements RecentEmoji {
 
       while (iterator.hasNext()) {
         final Data data = iterator.next();
-
-        if (data.emoji.equals(emoji)) {
+        if (data.emoji.getBase().equals(emoji.getBase())) {
           iterator.remove();
         }
       }
