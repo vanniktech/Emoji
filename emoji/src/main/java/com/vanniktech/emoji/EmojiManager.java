@@ -1,7 +1,9 @@
 package com.vanniktech.emoji;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Spannable;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import java.util.ArrayList;
@@ -108,6 +110,30 @@ public final class EmojiManager {
     INSTANCE.categories = null;
     INSTANCE.emojiPattern = null;
     INSTANCE.emojiRepetitivePattern = null;
+  }
+
+  static void replaceWithImages(final Context context, final Spannable text, final int emojiSize) {
+    final EmojiManager emojiManager = EmojiManager.getInstance();
+    final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
+    final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
+
+    final int size = existingSpans.length;
+    //noinspection ForLoopReplaceableByForEach
+    for (int i = 0; i < size; i++) {
+      existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
+    }
+
+    final List<EmojiRange> findAllEmojis = emojiManager.findAllEmojis(text);
+
+    //noinspection ForLoopReplaceableByForEach
+    for (int i = 0; i < findAllEmojis.size(); i++) {
+      final EmojiRange location = findAllEmojis.get(i);
+
+      if (!existingSpanPositions.contains(location.start)) {
+        text.setSpan(new EmojiSpan(context, location.emoji.getResource(), emojiSize),
+            location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+      }
+    }
   }
 
   EmojiCategory[] getCategories() {

@@ -39,7 +39,7 @@ public class EmojiEditText extends AppCompatEditText {
   }
 
   @Override @CallSuper protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
-    EmojiHandler.replaceWithImages(getContext(), getText(), emojiSize);
+    EmojiManager.replaceWithImages(getContext(), getText(), emojiSize);
   }
 
   @CallSuper public void backspace() {
