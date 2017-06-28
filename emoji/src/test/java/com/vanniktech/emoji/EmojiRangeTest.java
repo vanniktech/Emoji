@@ -1,6 +1,5 @@
 package com.vanniktech.emoji;
 
-import com.vanniktech.emoji.EmojiManager.EmojiRange;
 import com.vanniktech.emoji.emoji.Emoji;
 import org.junit.Before;
 import org.junit.Test;

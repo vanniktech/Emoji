@@ -40,7 +40,7 @@ public class EmojiTextView extends AppCompatTextView {
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {
     final CharSequence text = rawText == null ? "" : rawText;
     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
-    EmojiHandler.replaceWithImages(getContext(), spannableStringBuilder, emojiSize);
+    EmojiManager.replaceWithImages(getContext(), spannableStringBuilder, emojiSize);
     super.setText(spannableStringBuilder, type);
   }
 

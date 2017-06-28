@@ -7,9 +7,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class EmojiUtils {
-  private static final Pattern SPACE_REMOVAL = Pattern.compile("[ \r\n\t]");
+  private static final Pattern SPACE_REMOVAL = Pattern.compile("[\\s]");
 
-  public static boolean isOnlyEmojis(final @Nullable String text) {
+  /** returns true when the string only contains emojis. Note that whitespace will be filtered out. */
+  public static boolean isOnlyEmojis(@Nullable final String text) {
     if (TextUtils.isEmpty(text)) {
       return false;
     }
@@ -22,7 +23,8 @@ public final class EmojiUtils {
           .matches();
   }
 
-  public static int emojisCount(final @Nullable String text) {
+  /** returns the number of all emojis that were found in the given text */
+  public static int emojisCount(@Nullable final String text) {
     return TextUtils.isEmpty(text) ? 0 : EmojiManager.getInstance().findAllEmojis(text).size();
   }
 
