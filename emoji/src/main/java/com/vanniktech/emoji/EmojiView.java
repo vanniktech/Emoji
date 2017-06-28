@@ -31,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
+  private final ViewPager emojisPager;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
@@ -50,7 +51,7 @@ import java.util.concurrent.TimeUnit;
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
     themeAccentColor = value.data;
 
-    final ViewPager emojisPager = (ViewPager) findViewById(R.id.emojis_pager);
+    emojisPager = (ViewPager) findViewById(R.id.emojis_pager);
     final LinearLayout emojisTab = (LinearLayout) findViewById(R.id.emojis_tab);
     emojisPager.addOnPageChangeListener(this);
 
@@ -85,6 +86,10 @@ import java.util.concurrent.TimeUnit;
         }
       }
     }));
+  }
+
+  public void notifyCurrentPageChanged(){
+    emojiPagerAdapter.notifyPagesChanged();
   }
 
   public void setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener) {
