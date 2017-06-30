@@ -1,9 +1,7 @@
 package com.vanniktech.emoji;
 
-import android.support.annotation.NonNull;
 import com.pushtorefresh.private_constructor_checker.PrivateConstructorChecker;
 import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.emoji.EmojiCategory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,22 +17,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   static final int CODE_POINT_2 = EMOJI_2.codePointAt(0);
 
   @Before public void setUp() {
-    EmojiManager.install(new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
-        return new EmojiCategory[]{new EmojiCategory() {
-          @NonNull @Override public Emoji[] getEmojis() {
-            return new Emoji[]{
-              new Emoji(CODE_POINT_1, R.drawable.emoji_recent),
-              new Emoji(CODE_POINT_2, R.drawable.emoji_backspace),
-            };
-          }
-
-          @Override public int getIcon() {
-            return R.drawable.emoji_recent;
-          }
-        } };
-      }
-    });
+    final Emoji emoji1 = new Emoji(CODE_POINT_1, R.drawable.emoji_recent);
+    final Emoji emoji2 = new Emoji(CODE_POINT_2, R.drawable.emoji_backspace);
+    EmojiManager.install(TestEmojiProvider.from(emoji1, emoji2));
   }
 
   @Test public void constructorShouldBePrivate() {

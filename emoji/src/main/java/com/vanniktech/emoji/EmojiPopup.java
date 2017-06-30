@@ -90,8 +90,7 @@ public final class EmojiPopup {
     popupWindow = new PopupWindow(context);
 
     final OnEmojiLongClickedListener longClickListener = new OnEmojiLongClickedListener() {
-      @Override
-      public void onEmojiLongClicked(final View view, final Emoji emoji) {
+      @Override public void onEmojiLongClicked(final View view, final Emoji emoji) {
         variantPopup.show(view, emoji);
       }
     };
@@ -100,6 +99,8 @@ public final class EmojiPopup {
       @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
         emojiEditText.input(emoji);
         recentEmoji.addEmoji(emoji);
+
+        RecentEmojiVariantManager.getInstance().addRecentVariant(emoji);
 
         if (onEmojiClickedListener != null) {
           onEmojiClickedListener.onEmojiClicked(emoji);
@@ -112,7 +113,6 @@ public final class EmojiPopup {
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
     final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji);
-
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClicked(final View v) {
         emojiEditText.backspace();
@@ -170,6 +170,7 @@ public final class EmojiPopup {
     popupWindow.dismiss();
     variantPopup.dismiss();
     recentEmoji.persist();
+    RecentEmojiVariantManager.getInstance().persist(context);
   }
 
   void showAtBottom() {

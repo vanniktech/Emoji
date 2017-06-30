@@ -16,8 +16,8 @@ import java.util.Collection;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
-  @Nullable final OnEmojiClickedListener listener;
-  @Nullable final OnEmojiLongClickedListener longListener;
+  @Nullable private final OnEmojiClickedListener listener;
+  @Nullable private final OnEmojiLongClickedListener longListener;
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
       @Nullable final OnEmojiClickedListener listener, @Nullable final OnEmojiLongClickedListener longListener) {
@@ -30,48 +30,15 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @NonNull @Override public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
     EmojiImageView image = (EmojiImageView) convertView;
 
+    final Context context = getContext();
+
     if (image == null) {
-      image = (EmojiImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
+      image = (EmojiImageView) LayoutInflater.from(context).inflate(R.layout.emoji_item, parent, false);
     }
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
-
-    image.setImageDrawable(null);
-    image.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(final View v) {
-        if (listener != null) {
-          listener.onEmojiClicked(emoji);
-        }
-      }
-    });
-
-    if (emoji.getBase().hasVariants()) {
-      image.setHasVariants(true);
-      image.setOnLongClickListener(new View.OnLongClickListener() {
-          @Override public boolean onLongClick(final View v) {
-            if (longListener != null) {
-              longListener.onEmojiLongClicked(v, emoji);
-
-              return true;
-            }
-
-            return false;
-          }
-      });
-    } else {
-      image.setHasVariants(false);
-      image.setOnLongClickListener(null);
-    }
-
-    ImageLoadingTask task = (ImageLoadingTask) image.getTag();
-
-    if (task != null) {
-      task.cancel(true);
-    }
-
-    task = new ImageLoadingTask(image);
-    image.setTag(task);
-    task.execute(emoji.getResource());
+    final Emoji recentEmoji = RecentEmojiVariantManager.getInstance().getMostRecentVariant(emoji, context);
+    image.setEmoji(recentEmoji, listener, longListener);
 
     return image;
   }

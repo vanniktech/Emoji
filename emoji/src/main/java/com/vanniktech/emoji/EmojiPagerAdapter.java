@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 
 final class EmojiPagerAdapter extends PagerAdapter {
+  private static final int RECENT_POSITION = 0;
+
   private final OnEmojiClickedListener listener;
   private final OnEmojiLongClickedListener longListener;
   private final RecentEmoji recentEmoji;
@@ -28,23 +30,21 @@ final class EmojiPagerAdapter extends PagerAdapter {
   @Override public Object instantiateItem(final ViewGroup pager, final int position) {
     final View newView;
 
-    if (position == 0) {
+    if (position == RECENT_POSITION) {
       newView = new RecentEmojiGridView(pager.getContext()).init(listener, longListener, recentEmoji);
-
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
       newView = new EmojiGridView(pager.getContext()).init(listener, longListener, EmojiManager.getInstance().getCategories()[position - 1]);
     }
 
     pager.addView(newView);
-
     return newView;
   }
 
   @Override public void destroyItem(final ViewGroup pager, final int position, final Object view) {
     pager.removeView((View) view);
 
-    if (position == 0) {
+    if (position == RECENT_POSITION) {
       recentEmojiGridView = null;
     }
   }

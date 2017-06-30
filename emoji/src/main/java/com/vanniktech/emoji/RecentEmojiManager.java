@@ -17,7 +17,7 @@ final class RecentEmojiManager implements RecentEmoji {
   private static final String TIME_DELIMITER = ";";
   private static final String EMOJI_DELIMITER = "~";
   private static final String RECENT_EMOJIS = "recent-emojis";
-  private static final int EMOJI_GUESS_SIZE = 5;
+  static final int EMOJI_GUESS_SIZE = 5;
   static final int MAX_RECENTS = 40;
 
   @NonNull private final Context context;
@@ -65,7 +65,9 @@ final class RecentEmojiManager implements RecentEmoji {
   @Override public void persist() {
     if (emojiList.size() > 0) {
       final StringBuilder stringBuilder = new StringBuilder(emojiList.size() * EMOJI_GUESS_SIZE);
-      for (final Data data : emojiList) {
+
+      for (int i = 0; i < emojiList.size(); i++) {
+        final Data data = emojiList.get(i);
         stringBuilder.append(data.emoji.getUnicode())
             .append(TIME_DELIMITER)
             .append(data.timestamp)
@@ -82,7 +84,7 @@ final class RecentEmojiManager implements RecentEmoji {
     return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
   }
 
-  static class EmojiList implements Iterable<Data> {
+  static class EmojiList {
     static final Comparator<Data> COMPARATOR = new Comparator<Data>() {
       @Override public int compare(final Data lhs, final Data rhs) {
         return Long.valueOf(rhs.timestamp).compareTo(lhs.timestamp);
@@ -102,10 +104,11 @@ final class RecentEmojiManager implements RecentEmoji {
     void add(final Emoji emoji, final long timestamp) {
       final Iterator<Data> iterator = emojis.iterator();
 
+      final Emoji emojiBase = emoji.getBase();
+
       while (iterator.hasNext()) {
         final Data data = iterator.next();
-
-        if (data.emoji.equals(emoji)) {
+        if (data.emoji.getBase().equals(emojiBase)) { // Do the comparison by base so that skin tones are only saved once.
           iterator.remove();
         }
       }
@@ -133,8 +136,8 @@ final class RecentEmojiManager implements RecentEmoji {
       return emojis.size();
     }
 
-    @Override @NonNull public Iterator<Data> iterator() {
-      return emojis.iterator();
+    Data get(final int index) {
+      return emojis.get(index);
     }
   }
 

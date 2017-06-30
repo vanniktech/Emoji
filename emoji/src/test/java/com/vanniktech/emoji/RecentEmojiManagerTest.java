@@ -91,6 +91,24 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
         new Emoji(0x1f577, R.drawable.emoji_recent));
   }
 
+  @Test public void addSkinTone() {
+    final Emoji variant1 = new Emoji(0x1f55b, R.drawable.emoji_recent);
+    final Emoji variant2 = new Emoji(0x1f55c, R.drawable.emoji_recent);
+    final Emoji variant3 = new Emoji(0x1f55d, R.drawable.emoji_recent);
+    final Emoji base = new Emoji(0x1f55a, R.drawable.emoji_recent, variant1, variant2, variant3);
+
+    recentEmojiManager.addEmoji(base);
+
+    recentEmojiManager.addEmoji(variant1);
+    assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(variant1);
+
+    recentEmojiManager.addEmoji(variant2);
+    assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(variant2);
+
+    recentEmojiManager.addEmoji(variant3);
+    assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(variant3);
+  }
+
   @Test public void maxRecents() {
     for (int i = 0; i < 500; i++) {
       recentEmojiManager.addEmoji(new Emoji(i, R.drawable.emoji_recent));

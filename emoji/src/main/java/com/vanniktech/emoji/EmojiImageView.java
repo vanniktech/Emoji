@@ -5,10 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.view.View;
+import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
 
 import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
@@ -24,6 +28,8 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
   private final Point variantIndicatorBottomLeft = new Point();
 
   private boolean hasVariants;
+
+  private RecentEmojiVariantManager.Disposable disposable;
 
   public EmojiImageView(final Context context, final AttributeSet attrs) {
     super(context, attrs);
@@ -66,9 +72,78 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
   }
 
-  public void setHasVariants(final boolean hasVariants) {
-    this.hasVariants = hasVariants;
+  public void setEmoji(final Emoji emoji, @Nullable final OnEmojiClickedListener clickListener, @Nullable final OnEmojiLongClickedListener longClickListener) {
+    setImageDrawable(null);
 
-    invalidate();
+    setOnClickListener(new EmojiOnClickListener(clickListener, emoji));
+
+    final Emoji baseEmoji = emoji.getBase();
+
+    hasVariants = baseEmoji.hasVariants();
+    setOnLongClickListener(hasVariants ? new EmojiOnLongClickListener(longClickListener, emoji) : null);
+
+    ImageLoadingTask task = (ImageLoadingTask) getTag();
+
+    if (task != null) {
+      task.cancel(true);
+    }
+
+    task = new ImageLoadingTask(this);
+    setTag(task);
+    task.execute(emoji.getResource());
+
+    disposable = RecentEmojiVariantManager.getInstance()
+        .addListener(baseEmoji, new RecentEmojiVariantManager.EmojiVariantListener() {
+          @Override public void onChanged(final Emoji newEmoji) {
+            setImageResource(newEmoji.getResource()); // We don't need to load it in an async manner since it's only one Image and we know that for a fact.
+
+            setOnClickListener(new EmojiOnClickListener(clickListener, emoji));
+          }
+        });
+  }
+
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+
+    if (disposable != null) {
+      disposable.dispose();
+      disposable = null; // Force GC.
+    }
+  }
+
+  static class EmojiOnClickListener implements OnClickListener {
+    @Nullable private final OnEmojiClickedListener clickListener;
+    private final Emoji emoji;
+
+    EmojiOnClickListener(@Nullable final OnEmojiClickedListener clickListener, final Emoji emoji) {
+      this.clickListener = clickListener;
+      this.emoji = emoji;
+    }
+
+    @Override public void onClick(final View v) {
+      if (clickListener != null) {
+        clickListener.onEmojiClicked(emoji);
+      }
+    }
+  }
+
+  static class EmojiOnLongClickListener implements OnLongClickListener {
+    @Nullable private final OnEmojiLongClickedListener longClickListener;
+    private final Emoji emoji;
+
+    EmojiOnLongClickListener(final OnEmojiLongClickedListener longClickListener, final Emoji emoji) {
+      this.longClickListener = longClickListener;
+      this.emoji = emoji;
+    }
+
+    @Override public boolean onLongClick(final View v) {
+      if (longClickListener != null) {
+        longClickListener.onEmojiLongClicked(v, emoji);
+
+        return true;
+      }
+
+      return false;
+    }
   }
 }
