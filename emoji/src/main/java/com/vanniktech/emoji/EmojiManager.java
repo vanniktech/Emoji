@@ -112,7 +112,7 @@ public final class EmojiManager {
     INSTANCE.emojiRepetitivePattern = null;
   }
 
-  static void replaceWithImages(final Context context, final Spannable text, final int emojiSize) {
+  static void replaceWithImages(final Context context, final Spannable text, final float emojiSize) {
     final EmojiManager emojiManager = EmojiManager.getInstance();
     final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
     final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);

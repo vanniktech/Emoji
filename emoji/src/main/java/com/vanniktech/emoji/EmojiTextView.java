@@ -2,6 +2,7 @@ package com.vanniktech.emoji;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Paint;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Px;
 import android.support.v7.widget.AppCompatTextView;
@@ -9,7 +10,7 @@ import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 
 public class EmojiTextView extends AppCompatTextView {
-  private int emojiSize;
+  private float emojiSize;
 
   public EmojiTextView(final Context context) {
     this(context, null);
@@ -22,19 +23,22 @@ public class EmojiTextView extends AppCompatTextView {
       EmojiManager.getInstance().verifyInstalled();
     }
 
-    setText(getText());
+    final Paint.FontMetrics fontMetrics = getPaint().getFontMetrics();
+    final float defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent;
 
     if (attrs == null) {
-      emojiSize = getLineHeight();
+      emojiSize = defaultEmojiSize;
     } else {
-      final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.emoji);
+      final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.EmojiTextView);
 
       try {
-        emojiSize = (int) a.getDimension(R.styleable.emoji_emojiSize, getLineHeight());
+        emojiSize = a.getDimension(R.styleable.EmojiTextView_emojiSize, defaultEmojiSize);
       } finally {
         a.recycle();
       }
     }
+
+    setText(getText());
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

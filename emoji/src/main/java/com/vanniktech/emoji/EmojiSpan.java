@@ -1,39 +1,56 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v7.content.res.AppCompatResources;
-import android.text.style.DynamicDrawableSpan;
+import android.text.style.ImageSpan;
 
-import static com.vanniktech.emoji.Utils.checkNotNull;
+final class EmojiSpan extends ImageSpan {
+  private final float size;
 
-final class EmojiSpan extends DynamicDrawableSpan {
-  private final Context context;
-  private final int resourceId;
-  private final int size;
+  EmojiSpan(final Context context, final int drawableRes, final float size) {
+    super(context, drawableRes);
 
-  private Drawable drawable;
-
-  EmojiSpan(@NonNull final Context context, @DrawableRes final int resourceId, final int size) {
-    this.context = context;
-    this.resourceId = resourceId;
     this.size = size;
   }
 
   @Override public Drawable getDrawable() {
-    if (drawable == null) {
-      drawable = checkNotNull(AppCompatResources.getDrawable(context, resourceId), "emoji drawable == null");
-      drawable.setBounds(0, 0, size, size);
-    }
+    final Drawable result = super.getDrawable();
 
-    return drawable;
+    result.setBounds(0, 0, (int) size, (int) size);
+
+    return result;
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,
-      final int end, final Paint.FontMetricsInt fm) {
-    return size;
+                               final int end, final Paint.FontMetricsInt fontMetrics) {
+    if (fontMetrics != null) {
+      final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
+      final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
+      final float centerY = paintFontMetrics.ascent + fontHeight / 2;
+
+      fontMetrics.ascent = (int) (centerY - size / 2);
+      fontMetrics.top = fontMetrics.ascent;
+      fontMetrics.bottom = (int) (centerY + size / 2);
+      fontMetrics.descent = fontMetrics.bottom;
+    }
+
+    return (int) size;
+  }
+
+  @Override public void draw(final Canvas canvas, final CharSequence text, final int start,
+                             final int end, final float x, final int top, final int y,
+                             final int bottom, final Paint paint) {
+    final Drawable drawable = getDrawable();
+    final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
+    final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
+    final float centerY = y + paintFontMetrics.descent - fontHeight / 2;
+    final float transitionY = centerY - size / 2;
+
+    canvas.save();
+    canvas.translate(x, transitionY);
+    drawable.draw(canvas);
+    canvas.restore();
   }
 }
