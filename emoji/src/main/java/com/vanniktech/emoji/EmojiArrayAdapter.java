@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
