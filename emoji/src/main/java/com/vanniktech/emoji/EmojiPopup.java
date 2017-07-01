@@ -46,8 +46,7 @@ public final class EmojiPopup {
   @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-  @Nullable
-  OnEmojiClickListener onEmojiClickListener;
+  @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {

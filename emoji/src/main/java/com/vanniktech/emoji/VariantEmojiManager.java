@@ -12,7 +12,6 @@ final class VariantEmojiManager implements VariantEmoji {
   private static final String PREFERENCE_NAME = "variant-emoji-manager";
   private static final String EMOJI_DELIMITER = "~";
   private static final String VARIANT_EMOJIS = "variant-emojis";
-
   static final int EMOJI_GUESS_SIZE = 5;
 
   @NonNull private final Context context;

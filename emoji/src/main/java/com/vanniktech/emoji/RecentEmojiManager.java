@@ -17,7 +17,6 @@ final class RecentEmojiManager implements RecentEmoji {
   private static final String TIME_DELIMITER = ";";
   private static final String EMOJI_DELIMITER = "~";
   private static final String RECENT_EMOJIS = "recent-emojis";
-
   static final int EMOJI_GUESS_SIZE = 5;
   static final int MAX_RECENTS = 40;
 

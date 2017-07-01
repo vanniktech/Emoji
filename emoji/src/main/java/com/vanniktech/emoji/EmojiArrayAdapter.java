@@ -44,8 +44,8 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     }
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
-    final Emoji recentEmoji = variantManager == null ? emoji : variantManager.getVariant(emoji);
-    image.setEmoji(recentEmoji);
+    final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
+    image.setEmoji(variantToUse);
 
     return image;
   }
