@@ -62,6 +62,10 @@ subprojects {
     version = VERSION_NAME
 
     plugins.apply('net.ltgt.errorprone')
+
+    configurations.errorprone {
+        resolutionStrategy.force 'com.google.errorprone:error_prone_core:2.0.20'
+    }
 }
 
 ext {
