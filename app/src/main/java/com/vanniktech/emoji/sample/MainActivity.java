@@ -15,13 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.vanniktech.emoji.EmojiEditText;
+import com.vanniktech.emoji.EmojiImageView;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
@@ -128,12 +129,13 @@ public class MainActivity extends AppCompatActivity {
   private void setUpEmojiPopup() {
     emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
         .setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-          @Override public void onEmojiBackspaceClicked(final View v) {
+          @Override public void onEmojiBackspaceClick(final View v) {
             Log.d(TAG, "Clicked on Backspace");
           }
         })
-        .setOnEmojiClickedListener(new OnEmojiClickedListener() {
-          @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
+        .setOnEmojiClickListener(new OnEmojiClickListener() {
+          @Override
+          public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
             Log.d(TAG, "Clicked on emoji");
           }
         })

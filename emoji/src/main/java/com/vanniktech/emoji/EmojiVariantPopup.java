@@ -15,7 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+
 import java.util.List;
 
 import static android.view.View.MeasureSpec.makeMeasureSpec;
@@ -24,17 +25,20 @@ final class EmojiVariantPopup {
   private static final int MARGIN = 2;
 
   @NonNull private final View rootView;
-  @Nullable final OnEmojiClickedListener listener;
-
   @Nullable private PopupWindow popupWindow;
 
-  EmojiVariantPopup(@NonNull final View rootView, @Nullable final OnEmojiClickedListener listener) {
+  @Nullable final OnEmojiClickListener listener;
+  @Nullable EmojiImageView rootImageView;
+
+  EmojiVariantPopup(@NonNull final View rootView, @Nullable final OnEmojiClickListener listener) {
     this.rootView = rootView;
     this.listener = listener;
   }
 
-  void show(@NonNull final View clickedImage, @NonNull final Emoji emoji) {
+  void show(@NonNull final EmojiImageView clickedImage, @NonNull final Emoji emoji) {
     dismiss();
+
+    this.rootImageView = clickedImage;
 
     final View content = initView(clickedImage.getContext(), emoji, clickedImage.getWidth());
 
@@ -57,6 +61,8 @@ final class EmojiVariantPopup {
   }
 
   void dismiss() {
+    this.rootImageView = null;
+
     if (popupWindow != null) {
       popupWindow.dismiss();
       popupWindow = null;
@@ -83,10 +89,9 @@ final class EmojiVariantPopup {
       emojiImage.setImageResource(variant.getResource());
 
       emojiImage.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(final View view) {
-          if (listener != null) {
-            listener.onEmojiClicked(variant);
+        @Override public void onClick(final View view) {
+          if (listener != null && rootImageView != null) {
+            listener.onEmojiClick(rootImageView, variant);
           }
         }
       });

@@ -16,7 +16,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
@@ -31,6 +32,7 @@ public final class EmojiPopup {
   final Activity context;
 
   @NonNull final RecentEmoji recentEmoji;
+  @NonNull final VariantEmoji variantEmoji;
   @NonNull final EmojiVariantPopup variantPopup;
 
   final PopupWindow popupWindow;
@@ -44,7 +46,8 @@ public final class EmojiPopup {
   @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-  @Nullable OnEmojiClickedListener onEmojiClickedListener;
+  @Nullable
+  OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -81,29 +84,32 @@ public final class EmojiPopup {
     }
   };
 
-  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText, @Nullable final RecentEmoji recent) {
+  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText,
+             @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.emojiEditText = emojiEditText;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
+    this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
 
     popupWindow = new PopupWindow(context);
 
-    final OnEmojiLongClickedListener longClickListener = new OnEmojiLongClickedListener() {
-      @Override public void onEmojiLongClicked(final View view, final Emoji emoji) {
+    final OnEmojiLongClickListener longClickListener = new OnEmojiLongClickListener() {
+      @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
         variantPopup.show(view, emoji);
       }
     };
 
-    final OnEmojiClickedListener clickListener = new OnEmojiClickedListener() {
-      @Override public void onEmojiClicked(@NonNull final Emoji emoji) {
+    final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
+      @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
         emojiEditText.input(emoji);
+
         recentEmoji.addEmoji(emoji);
+        variantEmoji.addVariant(emoji);
+        imageView.setEmoji(emoji);
 
-        RecentEmojiVariantManager.getInstance().addRecentVariant(emoji);
-
-        if (onEmojiClickedListener != null) {
-          onEmojiClickedListener.onEmojiClicked(emoji);
+        if (onEmojiClickListener != null) {
+          onEmojiClickListener.onEmojiClick(imageView, emoji);
         }
 
         variantPopup.dismiss();
@@ -112,13 +118,13 @@ public final class EmojiPopup {
 
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji);
+    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-      @Override public void onEmojiBackspaceClicked(final View v) {
+      @Override public void onEmojiBackspaceClick(final View v) {
         emojiEditText.backspace();
 
         if (onEmojiBackspaceClickListener != null) {
-          onEmojiBackspaceClickListener.onEmojiBackspaceClicked(v);
+          onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
         }
       }
     });
@@ -170,7 +176,7 @@ public final class EmojiPopup {
     popupWindow.dismiss();
     variantPopup.dismiss();
     recentEmoji.persist();
-    RecentEmojiVariantManager.getInstance().persist(context);
+    variantEmoji.persist();
   }
 
   void showAtBottom() {
@@ -198,9 +204,10 @@ public final class EmojiPopup {
     @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
     @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
     @Nullable private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-    @Nullable private OnEmojiClickedListener onEmojiClickedListener;
+    @Nullable private OnEmojiClickListener onEmojiClickListener;
     @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
     @Nullable private RecentEmoji recentEmoji;
+    @Nullable private VariantEmoji variantEmoji;
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
@@ -220,8 +227,8 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public Builder setOnEmojiClickedListener(@Nullable final OnEmojiClickedListener listener) {
-      onEmojiClickedListener = listener;
+    @CheckResult public Builder setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
+      onEmojiClickListener = listener;
       return this;
     }
 
@@ -247,7 +254,7 @@ public final class EmojiPopup {
 
     /**
      * Allows you to pass your own implementation of recent emojis. If not provided the default one
-     * {@link RecentEmojiManager} will be used
+     * {@link RecentEmojiManager} will be used.
      *
      * @since 0.2.0
      */
@@ -256,13 +263,24 @@ public final class EmojiPopup {
       return this;
     }
 
+    /**
+     * Allows you to pass your own implementation of variant emojis. If not provided the default one
+     * {@link VariantEmojiManager} will be used.
+     *
+     * @since 0.5.0
+     */
+    @CheckResult public Builder setVariantEmoji(@Nullable final VariantEmoji variant) {
+      variantEmoji = variant;
+      return this;
+    }
+
     @CheckResult public EmojiPopup build(@NonNull final EmojiEditText emojiEditText) {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(emojiEditText, "EmojiEditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji);
+      final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji, variantEmoji);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
-      emojiPopup.onEmojiClickedListener = onEmojiClickedListener;
+      emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
