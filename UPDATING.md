@@ -14,7 +14,7 @@ The script does five things:
 
 ## Prerequisites
 
-[NodeJS 7](https://nodejs.org)<br>
+[NodeJS 8](https://nodejs.org)<br>
 [Npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
 ## Running the script

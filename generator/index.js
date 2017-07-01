@@ -231,7 +231,8 @@ async function parse() {
         }
 
         const code = row[1].children[0].attribs.name;
-        const isVariant = row[15].children[0].data.includes("skin tone");
+        const name = row[15].children[0].data;
+        const isVariant = name.includes("skin tone");
 
         if (ignore.includes(code)) {
             continue;
@@ -239,6 +240,7 @@ async function parse() {
 
         const emoji = {
             unicode: code,
+            name: name,
             variants: []
         };
 
@@ -253,8 +255,13 @@ async function parse() {
 
         if (isVariant) {
             const array = map.get(category);
+            const base = array.find(it => it.name === name.substring(0, name.indexOf(":")));
 
-            array[array.length - 1].variants.push(emoji);
+            if (base) {
+                base.variants.push(emoji);
+            } else {
+                console.error(`Base not found for variant: ${name}`)
+            }
         } else {
             if (map.has(category)) {
                 map.get(category).push(emoji);
