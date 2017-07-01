@@ -192,7 +192,8 @@ import com.vanniktech.emoji.twitter.R;
     new Emoji(0x1f50f, R.drawable.emoji_twitter_1f50f),
     new Emoji(0x1f510, R.drawable.emoji_twitter_1f510),
     new Emoji(0x1f512, R.drawable.emoji_twitter_1f512),
-    new Emoji(0x1f513, R.drawable.emoji_twitter_1f513)
+    new Emoji(0x1f513, R.drawable.emoji_twitter_1f513),
+    new Emoji(0x1f9e1, R.drawable.emoji_twitter_1f9e1)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {
