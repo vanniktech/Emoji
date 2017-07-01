@@ -134,8 +134,7 @@ public class MainActivity extends AppCompatActivity {
           }
         })
         .setOnEmojiClickListener(new OnEmojiClickListener() {
-          @Override
-          public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
+          @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
             Log.d(TAG, "Clicked on emoji");
           }
         })

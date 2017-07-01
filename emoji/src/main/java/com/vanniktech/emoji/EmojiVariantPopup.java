@@ -37,7 +37,7 @@ final class EmojiVariantPopup {
   void show(@NonNull final EmojiImageView clickedImage, @NonNull final Emoji emoji) {
     dismiss();
 
-    this.rootImageView = clickedImage;
+    rootImageView = clickedImage;
 
     final View content = initView(clickedImage.getContext(), emoji, clickedImage.getWidth());
 
@@ -60,7 +60,7 @@ final class EmojiVariantPopup {
   }
 
   void dismiss() {
-    this.rootImageView = null;
+    rootImageView = null;
 
     if (popupWindow != null) {
       popupWindow.dismiss();

@@ -79,8 +79,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
   }
 
-  @Override
-  protected void onDetachedFromWindow() {
+  @Override protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
 
     if (imageLoadingTask != null) {
