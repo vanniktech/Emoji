@@ -1,10 +1,8 @@
 package com.vanniktech.emoji;
 
-import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.emoji.EmojiCategory;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.After;
 import org.junit.Before;
@@ -25,24 +23,12 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
   private EmojiProvider provider;
 
   @Before public void setUp() {
-    provider = new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
-        return new EmojiCategory[] { new EmojiCategory() {
-          @NonNull @Override public Emoji[] getEmojis() {
-            return new Emoji[] {
-              new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent),
-              new Emoji(new int[] { 0x4321 }, R.drawable.emoji_recent),
-              new Emoji(new int[] { 0x5678 }, R.drawable.emoji_backspace),
-              new Emoji(new int[] { 0x1234, 0x4321, 0x9999 }, R.drawable.emoji_recent)
-            };
-          }
+    final Emoji emoji1 = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent);
+    final Emoji emoji2 = new Emoji(new int[] { 0x4321 }, R.drawable.emoji_recent);
+    final Emoji emoji3 = new Emoji(new int[] { 0x5678 }, R.drawable.emoji_backspace);
+    final Emoji emoji4 = new Emoji(new int[] { 0x1234, 0x4321, 0x9999 }, R.drawable.emoji_recent);
 
-          @Override public int getIcon() {
-            return R.drawable.emoji_recent;
-          }
-        } };
-      }
-    };
+    provider = TestEmojiProvider.from(emoji1, emoji2, emoji3, emoji4);
   }
 
   @After public void tearDown() {
@@ -65,39 +51,17 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
   }
 
   @Test public void installEmptyProvider() {
-    final EmojiProvider emptyProvider = new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
-        return new EmojiCategory[0];
-      }
-    };
-
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
       @Override public void call() throws Throwable {
-        EmojiManager.install(emptyProvider);
+        EmojiManager.install(TestEmojiProvider.emptyCategories());
       }
     }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
   }
 
   @Test public void installEmptyCategory() {
-    final EmojiProvider emptyProvider = new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
-        return new EmojiCategory[] {
-          new EmojiCategory() {
-            @NonNull @Override public Emoji[] getEmojis() {
-              return new Emoji[0];
-            }
-
-            @Override public int getIcon() {
-              return 0;
-            }
-          }
-        };
-      }
-    };
-
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
       @Override public void call() throws Throwable {
-        EmojiManager.install(emptyProvider);
+        EmojiManager.install(TestEmojiProvider.emptyEmojis());
       }
     }).isInstanceOf(IllegalArgumentException.class).hasMessage("Your EmojiProvider must at least have one category with at least one emoji.");
   }

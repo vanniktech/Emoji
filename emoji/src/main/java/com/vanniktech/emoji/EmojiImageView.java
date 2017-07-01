@@ -5,10 +5,16 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.view.View;
+import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
 import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
@@ -16,12 +22,19 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
   private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
   private static final int VARIANT_INDICATOR_PART = 5;
 
+  Emoji currentEmoji;
+
+  OnEmojiClickListener clickListener;
+  OnEmojiLongClickListener longClickListener;
+
   private final Paint variantIndicatorPaint = new Paint();
   private final Path variantIndicatorPath = new Path();
 
   private final Point variantIndicatorTop = new Point();
   private final Point variantIndicatorBottomRight = new Point();
   private final Point variantIndicatorBottomLeft = new Point();
+
+  private ImageLoadingTask imageLoadingTask;
 
   private boolean hasVariants;
 
@@ -66,9 +79,69 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
   }
 
-  public void setHasVariants(final boolean hasVariants) {
-    this.hasVariants = hasVariants;
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
 
-    invalidate();
+    if (imageLoadingTask != null) {
+      imageLoadingTask.cancel(true);
+      imageLoadingTask = null;
+    }
+  }
+
+  void setEmoji(@NonNull final Emoji emoji) {
+    if (!emoji.equals(currentEmoji)) {
+      setImageDrawable(null);
+
+      currentEmoji = emoji;
+      hasVariants = emoji.getBase().hasVariants();
+
+      if (imageLoadingTask != null) {
+        imageLoadingTask.cancel(true);
+      }
+
+      setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(final View view) {
+          if (clickListener != null) {
+            clickListener.onEmojiClick(EmojiImageView.this, currentEmoji);
+          }
+        }
+      });
+
+      setOnLongClickListener(hasVariants ? new OnLongClickListener() {
+        @Override
+        public boolean onLongClick(final View view) {
+          longClickListener.onEmojiLongClick(EmojiImageView.this, currentEmoji);
+
+          return true;
+        }
+      } : null);
+
+      imageLoadingTask = new ImageLoadingTask(this);
+      imageLoadingTask.execute(emoji.getResource());
+    }
+  }
+
+  /**
+   * Updates the emoji image directly. This should be called only for updating the variant
+   * displayed (of the same base emoji), since it does not run asynchronously and does not update
+   * the internal listeners.
+   *
+   * @param emoji The new emoji variant to show.
+   */
+  void updateEmoji(@NonNull final Emoji emoji) {
+    if (!emoji.equals(currentEmoji)) {
+      currentEmoji = emoji;
+
+      setImageResource(emoji.getResource());
+    }
+  }
+
+  void setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
+    this.clickListener = listener;
+  }
+
+  void setOnEmojiLongClickListener(@Nullable final OnEmojiLongClickListener listener) {
+    this.longClickListener = listener;
   }
 }

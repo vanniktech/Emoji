@@ -20,7 +20,7 @@ final class ImageLoadingTask extends AsyncTask<Integer, Void, Drawable> {
   @Override protected Drawable doInBackground(final Integer... resource) {
     final Context context = contextReference.get();
 
-    if (context != null) {
+    if (context != null && !isCancelled()) {
       return AppCompatResources.getDrawable(context, resource[0]);
     }
 

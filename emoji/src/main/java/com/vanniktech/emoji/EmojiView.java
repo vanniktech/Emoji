@@ -18,7 +18,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import java.util.concurrent.TimeUnit;
 
@@ -36,8 +37,9 @@ import java.util.concurrent.TimeUnit;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context, final OnEmojiClickedListener onEmojiClickedListener,
-      final OnEmojiLongClickedListener onEmojiLongClickedListener, @NonNull final RecentEmoji recentEmoji) {
+  EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
+            final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
+            @NonNull final VariantEmoji variantManager) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
@@ -65,7 +67,7 @@ import java.util.concurrent.TimeUnit;
 
     handleOnClicks(emojisPager);
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickedListener, onEmojiLongClickedListener, recentEmoji);
+    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, recentEmoji, variantManager);
     emojisPager.setAdapter(emojiPagerAdapter);
 
     final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
@@ -81,7 +83,7 @@ import java.util.concurrent.TimeUnit;
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, new OnClickListener() {
       @Override public void onClick(final View view) {
         if (onEmojiBackspaceClickListener != null) {
-          onEmojiBackspaceClickListener.onEmojiBackspaceClicked(view);
+          onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
         }
       }
     }));

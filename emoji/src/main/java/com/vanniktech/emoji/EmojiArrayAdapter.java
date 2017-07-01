@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.listeners.OnEmojiClickedListener;
+import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,13 +17,16 @@ import java.util.Collection;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
-  @Nullable final OnEmojiClickedListener listener;
-  @Nullable final OnEmojiLongClickedListener longListener;
+  @Nullable private final VariantEmoji variantManager;
 
-  EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis,
-      @Nullable final OnEmojiClickedListener listener, @Nullable final OnEmojiLongClickedListener longListener) {
+  @Nullable private final OnEmojiClickListener listener;
+  @Nullable private final OnEmojiLongClickListener longListener;
+
+  EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis, @Nullable final VariantEmoji variantManager,
+                    @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener) {
     super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
 
+    this.variantManager = variantManager;
     this.listener = listener;
     this.longListener = longListener;
   }
@@ -30,48 +34,18 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @NonNull @Override public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
     EmojiImageView image = (EmojiImageView) convertView;
 
+    final Context context = getContext();
+
     if (image == null) {
-      image = (EmojiImageView) LayoutInflater.from(getContext()).inflate(R.layout.emoji_item, parent, false);
+      image = (EmojiImageView) LayoutInflater.from(context).inflate(R.layout.emoji_item, parent, false);
+
+      image.setOnEmojiClickListener(listener);
+      image.setOnEmojiLongClickListener(longListener);
     }
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
-
-    image.setImageDrawable(null);
-    image.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(final View v) {
-        if (listener != null) {
-          listener.onEmojiClicked(emoji);
-        }
-      }
-    });
-
-    if (emoji.getBase().hasVariants()) {
-      image.setHasVariants(true);
-      image.setOnLongClickListener(new View.OnLongClickListener() {
-          @Override public boolean onLongClick(final View v) {
-            if (longListener != null) {
-              longListener.onEmojiLongClicked(v, emoji);
-
-              return true;
-            }
-
-            return false;
-          }
-      });
-    } else {
-      image.setHasVariants(false);
-      image.setOnLongClickListener(null);
-    }
-
-    ImageLoadingTask task = (ImageLoadingTask) image.getTag();
-
-    if (task != null) {
-      task.cancel(true);
-    }
-
-    task = new ImageLoadingTask(image);
-    image.setTag(task);
-    task.execute(emoji.getResource());
+    final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
+    image.setEmoji(variantToUse);
 
     return image;
   }
