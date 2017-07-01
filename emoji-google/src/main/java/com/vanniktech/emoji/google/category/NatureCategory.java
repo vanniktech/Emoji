@@ -166,7 +166,13 @@ import com.vanniktech.emoji.google.R;
     new Emoji(0x1f30a, R.drawable.emoji_google_1f30a),
     new Emoji(0x1f4a7, R.drawable.emoji_google_1f4a7),
     new Emoji(0x1f4a6, R.drawable.emoji_google_1f4a6),
-    new Emoji(0x2614, R.drawable.emoji_google_2614)
+    new Emoji(0x2614, R.drawable.emoji_google_2614),
+    new Emoji(0x1f992, R.drawable.emoji_google_1f992),
+    new Emoji(0x1f993, R.drawable.emoji_google_1f993),
+    new Emoji(0x1f994, R.drawable.emoji_google_1f994),
+    new Emoji(0x1f995, R.drawable.emoji_google_1f995),
+    new Emoji(0x1f996, R.drawable.emoji_google_1f996),
+    new Emoji(0x1f997, R.drawable.emoji_google_1f997)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {
