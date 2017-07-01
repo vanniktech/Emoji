@@ -88,7 +88,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
   }
 
-  public void setEmoji(@NonNull final Emoji emoji) {
+  void setEmoji(@NonNull final Emoji emoji) {
     if (!emoji.equals(currentEmoji)) {
       setImageDrawable(null);
 
@@ -122,11 +122,26 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     }
   }
 
-  public void setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
+  /**
+   * Updates the emoji image directly. This should be called only for updating the variant
+   * displayed (of the same base emoji), since it does not run asynchronously and does not update
+   * the internal listeners.
+   *
+   * @param emoji The new emoji variant to show.
+   */
+  void updateEmoji(@NonNull final Emoji emoji) {
+    if (!emoji.equals(currentEmoji)) {
+      currentEmoji = emoji;
+
+      setImageResource(emoji.getResource());
+    }
+  }
+
+  void setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
     this.clickListener = listener;
   }
 
-  public void setOnEmojiLongClickListener(@Nullable final OnEmojiLongClickListener listener) {
+  void setOnEmojiLongClickListener(@Nullable final OnEmojiLongClickListener listener) {
     this.longClickListener = listener;
   }
 }

@@ -105,7 +105,7 @@ public final class EmojiPopup {
 
         recentEmoji.addEmoji(emoji);
         variantEmoji.addVariant(emoji);
-        imageView.setEmoji(emoji);
+        imageView.updateEmoji(emoji);
 
         if (onEmojiClickListener != null) {
           onEmojiClickListener.onEmojiClick(imageView, emoji);
