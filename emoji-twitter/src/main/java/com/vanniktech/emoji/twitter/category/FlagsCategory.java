@@ -263,7 +263,10 @@ import com.vanniktech.emoji.twitter.R;
     new Emoji(new int[] { 0x1f1ea, 0x1f1e6 }, R.drawable.emoji_twitter_1f1ea_1f1e6),
     new Emoji(new int[] { 0x1f1e8, 0x1f1f5 }, R.drawable.emoji_twitter_1f1e8_1f1f5),
     new Emoji(new int[] { 0x1f1e9, 0x1f1ec }, R.drawable.emoji_twitter_1f1e9_1f1ec),
-    new Emoji(new int[] { 0x1f1fa, 0x1f1f3 }, R.drawable.emoji_twitter_1f1fa_1f1f3)
+    new Emoji(new int[] { 0x1f1fa, 0x1f1f3 }, R.drawable.emoji_twitter_1f1fa_1f1f3),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0065, 0xe006e, 0xe0067, 0xe007f }, R.drawable.emoji_twitter_1f3f4_e0067_e0062_e0065_e006e_e0067_e007f),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0073, 0xe0063, 0xe0074, 0xe007f }, R.drawable.emoji_twitter_1f3f4_e0067_e0062_e0073_e0063_e0074_e007f),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0077, 0xe006c, 0xe0073, 0xe007f }, R.drawable.emoji_twitter_1f3f4_e0067_e0062_e0077_e006c_e0073_e007f)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {
