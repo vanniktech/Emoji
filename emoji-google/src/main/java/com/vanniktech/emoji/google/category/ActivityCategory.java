@@ -243,7 +243,58 @@ import com.vanniktech.emoji.google.R;
     new Emoji(0x1f3af, R.drawable.emoji_google_1f3af),
     new Emoji(0x1f3b3, R.drawable.emoji_google_1f3b3),
     new Emoji(0x1f3ae, R.drawable.emoji_google_1f3ae),
-    new Emoji(0x1f3b0, R.drawable.emoji_google_1f3b0)
+    new Emoji(0x1f3b0, R.drawable.emoji_google_1f3b0),
+    new Emoji(0x1f6f7, R.drawable.emoji_google_1f6f7),
+    new Emoji(0x1f931, R.drawable.emoji_google_1f931,
+      new Emoji(new int[] { 0x1f931, 0x1f3fb }, R.drawable.emoji_google_1f931_1f3fb),
+      new Emoji(new int[] { 0x1f931, 0x1f3fc }, R.drawable.emoji_google_1f931_1f3fc),
+      new Emoji(new int[] { 0x1f931, 0x1f3fd }, R.drawable.emoji_google_1f931_1f3fd),
+      new Emoji(new int[] { 0x1f931, 0x1f3fe }, R.drawable.emoji_google_1f931_1f3fe),
+      new Emoji(new int[] { 0x1f931, 0x1f3ff }, R.drawable.emoji_google_1f931_1f3ff)
+    ),
+    new Emoji(0x1f94c, R.drawable.emoji_google_1f94c),
+    new Emoji(new int[] { 0x1f9d6, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_200d_2640_fe0f,
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fb, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fb_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fc, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fc_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fd, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fd_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fe, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fe_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3ff, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3ff_200d_2640_fe0f)
+    ),
+    new Emoji(new int[] { 0x1f9d6, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_200d_2642_fe0f,
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fb, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fb_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fc, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fc_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fd, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fd_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3fe, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3fe_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d6, 0x1f3ff, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d6_1f3ff_200d_2642_fe0f)
+    ),
+    new Emoji(new int[] { 0x1f9d7, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_200d_2640_fe0f,
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fb, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fb_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fc, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fc_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fd, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fd_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fe, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fe_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3ff, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3ff_200d_2640_fe0f)
+    ),
+    new Emoji(new int[] { 0x1f9d7, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_200d_2642_fe0f,
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fb, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fb_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fc, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fc_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fd, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fd_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3fe, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3fe_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d7, 0x1f3ff, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d7_1f3ff_200d_2642_fe0f)
+    ),
+    new Emoji(new int[] { 0x1f9d8, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_200d_2640_fe0f,
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fb, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fb_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fc, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fc_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fd, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fd_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fe, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fe_200d_2640_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3ff, 0x200d, 0x2640, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3ff_200d_2640_fe0f)
+    ),
+    new Emoji(new int[] { 0x1f9d8, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_200d_2642_fe0f,
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fb, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fb_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fc, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fc_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fd, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fd_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3fe, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3fe_200d_2642_fe0f),
+      new Emoji(new int[] { 0x1f9d8, 0x1f3ff, 0x200d, 0x2642, 0xfe0f }, R.drawable.emoji_google_1f9d8_1f3ff_200d_2642_fe0f)
+    )
   };
 
   @Override @NonNull public Emoji[] getEmojis() {

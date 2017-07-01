@@ -126,7 +126,8 @@ import com.vanniktech.emoji.google.R;
     new Emoji(0x1f303, R.drawable.emoji_google_1f303),
     new Emoji(0x1f30c, R.drawable.emoji_google_1f30c),
     new Emoji(0x1f309, R.drawable.emoji_google_1f309),
-    new Emoji(0x1f301, R.drawable.emoji_google_1f301)
+    new Emoji(0x1f301, R.drawable.emoji_google_1f301),
+    new Emoji(0x1f6f8, R.drawable.emoji_google_1f6f8)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {

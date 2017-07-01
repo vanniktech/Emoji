@@ -242,7 +242,10 @@ import com.vanniktech.emoji.google.R;
     new Emoji(new int[] { 0x1f1ff, 0x1f1f2 }, R.drawable.emoji_google_1f1ff_1f1f2),
     new Emoji(new int[] { 0x1f1ff, 0x1f1fc }, R.drawable.emoji_google_1f1ff_1f1fc),
     new Emoji(new int[] { 0x1f1e6, 0x1f1e8 }, R.drawable.emoji_google_1f1e6_1f1e8),
-    new Emoji(new int[] { 0x1f1fa, 0x1f1f3 }, R.drawable.emoji_google_1f1fa_1f1f3)
+    new Emoji(new int[] { 0x1f1fa, 0x1f1f3 }, R.drawable.emoji_google_1f1fa_1f1f3),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0065, 0xe006e, 0xe0067, 0xe007f }, R.drawable.emoji_google_1f3f4_e0067_e0062_e0065_e006e_e0067_e007f),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0073, 0xe0063, 0xe0074, 0xe007f }, R.drawable.emoji_google_1f3f4_e0067_e0062_e0073_e0063_e0074_e007f),
+    new Emoji(new int[] { 0x1f3f4, 0xe0067, 0xe0062, 0xe0077, 0xe006c, 0xe0073, 0xe007f }, R.drawable.emoji_google_1f3f4_e0067_e0062_e0077_e006c_e0073_e007f)
   };
 
   @Override @NonNull public Emoji[] getEmojis() {
