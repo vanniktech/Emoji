@@ -18,8 +18,10 @@ buildscript {
 
     ext.deps = [
         'support': [
-           'test': [
-                'espresso': 'com.android.support.test.espresso:espresso-core:2.2.2',
+            'test': [
+                'espresso': [
+                    'core': "com.android.support.test.espresso:espresso-core:${versions.espresso}",
+                ],
                 'runner': "com.android.support.test:runner:${versions.testRules}",
                 'rules': "com.android.support.test:rules:${versions.testRules}",
             ],

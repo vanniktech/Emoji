@@ -123,6 +123,12 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().findAllEmojis("")).isEmpty();
   }
 
+  @Test public void findAllEmojisNull() {
+    EmojiManager.install(provider);
+
+    assertThat(EmojiManager.getInstance().findAllEmojis(null)).isEmpty();
+  }
+
   @Test public void simple() {
     EmojiManager.install(provider);
 

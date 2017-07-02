@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Spannable;
+import android.text.TextUtils;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import java.util.ArrayList;
@@ -145,17 +146,20 @@ public final class EmojiManager {
     return emojiRepetitivePattern;
   }
 
-  @NonNull List<EmojiRange> findAllEmojis(@NonNull final CharSequence text) {
+  @NonNull List<EmojiRange> findAllEmojis(@Nullable final CharSequence text) {
     verifyInstalled();
 
     final List<EmojiRange> result = new ArrayList<>();
-    final Matcher matcher = emojiPattern.matcher(text);
 
-    while (matcher.find()) {
-      final Emoji found = findEmoji(text.subSequence(matcher.start(), matcher.end()));
+    if (!TextUtils.isEmpty(text)) {
+      final Matcher matcher = emojiPattern.matcher(text);
 
-      if (found != null) {
-        result.add(new EmojiRange(matcher.start(), matcher.end(), found));
+      while (matcher.find()) {
+        final Emoji found = findEmoji(text.subSequence(matcher.start(), matcher.end()));
+
+        if (found != null) {
+          result.add(new EmojiRange(matcher.start(), matcher.end(), found));
+        }
       }
     }
 

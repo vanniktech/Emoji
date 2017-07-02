@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.support.annotation.CallSuper;
+import android.support.annotation.DimenRes;
 import android.support.annotation.Px;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
@@ -64,8 +65,27 @@ public class EmojiEditText extends AppCompatEditText {
     }
   }
 
-  public void setEmojiSize(@Px final int pixels) {
+  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size */
+  public final void setEmojiSize(@Px final int pixels) {
+    setEmojiSize(pixels, true);
+  }
+
+  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
+  public final void setEmojiSize(@Px final int pixels, final boolean shouldInvalidate) {
     emojiSize = pixels;
-    setText(getText()); // Update it.
+
+    if (shouldInvalidate) {
+      setText(getText());
+    }
+  }
+
+  /** sets the emoji size in pixels with the provided resource and automatically invalidates the text and renders it with the new size */
+  public final void setEmojiSizeRes(@DimenRes final int res) {
+    setEmojiSizeRes(res, true);
+  }
+
+  /** sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
+  public final void setEmojiSizeRes(@DimenRes final int res, final boolean shouldInvalidate) {
+    setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
   }
 }
