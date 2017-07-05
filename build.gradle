@@ -12,7 +12,7 @@ codeQualityTools {
 }
 
 buildscript {
-    ext.kotlin_version = '1.1.3-2'
+    ext.kotlin_version = '1.1.3'
     ext.versions = [
         testRules: '0.5',
     ]
@@ -51,7 +51,8 @@ codeQualityTools {
 }
 
 junitJacoco {
-    ignoreProjects = ['app', 'emoji-ios', 'emoji-google', 'emoji-twitter', 'emoji-one'] // Don't care about sample and generated modules
+    // Don't care about sample and generated modules
+    ignoreProjects = ['app', 'emoji-ios', 'emoji-google', 'emoji-twitter', 'emoji-one', 'emoji-kotlin']
 }
 
 subprojects {
