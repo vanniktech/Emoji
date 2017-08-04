@@ -2,15 +2,6 @@ apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.vanniktech.code.quality.tools'
 apply plugin: 'com.vanniktech.android.junit.jacoco'
 
-codeQualityTools {
-  checkstyle {
-    toolVersion = '7.8.2'
-  }
-  pmd {
-    toolVersion = '5.8.0'
-  }
-}
-
 buildscript {
     ext.versions = [
         testRules: '0.5',
@@ -32,22 +23,38 @@ buildscript {
     repositories {
         jcenter()
         google()
-        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.5.0'
+        classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.7.0'
         classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.6.0'
 
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
-        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.10'
     }
 }
 
 codeQualityTools {
-    lint {
-        textReport true
-    }
+  lint {
+    textReport = true
+  }
+  checkstyle {
+    toolVersion = '8.1'
+  }
+  pmd {
+    toolVersion = '5.8.1'
+  }
+  ktlint {
+    toolVersion = '0.9.1'
+  }
+  detekt {
+    toolVersion = '1.0.0.M13.2'
+  }
+  errorProne {
+    toolVersion = '2.0.21'
+  }
+  cpd {
+    ignoreFailures = true // Fix in a follow up.
+  }
 }
 
 junitJacoco {
@@ -58,16 +65,11 @@ subprojects {
     repositories {
         jcenter()
         google()
+        mavenCentral()
     }
 
     group = GROUP
     version = VERSION_NAME
-
-    plugins.apply('net.ltgt.errorprone')
-
-    configurations.errorprone {
-        resolutionStrategy.force 'com.google.errorprone:error_prone_core:2.0.20'
-    }
 }
 
 ext {
