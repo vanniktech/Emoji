@@ -1,8 +1,0 @@
-comment:
-    layout: header, diff, changes, sunburst
-coverage:
-    precision: 2
-    round: down
-    range: "40...100"
-    status:
-        patch: false
