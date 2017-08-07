@@ -16,7 +16,6 @@ For getting the above iOS Emojis simply add the dependency and code below.
 
 ```groovy
 compile 'com.vanniktech:emoji-ios:0.5.1'
-compile 'com.vanniktech:emoji-ios:0.6.0-SNAPSHOT'
 ```
 
 And install the provider (preferably in your Application class):
@@ -33,7 +32,6 @@ For getting the above EmojiOne Emojis simply add the dependency and code below.
 
 ```groovy
 compile 'com.vanniktech:emoji-one:0.5.1'
-compile 'com.vanniktech:emoji-one:0.6.0-SNAPSHOT'
 ```
 
 And install the provider (preferably in your Application class):
@@ -50,7 +48,6 @@ For getting the above Google Emojis simply add the dependency and code below.
 
 ```groovy
 compile 'com.vanniktech:emoji-google:0.5.1'
-compile 'com.vanniktech:emoji-google:0.6.0-SNAPSHOT'
 ```
 
 And install the provider (preferably in your Application class):
@@ -67,7 +64,6 @@ For getting the above Twitter Emojis simply add the dependency and code below.
 
 ```groovy
 compile 'com.vanniktech:emoji-twitter:0.5.1'
-compile 'com.vanniktech:emoji-twitter:0.6.0-SNAPSHOT'
 ```
 
 And install the provider (preferably in your Application class):
@@ -84,7 +80,6 @@ All of the core API lays in, which is being pulled in automatically by the provi
 
 ```groovy
 compile 'com.vanniktech:emoji:0.5.1'
-compile 'com.vanniktech:emoji:0.6.0-SNAPSHOT'
 ```
 
 ### Inserting Emojis
@@ -156,6 +151,29 @@ setVariantEmoji(yourClassThatImplementsVariantEmoji)
 ```
 
 If no instance or a null instance is set the [default implementation](./emoji/src/main/java/com/vanniktech/emoji/VariantEmojiManager.java) will be used.
+
+# Snapshots
+
+This library is also distributed as a SNAPSHOT if you like to check the
+latest features.
+
+> Note: The API is not stable and may change and break your code at any
+> time if you use a SNAPSHOT.
+
+Add this to your repositories:
+
+```groovy
+maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+```
+
+And **one** of these to your dependencies:
+
+```groovy
+compile 'com.vanniktech:emoji-ios:0.6.0-SNAPSHOT'
+compile 'com.vanniktech:emoji-one:0.6.0-SNAPSHOT'
+compile 'com.vanniktech:emoji-google:0.6.0-SNAPSHOT'
+compile 'com.vanniktech:emoji-twitter:0.6.0-SNAPSHOT'
+```
 
 # Proguard
 
