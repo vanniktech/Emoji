@@ -4,6 +4,7 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
     ext.versions = [
+        espresso: '3.0.0',
         testRules: '1.0.0',
     ]
 
@@ -23,7 +24,6 @@ buildscript {
     repositories {
         jcenter()
         google()
-        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.7.0'
@@ -31,7 +31,6 @@ buildscript {
 
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
-        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.11'
     }
 }
 
