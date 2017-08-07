@@ -154,11 +154,9 @@ If no instance or a null instance is set the [default implementation](./emoji/sr
 
 # Snapshots
 
-This library is also distributed as a SNAPSHOT if you like to check the
-latest features.
+This library is also distributed as a SNAPSHOT if you like to check out the latest features.
 
-> Note: The API is not stable and may change and break your code at any
-> time if you use a SNAPSHOT.
+> Note: The API is not stable and may change and break your code at any time if you use a SNAPSHOT.
 
 Add this to your repositories:
 
