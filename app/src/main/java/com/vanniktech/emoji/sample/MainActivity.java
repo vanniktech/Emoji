@@ -30,6 +30,7 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import com.vanniktech.emoji.one.EmojiOneProvider;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
+@SuppressWarnings("CPD-START") // We don't care about duplicate code in the sample.
 public class MainActivity extends AppCompatActivity {
   static final String TAG = "MainActivity";
 
@@ -47,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     chatAdapter = new ChatAdapter();
 
-    editText = (EmojiEditText) findViewById(R.id.main_activity_chat_bottom_message_edittext);
-    rootView = (ViewGroup) findViewById(R.id.main_activity_root_view);
-    emojiButton = (ImageView) findViewById(R.id.main_activity_emoji);
-    final ImageView sendButton = (ImageView) findViewById(R.id.main_activity_send);
+    editText = findViewById(R.id.main_activity_chat_bottom_message_edittext);
+    rootView = findViewById(R.id.main_activity_root_view);
+    emojiButton = findViewById(R.id.main_activity_emoji);
+    final ImageView sendButton = findViewById(R.id.main_activity_send);
 
     emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_activity_recycler_view);
+    final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
     recyclerView.setAdapter(chatAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

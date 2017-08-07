@@ -189,16 +189,6 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
   }
 
-  @Test public void takeLongest() {
-    EmojiManager.install(provider);
-
-    final Spannable text = new SpannableString(new String(new int[] { 0x1234, 0x4321 }, 0, 1));
-
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22);
-
-    assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
-  }
-
   @Test public void empty() {
     EmojiManager.install(provider);
 

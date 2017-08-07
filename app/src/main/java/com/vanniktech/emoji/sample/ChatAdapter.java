@@ -51,7 +51,7 @@ final class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder>
     ChatViewHolder(final View view) {
       super(view);
 
-      textView = (EmojiTextView) view.findViewById(R.id.adapter_chat_text_view);
+      textView = view.findViewById(R.id.adapter_chat_text_view);
     }
   }
 }

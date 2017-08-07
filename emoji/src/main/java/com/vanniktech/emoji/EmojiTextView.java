@@ -10,6 +10,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 
+@SuppressWarnings("CPD-START") // The Emoji widgets have almost the same code, so ignore CPD here.
 public class EmojiTextView extends AppCompatTextView {
   private float emojiSize;
 

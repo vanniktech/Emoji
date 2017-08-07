@@ -12,7 +12,7 @@
     "cheerio": "^1.0.0-rc.1",
     "command-line-args": "^4.0.6",
     "download": "^6.2.5",
-    "fs-extra": "^3.0.1",
+    "fs-extra": "^4.0.1",
     "imagemin": "^5.3.1",
     "imagemin-optipng": "^5.2.1",
     "stable": "^0.1.6",

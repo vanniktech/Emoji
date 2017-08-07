@@ -4,7 +4,7 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
     ext.versions = [
-        testRules: '0.5',
+        testRules: '1.0.0',
     ]
 
     ext.deps = [
@@ -17,7 +17,7 @@ buildscript {
                 'rules': "com.android.support.test:rules:${versions.testRules}",
             ],
         ],
-        'fastLaneScreenGrab': "tools.fastlane:screengrab:1.0.3",
+        'fastLaneScreenGrab': "tools.fastlane:screengrab:1.1.0",
     ]
 
     repositories {
@@ -26,10 +26,11 @@ buildscript {
     }
     dependencies {
         classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.7.0'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.6.0'
+        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.7.0'
 
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.11'
     }
 }
 
@@ -52,9 +53,6 @@ codeQualityTools {
   errorProne {
     toolVersion = '2.0.21'
   }
-  cpd {
-    ignoreFailures = true // Fix in a follow up.
-  }
 }
 
 junitJacoco {
@@ -74,11 +72,11 @@ subprojects {
 
 ext {
     minSdkVersion = 15
-    compileSdkVersion = 25
-    targetSdkVersion = 25
-    buildToolsVersion = '25.0.3'
+    compileSdkVersion = 26
+    targetSdkVersion = 26
+    buildToolsVersion = '26.0.1'
 
-    supportLibraryVersion = '25.4.0'
+    supportLibraryVersion = '26.0.0'
     leakCanaryVersion = '1.5.1'
 
     versionCode = VERSION_CODE
@@ -96,8 +94,8 @@ ext {
 
     testing = [
             junit             : 'junit:junit:4.12',
-            robolectric       : 'org.robolectric:robolectric:3.3.2',
-            mockito           : 'org.mockito:mockito-core:2.8.9',
+            robolectric       : 'org.robolectric:robolectric:3.4.2',
+            mockito           : 'org.mockito:mockito-core:2.8.47',
             privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
             assertJ           : 'org.assertj:assertj-core:3.8.0'
     ]
@@ -106,6 +104,6 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0'
+    gradleVersion = '4.0.2'
     distributionType = Wrapper.DistributionType.ALL
 }
