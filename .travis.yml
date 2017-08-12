@@ -1,42 +1,43 @@
 language: android
 
 android:
-    components:
-        - tools
-        - platform-tools
-        - build-tools-25.0.3
-        - android-25
-        - extra-android-m2repository
+  components:
+    - tools
+    - platform-tools
 
 jdk:
-    - oraclejdk8
+  - oraclejdk8
+
+before_script:
+  - mkdir "$ANDROID_HOME/licenses" || true
+  - echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 
 before_install:
-    - pip install --user codecov
+  - pip install --user codecov
 
 install: true
 
 script: ./gradlew clean build
 
 after_success:
-    - .buildscript/deploy_snapshot.sh
-    - codecov
+  - .buildscript/deploy_snapshot.sh
+  - codecov
 
 env:
-    global:
-        - secure: "mOz+mzBV8Kpyjhq4bXm/RJquDQ7U9ykLEaIMgEMDGUEOiduHbOZEI4pwND2JSbwQHEAUGc5/9ltVRLALaLjo7yqaKr0vMIHdJSE/nuHTFYx+RSRsnlXQMvApaLkaczOEcy1pfxLytxwaTisu/pe27o1EsQLZyXIlk2uCsBI44fW7vio4onfqP0ikcSJm/VWJDmx03btQnO91736tmBrdSVrZUDt/j1StVfqXX3ZHZ4vUg9EJ6k1a5JYE+d4kvkvj2Db/Q+jRp0oMlRB7nSyWNRpvsOwka9rnt7FQ6aNzG9zYqg57GNudjufke+g7g8uW9k9DTEYwdjczEMQvOOnF3hlojO1oxK1NtQhJFnsE86vu5yRog5VSzMUIAKl/j+MIOLZdTLpWu0/9toRG9K8tt17BTuw1bh7zjZdGl9izyiX/w1V2LEOBtlRq2VLTpZJif9uvENGYGPr2mPIBIQT8Oa7dKKcvF9fvIU81x4hVcrgp6rs8QFVMsKrRy8w6f0WQEsRyB6aIWnmD0o5vHwH0/zaV/TLh3o/jnvwoWqy7/eiXEnYm3+ZMeQr1wAK+qI69Or1Dg8+vyHNxLdvrFbN21Rnto28dKq+f6cVHmzGvacVzPSpDHoKZm5ZlZaZVyKqXnpOnpogI1wH7hbxMPogBeZeQPsw9USHNbUEKnZIPTwg="
-        - secure: "TXakzLTGPi7W41WLgp5cnhfxjjHyoJfOC5QZ0MZt5czlwxw+5iONWsaJQbX5oZA+F0B55ytPTAR1ELcxg0HC8HsuEsaHPJNNUsVVeulr/Ntp7I/jFAfgi6xYFu5XcrhXW05H2AQ/MAbDU3FnCctOk0Vn7hAXJB7RKGcUdA+QSYFO9dC3mt3mzTJWqqyyjKF5yJWYEnM/OEIZx4QLt4kGJOr912i/mXIhO1e0vnUSpc/xxU225xIb1q4EK7XAxvuickTSMGbUyg7gHjIKaaSCHFJtIOn+MX4sJBSjA/N6w/C/dZRnx3zY+ZDAEqi2HSwQhqRspWcYXoQsjCk1kezzTDjB1Ll4Bn4r3e7KqqODyvAIECNg8BbOdjjv8ia6A5WBDgjVz/IA4kdZd0nn6dqvMWgStH2Mx9fIopLIgSWfNVDCusbhM+hDP6eyWZoVLIXt/PqfTWlvMXR1IR0FpcP7zSGtkxnqpieh6SvWakCyeCUOY3MeHAp4QrPeIJvuNG8/RwbYSMCRd077L66ryL4hoy6VRTJ1FGqDP9RH4DwWUitiS8ZU54QwnEl9ZcIKD3+MDCuyJ1zFlU3cBsVyZP3az6LvYH1+qhfKrC6KuFOzLKCOdnnsbA5PHYjAqZ6U1mlXTvgI7l3F2oJmv1CiTgN4/3vSwsFD+Uhmym9TIhrZtD4="
+  global:
+    - secure: "mOz+mzBV8Kpyjhq4bXm/RJquDQ7U9ykLEaIMgEMDGUEOiduHbOZEI4pwND2JSbwQHEAUGc5/9ltVRLALaLjo7yqaKr0vMIHdJSE/nuHTFYx+RSRsnlXQMvApaLkaczOEcy1pfxLytxwaTisu/pe27o1EsQLZyXIlk2uCsBI44fW7vio4onfqP0ikcSJm/VWJDmx03btQnO91736tmBrdSVrZUDt/j1StVfqXX3ZHZ4vUg9EJ6k1a5JYE+d4kvkvj2Db/Q+jRp0oMlRB7nSyWNRpvsOwka9rnt7FQ6aNzG9zYqg57GNudjufke+g7g8uW9k9DTEYwdjczEMQvOOnF3hlojO1oxK1NtQhJFnsE86vu5yRog5VSzMUIAKl/j+MIOLZdTLpWu0/9toRG9K8tt17BTuw1bh7zjZdGl9izyiX/w1V2LEOBtlRq2VLTpZJif9uvENGYGPr2mPIBIQT8Oa7dKKcvF9fvIU81x4hVcrgp6rs8QFVMsKrRy8w6f0WQEsRyB6aIWnmD0o5vHwH0/zaV/TLh3o/jnvwoWqy7/eiXEnYm3+ZMeQr1wAK+qI69Or1Dg8+vyHNxLdvrFbN21Rnto28dKq+f6cVHmzGvacVzPSpDHoKZm5ZlZaZVyKqXnpOnpogI1wH7hbxMPogBeZeQPsw9USHNbUEKnZIPTwg="
+    - secure: "TXakzLTGPi7W41WLgp5cnhfxjjHyoJfOC5QZ0MZt5czlwxw+5iONWsaJQbX5oZA+F0B55ytPTAR1ELcxg0HC8HsuEsaHPJNNUsVVeulr/Ntp7I/jFAfgi6xYFu5XcrhXW05H2AQ/MAbDU3FnCctOk0Vn7hAXJB7RKGcUdA+QSYFO9dC3mt3mzTJWqqyyjKF5yJWYEnM/OEIZx4QLt4kGJOr912i/mXIhO1e0vnUSpc/xxU225xIb1q4EK7XAxvuickTSMGbUyg7gHjIKaaSCHFJtIOn+MX4sJBSjA/N6w/C/dZRnx3zY+ZDAEqi2HSwQhqRspWcYXoQsjCk1kezzTDjB1Ll4Bn4r3e7KqqODyvAIECNg8BbOdjjv8ia6A5WBDgjVz/IA4kdZd0nn6dqvMWgStH2Mx9fIopLIgSWfNVDCusbhM+hDP6eyWZoVLIXt/PqfTWlvMXR1IR0FpcP7zSGtkxnqpieh6SvWakCyeCUOY3MeHAp4QrPeIJvuNG8/RwbYSMCRd077L66ryL4hoy6VRTJ1FGqDP9RH4DwWUitiS8ZU54QwnEl9ZcIKD3+MDCuyJ1zFlU3cBsVyZP3az6LvYH1+qhfKrC6KuFOzLKCOdnnsbA5PHYjAqZ6U1mlXTvgI7l3F2oJmv1CiTgN4/3vSwsFD+Uhmym9TIhrZtD4="
 
 branches:
-    except:
-        - gh-pages
+  except:
+    - gh-pages
 
 notifications:
-    email: false
+  email: false
 
-sudo: true
+sudo: true # Required since otherwise Travis gets killed.
 
 cache:
-    directories:
-        - $HOME/.gradle
-        - $HOME/.m2
+  directories:
+    - $HOME/.gradle
+    - $HOME/.m2

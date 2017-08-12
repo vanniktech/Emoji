@@ -1,0 +1,5 @@
+<resources>
+  <dimen name="emoji_size_default">20sp</dimen>
+  <dimen name="emoji_size_only_emojis">40sp</dimen>
+  <dimen name="emoji_size_single_emoji">60sp</dimen>
+</resources>

@@ -123,6 +123,12 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().findAllEmojis("")).isEmpty();
   }
 
+  @Test public void findAllEmojisNull() {
+    EmojiManager.install(provider);
+
+    assertThat(EmojiManager.getInstance().findAllEmojis(null)).isEmpty();
+  }
+
   @Test public void simple() {
     EmojiManager.install(provider);
 
@@ -177,16 +183,6 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     EmojiManager.install(provider);
 
     final Spannable text = new SpannableString(new String(new int[] { 0x1234, 0x4321, 0x9999 }, 0, 1));
-
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22);
-
-    assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
-  }
-
-  @Test public void takeLongest() {
-    EmojiManager.install(provider);
-
-    final Spannable text = new SpannableString(new String(new int[] { 0x1234, 0x4321 }, 0, 1));
 
     EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22);
 

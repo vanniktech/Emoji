@@ -3,10 +3,10 @@ package com.vanniktech.emoji;
 import android.support.annotation.NonNull;
 import com.vanniktech.emoji.emoji.Emoji;
 
-final class EmojiRange {
-  final int start;
-  final int end;
-  final Emoji emoji;
+public final class EmojiRange {
+  public final int start;
+  public final int end;
+  public final Emoji emoji;
 
   EmojiRange(final int start, final int end, @NonNull final Emoji emoji) {
     this.start = start;

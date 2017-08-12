@@ -56,6 +56,7 @@ final class EmojiVariantPopup {
     );
 
     popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
+    rootImageView.getParent().requestDisallowInterceptTouchEvent(true);
     Utils.fixPopupLocation(popupWindow, desiredLocation);
   }
 
@@ -70,7 +71,7 @@ final class EmojiVariantPopup {
 
   private View initView(@NonNull final Context context, @NonNull final Emoji emoji, final int width) {
     final View result = View.inflate(context, R.layout.emoji_skin_popup, null);
-    final LinearLayout imageContainer = (LinearLayout) result.findViewById(R.id.container);
+    final LinearLayout imageContainer = result.findViewById(R.id.container);
 
     final List<Emoji> variants = emoji.getBase().getVariants();
     variants.add(0, emoji.getBase());

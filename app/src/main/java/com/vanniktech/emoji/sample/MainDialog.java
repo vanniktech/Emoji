@@ -27,6 +27,7 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
+@SuppressWarnings("CPD-START") // We don't care about duplicate code in the sample.
 public class MainDialog extends DialogFragment {
   static final String FRAGMENT_MANAGER_TAG = "dialog_main";
   static final String TAG = "MainDialog";
@@ -66,10 +67,10 @@ public class MainDialog extends DialogFragment {
   private View buildView() {
     final View result = View.inflate(getContext(), R.layout.dialog_main, null);
 
-    editText = (EmojiEditText) result.findViewById(R.id.main_dialog_chat_bottom_message_edittext);
-    rootView = (ViewGroup) result.findViewById(R.id.main_dialog_root_view);
-    emojiButton = (ImageView) result.findViewById(R.id.main_dialog_emoji);
-    final ImageView sendButton = (ImageView) result.findViewById(R.id.main_dialog_send);
+    editText = result.findViewById(R.id.main_dialog_chat_bottom_message_edittext);
+    rootView = result.findViewById(R.id.main_dialog_root_view);
+    emojiButton = result.findViewById(R.id.main_dialog_emoji);
+    final ImageView sendButton = result.findViewById(R.id.main_dialog_send);
 
     emojiButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
@@ -91,7 +92,7 @@ public class MainDialog extends DialogFragment {
       }
     });
 
-    final RecyclerView recyclerView = (RecyclerView) result.findViewById(R.id.main_dialog_recycler_view);
+    final RecyclerView recyclerView = result.findViewById(R.id.main_dialog_recycler_view);
     recyclerView.setAdapter(chatAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 

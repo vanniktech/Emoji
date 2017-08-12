@@ -52,8 +52,8 @@ import java.util.concurrent.TimeUnit;
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
     themeAccentColor = value.data;
 
-    final ViewPager emojisPager = (ViewPager) findViewById(R.id.emojis_pager);
-    final LinearLayout emojisTab = (LinearLayout) findViewById(R.id.emojis_tab);
+    final ViewPager emojisPager = findViewById(R.id.emojis_pager);
+    final LinearLayout emojisTab = findViewById(R.id.emojis_tab);
     emojisPager.addOnPageChangeListener(this);
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
