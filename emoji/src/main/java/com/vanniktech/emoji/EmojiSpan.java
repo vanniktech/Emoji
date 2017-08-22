@@ -5,12 +5,13 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
+import com.vanniktech.emoji.emoji.Emoji;
 
 final class EmojiSpan extends ImageSpan {
   private final float size;
 
-  EmojiSpan(final Context context, final int drawableRes, final float size) {
-    super(context, drawableRes);
+  EmojiSpan(final Context context, final Emoji emoji, final float size) {
+    super(emoji.getDrawable(context));
 
     this.size = size;
   }

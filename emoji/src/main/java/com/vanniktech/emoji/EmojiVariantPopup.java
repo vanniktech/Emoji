@@ -86,7 +86,7 @@ final class EmojiVariantPopup {
       // Use the same size for Emojis as in the picker.
       layoutParams.width = width;
       layoutParams.setMargins(margin, margin, margin, margin);
-      emojiImage.setImageResource(variant.getResource());
+      emojiImage.setImageDrawable(variant.getDrawable(context));
 
       emojiImage.setOnClickListener(new View.OnClickListener() {
         @Override public void onClick(final View view) {
