@@ -24,7 +24,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
       deferredDrawable = emoji.getDrawable(context);
       deferredDrawable.setBounds(0, 0, (int) size, (int) size);
     }
-    return defferedDrawable;
+    return deferredDrawable;
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,
