@@ -4,23 +4,27 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.text.style.DynamicDrawableSpan;
+import com.vanniktech.emoji.emoji.Emoji;
 
-final class EmojiSpan extends ImageSpan {
+final class EmojiSpan extends DynamicDrawableSpan {
   private final float size;
+  private final Context context;
+  private final Emoji emoji;
+  private Drawable deferredDrawable;
 
-  EmojiSpan(final Context context, final int drawableRes, final float size) {
-    super(context, drawableRes);
-
+  EmojiSpan(final Context context, final Emoji emoji, final float size) {
+    this.context = context;
+    this.emoji = emoji;
     this.size = size;
   }
 
   @Override public Drawable getDrawable() {
-    final Drawable result = super.getDrawable();
-
-    result.setBounds(0, 0, (int) size, (int) size);
-
-    return result;
+    if (deferredDrawable == null) {
+      deferredDrawable = emoji.getDrawable(context);
+      deferredDrawable.setBounds(0, 0, (int) size, (int) size);
+    }
+    return deferredDrawable;
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,

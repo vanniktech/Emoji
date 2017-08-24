@@ -131,7 +131,7 @@ public final class EmojiManager {
       final EmojiRange location = findAllEmojis.get(i);
 
       if (!existingSpanPositions.contains(location.start)) {
-        text.setSpan(new EmojiSpan(context, location.emoji.getResource(), emojiSize),
+        text.setSpan(new EmojiSpan(context, location.emoji, emojiSize),
             location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
       }
     }

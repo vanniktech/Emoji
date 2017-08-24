@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-import android.support.v7.content.res.AppCompatResources;
 import android.widget.ImageView;
+import com.vanniktech.emoji.emoji.Emoji;
 import java.lang.ref.WeakReference;
 
-final class ImageLoadingTask extends AsyncTask<Integer, Void, Drawable> {
+final class ImageLoadingTask extends AsyncTask<Emoji, Void, Drawable> {
   private final WeakReference<ImageView> imageViewReference;
   private final WeakReference<Context> contextReference;
 
@@ -17,11 +17,11 @@ final class ImageLoadingTask extends AsyncTask<Integer, Void, Drawable> {
     contextReference = new WeakReference<>(imageView.getContext());
   }
 
-  @Override protected Drawable doInBackground(final Integer... resource) {
+  @Override protected Drawable doInBackground(final Emoji... emoji) {
     final Context context = contextReference.get();
 
     if (context != null && !isCancelled()) {
-      return AppCompatResources.getDrawable(context, resource[0]);
+      return emoji[0].getDrawable(context);
     }
 
     return null;

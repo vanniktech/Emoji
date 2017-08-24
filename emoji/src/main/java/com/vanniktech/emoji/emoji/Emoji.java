@@ -1,8 +1,11 @@
 package com.vanniktech.emoji.emoji;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.content.res.AppCompatResources;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +46,16 @@ public final class Emoji implements Serializable {
     return unicode;
   }
 
-  @DrawableRes public int getResource() {
+  /**
+   * @deprecated Please migrate to getDrawable(). May return -1 in the future for providers that don't use
+   * resources.
+   */
+  @Deprecated @DrawableRes public int getResource() {
     return resource;
+  }
+
+  @NonNull public Drawable getDrawable(final Context context) {
+    return AppCompatResources.getDrawable(context, resource);
   }
 
   @NonNull public List<Emoji> getVariants() {

@@ -118,7 +118,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
       } : null);
 
       imageLoadingTask = new ImageLoadingTask(this);
-      imageLoadingTask.execute(emoji.getResource());
+      imageLoadingTask.execute(emoji);
     }
   }
 
@@ -133,7 +133,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
     if (!emoji.equals(currentEmoji)) {
       currentEmoji = emoji;
 
-      setImageResource(emoji.getResource());
+      setImageDrawable(emoji.getDrawable(this.getContext()));
     }
   }
 
