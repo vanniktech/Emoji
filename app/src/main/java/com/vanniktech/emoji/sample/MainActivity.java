@@ -18,6 +18,7 @@ import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiImageView;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.compat.CompatEmojiProvider;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
@@ -100,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
       case R.id.variantTwitter:
         EmojiManager.install(new TwitterEmojiProvider());
+        recreate();
+        return true;
+      case R.id.variantCompat:
+        EmojiManager.install(new CompatEmojiProvider());
         recreate();
         return true;
       case R.id.variantEmojiOne:

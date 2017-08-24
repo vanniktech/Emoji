@@ -2,6 +2,8 @@ package com.vanniktech.emoji.sample;
 
 import android.app.Application;
 import android.os.StrictMode;
+import android.support.text.emoji.EmojiCompat;
+import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
 import android.support.v7.app.AppCompatDelegate;
 import com.squareup.leakcanary.LeakCanary;
 import com.vanniktech.emoji.EmojiManager;
@@ -16,6 +18,10 @@ public class EmojiApplication extends Application {
     if (LeakCanary.isInAnalyzerProcess(this)) {
       return;
     }
+
+    EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
+    config.setReplaceAll(true);
+    EmojiCompat.init(config);
 
     AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_AUTO);
 

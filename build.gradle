@@ -56,7 +56,7 @@ codeQualityTools {
 }
 
 junitJacoco {
-    ignoreProjects = ['app', 'emoji-ios', 'emoji-google', 'emoji-twitter', 'emoji-one'] // Don't care about sample and generated modules
+    ignoreProjects = ['app', 'emoji-ios', 'emoji-google', 'emoji-twitter', 'emoji-one', 'emoji-compat'] // Don't care about sample and generated modules
 }
 
 subprojects {
@@ -88,6 +88,8 @@ ext {
     supportRecyclerView = "com.android.support:recyclerview-v7:$supportLibraryVersion"
     supportCardView = "com.android.support:cardview-v7:$supportLibraryVersion"
     supportAnnotations = "com.android.support:support-annotations:$supportLibraryVersion"
+    supportEmoji = "com.android.support:support-emoji:$supportLibraryVersion"
+    supportEmojiBundled = "com.android.support:support-emoji-bundled:$supportLibraryVersion"
 
     leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"

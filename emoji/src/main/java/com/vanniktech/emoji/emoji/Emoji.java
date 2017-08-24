@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public final class Emoji implements Serializable {
+public class Emoji implements Serializable {
   private static final long serialVersionUID = 3L;
 
   @NonNull private final String unicode;
