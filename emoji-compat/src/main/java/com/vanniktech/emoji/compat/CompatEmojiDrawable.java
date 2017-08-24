@@ -34,10 +34,14 @@ public class CompatEmojiDrawable extends Drawable {
 
     @Override
     public void draw(Canvas canvas) {
+        Rect bounds = getBounds();
+        textPaint.setTextSize(bounds.height() * 0.8f);
+        int y = bounds.bottom - bounds.height() / 4;
         if (emojiSpan == null) {
-            canvas.drawRect(0, 0, 100, 100, textPaint);
+           // canvas.drawRect(bounds, textPaint);  // Mark non-replaced
+            canvas.drawText(processed, 0, processed.length(), bounds.left, y, textPaint);
         } else {
-            emojiSpan.draw(canvas, processed, 0, processed.length(), 0, 100, 0, 10, textPaint);
+            emojiSpan.draw(canvas, processed, 0, processed.length(), bounds.left /* x */, bounds.top /* top */, y /* y */, bounds.bottom /* bottom */, textPaint);
         }
     }
 
