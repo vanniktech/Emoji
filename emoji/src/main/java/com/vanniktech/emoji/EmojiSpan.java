@@ -11,7 +11,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
   private final float size;
   private final Context context;
   private final Emoji emoji;
-  private Drawable mDrawable;
+  private Drawable deferredDrawable;
 
   EmojiSpan(final Context context, final Emoji emoji, final float size) {
     this.context = context;
@@ -20,11 +20,11 @@ final class EmojiSpan extends DynamicDrawableSpan {
   }
 
   @Override public Drawable getDrawable() {
-    if (mDrawable == null) {
-      mDrawable = emoji.getDrawable(context);
-      mDrawable.setBounds(0, 0, (int) size, (int) size);
+    if (deferredDrawable == null) {
+      deferredDrawable = emoji.getDrawable(context);
+      deferredDrawable.setBounds(0, 0, (int) size, (int) size);
     }
-    return mDrawable;
+    return defferedDrawable;
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,
