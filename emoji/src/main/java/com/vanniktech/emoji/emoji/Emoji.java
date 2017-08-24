@@ -54,7 +54,7 @@ public final class Emoji implements Serializable {
     return resource;
   }
 
-  @NonNull public Drawable getDrawable(Context context) {
+  @NonNull public Drawable getDrawable(final Context context) {
     return AppCompatResources.getDrawable(context, resource);
   }
 
