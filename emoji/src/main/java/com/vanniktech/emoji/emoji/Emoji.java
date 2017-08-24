@@ -50,11 +50,11 @@ public final class Emoji implements Serializable {
    * @deprecated Please migrate to getDrawable(). May return -1 in the future for providers that don't use
    * resources.
    */
-  @DrawableRes public int getResource() {
+  @Deprecated @DrawableRes public int getResource() {
     return resource;
   }
 
-  public Drawable getDrawable(Context context) {
+  @NonNull public Drawable getDrawable(Context context) {
     return AppCompatResources.getDrawable(context, resource);
   }
 

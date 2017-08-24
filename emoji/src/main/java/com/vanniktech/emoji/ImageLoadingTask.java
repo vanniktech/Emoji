@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-import android.support.v7.content.res.AppCompatResources;
 import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.lang.ref.WeakReference;
