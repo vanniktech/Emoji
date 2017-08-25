@@ -58,7 +58,7 @@ android {
 dependencies {
     compile project(':emoji-ios')
     compile project(':emoji-google')
-    compile project(':emoji-compat')
+    compile project(':emoji-google-compat')
     compile project(':emoji-twitter')
     compile project(':emoji-one')
 
