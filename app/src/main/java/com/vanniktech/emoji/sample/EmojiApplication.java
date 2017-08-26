@@ -19,7 +19,7 @@ public class EmojiApplication extends Application {
       return;
     }
 
-    EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
+    final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
     config.setReplaceAll(true);
     EmojiCompat.init(config);
 

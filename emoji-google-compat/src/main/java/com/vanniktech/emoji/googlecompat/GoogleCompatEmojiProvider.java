@@ -13,7 +13,6 @@ import com.vanniktech.emoji.googlecompat.category.SymbolsCategory;
 import com.vanniktech.emoji.googlecompat.category.TravelCategory;
 
 public final class GoogleCompatEmojiProvider implements EmojiProvider {
-
   @Override @NonNull public EmojiCategory[] getCategories() {
     return new EmojiCategory[] {
       new PeopleCategory(),

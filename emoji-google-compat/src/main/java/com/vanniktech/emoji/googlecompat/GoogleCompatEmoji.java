@@ -6,26 +6,25 @@ import android.support.annotation.NonNull;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public class GoogleCompatEmoji extends Emoji {
+  public GoogleCompatEmoji(final int codePoint) {
+    super(codePoint, -1);
+  }
 
-    public GoogleCompatEmoji(int codePoint) {
-        super(codePoint, -1);
-    }
+  public GoogleCompatEmoji(@NonNull final int[] codePoints) {
+    super(codePoints, -1);
+  }
 
-    public GoogleCompatEmoji(@NonNull int[] codePoints) {
-        super(codePoints, -1);
-    }
+  public GoogleCompatEmoji(final int[] ints, final Emoji... emojis) {
+    super(ints, -1, emojis);
+  }
 
-    public GoogleCompatEmoji(int[] ints, Emoji... emojis) {
-        super(ints, -1, emojis);
-    }
+  public GoogleCompatEmoji(final int codePoint, final Emoji... emojis) {
+    super(codePoint, -1, emojis);
+  }
 
-    public GoogleCompatEmoji(int codePoint, Emoji... emojis) {
-        super(codePoint, -1, emojis);
-    }
-
-    @NonNull
-    @Override
-    public Drawable getDrawable(Context context) {
-        return new CompatEmojiDrawable(getUnicode());
-    }
+  @NonNull
+  @Override
+  public Drawable getDrawable(final Context context) {
+    return new GoogleCompatEmojiDrawable(getUnicode());
+  }
 }
