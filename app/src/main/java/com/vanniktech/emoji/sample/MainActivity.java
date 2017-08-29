@@ -4,6 +4,8 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Px;
+import android.support.text.emoji.EmojiCompat;
+import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -104,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         recreate();
         return true;
       case R.id.variantGoogleCompat:
+        final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
+        config.setReplaceAll(true);
+        EmojiCompat.init(config);
+
         EmojiManager.install(new GoogleCompatEmojiProvider());
         recreate();
         return true;
