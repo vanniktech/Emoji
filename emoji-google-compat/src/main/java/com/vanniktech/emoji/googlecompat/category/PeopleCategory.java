@@ -133,7 +133,7 @@ import com.vanniktech.emoji.googlecompat.R;
       new GoogleCompatEmoji(new int[] { 0x1f64f, 0x1f3fe }),
       new GoogleCompatEmoji(new int[] { 0x1f64f, 0x1f3ff })
     ),
-    new GoogleCompatEmoji(0x1f91d,
+    new GoogleCompatEmoji(0x1f91d),
     new GoogleCompatEmoji(0x1f44d,
       new GoogleCompatEmoji(new int[] { 0x1f44d, 0x1f3fb }),
       new GoogleCompatEmoji(new int[] { 0x1f44d, 0x1f3fc }),
@@ -467,7 +467,7 @@ import com.vanniktech.emoji.googlecompat.R;
       new GoogleCompatEmoji(new int[] { 0x1f482, 0x1f3fe }),
       new GoogleCompatEmoji(new int[] { 0x1f482, 0x1f3ff })
     ),
-    new GoogleCompatEmoji(new int[] { 0x1f575, 0xfe0f, 0x200d, 0x2640, 0xfe0f }),
+    new GoogleCompatEmoji(new int[] { 0x1f575, 0xfe0f, 0x200d, 0x2640, 0xfe0f },
       new GoogleCompatEmoji(new int[] { 0x1f575, 0x1f3fb, 0x200d, 0x2640, 0xfe0f }),
       new GoogleCompatEmoji(new int[] { 0x1f575, 0x1f3fc, 0x200d, 0x2640, 0xfe0f }),
       new GoogleCompatEmoji(new int[] { 0x1f575, 0x1f3fd, 0x200d, 0x2640, 0xfe0f }),
