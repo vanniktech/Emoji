@@ -14,7 +14,6 @@ import com.vanniktech.emoji.googlecompat.category.SymbolsCategory;
 import com.vanniktech.emoji.googlecompat.category.TravelCategory;
 
 public final class GoogleCompatEmojiProvider implements EmojiProvider {
-
   public GoogleCompatEmojiProvider(@NonNull final EmojiCompat.Config emojiCompatConfig) {
     if (emojiCompatConfig == null) {
       throw new NullPointerException();
