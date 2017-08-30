@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         config.setReplaceAll(true);
         EmojiCompat.init(config);
 
-        EmojiManager.install(new GoogleCompatEmojiProvider());
+        EmojiManager.install(new GoogleCompatEmojiProvider(config));
         recreate();
         return true;
       case R.id.variantEmojiOne:

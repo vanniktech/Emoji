@@ -1,6 +1,7 @@
 package com.vanniktech.emoji.googlecompat;
 
 import android.support.annotation.NonNull;
+import android.support.text.emoji.EmojiCompat;
 import com.vanniktech.emoji.EmojiProvider;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.googlecompat.category.ActivityCategory;
@@ -13,6 +14,13 @@ import com.vanniktech.emoji.googlecompat.category.SymbolsCategory;
 import com.vanniktech.emoji.googlecompat.category.TravelCategory;
 
 public final class GoogleCompatEmojiProvider implements EmojiProvider {
+
+  public GoogleCompatEmojiProvider(@NonNull final EmojiCompat.Config emojiCompatConfig) {
+    if (emojiCompatConfig == null) {
+      throw new NullPointerException();
+    }
+  }
+
   @Override @NonNull public EmojiCategory[] getCategories() {
     return new EmojiCategory[] {
       new PeopleCategory(),
