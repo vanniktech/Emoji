@@ -38,7 +38,7 @@ public final class GoogleCompatEmojiProvider implements EmojiProvider, EmojiRepl
   }
 
   @Override
-  public void replaceWithImages(Context context, Spannable text, float emojiSize, float defaultEmojiSize) {
+  public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
     if (EmojiCompat.get().getLoadState() != EmojiCompat.LOAD_STATE_SUCCEEDED
             || emojiSize != defaultEmojiSize
             || EmojiCompat.get().process(text, 0, text.length()) != text) {

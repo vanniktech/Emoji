@@ -30,28 +30,25 @@ final class GoogleCompatEmojiDrawable extends Drawable {
     textPaint.setColor(0x0ffffffff);
   }
 
+  private void process() {
+    emojiCharSequence = EmojiCompat.get().process(emojiCharSequence);
+    if (emojiCharSequence instanceof Spanned) {
+      final Object[] spans = ((Spanned) emojiCharSequence).getSpans(0, emojiCharSequence.length(), EmojiSpan.class);
+      if (spans.length > 0) {
+        emojiSpan = (EmojiSpan) spans[0];
+      }
+    }
+  }
+
   @Override public void draw(final Canvas canvas) {
     final Rect bounds = getBounds();
     textPaint.setTextSize(bounds.height() * TEXT_SIZE_FACTOR);
     final int y = Math.round(bounds.bottom - bounds.height() * BASELINE_OFFSET_FACTOR);
 
-    if (!processed) {
-      EmojiCompat emojiCompat = EmojiCompat.get();
-      switch (emojiCompat.getLoadState()) {
-        case EmojiCompat.LOAD_STATE_FAILED:
-          processed = true;
-          break;
-        case EmojiCompat.LOAD_STATE_LOADING:
-          break;
-        default:
-          processed = true;
-          emojiCharSequence = EmojiCompat.get().process(emojiCharSequence);
-          if (emojiCharSequence instanceof Spanned) {
-            final Object[] spans = ((Spanned) emojiCharSequence).getSpans(0, emojiCharSequence.length(), EmojiSpan.class);
-            if (spans.length > 0) {
-              emojiSpan = (EmojiSpan) spans[0];
-            }
-          }
+    if (!processed && EmojiCompat.get().getLoadState() != EmojiCompat.LOAD_STATE_LOADING) {
+      processed = true;
+      if (EmojiCompat.get().getLoadState() != EmojiCompat.LOAD_STATE_FAILED) {
+        process();
       }
     }
 
