@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
   EmojiEditText editText;
   ViewGroup rootView;
   ImageView emojiButton;
+  EmojiCompat emojiCompat;
 
   @Override protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -106,10 +107,12 @@ public class MainActivity extends AppCompatActivity {
         recreate();
         return true;
       case R.id.variantGoogleCompat:
-        final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
-        config.setReplaceAll(true);
-
-        EmojiManager.install(new GoogleCompatEmojiProvider(EmojiCompat.init(config)));
+        if (emojiCompat == null) {
+          final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
+          config.setReplaceAll(true);
+          emojiCompat = EmojiCompat.init(config);
+        }
+        EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
         recreate();
         return true;
       case R.id.variantEmojiOne:

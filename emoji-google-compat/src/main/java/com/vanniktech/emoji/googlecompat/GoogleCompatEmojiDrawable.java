@@ -20,17 +20,12 @@ final class GoogleCompatEmojiDrawable extends Drawable {
   private static final float BASELINE_OFFSET_FACTOR = 0.225f;
 
   private EmojiSpan emojiSpan;
-  private final CharSequence processed;
+  private boolean processed;
+  private CharSequence emojiCharSequence;
   private final TextPaint textPaint = new TextPaint();
 
   GoogleCompatEmojiDrawable(@NonNull final String unicode) {
-    processed = EmojiCompat.get().process(unicode.length() == 1 ? unicode + "\ufe0f" : unicode);
-    if (processed instanceof Spanned) {
-      final Object[] spans = ((Spanned) processed).getSpans(0, unicode.length(), EmojiSpan.class);
-      if (spans.length > 0) {
-        emojiSpan = (EmojiSpan) spans[0];
-      }
-    }
+    emojiCharSequence = unicode;
     textPaint.setStyle(Paint.Style.FILL);
     textPaint.setColor(0x0ffffffff);
   }
@@ -40,10 +35,30 @@ final class GoogleCompatEmojiDrawable extends Drawable {
     textPaint.setTextSize(bounds.height() * TEXT_SIZE_FACTOR);
     final int y = Math.round(bounds.bottom - bounds.height() * BASELINE_OFFSET_FACTOR);
 
+    if (!processed) {
+      EmojiCompat emojiCompat = EmojiCompat.get();
+      switch (emojiCompat.getLoadState()) {
+        case EmojiCompat.LOAD_STATE_FAILED:
+          processed = true;
+          break;
+        case EmojiCompat.LOAD_STATE_LOADING:
+          break;
+        default:
+          processed = true;
+          emojiCharSequence = EmojiCompat.get().process(emojiCharSequence);
+          if (emojiCharSequence instanceof Spanned) {
+            final Object[] spans = ((Spanned) emojiCharSequence).getSpans(0, emojiCharSequence.length(), EmojiSpan.class);
+            if (spans.length > 0) {
+              emojiSpan = (EmojiSpan) spans[0];
+            }
+          }
+      }
+    }
+
     if (emojiSpan == null) {
-      canvas.drawText(processed, 0, processed.length(), bounds.left, y, textPaint);
+      canvas.drawText(emojiCharSequence, 0, emojiCharSequence.length(), bounds.left, y, textPaint);
     } else {
-      emojiSpan.draw(canvas, processed, 0, processed.length(), bounds.left, bounds.top, y, bounds.bottom, textPaint);
+      emojiSpan.draw(canvas, emojiCharSequence, 0, emojiCharSequence.length(), bounds.left, bounds.top, y, bounds.bottom, textPaint);
     }
   }
 

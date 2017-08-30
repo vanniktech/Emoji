@@ -1,6 +1,8 @@
 package com.vanniktech.emoji;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.text.Spannable;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 
 /**

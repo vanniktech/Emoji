@@ -39,6 +39,7 @@ public final class EmojiManager {
   private EmojiCategory[] categories;
   private Pattern emojiPattern;
   private Pattern emojiRepetitivePattern;
+  private EmojiReplacer emojiReplacer;
 
   private EmojiManager() {
     // No instances apart from singleton.
@@ -58,6 +59,7 @@ public final class EmojiManager {
   public static void install(@NonNull final EmojiProvider provider) {
     INSTANCE.categories = checkNotNull(provider.getCategories(), "categories == null");
     INSTANCE.emojiMap.clear();
+    INSTANCE.emojiReplacer = provider instanceof EmojiReplacer ? (EmojiReplacer) provider : null;
 
     final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
 
@@ -113,7 +115,19 @@ public final class EmojiManager {
     INSTANCE.emojiRepetitivePattern = null;
   }
 
-  static void replaceWithImages(final Context context, final Spannable text, final float emojiSize) {
+  static void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
+    final EmojiManager emojiManager = EmojiManager.getInstance();
+    if (emojiManager.emojiReplacer == null) {
+      replaceWithImagesImpl(context, text, emojiSize);
+    } else {
+      emojiManager.emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize);
+    }
+  }
+
+  /**
+   * Internal fallback method.
+   */
+  public static void replaceWithImagesImpl(final Context context, final Spannable text, final float emojiSize) {
     final EmojiManager emojiManager = EmojiManager.getInstance();
     final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
     final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
