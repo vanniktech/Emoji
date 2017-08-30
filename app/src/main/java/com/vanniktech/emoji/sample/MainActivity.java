@@ -108,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
       case R.id.variantGoogleCompat:
         final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
         config.setReplaceAll(true);
-        EmojiCompat.init(config);
 
-        EmojiManager.install(new GoogleCompatEmojiProvider(config));
+        EmojiManager.install(new GoogleCompatEmojiProvider(EmojiCompat.init(config)));
         recreate();
         return true;
       case R.id.variantEmojiOne:
