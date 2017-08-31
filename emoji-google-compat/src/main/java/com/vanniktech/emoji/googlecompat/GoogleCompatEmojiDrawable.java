@@ -28,6 +28,8 @@ final class GoogleCompatEmojiDrawable extends Drawable {
     emojiCharSequence = unicode;
     textPaint.setStyle(Paint.Style.FILL);
     textPaint.setColor(0x0ffffffff);
+    textPaint.setTextAlign(Paint.Align.CENTER);
+    textPaint.setAntiAlias(true);
   }
 
   private void process() {
@@ -53,7 +55,7 @@ final class GoogleCompatEmojiDrawable extends Drawable {
     }
 
     if (emojiSpan == null) {
-      canvas.drawText(emojiCharSequence, 0, emojiCharSequence.length(), bounds.left, y, textPaint);
+      canvas.drawText(emojiCharSequence, 0, emojiCharSequence.length(), bounds.centerX(), y, textPaint);
     } else {
       emojiSpan.draw(canvas, emojiCharSequence, 0, emojiCharSequence.length(), bounds.left, bounds.top, y, bounds.bottom, textPaint);
     }
