@@ -42,7 +42,7 @@ import com.vanniktech.emoji.googlecompat.R;
     new GoogleCompatEmoji(0x1f39b),
     new GoogleCompatEmoji(new int[] { 0x23f1, 0xfe0f }),
     new GoogleCompatEmoji(new int[] { 0x23f2, 0xfe0f }),
-    new GoogleCompatEmoji( 0x23f0),
+    new GoogleCompatEmoji(0x23f0),
     new GoogleCompatEmoji(0x1f570),
     new GoogleCompatEmoji(0x231b),
     new GoogleCompatEmoji(0x23f3),
