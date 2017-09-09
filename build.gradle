@@ -4,8 +4,8 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
     ext.versions = [
-        espresso: '3.0.0',
-        testRules: '1.0.0',
+        espresso: '3.0.1',
+        testRules: '1.0.1',
     ]
 
     ext.deps = [
@@ -26,8 +26,8 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.7.0'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.7.0'
+        classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.8.0'
+        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.8.0'
 
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
@@ -39,16 +39,16 @@ codeQualityTools {
     textReport = true
   }
   checkstyle {
-    toolVersion = '8.1'
+    toolVersion = '8.2'
   }
   pmd {
     toolVersion = '5.8.1'
   }
   ktlint {
-    toolVersion = '0.9.1'
+    toolVersion = '0.9.2'
   }
   detekt {
-    toolVersion = '1.0.0.M13.2'
+    toolVersion = '1.0.0.RC4-3'
   }
   errorProne {
     toolVersion = '2.0.21'
@@ -76,7 +76,7 @@ ext {
     targetSdkVersion = 26
     buildToolsVersion = '26.0.1'
 
-    supportLibraryVersion = '26.0.1'
+    supportLibraryVersion = '26.0.2'
     leakCanaryVersion = '1.5.1'
 
     versionCode = VERSION_CODE
@@ -97,7 +97,7 @@ ext {
     testing = [
             junit             : 'junit:junit:4.12',
             robolectric       : 'org.robolectric:robolectric:3.4.2',
-            mockito           : 'org.mockito:mockito-core:2.8.47',
+            mockito           : 'org.mockito:mockito-core:2.10.0',
             privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
             assertJ           : 'org.assertj:assertj-core:3.8.0'
     ]

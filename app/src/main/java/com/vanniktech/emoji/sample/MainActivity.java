@@ -33,8 +33,8 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import com.vanniktech.emoji.one.EmojiOneProvider;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
-@SuppressWarnings("CPD-START") // We don't care about duplicate code in the sample.
-public class MainActivity extends AppCompatActivity {
+// We don't care about duplicated code in the sample.
+@SuppressWarnings("CPD-START") public class MainActivity extends AppCompatActivity {
   static final String TAG = "MainActivity";
 
   ChatAdapter chatAdapter;

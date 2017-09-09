@@ -41,8 +41,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     assertThat(EmojiManager.getInstance().getCategories()).isNotEmpty();
   }
 
-  @Test
-  public void noProviderInstalled() {
+  @Test public void noProviderInstalled() {
     assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
       @Override public void call() throws Throwable {
         EmojiManager.getInstance().findEmoji("test");

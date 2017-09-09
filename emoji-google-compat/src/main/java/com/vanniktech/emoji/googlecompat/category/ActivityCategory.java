@@ -251,8 +251,7 @@ import com.vanniktech.emoji.emoji.EmojiCategory;
     return DATA;
   }
 
-  @Override @DrawableRes
-  public int getIcon() {
+  @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_compat_category_activity;
   }
 }
