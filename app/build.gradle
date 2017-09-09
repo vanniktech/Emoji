@@ -58,12 +58,14 @@ android {
 dependencies {
     compile project(':emoji-ios')
     compile project(':emoji-google')
+    compile project(':emoji-google-compat')
     compile project(':emoji-twitter')
     compile project(':emoji-one')
     compile project(':emoji-kotlin')
 
     compile rootProject.ext.supportAppCompat
     compile rootProject.ext.supportRecyclerView
+    compile rootProject.ext.supportEmojiBundled
 
     debugCompile rootProject.ext.leakCanaryDebug
     releaseCompile rootProject.ext.leakCanaryRelease

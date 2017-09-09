@@ -20,6 +20,9 @@
                     android:id="@+id/variantGoogle"
                     android:title="@string/variant_google_title"/>
                 <item
+                    android:id="@+id/variantGoogleCompat"
+                    android:title="@string/variant_google_compat_title"/>
+                <item
                     android:id="@+id/variantTwitter"
                     android:title="@string/variant_twitter_title"/>
                 <item

@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+
+afterEvaluate {
+  generateReleaseBuildConfig.enabled = false
+}
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  buildToolsVersion rootProject.ext.buildToolsVersion as String
+
+  compileOptions {
+    sourceCompatibility rootProject.ext.javaVersion as JavaVersion
+    targetCompatibility rootProject.ext.javaVersion as JavaVersion
+  }
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion as int
+  }
+
+  resourcePrefix 'emoji'
+}
+
+dependencies {
+  compile project(':emoji')
+  compile rootProject.ext.supportEmoji
+}
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
