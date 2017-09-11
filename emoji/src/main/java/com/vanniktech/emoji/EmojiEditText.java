@@ -11,8 +11,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import com.vanniktech.emoji.emoji.Emoji;
 
-@SuppressWarnings("CPD-START") // The Emoji widgets have almost the same code, so ignore CPD here.
-public class EmojiEditText extends AppCompatEditText {
+@SuppressWarnings("CPD-START") public class EmojiEditText extends AppCompatEditText {
   private float emojiSize;
 
   public EmojiEditText(final Context context) {

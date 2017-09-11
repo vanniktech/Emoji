@@ -100,8 +100,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
       }
 
       setOnClickListener(new OnClickListener() {
-        @Override
-        public void onClick(final View view) {
+        @Override public void onClick(final View view) {
           if (clickListener != null) {
             clickListener.onEmojiClick(EmojiImageView.this, currentEmoji);
           }
@@ -109,8 +108,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
       });
 
       setOnLongClickListener(hasVariants ? new OnLongClickListener() {
-        @Override
-        public boolean onLongClick(final View view) {
+        @Override public boolean onLongClick(final View view) {
           longClickListener.onEmojiLongClick(EmojiImageView.this, currentEmoji);
 
           return true;

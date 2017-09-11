@@ -153,6 +153,7 @@
       <property name="allowSamelineSingleParameterlessAnnotation" value="true"/>
       <property name="allowSamelineParameterizedAnnotation" value="false"/>
     </module>
+    <module name="AnnotationOnSameLine"/>
 
     <module name="RegexpSinglelineJava">
       <property name="format" value="import static org\.junit\.Assert\.assertEquals;"/>
