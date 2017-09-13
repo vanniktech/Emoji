@@ -27,8 +27,8 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
-@SuppressWarnings("CPD-START") // We don't care about duplicate code in the sample.
-public class MainDialog extends DialogFragment {
+// We don't care about duplicated code in the sample.
+@SuppressWarnings("CPD-START") public class MainDialog extends DialogFragment {
   static final String FRAGMENT_MANAGER_TAG = "dialog_main";
   static final String TAG = "MainDialog";
 
@@ -57,8 +57,7 @@ public class MainDialog extends DialogFragment {
     super.onStop();
   }
 
-  @NonNull @Override
-  public Dialog onCreateDialog(final Bundle savedInstanceState) {
+  @NonNull @Override public Dialog onCreateDialog(final Bundle savedInstanceState) {
     return new AlertDialog.Builder(getContext())
             .setView(buildView())
             .create();

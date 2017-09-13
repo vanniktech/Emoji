@@ -61,6 +61,7 @@ dependencies {
     compile project(':emoji-google-compat')
     compile project(':emoji-twitter')
     compile project(':emoji-one')
+    compile project(':emoji-kotlin')
 
     compile rootProject.ext.supportAppCompat
     compile rootProject.ext.supportRecyclerView
