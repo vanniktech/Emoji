@@ -133,7 +133,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
 
     final Spannable text = new SpannableString(new String(new int[] { 0x1234 }, 0, 1));
 
-    EmojiManager.replaceWithImagesImpl(RuntimeEnvironment.application, text, 22);
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 44, 22);
 
     assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
   }
@@ -173,7 +173,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
 
     final Spannable text = new SpannableString(new String(new int[] { 0x1234, 0x4321 }, 0, 1));
 
-    EmojiManager.replaceWithImagesImpl(RuntimeEnvironment.application, text, 22);
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 11, 22);
 
     assertThat(text.getSpans(0, text.length(), EmojiSpan.class)).hasSize(1);
   }

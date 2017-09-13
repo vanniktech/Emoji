@@ -35,6 +35,32 @@ public final class EmojiManager {
     }
   };
 
+  private static final EmojiReplacer DEFAULT_EMOJI_REPLACER = new EmojiReplacer() {
+    @Override public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize, final EmojiReplacer fallback) {
+      final EmojiManager emojiManager = EmojiManager.getInstance();
+      final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
+      final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
+
+      final int size = existingSpans.length;
+      //noinspection ForLoopReplaceableByForEach
+      for (int i = 0; i < size; i++) {
+        existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
+      }
+
+      final List<EmojiRange> findAllEmojis = emojiManager.findAllEmojis(text);
+
+      //noinspection ForLoopReplaceableByForEach
+      for (int i = 0; i < findAllEmojis.size(); i++) {
+        final EmojiRange location = findAllEmojis.get(i);
+
+        if (!existingSpanPositions.contains(location.start)) {
+          text.setSpan(new EmojiSpan(context, location.emoji, emojiSize),
+                  location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+      }
+    }
+  };
+
   private final Map<String, Emoji> emojiMap = new LinkedHashMap<>(GUESSED_UNICODE_AMOUNT);
   private EmojiCategory[] categories;
   private Pattern emojiPattern;
@@ -59,7 +85,7 @@ public final class EmojiManager {
   public static void install(@NonNull final EmojiProvider provider) {
     INSTANCE.categories = checkNotNull(provider.getCategories(), "categories == null");
     INSTANCE.emojiMap.clear();
-    INSTANCE.emojiReplacer = provider instanceof EmojiReplacer ? (EmojiReplacer) provider : null;
+    INSTANCE.emojiReplacer = provider instanceof EmojiReplacer ? (EmojiReplacer) provider : DEFAULT_EMOJI_REPLACER;
 
     final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
 
@@ -117,38 +143,7 @@ public final class EmojiManager {
 
   static void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
     final EmojiManager emojiManager = EmojiManager.getInstance();
-    if (emojiManager.emojiReplacer == null) {
-      replaceWithImagesImpl(context, text, emojiSize);
-    } else {
-      emojiManager.emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize);
-    }
-  }
-
-  /**
-   * Internal fallback method.
-   */
-  public static void replaceWithImagesImpl(final Context context, final Spannable text, final float emojiSize) {
-    final EmojiManager emojiManager = EmojiManager.getInstance();
-    final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
-    final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
-
-    final int size = existingSpans.length;
-    //noinspection ForLoopReplaceableByForEach
-    for (int i = 0; i < size; i++) {
-      existingSpanPositions.add(text.getSpanStart(existingSpans[i]));
-    }
-
-    final List<EmojiRange> findAllEmojis = emojiManager.findAllEmojis(text);
-
-    //noinspection ForLoopReplaceableByForEach
-    for (int i = 0; i < findAllEmojis.size(); i++) {
-      final EmojiRange location = findAllEmojis.get(i);
-
-      if (!existingSpanPositions.contains(location.start)) {
-        text.setSpan(new EmojiSpan(context, location.emoji, emojiSize),
-            location.start, location.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-      }
-    }
+    emojiManager.emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize, DEFAULT_EMOJI_REPLACER);
   }
 
   EmojiCategory[] getCategories() {
