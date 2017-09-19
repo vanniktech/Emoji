@@ -79,7 +79,7 @@ ext {
     targetSdkVersion = 26
     buildToolsVersion = '26.0.1'
 
-    supportLibraryVersion = '26.0.2'
+    supportLibraryVersion = '26.1.0'
     leakCanaryVersion = '1.5.1'
 
     versionCode = VERSION_CODE
