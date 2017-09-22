@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.PopupWindow;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
+import static android.os.Build.VERSION_CODES.N;
 
 final class Utils {
   static final int DONT_UPDATE_FLAG = -1;
@@ -59,21 +61,28 @@ final class Utils {
     return result;
   }
 
-  static Activity asActivity(@NonNull final Context context) {
-    Context result = context;
 
-    while (result instanceof ContextWrapper) {
-      if (result instanceof Activity) {
-        return (Activity) context;
-      }
+    static Activity asActivity(@NonNull final View rootView) {
+        Context result;
 
-      result = ((ContextWrapper) context).getBaseContext();
+        if (SDK_INT >= N) {
+            result = rootView.findViewById(android.R.id.content).getContext();
+        } else {
+            result = rootView.getContext();
+        }
+
+        while (result instanceof ContextWrapper) {
+            if (result instanceof Activity) {
+                return (Activity) result;
+            }
+
+            result = ((ContextWrapper) result).getBaseContext();
+        }
+
+        throw new IllegalArgumentException("The passed Context is not an Activity.");
     }
 
-    throw new IllegalArgumentException("The passed Context is not an Activity.");
-  }
-
-  static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {
+    static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {
     popupWindow.getContentView().post(new Runnable() {
       @Override public void run() {
         final Point actualLocation = locationOnScreen(popupWindow.getContentView());

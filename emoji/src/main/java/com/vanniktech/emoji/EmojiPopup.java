@@ -85,7 +85,7 @@ public final class EmojiPopup {
 
   EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText,
              @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant) {
-    this.context = Utils.asActivity(rootView.getContext());
+    this.context = Utils.asActivity(rootView);
     this.rootView = rootView.getRootView();
     this.emojiEditText = emojiEditText;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
