@@ -25,10 +25,11 @@ buildscript {
     repositories {
         jcenter()
         google()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
     dependencies {
         classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.8.0'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.9.0'
+        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0-SNAPSHOT'
 
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
