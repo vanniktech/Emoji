@@ -74,7 +74,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY;
   @Override protected void onDraw(final Canvas canvas) {
     super.onDraw(canvas);
 
-    if (hasVariants) {
+    if (hasVariants && getDrawable() != null) {
       canvas.drawPath(variantIndicatorPath, variantIndicatorPaint);
     }
   }
