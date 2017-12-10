@@ -7,7 +7,6 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
@@ -16,9 +15,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY;
-
-@RestrictTo(LIBRARY) public final class EmojiImageView extends AppCompatImageView {
+public final class EmojiImageView extends AppCompatImageView {
   private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
   private static final int VARIANT_INDICATOR_PART = 5;
 

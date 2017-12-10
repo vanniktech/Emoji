@@ -13,6 +13,7 @@
  <rule ref="rulesets/java/coupling.xml">
   <exclude name="LawOfDemeter"/>
   <exclude name="ExcessiveImports"/>
+  <exclude name="LoosePackageCoupling"/>
   </rule>
   <rule ref="rulesets/java/design.xml">
     <exclude name="AbstractClassWithoutAbstractMethod"/>

@@ -6,18 +6,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.mockito.quality.Strictness.STRICT_STUBS;
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner.class) public final class VariantEmojiManagerTest {
   @Rule public final ExpectedException expectedException = ExpectedException.none();
-  @Rule public final MockitoRule mockitoRule = MockitoJUnit.rule().strictness(STRICT_STUBS);
 
   private VariantEmojiManager variantEmojiManager;
 

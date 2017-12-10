@@ -5,23 +5,22 @@ afterEvaluate {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion as int
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+  compileSdkVersion rootProject.ext.compileSdkVersion as int
 
-    compileOptions {
-        sourceCompatibility rootProject.ext.javaVersion as JavaVersion
-        targetCompatibility rootProject.ext.javaVersion as JavaVersion
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
 
-    defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion as int
-    }
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion as int
+  }
 
-    resourcePrefix 'emoji'
+  resourcePrefix 'emoji'
 }
 
 dependencies {
-    compile project(':emoji')
+  api project(':emoji')
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
