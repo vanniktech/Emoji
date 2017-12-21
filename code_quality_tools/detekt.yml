@@ -1,21 +1,19 @@
 failFast: true
 
 potential-bugs:
+  UnsafeCast:
+    active: false # We know what we're doing.
   LateinitUsage:
-    excludeAnnotatedProperties: "javax.inject.*,org.mockito.*,butterknife.*"
+    active: false # We know what we're doing.
 
 style:
+  TopLevelPropertyNaming:
+    active: false
   MaxLineLength:
     active: false
-  NamingConventionViolation:
-    classPattern: '[A-Z$][a-zA-Z0-9$]*'
 
 comments:
-  CommentOverPrivateMethod:
-    active: false # We actually like this.
+  UndocumentedPublicClass:
+    active: false
   UndocumentedPublicFunction:
     active: false
-
-complexity:
-  TooManyFunctions:
-    threshold: 30
