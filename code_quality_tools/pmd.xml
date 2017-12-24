@@ -1,76 +1,81 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Android Application Rules"
- xmlns="http://pmd.sf.net/ruleset/1.0.0"
- xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
- xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+  xmlns="http://pmd.sf.net/ruleset/1.0.0"
+  xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
+  xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
 
- <description>PMD Ruleset</description>
+  <description>PMD Ruleset</description>
 
- <exclude-pattern>.*/R.java</exclude-pattern>
- <exclude-pattern>.*/R2.java</exclude-pattern>
- <exclude-pattern>.*/gen/.*</exclude-pattern>
+  <exclude-pattern>.*/R.java</exclude-pattern>
+  <exclude-pattern>.*/gen/.*</exclude-pattern>
 
- <rule ref="rulesets/java/coupling.xml">
-  <exclude name="LawOfDemeter"/>
-  <exclude name="ExcessiveImports"/>
-  <exclude name="LoosePackageCoupling"/>
-  </rule>
-  <rule ref="rulesets/java/design.xml">
+  <rule ref="category/java/bestpractices.xml">
     <exclude name="AbstractClassWithoutAbstractMethod"/>
-    <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
     <exclude name="UseVarargs"/>
-    <exclude name="UseUtilityClass"/>
-    <exclude name="ConfusingTernary"/>
     <exclude name="UseCollectionIsEmpty"/>
-    <exclude name="TooFewBranchesForASwitchStatement"/>
-    <exclude name="FieldDeclarationsShouldBeAtStartOfClass"/>
-    <exclude name="AvoidProtectedFieldInFinalClass"/>
-    <exclude name="ReturnEmptyArrayRatherThanNull"/>
-  </rule>
-  <rule ref="rulesets/java/empty.xml"/>
-  <rule ref="rulesets/java/naming.xml">
-    <exclude name="ShortMethodName"/>
-    <exclude name="ShortVariable"/>
-    <exclude name="AvoidFieldNameMatchingTypeName"/>
-    <exclude name="AvoidFieldNameMatchingMethodName"/>
-    <exclude name="LongVariable"/>
-    <exclude name="ShortClassName"/>
-    <exclude name="AbstractNaming"/>
-  </rule>
-  <rule ref="rulesets/java/junit.xml">
     <exclude name="JUnitTestsShouldIncludeAssert"/>
     <exclude name="JUnitAssertionsShouldIncludeMessage"/>
     <exclude name="JUnitTestContainsTooManyAsserts"/>
   </rule>
-  <rule ref="rulesets/java/migrating.xml"/>
-  <rule ref="rulesets/java/strictexception.xml">
+  <rule ref="category/java/codestyle.xml">
+    <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
+    <exclude name="ConfusingTernary"/>
+    <exclude name="FieldDeclarationsShouldBeAtStartOfClass"/>
+    <exclude name="AvoidProtectedFieldInFinalClass"/>
+    <exclude name="ShortMethodName"/>
+    <exclude name="ShortVariable"/>
+    <exclude name="LongVariable"/>
+    <exclude name="ShortClassName"/>
+    <exclude name="AbstractNaming"/>
+    <exclude name="TooManyStaticImports"/>
+    <exclude name="AtLeastOneConstructor"/>
+    <exclude name="OnlyOneReturn"/>
+    <exclude name="CallSuperInConstructor"/>
+    <exclude name="AvoidPrefixingMethodParameters"/>
+    <exclude name="CommentDefaultAccessModifier"/>
+    <exclude name="DefaultPackage"/>
+    <exclude name="AvoidFinalLocalVariable"/>
+  </rule>
+  <rule ref="category/java/design.xml">
+    <exclude name="NcssCount"/>
+    <exclude name="ExcessiveClassLength"/>
+    <exclude name="LawOfDemeter"/>
+    <exclude name="TooManyFields"/>
+    <exclude name="ExcessiveImports"/>
+    <exclude name="LoosePackageCoupling"/>
+    <exclude name="UseUtilityClass"/>
+    <exclude name="DataClass"/>
     <exclude name="AvoidThrowingNullPointerException"/>
     <exclude name="AvoidThrowingRawExceptionTypes"/>
     <exclude name="AvoidCatchingGenericException"/>
+    <exclude name="TooManyMethods"/>
   </rule>
-  <rule ref="rulesets/java/unnecessary.xml"/>
-  <rule ref="rulesets/java/unusedcode.xml"/>
-  <rule ref="rulesets/java/optimizations.xml">
-    <exclude name="AvoidInstantiatingObjectsInLoops"/>
+  <rule ref="category/java/documentation.xml">
+    <exclude name="CommentRequired"/>
+    <exclude name="CommentSize"/>
   </rule>
-  <rule ref="rulesets/java/typeresolution.xml"/>
-  <rule ref="rulesets/java/android.xml"/>
-  <rule ref="rulesets/java/clone.xml"/>
-  <rule ref="rulesets/java/finalizers.xml"/>
-  <rule ref="rulesets/java/imports.xml">
-    <exclude name="TooManyStaticImports"/>
-  </rule>
-  <rule ref="rulesets/java/logging-java.xml">
+  <rule ref="category/java/errorprone.xml">
+    <exclude name="NullAssignment"/>
+    <exclude name="AvoidLiteralsInIfCondition"/>
+    <exclude name="ReturnEmptyArrayRatherThanNull"/>
+    <exclude name="AvoidFieldNameMatchingTypeName"/>
+    <exclude name="AvoidFieldNameMatchingMethodName"/>
     <exclude name="LoggerIsNotStaticFinal"/>
-  </rule>
-  <rule ref="rulesets/java/braces.xml"/>
-  <rule ref="rulesets/java/sunsecure.xml"/>
-  <rule ref="rulesets/java/strings.xml">
     <exclude name="AvoidDuplicateLiterals"/>
+    <exclude name="BeanMembersShouldSerialize"/>
+    <!-- Possibly a lot of false positives. https://github.com/pmd/pmd/issues/810 -->
+    <exclude name="DataflowAnomalyAnalysis"/>
   </rule>
-  <rule ref="rulesets/java/basic.xml"/>
-
-  <rule ref="rulesets/java/design.xml/AvoidDeeplyNestedIfStmts">
+  <rule ref="category/java/multithreading.xml">
+    <exclude name="DoNotUseThreads"/>
+    <exclude name="UseConcurrentHashMap"/>
+  </rule>
+  <rule ref="category/java/performance.xml">
+    <exclude name="TooFewBranchesForASwitchStatement"/>
+    <exclude name="AvoidInstantiatingObjectsInLoops"/>
+    <exclude name="AvoidUsingShortType"/>
+  </rule>
+  <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts">
     <properties>
       <property name="problemDepth" value="3"/>
     </properties>

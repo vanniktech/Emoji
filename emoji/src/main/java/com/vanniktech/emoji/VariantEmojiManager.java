@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-final class VariantEmojiManager implements VariantEmoji {
+@SuppressWarnings("PMD.ForLoopCanBeForeach") final class VariantEmojiManager implements VariantEmoji {
   private static final String PREFERENCE_NAME = "variant-emoji-manager";
   private static final String EMOJI_DELIMITER = "~";
   private static final String VARIANT_EMOJIS = "variant-emojis";

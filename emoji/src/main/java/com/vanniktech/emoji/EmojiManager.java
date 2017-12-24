@@ -21,7 +21,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 /**
  * EmojiManager where an EmojiProvider can be installed for further usage.
  */
-public final class EmojiManager {
+@SuppressWarnings("PMD.ForLoopCanBeForeach") public final class EmojiManager {
   private static final EmojiManager INSTANCE = new EmojiManager();
   private static final int GUESSED_UNICODE_AMOUNT = 3000;
   private static final int GUESSED_TOTAL_PATTERN_LENGTH = GUESSED_UNICODE_AMOUNT * 4;
