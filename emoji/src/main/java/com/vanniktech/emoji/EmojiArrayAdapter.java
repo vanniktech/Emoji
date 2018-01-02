@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,14 +23,17 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   @Nullable private final OnEmojiClickListener listener;
   @Nullable private final OnEmojiLongClickListener longListener;
+  @NonNull private final int variantIndicatorColor;
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis, @Nullable final VariantEmoji variantManager,
-                    @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener) {
+                    @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener,
+                    @NonNull final int variantIndicatorColor) {
     super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
 
     this.variantManager = variantManager;
     this.listener = listener;
     this.longListener = longListener;
+    this.variantIndicatorColor = variantIndicatorColor;
   }
 
   @NonNull @Override public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
@@ -46,6 +51,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
     final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
     image.setEmoji(variantToUse);
+    image.setVariantIndicatorColor(variantIndicatorColor);
 
     return image;
   }

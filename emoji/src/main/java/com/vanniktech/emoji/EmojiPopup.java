@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -31,9 +32,24 @@ public final class EmojiPopup {
   final View rootView;
   final Activity context;
 
-  @NonNull final RecentEmoji recentEmoji;
-  @NonNull final VariantEmoji variantEmoji;
-  @NonNull final EmojiVariantPopup variantPopup;
+  @NonNull
+  final RecentEmoji recentEmoji;
+  @NonNull
+  final VariantEmoji variantEmoji;
+  @NonNull
+  final EmojiVariantPopup variantPopup;
+  @NonNull
+  final int emojiViewBackgroundColor;
+  @NonNull
+  final int emojiViewIconNormalColor;
+  @NonNull
+  final int emojiViewIconSelectedColor;
+  @NonNull
+  final int variantPopupBackgroundColor;
+  @NonNull
+  final int variantIndicatorColor;
+  @NonNull
+  final int dividerColor;
 
   final PopupWindow popupWindow;
   final EmojiEditText emojiEditText;
@@ -41,16 +57,23 @@ public final class EmojiPopup {
   boolean isPendingOpen;
   boolean isKeyboardOpen;
 
-  @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
-  @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
-  @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
+  @Nullable
+  OnEmojiPopupShownListener onEmojiPopupShownListener;
+  @Nullable
+  OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
+  @Nullable
+  OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
 
-  @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-  @Nullable OnEmojiClickListener onEmojiClickListener;
-  @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+  @Nullable
+  OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+  @Nullable
+  OnEmojiClickListener onEmojiClickListener;
+  @Nullable
+  OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-    @Override public void onGlobalLayout() {
+    @Override
+    public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
       final int heightDifference = Utils.screenHeight(context) - rect.bottom;
 
@@ -83,24 +106,41 @@ public final class EmojiPopup {
     }
   };
 
-  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditText emojiEditText,
-             @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant) {
+  EmojiPopup(@NonNull final View rootView,
+             @NonNull final EmojiEditText emojiEditText,
+             @Nullable final RecentEmoji recent,
+             @Nullable final VariantEmoji variant,
+             @NonNull final int emojiViewBackgroundColor,
+             @NonNull final int emojiViewIconNormalColor,
+             @NonNull final int emojiViewIconSelectedColor,
+             @NonNull final int variantPopupBackgroundColor,
+             @NonNull final int variantIndicatorColor,
+             @NonNull final int dividerColor) {
+
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.emojiEditText = emojiEditText;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
+    this.emojiViewBackgroundColor = emojiViewBackgroundColor;
+    this.emojiViewIconNormalColor = emojiViewIconNormalColor;
+    this.emojiViewIconSelectedColor = emojiViewIconSelectedColor;
+    this.variantPopupBackgroundColor = variantPopupBackgroundColor;
+    this.variantIndicatorColor = variantIndicatorColor;
+    this.dividerColor = dividerColor;
 
     popupWindow = new PopupWindow(context);
 
     final OnEmojiLongClickListener longClickListener = new OnEmojiLongClickListener() {
-      @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
-        variantPopup.show(view, emoji);
+      @Override
+      public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
+        variantPopup.show(view, emoji, variantPopupBackgroundColor);
       }
     };
 
     final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
-      @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
+      @Override
+      public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
         emojiEditText.input(emoji);
 
         recentEmoji.addEmoji(emoji);
@@ -117,9 +157,21 @@ public final class EmojiPopup {
 
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji);
+
+    final EmojiView emojiView = new EmojiView(
+            context,
+            clickListener,
+            longClickListener,
+            recentEmoji,
+            variantEmoji,
+            emojiViewBackgroundColor,
+            emojiViewIconNormalColor,
+            emojiViewIconSelectedColor,
+            variantIndicatorColor,
+            dividerColor);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-      @Override public void onEmojiBackspaceClick(final View v) {
+      @Override
+      public void onEmojiBackspaceClick(final View v) {
         emojiEditText.backspace();
 
         if (onEmojiBackspaceClickListener != null) {
@@ -132,13 +184,16 @@ public final class EmojiPopup {
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-      @Override public void onDismiss() {
+      @Override
+      public void onDismiss() {
         if (onEmojiPopupDismissListener != null) {
           onEmojiPopupDismissListener.onEmojiPopupDismiss();
         }
       }
     });
   }
+
+
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
@@ -198,15 +253,36 @@ public final class EmojiPopup {
   }
 
   public static final class Builder {
-    @NonNull private final View rootView;
-    @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
-    @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
-    @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
-    @Nullable private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-    @Nullable private OnEmojiClickListener onEmojiClickListener;
-    @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
-    @Nullable private RecentEmoji recentEmoji;
-    @Nullable private VariantEmoji variantEmoji;
+    @NonNull
+    private final View rootView;
+    @Nullable
+    private OnEmojiPopupShownListener onEmojiPopupShownListener;
+    @Nullable
+    private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
+    @Nullable
+    private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
+    @Nullable
+    private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+    @Nullable
+    private OnEmojiClickListener onEmojiClickListener;
+    @Nullable
+    private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+    @Nullable
+    private RecentEmoji recentEmoji;
+    @Nullable
+    private VariantEmoji variantEmoji;
+    @NonNull
+    private int emojiViewBackgroundColor;
+    @NonNull
+    private int emojiViewIconNormalColor;
+    @NonNull
+    private int emojiViewIconSelectedColor;
+    @NonNull
+    private int variantPopupBackgroundColor;
+    @NonNull
+    private int variantIndicatorColor;
+    @NonNull
+    private int dividerColor;
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
@@ -217,36 +293,43 @@ public final class EmojiPopup {
      *                 of the keyboard.
      * @return builder For building the {@link EmojiPopup}.
      */
-    @CheckResult public static Builder fromRootView(final View rootView) {
+    @CheckResult
+    public static Builder fromRootView(final View rootView) {
       return new Builder(rootView);
     }
 
-    @CheckResult public Builder setOnSoftKeyboardCloseListener(@Nullable final OnSoftKeyboardCloseListener listener) {
+    @CheckResult
+    public Builder setOnSoftKeyboardCloseListener(@Nullable final OnSoftKeyboardCloseListener listener) {
       onSoftKeyboardCloseListener = listener;
       return this;
     }
 
-    @CheckResult public Builder setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
+    @CheckResult
+    public Builder setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
       onEmojiClickListener = listener;
       return this;
     }
 
-    @CheckResult public Builder setOnSoftKeyboardOpenListener(@Nullable final OnSoftKeyboardOpenListener listener) {
+    @CheckResult
+    public Builder setOnSoftKeyboardOpenListener(@Nullable final OnSoftKeyboardOpenListener listener) {
       onSoftKeyboardOpenListener = listener;
       return this;
     }
 
-    @CheckResult public Builder setOnEmojiPopupShownListener(@Nullable final OnEmojiPopupShownListener listener) {
+    @CheckResult
+    public Builder setOnEmojiPopupShownListener(@Nullable final OnEmojiPopupShownListener listener) {
       onEmojiPopupShownListener = listener;
       return this;
     }
 
-    @CheckResult public Builder setOnEmojiPopupDismissListener(@Nullable final OnEmojiPopupDismissListener listener) {
+    @CheckResult
+    public Builder setOnEmojiPopupDismissListener(@Nullable final OnEmojiPopupDismissListener listener) {
       onEmojiPopupDismissListener = listener;
       return this;
     }
 
-    @CheckResult public Builder setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener listener) {
+    @CheckResult
+    public Builder setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener listener) {
       onEmojiBackspaceClickListener = listener;
       return this;
     }
@@ -257,7 +340,8 @@ public final class EmojiPopup {
      *
      * @since 0.2.0
      */
-    @CheckResult public Builder setRecentEmoji(@Nullable final RecentEmoji recent) {
+    @CheckResult
+    public Builder setRecentEmoji(@Nullable final RecentEmoji recent) {
       recentEmoji = recent;
       return this;
     }
@@ -268,16 +352,65 @@ public final class EmojiPopup {
      *
      * @since 0.5.0
      */
-    @CheckResult public Builder setVariantEmoji(@Nullable final VariantEmoji variant) {
+    @CheckResult
+    public Builder setVariantEmoji(@Nullable final VariantEmoji variant) {
       variantEmoji = variant;
       return this;
     }
 
-    @CheckResult public EmojiPopup build(@NonNull final EmojiEditText emojiEditText) {
+    @CheckResult
+    public Builder setEmojiViewBackgroundColor(@NonNull final int color) {
+      emojiViewBackgroundColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public Builder setEmojiViewIconNormalColor(@NonNull final int color) {
+      emojiViewIconNormalColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public Builder setEmojiViewIconSelectedColor(@NonNull final int color) {
+      emojiViewIconSelectedColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public Builder setVariantPopupBackgroundColor(@NonNull final int color) {
+      variantPopupBackgroundColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public Builder setVariantIndicatorColor(@NonNull final int color) {
+      variantIndicatorColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public Builder setDividerColor(@NonNull final int color) {
+      dividerColor = color;
+      return this;
+    }
+
+    @CheckResult
+    public EmojiPopup build(@NonNull final EmojiEditText emojiEditText) {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(emojiEditText, "EmojiEditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji, variantEmoji);
+      final EmojiPopup emojiPopup = new EmojiPopup(
+              rootView,
+              emojiEditText,
+              recentEmoji,
+              variantEmoji,
+              emojiViewBackgroundColor,
+              emojiViewIconNormalColor,
+              emojiViewIconSelectedColor,
+              variantPopupBackgroundColor,
+              variantIndicatorColor,
+              dividerColor);
+
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
