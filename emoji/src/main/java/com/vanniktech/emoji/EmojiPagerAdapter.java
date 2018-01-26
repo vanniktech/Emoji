@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
-final class EmojiPagerAdapter extends PagerAdapter {
+public class EmojiPagerAdapter extends PagerAdapter {
   private static final int RECENT_POSITION = 0;
 
   private final OnEmojiClickListener listener;

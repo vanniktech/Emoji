@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-final class RecentEmojiManager implements RecentEmoji {
+public class RecentEmojiManager implements RecentEmoji {
   private static final String PREFERENCE_NAME = "emoji-recent-manager";
   private static final String TIME_DELIMITER = ";";
   private static final String EMOJI_DELIMITER = "~";
@@ -23,7 +23,7 @@ final class RecentEmojiManager implements RecentEmoji {
   @NonNull private final Context context;
   @NonNull private EmojiList emojiList = new EmojiList(0);
 
-  RecentEmojiManager(@NonNull final Context context) {
+  public RecentEmojiManager(@NonNull final Context context) {
     this.context = context.getApplicationContext();
   }
 

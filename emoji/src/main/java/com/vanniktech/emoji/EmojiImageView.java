@@ -15,7 +15,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
-public final class EmojiImageView extends AppCompatImageView {
+public class EmojiImageView extends AppCompatImageView {
   private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
   private static final int VARIANT_INDICATOR_PART = 5;
 
@@ -124,7 +124,7 @@ public final class EmojiImageView extends AppCompatImageView {
    *
    * @param emoji The new emoji variant to show.
    */
-  void updateEmoji(@NonNull final Emoji emoji) {
+  public void updateEmoji(@NonNull final Emoji emoji) {
     if (!emoji.equals(currentEmoji)) {
       currentEmoji = emoji;
 

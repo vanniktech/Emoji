@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-@SuppressWarnings("PMD.ForLoopCanBeForeach") final class VariantEmojiManager implements VariantEmoji {
+@SuppressWarnings("PMD.ForLoopCanBeForeach") public class VariantEmojiManager implements VariantEmoji {
   private static final String PREFERENCE_NAME = "variant-emoji-manager";
   private static final String EMOJI_DELIMITER = "~";
   private static final String VARIANT_EMOJIS = "variant-emojis";
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
   @NonNull private final Context context;
   @NonNull private List<Emoji> variantsList = new ArrayList<>(0);
 
-  VariantEmojiManager(@NonNull final Context context) {
+  public VariantEmojiManager(@NonNull final Context context) {
     this.context = context.getApplicationContext();
   }
 

@@ -23,7 +23,7 @@ import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import java.util.concurrent.TimeUnit;
 
-@SuppressLint("ViewConstructor") final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
+@SuppressLint("ViewConstructor") public class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
   private static final long INITIAL_INTERVAL = TimeUnit.SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
+  public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
             final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
             @NonNull final VariantEmoji variantManager) {
     super(context);
@@ -70,6 +70,9 @@ import java.util.concurrent.TimeUnit;
     emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, recentEmoji, variantManager);
     emojisPager.setAdapter(emojiPagerAdapter);
 
+	//custom page limit (Rewrite EmojiView Use)
+    setOsetOffscreenPageLimit(emojisPager, emojiPagerAdapter);
+
     final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
     emojisPager.setCurrentItem(startIndex);
     onPageSelected(startIndex);
@@ -87,6 +90,10 @@ import java.util.concurrent.TimeUnit;
         }
       }
     }));
+  }
+
+  public void setOsetOffscreenPageLimit(final ViewPager emojisPager, final EmojiPagerAdapter emojiPagerAdapter){
+
   }
 
   public void setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener) {
