@@ -92,7 +92,7 @@ import java.util.concurrent.TimeUnit;
     }));
   }
 
-  public void setOsetOffscreenPageLimit(final ViewPager emojisPager, final EmojiPagerAdapter emojiPagerAdapter) {
+  public void setOsetOffscreenPageLimit(final ViewPager emojisPager, final EmojiPagerAdapter emojiPager) {
     // No-op.
   }
 
