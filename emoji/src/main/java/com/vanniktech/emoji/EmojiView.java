@@ -70,7 +70,7 @@ import java.util.concurrent.TimeUnit;
     emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, recentEmoji, variantManager);
     emojisPager.setAdapter(emojiPagerAdapter);
 
-	//custom page limit (Rewrite EmojiView Use)
+    //custom page limit (Rewrite EmojiView Use)
     setOsetOffscreenPageLimit(emojisPager, emojiPagerAdapter);
 
     final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
@@ -93,7 +93,7 @@ import java.util.concurrent.TimeUnit;
   }
 
   public void setOsetOffscreenPageLimit(final ViewPager emojisPager, final EmojiPagerAdapter emojiPagerAdapter){
-
+    // No-op.
   }
 
   public void setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener) {
