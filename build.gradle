@@ -42,16 +42,16 @@ codeQualityTools {
     textReport = true
   }
   checkstyle {
-    toolVersion = '8.6'
+    toolVersion = '8.7'
   }
   pmd {
     toolVersion = '6.0.1'
   }
   ktlint {
-    toolVersion = '0.14.0'
+    toolVersion = '0.15.0'
   }
   detekt {
-    toolVersion = '1.0.0.RC6'
+    toolVersion = '1.0.0.RC6-2'
   }
   errorProne {
     toolVersion = '2.1.2'
@@ -108,7 +108,7 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '4.4.1'
+  gradleVersion = '4.5'
   distributionType = Wrapper.DistributionType.ALL
 }
 
