@@ -4,13 +4,11 @@ This library features a NodeJS script for updating the Emoji images and the gene
 
 ## Contents of the script
 
-The script does five things:
+The script does three things:
 
-- Downloading the required files
-- Extract the images and meta info
-- Optimize the images
-- Copy the images to the respective locations
-- Generate the Java code
+- Parsing and organizing the meta data.
+- Copy (and optimize) the images to the respective locations.
+- Generate the Java code.
 
 ## Prerequisites
 
@@ -45,13 +43,7 @@ yarn start
 
 ## Parameters
 
-Not all steps are always required. If the files were already downloaded for example, you would not need to re-download them. The following parameters are available:
-
-```
---no-download
-```
-
-Skips the download.
+Not all steps are always required. If you want to skip the time-consuming optimization for example, you could pass `--no-optimize`. The following parameters are available:
 
 ```
 --no-optimize
@@ -82,5 +74,5 @@ npm start -- --no-download --no-copy
 or
 
 ```
-yarn start -- --no-download --no-copy
+yarn start --no-download --no-copy
 ```
