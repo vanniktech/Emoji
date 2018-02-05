@@ -54,4 +54,15 @@ public class <%= name %> extends Emoji {
 
     return new BitmapDrawable(context.getResources(), cut);
   }
+
+  @Override public void destroy() {
+    if (sheet != null) {
+      synchronized (lock) {
+        if (sheet != null) {
+          sheet.recycle();
+          sheet = null;
+        }
+      }
+    }
+  }
 }
