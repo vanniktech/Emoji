@@ -9,44 +9,46 @@ import android.support.annotation.NonNull;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public class <%= name %> extends Emoji {
-  private static final Object lock = new Object();
-  private static Bitmap sheet = null;
+  private static final Object LOCK = new Object();
+  private static volatile Bitmap sheet;
 
   private final int x;
   private final int y;
 
-  public <%= name %>(@NonNull int[] codePoints, int x, int y) {
+  public <%= name %>(@NonNull final int[] codePoints, final int x, final int y) {
     super(codePoints, -1);
 
     this.x = x;
     this.y = y;
   }
 
-  public <%= name %>(int codePoint, int x, int y) {
+  public <%= name %>(final int codePoint, final int x, final int y) {
     super(codePoint, -1);
 
     this.x = x;
     this.y = y;
   }
 
-  public <%= name %>(int codePoint, int x, int y, Emoji... variants) {
+  public <%= name %>(final int codePoint, final int x, final int y, final Emoji... variants) {
     super(codePoint, -1, variants);
 
     this.x = x;
     this.y = y;
   }
 
-  public <%= name %>(@NonNull int[] codePoints, int x, int y, Emoji... variants) {
+  public <%= name %>(@NonNull final int[] codePoints, final int x, final int y, final Emoji... variants) {
     super(codePoints, -1, variants);
 
     this.x = x;
     this.y = y;
   }
 
-  @NonNull @Override public Drawable getDrawable(Context context) {
-    synchronized (lock) {
-      if (sheet == null) {
-        sheet = BitmapFactory.decodeResource(context.getResources(), R.drawable.emoji_<%= package %>_sheet);
+  @NonNull @Override public Drawable getDrawable(final Context context) {
+    if (sheet == null) {
+      synchronized (LOCK) {
+        if (sheet == null) {
+          sheet = BitmapFactory.decodeResource(context.getResources(), R.drawable.emoji_<%= package %>_sheet);
+        }
       }
     }
 
@@ -57,7 +59,7 @@ public class <%= name %> extends Emoji {
 
   @Override public void destroy() {
     if (sheet != null) {
-      synchronized (lock) {
+      synchronized (LOCK) {
         if (sheet != null) {
           sheet.recycle();
           sheet = null;
