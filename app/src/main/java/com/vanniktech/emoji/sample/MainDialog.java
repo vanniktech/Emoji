@@ -91,7 +91,7 @@ import com.vanniktech.emoji.EmojiPopup;
             .setOnEmojiClickListener((ignore, ignore2) -> Log.d(TAG, "Clicked on emoji"))
             .setOnEmojiPopupShownListener(() -> emojiButton.setImageResource(R.drawable.ic_keyboard))
             .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))
-            .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_people))
+            .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople))
             .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
             .build(editText);
   }
