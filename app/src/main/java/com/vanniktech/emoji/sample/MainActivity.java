@@ -78,14 +78,17 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         MainDialog.show(this);
         return true;
       case R.id.variantIos:
+        EmojiManager.destroy();
         EmojiManager.install(new IosEmojiProvider());
         recreate();
         return true;
       case R.id.variantGoogle:
+        EmojiManager.destroy();
         EmojiManager.install(new GoogleEmojiProvider());
         recreate();
         return true;
       case R.id.variantTwitter:
+        EmojiManager.destroy();
         EmojiManager.install(new TwitterEmojiProvider());
         recreate();
         return true;
@@ -95,10 +98,12 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
           config.setReplaceAll(true);
           emojiCompat = EmojiCompat.init(config);
         }
+        EmojiManager.destroy();
         EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
         recreate();
         return true;
       case R.id.variantEmojiOne:
+        EmojiManager.destroy();
         EmojiManager.install(new EmojiOneProvider());
         recreate();
         return true;
@@ -129,7 +134,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         .setOnEmojiClickListener((ignore, ignore2) -> Log.d(TAG, "Clicked on emoji"))
         .setOnEmojiPopupShownListener(() -> emojiButton.setImageResource(R.drawable.ic_keyboard))
         .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))
-        .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_people))
+        .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople))
         .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
         .build(editText);
   }

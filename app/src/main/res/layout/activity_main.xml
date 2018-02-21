@@ -31,7 +31,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="12dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/emoji_ios_category_people"
+            app:srcCompat="@drawable/emoji_ios_category_smileysandpeople"
             tools:ignore="ContentDescription"/>
 
         <com.vanniktech.emoji.EmojiEditText

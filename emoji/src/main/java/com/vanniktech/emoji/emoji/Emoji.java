@@ -81,6 +81,10 @@ public class Emoji implements Serializable {
     return !variants.isEmpty();
   }
 
+  public void destroy() {
+    // For inheritors to override.
+  }
+
   @Override public boolean equals(final Object o) {
     if (this == o) {
       return true;

@@ -1,6 +1,6 @@
 {
   "name": "emoji-parser",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "start": "node --max-old-space-size=4096 index.js"
   },
@@ -9,12 +9,16 @@
   "author": "Ruben Gees",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.1",
     "command-line-args": "^4.0.6",
-    "download": "^6.2.5",
+    "emoji-datasource": "^4.0.3",
+    "emoji-datasource-apple": "^4.0.3",
+    "emoji-datasource-emojione": "^4.0.3",
+    "emoji-datasource-google": "^4.0.3",
+    "emoji-datasource-twitter": "^4.0.3",
     "fs-extra": "^4.0.1",
     "imagemin": "^5.3.1",
-    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.1",
+    "imagemin-zopfli": "^5.1.0",
     "stable": "^0.1.6",
     "underscore": "^1.8.3"
   }

@@ -8,7 +8,7 @@ import com.vanniktech.emoji.emoji.EmojiCategory;
 public final class <%= name %>Provider implements EmojiProvider {
   @Override @NonNull public EmojiCategory[] getCategories() {
     return new EmojiCategory[] {
-      <%= categoryMapping %>
+      <%= categories %>
     };
   }
 }

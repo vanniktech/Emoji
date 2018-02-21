@@ -10,7 +10,7 @@
   <!-- Ignore Kotlin for now. -->
   <Match><Source name="~.*\.kt"/></Match>
 
-  <!-- Ignore UPM in lambdas from Retrolambda, FindBugs does not correctly understand them -->
+  <!-- Ignore UPM in lambdas from Retrolambda, FindBugs does not correctly understand them. -->
   <Match><Bug code="UPM" /><Class name="~.*\$\$Lambda\$.*"/></Match>
 
   <!-- Ignore some things that are not wanted. -->
@@ -20,4 +20,10 @@
 
   <!-- Ignore this one since it does not quite work together with ButterKnife & Dagger. -->
   <Match><Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/></Match>
+
+  <!-- Ignore this since we want to do that for improved performance. -->
+  <Match>
+    <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"/>
+    <Class name="~.*Emoji(One)?" />
+  </Match>
 </FindBugsFilter>
