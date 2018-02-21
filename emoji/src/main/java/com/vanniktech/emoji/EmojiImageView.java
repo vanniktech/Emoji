@@ -5,12 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
@@ -18,6 +20,8 @@ import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 public final class EmojiImageView extends AppCompatImageView {
   private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
   private static final int VARIANT_INDICATOR_PART = 5;
+
+  private final Context context;
 
   Emoji currentEmoji;
 
@@ -35,15 +39,18 @@ public final class EmojiImageView extends AppCompatImageView {
 
   private boolean hasVariants;
 
-  public EmojiImageView(final Context context, final AttributeSet attrs) {
+  public EmojiImageView(Context context, AttributeSet attrs) {
     super(context, attrs);
 
-    variantIndicatorPaint.setColor(ContextCompat.getColor(context, R.color.emoji_divider));
+    this.context = context;
+
     variantIndicatorPaint.setStyle(Paint.Style.FILL);
     variantIndicatorPaint.setAntiAlias(true);
   }
 
-  @Override public void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
+
+  @Override
+  public void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
     final int measuredWidth = getMeasuredWidth();
@@ -51,7 +58,8 @@ public final class EmojiImageView extends AppCompatImageView {
     setMeasuredDimension(measuredWidth, measuredWidth);
   }
 
-  @Override protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh) {
+  @Override
+  protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh) {
     super.onSizeChanged(w, h, oldw, oldh);
 
     variantIndicatorTop.x = w;
@@ -68,7 +76,8 @@ public final class EmojiImageView extends AppCompatImageView {
     variantIndicatorPath.close();
   }
 
-  @Override protected void onDraw(final Canvas canvas) {
+  @Override
+  protected void onDraw(final Canvas canvas) {
     super.onDraw(canvas);
 
     if (hasVariants && getDrawable() != null) {
@@ -76,12 +85,21 @@ public final class EmojiImageView extends AppCompatImageView {
     }
   }
 
-  @Override protected void onDetachedFromWindow() {
+  @Override
+  protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
 
     if (imageLoadingTask != null) {
       imageLoadingTask.cancel(true);
       imageLoadingTask = null;
+    }
+  }
+
+  public void setVariantIndicatorColor(@ColorInt final int color) {
+    if (color != 0) {
+      variantIndicatorPaint.setColor(color);
+    } else {
+      variantIndicatorPaint.setColor(ContextCompat.getColor(context, R.color.emoji_divider));
     }
   }
 
@@ -96,16 +114,18 @@ public final class EmojiImageView extends AppCompatImageView {
         imageLoadingTask.cancel(true);
       }
 
-      setOnClickListener(new OnClickListener() {
-        @Override public void onClick(final View view) {
+      setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(final View view) {
           if (clickListener != null) {
             clickListener.onEmojiClick(EmojiImageView.this, currentEmoji);
           }
         }
       });
 
-      setOnLongClickListener(hasVariants ? new OnLongClickListener() {
-        @Override public boolean onLongClick(final View view) {
+      setOnLongClickListener(hasVariants ? new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(final View view) {
           longClickListener.onEmojiLongClick(EmojiImageView.this, currentEmoji);
 
           return true;

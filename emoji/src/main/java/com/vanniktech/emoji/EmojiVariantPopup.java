@@ -4,8 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +17,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+
 import java.util.List;
 
 import static android.view.View.MeasureSpec.makeMeasureSpec;
@@ -23,23 +28,31 @@ import static android.view.View.MeasureSpec.makeMeasureSpec;
 final class EmojiVariantPopup {
   private static final int MARGIN = 2;
 
-  @NonNull private final View rootView;
-  @Nullable private PopupWindow popupWindow;
+  @NonNull
+  private final View rootView;
+  @Nullable
+  private PopupWindow popupWindow;
 
-  @Nullable final OnEmojiClickListener listener;
-  @Nullable EmojiImageView rootImageView;
+  @Nullable
+  final OnEmojiClickListener listener;
+  @Nullable
+  EmojiImageView rootImageView;
 
-  EmojiVariantPopup(@NonNull final View rootView, @Nullable final OnEmojiClickListener listener) {
+
+  EmojiVariantPopup(@NonNull final View rootView,
+                    @Nullable final OnEmojiClickListener listener) {
     this.rootView = rootView;
     this.listener = listener;
   }
 
-  void show(@NonNull final EmojiImageView clickedImage, @NonNull final Emoji emoji) {
+  void show(@NonNull final EmojiImageView clickedImage,
+            @NonNull final Emoji emoji,
+            @ColorInt final int backgroundColor) {
     dismiss();
 
     rootImageView = clickedImage;
 
-    final View content = initView(clickedImage.getContext(), emoji, clickedImage.getWidth());
+    final View content = initView(clickedImage.getContext(), emoji, clickedImage.getWidth(), backgroundColor);
 
     popupWindow = new PopupWindow(content, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
     popupWindow.setFocusable(true);
@@ -69,9 +82,16 @@ final class EmojiVariantPopup {
     }
   }
 
-  private View initView(@NonNull final Context context, @NonNull final Emoji emoji, final int width) {
+  private View initView(@NonNull final Context context,
+                        @NonNull final Emoji emoji,
+                        @NonNull final int width,
+                        @NonNull final int backgroundColor) {
+
     final View result = View.inflate(context, R.layout.emoji_skin_popup, null);
+    final CardView skinPopupBackground = result.findViewById(R.id.skin_popup_background);
     final LinearLayout imageContainer = result.findViewById(R.id.container);
+
+    setBackgroundColor(skinPopupBackground, backgroundColor != 0 ? backgroundColor : ContextCompat.getColor(context, R.color.emoji_background));
 
     final List<Emoji> variants = emoji.getBase().getVariants();
     variants.add(0, emoji.getBase());
@@ -89,7 +109,8 @@ final class EmojiVariantPopup {
       emojiImage.setImageDrawable(variant.getDrawable(context));
 
       emojiImage.setOnClickListener(new View.OnClickListener() {
-        @Override public void onClick(final View view) {
+        @Override
+        public void onClick(final View view) {
           if (listener != null && rootImageView != null) {
             listener.onEmojiClick(rootImageView, variant);
           }
@@ -100,5 +121,9 @@ final class EmojiVariantPopup {
     }
 
     return result;
+  }
+
+  private void setBackgroundColor(@NonNull CardView cardView, @ColorInt int color) {
+    cardView.setCardBackgroundColor(color);
   }
 }
