@@ -1,6 +1,7 @@
 # Emoji
 
 [![Build Status](https://travis-ci.org/vanniktech/Emoji.svg?branch=master)](https://travis-ci.org/vanniktech/Emoji?branch=master)
+[![Codecov](https://codecov.io/github/vanniktech/Emoji/coverage.svg?branch=master)](https://codecov.io/github/vanniktech/Emoji?branch=master)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Emoji-green.svg?style=true)](https://android-arsenal.com/details/1/3287)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -21,7 +22,8 @@ compile 'com.vanniktech:emoji-ios:0.5.1'
 And install the provider (preferably in your Application class):
 
 ```java
-EmojiManager.install(new IosEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+EmojiManager.install(new IosEmojiProvider());
 ```
 
 ## EmojiOne
@@ -37,7 +39,8 @@ compile 'com.vanniktech:emoji-one:0.5.1'
 And install the provider (preferably in your Application class):
 
 ```java
-EmojiManager.install(new EmojiOneProvider()); // This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+EmojiManager.install(new EmojiOneProvider());
 ```
 
 ## Google
@@ -53,7 +56,8 @@ compile 'com.vanniktech:emoji-google:0.5.1'
 And install the provider (preferably in your Application class):
 
 ```java
-EmojiManager.install(new GoogleEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+EmojiManager.install(new GoogleEmojiProvider());
 ```
 
 ## Twitter
@@ -69,7 +73,8 @@ compile 'com.vanniktech:emoji-twitter:0.5.1'
 And install the provider (preferably in your Application class):
 
 ```java
-EmojiManager.install(new TwitterEmojiProvider()); // This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
+EmojiManager.install(new TwitterEmojiProvider());
 ```
 
 ### Custom Emojis
