@@ -135,15 +135,19 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   }
 
   public static void destroy() {
-    for (final Emoji emoji : INSTANCE.emojiMap.values()) {
-      emoji.destroy();
-    }
+    release();
 
     INSTANCE.emojiMap.clear();
     INSTANCE.categories = null;
     INSTANCE.emojiPattern = null;
     INSTANCE.emojiRepetitivePattern = null;
     INSTANCE.emojiReplacer = null;
+  }
+
+  public static void release() {
+    for (final Emoji emoji : INSTANCE.emojiMap.values()) {
+      emoji.destroy();
+    }
   }
 
   public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
