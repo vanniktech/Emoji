@@ -135,7 +135,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   }
 
   /**
-   * Destroys the EmojiManager. This means that all internal data structures are releases as well as
+   * Destroys the EmojiManager. This means that all internal data structures are released as well as
    * all data associated with installed {@link Emoji}s. For the existing {@link EmojiProvider}s this
    * means the memory-heavy emoji sheet.
    *
