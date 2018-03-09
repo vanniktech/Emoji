@@ -134,6 +134,13 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+");
   }
 
+  /**
+   * Destroys the EmojiManager. This means that all internal data structures are releases as well as
+   * all data associated with installed {@link Emoji}s. For the existing {@link EmojiProvider}s this
+   * means the memory-heavy emoji sheet.
+   *
+   * @see #destroy()
+   */
   public static void destroy() {
     release();
 
@@ -144,6 +151,15 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     INSTANCE.emojiReplacer = null;
   }
 
+  /**
+   * Releases all data associated with installed {@link Emoji}s. For the existing {@link EmojiProvider}s this
+   * means the memory-heavy emoji sheet.
+   *
+   * In contrast to {@link #destroy()}, this does <b>not</b> destroy the internal
+   * data structures and thus, you do not need to {@link #install(EmojiProvider)} again before using the EmojiManager.
+   *
+   * @see #destroy()
+   */
   public static void release() {
     for (final Emoji emoji : INSTANCE.emojiMap.values()) {
       emoji.destroy();
