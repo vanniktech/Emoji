@@ -146,11 +146,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     INSTANCE.emojiReplacer = null;
   }
 
-  public static void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
+  public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
     verifyInstalled();
 
-    final EmojiManager emojiManager = EmojiManager.getInstance();
-    emojiManager.emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize, DEFAULT_EMOJI_REPLACER);
+    emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize, DEFAULT_EMOJI_REPLACER);
   }
 
   EmojiCategory[] getCategories() {
