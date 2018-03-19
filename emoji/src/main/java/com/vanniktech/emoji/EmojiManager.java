@@ -71,7 +71,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     // No instances apart from singleton.
   }
 
-  static EmojiManager getInstance() {
+  public static EmojiManager getInstance() {
     return INSTANCE;
   }
 
