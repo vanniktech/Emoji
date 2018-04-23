@@ -150,14 +150,11 @@ public final class EmojiPopup {
         // If the keyboard is visible, simply show the emoji popup.
         showAtBottom();
       } else if (editInterface instanceof View) {
-        /* Uses properties unique to certain Android classes (those that inherit from
-          android.view.View */
-
-        final View casted = (View) editInterface;
+        final View view = (View) editInterface;
 
         // Open the text keyboard first and immediately after that show the emoji popup.
-        casted.setFocusableInTouchMode(true);
-        casted.requestFocus();
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
 
         showAtBottomPending();
 
