@@ -82,7 +82,15 @@ All of the core API lays in, which is being pulled in automatically by the provi
 compile 'com.vanniktech:emoji:0.5.1'
 ```
 
-### Inserting Emojis
+### Custom EditText
+
+If you want to add the emoji support to your existing `EditText`, you only have to
+`implement` `EmojiEditTextInterface`. An example can be seen on the default `EditText`
+implementation: `EmojiEditText`.
+
+---
+
+## Inserting Emojis
 
 Declare your [`EmojiEditText`](emoji/src/main/java/com/vanniktech/emoji/EmojiEditText.java) in your layout xml file.
 
