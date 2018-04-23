@@ -88,8 +88,7 @@ If you want to add the emoji support to your existing `EditText`, you only have 
 `implement` `EmojiEditTextInterface`. An example can be seen on the default `EditText`
 implementation: `EmojiEditText`.
 
-Keep in mind that this custom class should be a subclass of `android.view.View`.
-Otherwise, some behaviour may not be available.
+Keep in mind that this custom class must be a subclass of `android.view.View`.
 
 ---
 
