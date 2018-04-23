@@ -12,9 +12,7 @@ import android.view.KeyEvent;
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EditText with emoji support. */
-@SuppressWarnings("CPD-START") public class EmojiEditText
-                                    extends AppCompatEditText
-                                 implements EmojiEditTextInterface {
+@SuppressWarnings("CPD-START") public class EmojiEditText extends AppCompatEditText implements EmojiEditTextInterface {
   private float emojiSize;
 
   public EmojiEditText(final Context context) {
