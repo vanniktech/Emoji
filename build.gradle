@@ -104,7 +104,7 @@ ext {
           assertJ           : 'org.assertj:assertj-core:3.8.0'
   ]
 
-  javaVersion = JavaVersion.VERSION_1_7
+  javaVersion = JavaVersion.VERSION_1_8
 }
 
 task wrapper(type: Wrapper) {
