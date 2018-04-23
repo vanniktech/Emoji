@@ -11,9 +11,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import com.vanniktech.emoji.emoji.Emoji;
 
-/**
- * Reference implementation for an EditText with emoji support.
- */
+/** Reference implementation for an EditText with emoji support. */
 @SuppressWarnings("CPD-START") public class EmojiEditText
                                     extends AppCompatEditText
                                  implements EmojiEditTextInterface {
@@ -54,10 +52,6 @@ import com.vanniktech.emoji.emoji.Emoji;
     EmojiManager.getInstance().replaceWithImages(getContext(), getText(), emojiSize, defaultEmojiSize);
   }
 
-  /* ------------------------------------------------- */
-  /* ---- Methods implemented from the intgerface ---- */
-  /* ------------------------------------------------- */
-
   @Override public float getEmojiSize() {
     return emojiSize;
   }
@@ -80,12 +74,10 @@ import com.vanniktech.emoji.emoji.Emoji;
     }
   }
 
-  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size */
   @Override public final void setEmojiSize(@Px final int pixels) {
     setEmojiSize(pixels, true);
   }
 
-  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
   @Override public final void setEmojiSize(@Px final int pixels, final boolean shouldInvalidate) {
     emojiSize = pixels;
 
@@ -94,12 +86,10 @@ import com.vanniktech.emoji.emoji.Emoji;
     }
   }
 
-  /** sets the emoji size in pixels with the provided resource and automatically invalidates the text and renders it with the new size */
   @Override public final void setEmojiSizeRes(@DimenRes final int res) {
     setEmojiSizeRes(res, true);
   }
 
-  /** sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
   @Override public final void setEmojiSizeRes(@DimenRes final int res, final boolean shouldInvalidate) {
     setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
   }

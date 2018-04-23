@@ -83,13 +83,8 @@ public final class EmojiPopup {
     }
   };
 
-  /**
-   * Constructor.
-   */
-  EmojiPopup(@NonNull final View rootView
-            , @NonNull final EmojiEditTextInterface editInterface
-            , @Nullable final RecentEmoji recent
-            , @Nullable final VariantEmoji variant) {
+  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
+            @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editInterface = editInterface;
@@ -158,17 +153,19 @@ public final class EmojiPopup {
         /* Uses properties unique to certain Android classes (those that inherit from
           android.view.View */
 
+        final View casted = (View) editInterface;
+
         // Open the text keyboard first and immediately after that show the emoji popup.
-        ((View) editInterface).setFocusableInTouchMode(true);
-        ((View) editInterface).requestFocus();
+        casted.setFocusableInTouchMode(true);
+        casted.requestFocus();
 
         showAtBottomPending();
 
         final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.showSoftInput(
-                (View) editInterface
-                , InputMethodManager.SHOW_IMPLICIT
-        );
+        inputMethodManager.showSoftInput(casted, InputMethodManager.SHOW_IMPLICIT);
+      } else {
+        /* The provided interface isn't casteable to View */
+        throw new IllegalArgumentException("The provided editInterace isn't a View instance.");
       }
     } else {
       dismiss();
