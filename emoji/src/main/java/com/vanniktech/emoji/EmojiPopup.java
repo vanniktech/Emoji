@@ -164,7 +164,6 @@ public final class EmojiPopup {
         final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(casted, InputMethodManager.SHOW_IMPLICIT);
       } else {
-        /* The provided interface isn't casteable to View */
         throw new IllegalArgumentException("The provided editInterace isn't a View instance.");
       }
     } else {
