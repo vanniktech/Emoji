@@ -6,8 +6,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
 /**
  * Interface used to allow custom EmojiEditText objects on another project.
- * The implementer should be a class that inherits from {@link android.view.View}.
- * Otherwise, some behaviour may not be available.
+ * The implementer must be a class that inherits from {@link android.view.View}.
  */
 public interface EmojiEditTextInterface {
   void backspace();
