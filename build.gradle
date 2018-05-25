@@ -23,13 +23,14 @@ buildscript {
   ]
 
   repositories {
-    jcenter()
+    mavenCentral()
     google()
     gradlePluginPortal()
   }
   dependencies {
     classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.10.0'
     classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0'
+    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.1.0'
 
     classpath 'com.android.tools.build:gradle:3.0.1'
     classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
@@ -65,13 +66,10 @@ junitJacoco {
 
 subprojects {
   repositories {
-    jcenter()
     google()
+    jcenter()
     mavenCentral()
   }
-
-  group = GROUP
-  version = VERSION_NAME
 }
 
 ext {
