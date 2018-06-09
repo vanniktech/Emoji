@@ -106,7 +106,7 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '4.5'
+  gradleVersion = '4.8'
   distributionType = Wrapper.DistributionType.ALL
 }
 
