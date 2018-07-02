@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.support.annotation.CallSuper;
 import android.support.annotation.DimenRes;
 import android.support.annotation.Px;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatMultiAutoCompleteTextView;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
