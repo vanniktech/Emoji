@@ -17,4 +17,8 @@
   <declare-styleable name="EmojiAutoCompleteTextView">
     <attr name="emojiSize"/>
   </declare-styleable>
+
+  <declare-styleable name="EmojiMultiAutoCompleteTextView">
+    <attr name="emojiSize"/>
+  </declare-styleable>
 </resources>
