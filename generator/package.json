@@ -19,6 +19,7 @@
     "imagemin": "^5.3.1",
     "imagemin-pngquant": "^5.0.1",
     "imagemin-zopfli": "^5.1.0",
+    "jimp": "^0.2.28",
     "stable": "^0.1.6",
     "underscore": "^1.8.3"
   }
