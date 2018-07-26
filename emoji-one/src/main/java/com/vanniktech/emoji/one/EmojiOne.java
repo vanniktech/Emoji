@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.util.LruCache;
 
 import com.vanniktech.emoji.emoji.Emoji;
 
@@ -18,6 +19,9 @@ public class EmojiOne extends Emoji {
   private static final int NUM_STRIPS = 51;
   private static final SoftReference[] STRIP_REFS =
       new SoftReference[NUM_STRIPS];
+  private static final int CACHE_SIZE = 100;
+  private static final LruCache<CacheKey, Bitmap> BITMAP_CACHE =
+      new LruCache<>(CACHE_SIZE);
 
   static {
     for (int i = 0; i < NUM_STRIPS; i++)
@@ -56,8 +60,13 @@ public class EmojiOne extends Emoji {
   }
 
   @NonNull @Override public Drawable getDrawable(final Context context) {
+    CacheKey key = new CacheKey(x, y);
+    Bitmap bitmap = BITMAP_CACHE.get(key);
+    if (bitmap != null)
+      return new BitmapDrawable(context.getResources(), bitmap);
     Bitmap strip = loadStrip(context);
     Bitmap cut = Bitmap.createBitmap(strip, 1, y * 66 + 1, 64, 64);
+    BITMAP_CACHE.put(key, cut);
     return new BitmapDrawable(context.getResources(), cut);
   }
 
@@ -77,5 +86,26 @@ public class EmojiOne extends Emoji {
       }
     }
     return strip;
+  }
+
+  private static class CacheKey {
+    private final int x, y;
+
+    private CacheKey(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      return o instanceof CacheKey
+          && x == ((CacheKey) o).x
+          && y == ((CacheKey) o).y;
+    }
+
+    @Override
+    public int hashCode() {
+      return (x << 16) ^ y;
+    }
   }
 }
