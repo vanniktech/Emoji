@@ -11,10 +11,18 @@ import android.util.Log;
 
 import com.vanniktech.emoji.emoji.Emoji;
 
+import java.lang.ref.SoftReference;
+
 public class TwitterEmoji extends Emoji {
   private static final Object LOCK = new Object();
   private static final int NUM_STRIPS = 51;
-  private static final Bitmap[] STRIPS = new Bitmap[NUM_STRIPS];
+  private static final SoftReference[] STRIP_REFS =
+      new SoftReference[NUM_STRIPS];
+
+  static {
+    for (int i = 0; i < NUM_STRIPS; i++)
+      STRIP_REFS[i] = new SoftReference<Bitmap>(null);
+  }
 
   private final int x;
   private final int y;
@@ -54,17 +62,17 @@ public class TwitterEmoji extends Emoji {
   }
 
   private Bitmap loadStrip(final Context context) {
-    Bitmap strip = STRIPS[x];
+    Bitmap strip = (Bitmap) STRIP_REFS[x].get();
     if (strip == null) {
       synchronized (LOCK) {
-        strip = STRIPS[x];
+        strip = (Bitmap) STRIP_REFS[x].get();
         if (strip == null) {
           Log.i(getClass().getSimpleName(), "Loading strip " + x);
           Resources resources = context.getResources();
           int resId = resources.getIdentifier("emoji_twitter_sheet_" + x,
               "drawable", context.getPackageName());
           strip = BitmapFactory.decodeResource(resources, resId);
-          STRIPS[x] = strip;
+          STRIP_REFS[x] = new SoftReference<>(strip);
         }
       }
     }
