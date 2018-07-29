@@ -42,7 +42,7 @@ public final class EmojiPopup {
   final EmojiVariantPopup variantPopup;
 
   final PopupWindow popupWindow;
-  final EmojiEditTextInterface emojiEditText;
+  final EmojiEditTextInterface editInterface;
 
   boolean isPendingOpen;
   boolean isKeyboardOpen;
@@ -96,11 +96,11 @@ public final class EmojiPopup {
     }
   };
 
-  public EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface emojiEditText,
+  public EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
                     @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
-    this.emojiEditText = emojiEditText;
+    this.editInterface  = editInterface ;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
     this.backgroundColor = backgroundColor;
@@ -119,7 +119,7 @@ public final class EmojiPopup {
     final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
       @Override
       public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
-        emojiEditText.input(emoji);
+        editInterface.input(emoji);
 
         recentEmoji.addEmoji(emoji);
         variantEmoji.addVariant(emoji);
@@ -139,7 +139,7 @@ public final class EmojiPopup {
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override
       public void onEmojiBackspaceClick(final View v) {
-        emojiEditText.backspace();
+        editInterface.backspace();
 
         if (onEmojiBackspaceClickListener != null) {
           onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
@@ -169,8 +169,8 @@ public final class EmojiPopup {
       if (isKeyboardOpen) {
         // If the keyboard is visible, simply show the emoji popup.
         showAtBottom();
-      } else if (emojiEditText instanceof View) {
-        final View view = (View) emojiEditText;
+      } else if (editInterface  instanceof View) {
+        final View view = (View) editInterface;
 
         // Open the text keyboard first and immediately after that show the emoji popup.
         view.setFocusableInTouchMode(true);
@@ -341,11 +341,11 @@ public final class EmojiPopup {
     }
 
     @CheckResult
-    public EmojiPopup build(@NonNull final EmojiEditTextInterface emojiEditText) {
+    public EmojiPopup build(@NonNull final EmojiEditTextInterface editInterface) {
       EmojiManager.getInstance().verifyInstalled();
-      checkNotNull(emojiEditText, "EmojiEditText can't be null");
+      checkNotNull(editInterface, "EmojiEditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, emojiEditText, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
+      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editInterface, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
