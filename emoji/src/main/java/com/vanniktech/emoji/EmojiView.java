@@ -57,7 +57,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
       setBackgroundColor(ContextCompat.getColor(context, R.color.emoji_background));
 
 
-    if (themeIconColor != 0)
+    if (iconColor != 0)
       themeIconColor = iconColor;
     else
       themeIconColor=  ContextCompat.getColor(context, R.color.emoji_icons);
