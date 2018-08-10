@@ -22,10 +22,13 @@ public class EmojiOne extends Emoji {
   private static final int CACHE_SIZE = 100;
   private static final LruCache<CacheKey, Bitmap> BITMAP_CACHE =
       new LruCache<>(CACHE_SIZE);
+  private static final int SPRITE_SIZE = 64;
+  private static final int SPRITE_SIZE_INC_BORDER = 66;
 
   static {
-    for (int i = 0; i < NUM_STRIPS; i++)
+    for (int i = 0; i < NUM_STRIPS; i++) {
       STRIP_REFS[i] = new SoftReference<Bitmap>(null);
+    }
   }
 
   private final int x;
@@ -60,12 +63,14 @@ public class EmojiOne extends Emoji {
   }
 
   @NonNull @Override public Drawable getDrawable(final Context context) {
-    CacheKey key = new CacheKey(x, y);
-    Bitmap bitmap = BITMAP_CACHE.get(key);
-    if (bitmap != null)
+    final CacheKey key = new CacheKey(x, y);
+    final Bitmap bitmap = BITMAP_CACHE.get(key);
+    if (bitmap != null) {
       return new BitmapDrawable(context.getResources(), bitmap);
-    Bitmap strip = loadStrip(context);
-    Bitmap cut = Bitmap.createBitmap(strip, 1, y * 66 + 1, 64, 64);
+    }
+    final Bitmap strip = loadStrip(context);
+    final Bitmap cut = Bitmap.createBitmap(strip, 1,
+        y * SPRITE_SIZE_INC_BORDER + 1, SPRITE_SIZE, SPRITE_SIZE);
     BITMAP_CACHE.put(key, cut);
     return new BitmapDrawable(context.getResources(), cut);
   }
@@ -77,8 +82,8 @@ public class EmojiOne extends Emoji {
         strip = (Bitmap) STRIP_REFS[x].get();
         if (strip == null) {
           Log.i(getClass().getSimpleName(), "Loading strip " + x);
-          Resources resources = context.getResources();
-          int resId = resources.getIdentifier("emoji_one_sheet_" + x,
+          final Resources resources = context.getResources();
+          final int resId = resources.getIdentifier("emoji_one_sheet_" + x,
               "drawable", context.getPackageName());
           strip = BitmapFactory.decodeResource(resources, resId);
           STRIP_REFS[x] = new SoftReference<>(strip);
@@ -88,23 +93,22 @@ public class EmojiOne extends Emoji {
     return strip;
   }
 
-  private static class CacheKey {
-    private final int x, y;
+  private static final class CacheKey {
+    private final int x;
+    private final int y;
 
-    private CacheKey(int x, int y) {
+    private CacheKey(final int x, final int y) {
       this.x = x;
       this.y = y;
     }
 
-    @Override
-    public boolean equals(Object o) {
+    @Override public boolean equals(final Object o) {
       return o instanceof CacheKey
           && x == ((CacheKey) o).x
           && y == ((CacheKey) o).y;
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
       return (x << 16) ^ y;
     }
   }
