@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.util.LruCache;
 
 import com.vanniktech.emoji.emoji.Emoji;
@@ -81,7 +80,6 @@ public class GoogleEmoji extends Emoji {
       synchronized (LOCK) {
         strip = (Bitmap) STRIP_REFS[x].get();
         if (strip == null) {
-          Log.i(getClass().getSimpleName(), "Loading strip " + x);
           final Resources resources = context.getResources();
           final int resId = resources.getIdentifier("emoji_google_sheet_" + x,
               "drawable", context.getPackageName());
