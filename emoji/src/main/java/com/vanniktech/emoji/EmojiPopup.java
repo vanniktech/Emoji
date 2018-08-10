@@ -8,6 +8,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.CheckResult;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -32,7 +33,9 @@ public final class EmojiPopup {
 
   final View rootView;
   private Activity context;
-  private int backgroundColor, iconColor, dividerColor;
+  private int backgroundColor;
+  private int iconColor;
+  private int dividerColor;
 
   @NonNull final RecentEmoji recentEmoji;
   @NonNull final VariantEmoji variantEmoji;
@@ -87,7 +90,7 @@ public final class EmojiPopup {
     }
   };
 
-  public EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
+   EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
                     @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
@@ -291,18 +294,17 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public Builder setBackgroundColor(final int backgroundColor) {
+    @CheckResult public Builder setBackgroundColor(@ColorInt int backgroundColor) {
       this.backgroundColor = backgroundColor;
-
       return this;
     }
 
-    @CheckResult public Builder setIconColor(final int iconColor) {
+    @CheckResult public Builder setIconColor(@ColorInt int iconColor) {
       this.iconColor = iconColor;
       return this;
     }
 
-    @CheckResult public Builder setDividerColor(final int dividerColor) {
+    @CheckResult public Builder setDividerColor(@ColorInt int dividerColor) {
       this.dividerColor = dividerColor;
       return this;
     }
