@@ -92,7 +92,7 @@ public final class EmojiPopup {
             @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
-    this.editInterface  = editInterface ;
+    this.editInterface = editInterface;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
     this.backgroundColor = backgroundColor;
@@ -157,7 +157,7 @@ public final class EmojiPopup {
       if (isKeyboardOpen) {
         // If the keyboard is visible, simply show the emoji popup.
         showAtBottom();
-      } else if (editInterface  instanceof View) {
+      } else if (editInterface instanceof View) {
         final View view = (View) editInterface;
 
         // Open the text keyboard first and immediately after that show the emoji popup.
