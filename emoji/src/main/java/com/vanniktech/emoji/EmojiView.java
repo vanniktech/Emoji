@@ -30,20 +30,17 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
   private static final long INITIAL_INTERVAL = TimeUnit.SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
-  @ColorInt
-  private final int themeAccentColor;
-  @ColorInt
-  private int themeIconColor=0;
+  @ColorInt private final int themeAccentColor;
+  @ColorInt private int themeIconColor=0;
 
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
 
-  @Nullable
-  OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+  @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
+  public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
             final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
             @NonNull final VariantEmoji variantManager, int backgroundColor, int iconColor, int dividerColor) {
     super(context);
@@ -102,8 +99,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
     }
 
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, new OnClickListener() {
-      @Override
-      public void onClick(final View view) {
+      @Override public void onClick(final View view) {
         if (onEmojiBackspaceClickListener != null) {
           onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
         }
@@ -126,8 +122,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
     return button;
   }
 
-  @Override
-  public void onPageSelected(final int i) {
+  @Override public void onPageSelected(final int i) {
     if (emojiTabLastSelectedIndex != i) {
       if (i == 0) {
         emojiPagerAdapter.invalidateRecentEmojis();
@@ -145,13 +140,11 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
     }
   }
 
-  @Override
-  public void onPageScrolled(final int i, final float v, final int i2) {
+  @Override public void onPageScrolled(final int i, final float v, final int i2) {
     // No-op.
   }
 
-  @Override
-  public void onPageScrollStateChanged(final int i) {
+  @Override public void onPageScrollStateChanged(final int i) {
     // No-op.
   }
 
@@ -164,8 +157,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
       this.position = position;
     }
 
-    @Override
-    public void onClick(final View v) {
+    @Override public void onClick(final View v) {
       emojisPager.setCurrentItem(position);
     }
   }

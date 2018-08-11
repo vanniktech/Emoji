@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -56,8 +55,7 @@ public final class EmojiPopup {
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-    @Override
-    public void onGlobalLayout() {
+    @Override public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
       final int heightDifference = Utils.screenHeight(context) - rect.bottom;
 
@@ -90,8 +88,8 @@ public final class EmojiPopup {
     }
   };
 
-   EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
-                    @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
+  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
+            @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editInterface  = editInterface ;
@@ -104,15 +102,13 @@ public final class EmojiPopup {
     popupWindow = new PopupWindow(context);
 
     final OnEmojiLongClickListener longClickListener = new OnEmojiLongClickListener() {
-      @Override
-      public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
+      @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
         variantPopup.show(view, emoji);
       }
     };
 
     final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
-      @Override
-      public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
+      @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
         editInterface.input(emoji);
 
         recentEmoji.addEmoji(emoji);
@@ -131,8 +127,7 @@ public final class EmojiPopup {
 
     final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-      @Override
-      public void onEmojiBackspaceClick(final View v) {
+      @Override public void onEmojiBackspaceClick(final View v) {
         editInterface.backspace();
 
         if (onEmojiBackspaceClickListener != null) {
@@ -145,8 +140,7 @@ public final class EmojiPopup {
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-      @Override
-      public void onDismiss() {
+      @Override public void onDismiss() {
         if (onEmojiPopupDismissListener != null) {
           onEmojiPopupDismissListener.onEmojiPopupDismiss();
         }
