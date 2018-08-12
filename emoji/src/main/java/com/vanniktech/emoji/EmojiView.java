@@ -23,7 +23,7 @@ import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import java.util.concurrent.TimeUnit;
 
-@SuppressLint("ViewConstructor") final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
+@SuppressLint("ViewConstructor") public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
   private static final long INITIAL_INTERVAL = TimeUnit.SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
+  public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
             final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
             @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
             @ColorInt final int iconColor, @ColorInt final int dividerColor) {

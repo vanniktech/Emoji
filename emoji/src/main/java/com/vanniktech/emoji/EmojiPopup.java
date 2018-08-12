@@ -30,10 +30,10 @@ public final class EmojiPopup {
   static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
-  Activity context;
-  @ColorInt int backgroundColor;
-  @ColorInt int iconColor;
-  @ColorInt int dividerColor;
+  final Activity context;
+  @ColorInt final int backgroundColor;
+  @ColorInt final int iconColor;
+  @ColorInt final int dividerColor;
 
   @NonNull final RecentEmoji recentEmoji;
   @NonNull final VariantEmoji variantEmoji;
