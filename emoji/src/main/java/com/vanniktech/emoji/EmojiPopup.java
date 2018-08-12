@@ -3,7 +3,6 @@ package com.vanniktech.emoji;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -31,10 +30,10 @@ public final class EmojiPopup {
   static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
-  private Activity context;
-  private int backgroundColor;
-  private int iconColor;
-  private int dividerColor;
+  Activity context;
+  @ColorInt int backgroundColor;
+  @ColorInt int iconColor;
+  @ColorInt int dividerColor;
 
   @NonNull final RecentEmoji recentEmoji;
   @NonNull final VariantEmoji variantEmoji;
@@ -89,7 +88,8 @@ public final class EmojiPopup {
   };
 
   EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
-            @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant, int backgroundColor, int iconColor, int dividerColor) {
+            @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
+            @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editInterface = editInterface;
@@ -211,9 +211,9 @@ public final class EmojiPopup {
 
   public static final class Builder {
     @NonNull private final View rootView;
-    @Nullable private int backgroundColor;
-    @Nullable private int iconColor;
-    @Nullable private int dividerColor;
+    @ColorInt private int backgroundColor;
+    @ColorInt private int iconColor;
+    @ColorInt private int dividerColor;
     @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
     @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
     @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
@@ -288,24 +288,24 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public Builder setBackgroundColor(@ColorInt int backgroundColor) {
-      this.backgroundColor = backgroundColor;
+    @CheckResult public Builder setBackgroundColor(@ColorInt final int color) {
+      backgroundColor = color;
       return this;
     }
 
-    @CheckResult public Builder setIconColor(@ColorInt int iconColor) {
-      this.iconColor = iconColor;
+    @CheckResult public Builder setIconColor(@ColorInt final int color) {
+      iconColor = color;
       return this;
     }
 
-    @CheckResult public Builder setDividerColor(@ColorInt int dividerColor) {
-      this.dividerColor = dividerColor;
+    @CheckResult public Builder setDividerColor(@ColorInt final int color) {
+      dividerColor = color;
       return this;
     }
 
     @CheckResult public EmojiPopup build(@NonNull final EmojiEditTextInterface editInterface) {
       EmojiManager.getInstance().verifyInstalled();
-      checkNotNull(editInterface, "EmojiEditText can't be null");
+      checkNotNull(editInterface, "EditText can't be null");
 
       final EmojiPopup emojiPopup = new EmojiPopup(rootView, editInterface, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
@@ -314,9 +314,6 @@ public final class EmojiPopup {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      emojiPopup.backgroundColor = backgroundColor;
-      emojiPopup.iconColor = iconColor;
-      emojiPopup.dividerColor = dividerColor;
       return emojiPopup;
     }
   }

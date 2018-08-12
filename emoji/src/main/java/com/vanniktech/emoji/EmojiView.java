@@ -16,22 +16,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
-
 import java.util.concurrent.TimeUnit;
 
-@SuppressLint("ViewConstructor")
-final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
+@SuppressLint("ViewConstructor") final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener {
   private static final long INITIAL_INTERVAL = TimeUnit.SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
   @ColorInt private final int themeAccentColor;
-  @ColorInt private int themeIconColor=0;
+  @ColorInt private final int themeIconColor;
 
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
@@ -40,25 +37,17 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
 
   private int emojiTabLastSelectedIndex = -1;
 
-  public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
+  EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
             final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
-            @NonNull final VariantEmoji variantManager, int backgroundColor, int iconColor, int dividerColor) {
+            @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
+            @ColorInt final int iconColor, @ColorInt final int dividerColor) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
 
     setOrientation(VERTICAL);
-    if (backgroundColor != 0)
-      setBackgroundColor(backgroundColor);
-    else
-      setBackgroundColor(ContextCompat.getColor(context, R.color.emoji_background));
-
-
-    if (iconColor != 0)
-      themeIconColor = iconColor;
-    else
-      themeIconColor=  ContextCompat.getColor(context, R.color.emoji_icons);
-
+    setBackgroundColor(backgroundColor != 0 ? backgroundColor : ContextCompat.getColor(context, R.color.emoji_background));
+    themeIconColor = iconColor != 0 ? iconColor : ContextCompat.getColor(context, R.color.emoji_icons);
 
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
@@ -66,10 +55,7 @@ final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeList
 
     final ViewPager emojisPager = findViewById(R.id.emojis_pager);
     final View emojiDivider = findViewById(R.id.emoji_divider);
-    if (dividerColor != 0)
-      emojiDivider.setBackgroundColor(dividerColor);
-    else
-      emojiDivider.setBackgroundColor(getResources().getColor(R.color.emoji_divider));
+    emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : getResources().getColor(R.color.emoji_divider));
 
     final LinearLayout emojisTab = findViewById(R.id.emojis_tab);
     emojisPager.addOnPageChangeListener(this);
