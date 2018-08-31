@@ -64,10 +64,10 @@ final class Utils {
 
     while (result instanceof ContextWrapper) {
       if (result instanceof Activity) {
-        return (Activity) context;
+        return (Activity) result;
       }
 
-      result = ((ContextWrapper) context).getBaseContext();
+      result = ((ContextWrapper) result).getBaseContext();
     }
 
     throw new IllegalArgumentException("The passed Context is not an Activity.");
