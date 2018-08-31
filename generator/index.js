@@ -58,12 +58,29 @@ const categoryOrder = ["SmileysAndPeople", "AnimalsAndNature", "FoodAndDrink", "
 async function copyTargetImages(map, target, shouldOptimize) {
     await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable-nodpi`);
 
+    const allEmoji = emojiData.reduce((all, it) => {
+        all.push(it);
+        if (it.skin_variations) {
+            all.push(...Object.values(it.skin_variations));
+        }
+        return all;
+    }, []);
+    const emojiByStrip = [];
+    allEmoji.forEach(it => {
+        if (emojiByStrip[it.sheet_x]) {
+            emojiByStrip[it.sheet_x].push(it);
+        } else {
+            emojiByStrip[it.sheet_x] = new Array(it);
+        }
+    });
     const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets/64.png`;
     const sheet = await Jimp.read(src);
     const strips = sheet.bitmap.width / 66 - 1;
     for (let i = 0; i < strips; i++) {
-        const strip = await new Jimp(66, sheet.bitmap.height);
-        await strip.blit(sheet, 0, 0, i * 66, 0, 66, sheet.bitmap.height);
+        const maxY = emojiByStrip[i].map(it => it.sheet_y).reduce((a, b) => Math.max(a, b), 0);
+        const height = (maxY + 1) * 66;
+        const strip = await new Jimp(66, height);
+        await strip.blit(sheet, 0, 0, i * 66, 0, 66, height);
         const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_sheet_${i}.png`;
         await new Promise((resolve, reject) => strip.write(dest, (err => err ? reject(err) : resolve())));
         if (shouldOptimize) {
