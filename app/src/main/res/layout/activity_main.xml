@@ -1,56 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/main_activity_root_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:context=".MainActivity">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_activity_recycler_view"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/main_activity_emoji_bar"/>
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/main_activity_emoji_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/chat_input_background"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="4dp">
-
-        <ImageButton
-            android:id="@+id/main_activity_emoji"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="12dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/emoji_ios_category_smileysandpeople"
-            tools:ignore="ContentDescription"/>
-
-        <com.vanniktech.emoji.EmojiEditText
-            android:id="@+id/main_activity_chat_bottom_message_edittext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <android.support.v7.widget.RecyclerView
             android:layout_weight="1"
-            android:imeOptions="actionSend|flagNoExtractUi"
-            android:inputType="textCapSentences|textMultiLine"
-            android:maxLines="3"/>
+            android:id="@+id/main_activity_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"/>
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/main_activity_emoji_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/chat_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="4dp">
 
-        <ImageView
-            android:id="@+id/main_activity_send"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="12dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_send"
-            tools:ignore="ContentDescription"/>
+                <ImageButton
+                    android:id="@+id/main_activity_emoji"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/emoji_ios_category_smileysandpeople"
+                    tools:ignore="ContentDescription"/>
+
+                <com.vanniktech.emoji.EmojiEditText
+                    android:id="@+id/main_activity_chat_bottom_message_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:imeOptions="actionSend|flagNoExtractUi"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="3"/>
+
+                <ImageView
+                    android:id="@+id/main_activity_send"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_send"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+            <com.vanniktech.emoji.EmojiUniversal
+                android:id="@+id/emojiView"
+                android:animateLayoutChanges="true"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>
+
