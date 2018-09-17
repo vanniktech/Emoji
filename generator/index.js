@@ -83,7 +83,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
         await strip.blit(sheet, 0, 0, i * 66, 0, 66, height);
         const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_sheet_${i}.png`;
         if (shouldOptimize) {
-            const buffer = await new Promise((resolve, reject) => strip.getBuffer('image/png', (err, res) => err ? reject(err) : resolve(res)));
+            const buffer = await strip.getBufferAsync('image/png');
             const optimizedStrip = await imagemin.buffer(buffer, {
                 plugins: [
                     imageminPngquant(),
@@ -92,7 +92,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
             });
             await fs.writeFile(dest, optimizedStrip);
         } else {
-            await new Promise((resolve, reject) => strip.write(dest, (err) => err ? reject(err) : resolve()));
+            await strip.writeAsync(dest);
         }
     }
 
