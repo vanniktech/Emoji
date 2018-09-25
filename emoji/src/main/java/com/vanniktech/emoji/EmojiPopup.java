@@ -31,9 +31,6 @@ public final class EmojiPopup {
 
   final View rootView;
   final Activity context;
-  @ColorInt final int backgroundColor;
-  @ColorInt final int iconColor;
-  @ColorInt final int dividerColor;
 
   @NonNull final RecentEmoji recentEmoji;
   @NonNull final VariantEmoji variantEmoji;
@@ -95,9 +92,6 @@ public final class EmojiPopup {
     this.editInterface = editInterface;
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
-    this.backgroundColor = backgroundColor;
-    this.iconColor = iconColor;
-    this.dividerColor = dividerColor;
 
     popupWindow = new PopupWindow(context);
 
