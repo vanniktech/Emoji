@@ -55,10 +55,10 @@ Version 0.4.0 *(2017-02-15)*
 ----------------------------
 
 - Soft keyboard not detected when toggling the emoji-popup [\#60](https://github.com/vanniktech/Emoji/issues/60)
-- Can't show keybord [\#58](https://github.com/vanniktech/Emoji/issues/58)
-- Opening emoticons, and change the keybord [\#57](https://github.com/vanniktech/Emoji/issues/57)
+- Can't show keyboard [\#58](https://github.com/vanniktech/Emoji/issues/58)
+- Opening emoticons, and change the keyboard [\#57](https://github.com/vanniktech/Emoji/issues/57)
 - On android 6 emoji not averlays keyboard [\#20](https://github.com/vanniktech/Emoji/issues/20)
-- Optimize EmojiGridView hierachy [\#39](https://github.com/vanniktech/Emoji/pull/39) ([vanniktech](https://github.com/vanniktech))
+- Optimize EmojiGridView hierarchy [\#39](https://github.com/vanniktech/Emoji/pull/39) ([vanniktech](https://github.com/vanniktech))
 - Split v4 [\#49](https://github.com/vanniktech/Emoji/pull/49) ([vanniktech](https://github.com/vanniktech))
 - Make colors customizable [\#70](https://github.com/vanniktech/Emoji/pull/70) ([rubengees](https://github.com/rubengees))
 - Rewrite for more Emojis, modularity and performance [\#77](https://github.com/vanniktech/Emoji/pull/77) ([rubengees](https://github.com/rubengees))
