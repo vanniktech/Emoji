@@ -11,9 +11,11 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
@@ -37,7 +39,7 @@ public final class EmojiPopup {
   @NonNull final EmojiVariantPopup variantPopup;
 
   final PopupWindow popupWindow;
-  final EmojiEditTextInterface editInterface;
+  final EditText editInterface;
 
   boolean isPendingOpen;
   boolean isKeyboardOpen;
@@ -84,7 +86,7 @@ public final class EmojiPopup {
     }
   };
 
-  EmojiPopup(@NonNull final View rootView, @NonNull final EmojiEditTextInterface editInterface,
+  EmojiPopup(@NonNull final View rootView, @NonNull final EditText editInterface,
             @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
             @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
@@ -103,7 +105,17 @@ public final class EmojiPopup {
 
     final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
       @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
-        editInterface.input(emoji);
+
+        if (emoji != null) {
+          final int start = editInterface.getSelectionStart();
+          final int end = editInterface.getSelectionEnd();
+
+          if (start < 0) {
+            editInterface.append(emoji.getUnicode());
+          } else {
+            editInterface.getText().replace(Math.min(start, end), Math.max(start, end), emoji.getUnicode(), 0, emoji.getUnicode().length());
+          }
+        }
 
         recentEmoji.addEmoji(emoji);
         variantEmoji.addVariant(emoji);
@@ -122,13 +134,17 @@ public final class EmojiPopup {
     final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClick(final View v) {
-        editInterface.backspace();
+
+        final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
+        editInterface.dispatchKeyEvent(event);
 
         if (onEmojiBackspaceClickListener != null) {
           onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
         }
       }
     });
+
+
 
     popupWindow.setContentView(emojiView);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
@@ -297,7 +313,7 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public EmojiPopup build(@NonNull final EmojiEditTextInterface editInterface) {
+    @CheckResult public EmojiPopup build(@NonNull final EditText editInterface) {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editInterface, "EditText can't be null");
 
@@ -310,5 +326,6 @@ public final class EmojiPopup {
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
       return emojiPopup;
     }
+
   }
 }
