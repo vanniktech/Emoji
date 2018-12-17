@@ -6,8 +6,13 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.support.annotation.AttrRes;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.PopupWindow;
@@ -101,6 +106,25 @@ final class Utils {
         }
       }
     });
+  }
+
+  @ColorInt
+  static int resolveColor(Context context, @AttrRes int resource, @ColorRes int fallback) {
+    final TypedValue value = new TypedValue();
+    context.getTheme().resolveAttribute(resource, value, true);
+    final int resolvedColor;
+
+    if (value.resourceId != 0) {
+      resolvedColor = ContextCompat.getColor(context, value.resourceId);
+    } else {
+      resolvedColor = value.data;
+    }
+
+    if (resolvedColor != 0) {
+      return resolvedColor;
+    } else {
+      return ContextCompat.getColor(context, fallback);
+    }
   }
 
   private Utils() {

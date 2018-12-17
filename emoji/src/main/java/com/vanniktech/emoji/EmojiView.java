@@ -7,7 +7,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.TypedValue;
@@ -46,8 +45,8 @@ import java.util.concurrent.TimeUnit;
     View.inflate(context, R.layout.emoji_view, this);
 
     setOrientation(VERTICAL);
-    setBackgroundColor(backgroundColor != 0 ? backgroundColor : ContextCompat.getColor(context, R.color.emoji_background));
-    themeIconColor = iconColor != 0 ? iconColor : ContextCompat.getColor(context, R.color.emoji_icons);
+    setBackgroundColor(backgroundColor != 0 ? backgroundColor : Utils.resolveColor(context, R.attr.emojiBackground, R.color.emoji_background));
+    themeIconColor = iconColor != 0 ? iconColor : Utils.resolveColor(context, R.attr.emojiIcons, R.color.emoji_icons);
 
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
@@ -55,7 +54,7 @@ import java.util.concurrent.TimeUnit;
 
     final ViewPager emojisPager = findViewById(R.id.emojis_pager);
     final View emojiDivider = findViewById(R.id.emoji_divider);
-    emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : getResources().getColor(R.color.emoji_divider));
+    emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
 
     final LinearLayout emojisTab = findViewById(R.id.emojis_tab);
     emojisPager.addOnPageChangeListener(this);
