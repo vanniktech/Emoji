@@ -108,8 +108,7 @@ final class Utils {
     });
   }
 
-  @ColorInt
-  static int resolveColor(Context context, @AttrRes int resource, @ColorRes int fallback) {
+  @ColorInt static int resolveColor(final Context context, @AttrRes final int resource, @ColorRes final int fallback) {
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(resource, value, true);
     final int resolvedColor;
