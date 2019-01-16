@@ -48,7 +48,7 @@ import com.vanniktech.emoji.EmojiPopup;
     super.onStop();
   }
 
-  @NonNull @Override public Dialog onCreateDialog(final Bundle savedInstanceState) {
+  @Override @NonNull public Dialog onCreateDialog(final Bundle savedInstanceState) {
     return new AlertDialog.Builder(getContext())
             .setView(buildView())
             .create();

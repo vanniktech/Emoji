@@ -3,10 +3,10 @@ apply plugin: 'com.vanniktech.code.quality.tools'
 apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
-  ext.kotlinVersion = '1.2.41'
+  ext.kotlinVersion = '1.3.11'
   ext.versions = [
-    espresso: '3.0.1',
-    testRules: '1.0.1',
+    espresso: '3.0.2',
+    testRules: '1.0.2',
   ]
 
   ext.deps = [
@@ -19,7 +19,7 @@ buildscript {
         'rules': "com.android.support.test:rules:${versions.testRules}",
       ],
     ],
-    'fastLaneScreenGrab': "tools.fastlane:screengrab:1.1.0",
+    'fastLaneScreenGrab': "tools.fastlane:screengrab:1.2.0",
   ]
 
   repositories {
@@ -28,12 +28,12 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.10.0'
+    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.15.0'
     classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0'
-    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.4.0'
+    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.7.0'
 
-    classpath 'com.android.tools.build:gradle:3.0.1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+    classpath 'com.android.tools.build:gradle:3.3.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   }
 }
@@ -49,10 +49,10 @@ codeQualityTools {
     toolVersion = '6.0.1'
   }
   ktlint {
-    toolVersion = '0.24.0'
+    toolVersion = '0.29.0'
   }
   detekt {
-    toolVersion = '1.0.0.RC7'
+    toolVersion = '1.0.0-RC12'
   }
   errorProne {
     toolVersion = '2.1.2'
@@ -74,11 +74,11 @@ subprojects {
 
 ext {
   minSdkVersion = 15
-  compileSdkVersion = 27
-  targetSdkVersion = 27
+  compileSdkVersion = 28
+  targetSdkVersion = 28
 
-  supportLibraryVersion = '27.0.2'
-  leakCanaryVersion = '1.5.1'
+  supportLibraryVersion = '28.0.0'
+  leakCanaryVersion = '1.6.3'
 
   versionCode = VERSION_CODE
   versionName = VERSION_NAME
@@ -96,17 +96,17 @@ ext {
   leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 
   testing = [
-          junit             : 'junit:junit:4.12',
+          junit             : 'junit:junit:4.13-beta-1',
           robolectric       : 'org.robolectric:robolectric:3.5.1',
           privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-          assertJ           : 'org.assertj:assertj-core:3.8.0'
+          assertJ           : 'org.assertj:assertj-core:3.11.1'
   ]
 
   javaVersion = JavaVersion.VERSION_1_7
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '4.8'
+wrapper {
+  gradleVersion = '5.0'
   distributionType = Wrapper.DistributionType.ALL
 }
 

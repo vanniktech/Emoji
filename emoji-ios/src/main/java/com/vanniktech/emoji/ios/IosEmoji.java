@@ -62,7 +62,7 @@ public class IosEmoji extends Emoji {
     this.y = y;
   }
 
-  @NonNull @Override public Drawable getDrawable(final Context context) {
+  @Override @NonNull public Drawable getDrawable(final Context context) {
     final CacheKey key = new CacheKey(x, y);
     final Bitmap bitmap = BITMAP_CACHE.get(key);
     if (bitmap != null) {

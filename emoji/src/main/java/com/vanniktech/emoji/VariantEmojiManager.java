@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
     this.context = context.getApplicationContext();
   }
 
-  @NonNull @Override public Emoji getVariant(final Emoji desiredEmoji) {
+  @Override @NonNull public Emoji getVariant(final Emoji desiredEmoji) {
     if (variantsList.isEmpty()) {
       initFromSharedPreferences();
     }

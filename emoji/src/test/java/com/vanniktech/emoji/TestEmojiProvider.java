@@ -11,7 +11,7 @@ final class TestEmojiProvider implements EmojiProvider {
 
   static EmojiProvider emptyCategories() {
     return new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
+      @Override @NonNull public EmojiCategory[] getCategories() {
         return new EmojiCategory[0];
       }
     };
@@ -19,10 +19,10 @@ final class TestEmojiProvider implements EmojiProvider {
 
   static EmojiProvider emptyEmojis() {
     return new EmojiProvider() {
-      @NonNull @Override public EmojiCategory[] getCategories() {
+      @Override @NonNull public EmojiCategory[] getCategories() {
         return new EmojiCategory[] {
           new EmojiCategory() {
-            @NonNull @Override public Emoji[] getEmojis() {
+            @Override @NonNull public Emoji[] getEmojis() {
               return new Emoji[0];
             }
 
@@ -41,10 +41,10 @@ final class TestEmojiProvider implements EmojiProvider {
     this.emojis = emojis;
   }
 
-  @NonNull @Override public EmojiCategory[] getCategories() {
+  @Override @NonNull public EmojiCategory[] getCategories() {
     return new EmojiCategory[] {
       new EmojiCategory() {
-        @NonNull @Override public Emoji[] getEmojis() {
+        @Override @NonNull public Emoji[] getEmojis() {
           return emojis; // NOPMD
         }
 

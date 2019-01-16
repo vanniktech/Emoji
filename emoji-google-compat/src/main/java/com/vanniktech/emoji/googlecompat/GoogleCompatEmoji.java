@@ -14,7 +14,7 @@ public final class GoogleCompatEmoji extends Emoji {
     super(codePoint, -1, emojis);
   }
 
-  @NonNull @Override public Drawable getDrawable(@NonNull final Context context) {
+  @Override @NonNull public Drawable getDrawable(@NonNull final Context context) {
     return new GoogleCompatEmojiDrawable(getUnicode());
   }
 }

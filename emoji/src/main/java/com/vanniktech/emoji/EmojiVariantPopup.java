@@ -70,8 +70,8 @@ public final class EmojiVariantPopup {
   }
 
   private View initView(@NonNull final Context context, @NonNull final Emoji emoji, final int width) {
-    final View result = View.inflate(context, R.layout.emoji_skin_popup, null);
-    final LinearLayout imageContainer = result.findViewById(R.id.container);
+    final View result = View.inflate(context, R.layout.emoji_popup_window_skin, null);
+    final LinearLayout imageContainer = result.findViewById(R.id.emojiPopupWindowSkinPopupContainer);
 
     final List<Emoji> variants = emoji.getBase().getVariants();
     variants.add(0, emoji.getBase());
@@ -79,7 +79,7 @@ public final class EmojiVariantPopup {
     final LayoutInflater inflater = LayoutInflater.from(context);
 
     for (final Emoji variant : variants) {
-      final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_item, imageContainer, false);
+      final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_adapter_item, imageContainer, false);
       final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
       final int margin = Utils.dpToPx(context, MARGIN);
 

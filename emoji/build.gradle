@@ -16,7 +16,7 @@ android {
     minSdkVersion rootProject.ext.minSdkVersion as int
   }
 
-  resourcePrefix 'emoji'
+  resourcePrefix 'emoji_'
 }
 
 dependencies {

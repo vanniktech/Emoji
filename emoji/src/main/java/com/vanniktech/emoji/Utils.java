@@ -13,9 +13,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.EditText;
 import android.widget.PopupWindow;
+
+import com.vanniktech.emoji.emoji.Emoji;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
@@ -62,6 +66,24 @@ final class Utils {
     final Rect result = new Rect();
     context.getWindow().getDecorView().getWindowVisibleDisplayFrame(result);
     return result;
+  }
+
+  static void backspace(@NonNull final EditText editText) {
+    final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
+    editText.dispatchKeyEvent(event);
+  }
+
+  static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
+    if (emoji != null) {
+      final int start = editText.getSelectionStart();
+      final int end = editText.getSelectionEnd();
+
+      if (start < 0) {
+        editText.append(emoji.getUnicode());
+      } else {
+        editText.getText().replace(Math.min(start, end), Math.max(start, end), emoji.getUnicode(), 0, emoji.getUnicode().length());
+      }
+    }
   }
 
   static Activity asActivity(@NonNull final Context context) {

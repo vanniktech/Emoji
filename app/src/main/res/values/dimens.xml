@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <dimen name="emoji_size_default">20sp</dimen>
   <dimen name="emoji_size_only_emojis">40sp</dimen>

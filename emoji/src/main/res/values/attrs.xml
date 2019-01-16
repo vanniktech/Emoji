@@ -4,23 +4,18 @@
   <attr name="emojiBackground" format="color|reference"/>
   <attr name="emojiIcons" format="color|reference"/>
   <attr name="emojiDivider" format="color|reference"/>
-
   <declare-styleable name="EmojiButton">
     <attr name="emojiSize"/>
   </declare-styleable>
-
   <declare-styleable name="EmojiEditText">
     <attr name="emojiSize"/>
   </declare-styleable>
-
   <declare-styleable name="EmojiTextView">
     <attr name="emojiSize"/>
   </declare-styleable>
-
   <declare-styleable name="EmojiAutoCompleteTextView">
     <attr name="emojiSize"/>
   </declare-styleable>
-
   <declare-styleable name="EmojiMultiAutoCompleteTextView">
     <attr name="emojiSize"/>
   </declare-styleable>

@@ -204,8 +204,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   @Nullable Emoji findEmoji(@NonNull final CharSequence candidate) {
     verifyInstalled();
 
-    // We need to call toString on the candidate, since the emojiMap may not find the requested entry otherwise, because
-    // the type is different.
+    // We need to call toString on the candidate, since the emojiMap may not find the requested entry otherwise, because the type is different.
     return emojiMap.get(candidate.toString());
   }
 

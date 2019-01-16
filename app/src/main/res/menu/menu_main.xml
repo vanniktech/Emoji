@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/show_dialog"
+        android:id="@+id/menuMainShowDialog"
         android:icon="@drawable/ic_message"
         android:title="@string/show_dialog_title"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/menu_search_option"
+        android:id="@+id/menuMainSearchOption"
         android:icon="@drawable/ic_swap"
         android:title="@string/variant_group_title"
         app:showAsAction="ifRoom">
         <menu>
             <group>
                 <item
-                    android:id="@+id/variantIos"
+                    android:id="@+id/menuMainVariantIos"
                     android:title="@string/variant_ios_title"/>
                 <item
-                    android:id="@+id/variantGoogle"
+                    android:id="@+id/menuMainGoogle"
                     android:title="@string/variant_google_title"/>
                 <item
-                    android:id="@+id/variantGoogleCompat"
+                    android:id="@+id/menuMainGoogleCompat"
                     android:title="@string/variant_google_compat_title"/>
                 <item
-                    android:id="@+id/variantTwitter"
+                    android:id="@+id/menuMainTwitter"
                     android:title="@string/variant_twitter_title"/>
                 <item
-                    android:id="@+id/variantEmojiOne"
+                    android:id="@+id/menuMainEmojiOne"
                     android:title="@string/variant_emojione_title"/>
             </group>
         </menu>

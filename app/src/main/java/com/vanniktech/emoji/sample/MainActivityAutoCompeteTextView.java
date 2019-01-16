@@ -69,31 +69,31 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   }
 
   @Override public boolean onCreateOptionsMenu(final Menu menu) {
-    getMenuInflater().inflate(R.menu.activity_main, menu);
+    getMenuInflater().inflate(R.menu.menu_main, menu);
     return super.onCreateOptionsMenu(menu);
   }
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
-      case R.id.show_dialog:
+      case R.id.menuMainShowDialog:
         MainDialog.show(this);
         return true;
-      case R.id.variantIos:
+      case R.id.menuMainVariantIos:
         EmojiManager.destroy();
         EmojiManager.install(new IosEmojiProvider());
         recreate();
         return true;
-      case R.id.variantGoogle:
+      case R.id.menuMainGoogle:
         EmojiManager.destroy();
         EmojiManager.install(new GoogleEmojiProvider());
         recreate();
         return true;
-      case R.id.variantTwitter:
+      case R.id.menuMainTwitter:
         EmojiManager.destroy();
         EmojiManager.install(new TwitterEmojiProvider());
         recreate();
         return true;
-      case R.id.variantGoogleCompat:
+      case R.id.menuMainGoogleCompat:
         if (emojiCompat == null) {
           final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
           config.setReplaceAll(true);
@@ -103,7 +103,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
         recreate();
         return true;
-      case R.id.variantEmojiOne:
+      case R.id.menuMainEmojiOne:
         EmojiManager.destroy();
         EmojiManager.install(new EmojiOneProvider());
         recreate();

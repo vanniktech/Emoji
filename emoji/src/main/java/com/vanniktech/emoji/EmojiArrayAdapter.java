@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
+import static java.util.Arrays.asList;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @Nullable private final VariantEmoji variantManager;
@@ -24,20 +26,20 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis, @Nullable final VariantEmoji variantManager,
                     @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener) {
-    super(context, 0, new ArrayList<>(Arrays.asList(emojis)));
+    super(context, 0, new ArrayList<>(asList(emojis)));
 
     this.variantManager = variantManager;
     this.listener = listener;
     this.longListener = longListener;
   }
 
-  @NonNull @Override public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
+  @Override @NonNull public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
     EmojiImageView image = (EmojiImageView) convertView;
 
     final Context context = getContext();
 
     if (image == null) {
-      image = (EmojiImageView) LayoutInflater.from(context).inflate(R.layout.emoji_item, parent, false);
+      image = (EmojiImageView) LayoutInflater.from(context).inflate(R.layout.emoji_adapter_item, parent, false);
 
       image.setOnEmojiClickListener(listener);
       image.setOnEmojiLongClickListener(longListener);

@@ -49,7 +49,7 @@ import static java.util.Locale.US;
     final String name = variant.name().toLowerCase(US);
 
     // Select the right variant.
-    onView(withId(R.id.menu_search_option)).perform(click());
+    onView(withId(R.id.menuMainSearchOption)).perform(click());
     onView(withText(variant.title)).perform(click());
 
     // First text.

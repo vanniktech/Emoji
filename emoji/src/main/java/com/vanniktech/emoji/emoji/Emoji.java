@@ -8,13 +8,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.content.res.AppCompatResources;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 
 public class Emoji implements Serializable {
   private static final long serialVersionUID = 3L;
+  private static final List<Emoji> EMPTY_EMOJI_LIST = emptyList();
 
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
@@ -36,8 +37,7 @@ public class Emoji implements Serializable {
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource, final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.resource = resource;
-    // asList seems to always allocate a new object, even for empty lists.
-    this.variants = variants.length == 0 ? Collections.<Emoji>emptyList() : asList(variants);
+    this.variants = variants.length == 0 ? EMPTY_EMOJI_LIST : asList(variants);
     for (final Emoji variant : variants) {
       variant.base = this;
     }
