@@ -16,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -30,7 +29,7 @@ import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 public final class EmojiPopup {
-  static final int MIN_KEYBOARD_HEIGHT = 100;
+  private static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
   final Activity context;
@@ -53,14 +52,17 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
+  private int correctionFactor = 0;
+
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
-      final int heightDifference = Utils.screenHeight(context) - rect.bottom;
+      final int heightDifference = Utils.getScreenHeight(context) - rect.bottom;
 
-      if (heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
-        popupWindow.setHeight(heightDifference);
-        popupWindow.setWidth(rect.right);
+      boolean shouldOverrideRegularCondition =
+          Utils.shouldOverrideRegularCondition(context, editText);
+      if ((heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)
+          || shouldOverrideRegularCondition)) {
 
         if (!isKeyboardOpen && onSoftKeyboardOpenListener != null) {
           onSoftKeyboardOpenListener.onKeyboardOpen(heightDifference);
@@ -69,10 +71,23 @@ public final class EmojiPopup {
         isKeyboardOpen = true;
 
         if (isPendingOpen) {
+          if (shouldOverrideRegularCondition) {
+            popupWindow.setHeight(
+                (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * 1.5)));
+            correctionFactor = heightDifference;
+          } else {
+            popupWindow.setHeight(heightDifference - correctionFactor);
+          }
+          popupWindow.setWidth(rect.right);
+
           showAtBottom();
           isPendingOpen = false;
         }
       } else {
+        if (heightDifference < 0) {
+          correctionFactor = heightDifference;
+        }
+
         if (isKeyboardOpen) {
           isKeyboardOpen = false;
 
@@ -81,15 +96,16 @@ public final class EmojiPopup {
           }
 
           dismiss();
-          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
+          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(),
+              onGlobalLayoutListener);
         }
       }
     }
   };
 
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
-            @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
-            @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor) {
+      @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
+      @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editText = editText;
@@ -154,8 +170,8 @@ public final class EmojiPopup {
       if (isKeyboardOpen) {
         // If the keyboard is visible, simply show the emoji popup.
         showAtBottom();
-      } else if (editText instanceof View) {
-        final View view = (View) editText;
+      } else if (editText != null) {
+        final View view = editText;
 
         // Open the text keyboard first and immediately after that show the emoji popup.
         view.setFocusableInTouchMode(true);
@@ -166,7 +182,7 @@ public final class EmojiPopup {
         final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
       } else {
-        throw new IllegalArgumentException("The provided editInterace isn't a View instance.");
+        throw new IllegalArgumentException("The provided EditText is null.");
       }
     } else {
       dismiss();
@@ -188,10 +204,9 @@ public final class EmojiPopup {
   }
 
   void showAtBottom() {
-    final Point desiredLocation = new Point(0, Utils.screenHeight(context) - popupWindow.getHeight());
+    final Point desiredLocation = new Point(0, Utils.getScreenHeight(context) - popupWindow.getHeight() - correctionFactor);
 
     popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
-    Utils.fixPopupLocation(popupWindow, desiredLocation);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
@@ -226,7 +241,7 @@ public final class EmojiPopup {
 
     /**
      * @param rootView The root View of your layout.xml which will be used for calculating the height
-     *                 of the keyboard.
+     * of the keyboard.
      * @return builder For building the {@link EmojiPopup}.
      */
     @CheckResult public static Builder fromRootView(final View rootView) {

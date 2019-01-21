@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.annotation.AttrRes;
@@ -16,6 +17,7 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 
@@ -48,12 +50,17 @@ final class Utils {
     return (int) (dp * context.getResources().getDisplayMetrics().density);
   }
 
-  static int screenHeight(@NonNull final Activity context) {
-    final Point size = new Point();
+  static boolean shouldOverrideRegularCondition(@NonNull final Activity context, EditText editText) {
 
-    context.getWindowManager().getDefaultDisplay().getSize(size);
+    if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
+      return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
 
-    return size.y;
+    return false;
+  }
+
+  static int getScreenHeight(@NonNull final Activity context) {
+    return dpToPx(context, context.getResources().getConfiguration().screenHeightDp);
   }
 
   @NonNull static Point locationOnScreen(@NonNull final View view) {
