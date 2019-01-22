@@ -29,7 +29,7 @@ import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 public final class EmojiPopup {
-  private static final int MIN_KEYBOARD_HEIGHT = 100;
+  static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
   final Activity context;
@@ -52,7 +52,7 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-  private int correctionFactor = 0;
+  int correctionFactor = 0;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override public void onGlobalLayout() {
