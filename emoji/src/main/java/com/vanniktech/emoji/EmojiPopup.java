@@ -64,22 +64,25 @@ public final class EmojiPopup {
       if ((heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)
           || shouldOverrideRegularCondition)) {
 
+        correctionFactor = rect.top;
+
+        int height = 0;
+        if (shouldOverrideRegularCondition) {
+          height = (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * 1.4));
+          popupWindow.setHeight(height);
+        } else {
+          height = heightDifference + correctionFactor;
+          popupWindow.setHeight(height);
+        }
+        popupWindow.setWidth(rect.right);
+
         if (!isKeyboardOpen && onSoftKeyboardOpenListener != null) {
-          onSoftKeyboardOpenListener.onKeyboardOpen(heightDifference);
+          onSoftKeyboardOpenListener.onKeyboardOpen(height);
         }
 
         isKeyboardOpen = true;
 
         if (isPendingOpen) {
-          if (shouldOverrideRegularCondition) {
-            popupWindow.setHeight(
-                (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * 1.5)));
-            correctionFactor = heightDifference;
-          } else {
-            popupWindow.setHeight(heightDifference - correctionFactor);
-          }
-          popupWindow.setWidth(rect.right);
-
           showAtBottom();
           isPendingOpen = false;
         }
@@ -204,7 +207,7 @@ public final class EmojiPopup {
   }
 
   void showAtBottom() {
-    final Point desiredLocation = new Point(0, Utils.getScreenHeight(context) - popupWindow.getHeight() - correctionFactor);
+    final Point desiredLocation = new Point(0, Utils.getScreenHeight(context) - popupWindow.getHeight() + correctionFactor);
 
     popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
 
