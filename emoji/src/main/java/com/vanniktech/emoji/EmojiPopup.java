@@ -29,10 +29,10 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
+import static com.vanniktech.emoji.Utils.shouldOverrideRegularCondition;
 
 public final class EmojiPopup {
   static final int MIN_KEYBOARD_HEIGHT = 100;
-  static final float HEIGHT_DIFFERENCE_FACTOR = 1.4f;
 
   final View rootView;
   final Activity context;
@@ -70,7 +70,7 @@ public final class EmojiPopup {
         int height = 0;
 
         if (shouldOverrideRegularCondition) {
-          height = (int) (Utils.getScreenHeight(context) / 2f - heightDifference * HEIGHT_DIFFERENCE_FACTOR);
+          height = Utils.getScreenHeight(context) - editText.getHeight() - correctionFactor ;
           popupWindow.setHeight(height);
         } else {
           height = heightDifference + correctionFactor;
@@ -182,18 +182,22 @@ public final class EmojiPopup {
 
       if (isKeyboardOpen) {
         // If the keyboard is visible, simply show the emoji popup.
-        showAtBottom();
+        editText.postDelayed(new Runnable() {
+          @Override public void run() {
+            showAtBottom();
+          }
+        }, 50);
       } else if (editText != null) {
         final View view = editText;
 
         // Open the text keyboard first and immediately after that show the emoji popup.
         view.setFocusableInTouchMode(true);
+        view.setFocusable(true);
         view.requestFocus();
-
-        showAtBottomPending();
 
         final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+        showAtBottomPending();
       } else {
         throw new IllegalArgumentException("The provided EditText is null.");
       }
@@ -204,6 +208,7 @@ public final class EmojiPopup {
     // Manually dispatch the event. In some cases this does not work out of the box reliably.
     context.getWindow().getDecorView().getViewTreeObserver().dispatchOnGlobalLayout();
   }
+
 
   public boolean isShowing() {
     return popupWindow.isShowing();
@@ -222,13 +227,21 @@ public final class EmojiPopup {
     popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
 
     if (onEmojiPopupShownListener != null) {
+      if (shouldOverrideRegularCondition(context, editText)) {
+        final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.showSoftInput(editText, 0);
+      }
       onEmojiPopupShownListener.onEmojiPopupShown();
     }
   }
 
   private void showAtBottomPending() {
     if (isKeyboardOpen) {
-      showAtBottom();
+      editText.postDelayed(new Runnable() {
+        @Override public void run() {
+          showAtBottom();
+        }
+      }, 50);
     } else {
       isPendingOpen = true;
     }
