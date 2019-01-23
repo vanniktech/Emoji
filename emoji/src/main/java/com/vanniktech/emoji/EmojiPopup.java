@@ -57,7 +57,7 @@ public final class EmojiPopup {
   int correctionFactor;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-    @Override public void onGlobalLayout() {
+    @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
       final int heightDifference = Utils.getScreenHeight(context) - rect.bottom;
 
@@ -69,7 +69,7 @@ public final class EmojiPopup {
         int height = 0;
 
         if (shouldOverrideRegularCondition) {
-          height = (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * HEIGHT_DIFFERENCE_FACTOR));
+          height = (int) (Utils.getScreenHeight(context) / 2.f - heightDifference * HEIGHT_DIFFERENCE_FACTOR);
           popupWindow.setHeight(height);
         } else {
           height = heightDifference + correctionFactor;
