@@ -69,7 +69,7 @@ public final class EmojiPopup {
         int height = 0;
 
         if (shouldOverrideRegularCondition) {
-          height = (int) (Utils.getScreenHeight(context) / 2.f - heightDifference * HEIGHT_DIFFERENCE_FACTOR);
+          height = (int) (Utils.getScreenHeight(context) / 2f - heightDifference * HEIGHT_DIFFERENCE_FACTOR);
           popupWindow.setHeight(height);
         } else {
           height = heightDifference + correctionFactor;
