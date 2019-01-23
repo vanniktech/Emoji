@@ -16,6 +16,7 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -30,6 +31,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
 public final class EmojiPopup {
   static final int MIN_KEYBOARD_HEIGHT = 100;
+  static final float HEIGHT_DIFFERENCE_FACTOR = 1.4f;
 
   final View rootView;
   final Activity context;
@@ -52,23 +54,22 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-  int correctionFactor = 0;
+  int correctionFactor;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override public void onGlobalLayout() {
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
       final int heightDifference = Utils.getScreenHeight(context) - rect.bottom;
 
-      boolean shouldOverrideRegularCondition =
-          Utils.shouldOverrideRegularCondition(context, editText);
-      if ((heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)
-          || shouldOverrideRegularCondition)) {
+      final boolean shouldOverrideRegularCondition = Utils.shouldOverrideRegularCondition(context, editText);
 
+      if (heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT) || shouldOverrideRegularCondition) {
         correctionFactor = rect.top;
 
         int height = 0;
+
         if (shouldOverrideRegularCondition) {
-          height = (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * 1.4));
+          height = (int) ((Utils.getScreenHeight(context) / 2) - (heightDifference * HEIGHT_DIFFERENCE_FACTOR));
           popupWindow.setHeight(height);
         } else {
           height = heightDifference + correctionFactor;
@@ -99,8 +100,7 @@ public final class EmojiPopup {
           }
 
           dismiss();
-          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(),
-              onGlobalLayoutListener);
+          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
         }
       }
     }

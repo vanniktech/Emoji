@@ -50,8 +50,7 @@ final class Utils {
     return (int) (dp * context.getResources().getDisplayMetrics().density);
   }
 
-  static boolean shouldOverrideRegularCondition(@NonNull final Activity context, EditText editText) {
-
+  static boolean shouldOverrideRegularCondition(@NonNull final Activity context, final EditText editText) {
     if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
       return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
