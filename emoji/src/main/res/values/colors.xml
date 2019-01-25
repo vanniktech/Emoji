@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="emoji_background">#eceff1</color>
-    <color name="emoji_icons">#61000000</color>
-    <color name="emoji_divider">#1f000000</color>
+  <color name="emoji_background">@color/emoji_white</color>
+  <color name="emoji_icons">@color/emoji_black</color>
+  <color name="emoji_divider">@color/emoji_gray20</color>
+
+  <color name="emoji_white">#ffffffff</color>
+  <color name="emoji_black">#ff000000</color>
+  <color name="emoji_gray20">#ffcccccc</color>
+  <color name="emoji_gray70">#ff4d4d4d</color>
+  <color name="emoji_grey_900">#212121</color>
 </resources>
