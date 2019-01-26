@@ -17,6 +17,7 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -119,6 +120,10 @@ final class Utils {
     }
 
     throw new IllegalArgumentException("The passed Context is not an Activity.");
+  }
+
+  static boolean isFullScreen(Activity activity) {
+   return (activity.getWindow().getAttributes().flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) > 0;
   }
 
   static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {

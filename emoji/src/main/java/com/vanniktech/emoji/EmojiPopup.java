@@ -1,17 +1,19 @@
 package com.vanniktech.emoji;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.support.annotation.CheckResult;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -26,12 +28,15 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
+import java.lang.reflect.Field;
 
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 import static com.vanniktech.emoji.Utils.shouldOverrideRegularCondition;
 
 public final class EmojiPopup {
+  static final String TAG = "EmojiPopup";
+
   static final int MIN_KEYBOARD_HEIGHT = 100;
 
   final View rootView;
@@ -55,57 +60,74 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-  int correctionFactor;
+  int viewInset;
+  Rect rect = new Rect();
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
-      final Rect rect = Utils.windowVisibleDisplayFrame(context);
-      final int heightDifference = Utils.getScreenHeight(context) - rect.bottom;
-
-      final boolean shouldOverrideRegularCondition = Utils.shouldOverrideRegularCondition(context, editText);
-
-      if (heightDifference > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT) || shouldOverrideRegularCondition) {
-        correctionFactor = rect.top;
-
-        int height = 0;
-
-        if (shouldOverrideRegularCondition) {
-          height = Utils.getScreenHeight(context) - editText.getHeight() - correctionFactor ;
-          popupWindow.setHeight(height);
-        } else {
-          height = heightDifference + correctionFactor;
-          popupWindow.setHeight(height);
-        }
-        popupWindow.setWidth(rect.right);
-
-        if (!isKeyboardOpen && onSoftKeyboardOpenListener != null) {
-          onSoftKeyboardOpenListener.onKeyboardOpen(height);
-        }
-
-        isKeyboardOpen = true;
-
-        if (isPendingOpen) {
-          showAtBottom();
-          isPendingOpen = false;
-        }
-      } else {
-        if (heightDifference < 0) {
-          correctionFactor = heightDifference;
-        }
-
-        if (isKeyboardOpen) {
-          isKeyboardOpen = false;
-
-          if (onSoftKeyboardCloseListener != null) {
-            onSoftKeyboardCloseListener.onKeyboardClose();
-          }
-
-          dismiss();
-          Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
-        }
-      }
+      updateKeyboardState();
     }
   };
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  private int getViewInset() {
+    try {
+      Field attachInfoField = View.class.getDeclaredField("mAttachInfo");
+      attachInfoField.setAccessible(true);
+      Object attachInfo = attachInfoField.get(rootView);
+      if (attachInfo != null) {
+        Field stableInsetsField = attachInfo.getClass().getDeclaredField("mStableInsets");
+        stableInsetsField.setAccessible(true);
+        Rect insets = (Rect) stableInsetsField.get(attachInfo);
+        return insets.bottom;
+      }
+    } catch (NoSuchFieldException nsfe) {
+      Log.w(TAG, "Field error when measuring view inset", nsfe);
+    } catch (IllegalAccessException iae) {
+      Log.w(TAG, "Illegal Access reflection error when measuring view inset", iae);
+    }
+
+    return 0;
+  }
+
+  private void updateKeyboardState() {
+    if (viewInset == 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      viewInset = getViewInset();
+    }
+
+    rect = Utils.windowVisibleDisplayFrame(context);
+
+    final int availableHeight = rootView.getHeight() - viewInset - (!Utils.isFullScreen(context) ? rect.top : 0);
+    final int keyboardHeight = Utils.shouldOverrideRegularCondition(context, editText) ?
+        Utils.getScreenHeight(context) - editText.getBottom() - (!Utils.isFullScreen(context) ? rect.top : 0)
+        : availableHeight - (rect.bottom - rect.top);
+
+    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
+      if (popupWindow.getHeight() != keyboardHeight) {
+        popupWindow.setHeight(keyboardHeight);
+      }
+
+      if (popupWindow.getWidth() != rect.right) {
+        popupWindow.setWidth(rect.right);
+      }
+
+      if (!isKeyboardOpen) {
+        isKeyboardOpen = true;
+        if (onSoftKeyboardOpenListener != null) {
+          onSoftKeyboardOpenListener.onKeyboardOpen(keyboardHeight);
+        }
+      }
+
+      if (isPendingOpen) {
+        showAtBottom();
+      }
+    } else if (isKeyboardOpen) {
+      isKeyboardOpen = false;
+      if (onSoftKeyboardCloseListener != null) {
+        onSoftKeyboardCloseListener.onKeyboardClose();
+      }
+    }
+  }
 
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
       @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
@@ -156,7 +178,8 @@ public final class EmojiPopup {
 
     popupWindow.setContentView(emojiView);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
-    popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
+    popupWindow.setBackgroundDrawable(
+        new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
       @Override public void onDismiss() {
         if (onEmojiPopupDismissListener != null) {
@@ -171,44 +194,29 @@ public final class EmojiPopup {
       popupWindow.setAnimationStyle(animationStyle);
     }
 
+    viewInset = getViewInset();
     rootView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
   }
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
-      // Remove any previous listeners to avoid duplicates.
-      Utils.removeOnGlobalLayoutListener(context.getWindow().getDecorView(), onGlobalLayoutListener);
-      context.getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+      final View view = editText;
 
-      if (isKeyboardOpen) {
-        // If the keyboard is visible, simply show the emoji popup.
-        editText.postDelayed(new Runnable() {
-          @Override public void run() {
-            showAtBottom();
-          }
-        }, 50);
-      } else if (editText != null) {
-        final View view = editText;
+      // Open the text keyboard first and immediately after that show the emoji popup.
+      view.setFocusableInTouchMode(true);
+      view.setFocusable(true);
+      view.requestFocus();
 
-        // Open the text keyboard first and immediately after that show the emoji popup.
-        view.setFocusableInTouchMode(true);
-        view.setFocusable(true);
-        view.requestFocus();
+      showAtBottomPending();
 
-        final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
-        showAtBottomPending();
-      } else {
-        throw new IllegalArgumentException("The provided EditText is null.");
-      }
+      final InputMethodManager inputMethodManager =
+          (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+      inputMethodManager.showSoftInput(view, shouldOverrideRegularCondition(context, editText) ?
+          InputMethodManager.SHOW_FORCED : InputMethodManager.SHOW_IMPLICIT);
     } else {
       dismiss();
     }
-
-    // Manually dispatch the event. In some cases this does not work out of the box reliably.
-    context.getWindow().getDecorView().getViewTreeObserver().dispatchOnGlobalLayout();
   }
-
 
   public boolean isShowing() {
     return popupWindow.isShowing();
@@ -222,26 +230,17 @@ public final class EmojiPopup {
   }
 
   void showAtBottom() {
-    final Point desiredLocation = new Point(0, Utils.getScreenHeight(context) - popupWindow.getHeight() + correctionFactor);
-
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y);
+    isPendingOpen = false;
+    popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
 
     if (onEmojiPopupShownListener != null) {
-      if (shouldOverrideRegularCondition(context, editText)) {
-        final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.showSoftInput(editText, 0);
-      }
       onEmojiPopupShownListener.onEmojiPopupShown();
     }
   }
 
   private void showAtBottomPending() {
     if (isKeyboardOpen) {
-      editText.postDelayed(new Runnable() {
-        @Override public void run() {
-          showAtBottom();
-        }
-      }, 50);
+      showAtBottom();
     } else {
       isPendingOpen = true;
     }
