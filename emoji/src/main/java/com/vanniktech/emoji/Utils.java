@@ -51,12 +51,17 @@ final class Utils {
   }
 
   static int dpToPx(@NonNull final Context context, final float dp) {
-    return (int) (dp * context.getResources().getDisplayMetrics().density);
+    return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+        context.getResources().getDisplayMetrics()) + 0.5f);
+  }
+
+  static int getOrientation(Context context) {
+    return context.getResources().getConfiguration().orientation;
   }
 
   static boolean shouldOverrideRegularCondition(@NonNull final Activity context, final EditText editText) {
     if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
-      return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+      return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     return false;
@@ -64,6 +69,10 @@ final class Utils {
 
   static int getScreenHeight(@NonNull final Activity context) {
     return dpToPx(context, context.getResources().getConfiguration().screenHeightDp);
+  }
+
+  static int getScreenWidth(@NonNull final Activity context) {
+    return dpToPx(context, context.getResources().getConfiguration().screenWidthDp);
   }
 
   @NonNull static Point locationOnScreen(@NonNull final View view) {

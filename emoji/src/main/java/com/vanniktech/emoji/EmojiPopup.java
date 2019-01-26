@@ -3,6 +3,7 @@ package com.vanniktech.emoji;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -107,8 +108,9 @@ public final class EmojiPopup {
         popupWindow.setHeight(keyboardHeight);
       }
 
-      if (popupWindow.getWidth() != rect.right) {
-        popupWindow.setWidth(rect.right);
+      int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
+      if (popupWindow.getWidth() != properWidth) {
+        popupWindow.setWidth(properWidth);
       }
 
       if (!isKeyboardOpen) {
