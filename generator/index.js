@@ -35,10 +35,10 @@ const targets = [{
 }];
 
 /**
- * Emoji codepoints to globally ignore.
+ * Emoji codepoints which are duplicates. These are marked as such in the generated code.
  * @type {string[]}
  */
-const ignore = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939"];
+const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939"];
 
 /**
  * The order of the categories.
@@ -65,6 +65,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
         }
         return all;
     }, []);
+
     const emojiByStrip = [];
     allEmoji.forEach(it => {
         if (emojiByStrip[it.sheet_x]) {
@@ -73,6 +74,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
             emojiByStrip[it.sheet_x] = new Array(it);
         }
     });
+
     const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets/64.png`;
     const sheet = await Jimp.read(src);
     const strips = sheet.bitmap.width / 66 - 1;
@@ -121,9 +123,9 @@ function generateEmojiCode(target, emojis, indent = 4) {
         let result = "";
 
         if (unicodeParts.length === 1) {
-            result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}`;
+            result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
         } else {
-            result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, ${it.x}, ${it.y}`;
+            result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
         }
 
         if (it.variants.filter(it => it[target.package]).length > 0) {
@@ -142,24 +144,30 @@ async function parse() {
     console.log("Parsing files...");
 
     const result = new Map();
-    const filteredEmojiData = emojiData.filter(it => it.category !== "Skin Tones" && !it.obsoleted_by && !ignore.includes(it.unified));
+    const filteredEmojiData = emojiData.filter(it => it.category !== "Skin Tones");
     const preparedEmojiData = stable(filteredEmojiData, (first, second) => first.sort_order - second.sort_order);
 
     for (const dataEntry of preparedEmojiData) {
         const category = dataEntry.category.replace(" & ", "And");
+        const isDuplicate = !!dataEntry.obsoleted_by || duplicates.includes(dataEntry.unified);
+
         const emoji = {
             unicode: dataEntry.unified,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
+            isDuplicate: isDuplicate,
             variants: []
         };
 
         if (dataEntry.skin_variations) {
             for (const variantDataEntry of Object.values(dataEntry.skin_variations)) {
+                const isDuplicate = !!variantDataEntry.obsoleted_by || duplicates.includes(variantDataEntry.unified);
+
                 const variantEmoji = {
                     unicode: variantDataEntry.unified,
                     x: variantDataEntry.sheet_x,
                     y: variantDataEntry.sheet_y,
+                    isDuplicate: isDuplicate,
                     variants: []
                 };
 

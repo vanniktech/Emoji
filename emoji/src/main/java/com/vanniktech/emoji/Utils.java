@@ -23,6 +23,10 @@ import android.widget.PopupWindow;
 
 import com.vanniktech.emoji.emoji.Emoji;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 
@@ -77,6 +81,19 @@ final class Utils {
   static void backspace(@NonNull final EditText editText) {
     final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
     editText.dispatchKeyEvent(event);
+  }
+
+  static List<Emoji> filterDuplicates(List<Emoji> emojis) {
+    final List<Emoji> result = new ArrayList<>(emojis);
+    final Iterator<Emoji> iterator = result.iterator();
+
+    while (iterator.hasNext()) {
+      if (iterator.next().isDuplicate()) {
+        iterator.remove();
+      }
+    }
+
+    return result;
   }
 
   static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {

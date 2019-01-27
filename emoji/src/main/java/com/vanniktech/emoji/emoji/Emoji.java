@@ -19,24 +19,29 @@ public class Emoji implements Serializable {
 
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
+  private final boolean isDuplicate;
   @NonNull private final List<Emoji> variants;
   @Nullable private Emoji base;
 
-  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource) {
-    this(codePoints, resource, new Emoji[0]);
+  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
+               final boolean isDuplicate) {
+    this(codePoints, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @DrawableRes final int resource) {
-    this(codePoint, resource, new Emoji[0]);
+  public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate) {
+    this(codePoint, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @DrawableRes final int resource, final Emoji... variants) {
-    this(new int[]{codePoint}, resource, variants);
+  public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate,
+               final Emoji... variants) {
+    this(new int[]{codePoint}, resource, isDuplicate, variants);
   }
 
-  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource, final Emoji... variants) {
+  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
+               final boolean isDuplicate, final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.resource = resource;
+    this.isDuplicate = isDuplicate;
     this.variants = variants.length == 0 ? EMPTY_EMOJI_LIST : asList(variants);
     for (final Emoji variant : variants) {
       variant.base = this;
@@ -57,6 +62,10 @@ public class Emoji implements Serializable {
 
   @NonNull public Drawable getDrawable(final Context context) {
     return AppCompatResources.getDrawable(context, resource);
+  }
+
+  public boolean isDuplicate() {
+    return isDuplicate;
   }
 
   @NonNull public List<Emoji> getVariants() {
