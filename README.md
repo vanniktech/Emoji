@@ -162,7 +162,7 @@ setVariantEmoji(yourClassThatImplementsVariantEmoji)
 
 If no instance or a null instance is set the [default implementation](./emoji/src/main/java/com/vanniktech/emoji/VariantEmojiManager.java) will be used.
 
-## Animattions
+## Animations
 
 ### Custom keyboard enter and exit animations
 
