@@ -11,13 +11,13 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -110,7 +110,7 @@ public final class EmojiPopup {
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
       @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
       @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor,
-      @StyleRes final int animationStyle) {
+      @StyleRes final int animationStyle, @Nullable ViewPager.PageTransformer pageTransformer) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editText = editText;
@@ -143,7 +143,8 @@ public final class EmojiPopup {
 
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor);
+    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji,
+        backgroundColor, iconColor, dividerColor, pageTransformer);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClick(final View v) {
         backspace(editText);
@@ -240,6 +241,7 @@ public final class EmojiPopup {
     @ColorInt private int backgroundColor;
     @ColorInt private int iconColor;
     @ColorInt private int dividerColor;
+    @Nullable private ViewPager.PageTransformer pageTransformer;
     @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
     @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
     @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
@@ -334,11 +336,16 @@ public final class EmojiPopup {
       return this;
     }
 
+    @CheckResult public Builder setPageTransformer(@Nullable ViewPager.PageTransformer transformer) {
+      pageTransformer = transformer;
+      return this;
+    }
+
     @CheckResult public EmojiPopup build(@NonNull final EditText editText) {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, animationStyle);
+      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, animationStyle, pageTransformer);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;

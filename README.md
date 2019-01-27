@@ -162,7 +162,9 @@ setVariantEmoji(yourClassThatImplementsVariantEmoji)
 
 If no instance or a null instance is set the [default implementation](./emoji/src/main/java/com/vanniktech/emoji/VariantEmojiManager.java) will be used.
 
-### Custom enter and exit animations
+## Animattions
+
+### Custom keyboard enter and exit animations
 
 You can pass your own animation style for enter and exit transitions of the Emoji keyboard while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
 
@@ -175,6 +177,16 @@ This library currently ships with two animation styles as an example:
 
 - R.style.emoji_slide_animation_style
 - R.style.emoji_fade_animation_style
+
+### Custom page transformers
+
+You can pass your own Page Transformer for the Emoji keyboard View Pager while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
+
+```java
+setPageTransformer(new MagicTransformer());
+```
+
+If no transformer is set ViewPager will behave as its usual self. Please do note that this library currently does not ship any example Page Transformers.
 
 # Snapshots
 
