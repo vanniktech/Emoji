@@ -236,7 +236,7 @@ public final class EmojiPopup {
 
   public static final class Builder {
     @NonNull private final View rootView;
-    @StyleRes private int animationStyle;
+    @StyleRes private int keyboardAnimationStyle;
     @ColorInt private int backgroundColor;
     @ColorInt private int iconColor;
     @ColorInt private int dividerColor;
@@ -330,7 +330,7 @@ public final class EmojiPopup {
     }
 
     @CheckResult public Builder setKeyboardAnimationStyle(@StyleRes final int animation) {
-      animationStyle = animation;
+      keyboardAnimationStyle = animation;
       return this;
     }
 
@@ -338,7 +338,8 @@ public final class EmojiPopup {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, animationStyle);
+      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor,
+          iconColor, dividerColor, keyboardAnimationStyle);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
