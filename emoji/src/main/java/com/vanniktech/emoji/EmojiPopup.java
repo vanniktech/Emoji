@@ -143,8 +143,7 @@ public final class EmojiPopup {
 
     variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
 
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji,
-        backgroundColor, iconColor, dividerColor, pageTransformer);
+    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, pageTransformer);
     emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
       @Override public void onEmojiBackspaceClick(final View v) {
         backspace(editText);
