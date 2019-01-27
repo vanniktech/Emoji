@@ -167,7 +167,7 @@ If no instance or a null instance is set the [default implementation](./emoji/sr
 You can pass your own animation style for enter and exit transitions of the Emoji keyboard while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
 
 ```java
-setAnimationStyle(R.style.emoji_fade_animation_style);
+setKeyboardAnimationStyle(R.style.emoji_fade_animation_style);
 ```
 
 If no style is set the keyboard will appear and exit as a regular PopupWindow. 

@@ -328,7 +328,7 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public Builder setAnimationStyle(@StyleRes final int animation) {
+    @CheckResult public Builder setKeyboardAnimationStyle(@StyleRes final int animation) {
       animationStyle = animation;
       return this;
     }
