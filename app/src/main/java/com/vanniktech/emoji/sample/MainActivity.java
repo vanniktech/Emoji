@@ -136,6 +136,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))
         .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople))
         .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
+        .setAnimationStyle(R.style.emoji_slide_animation_style)
         .build(editText);
   }
 }

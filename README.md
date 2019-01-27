@@ -162,6 +162,20 @@ setVariantEmoji(yourClassThatImplementsVariantEmoji)
 
 If no instance or a null instance is set the [default implementation](./emoji/src/main/java/com/vanniktech/emoji/VariantEmojiManager.java) will be used.
 
+### Custom enter and exit animations
+
+You can pass your own animation style for enter and exit transitions of the Emoji keyboard while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
+
+```java
+setAnimationStyle(R.style.emoji_fade_animation_style);
+```
+
+If no style is set the keyboard will appear and exit as a regular PopupWindow. 
+This library currently ships with two animation styles as an example:
+
+- R.style.emoji_slide_animation_style
+- R.style.emoji_fade_animation_style
+
 # Snapshots
 
 This library is also distributed as a SNAPSHOT if you like to check out the latest features.
