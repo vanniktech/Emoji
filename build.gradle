@@ -77,20 +77,20 @@ ext {
   compileSdkVersion = 28
   targetSdkVersion = 28
 
-  supportLibraryVersion = '28.0.0'
+  androidXVersion = '1.0.0'
   leakCanaryVersion = '1.6.3'
 
   versionCode = VERSION_CODE
   versionName = VERSION_NAME
 
-  supportAppCompat = "com.android.support:appcompat-v7:$supportLibraryVersion"
-  supportV4CoreUi = "com.android.support:support-core-ui:$supportLibraryVersion"
-  supportV4Compat = "com.android.support:support-compat:$supportLibraryVersion"
-  supportRecyclerView = "com.android.support:recyclerview-v7:$supportLibraryVersion"
-  supportCardView = "com.android.support:cardview-v7:$supportLibraryVersion"
-  supportAnnotations = "com.android.support:support-annotations:$supportLibraryVersion"
-  supportEmoji = "com.android.support:support-emoji:$supportLibraryVersion"
-  supportEmojiBundled = "com.android.support:support-emoji-bundled:$supportLibraryVersion"
+  supportAppCompat = "androidx.appcompat:appcompat:$androidXVersion"
+  supportV4CoreUi = "androidx.legacy:legacy-support-core-ui:$androidXVersion"
+  supportV4Compat = "androidx.core:core:$androidXVersion"
+  supportRecyclerView = "androidx.recyclerview:recyclerview:$androidXVersion"
+  supportCardView = "androidx.cardview:cardview:$androidXVersion"
+  supportAnnotations = "androidx.annotation:annotation:$androidXVersion"
+  supportEmoji = "androidx.emoji:emoji-appcompat:$androidXVersion"
+  supportEmojiBundled = "androidx.emoji:emoji-bundled:$androidXVersion"
 
   leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
   leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"

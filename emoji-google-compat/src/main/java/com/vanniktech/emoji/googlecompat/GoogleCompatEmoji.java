@@ -2,7 +2,7 @@ package com.vanniktech.emoji.googlecompat;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public final class GoogleCompatEmoji extends Emoji {

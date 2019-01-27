@@ -3,11 +3,12 @@ package com.vanniktech.emoji;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
-import android.support.annotation.CallSuper;
-import android.support.annotation.DimenRes;
-import android.support.annotation.Px;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.DimenRes;
+import androidx.annotation.Px;
+import androidx.appcompat.widget.AppCompatEditText;
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EditText with emoji support. */

@@ -11,7 +11,7 @@
       android:layout_width="match_parent"
       android:layout_height="1dp"
       />
-  <android.support.v4.view.ViewPager
+  <androidx.viewpager.widget.ViewPager
       android:id="@+id/emojiViewPager"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

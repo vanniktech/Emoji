@@ -3,10 +3,10 @@ package com.vanniktech.emoji;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
-import android.support.annotation.CallSuper;
-import android.support.annotation.DimenRes;
-import android.support.annotation.Px;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.DimenRes;
+import androidx.annotation.Px;
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import android.util.AttributeSet;
 
 import com.vanniktech.emoji.emoji.Emoji;

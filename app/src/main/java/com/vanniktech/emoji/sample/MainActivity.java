@@ -2,12 +2,12 @@ package com.vanniktech.emoji.sample;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.text.emoji.EmojiCompat;
-import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.emoji.text.EmojiCompat;
+import androidx.emoji.bundled.BundledEmojiCompatConfig;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,7 +62,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
     final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
     recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+    recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
     setUpEmojiPopup();
   }

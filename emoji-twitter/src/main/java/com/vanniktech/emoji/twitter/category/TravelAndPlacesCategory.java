@@ -1,7 +1,7 @@
 package com.vanniktech.emoji.twitter.category;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.twitter.R;
 import com.vanniktech.emoji.twitter.TwitterEmoji;
