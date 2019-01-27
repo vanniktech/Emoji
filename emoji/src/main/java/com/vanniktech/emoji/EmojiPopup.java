@@ -344,7 +344,8 @@ public final class EmojiPopup {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, animationStyle, pageTransformer);
+      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor,
+          iconColor, dividerColor, keyboardAnimationStyle, pageTransformer);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
