@@ -43,7 +43,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
       final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
       @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
       @ColorInt final int iconColor, @ColorInt final int dividerColor,
-      @Nullable ViewPager.PageTransformer pageTransformer) {
+      @Nullable final ViewPager.PageTransformer pageTransformer) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);

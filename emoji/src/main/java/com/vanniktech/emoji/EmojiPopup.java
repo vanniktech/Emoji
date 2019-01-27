@@ -110,7 +110,7 @@ public final class EmojiPopup {
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
       @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
       @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor,
-      @StyleRes final int animationStyle, @Nullable ViewPager.PageTransformer pageTransformer) {
+      @StyleRes final int animationStyle, @Nullable final ViewPager.PageTransformer pageTransformer) {
     this.context = Utils.asActivity(rootView.getContext());
     this.rootView = rootView.getRootView();
     this.editText = editText;
@@ -335,7 +335,7 @@ public final class EmojiPopup {
       return this;
     }
 
-    @CheckResult public Builder setPageTransformer(@Nullable ViewPager.PageTransformer transformer) {
+    @CheckResult public Builder setPageTransformer(@Nullable final ViewPager.PageTransformer transformer) {
       pageTransformer = transformer;
       return this;
     }
