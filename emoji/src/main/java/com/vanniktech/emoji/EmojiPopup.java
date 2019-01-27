@@ -359,7 +359,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       return this;
     }
 
-    @CheckResult public Builder setPageTransformer(@Nullable final ViewPager.PageTransformer transformer) {
+    @CheckResult public Builder setPageTransformer(@Nullable ViewPager.PageTransformer transformer) {
       pageTransformer = transformer;
       return this;
     }
