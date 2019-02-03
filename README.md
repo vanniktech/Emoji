@@ -118,6 +118,8 @@ emojiPopup.isShowing(); // Returns true when Popup is showing.
 The `rootView` is the rootView of your layout xml file which will be used for calculating the height of the keyboard.
 `emojiEditText` is the [`EmojiEditText`](emoji/src/main/java/com/vanniktech/emoji/EmojiEditText.java) that you declared in your layout xml file.
 
+**Note: Instantiate the `EmojiPopup` as early as possible in the lifecycle (e.g. in `onCreate` of your `Activity` or `onViewCreated` in your `Fragment`), otherwise the keyboard detection might not work as expected.**
+
 ### Displaying Emojis
 
 ```xml
