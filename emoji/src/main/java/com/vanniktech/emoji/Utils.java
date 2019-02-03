@@ -24,7 +24,6 @@ import android.widget.PopupWindow;
 import com.vanniktech.emoji.emoji.Emoji;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import static android.os.Build.VERSION.SDK_INT;
@@ -83,13 +82,12 @@ final class Utils {
     editText.dispatchKeyEvent(event);
   }
 
-  static List<Emoji> filterDuplicates(List<Emoji> emojis) {
-    final List<Emoji> result = new ArrayList<>(emojis);
-    final Iterator<Emoji> iterator = result.iterator();
+  static List<Emoji> asListWithoutDuplicates(final Emoji[] emojis) {
+    final List<Emoji> result = new ArrayList<>(emojis.length);
 
-    while (iterator.hasNext()) {
-      if (iterator.next().isDuplicate()) {
-        iterator.remove();
+    for (final Emoji emoji : emojis) {
+      if (!emoji.isDuplicate()) {
+        result.add(emoji);
       }
     }
 
