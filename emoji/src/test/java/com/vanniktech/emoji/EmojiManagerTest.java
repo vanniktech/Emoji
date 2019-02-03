@@ -23,10 +23,10 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
   private EmojiProvider provider;
 
   @Before public void setUp() {
-    final Emoji emoji1 = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent);
-    final Emoji emoji2 = new Emoji(new int[] { 0x4321 }, R.drawable.emoji_recent);
-    final Emoji emoji3 = new Emoji(new int[] { 0x5678 }, R.drawable.emoji_backspace);
-    final Emoji emoji4 = new Emoji(new int[] { 0x1234, 0x4321, 0x9999 }, R.drawable.emoji_recent);
+    final Emoji emoji1 = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent, false);
+    final Emoji emoji2 = new Emoji(new int[] { 0x4321 }, R.drawable.emoji_recent, false);
+    final Emoji emoji3 = new Emoji(new int[] { 0x5678 }, R.drawable.emoji_backspace, false);
+    final Emoji emoji4 = new Emoji(new int[] { 0x1234, 0x4321, 0x9999 }, R.drawable.emoji_recent, false);
 
     provider = TestEmojiProvider.from(emoji1, emoji2, emoji3, emoji4);
   }
@@ -69,7 +69,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     EmojiManager.install(provider);
 
     assertThat(EmojiManager.getInstance().findEmoji(new String(new int[] { 0x1234 }, 0, 1)))
-            .isEqualTo(new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent));
+            .isEqualTo(new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent, false));
   }
 
   @Test public void installMultiple() {
@@ -94,7 +94,7 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     EmojiManager.install(provider);
 
     assertThat(EmojiManager.getInstance().findEmoji(new String(new int[]{0x5678}, 0, 1)))
-            .isEqualTo(new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace));
+            .isEqualTo(new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace, false));
   }
 
   @Test public void findEmojiEmpty() {
@@ -109,8 +109,8 @@ import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
     final String text = "te" + new String(new int[]{0x5678}, 0, 1)
             + "st" + new String(new int[]{0x1234}, 0, 1);
 
-    final EmojiRange firstExpectedRange = new EmojiRange(2, 3, new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace));
-    final EmojiRange secondExpectedRange = new EmojiRange(5, 6, new Emoji(new int[]{0x1234}, R.drawable.emoji_recent));
+    final EmojiRange firstExpectedRange = new EmojiRange(2, 3, new Emoji(new int[]{0x5678}, R.drawable.emoji_backspace, false));
+    final EmojiRange secondExpectedRange = new EmojiRange(5, 6, new Emoji(new int[]{0x1234}, R.drawable.emoji_recent, false));
 
     assertThat(EmojiManager.getInstance().findAllEmojis(text))
             .containsExactly(firstExpectedRange, secondExpectedRange);

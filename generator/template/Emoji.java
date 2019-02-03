@@ -23,7 +23,7 @@ public class <%= name %> extends Emoji {
   private static final Object LOCK = new Object();
 
   private static final SoftReference[] STRIP_REFS = new SoftReference[NUM_STRIPS];
-  private static final LruCache<CacheKey, Bitmap> BITMAP_CACHE =new LruCache<>(CACHE_SIZE);
+  private static final LruCache<CacheKey, Bitmap> BITMAP_CACHE = new LruCache<>(CACHE_SIZE);
 
   static {
     for (int i = 0; i < NUM_STRIPS; i++) {

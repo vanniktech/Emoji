@@ -17,8 +17,8 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   static final int CODE_POINT_2 = EMOJI_2.codePointAt(0);
 
   @Before public void setUp() {
-    final Emoji emoji1 = new Emoji(CODE_POINT_1, R.drawable.emoji_recent);
-    final Emoji emoji2 = new Emoji(CODE_POINT_2, R.drawable.emoji_backspace);
+    final Emoji emoji1 = new Emoji(CODE_POINT_1, R.drawable.emoji_recent, false);
+    final Emoji emoji2 = new Emoji(CODE_POINT_2, R.drawable.emoji_backspace, false);
     EmojiManager.install(TestEmojiProvider.from(emoji1, emoji2));
   }
 
