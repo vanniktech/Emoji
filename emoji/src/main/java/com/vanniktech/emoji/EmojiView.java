@@ -38,10 +38,12 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
-        final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
-        @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
-        @ColorInt final int iconColor, @ColorInt final int dividerColor) {
+  @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context,
+      final OnEmojiClickListener onEmojiClickListener,
+      final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
+      @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
+      @ColorInt final int iconColor, @ColorInt final int dividerColor,
+      @Nullable final ViewPager.PageTransformer pageTransformer) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
@@ -57,6 +59,10 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     final ViewPager emojisPager = findViewById(R.id.emojiViewPager);
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
     emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
+
+    if (pageTransformer != null) {
+      emojisPager.setPageTransformer(true, pageTransformer);
+    }
 
     final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
     emojisPager.addOnPageChangeListener(this);
