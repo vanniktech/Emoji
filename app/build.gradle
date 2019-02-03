@@ -56,7 +56,6 @@ dependencies {
   implementation project(':emoji-google')
   implementation project(':emoji-google-compat')
   implementation project(':emoji-twitter')
-  implementation project(':emoji-one')
   implementation project(':emoji-kotlin')
 
   implementation rootProject.ext.supportAppCompat

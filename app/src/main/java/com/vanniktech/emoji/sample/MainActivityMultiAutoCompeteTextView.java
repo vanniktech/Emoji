@@ -20,7 +20,6 @@ import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
-import com.vanniktech.emoji.one.EmojiOneProvider;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 // We don't care about duplicated code in the sample.
@@ -101,11 +100,6 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         }
         EmojiManager.destroy();
         EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
-        recreate();
-        return true;
-      case R.id.menuMainEmojiOne:
-        EmojiManager.destroy();
-        EmojiManager.install(new EmojiOneProvider());
         recreate();
         return true;
       default:

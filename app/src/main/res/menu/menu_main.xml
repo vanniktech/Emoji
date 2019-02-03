@@ -25,9 +25,6 @@
                 <item
                     android:id="@+id/menuMainTwitter"
                     android:title="@string/variant_twitter_title"/>
-                <item
-                    android:id="@+id/menuMainEmojiOne"
-                    android:title="@string/variant_emojione_title"/>
             </group>
         </menu>
     </item>

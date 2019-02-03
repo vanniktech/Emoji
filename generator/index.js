@@ -27,11 +27,6 @@ const targets = [{
     name: "TwitterEmoji",
     dataSource: "twitter",
     dataAttribute: "has_img_twitter"
-}, {
-    package: "one",
-    name: "EmojiOne",
-    dataSource: "emojione",
-    dataAttribute: "has_img_emojione"
 }];
 
 /**

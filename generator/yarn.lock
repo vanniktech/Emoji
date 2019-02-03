@@ -928,30 +928,25 @@ each-async@^1.0.0, each-async@^1.1.1:
     onetime "^1.0.0"
     set-immediate-shim "^1.0.0"
 
-emoji-datasource-apple@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-4.0.4.tgz#586048cf338623c1d64f41c0642cfb3f19552503"
-  integrity sha1-WGBIzzOGI8HWT0HAZCz7PxlVJQM=
+emoji-datasource-apple@^4.0.4:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-4.1.0.tgz#e6725311b115144a32fb60043416a755fea30bf5"
+  integrity sha1-5nJTEbEVFEoy+2AENBanVf6jC/U=
 
-emoji-datasource-emojione@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-emojione/-/emoji-datasource-emojione-4.0.4.tgz#60fc4be24a70289cc4225752e38f1d700c95a160"
-  integrity sha1-YPxL4kpwKJzEIldS448dcAyVoWA=
+emoji-datasource-google@^4.0.4:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-4.1.0.tgz#d69be74d48c76ee2bb9fcb4e7920f27fa12dde9e"
+  integrity sha1-1pvnTUjHbuK7n8tOeSDyf6Et3p4=
 
-emoji-datasource-google@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-4.0.4.tgz#87392c07255e172e578107a9f1a3b6755907eb01"
-  integrity sha1-hzksByVeFy5XgQep8aO2dVkH6wE=
+emoji-datasource-twitter@^4.0.4:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-twitter/-/emoji-datasource-twitter-4.1.0.tgz#e374a6ec87e071561e47b07ddb00b3bf4326d2a2"
+  integrity sha1-43Sm7IfgcVYeR7B92wCzv0Mm0qI=
 
-emoji-datasource-twitter@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-twitter/-/emoji-datasource-twitter-4.0.4.tgz#83bd4bd719205d41d2da1d7f346a093db429f036"
-  integrity sha1-g71L1xkgXUHS2h1/NGoJPbQp8DY=
-
-emoji-datasource@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/emoji-datasource/-/emoji-datasource-4.0.4.tgz#516b9ab2f34569e468e4e3753a34a47a0b2b5aa3"
-  integrity sha1-UWuasvNFaeRo5ON1OjSkegsrWqM=
+emoji-datasource@^4.0.4:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource/-/emoji-datasource-4.1.0.tgz#b44557f78a2dfac2f350393391b170a567ec28ad"
+  integrity sha1-tEVX94ot+sLzUDkzkbFwpWfsKK0=
 
 end-of-stream@^1.0.0:
   version "1.4.1"

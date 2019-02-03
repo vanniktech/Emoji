@@ -2,7 +2,7 @@
 
 A simple library to add Emoji support to your Android app. In a PopupWindow Emojis can be chosen. In order to edit and display text with Emojis this library provides public APIs: [`EmojiEditText`](emoji/src/main/java/com/vanniktech/emoji/EmojiEditText.java), [`EmojiTextView`](emoji/src/main/java/com/vanniktech/emoji/EmojiTextView.java) & [`EmojiButton`](emoji/src/main/java/com/vanniktech/emoji/EmojiButton.java).
 
-The library has 4 different providers to choose from ([iOS](#ios-emojis), [EmojiOne](#emojione), [Google](#google) & [Twitter](#twitter)).
+The library has 3 different providers to choose from ([iOS](#ios-emojis), [Google](#google) & [Twitter](#twitter)).
 
 ## iOS Emojis
 
@@ -19,23 +19,6 @@ And install the provider (preferably in your Application class):
 ```java
 // This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
 EmojiManager.install(new IosEmojiProvider());
-```
-
-## EmojiOne
-
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_1_1498998356652.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_2_1498998359464.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_3_1498998361072.png" alt="Recent Emojis" width="270">
-
-For getting the above EmojiOne Emojis simply add the dependency and code below.
-
-```groovy
-compile 'com.vanniktech:emoji-one:0.5.1'
-```
-
-And install the provider (preferably in your Application class):
-
-```java
-// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
-EmojiManager.install(new EmojiOneProvider());
 ```
 
 ## Google
@@ -76,7 +59,7 @@ EmojiManager.install(new TwitterEmojiProvider());
 
 If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](emoji/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
 
-All of the core API lays in, which is being pulled in automatically by the provided implementations ([iOS](#ios-emojis), [EmojiOne](#emojione), [Google](#google) & [Twitter](#twitter)):
+All of the core API lays in, which is being pulled in automatically by the provided implementations ([iOS](#ios-emojis), [Google](#google) & [Twitter](#twitter)):
 
 ```groovy
 compile 'com.vanniktech:emoji:0.5.1'
@@ -204,7 +187,6 @@ And **one** of these to your dependencies:
 
 ```groovy
 compile 'com.vanniktech:emoji-ios:0.6.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-one:0.6.0-SNAPSHOT'
 compile 'com.vanniktech:emoji-google:0.6.0-SNAPSHOT'
 compile 'com.vanniktech:emoji-twitter:0.6.0-SNAPSHOT'
 ```

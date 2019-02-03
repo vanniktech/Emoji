@@ -1,1 +1,1 @@
-include ':app', ':emoji', ':emoji-ios', ':emoji-google', ':emoji-twitter', ':emoji-one', ':emoji-google-compat', ':emoji-kotlin'
+include ':app', ':emoji', ':emoji-ios', ':emoji-google', ':emoji-twitter', ':emoji-google-compat', ':emoji-kotlin'

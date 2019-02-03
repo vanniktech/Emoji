@@ -6,6 +6,5 @@
     <string name="variant_google_title">Google</string>
     <string name="variant_google_compat_title">GoogleCompat</string>
     <string name="variant_twitter_title">Twitter</string>
-    <string name="variant_emojione_title">EmojiOne</string>
     <string name="show_dialog_title">Show Dialog</string>
 </resources>

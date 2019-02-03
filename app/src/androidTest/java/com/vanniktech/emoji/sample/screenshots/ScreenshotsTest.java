@@ -33,10 +33,6 @@ import static java.util.Locale.US;
     start(Variant.IOS);
   }
 
-  @Test public void takeScreenShotsEmojiOne() throws InterruptedException {
-    start(Variant.EMOJI_ONE);
-  }
-
   @Test public void takeScreenShotsEmojiGoogle() throws InterruptedException {
     start(Variant.GOOGLE);
   }
@@ -88,7 +84,6 @@ import static java.util.Locale.US;
   enum Variant {
     GOOGLE("Google"),
     IOS("Ios"),
-    EMOJI_ONE("EmojiOne"),
     TWITTER("Twitter");
 
     final String title;
