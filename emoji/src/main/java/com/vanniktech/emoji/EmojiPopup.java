@@ -99,9 +99,14 @@ public final class EmojiPopup {
     rect = Utils.windowVisibleDisplayFrame(context);
 
     final int availableHeight = rootView.getHeight() - viewInset - (!Utils.isFullScreen(context) ? rect.top : 0);
-    final int keyboardHeight = Utils.shouldOverrideRegularCondition(context, editText) ?
-        Utils.getScreenHeight(context) - editText.getBottom() - (!Utils.isFullScreen(context) ? rect.top : 0)
-        : availableHeight - (rect.bottom - rect.top);
+
+    int keyboardHeight;
+
+    if (Utils.shouldOverrideRegularCondition(context, editText)) {
+      keyboardHeight = (int) ((availableHeight - editText.getBottom() - (0.252 * availableHeight)) + (!Utils.isFullScreen(context) ? availableHeight * 0.055 : 0));
+    } else {
+      keyboardHeight = availableHeight - (rect.bottom - rect.top);
+    }
 
     if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
       if (popupWindow.getHeight() != keyboardHeight) {
