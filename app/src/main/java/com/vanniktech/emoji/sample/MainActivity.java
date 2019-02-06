@@ -114,11 +114,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   }
 
   @Override public void onBackPressed() {
-    if (emojiPopup != null && emojiPopup.isShowing()) {
-      emojiPopup.dismiss();
-    } else {
-      super.onBackPressed();
-    }
+    super.onBackPressed();
   }
 
   @Override protected void onStop() {

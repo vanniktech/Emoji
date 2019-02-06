@@ -19,11 +19,11 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
-
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,8 +67,17 @@ final class Utils {
     return false;
   }
 
-  static int getScreenHeight(@NonNull final Activity context) {
-    return dpToPx(context, context.getResources().getConfiguration().screenHeightDp);
+  static int getInputMethodHeight(Context context) {
+    try {
+      InputMethodManager imm =
+          (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+      Class clazz = imm.getClass();
+      Method method = clazz.getDeclaredMethod("getInputMethodWindowVisibleHeight");
+      method.setAccessible(true);
+      return (int) (Integer) method.invoke(imm);
+    } catch (Exception e) {
+    }
+    return 0;
   }
 
   static int getScreenWidth(@NonNull final Activity context) {
