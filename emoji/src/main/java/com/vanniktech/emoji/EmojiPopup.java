@@ -31,7 +31,6 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
-import static com.vanniktech.emoji.Utils.removeOnGlobalLayoutListener;
 
 public final class EmojiPopup {
   static final String TAG = "EmojiPopup";
