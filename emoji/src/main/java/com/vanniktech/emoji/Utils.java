@@ -13,11 +13,11 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -31,6 +31,8 @@ import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 
 final class Utils {
+  static final String TAG = "Utils";
+
   static final int DONT_UPDATE_FLAG = -1;
 
   @TargetApi(JELLY_BEAN) static void removeOnGlobalLayoutListener(final View v, final ViewTreeObserver.OnGlobalLayoutListener listener) {
@@ -76,6 +78,7 @@ final class Utils {
       method.setAccessible(true);
       return (int) (Integer) method.invoke(imm);
     } catch (Exception e) {
+      Log.e(TAG, e.getLocalizedMessage());
     }
     return 0;
   }
@@ -138,10 +141,6 @@ final class Utils {
     }
 
     throw new IllegalArgumentException("The passed Context is not an Activity.");
-  }
-
-  static boolean isFullScreen(Activity activity) {
-   return (activity.getWindow().getAttributes().flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) > 0;
   }
 
   static void fixPopupLocation(@NonNull final PopupWindow popupWindow, @NonNull final Point desiredLocation) {

@@ -59,7 +59,7 @@ public final class EmojiPopup {
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
 
-  int originalIMEOptions = -1;
+  int originalImeOptions = -1;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
@@ -69,14 +69,14 @@ public final class EmojiPopup {
 
   private void updateKeyboardState() {
 
-    int keyboardHeight = Utils.getInputMethodHeight(context);
+    final int keyboardHeight = Utils.getInputMethodHeight(context);
 
     if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT) && isPendingOpen) {
       if (popupWindow.getHeight() != keyboardHeight) {
         popupWindow.setHeight(keyboardHeight);
       }
 
-      Rect rect = Utils.windowVisibleDisplayFrame(context);
+      final Rect rect = Utils.windowVisibleDisplayFrame(context);
 
       int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
       if (popupWindow.getWidth() != properWidth) {
@@ -151,8 +151,7 @@ public final class EmojiPopup {
 
     popupWindow.setContentView(emojiView);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
-    popupWindow.setBackgroundDrawable(
-        new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
+    popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
       @Override public void onDismiss() {
         if (onEmojiPopupDismissListener != null) {
@@ -170,8 +169,8 @@ public final class EmojiPopup {
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
-      if (Utils.shouldOverrideRegularCondition(context, editText) && originalIMEOptions == -1) {
-        originalIMEOptions = editText.getImeOptions();
+      if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
+        originalImeOptions = editText.getImeOptions();
       }
       editText.setFocusableInTouchMode(true);
       editText.requestFocus();
@@ -193,8 +192,7 @@ public final class EmojiPopup {
 
     inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN,
         new ResultReceiver(null) {
-          @Override
-          protected void onReceiveResult(int resultCode, Bundle resultData) {
+          @Override protected void onReceiveResult(int resultCode, Bundle resultData) {
             if (resultCode == 0 || resultCode == 1) {
               context.runOnUiThread(new Runnable() {
                 @Override public void run() {
@@ -217,10 +215,10 @@ public final class EmojiPopup {
     recentEmoji.persist();
     variantEmoji.persist();
 
-    if (originalIMEOptions != -1) {
+    if (originalImeOptions != -1) {
       final InputMethodManager inputMethodManager =
           (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-      editText.setImeOptions(originalIMEOptions);
+      editText.setImeOptions(originalImeOptions);
       inputMethodManager.restartInput(editText);
     }
   }
