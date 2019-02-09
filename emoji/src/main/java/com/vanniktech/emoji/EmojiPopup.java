@@ -17,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -57,6 +58,8 @@ public final class EmojiPopup {
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+
+  int originalIMEOptions = -1;
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
@@ -167,6 +170,9 @@ public final class EmojiPopup {
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
+      if (Utils.shouldOverrideRegularCondition(context, editText) && originalIMEOptions == -1) {
+        originalIMEOptions = editText.getImeOptions();
+      }
       editText.setFocusableInTouchMode(true);
       editText.requestFocus();
       showAtBottomPending();
@@ -179,6 +185,12 @@ public final class EmojiPopup {
     isPendingOpen = true;
     final InputMethodManager inputMethodManager =
         (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+    if (Utils.shouldOverrideRegularCondition(context, editText)) {
+      editText.setImeOptions(editText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+      inputMethodManager.restartInput(editText);
+    }
+
     inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN,
         new ResultReceiver(null) {
           @Override
@@ -204,6 +216,13 @@ public final class EmojiPopup {
     variantPopup.dismiss();
     recentEmoji.persist();
     variantEmoji.persist();
+
+    if (originalIMEOptions != -1) {
+      final InputMethodManager inputMethodManager =
+          (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+      editText.setImeOptions(originalIMEOptions);
+      inputMethodManager.restartInput(editText);
+    }
   }
 
   void showAtBottom() {
