@@ -197,15 +197,19 @@ public final class EmojiPopup {
 
   private void showAtBottomPending() {
     isPendingOpen = true;
-    final InputMethodManager inputMethodManager =
-        (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
     if (Utils.shouldOverrideRegularCondition(context, editText)) {
       editText.setImeOptions(editText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-      inputMethodManager.restartInput(editText);
+      if (inputMethodManager != null) {
+        inputMethodManager.restartInput(editText);
+      }
     }
 
-    inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
+    if (inputMethodManager != null) {
+      inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
+      inputMethodManager = null;
+    }
   }
 
   public boolean isShowing() {
@@ -219,10 +223,12 @@ public final class EmojiPopup {
     variantEmoji.persist();
 
     if (originalImeOptions != -1) {
-      final InputMethodManager inputMethodManager =
-          (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+      InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
       editText.setImeOptions(originalImeOptions);
-      inputMethodManager.restartInput(editText);
+      if (inputMethodManager != null) {
+        inputMethodManager.restartInput(editText);
+        inputMethodManager = null;
+      }
     }
   }
 
