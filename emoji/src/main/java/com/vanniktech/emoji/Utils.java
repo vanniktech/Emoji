@@ -64,7 +64,7 @@ final class Utils {
   }
 
   static boolean shouldOverrideRegularCondition(@NonNull final Activity context, final EditText editText) {
-    if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0){
+    if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
       return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -109,7 +109,7 @@ final class Utils {
       viewInset = getViewBottomInset(rootView);
     }
 
-    Rect rect = new Rect();
+    final Rect rect = new Rect();
     rootView.getWindowVisibleDisplayFrame(rect);
 
     final int availableHeight = rootView.getHeight() - viewInset - rect.top;
