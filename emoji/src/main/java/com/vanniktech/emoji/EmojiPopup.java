@@ -62,8 +62,8 @@ public final class EmojiPopup {
   int originalImeOptions = -1;
 
   final ResultReceiver resultReceiver = new ResultReceiver(null) {
-      @Override protected void onReceiveResult ( int resultCode, Bundle resultData){
-        if (resultCode == 0 || resultCode == 1) {
+      @Override protected void onReceiveResult (final int resultCode, final Bundle resultData) {
+        if(resultCode == 0 || resultCode == 1) {
           context.runOnUiThread(new Runnable() {
             @Override public void run() {
               showAtBottom();
@@ -90,7 +90,7 @@ public final class EmojiPopup {
 
       final Rect rect = Utils.windowVisibleDisplayFrame(context);
 
-      int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
+      final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
       if (popupWindow.getWidth() != properWidth) {
         popupWindow.setWidth(properWidth);
       }
@@ -204,7 +204,6 @@ public final class EmojiPopup {
 
     inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
   }
-
 
   public boolean isShowing() {
     return popupWindow.isShowing();

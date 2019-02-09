@@ -57,24 +57,23 @@ final class Utils {
         context.getResources().getDisplayMetrics()) + 0.5f);
   }
 
-  static int getOrientation(Context context) {
+  static int getOrientation(final Context context) {
     return context.getResources().getConfiguration().orientation;
   }
 
   static boolean shouldOverrideRegularCondition(@NonNull final Activity context, final EditText editText) {
-    if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
+    if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0){
       return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     return false;
   }
 
-  static int getInputMethodHeight(Context context) {
+  static int getInputMethodHeight(final Context context) {
     try {
-      InputMethodManager imm =
-          (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-      Class clazz = imm.getClass();
-      Method method = clazz.getDeclaredMethod("getInputMethodWindowVisibleHeight");
+      final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+      final Class clazz = imm.getClass();
+      final Method method = clazz.getDeclaredMethod("getInputMethodWindowVisibleHeight");
       method.setAccessible(true);
       return (int) (Integer) method.invoke(imm);
     } catch (Exception e) {
