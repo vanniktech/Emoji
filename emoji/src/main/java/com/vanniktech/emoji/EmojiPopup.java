@@ -81,9 +81,9 @@ public final class EmojiPopup {
 
   private void updateKeyboardState() {
 
-    final int keyboardHeight = Utils.getInputMethodHeight(context);
+    final int keyboardHeight = Utils.getInputMethodHeight(context, rootView);
 
-    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT) && isPendingOpen) {
+    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
       if (popupWindow.getHeight() != keyboardHeight) {
         popupWindow.setHeight(keyboardHeight);
       }
@@ -102,7 +102,9 @@ public final class EmojiPopup {
         }
       }
 
-      showAtBottom();
+      if (isPendingOpen) {
+        showAtBottom();
+      }
     } else {
       isKeyboardOpen = false;
 
@@ -110,7 +112,9 @@ public final class EmojiPopup {
         onSoftKeyboardCloseListener.onKeyboardClose();
       }
 
-      dismiss();
+      if (isShowing()) {
+        dismiss();
+      }
     }
   }
 
