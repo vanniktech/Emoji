@@ -61,6 +61,18 @@ public final class EmojiPopup {
 
   int originalImeOptions = -1;
 
+  final ResultReceiver resultReceiver = new ResultReceiver(null) {
+      @Override protected void onReceiveResult ( int resultCode, Bundle resultData){
+        if (resultCode == 0 || resultCode == 1) {
+          context.runOnUiThread(new Runnable() {
+            @Override public void run() {
+              showAtBottom();
+            }
+          });
+        }
+    }
+  };
+
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
       updateKeyboardState();
@@ -190,18 +202,7 @@ public final class EmojiPopup {
       inputMethodManager.restartInput(editText);
     }
 
-    inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN,
-        new ResultReceiver(null) {
-          @Override protected void onReceiveResult(int resultCode, Bundle resultData) {
-            if (resultCode == 0 || resultCode == 1) {
-              context.runOnUiThread(new Runnable() {
-                @Override public void run() {
-                  showAtBottom();
-                }
-              });
-            }
-          }
-        });
+    inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
   }
 
 
