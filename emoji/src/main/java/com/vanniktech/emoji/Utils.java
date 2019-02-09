@@ -19,7 +19,6 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -85,8 +84,7 @@ final class Utils {
     }
   }
 
-  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-  static int getViewBottomInset(final View rootView) {
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP) static int getViewBottomInset(final View rootView) {
     try {
       final Field attachInfoField = View.class.getDeclaredField("mAttachInfo");
       attachInfoField.setAccessible(true);
@@ -107,11 +105,11 @@ final class Utils {
 
   static int alternativeInputMethodHeight(final View rootView) {
     int viewInset = 0;
-    Rect rect = new Rect();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       viewInset = getViewBottomInset(rootView);
     }
 
+    Rect rect = new Rect();
     rootView.getWindowVisibleDisplayFrame(rect);
 
     final int availableHeight = rootView.getHeight() - viewInset - rect.top;

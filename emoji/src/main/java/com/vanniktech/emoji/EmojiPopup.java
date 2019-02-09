@@ -62,8 +62,8 @@ public final class EmojiPopup {
   int originalImeOptions = -1;
 
   final ResultReceiver resultReceiver = new ResultReceiver(null) {
-      @Override protected void onReceiveResult (final int resultCode, final Bundle resultData) {
-        if(resultCode == 0 || resultCode == 1) {
+      @Override protected void onReceiveResult(final int resultCode, final Bundle resultData) {
+        if (resultCode == 0 || resultCode == 1) {
           context.runOnUiThread(new Runnable() {
             @Override public void run() {
               showAtBottom();
@@ -80,7 +80,6 @@ public final class EmojiPopup {
   };
 
   private void updateKeyboardState() {
-
     final int keyboardHeight = Utils.getInputMethodHeight(context, rootView);
 
     if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
