@@ -223,8 +223,8 @@ public final class EmojiPopup {
     variantEmoji.persist();
 
     if (originalImeOptions != -1) {
-      InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
       editText.setImeOptions(originalImeOptions);
+      InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
       if (inputMethodManager != null) {
         inputMethodManager.restartInput(editText);
         inputMethodManager = null;
