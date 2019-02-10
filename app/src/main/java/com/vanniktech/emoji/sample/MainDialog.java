@@ -78,7 +78,7 @@ import com.vanniktech.emoji.EmojiPopup;
 
     final RecyclerView recyclerView = result.findViewById(R.id.main_dialog_recycler_view);
     recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
     setUpEmojiPopup();
 

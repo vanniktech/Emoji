@@ -62,7 +62,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
     final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
     recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+    recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
     setUpEmojiPopup();
   }
