@@ -7,7 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.ResultReceiver;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.CheckResult;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.autofill.AutofillManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -30,10 +32,12 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.O;
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
-public final class EmojiPopup {
+public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   static final String TAG = "EmojiPopup";
 
   static final int MIN_KEYBOARD_HEIGHT = 100;
@@ -61,17 +65,7 @@ public final class EmojiPopup {
 
   int originalImeOptions = -1;
 
-  final ResultReceiver resultReceiver = new ResultReceiver(null) {
-      @Override protected void onReceiveResult(final int resultCode, final Bundle resultData) {
-        if (resultCode == 0 || resultCode == 1) {
-          context.runOnUiThread(new Runnable() {
-            @Override public void run() {
-              showAtBottom();
-            }
-          });
-        }
-    }
-  };
+  final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
 
   final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
     @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
@@ -215,7 +209,8 @@ public final class EmojiPopup {
     }
 
     if (inputMethodManager != null) {
-      inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
+      emojiResultReceiver.setReceiver(this);
+      inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, emojiResultReceiver);
     }
   }
 
@@ -229,11 +224,21 @@ public final class EmojiPopup {
     recentEmoji.persist();
     variantEmoji.persist();
 
+    emojiResultReceiver.setReceiver(null);
+
     if (originalImeOptions != -1) {
       editText.setImeOptions(originalImeOptions);
       final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
       if (inputMethodManager != null) {
         inputMethodManager.restartInput(editText);
+      }
+
+      if (SDK_INT >= O) {
+        AutofillManager autofillManager = context.getSystemService(AutofillManager.class);
+        if (autofillManager != null) {
+          autofillManager.cancel();
+        }
       }
     }
   }
@@ -244,6 +249,12 @@ public final class EmojiPopup {
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
+    }
+  }
+
+  @Override public void onReceiveResult(int resultCode, Bundle data) {
+    if (resultCode == 0 || resultCode == 1) {
+      showAtBottom();
     }
   }
 

@@ -8,7 +8,6 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.Px;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
-
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EditText with emoji support. */
