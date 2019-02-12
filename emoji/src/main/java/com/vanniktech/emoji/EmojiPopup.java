@@ -79,44 +79,6 @@ public final class EmojiPopup {
     }
   };
 
-  private void updateKeyboardState() {
-    final int keyboardHeight = Utils.getInputMethodHeight(context, rootView);
-
-    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
-      if (popupWindow.getHeight() != keyboardHeight) {
-        popupWindow.setHeight(keyboardHeight);
-      }
-
-      final Rect rect = Utils.windowVisibleDisplayFrame(context);
-
-      final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
-      if (popupWindow.getWidth() != properWidth) {
-        popupWindow.setWidth(properWidth);
-      }
-
-      if (!isKeyboardOpen) {
-        isKeyboardOpen = true;
-        if (onSoftKeyboardOpenListener != null) {
-          onSoftKeyboardOpenListener.onKeyboardOpen(keyboardHeight);
-        }
-      }
-
-      if (isPendingOpen) {
-        showAtBottom();
-      }
-    } else {
-      isKeyboardOpen = false;
-
-      if (onSoftKeyboardCloseListener != null) {
-        onSoftKeyboardCloseListener.onKeyboardClose();
-      }
-
-      if (isShowing()) {
-        dismiss();
-      }
-    }
-  }
-
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
       @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
       @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor,
@@ -182,6 +144,52 @@ public final class EmojiPopup {
     rootView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
   }
 
+  void updateKeyboardState() {
+    final int keyboardHeight = Utils.getInputMethodHeight(context, rootView);
+
+    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
+      updateKeyboardStateOpened(keyboardHeight);
+    } else {
+      updateKeyboardStateClosed();
+    }
+  }
+
+  private void updateKeyboardStateOpened(final int keyboardHeight) {
+    if (popupWindow.getHeight() != keyboardHeight) {
+      popupWindow.setHeight(keyboardHeight);
+    }
+
+    final Rect rect = Utils.windowVisibleDisplayFrame(context);
+
+    final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
+    if (popupWindow.getWidth() != properWidth) {
+      popupWindow.setWidth(properWidth);
+    }
+
+    if (!isKeyboardOpen) {
+      isKeyboardOpen = true;
+      if (onSoftKeyboardOpenListener != null) {
+        onSoftKeyboardOpenListener.onKeyboardOpen(keyboardHeight);
+      }
+    }
+
+    if (isPendingOpen) {
+      showAtBottom();
+    }
+  }
+
+  private void updateKeyboardStateClosed() {
+    isKeyboardOpen = false;
+
+    if (onSoftKeyboardCloseListener != null) {
+      onSoftKeyboardCloseListener.onKeyboardClose();
+    }
+
+    if (isShowing()) {
+      dismiss();
+    }
+  }
+
   public void toggle() {
     if (!popupWindow.isShowing()) {
       if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
@@ -197,7 +205,7 @@ public final class EmojiPopup {
 
   private void showAtBottomPending() {
     isPendingOpen = true;
-    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+    final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
     if (Utils.shouldOverrideRegularCondition(context, editText)) {
       editText.setImeOptions(editText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
@@ -208,7 +216,6 @@ public final class EmojiPopup {
 
     if (inputMethodManager != null) {
       inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, resultReceiver);
-      inputMethodManager = null;
     }
   }
 
@@ -224,10 +231,9 @@ public final class EmojiPopup {
 
     if (originalImeOptions != -1) {
       editText.setImeOptions(originalImeOptions);
-      InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+      final InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
       if (inputMethodManager != null) {
         inputMethodManager.restartInput(editText);
-        inputMethodManager = null;
       }
     }
   }

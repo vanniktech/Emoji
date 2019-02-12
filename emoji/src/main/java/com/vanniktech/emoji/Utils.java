@@ -7,7 +7,6 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -18,33 +17,24 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.JELLY_BEAN;
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 final class Utils {
   static final String TAG = "Utils";
 
   static final int DONT_UPDATE_FLAG = -1;
-
-  @TargetApi(JELLY_BEAN) static void removeOnGlobalLayoutListener(final View v, final ViewTreeObserver.OnGlobalLayoutListener listener) {
-    if (SDK_INT < JELLY_BEAN) {
-      //noinspection deprecation
-      v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
-    } else {
-      v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
-    }
-  }
 
   @NonNull static <T> T checkNotNull(@Nullable final T reference, final String message) {
     if (reference == null) {
@@ -71,20 +61,25 @@ final class Utils {
     return false;
   }
 
-  static int getInputMethodHeight(final Context context, final View rootView) {
+  @SuppressWarnings({"unchecked", "JavaReflectionMemberAccess"}) static int getInputMethodHeight(final Context context, final View rootView) {
     try {
       final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
       final Class inputMethodManagerClass = imm.getClass();
       final Method visibleHeightMethod = inputMethodManagerClass.getDeclaredMethod("getInputMethodWindowVisibleHeight");
       visibleHeightMethod.setAccessible(true);
-      return (int) (Integer) visibleHeightMethod.invoke(imm);
-    } catch (Exception exception) {
+      return (int) visibleHeightMethod.invoke(imm);
+    } catch (NoSuchMethodException exception) {
       Log.w(TAG, exception.getLocalizedMessage());
-      return alternativeInputMethodHeight(rootView);
+    } catch (IllegalAccessException exception) {
+      Log.w(TAG, exception.getLocalizedMessage());
+    } catch (InvocationTargetException exception) {
+      Log.w(TAG, exception.getLocalizedMessage());
     }
+
+    return alternativeInputMethodHeight(rootView);
   }
 
-  @TargetApi(Build.VERSION_CODES.LOLLIPOP) static int getViewBottomInset(final View rootView) {
+  @SuppressWarnings("JavaReflectionMemberAccess") @TargetApi(LOLLIPOP) static int getViewBottomInset(final View rootView) {
     try {
       final Field attachInfoField = View.class.getDeclaredField("mAttachInfo");
       attachInfoField.setAccessible(true);
@@ -92,8 +87,7 @@ final class Utils {
       if (attachInfo != null) {
         final Field stableInsetsField = attachInfo.getClass().getDeclaredField("mStableInsets");
         stableInsetsField.setAccessible(true);
-        final Rect insets = (Rect) stableInsetsField.get(attachInfo);
-        return insets.bottom;
+        return ((Rect) stableInsetsField.get(attachInfo)).bottom;
       }
     } catch (NoSuchFieldException noSuchFieldException) {
       Log.w(TAG, noSuchFieldException.getLocalizedMessage());
@@ -105,7 +99,7 @@ final class Utils {
 
   static int alternativeInputMethodHeight(final View rootView) {
     int viewInset = 0;
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    if (SDK_INT >= LOLLIPOP) {
       viewInset = getViewBottomInset(rootView);
     }
 
