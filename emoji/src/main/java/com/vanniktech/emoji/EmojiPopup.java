@@ -40,7 +40,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   static final String TAG = "EmojiPopup";
 
-  static final int MIN_KEYBOARD_HEIGHT = 100;
+  static final int MIN_KEYBOARD_HEIGHT = 50;
 
   final View rootView;
   final Activity context;
