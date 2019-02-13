@@ -235,7 +235,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       }
 
       if (SDK_INT >= O) {
-        AutofillManager autofillManager = context.getSystemService(AutofillManager.class);
+        final AutofillManager autofillManager = context.getSystemService(AutofillManager.class);
         if (autofillManager != null) {
           autofillManager.cancel();
         }
@@ -252,7 +252,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  @Override public void onReceiveResult(int resultCode, Bundle data) {
+  @Override public void onReceiveResult(final int resultCode, final Bundle data) {
     if (resultCode == 0 || resultCode == 1) {
       showAtBottom();
     }

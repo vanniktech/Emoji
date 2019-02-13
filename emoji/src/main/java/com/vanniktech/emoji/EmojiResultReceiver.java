@@ -5,10 +5,6 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 
 public class EmojiResultReceiver extends ResultReceiver {
-  public interface Receiver {
-    public void onReceiveResult(int resultCode, Bundle data);
-  }
-
   private Receiver receiver;
 
   /**
@@ -16,18 +12,21 @@ public class EmojiResultReceiver extends ResultReceiver {
    * {@link #onReceiveResult} method will be called from the thread running
    * <var>handler</var> if given, or from an arbitrary thread if null.
    */
-  public EmojiResultReceiver(Handler handler) {
+  public EmojiResultReceiver(final Handler handler) {
     super(handler);
   }
 
-  public void setReceiver(Receiver receiver) {
+  public void setReceiver(final Receiver receiver) {
     this.receiver = receiver;
   }
 
-  @Override
-  protected void onReceiveResult(int resultCode, Bundle resultData) {
+  @Override protected void onReceiveResult(final int resultCode, final Bundle resultData) {
     if (receiver != null) {
       receiver.onReceiveResult(resultCode, resultData);
     }
+  }
+
+  public interface Receiver {
+    void onReceiveResult(int resultCode, Bundle data);
   }
 }
