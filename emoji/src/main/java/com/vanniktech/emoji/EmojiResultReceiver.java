@@ -3,6 +3,7 @@ package com.vanniktech.emoji;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
+import android.support.annotation.Nullable;
 
 public final class EmojiResultReceiver extends ResultReceiver {
   @Nullable private Receiver receiver;
