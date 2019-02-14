@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
 
-public class EmojiResultReceiver extends ResultReceiver {
+public final class EmojiResultReceiver extends ResultReceiver {
   @Nullable private Receiver receiver;
 
   /**
