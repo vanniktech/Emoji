@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 
 public class EmojiResultReceiver extends ResultReceiver {
-  private Receiver receiver;
+  @Nullable private Receiver receiver;
 
   /**
    * Create a new EmojiResultReceiver to receive results.  Your
