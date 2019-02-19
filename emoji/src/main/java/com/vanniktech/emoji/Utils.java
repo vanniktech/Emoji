@@ -114,6 +114,10 @@ final class Utils {
     return dpToPx(context, context.getResources().getConfiguration().screenWidthDp);
   }
 
+  static int getScreenHeight(@NonNull final Activity context) {
+    return dpToPx(context, context.getResources().getConfiguration().screenHeightDp);
+  }
+
   @NonNull static Point locationOnScreen(@NonNull final View view) {
     final int[] location = new int[2];
     view.getLocationOnScreen(location);

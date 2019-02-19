@@ -245,7 +245,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   void showAtBottom() {
     isPendingOpen = false;
-    popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0, Utils.getScreenHeight(context));
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
