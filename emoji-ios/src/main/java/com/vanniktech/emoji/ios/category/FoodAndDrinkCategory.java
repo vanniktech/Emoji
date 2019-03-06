@@ -122,5 +122,7 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.drawable.emoji_ios_category_foodanddrink;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_food_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_ios_category_food_name;
+  }
 }

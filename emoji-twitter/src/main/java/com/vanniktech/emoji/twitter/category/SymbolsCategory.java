@@ -223,5 +223,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
     return R.drawable.emoji_twitter_category_symbols;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_twitter_category_symbols_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_twitter_category_symbols_name;
+  }
 }

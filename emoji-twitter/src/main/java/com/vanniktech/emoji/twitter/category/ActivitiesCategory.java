@@ -80,5 +80,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
     return R.drawable.emoji_twitter_category_activities;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_twitter_category_activity_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_twitter_category_activity_name;
+  }
 }

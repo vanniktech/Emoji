@@ -294,5 +294,7 @@ import com.vanniktech.emoji.googlecompat.R;
     return R.drawable.emoji_compat_category_symbols;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_compat_category_symbols_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_compat_category_symbols_name;
+  }
 }

@@ -227,5 +227,7 @@ import com.vanniktech.emoji.google.GoogleEmoji;
     return R.drawable.emoji_google_category_travelandplaces;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_category_travel_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_category_travel_name;
+  }
 }

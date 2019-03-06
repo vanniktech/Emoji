@@ -256,5 +256,7 @@ import com.vanniktech.emoji.googlecompat.R;
     return R.drawable.emoji_compat_category_flags;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_compat_category_flags_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_compat_category_flags_name;
+  }
 }

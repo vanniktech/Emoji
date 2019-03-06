@@ -257,5 +257,7 @@ import com.vanniktech.emoji.emoji.EmojiCategory;
     return R.drawable.emoji_compat_category_activity;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_compat_category_activity_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_compat_category_activity_name;
+  }
 }

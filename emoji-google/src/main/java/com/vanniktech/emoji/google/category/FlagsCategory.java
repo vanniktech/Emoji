@@ -269,5 +269,7 @@ import com.vanniktech.emoji.google.GoogleEmoji;
     return R.drawable.emoji_google_category_flags;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_category_flags_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_category_flags_name;
+  }
 }

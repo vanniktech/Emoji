@@ -287,5 +287,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
     return R.drawable.emoji_twitter_category_flags;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_twitter_category_flags_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_twitter_category_flags_name;
+  }
 }

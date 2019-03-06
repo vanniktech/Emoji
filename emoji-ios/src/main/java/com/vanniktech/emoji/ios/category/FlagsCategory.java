@@ -286,6 +286,8 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.drawable.emoji_ios_category_flags;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_flags_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_ios_category_flags_name;
+  }
 }
 

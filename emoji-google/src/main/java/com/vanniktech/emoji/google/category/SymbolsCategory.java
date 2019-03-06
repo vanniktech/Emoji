@@ -225,5 +225,7 @@ import com.vanniktech.emoji.google.GoogleEmoji;
     return R.drawable.emoji_google_category_symbols;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_category_symbols_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_google_category_symbols_name;
+  }
 }

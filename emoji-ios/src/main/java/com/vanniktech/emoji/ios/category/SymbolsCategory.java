@@ -222,5 +222,7 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.drawable.emoji_ios_category_symbols;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_symbols_name; }
+  @Override @StringRes public int getCategoryName() {
+      return R.string.emoji_ios_category_symbols_name;
+  }
 }

@@ -227,5 +227,7 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.drawable.emoji_ios_category_travelandplaces;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_travel_name; }
+  @Override @StringRes public int getCategoryName() {
+     return R.string.emoji_ios_category_travel_name;
+  }
 }

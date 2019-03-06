@@ -133,5 +133,7 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.drawable.emoji_ios_category_animalsandnature;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_nature_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_ios_category_nature_name;
+  }
 }

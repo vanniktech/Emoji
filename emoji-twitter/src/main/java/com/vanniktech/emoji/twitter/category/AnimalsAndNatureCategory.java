@@ -133,5 +133,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
     return R.drawable.emoji_twitter_category_animalsandnature;
   }
 
-  @Override @StringRes public int getCategoryName() { return R.string.emoji_twitter_category_nature_name; }
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_twitter_category_nature_name;
+  }
 }
