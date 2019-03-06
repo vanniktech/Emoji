@@ -2,6 +2,8 @@ package com.vanniktech.emoji.google.category;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.google.R;
 import com.vanniktech.emoji.google.GoogleEmoji;
@@ -130,4 +132,6 @@ import com.vanniktech.emoji.google.GoogleEmoji;
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_google_category_animalsandnature;
   }
+
+  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_category_nature_name; }
 }

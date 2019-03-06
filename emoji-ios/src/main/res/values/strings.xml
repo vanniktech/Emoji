@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emoji_ios_category_activity_name">Activities</string>
+    <string name="emoji_ios_category_flags_name">Flags</string>
+    <string name="emoji_ios_category_food_name">Food</string>
+    <string name="emoji_ios_category_nature_name">Nature</string>
+    <string name="emoji_ios_category_objects_name">Objects</string>
+    <string name="emoji_ios_category_people_name">Faces</string>
+    <string name="emoji_ios_category_symbols_name">Symbols</string>
+    <string name="emoji_ios_category_travel_name">Places</string>
+</resources>

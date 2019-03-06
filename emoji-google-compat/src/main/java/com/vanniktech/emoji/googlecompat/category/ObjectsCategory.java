@@ -2,6 +2,8 @@ package com.vanniktech.emoji.googlecompat.category;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
@@ -203,4 +205,6 @@ import com.vanniktech.emoji.googlecompat.R;
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_compat_category_objects;
   }
+
+  @Override @StringRes public int getCategoryName() { return R.string.emoji_google_compat_category_objects_name; }
 }

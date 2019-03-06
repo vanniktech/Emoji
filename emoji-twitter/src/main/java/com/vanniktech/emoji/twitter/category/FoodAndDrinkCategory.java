@@ -2,6 +2,8 @@ package com.vanniktech.emoji.twitter.category;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.twitter.R;
 import com.vanniktech.emoji.twitter.TwitterEmoji;
@@ -119,4 +121,6 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_twitter_category_foodanddrink;
   }
+
+  @Override @StringRes public int getCategoryName() { return R.string.emoji_twitter_category_food_name; }
 }

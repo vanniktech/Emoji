@@ -2,6 +2,8 @@ package com.vanniktech.emoji.ios.category;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.ios.R;
 import com.vanniktech.emoji.ios.IosEmoji;
@@ -1736,4 +1738,6 @@ import com.vanniktech.emoji.ios.IosEmoji;
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_ios_category_smileysandpeople;
   }
+
+  @Override @StringRes public int getCategoryName() { return R.string.emoji_ios_category_people_name; }
 }

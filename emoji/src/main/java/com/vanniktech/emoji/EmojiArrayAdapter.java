@@ -46,6 +46,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
     final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
+    image.setContentDescription(emoji.getUnicode());
     image.setEmoji(variantToUse);
 
     return image;
