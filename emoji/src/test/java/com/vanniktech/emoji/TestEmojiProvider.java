@@ -30,7 +30,9 @@ final class TestEmojiProvider implements EmojiProvider {
               return 0;
             }
 
-            @Override public int getCategoryName() { return 0; }
+            @Override public int getCategoryName() {
+                return 0;
+            }
           }
         };
       }
@@ -54,7 +56,9 @@ final class TestEmojiProvider implements EmojiProvider {
           return R.drawable.emoji_recent;
         }
 
-          @Override public int getCategoryName() { return R.string.emoji_category_recent; }
+          @Override public int getCategoryName() {
+            return R.string.emoji_category_recent;
+        }
       }
     };
   }
