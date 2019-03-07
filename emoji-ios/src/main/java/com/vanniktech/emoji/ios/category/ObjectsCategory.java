@@ -183,6 +183,6 @@ import com.vanniktech.emoji.ios.IosEmoji;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_ios_category_objects_name;
+    return R.string.emoji_ios_category_objects;
   }
 }

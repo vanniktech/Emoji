@@ -258,6 +258,6 @@ import com.vanniktech.emoji.emoji.EmojiCategory;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_google_compat_category_activity_name;
+    return R.string.emoji_compat_category_activity;
   }
 }

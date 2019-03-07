@@ -1739,6 +1739,6 @@ import com.vanniktech.emoji.twitter.TwitterEmoji;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_twitter_category_people_name;
+    return R.string.emoji_twitter_category_smileysandpeople;
   }
 }

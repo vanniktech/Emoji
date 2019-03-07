@@ -134,6 +134,6 @@ import com.vanniktech.emoji.google.GoogleEmoji;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_google_category_nature_name;
+    return R.string.emoji_google_category_animalsandnature;
   }
 }

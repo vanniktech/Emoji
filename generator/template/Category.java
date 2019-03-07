@@ -18,4 +18,8 @@ import com.vanniktech.emoji.<%= package %>.<%= name %>;
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_<%= package %>_category_<%= icon %>;
   }
+
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_<%= package %>_category_<%= icon %>;
+  }
 }

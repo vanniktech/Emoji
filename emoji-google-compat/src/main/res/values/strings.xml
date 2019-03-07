@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="emoji_google_compat_category_activity_name">Activities</string>
-    <string name="emoji_google_compat_category_flags_name">Flags</string>
-    <string name="emoji_google_compat_category_food_name">Food</string>
-    <string name="emoji_google_compat_category_nature_name">Nature</string>
-    <string name="emoji_google_compat_category_objects_name">Objects</string>
-    <string name="emoji_google_compat_category_people_name">Faces</string>
-    <string name="emoji_google_compat_category_symbols_name">Symbols</string>
-    <string name="emoji_google_compat_category_travel_name">Places</string>
+    <string name="emoji_compat_category_activity">Activities</string>
+    <string name="emoji_compat_category_flags">Flags</string>
+    <string name="emoji_compat_category_food">Food</string>
+    <string name="emoji_compat_category_nature">Nature</string>
+    <string name="emoji_compat_category_objects">Objects</string>
+    <string name="emoji_compat_category_people">Faces</string>
+    <string name="emoji_compat_category_symbols">Symbols</string>
+    <string name="emoji_compat_category_travel">Places</string>
 </resources>

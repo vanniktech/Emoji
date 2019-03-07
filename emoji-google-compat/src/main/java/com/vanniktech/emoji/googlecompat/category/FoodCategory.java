@@ -108,6 +108,6 @@ import com.vanniktech.emoji.googlecompat.R;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_google_compat_category_food_name;
+    return R.string.emoji_compat_category_food;
   }
 }

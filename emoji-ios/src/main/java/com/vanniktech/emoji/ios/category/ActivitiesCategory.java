@@ -81,6 +81,6 @@ import com.vanniktech.emoji.ios.IosEmoji;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_ios_category_activity_name;
+    return R.string.emoji_ios_category_activities;
   }
 }

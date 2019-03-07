@@ -81,6 +81,6 @@ import com.vanniktech.emoji.google.GoogleEmoji;
   }
 
   @Override @StringRes public int getCategoryName() {
-    return R.string.emoji_google_category_activity_name;
+    return R.string.emoji_google_category_activities;
   }
 }
