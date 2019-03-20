@@ -62,8 +62,6 @@ dependencies {
   implementation rootProject.ext.supportRecyclerView
   implementation rootProject.ext.supportEmojiBundled
 
-  implementation 'com.eftimoff:android-viewpager-transformers:1.0.1@aar'
-
   debugImplementation rootProject.ext.leakCanaryDebug
   releaseImplementation rootProject.ext.leakCanaryRelease
 
