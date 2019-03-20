@@ -27,7 +27,7 @@ public interface EmojiCategory {
   /**
    * Returns category name.
    *
-   * @since
+   * @since 0.7.0
    */
   @StringRes int getCategoryName();
 }
