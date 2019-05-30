@@ -72,7 +72,9 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   }
 
   public static EmojiManager getInstance() {
-    return INSTANCE;
+    synchronized (EmojiManager.class) {
+      return INSTANCE;
+    }
   }
 
   /**
@@ -83,55 +85,57 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
    * @param provider the provider that should be installed.
    */
   public static void install(@NonNull final EmojiProvider provider) {
-    INSTANCE.categories = checkNotNull(provider.getCategories(), "categories == null");
-    INSTANCE.emojiMap.clear();
-    INSTANCE.emojiReplacer = provider instanceof EmojiReplacer ? (EmojiReplacer) provider : DEFAULT_EMOJI_REPLACER;
+    synchronized (EmojiManager.class) {
+      INSTANCE.categories = checkNotNull(provider.getCategories(), "categories == null");
+      INSTANCE.emojiMap.clear();
+      INSTANCE.emojiReplacer = provider instanceof EmojiReplacer ? (EmojiReplacer) provider : DEFAULT_EMOJI_REPLACER;
 
-    final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
+      final List<String> unicodesForPattern = new ArrayList<>(GUESSED_UNICODE_AMOUNT);
 
-    final int categoriesSize = INSTANCE.categories.length;
-    //noinspection ForLoopReplaceableByForEach
-    for (int i = 0; i < categoriesSize; i++) {
-      final Emoji[] emojis = checkNotNull(INSTANCE.categories[i].getEmojis(), "emojies == null");
-
-      final int emojisSize = emojis.length;
+      final int categoriesSize = INSTANCE.categories.length;
       //noinspection ForLoopReplaceableByForEach
-      for (int j = 0; j < emojisSize; j++) {
-        final Emoji emoji = emojis[j];
-        final String unicode = emoji.getUnicode();
-        final List<Emoji> variants = emoji.getVariants();
+      for (int i = 0; i < categoriesSize; i++) {
+        final Emoji[] emojis = checkNotNull(INSTANCE.categories[i].getEmojis(), "emojies == null");
 
-        INSTANCE.emojiMap.put(unicode, emoji);
-        unicodesForPattern.add(unicode);
-
+        final int emojisSize = emojis.length;
         //noinspection ForLoopReplaceableByForEach
-        for (int k = 0; k < variants.size(); k++) {
-          final Emoji variant = variants.get(k);
-          final String variantUnicode = variant.getUnicode();
+        for (int j = 0; j < emojisSize; j++) {
+          final Emoji emoji = emojis[j];
+          final String unicode = emoji.getUnicode();
+          final List<Emoji> variants = emoji.getVariants();
 
-          INSTANCE.emojiMap.put(variantUnicode, variant);
-          unicodesForPattern.add(variantUnicode);
+          INSTANCE.emojiMap.put(unicode, emoji);
+          unicodesForPattern.add(unicode);
+
+          //noinspection ForLoopReplaceableByForEach
+          for (int k = 0; k < variants.size(); k++) {
+            final Emoji variant = variants.get(k);
+            final String variantUnicode = variant.getUnicode();
+
+            INSTANCE.emojiMap.put(variantUnicode, variant);
+            unicodesForPattern.add(variantUnicode);
+          }
         }
       }
+
+      if (unicodesForPattern.isEmpty()) {
+        throw new IllegalArgumentException("Your EmojiProvider must at least have one category with at least one emoji.");
+      }
+
+      // We need to sort the unicodes by length so the longest one gets matched first.
+      Collections.sort(unicodesForPattern, STRING_LENGTH_COMPARATOR);
+
+      final StringBuilder patternBuilder = new StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH);
+
+      final int unicodesForPatternSize = unicodesForPattern.size();
+      for (int i = 0; i < unicodesForPatternSize; i++) {
+        patternBuilder.append(Pattern.quote(unicodesForPattern.get(i))).append('|');
+      }
+
+      final String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
+      INSTANCE.emojiPattern = Pattern.compile(regex);
+      INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+");
     }
-
-    if (unicodesForPattern.isEmpty()) {
-      throw new IllegalArgumentException("Your EmojiProvider must at least have one category with at least one emoji.");
-    }
-
-    // We need to sort the unicodes by length so the longest one gets matched first.
-    Collections.sort(unicodesForPattern, STRING_LENGTH_COMPARATOR);
-
-    final StringBuilder patternBuilder = new StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH);
-
-    final int unicodesForPatternSize = unicodesForPattern.size();
-    for (int i = 0; i < unicodesForPatternSize; i++) {
-      patternBuilder.append(Pattern.quote(unicodesForPattern.get(i))).append('|');
-    }
-
-    final String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
-    INSTANCE.emojiPattern = Pattern.compile(regex);
-    INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+");
   }
 
   /**
@@ -142,13 +146,15 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
    * @see #destroy()
    */
   public static void destroy() {
-    release();
+    synchronized (EmojiManager.class) {
+      release();
 
-    INSTANCE.emojiMap.clear();
-    INSTANCE.categories = null;
-    INSTANCE.emojiPattern = null;
-    INSTANCE.emojiRepetitivePattern = null;
-    INSTANCE.emojiReplacer = null;
+      INSTANCE.emojiMap.clear();
+      INSTANCE.categories = null;
+      INSTANCE.emojiPattern = null;
+      INSTANCE.emojiRepetitivePattern = null;
+      INSTANCE.emojiReplacer = null;
+    }
   }
 
   /**
@@ -161,8 +167,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
    * @see #destroy()
    */
   public static void release() {
-    for (final Emoji emoji : INSTANCE.emojiMap.values()) {
-      emoji.destroy();
+    synchronized (EmojiManager.class) {
+      for (final Emoji emoji : INSTANCE.emojiMap.values()) {
+        emoji.destroy();
+      }
     }
   }
 
