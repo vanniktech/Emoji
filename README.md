@@ -11,7 +11,7 @@ The library has 3 different providers to choose from ([iOS](#ios-emojis), [Googl
 For getting the above iOS Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-ios:0.6.0'
+implementation 'com.vanniktech:emoji-ios:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -28,7 +28,7 @@ EmojiManager.install(new IosEmojiProvider());
 For getting the above Google Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-google:0.6.0'
+implementation 'com.vanniktech:emoji-google:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -45,7 +45,7 @@ EmojiManager.install(new GoogleEmojiProvider());
 For getting the above Twitter Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-twitter:0.6.0'
+implementation 'com.vanniktech:emoji-twitter:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -62,7 +62,7 @@ If you want to display your own Emojis you can create your own implementation of
 All of the core API lays in, which is being pulled in automatically by the provided implementations ([iOS](#ios-emojis), [Google](#google) & [Twitter](#twitter)):
 
 ```groovy
-compile 'com.vanniktech:emoji:0.6.0'
+implementation 'com.vanniktech:emoji:0.6.0'
 ```
 
 ### Custom EditText
@@ -188,9 +188,9 @@ maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 And **one** of these to your dependencies:
 
 ```groovy
-compile 'com.vanniktech:emoji-ios:0.7.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-google:0.7.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-twitter:0.7.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-ios:0.7.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-google:0.7.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-twitter:0.7.0-SNAPSHOT'
 ```
 
 # Proguard
