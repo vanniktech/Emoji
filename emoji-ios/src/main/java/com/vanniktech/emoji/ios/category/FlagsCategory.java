@@ -290,4 +290,3 @@ import com.vanniktech.emoji.ios.IosEmoji;
     return R.string.emoji_ios_category_flags;
   }
 }
-
