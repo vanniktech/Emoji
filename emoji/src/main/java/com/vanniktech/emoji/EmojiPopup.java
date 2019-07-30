@@ -55,6 +55,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   boolean isPendingOpen;
   boolean isKeyboardOpen;
+  private boolean isInStaticHeightMode;
 
   @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
   @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
@@ -206,6 +207,15 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
+  /**
+   * Set PopUpWindow's height for {@link #isInStaticHeightMode}.
+   * If {@link #isInStaticHeightMode} is true and height is not set manually it will be 0.
+   * @param popupWindowHeight - the height of {@link PopupWindow}
+   */
+  public void setPopupWindowHeight(int popupWindowHeight) {
+    this.popupWindow.setHeight(popupWindowHeight);
+  }
+
   public void toggle() {
     if (!popupWindow.isShowing()) {
       if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
@@ -213,7 +223,19 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       }
       editText.setFocusableInTouchMode(true);
       editText.requestFocus();
-      showAtBottomPending();
+
+      if (isInStaticHeightMode) {
+        final Rect rect = Utils.windowVisibleDisplayFrame(context);
+
+        final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
+
+        if (popupWindow.getWidth() != properWidth)
+          popupWindow.setWidth(properWidth);
+
+        showAtBottom();
+      }
+      else
+        showAtBottomPending();
     } else {
       dismiss();
     }
@@ -295,6 +317,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
     @Nullable private RecentEmoji recentEmoji;
     @Nullable private VariantEmoji variantEmoji;
+    private boolean isInStaticKeyboardMode;
+
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
@@ -336,6 +360,18 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
     @CheckResult public Builder setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener listener) {
       onEmojiBackspaceClickListener = listener;
+      return this;
+    }
+
+    /**
+     * Sets a static keyboard mode for EmojiPopup.
+     * @param inStaticKeyboardMode - if true, keyboard height will NOT be dynamically calculated and
+     *                             used as a popupHeight. In this case use {@link #setPopupWindowHeight(int)}
+     *                             to set the height.
+     * @return builder For building the {@link EmojiPopup}.
+     */
+    @CheckResult public Builder setInStaticKeyboardMode(boolean inStaticKeyboardMode) {
+      isInStaticKeyboardMode = inStaticKeyboardMode;
       return this;
     }
 
@@ -398,6 +434,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
+      emojiPopup.isInStaticHeightMode = isInStaticKeyboardMode;
       return emojiPopup;
     }
   }
