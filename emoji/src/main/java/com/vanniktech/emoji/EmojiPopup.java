@@ -55,7 +55,6 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   boolean isPendingOpen;
   boolean isKeyboardOpen;
-  private boolean isInStaticHeightMode;
 
   @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
   @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
@@ -217,15 +216,6 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     this.popupWindow.setHeight(popupWindowHeight);
   }
 
-  /**
-   * Set PopUpWindow's height for {@link #isInStaticHeightMode}.
-   * If {@link #isInStaticHeightMode} is true and height is not set manually it will be 0.
-   * @param popupWindowHeight - the height of {@link PopupWindow}
-   */
-  public void setPopupWindowHeight(int popupWindowHeight) {
-    this.popupWindow.setHeight(popupWindowHeight);
-  }
-
   public void toggle() {
     if (!popupWindow.isShowing()) {
       if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
@@ -233,8 +223,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       }
       editText.setFocusableInTouchMode(true);
       editText.requestFocus();
-
-      if (isInStaticHeightMode) {
+      if (popupWindow.getHeight() > 0) {
         final Rect rect = Utils.windowVisibleDisplayFrame(context);
 
         final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
@@ -327,7 +316,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
     @Nullable private RecentEmoji recentEmoji;
     @Nullable private VariantEmoji variantEmoji;
-    private boolean isInStaticKeyboardMode;
+    private int popupWindowHeight;
 
 
     private Builder(final View rootView) {
@@ -443,7 +432,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      emojiPopup.isInStaticHeightMode = isInStaticKeyboardMode;
+      if (this.popupWindowHeight > 0)
+        emojiPopup.setPopupWindowHeight(popupWindowHeight);
       return emojiPopup;
     }
   }
