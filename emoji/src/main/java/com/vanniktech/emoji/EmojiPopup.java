@@ -208,6 +208,16 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   }
 
   /**
+   * Set PopUpWindow's height.
+   * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
+   * be dynamically calculated and set as {@link PopupWindow} height.
+   * @param popupWindowHeight - the height of {@link PopupWindow}
+   */
+  public void setPopupWindowHeight(int popupWindowHeight) {
+    this.popupWindow.setHeight(popupWindowHeight);
+  }
+
+  /**
    * Set PopUpWindow's height for {@link #isInStaticHeightMode}.
    * If {@link #isInStaticHeightMode} is true and height is not set manually it will be 0.
    * @param popupWindowHeight - the height of {@link PopupWindow}
@@ -364,14 +374,13 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
 
     /**
-     * Sets a static keyboard mode for EmojiPopup.
-     * @param inStaticKeyboardMode - if true, keyboard height will NOT be dynamically calculated and
-     *                             used as a popupHeight. In this case use {@link #setPopupWindowHeight(int)}
-     *                             to set the height.
-     * @return builder For building the {@link EmojiPopup}.
+     * Set PopUpWindow's height.
+     * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
+     * be dynamically calculated and set as {@link PopupWindow} height.
+     * @param popupWindowHeight - the height of {@link PopupWindow}
      */
-    @CheckResult public Builder setInStaticKeyboardMode(boolean inStaticKeyboardMode) {
-      isInStaticKeyboardMode = inStaticKeyboardMode;
+    @CheckResult public Builder setPopupWindowHeight(int popupWindowHeight) {
+      this.popupWindowHeight = popupWindowHeight;
       return this;
     }
 
