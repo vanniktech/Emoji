@@ -212,7 +212,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
    * be dynamically calculated and set as {@link PopupWindow} height.
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
-  public void setPopupWindowHeight(int popupWindowHeight) {
+  public void setPopupWindowHeight(final int popupWindowHeight) {
     this.popupWindow.setHeight(popupWindowHeight);
   }
 
@@ -228,13 +228,14 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
         final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
 
-        if (popupWindow.getWidth() != properWidth)
+        if (popupWindow.getWidth() != properWidth) {
           popupWindow.setWidth(properWidth);
+        }
 
         showAtBottom();
-      }
-      else
+      } else {
         showAtBottomPending();
+      }
     } else {
       dismiss();
     }
@@ -318,7 +319,6 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     @Nullable private VariantEmoji variantEmoji;
     private int popupWindowHeight;
 
-
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
     }
@@ -366,10 +366,10 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
      * Set PopUpWindow's height.
      * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
      * be dynamically calculated and set as {@link PopupWindow} height.
-     * @param popupWindowHeight - the height of {@link PopupWindow}
+     * @param windowHeight - the height of {@link PopupWindow}
      */
-    @CheckResult public Builder setPopupWindowHeight(int popupWindowHeight) {
-      this.popupWindowHeight = popupWindowHeight;
+    @CheckResult public Builder setPopupWindowHeight(final int windowHeight) {
+      this.popupWindowHeight = windowHeight;
       return this;
     }
 
@@ -432,8 +432,9 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      if (this.popupWindowHeight > 0)
+      if (this.popupWindowHeight > 0) {
         emojiPopup.setPopupWindowHeight(popupWindowHeight);
+      }
       return emojiPopup;
     }
   }
