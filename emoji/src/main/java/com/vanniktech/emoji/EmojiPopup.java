@@ -432,7 +432,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      if (this.popupWindowHeight > 0) {
+      if (popupWindowHeight > 0) {
         emojiPopup.setPopupWindowHeight(popupWindowHeight);
       }
       return emojiPopup;
