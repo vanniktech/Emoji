@@ -55,7 +55,7 @@ codeQualityTools {
     toolVersion = '0.34.2'
   }
   detekt {
-    toolVersion = '1.0.0'
+    toolVersion = '1.0.1'
   }
   errorProne {
     toolVersion = '2.1.2'
