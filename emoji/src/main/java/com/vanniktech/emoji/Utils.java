@@ -1,5 +1,6 @@
 package com.vanniktech.emoji;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -65,7 +66,7 @@ final class Utils {
     try {
       final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
       final Class inputMethodManagerClass = imm.getClass();
-      final Method visibleHeightMethod = inputMethodManagerClass.getDeclaredMethod("getInputMethodWindowVisibleHeight");
+      @SuppressLint("PrivateApi") final Method visibleHeightMethod = inputMethodManagerClass.getDeclaredMethod("getInputMethodWindowVisibleHeight");
       visibleHeightMethod.setAccessible(true);
       return (int) visibleHeightMethod.invoke(imm);
     } catch (NoSuchMethodException exception) {
