@@ -208,15 +208,19 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
-      if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
-        originalImeOptions = editText.getImeOptions();
-      }
-      editText.setFocusableInTouchMode(true);
-      editText.requestFocus();
-      showAtBottomPending();
+      show();
     } else {
       dismiss();
     }
+  }
+
+  public void show() {
+    if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
+      originalImeOptions = editText.getImeOptions();
+    }
+    editText.setFocusableInTouchMode(true);
+    editText.requestFocus();
+    showAtBottomPending();
   }
 
   private void showAtBottomPending() {
