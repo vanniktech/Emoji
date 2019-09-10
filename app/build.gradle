@@ -63,7 +63,6 @@ dependencies {
   implementation rootProject.ext.supportEmojiBundled
 
   debugImplementation rootProject.ext.leakCanaryDebug
-  releaseImplementation rootProject.ext.leakCanaryRelease
 
   androidTestImplementation deps.support.test.espresso.core
   androidTestImplementation deps.support.test.runner

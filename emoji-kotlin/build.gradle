@@ -22,6 +22,7 @@ android {
 
 dependencies {
   api project(':emoji')
+  implementation deps.kotlin.stdlib
 }
 
 apply plugin: "com.vanniktech.maven.publish"

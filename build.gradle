@@ -3,13 +3,16 @@ apply plugin: 'com.vanniktech.code.quality.tools'
 apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
-  ext.kotlinVersion = '1.3.21'
   ext.versions = [
     espresso: '3.0.2',
     testRules: '1.0.2',
+    kotlin: '1.3.50',
   ]
 
   ext.deps = [
+    'kotlin': [
+      'stdlib': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+    ],
     'support': [
       'test': [
         'espresso': [
@@ -28,13 +31,13 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.17.0'
-    classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0'
+    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.19.0'
+    classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.15.0'
     classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
 
-    classpath 'com.android.tools.build:gradle:3.3.1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.21.0'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    classpath 'com.android.tools.build:gradle:3.5.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.24.0'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
 }
 
@@ -49,10 +52,10 @@ codeQualityTools {
     toolVersion = '6.0.1'
   }
   ktlint {
-    toolVersion = '0.29.0'
+    toolVersion = '0.34.2'
   }
   detekt {
-    toolVersion = '1.0.0-RC12'
+    toolVersion = '1.0.0'
   }
   errorProne {
     toolVersion = '2.1.2'
@@ -77,36 +80,34 @@ ext {
   compileSdkVersion = 28
   targetSdkVersion = 28
 
-  androidXVersion = '1.0.0'
-  leakCanaryVersion = '1.6.3'
+  leakCanaryVersion = '2.0-beta-3'
 
   versionCode = VERSION_CODE
   versionName = VERSION_NAME
 
-  supportAppCompat = "androidx.appcompat:appcompat:$androidXVersion"
-  supportV4CoreUi = "androidx.legacy:legacy-support-core-ui:$androidXVersion"
-  supportV4Compat = "androidx.core:core:$androidXVersion"
-  supportRecyclerView = "androidx.recyclerview:recyclerview:$androidXVersion"
-  supportCardView = "androidx.cardview:cardview:$androidXVersion"
-  supportAnnotations = "androidx.annotation:annotation:$androidXVersion"
-  supportEmoji = "androidx.emoji:emoji-appcompat:$androidXVersion"
-  supportEmojiBundled = "androidx.emoji:emoji-bundled:$androidXVersion"
+  supportAppCompat = "androidx.appcompat:appcompat:1.1.0"
+  supportV4CoreUi = "androidx.legacy:legacy-support-core-ui:1.0.0"
+  supportV4Compat = "androidx.core:core:1.0.0"
+  supportRecyclerView = "androidx.recyclerview:recyclerview:1.0.0"
+  supportCardView = "androidx.cardview:cardview:1.0.0"
+  supportAnnotations = "androidx.annotation:annotation:1.0.0"
+  supportEmoji = "androidx.emoji:emoji-appcompat:1.0.0"
+  supportEmojiBundled = "androidx.emoji:emoji-bundled:1.0.0"
 
   leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-  leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 
   testing = [
-          junit             : 'junit:junit:4.13-beta-2',
-          robolectric       : 'org.robolectric:robolectric:3.5.1',
+          junit             : 'junit:junit:4.13-beta-3',
+          robolectric       : 'org.robolectric:robolectric:4.3',
           privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-          assertJ           : 'org.assertj:assertj-core:3.12.1'
+          assertJ           : 'org.assertj:assertj-core:2.9.1'
   ]
 
   javaVersion = JavaVersion.VERSION_1_7
 }
 
 wrapper {
-  gradleVersion = '5.2.1'
+  gradleVersion = '5.6.2'
   distributionType = Wrapper.DistributionType.ALL
 }
 
