@@ -60,7 +60,6 @@ dependencies {
 
   implementation rootProject.ext.supportAppCompat
   implementation rootProject.ext.supportRecyclerView
-  implementation rootProject.ext.supportEmojiBundled
 
   debugImplementation rootProject.ext.leakCanaryDebug
 
