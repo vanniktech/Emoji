@@ -2,19 +2,11 @@ package com.vanniktech.emoji;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.CheckResult;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
-import androidx.viewpager.widget.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -23,6 +15,12 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import androidx.annotation.CheckResult;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.viewpager.widget.ViewPager;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -175,9 +173,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       popupWindow.setHeight(keyboardHeight);
     }
 
-    final Rect rect = Utils.windowVisibleDisplayFrame(context);
+    final int properWidth = Utils.getProperWidth(context);
 
-    final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
     if (popupWindow.getWidth() != properWidth) {
       popupWindow.setWidth(properWidth);
     }
@@ -213,7 +210,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
   public void setPopupWindowHeight(final int popupWindowHeight) {
-    this.popupWindow.setHeight(popupWindowHeight);
+    popupWindow.setHeight(popupWindowHeight);
   }
 
   public void toggle() {
@@ -223,10 +220,9 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       }
       editText.setFocusableInTouchMode(true);
       editText.requestFocus();
-      if (popupWindow.getHeight() > 0) {
-        final Rect rect = Utils.windowVisibleDisplayFrame(context);
 
-        final int properWidth = Utils.getOrientation(context) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(context);
+      if (popupWindow.getHeight() > 0) {
+        final int properWidth = Utils.getProperWidth(context);
 
         if (popupWindow.getWidth() != properWidth) {
           popupWindow.setWidth(properWidth);
