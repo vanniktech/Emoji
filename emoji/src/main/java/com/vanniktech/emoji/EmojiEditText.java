@@ -89,7 +89,7 @@ import com.vanniktech.emoji.emoji.Emoji;
     setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
   }
 
-  @Override public void setOnFocusChangeListener(OnFocusChangeListener l) {
+  @Override public void setOnFocusChangeListener(final OnFocusChangeListener l) {
     final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
 
     if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
@@ -119,7 +119,7 @@ import com.vanniktech.emoji.emoji.Emoji;
     final EmojiPopup emojiPopup;
     @Nullable final OnFocusChangeListener onFocusChangeListener;
 
-    ForceEmojisOnlyFocusChangeListener(@Nullable OnFocusChangeListener onFocusChangeListener, final EmojiPopup emojiPopup) {
+    ForceEmojisOnlyFocusChangeListener(@Nullable final OnFocusChangeListener onFocusChangeListener, final EmojiPopup emojiPopup) {
       this.emojiPopup = emojiPopup;
       this.onFocusChangeListener = onFocusChangeListener;
     }
