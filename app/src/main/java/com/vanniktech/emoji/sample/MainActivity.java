@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.emoji.bundled.BundledEmojiCompatConfig;
+import androidx.core.provider.FontRequest;
 import androidx.emoji.text.EmojiCompat;
+import androidx.emoji.text.FontRequestEmojiCompatConfig;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
@@ -93,9 +94,9 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         return true;
       case R.id.menuMainGoogleCompat:
         if (emojiCompat == null) {
-          final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
-          config.setReplaceAll(true);
-          emojiCompat = EmojiCompat.init(config);
+          emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
+              new FontRequest("com.google.android.gms.fonts", "com.google.android.gms", "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
+          ).setReplaceAll(true));
         }
         EmojiManager.destroy();
         EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
