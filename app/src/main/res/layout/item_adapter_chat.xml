@@ -11,6 +11,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:textIsSelectable="true"
+      android:textAllCaps="true"
       app:emojiSize="@dimen/emoji_size_default"
       tools:text="my text"
       />

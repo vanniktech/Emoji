@@ -133,8 +133,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       }
 
       final String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
-      INSTANCE.emojiPattern = Pattern.compile(regex);
-      INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+");
+      INSTANCE.emojiPattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+      INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+", Pattern.CASE_INSENSITIVE);
     }
   }
 
