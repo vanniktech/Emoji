@@ -54,6 +54,11 @@ final class Utils {
     return context.getResources().getConfiguration().orientation;
   }
 
+  static int getProperWidth(final Activity activity) {
+    final Rect rect = Utils.windowVisibleDisplayFrame(activity);
+    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(activity);
+  }
+
   static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
     if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
       return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;

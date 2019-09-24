@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -21,6 +22,9 @@ import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 // We don't care about duplicated code in the sample.
 @SuppressWarnings("CPD-START") public class MainActivity extends AppCompatActivity {
@@ -48,6 +52,18 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
     emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
+
+    final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
+    forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
+      if (isChecked) {
+        editText.clearFocus();
+        emojiButton.setVisibility(GONE);
+        editText.disableKeyboardInput(emojiPopup);
+      } else {
+        emojiButton.setVisibility(VISIBLE);
+        editText.enableKeyboardInput();
+      }
+    });
 
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
     sendButton.setOnClickListener(ignore -> {

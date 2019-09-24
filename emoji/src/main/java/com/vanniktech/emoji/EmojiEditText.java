@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
+import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.vanniktech.emoji.emoji.Emoji;
@@ -85,5 +87,53 @@ import com.vanniktech.emoji.emoji.Emoji;
   /** sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
   public final void setEmojiSizeRes(@DimenRes final int res, final boolean shouldInvalidate) {
     setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
+  }
+
+  @Override public void setOnFocusChangeListener(final OnFocusChangeListener l) {
+    final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
+
+    if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
+      final ForceEmojisOnlyFocusChangeListener cast = (ForceEmojisOnlyFocusChangeListener) onFocusChangeListener;
+      super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(l, cast.emojiPopup));
+    } else {
+      super.setOnFocusChangeListener(l);
+    }
+  }
+
+  /** Disables the keyboard input using a focus change listener and delegating to the previous focus change listener. */
+  public void disableKeyboardInput(final EmojiPopup emojiPopup) {
+    super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
+  }
+
+  /** Enables the keyboard input. If it has been disabled before using {@link #disableKeyboardInput(EmojiPopup)} the OnFocusChangeListener will be preserved. */
+  public void enableKeyboardInput() {
+    final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
+
+    if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
+      final ForceEmojisOnlyFocusChangeListener cast = (ForceEmojisOnlyFocusChangeListener) onFocusChangeListener;
+      super.setOnFocusChangeListener(cast.onFocusChangeListener);
+    }
+  }
+
+  static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {
+    final EmojiPopup emojiPopup;
+    @Nullable final OnFocusChangeListener onFocusChangeListener;
+
+    ForceEmojisOnlyFocusChangeListener(@Nullable final OnFocusChangeListener onFocusChangeListener, final EmojiPopup emojiPopup) {
+      this.emojiPopup = emojiPopup;
+      this.onFocusChangeListener = onFocusChangeListener;
+    }
+
+    @Override public void onFocusChange(final View view, final boolean hasFocus) {
+      if (hasFocus) {
+        emojiPopup.show();
+      } else {
+        emojiPopup.dismiss();
+      }
+
+      if (onFocusChangeListener != null) {
+        onFocusChangeListener.onFocusChange(view, hasFocus);
+      }
+    }
   }
 }
