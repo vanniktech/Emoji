@@ -1,7 +1,9 @@
 package com.vanniktech.emoji.googlecompat.category;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
@@ -103,5 +105,9 @@ import com.vanniktech.emoji.googlecompat.R;
 
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_compat_category_food;
+  }
+
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_compat_category_food;
   }
 }

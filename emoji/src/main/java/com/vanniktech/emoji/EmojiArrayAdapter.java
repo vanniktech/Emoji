@@ -1,8 +1,8 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +12,10 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import static com.vanniktech.emoji.Utils.checkNotNull;
-import static java.util.Arrays.asList;
+import static com.vanniktech.emoji.Utils.asListWithoutDuplicates;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @Nullable private final VariantEmoji variantManager;
@@ -26,7 +25,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis, @Nullable final VariantEmoji variantManager,
                     @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener) {
-    super(context, 0, new ArrayList<>(asList(emojis)));
+    super(context, 0, asListWithoutDuplicates(emojis));
 
     this.variantManager = variantManager;
     this.listener = listener;
@@ -47,6 +46,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
     final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
+    image.setContentDescription(emoji.getUnicode());
     image.setEmoji(variantToUse);
 
     return image;

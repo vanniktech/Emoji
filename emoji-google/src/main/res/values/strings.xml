@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emoji_google_category_activities">Activities</string>
+    <string name="emoji_google_category_flags">Flags</string>
+    <string name="emoji_google_category_foodanddrink">Food</string>
+    <string name="emoji_google_category_animalsandnature">Nature</string>
+    <string name="emoji_google_category_objects">Objects</string>
+    <string name="emoji_google_category_smileysandpeople">Faces</string>
+    <string name="emoji_google_category_symbols">Symbols</string>
+    <string name="emoji_google_category_travelandplaces">Places</string>
+</resources>

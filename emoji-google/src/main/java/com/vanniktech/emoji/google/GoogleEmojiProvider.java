@@ -1,6 +1,6 @@
 package com.vanniktech.emoji.google;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.vanniktech.emoji.EmojiProvider;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.google.category.ActivitiesCategory;

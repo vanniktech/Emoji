@@ -3,7 +3,7 @@ package com.vanniktech.emoji;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.ImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.lang.ref.WeakReference;

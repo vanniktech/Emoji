@@ -1,5 +1,6 @@
 package com.vanniktech.emoji;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -7,36 +8,34 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.support.annotation.AttrRes;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
-
 import com.vanniktech.emoji.emoji.Emoji;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.JELLY_BEAN;
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 final class Utils {
-  static final int DONT_UPDATE_FLAG = -1;
+  static final String TAG = "Utils";
 
-  @TargetApi(JELLY_BEAN) static void removeOnGlobalLayoutListener(final View v, final ViewTreeObserver.OnGlobalLayoutListener listener) {
-    if (SDK_INT < JELLY_BEAN) {
-      //noinspection deprecation
-      v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
-    } else {
-      v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
-    }
-  }
+  static final int DONT_UPDATE_FLAG = -1;
 
   @NonNull static <T> T checkNotNull(@Nullable final T reference, final String message) {
     if (reference == null) {
@@ -47,19 +46,78 @@ final class Utils {
   }
 
   static int dpToPx(@NonNull final Context context, final float dp) {
-    return (int) (dp * context.getResources().getDisplayMetrics().density);
+    return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+        context.getResources().getDisplayMetrics()) + 0.5f);
   }
 
-  static boolean shouldOverrideRegularCondition(@NonNull final Activity context, final EditText editText) {
+  static int getOrientation(final Context context) {
+    return context.getResources().getConfiguration().orientation;
+  }
+
+  static int getProperWidth(final Activity activity) {
+    final Rect rect = Utils.windowVisibleDisplayFrame(activity);
+    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(activity);
+  }
+
+  static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
     if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
-      return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+      return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     return false;
   }
 
-  static int getScreenHeight(@NonNull final Activity context) {
-    return dpToPx(context, context.getResources().getConfiguration().screenHeightDp);
+  @SuppressWarnings({"unchecked", "JavaReflectionMemberAccess"}) static int getInputMethodHeight(final Context context, final View rootView) {
+    try {
+      final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+      final Class inputMethodManagerClass = imm.getClass();
+      @SuppressLint("PrivateApi") final Method visibleHeightMethod = inputMethodManagerClass.getDeclaredMethod("getInputMethodWindowVisibleHeight");
+      visibleHeightMethod.setAccessible(true);
+      return (int) visibleHeightMethod.invoke(imm);
+    } catch (NoSuchMethodException exception) {
+      Log.w(TAG, exception.getLocalizedMessage());
+    } catch (IllegalAccessException exception) {
+      Log.w(TAG, exception.getLocalizedMessage());
+    } catch (InvocationTargetException exception) {
+      Log.w(TAG, exception.getLocalizedMessage());
+    }
+
+    return alternativeInputMethodHeight(rootView);
+  }
+
+  @SuppressWarnings("JavaReflectionMemberAccess") @TargetApi(LOLLIPOP) static int getViewBottomInset(final View rootView) {
+    try {
+      final Field attachInfoField = View.class.getDeclaredField("mAttachInfo");
+      attachInfoField.setAccessible(true);
+      final Object attachInfo = attachInfoField.get(rootView);
+      if (attachInfo != null) {
+        final Field stableInsetsField = attachInfo.getClass().getDeclaredField("mStableInsets");
+        stableInsetsField.setAccessible(true);
+        return ((Rect) stableInsetsField.get(attachInfo)).bottom;
+      }
+    } catch (NoSuchFieldException noSuchFieldException) {
+      Log.w(TAG, noSuchFieldException.getLocalizedMessage());
+    } catch (IllegalAccessException illegalAccessException) {
+      Log.w(TAG, illegalAccessException.getLocalizedMessage());
+    }
+    return 0;
+  }
+
+  static int alternativeInputMethodHeight(final View rootView) {
+    int viewInset = 0;
+    if (SDK_INT >= LOLLIPOP) {
+      viewInset = getViewBottomInset(rootView);
+    }
+
+    final Rect rect = new Rect();
+    rootView.getWindowVisibleDisplayFrame(rect);
+
+    final int availableHeight = rootView.getHeight() - viewInset - rect.top;
+    return availableHeight - (rect.bottom - rect.top);
+  }
+
+  static int getScreenWidth(@NonNull final Activity context) {
+    return dpToPx(context, context.getResources().getConfiguration().screenWidthDp);
   }
 
   @NonNull static Point locationOnScreen(@NonNull final View view) {
@@ -77,6 +135,18 @@ final class Utils {
   static void backspace(@NonNull final EditText editText) {
     final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
     editText.dispatchKeyEvent(event);
+  }
+
+  static List<Emoji> asListWithoutDuplicates(final Emoji[] emojis) {
+    final List<Emoji> result = new ArrayList<>(emojis.length);
+
+    for (final Emoji emoji : emojis) {
+      if (!emoji.isDuplicate()) {
+        result.add(emoji);
+      }
+    }
+
+    return result;
   }
 
   static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {

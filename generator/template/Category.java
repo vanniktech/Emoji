@@ -1,7 +1,7 @@
 package com.vanniktech.emoji.<%= package %>.category;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.<%= package %>.R;
 import com.vanniktech.emoji.<%= package %>.<%= name %>;
@@ -17,5 +17,9 @@ import com.vanniktech.emoji.<%= package %>.<%= name %>;
 
   @Override @DrawableRes public int getIcon() {
     return R.drawable.emoji_<%= package %>_category_<%= icon %>;
+  }
+
+  @Override @StringRes public int getCategoryName() {
+    return R.string.emoji_<%= package %>_category_<%= icon %>;
   }
 }

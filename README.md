@@ -2,7 +2,7 @@
 
 A simple library to add Emoji support to your Android app. In a PopupWindow Emojis can be chosen. In order to edit and display text with Emojis this library provides public APIs: [`EmojiEditText`](emoji/src/main/java/com/vanniktech/emoji/EmojiEditText.java), [`EmojiTextView`](emoji/src/main/java/com/vanniktech/emoji/EmojiTextView.java) & [`EmojiButton`](emoji/src/main/java/com/vanniktech/emoji/EmojiButton.java).
 
-The library has 4 different providers to choose from ([iOS](#ios-emojis), [EmojiOne](#emojione), [Google](#google) & [Twitter](#twitter)).
+The library has 3 different providers to choose from ([iOS](#ios-emojis), [Google](#google) & [Twitter](#twitter)).
 
 ## iOS Emojis
 
@@ -11,7 +11,7 @@ The library has 4 different providers to choose from ([iOS](#ios-emojis), [Emoji
 For getting the above iOS Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-ios:0.5.1'
+implementation 'com.vanniktech:emoji-ios:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -21,23 +21,6 @@ And install the provider (preferably in your Application class):
 EmojiManager.install(new IosEmojiProvider());
 ```
 
-## EmojiOne
-
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_1_1498998356652.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_2_1498998359464.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/emoji_one_3_1498998361072.png" alt="Recent Emojis" width="270">
-
-For getting the above EmojiOne Emojis simply add the dependency and code below.
-
-```groovy
-compile 'com.vanniktech:emoji-one:0.5.1'
-```
-
-And install the provider (preferably in your Application class):
-
-```java
-// This line needs to be executed before any usage of EmojiTextView, EmojiEditText or EmojiButton.
-EmojiManager.install(new EmojiOneProvider());
-```
-
 ## Google
 
 <img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/google_1_1498998373883.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/google_2_1498998376865.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/google_3_1498998378352.png" alt="Recent Emojis" width="270">
@@ -45,7 +28,7 @@ EmojiManager.install(new EmojiOneProvider());
 For getting the above Google Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-google:0.5.1'
+implementation 'com.vanniktech:emoji-google:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -62,7 +45,7 @@ EmojiManager.install(new GoogleEmojiProvider());
 For getting the above Twitter Emojis simply add the dependency and code below.
 
 ```groovy
-compile 'com.vanniktech:emoji-twitter:0.5.1'
+implementation 'com.vanniktech:emoji-twitter:0.6.0'
 ```
 
 And install the provider (preferably in your Application class):
@@ -76,19 +59,16 @@ EmojiManager.install(new TwitterEmojiProvider());
 
 If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](emoji/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
 
-All of the core API lays in, which is being pulled in automatically by the provided implementations ([iOS](#ios-emojis), [EmojiOne](#emojione), [Google](#google) & [Twitter](#twitter)):
+All of the core API lays in, which is being pulled in automatically by the provided implementations ([iOS](#ios-emojis), [Google](#google) & [Twitter](#twitter)):
 
 ```groovy
-compile 'com.vanniktech:emoji:0.5.1'
+implementation 'com.vanniktech:emoji:0.6.0'
 ```
 
 ### Custom EditText
 
-If you want to add the emoji support to your existing `EditText`, you only have to
-`implement` `EmojiEditTextInterface`. An example can be seen on the default `EditText`
-implementation: `EmojiEditText`.
-
-Keep in mind that this custom class must be a subclass of `android.view.View`.
+If you want to add the emoji support to your existing `EditText`, you only have to call `EmojiManager.getInstance().replaceWithImages` inside `onTextChanged`.
+An example can be seen on the default `EditText` implementation: `EmojiEditText`.
 
 ---
 
@@ -117,6 +97,8 @@ emojiPopup.isShowing(); // Returns true when Popup is showing.
 
 The `rootView` is the rootView of your layout xml file which will be used for calculating the height of the keyboard.
 `emojiEditText` is the [`EmojiEditText`](emoji/src/main/java/com/vanniktech/emoji/EmojiEditText.java) that you declared in your layout xml file.
+
+**Note: Instantiate the `EmojiPopup` as early as possible in the lifecycle (e.g. in `onCreate` of your `Activity` or `onViewCreated` in your `Fragment`), otherwise the keyboard detection might not work as expected.**
 
 ### Displaying Emojis
 
@@ -162,6 +144,32 @@ setVariantEmoji(yourClassThatImplementsVariantEmoji)
 
 If no instance or a null instance is set the [default implementation](./emoji/src/main/java/com/vanniktech/emoji/VariantEmojiManager.java) will be used.
 
+## Animations
+
+### Custom keyboard enter and exit animations
+
+You can pass your own animation style for enter and exit transitions of the Emoji keyboard while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
+
+```java
+setKeyboardAnimationStyle(R.style.emoji_fade_animation_style);
+```
+
+If no style is set the keyboard will appear and exit as a regular PopupWindow.
+This library currently ships with two animation styles as an example:
+
+- R.style.emoji_slide_animation_style
+- R.style.emoji_fade_animation_style
+
+### Custom page transformers
+
+You can pass your own Page Transformer for the Emoji keyboard View Pager while you're building the [`EmojiPopup`](emoji/src/main/java/com/vanniktech/emoji/EmojiPopup.java):
+
+```java
+setPageTransformer(new MagicTransformer());
+```
+
+If no transformer is set ViewPager will behave as its usual self. Please do note that this library currently does not ship any example Page Transformers.
+
 # Snapshots
 
 This library is also distributed as a SNAPSHOT if you like to check out the latest features.
@@ -177,10 +185,9 @@ maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 And **one** of these to your dependencies:
 
 ```groovy
-compile 'com.vanniktech:emoji-ios:0.6.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-one:0.6.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-google:0.6.0-SNAPSHOT'
-compile 'com.vanniktech:emoji-twitter:0.6.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-ios:0.7.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-google:0.7.0-SNAPSHOT'
+implementation 'com.vanniktech:emoji-twitter:0.7.0-SNAPSHOT'
 ```
 
 # Proguard

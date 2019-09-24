@@ -56,15 +56,12 @@ dependencies {
   implementation project(':emoji-google')
   implementation project(':emoji-google-compat')
   implementation project(':emoji-twitter')
-  implementation project(':emoji-one')
   implementation project(':emoji-kotlin')
 
   implementation rootProject.ext.supportAppCompat
   implementation rootProject.ext.supportRecyclerView
-  implementation rootProject.ext.supportEmojiBundled
 
   debugImplementation rootProject.ext.leakCanaryDebug
-  releaseImplementation rootProject.ext.leakCanaryRelease
 
   androidTestImplementation deps.support.test.espresso.core
   androidTestImplementation deps.support.test.runner

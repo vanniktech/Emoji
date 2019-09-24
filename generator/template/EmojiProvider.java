@@ -1,6 +1,6 @@
 package com.vanniktech.emoji.<%= package %>;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.vanniktech.emoji.EmojiProvider;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 <%= imports %>

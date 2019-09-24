@@ -3,12 +3,13 @@ package com.vanniktech.emoji;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.content.res.AppCompatResources;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.content.res.AppCompatResources;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,10 +39,12 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context, final OnEmojiClickListener onEmojiClickListener,
-        final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
-        @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
-        @ColorInt final int iconColor, @ColorInt final int dividerColor) {
+  @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context,
+      final OnEmojiClickListener onEmojiClickListener,
+      final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
+      @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
+      @ColorInt final int iconColor, @ColorInt final int dividerColor,
+      @Nullable final ViewPager.PageTransformer pageTransformer) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
@@ -58,17 +61,21 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
     emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
 
+    if (pageTransformer != null) {
+      emojisPager.setPageTransformer(true, pageTransformer);
+    }
+
     final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
     emojisPager.addOnPageChangeListener(this);
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
     emojiTabs = new ImageButton[categories.length + 2];
-    emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, emojisTab);
+    emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + 1] = inflateButton(context, categories[i].getIcon(), emojisTab);
+      emojiTabs[i + 1] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
     }
-    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, emojisTab);
+    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
 
     handleOnClicks(emojisPager);
 
@@ -98,11 +105,12 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
   }
 
-  private ImageButton inflateButton(final Context context, @DrawableRes final int icon, final ViewGroup parent) {
+  private ImageButton inflateButton(final Context context, @DrawableRes final int icon, @StringRes final int categoryName, final ViewGroup parent) {
     final ImageButton button = (ImageButton) LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false);
 
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon));
     button.setColorFilter(themeIconColor, PorterDuff.Mode.SRC_IN);
+    button.setContentDescription(context.getString(categoryName));
 
     parent.addView(button);
 

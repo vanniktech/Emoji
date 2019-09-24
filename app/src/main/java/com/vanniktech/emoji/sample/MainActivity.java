@@ -2,25 +2,29 @@ package com.vanniktech.emoji.sample;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.text.emoji.EmojiCompat;
-import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.provider.FontRequest;
+import androidx.emoji.text.EmojiCompat;
+import androidx.emoji.text.FontRequestEmojiCompatConfig;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
+import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
-import com.vanniktech.emoji.one.EmojiOneProvider;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 // We don't care about duplicated code in the sample.
 @SuppressWarnings("CPD-START") public class MainActivity extends AppCompatActivity {
@@ -49,6 +53,18 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
+    final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
+    forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
+      if (isChecked) {
+        editText.clearFocus();
+        emojiButton.setVisibility(GONE);
+        editText.disableKeyboardInput(emojiPopup);
+      } else {
+        emojiButton.setVisibility(VISIBLE);
+        editText.enableKeyboardInput();
+      }
+    });
+
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
@@ -62,7 +78,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
     final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
     recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+    recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
     setUpEmojiPopup();
   }
@@ -94,29 +110,16 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         return true;
       case R.id.menuMainGoogleCompat:
         if (emojiCompat == null) {
-          final EmojiCompat.Config config = new BundledEmojiCompatConfig(this);
-          config.setReplaceAll(true);
-          emojiCompat = EmojiCompat.init(config);
+          emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
+              new FontRequest("com.google.android.gms.fonts", "com.google.android.gms", "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
+          ).setReplaceAll(true));
         }
         EmojiManager.destroy();
         EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
         recreate();
         return true;
-      case R.id.menuMainEmojiOne:
-        EmojiManager.destroy();
-        EmojiManager.install(new EmojiOneProvider());
-        recreate();
-        return true;
       default:
         return super.onOptionsItemSelected(item);
-    }
-  }
-
-  @Override public void onBackPressed() {
-    if (emojiPopup != null && emojiPopup.isShowing()) {
-      emojiPopup.dismiss();
-    } else {
-      super.onBackPressed();
     }
   }
 
@@ -136,6 +139,8 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
         .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))
         .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople))
         .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
+        .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
+        .setPageTransformer(new PageTransformer())
         .build(editText);
   }
 }
