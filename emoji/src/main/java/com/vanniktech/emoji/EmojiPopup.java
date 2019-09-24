@@ -225,20 +225,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     if (Utils.shouldOverrideRegularCondition(context, editText) && originalImeOptions == -1) {
       originalImeOptions = editText.getImeOptions();
     }
+
     editText.setFocusableInTouchMode(true);
     editText.requestFocus();
 
-    if (popupWindow.getHeight() > 0) {
-      final int properWidth = Utils.getProperWidth(context);
-
-      if (popupWindow.getWidth() != properWidth) {
-        popupWindow.setWidth(properWidth);
-      }
-
-      showAtBottom();
-    } else {
-      showAtBottomPending();
-    }
+    showAtBottomPending();
   }
 
   private void showAtBottomPending() {
@@ -289,7 +280,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   void showAtBottom() {
     isPendingOpen = false;
-    popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0, Utils.getProperHeight(context));
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
