@@ -189,6 +189,6 @@ No configuration needed.
 
 # License
 
-Copyright (C) 2016 - 2019 Vanniktech - Niklas Baudy and contributors
+Copyright (C) 2016 - Niklas Baudy, Ruben Gees, Mario Đanić and contributors
 
 Licensed under the Apache License, Version 2.0
