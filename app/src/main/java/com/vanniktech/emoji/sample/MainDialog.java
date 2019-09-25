@@ -49,7 +49,7 @@ import com.vanniktech.emoji.EmojiPopup;
   }
 
   @Override @NonNull public Dialog onCreateDialog(final Bundle savedInstanceState) {
-    return new AlertDialog.Builder(getContext())
+    return new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle)
             .setView(buildView())
             .create();
   }
