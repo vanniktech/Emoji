@@ -31,7 +31,9 @@ import com.vanniktech.emoji.EmojiPopup;
   ImageView emojiButton;
 
   public static void show(@NonNull final AppCompatActivity activity) {
-    new MainDialog().show(activity.getSupportFragmentManager(), FRAGMENT_MANAGER_TAG);
+    MainDialog mainDialog = new MainDialog();
+    mainDialog.show(activity.getSupportFragmentManager(), FRAGMENT_MANAGER_TAG);
+
   }
 
   @Override public void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ import com.vanniktech.emoji.EmojiPopup;
   }
 
   @Override @NonNull public Dialog onCreateDialog(final Bundle savedInstanceState) {
-    return new AlertDialog.Builder(getContext())
+    return new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle)
             .setView(buildView())
             .create();
   }

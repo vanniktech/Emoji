@@ -5,4 +5,9 @@
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
   </style>
+
+  <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="android:windowMinWidthMajor">@dimen/emoji_min_dialog_width</item>
+  </style>
+
 </resources>

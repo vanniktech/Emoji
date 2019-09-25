@@ -2,8 +2,6 @@ package com.vanniktech.emoji;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -102,7 +100,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
 
-    popupWindow = new PopupWindow(context);
+    popupWindow = new PopupWindow();
 
     final OnEmojiLongClickListener longClickListener = new OnEmojiLongClickListener() {
       @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
@@ -138,10 +136,9 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
         }
       }
     });
-
     popupWindow.setContentView(emojiView);
+
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
-    popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
       @Override public void onDismiss() {
         if (onEmojiPopupDismissListener != null) {
