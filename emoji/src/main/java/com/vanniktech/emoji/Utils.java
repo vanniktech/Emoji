@@ -61,8 +61,8 @@ final class Utils {
 
   static int getProperWidth(final Activity activity) {
     final Rect rect = Utils.windowVisibleDisplayFrame(activity);
-    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right :
-        getScreenWidth(activity);
+    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right
+        : getScreenWidth(activity);
   }
 
   static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
@@ -125,6 +125,7 @@ final class Utils {
   static int getScreenHeight(@NonNull final Activity activity) {
     return dpToPx(activity, activity.getResources().getConfiguration().screenHeightDp);
   }
+
   static int getScreenWidth(@NonNull final Activity context) {
     return dpToPx(context, context.getResources().getConfiguration().screenWidthDp);
   }
