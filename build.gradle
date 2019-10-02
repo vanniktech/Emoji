@@ -92,6 +92,8 @@ ext {
   supportCardView = "androidx.cardview:cardview:1.0.0"
   supportAnnotations = "androidx.annotation:annotation:1.0.0"
   supportEmoji = "androidx.emoji:emoji-appcompat:1.0.0"
+  materialComponents = "com.google.android.material:material:1.1.0-alpha10"
+
 
   leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 

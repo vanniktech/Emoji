@@ -20,6 +20,8 @@ android {
 }
 
 dependencies {
+  implementation rootProject.ext.materialComponents
+
   api rootProject.ext.supportAppCompat
   api rootProject.ext.supportCardView
 
