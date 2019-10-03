@@ -49,7 +49,9 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
-    emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
+    emojiButton.setOnClickListener(ignore -> {
+      emojiPopup.toggle();
+    });
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
 
@@ -75,6 +77,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menuMainShowDialog:
+        emojiPopup.stop();
         MainDialog.show(this);
         return true;
       case R.id.menuMainVariantIos:
@@ -115,9 +118,17 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     }
   }
 
+  @Override protected void onStart() {
+    if (emojiPopup != null) {
+      emojiPopup.start();
+    }
+
+    super.onStart();
+  }
+
   @Override protected void onStop() {
     if (emojiPopup != null) {
-      emojiPopup.dismiss();
+      emojiPopup.stop();
     }
 
     super.onStop();
