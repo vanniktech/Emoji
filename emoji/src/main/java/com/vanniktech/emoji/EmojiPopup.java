@@ -164,7 +164,6 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  /** Call this method in your #onStart method. */
   void start() {
     if (SDK_INT >= LOLLIPOP) {
       context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
@@ -198,7 +197,6 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  /** Call this method in your #onStop method. */
   void stop() {
     dismiss();
 
