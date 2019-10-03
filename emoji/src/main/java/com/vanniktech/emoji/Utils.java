@@ -9,12 +9,6 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
-import androidx.annotation.AttrRes;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,6 +16,12 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -56,7 +56,7 @@ final class Utils {
 
   static int getProperWidth(final Activity activity) {
     final Rect rect = Utils.windowVisibleDisplayFrame(activity);
-    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right : Utils.getScreenWidth(activity);
+    return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right : getScreenWidth(activity);
   }
 
   static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
@@ -114,6 +114,10 @@ final class Utils {
 
     final int availableHeight = rootView.getHeight() - viewInset - rect.top;
     return availableHeight - (rect.bottom - rect.top);
+  }
+
+  static int getProperHeight(final Activity activity) {
+    return Utils.windowVisibleDisplayFrame(activity).bottom;
   }
 
   static int getScreenWidth(@NonNull final Activity context) {

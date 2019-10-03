@@ -20,16 +20,16 @@ public final class RecentEmojiManager implements RecentEmoji {
   static final int EMOJI_GUESS_SIZE = 5;
   static final int MAX_RECENTS = 40;
 
-  @NonNull private final Context context;
   @NonNull private EmojiList emojiList = new EmojiList(0);
+  @NonNull private final SharedPreferences sharedPreferences;
 
   public RecentEmojiManager(@NonNull final Context context) {
-    this.context = context.getApplicationContext();
+    sharedPreferences = context.getApplicationContext().getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
   }
 
   @Override @SuppressWarnings({ "PMD.AvoidDeeplyNestedIfStmts", "checkstyle:nestedifdepth" }) @NonNull public Collection<Emoji> getRecentEmojis() {
     if (emojiList.size() == 0) {
-      final String savedRecentEmojis = getPreferences().getString(RECENT_EMOJIS, "");
+      final String savedRecentEmojis = sharedPreferences.getString(RECENT_EMOJIS, "");
 
       if (savedRecentEmojis.length() > 0) {
         final StringTokenizer stringTokenizer = new StringTokenizer(savedRecentEmojis, EMOJI_DELIMITER);
@@ -76,12 +76,8 @@ public final class RecentEmojiManager implements RecentEmoji {
 
       stringBuilder.setLength(stringBuilder.length() - EMOJI_DELIMITER.length());
 
-      getPreferences().edit().putString(RECENT_EMOJIS, stringBuilder.toString()).apply();
+      sharedPreferences.edit().putString(RECENT_EMOJIS, stringBuilder.toString()).apply();
     }
-  }
-
-  private SharedPreferences getPreferences() {
-    return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
   }
 
   static class EmojiList {
