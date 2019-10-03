@@ -118,22 +118,6 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     }
   }
 
-  @Override protected void onStart() {
-    if (emojiPopup != null) {
-      emojiPopup.start();
-    }
-
-    super.onStart();
-  }
-
-  @Override protected void onStop() {
-    if (emojiPopup != null) {
-      emojiPopup.stop();
-    }
-
-    super.onStop();
-  }
-
   private void setUpEmojiPopup() {
     emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
         .setOnEmojiBackspaceClickListener(ignore -> Log.d(TAG, "Clicked on Backspace"))

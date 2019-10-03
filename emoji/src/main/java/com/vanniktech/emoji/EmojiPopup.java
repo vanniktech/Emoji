@@ -73,11 +73,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   final View.OnAttachStateChangeListener onAttachStateChangeListener = new View.OnAttachStateChangeListener() {
     @Override public void onViewAttachedToWindow(final View v) {
-      // Unused.
+      start();
     }
 
     @Override public void onViewDetachedFromWindow(final View v) {
-      dismiss();
+      stop();
 
       popupWindow.setOnDismissListener(null);
 
