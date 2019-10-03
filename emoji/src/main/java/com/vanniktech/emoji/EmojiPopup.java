@@ -73,11 +73,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   final View.OnAttachStateChangeListener onAttachStateChangeListener = new View.OnAttachStateChangeListener() {
     @Override public void onViewAttachedToWindow(final View v) {
-      // Unused.
+      start();
     }
 
     @Override public void onViewDetachedFromWindow(final View v) {
-      dismiss();
+      stop();
 
       popupWindow.setOnDismissListener(null);
 
@@ -164,8 +164,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  /** Call this method in your #onStart method. */
-  public void start() {
+  void start() {
     if (SDK_INT >= LOLLIPOP) {
       context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
         int previousOffset;
@@ -198,8 +197,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  /** Call this method in your #onStop method. */
-  public void stop() {
+  void stop() {
     dismiss();
 
     if (SDK_INT >= LOLLIPOP) {

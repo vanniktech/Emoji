@@ -94,7 +94,7 @@ import static android.view.View.VISIBLE;
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menuMainShowDialog:
-        emojiPopup.stop();
+        emojiPopup.dismiss();
         MainDialog.show(this);
         return true;
       case R.id.menuMainVariantIos:
@@ -125,22 +125,6 @@ import static android.view.View.VISIBLE;
       default:
         return super.onOptionsItemSelected(item);
     }
-  }
-
-  @Override protected void onStart() {
-    if (emojiPopup != null) {
-      emojiPopup.start();
-    }
-
-    super.onStart();
-  }
-
-  @Override protected void onStop() {
-    if (emojiPopup != null) {
-      emojiPopup.stop();
-    }
-
-    super.onStop();
   }
 
   private void setUpEmojiPopup() {
