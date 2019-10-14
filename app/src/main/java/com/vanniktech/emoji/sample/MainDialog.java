@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 
 // We don't care about duplicated code in the sample.
 @SuppressWarnings("CPD-START") public class MainDialog extends DialogFragment {
@@ -35,25 +36,10 @@ import com.vanniktech.emoji.EmojiPopup;
   }
 
   @Override public void onCreate(@Nullable final Bundle savedInstanceState) {
+    getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory(null));
     super.onCreate(savedInstanceState);
 
     chatAdapter = new ChatAdapter();
-  }
-
-  @Override public void onStart() {
-    if (emojiPopup != null) {
-      emojiPopup.start();
-    }
-
-    super.onStart();
-  }
-
-  @Override public void onStop() {
-    if (emojiPopup != null) {
-      emojiPopup.stop();
-    }
-
-    super.onStop();
   }
 
   @Override @NonNull public Dialog onCreateDialog(final Bundle savedInstanceState) {

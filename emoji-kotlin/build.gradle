@@ -1,10 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-afterEvaluate {
-  generateReleaseBuildConfig.enabled = false
-}
-
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion as int
 

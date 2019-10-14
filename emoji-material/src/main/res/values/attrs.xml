@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="EmojiMaterialButton">
+    <attr name="emojiSize"/>
+  </declare-styleable>
+  <declare-styleable name="EmojiMaterialCheckBox">
+    <attr name="emojiSize"/>
+  </declare-styleable>
+  <declare-styleable name="EmojiMaterialRadioButton">
+    <attr name="emojiSize"/>
+  </declare-styleable>
+</resources>

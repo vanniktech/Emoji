@@ -12,11 +12,12 @@ android {
     minSdkVersion rootProject.ext.minSdkVersion as int
   }
 
-  resourcePrefix 'emoji'
+  resourcePrefix 'emoji_'
 }
 
 dependencies {
   api project(':emoji')
+  api deps.support.material
 }
 
 apply plugin: "com.vanniktech.maven.publish"
