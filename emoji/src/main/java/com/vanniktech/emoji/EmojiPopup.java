@@ -250,7 +250,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
   public void setPopupWindowHeight(final int popupWindowHeight) {
-    this.popupWindowHeight = popupWindowHeight;
+    this.popupWindowHeight = windowHeight >= 0 ? windowHeight : 0;
   }
 
   public void toggle() {
