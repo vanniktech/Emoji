@@ -60,6 +60,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+  int popupWindowHeight;
 
   int originalImeOptions = -1;
 
@@ -206,7 +207,9 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   }
 
   void updateKeyboardStateOpened(final int keyboardHeight) {
-    if (popupWindow.getHeight() != keyboardHeight) {
+    if (popupWindowHeight > 0 && popupWindow.getHeight() != popupWindowHeight) {
+      popupWindow.setHeight(popupWindowHeight);
+    } else if (popupWindowHeight == 0 && popupWindow.getHeight() != keyboardHeight) {
       popupWindow.setHeight(keyboardHeight);
     }
 
@@ -242,12 +245,12 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   /**
    * Set PopUpWindow's height.
-   * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
-   * be dynamically calculated and set as {@link PopupWindow} height.
+   * If height is greater than 0 then this value will be used later on. If it is 0 then the
+   * keyboard height will be dynamically calculated and set as {@link PopupWindow} height.
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
   public void setPopupWindowHeight(final int popupWindowHeight) {
-    popupWindow.setHeight(popupWindowHeight);
+    this.popupWindowHeight = popupWindowHeight;
   }
 
   public void toggle() {
@@ -319,7 +322,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   void showAtBottom() {
     isPendingOpen = false;
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0, Utils.getProperHeight(context));
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
+        Utils.getProperHeight(context) + popupWindowHeight);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
@@ -397,9 +401,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
      * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
      * be dynamically calculated and set as {@link PopupWindow} height.
      * @param windowHeight - the height of {@link PopupWindow}
+     *
+     * @since 0.7.0
      */
     @CheckResult public Builder setPopupWindowHeight(final int windowHeight) {
-      this.popupWindowHeight = windowHeight;
+      this.popupWindowHeight = windowHeight >= 0 ? windowHeight : 0;
       return this;
     }
 
@@ -462,9 +468,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      if (popupWindowHeight > 0) {
-        emojiPopup.setPopupWindowHeight(popupWindowHeight);
-      }
+      emojiPopup.popupWindowHeight = popupWindowHeight;
       return emojiPopup;
     }
   }
