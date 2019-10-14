@@ -37,7 +37,7 @@ buildscript {
     classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
 
     classpath 'com.android.tools.build:gradle:3.5.1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.24.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.26.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
 }
@@ -98,9 +98,9 @@ ext {
 
   testing = [
           junit             : 'junit:junit:4.13-beta-3',
-          robolectric       : 'org.robolectric:robolectric:4.3',
+          robolectric       : 'org.robolectric:robolectric:4.3.1',
           privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-          assertJ           : 'org.assertj:assertj-core:2.9.1'
+          assertJ           : 'org.assertj:assertj-core:3.13.2'
   ]
 
   javaVersion = JavaVersion.VERSION_1_7
