@@ -90,7 +90,5 @@ import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
         .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
         .setPageTransformer(new PageTransformer())
         .build(editText);
-
-    emojiPopup.start();
   }
 }
