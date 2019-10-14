@@ -19,6 +19,6 @@
 <resources>
   <color name="colorPrimary">#3F51B5</color>
   <color name="colorPrimaryDark">#303F9F</color>
-  <color name="colorAccent">#FF4081</color>
+  <color name="colorSecondary">#FF4081</color>
   <color name="chat_input_background">#212121</color>
 </resources>

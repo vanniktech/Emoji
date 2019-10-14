@@ -1,29 +1,14 @@
-/*
- * Copyright (C) 2016 - Niklas Baudy, Ruben Gees, Mario Đanić and contributors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package com.vanniktech.emoji.sample;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.provider.FontRequest;
@@ -32,11 +17,11 @@ import androidx.emoji.text.FontRequestEmojiCompatConfig;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiManager;
-import com.vanniktech.emoji.EmojiMultiAutoCompleteTextView;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
+import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 // We don't care about duplicated code in the sample.
@@ -46,12 +31,13 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   ChatAdapter chatAdapter;
   EmojiPopup emojiPopup;
 
-  EmojiMultiAutoCompleteTextView editText;
+  MultiAutoCompleteTextView editText;
   ViewGroup rootView;
   ImageView emojiButton;
   EmojiCompat emojiCompat;
 
   @Override protected void onCreate(final Bundle savedInstanceState) {
+    getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_main_multiautocompletetextview);
@@ -66,10 +52,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
-    emojiButton.setOnClickListener(ignore -> {
-      emojiPopup.start();
-      emojiPopup.toggle();
-    });
+    emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
 
@@ -95,7 +78,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menuMainShowDialog:
-        emojiPopup.stop();
+        emojiPopup.dismiss();
         MainDialog.show(this);
         return true;
       case R.id.menuMainVariantIos:
@@ -134,22 +117,6 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     } else {
       super.onBackPressed();
     }
-  }
-
-  @Override protected void onStart() {
-    if (emojiPopup != null) {
-      emojiPopup.start();
-    }
-
-    super.onStart();
-  }
-
-  @Override protected void onStop() {
-    if (emojiPopup != null) {
-      emojiPopup.stop();
-    }
-
-    super.onStop();
   }
 
   private void setUpEmojiPopup() {

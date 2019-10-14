@@ -38,6 +38,7 @@ buildscript {
         'runner': "com.android.support.test:runner:${versions.testRules}",
         'rules': "com.android.support.test:rules:${versions.testRules}",
       ],
+      'material': "com.google.android.material:material:1.1.0-alpha10",
     ],
     'fastLaneScreenGrab': "tools.fastlane:screengrab:1.2.0",
   ]
@@ -129,4 +130,11 @@ wrapper {
 
 subprojects {
   task allDependencies(type: DependencyReportTask) {}
+
+  project.plugins.withId("com.android.library") {
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    project.android.libraryVariants.all {
+      it.generateBuildConfigProvider.configure { it.enabled = false }
+    }
+  }
 }

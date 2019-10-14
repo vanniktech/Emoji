@@ -1,20 +1,3 @@
-/*
- * Copyright (C) 2016 - Niklas Baudy, Ruben Gees, Mario Đanić and contributors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package com.vanniktech.emoji;
 
 import android.app.Activity;
@@ -77,6 +60,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+  int popupWindowHeight;
 
   int originalImeOptions = -1;
 
@@ -90,11 +74,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   final View.OnAttachStateChangeListener onAttachStateChangeListener = new View.OnAttachStateChangeListener() {
     @Override public void onViewAttachedToWindow(final View v) {
-      // Unused.
+      start();
     }
 
     @Override public void onViewDetachedFromWindow(final View v) {
-      dismiss();
+      stop();
 
       popupWindow.setOnDismissListener(null);
 
@@ -181,8 +165,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   }
 
-  /** Call this method in your #onStart method. */
-  public void start() {
+  void start() {
     if (SDK_INT >= LOLLIPOP) {
       context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
         int previousOffset;
@@ -196,7 +179,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
             offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
           }
 
-          if (offset != previousOffset) {
+          if (offset != previousOffset || offset == 0) {
             previousOffset = offset;
 
             if (offset > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
@@ -210,12 +193,12 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
         }
       });
     } else {
+      rootView.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
       rootView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
     }
   }
 
-  /** Call this method in your #onStop method. */
-  public void stop() {
+  void stop() {
     dismiss();
 
     if (SDK_INT >= LOLLIPOP) {
@@ -224,7 +207,9 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   }
 
   void updateKeyboardStateOpened(final int keyboardHeight) {
-    if (popupWindow.getHeight() != keyboardHeight) {
+    if (popupWindowHeight > 0 && popupWindow.getHeight() != popupWindowHeight) {
+      popupWindow.setHeight(popupWindowHeight);
+    } else if (popupWindowHeight == 0 && popupWindow.getHeight() != keyboardHeight) {
       popupWindow.setHeight(keyboardHeight);
     }
 
@@ -260,16 +245,18 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   /**
    * Set PopUpWindow's height.
-   * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
-   * be dynamically calculated and set as {@link PopupWindow} height.
+   * If height is greater than 0 then this value will be used later on. If it is 0 then the
+   * keyboard height will be dynamically calculated and set as {@link PopupWindow} height.
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
   public void setPopupWindowHeight(final int popupWindowHeight) {
-    popupWindow.setHeight(popupWindowHeight);
+    this.popupWindowHeight = popupWindowHeight;
   }
 
   public void toggle() {
     if (!popupWindow.isShowing()) {
+      // this is needed because something might have cleared the insets listener
+      start();
       show();
     } else {
       dismiss();
@@ -335,7 +322,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
 
   void showAtBottom() {
     isPendingOpen = false;
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0, Utils.getProperHeight(context));
+    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
+        Utils.getProperHeight(context) + popupWindowHeight);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
@@ -413,9 +401,11 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
      * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
      * be dynamically calculated and set as {@link PopupWindow} height.
      * @param windowHeight - the height of {@link PopupWindow}
+     *
+     * @since 0.7.0
      */
     @CheckResult public Builder setPopupWindowHeight(final int windowHeight) {
-      this.popupWindowHeight = windowHeight;
+      this.popupWindowHeight = windowHeight >= 0 ? windowHeight : 0;
       return this;
     }
 
@@ -478,9 +468,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      if (popupWindowHeight > 0) {
-        emojiPopup.setPopupWindowHeight(popupWindowHeight);
-      }
+      emojiPopup.popupWindowHeight = popupWindowHeight;
       return emojiPopup;
     }
   }

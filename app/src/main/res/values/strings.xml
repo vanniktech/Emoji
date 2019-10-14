@@ -24,5 +24,4 @@
   <string name="variant_google_compat_title">GoogleCompat</string>
   <string name="variant_twitter_title">Twitter</string>
   <string name="show_dialog_title">Show Dialog</string>
-  <string name="force_emojis_only">Force EmojisE only</string>
 </resources>

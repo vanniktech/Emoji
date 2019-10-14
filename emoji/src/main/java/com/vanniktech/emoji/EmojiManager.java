@@ -233,7 +233,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     return emojiMap.get(candidate.toString());
   }
 
-  void verifyInstalled() {
+  public void verifyInstalled() {
     if (categories == null) {
       throw new IllegalStateException("Please install an EmojiProvider through the EmojiManager.install() method first.");
     }

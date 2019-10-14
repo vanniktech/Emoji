@@ -1,28 +1,14 @@
-/*
- * Copyright (C) 2016 - Niklas Baudy, Ruben Gees, Mario Đanić and contributors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package com.vanniktech.emoji.sample;
 
+import android.annotation.SuppressLint;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +24,7 @@ import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
+import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 import static android.view.View.GONE;
@@ -55,13 +42,16 @@ import static android.view.View.VISIBLE;
   ImageView emojiButton;
   EmojiCompat emojiCompat;
 
-  @Override protected void onCreate(final Bundle savedInstanceState) {
+  @Override @SuppressLint("SetTextI18n") protected void onCreate(final Bundle savedInstanceState) {
+    getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_main);
 
     chatAdapter = new ChatAdapter();
 
+    final Button button = findViewById(R.id.main_activity_material_button);
+    button.setText("\uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
     editText = findViewById(R.id.main_activity_chat_bottom_message_edittext);
     rootView = findViewById(R.id.main_activity_root_view);
     emojiButton = findViewById(R.id.main_activity_emoji);
@@ -71,6 +61,7 @@ import static android.view.View.VISIBLE;
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
     final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
+    forceEmojisOnly.setText("Force emojis only \uD83D\uDE18");
     forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
       if (isChecked) {
         editText.clearFocus();
@@ -82,11 +73,7 @@ import static android.view.View.VISIBLE;
       }
     });
 
-    emojiButton.setOnClickListener(ignore -> {
-      // this is needed because the dialog has cleared the insets listener
-      emojiPopup.start();
-      emojiPopup.toggle();
-    });
+    emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
 
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
@@ -113,7 +100,7 @@ import static android.view.View.VISIBLE;
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menuMainShowDialog:
-        emojiPopup.stop();
+        emojiPopup.dismiss();
         MainDialog.show(this);
         return true;
       case R.id.menuMainVariantIos:
@@ -144,22 +131,6 @@ import static android.view.View.VISIBLE;
       default:
         return super.onOptionsItemSelected(item);
     }
-  }
-
-  @Override protected void onStart() {
-    if (emojiPopup != null) {
-      emojiPopup.start();
-    }
-
-    super.onStart();
-  }
-
-  @Override protected void onStop() {
-    if (emojiPopup != null) {
-      emojiPopup.stop();
-    }
-
-    super.onStop();
   }
 
   private void setUpEmojiPopup() {
