@@ -60,8 +60,8 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
   @Nullable OnEmojiClickListener onEmojiClickListener;
   @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
-  int popupWindowHeight;
 
+  int popupWindowHeight;
   int originalImeOptions = -1;
 
   final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
@@ -90,6 +90,49 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     }
   };
 
+  final OnEmojiClickListener internalOnEmojiClickListener = new OnEmojiClickListener() {
+    @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
+      Utils.input(editText, emoji);
+
+      recentEmoji.addEmoji(emoji);
+      variantEmoji.addVariant(emoji);
+      imageView.updateEmoji(emoji);
+
+      if (onEmojiClickListener != null) {
+        onEmojiClickListener.onEmojiClick(imageView, emoji);
+      }
+
+      variantPopup.dismiss();
+    }
+  };
+
+  final OnEmojiLongClickListener internalOnEmojiLongClickListener = new OnEmojiLongClickListener() {
+    @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
+      variantPopup.show(view, emoji);
+    }
+  };
+
+  final OnEmojiBackspaceClickListener internalOnEmojiBackspaceClickListener = new OnEmojiBackspaceClickListener() {
+    @Override public void onEmojiBackspaceClick(final View v) {
+      backspace(editText);
+
+      if (onEmojiBackspaceClickListener != null) {
+        onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
+      }
+    }
+  };
+
+  final PopupWindow.OnDismissListener onDismissListener = new PopupWindow.OnDismissListener() {
+    @Override public void onDismiss() {
+      if (editText instanceof EmojiEditText && ((EmojiEditText) editText).isKeyboardInputDisabled()) {
+        editText.clearFocus();
+      }
+      if (onEmojiPopupDismissListener != null) {
+        onEmojiPopupDismissListener.onEmojiPopupDismiss();
+      }
+    }
+  };
+
   EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
       @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
       @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor,
@@ -101,57 +144,18 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
     this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
 
     popupWindow = new PopupWindow(context);
+    variantPopup = new EmojiVariantPopup(this.rootView, internalOnEmojiClickListener);
 
-    final OnEmojiLongClickListener longClickListener = new OnEmojiLongClickListener() {
-      @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
-        variantPopup.show(view, emoji);
-      }
-    };
+    final EmojiView emojiView = new EmojiView(context,
+            internalOnEmojiClickListener, internalOnEmojiLongClickListener, recentEmoji, variantEmoji,
+            backgroundColor, iconColor, dividerColor, pageTransformer);
 
-    final OnEmojiClickListener clickListener = new OnEmojiClickListener() {
-      @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
-        Utils.input(editText, emoji);
-
-        recentEmoji.addEmoji(emoji);
-        variantEmoji.addVariant(emoji);
-        imageView.updateEmoji(emoji);
-
-        if (onEmojiClickListener != null) {
-          onEmojiClickListener.onEmojiClick(imageView, emoji);
-        }
-
-        variantPopup.dismiss();
-      }
-    };
-
-    variantPopup = new EmojiVariantPopup(this.rootView, clickListener);
-
-    final EmojiView emojiView = new EmojiView(context, clickListener, longClickListener, recentEmoji, variantEmoji, backgroundColor, iconColor, dividerColor, pageTransformer);
-    emojiView.setOnEmojiBackspaceClickListener(new OnEmojiBackspaceClickListener() {
-      @Override public void onEmojiBackspaceClick(final View v) {
-        backspace(editText);
-
-        if (onEmojiBackspaceClickListener != null) {
-          onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
-        }
-      }
-    });
+    emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 
     popupWindow.setContentView(emojiView);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
-    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-      @Override public void onDismiss() {
-        if (editText instanceof EmojiEditText) {
-          if (((EmojiEditText) editText).isKeyboardInputDisabled()) {
-            editText.clearFocus();
-          }
-        }
-        if (onEmojiPopupDismissListener != null) {
-          onEmojiPopupDismissListener.onEmojiPopupDismiss();
-        }
-      }
-    });
+    popupWindow.setOnDismissListener(onDismissListener);
 
     if (animationStyle != 0) {
       popupWindow.setAnimationStyle(animationStyle);
