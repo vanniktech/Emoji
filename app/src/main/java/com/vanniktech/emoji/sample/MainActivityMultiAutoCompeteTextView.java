@@ -3,10 +3,12 @@ package com.vanniktech.emoji.sample;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.provider.FontRequest;
@@ -15,11 +17,11 @@ import androidx.emoji.text.FontRequestEmojiCompatConfig;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiManager;
-import com.vanniktech.emoji.EmojiMultiAutoCompleteTextView;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
+import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 // We don't care about duplicated code in the sample.
@@ -29,12 +31,13 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
   ChatAdapter chatAdapter;
   EmojiPopup emojiPopup;
 
-  EmojiMultiAutoCompleteTextView editText;
+  MultiAutoCompleteTextView editText;
   ViewGroup rootView;
   ImageView emojiButton;
   EmojiCompat emojiCompat;
 
   @Override protected void onCreate(final Bundle savedInstanceState) {
+    getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_main_multiautocompletetextview);

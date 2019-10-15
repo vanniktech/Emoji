@@ -21,7 +21,7 @@ buildscript {
         'runner': "com.android.support.test:runner:${versions.testRules}",
         'rules': "com.android.support.test:rules:${versions.testRules}",
       ],
-      'material': "com.google.android.material:material:1.1.0-alpha10",
+      'material': "com.google.android.material:material:1.1.0-beta01",
     ],
     'fastLaneScreenGrab': "tools.fastlane:screengrab:1.2.0",
   ]

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
-  <com.vanniktech.emoji.material.EmojiMaterialButton
+  <Button
       android:id="@+id/main_activity_material_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
       android:layout_marginStart="16dp"
       android:layout_marginLeft="16dp"
       />
-  <com.vanniktech.emoji.material.EmojiMaterialCheckBox
+  <CheckBox
       android:id="@+id/main_activity_force_emojis_only"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -57,8 +57,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:imeOptions="actionSend"
+        android:importantForAutofill="no"
         android:inputType="textCapSentences|textMultiLine"
         android:maxLines="3"
+        tools:ignore="LabelFor"
         />
     <ImageView
         android:id="@+id/main_activity_send"

@@ -34,14 +34,16 @@
         app:srcCompat="@drawable/emoji_ios_category_smileysandpeople"
         tools:ignore="ContentDescription"
         />
-    <com.vanniktech.emoji.EmojiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/main_activity_chat_bottom_message_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:imeOptions="actionSend|flagNoExtractUi"
+        android:importantForAutofill="no"
         android:inputType="textCapSentences|textMultiLine"
         android:maxLines="3"
+        tools:ignore="LabelFor"
         />
     <ImageView
         android:id="@+id/main_activity_send"
