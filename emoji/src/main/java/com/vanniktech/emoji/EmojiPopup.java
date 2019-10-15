@@ -259,7 +259,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
    * @param popupWindowHeight - the height of {@link PopupWindow}
    */
   public void setPopupWindowHeight(final int popupWindowHeight) {
-    this.popupWindowHeight = popupWindowHeight;
+    this.popupWindowHeight = popupWindowHeight >= 0 ? popupWindowHeight : 0;
   }
 
   public void toggle() {
@@ -477,7 +477,7 @@ public final class EmojiPopup implements EmojiResultReceiver.Receiver {
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      emojiPopup.popupWindowHeight = popupWindowHeight;
+      emojiPopup.popupWindowHeight = popupWindowHeight >= 0 ? popupWindowHeight : 0;
       return emojiPopup;
     }
   }
