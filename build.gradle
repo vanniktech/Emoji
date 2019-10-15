@@ -21,7 +21,7 @@ buildscript {
         'runner': "com.android.support.test:runner:${versions.testRules}",
         'rules': "com.android.support.test:rules:${versions.testRules}",
       ],
-      'material': "com.google.android.material:material:1.1.0-alpha10",
+      'material': "com.google.android.material:material:1.1.0-beta01",
     ],
     'fastLaneScreenGrab': "tools.fastlane:screengrab:1.2.0",
   ]
@@ -36,7 +36,7 @@ buildscript {
     classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.15.0'
     classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
 
-    classpath 'com.android.tools.build:gradle:3.5.0'
+    classpath 'com.android.tools.build:gradle:3.5.1'
     classpath 'com.github.ben-manes:gradle-versions-plugin:0.24.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
