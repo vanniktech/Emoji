@@ -37,7 +37,7 @@ import static android.os.Build.VERSION_CODES.O;
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
-public final class EmojiPopup implements EmojiResultReceiver.Receiver {
+@SuppressWarnings("PMD.GodClass") public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   static final int MIN_KEYBOARD_HEIGHT = 50;
 
   final View rootView;
