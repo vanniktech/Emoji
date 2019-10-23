@@ -53,6 +53,9 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   boolean isPendingOpen;
   boolean isKeyboardOpen;
 
+  private int globalKeyboardHeight;
+  private int delay;
+
   @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
   @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
   @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
@@ -218,6 +221,13 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       popupWindow.setHeight(keyboardHeight);
     }
 
+    if (globalKeyboardHeight != keyboardHeight) {
+      globalKeyboardHeight = keyboardHeight;
+      delay = 250;
+    } else {
+      delay = 0;
+    }
+
     final int properWidth = Utils.getProperWidth(context);
 
     if (popupWindow.getWidth() != properWidth) {
@@ -327,8 +337,12 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   void showAtBottom() {
     isPendingOpen = false;
-    popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
-        Utils.getProperHeight(context) + popupWindowHeight);
+    editText.postDelayed(new Runnable() {
+      @Override public void run() {
+        popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
+            Utils.getProperHeight(context) + popupWindowHeight);
+      }
+    }, delay);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
