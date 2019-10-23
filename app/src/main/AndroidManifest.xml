@@ -21,6 +21,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".MainActivityAutoCompeteTextView"/>
+    <activity android:name=".CustomViewActivity"/>
     <activity android:name=".MainActivityMultiAutoCompeteTextView"/>
   </application>
 </manifest>
