@@ -133,6 +133,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
     @Override public void onFocusChange(final View view, final boolean hasFocus) {
       if (hasFocus) {
+        emojiPopup.start();
         emojiPopup.show();
       } else {
         emojiPopup.dismiss();
