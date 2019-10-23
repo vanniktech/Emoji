@@ -39,6 +39,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
 @SuppressWarnings("PMD.GodClass") public final class EmojiPopup implements EmojiResultReceiver.Receiver {
   static final int MIN_KEYBOARD_HEIGHT = 50;
+  static final int APPLY_WINDOW_INSETS_DURATION = 250;
 
   final View rootView;
   final Activity context;
@@ -223,7 +224,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     if (globalKeyboardHeight != keyboardHeight) {
       globalKeyboardHeight = keyboardHeight;
-      delay = 250;
+      delay = APPLY_WINDOW_INSETS_DURATION;
     } else {
       delay = 0;
     }
