@@ -20,7 +20,9 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".MainActivityAutoCompeteTextView"/>
-    <activity android:name=".MainActivityMultiAutoCompeteTextView"/>
+    <activity android:name=".MainActivityAutoCompeteTextView"
+        android:windowSoftInputMode="stateVisible|adjustResize"/>
+    <activity android:name=".MainActivityMultiAutoCompeteTextView"
+        android:windowSoftInputMode="stateVisible|adjustResize"/>
   </application>
 </manifest>
