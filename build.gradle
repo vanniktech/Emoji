@@ -20,6 +20,7 @@ buildscript {
         ],
         'runner': "com.android.support.test:runner:${versions.testRules}",
         'rules': "com.android.support.test:rules:${versions.testRules}",
+        'autoService': "com.google.auto.service:auto-service:1.0-rc4",
       ],
       'material': "com.google.android.material:material:1.1.0-beta01",
     ],
@@ -100,7 +101,8 @@ ext {
           junit             : 'junit:junit:4.13-beta-3',
           robolectric       : 'org.robolectric:robolectric:4.3.1',
           privateConstructor: 'com.pushtorefresh.java-private-constructor-checker:checker:1.2.0',
-          assertJ           : 'org.assertj:assertj-core:2.9.1'
+          assertJ           : 'org.assertj:assertj-core:2.9.1',
+          autoService       : 'com.google.auto.service:auto-service:1.0-rc4'
   ]
 
   javaVersion = JavaVersion.VERSION_1_7

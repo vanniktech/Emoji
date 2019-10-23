@@ -53,6 +53,7 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
+
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
 

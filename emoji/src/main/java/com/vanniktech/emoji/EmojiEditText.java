@@ -16,6 +16,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 /** Reference implementation for an EditText with emoji support. */
 @SuppressWarnings("CPD-START") public class EmojiEditText extends AppCompatEditText {
   private float emojiSize;
+  private boolean disableKeyboardInput;
 
   public EmojiEditText(final Context context) {
     this(context, null);
@@ -100,13 +101,19 @@ import com.vanniktech.emoji.emoji.Emoji;
     }
   }
 
+  public boolean isKeyboardInputDisabled() {
+    return disableKeyboardInput;
+  }
+
   /** Disables the keyboard input using a focus change listener and delegating to the previous focus change listener. */
   public void disableKeyboardInput(final EmojiPopup emojiPopup) {
+    disableKeyboardInput = true;
     super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
   }
 
   /** Enables the keyboard input. If it has been disabled before using {@link #disableKeyboardInput(EmojiPopup)} the OnFocusChangeListener will be preserved. */
   public void enableKeyboardInput() {
+    disableKeyboardInput = false;
     final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
 
     if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
@@ -126,6 +133,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
     @Override public void onFocusChange(final View view, final boolean hasFocus) {
       if (hasFocus) {
+        emojiPopup.start();
         emojiPopup.show();
       } else {
         emojiPopup.dismiss();
