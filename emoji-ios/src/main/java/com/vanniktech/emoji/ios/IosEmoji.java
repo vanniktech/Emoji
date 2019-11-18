@@ -102,8 +102,6 @@ public class IosEmoji extends Emoji {
     Log.d("TAG", "Still working in AnimatedDrawable");
 
     final Bitmap strip = loadStrip(context);
-    Log.d("TAG", "Still working after loading strip");
-    Log.d("Strip is: ", strip.toString());
     final Bitmap[] cut = loadAnimatedStrip(strip);
 
     AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -112,8 +110,7 @@ public class IosEmoji extends Emoji {
     }
     animationDrawable.setOneShot(false);
 
-    System.out.println("Frames: " + animationDrawable.getNumberOfFrames());
-    System.out.println("Frames: " + animationDrawable.isRunning());
+    System.out.println("Frames in getAnimatedDrawable Method: " + animationDrawable.getNumberOfFrames());
 
     return animationDrawable;
   }
@@ -124,7 +121,7 @@ public class IosEmoji extends Emoji {
 
     for(line = 0; line * SPRITE_SIZE_INC_BORDER < bitmap.getHeight(); line++) {
       bitmapStripList.add(Bitmap.createBitmap(bitmap, 1, line * SPRITE_SIZE_INC_BORDER, SPRITE_SIZE, SPRITE_SIZE));
-      Log.d("TAG", bitmapStripList.get(bitmapStripList.size() - 1).toString());
+      Log.d("TAG", "Frame: " + line + " " +  bitmapStripList.get(bitmapStripList.size() - 1).toString());
     }
 
     Bitmap[] bitmapStripArray = new Bitmap[bitmapStripList.size()];

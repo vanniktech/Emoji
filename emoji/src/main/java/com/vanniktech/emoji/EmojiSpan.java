@@ -90,32 +90,15 @@ final class EmojiSpan extends DynamicDrawableSpan {
 
 
     // TODO: Create working AnimationDrawable implementation
-
-    AnimationDrawable animat = (AnimationDrawable) drawable;
-    Drawable drawableAnim = animat.getFrame(0);  // TODO: This does work
-    Drawable drawableAnim2 = animat.getFrame(0);  // TODO: This does not work, getFrame returns empty even though Frames saved is 52
+    
+    AnimationDrawable animation = (AnimationDrawable) drawable;
+    Drawable drawableAnim = animation.getFrame(0);  // TODO: This does work
+    Drawable drawableAnim2 = animation.getFrame(5);  // TODO: This does not work, getFrame returns null even though Frames saved is 52
     drawImage(canvas, drawableAnim, text, start, end, x, top, y, bottom, paint);
 
-
-    // drawImage(canvas, drawable, text, start, end, x, top, y, bottom, paint);
-
-    /*
-    if(drawable instanceof AnimationDrawable) {
-      AnimationDrawable animation = (AnimationDrawable) drawable;
-      animation.getFrame(5).draw(canvas);
-      // animation.start();
-      System.out.println("Frames: " + animation.getNumberOfFrames());
-      System.out.println("Frames: " + animation.isOneShot());
-      System.out.println("Frames: " + animation.isRunning());
-
-      // AnimationDrawable animationDrawable = (AnimationDrawable) drawable;
-      // for(int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
-        //  drawImage(canvas, animationDrawable.getFrame(i), text, start, end, x, top, y, bottom, paint);
-
-      // }
-
-     */
-
+    System.out.println("Frames in drawAnimation Method: " + animation.getNumberOfFrames()); // TODO: 52 Frames returned
+    // System.out.println("Frames: " + animation.isOneShot());
+    // System.out.println("Frames: " + animation.isRunning());
 
     Log.d("TAG", "Animation in EmojiSpan");
   }
