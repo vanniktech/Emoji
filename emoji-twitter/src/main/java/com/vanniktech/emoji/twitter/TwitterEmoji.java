@@ -58,7 +58,7 @@ public class TwitterEmoji extends Emoji {
 
   public TwitterEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate,
                      final Emoji... variants) {
-    super(codePoints, -1, isDuplicate, variants);
+    super(codePoints, -1, isDuplicate, false, variants);
 
     this.x = x;
     this.y = y;

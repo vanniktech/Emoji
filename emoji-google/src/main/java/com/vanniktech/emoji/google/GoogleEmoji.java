@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
@@ -58,7 +59,7 @@ public class GoogleEmoji extends Emoji {
 
   public GoogleEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate,
                      final Emoji... variants) {
-    super(codePoints, -1, isDuplicate, variants);
+    super(codePoints, -1, isDuplicate, false, variants);
 
     this.x = x;
     this.y = y;

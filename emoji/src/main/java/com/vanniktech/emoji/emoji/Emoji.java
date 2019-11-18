@@ -1,6 +1,7 @@
 package com.vanniktech.emoji.emoji;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -20,12 +21,18 @@ public class Emoji implements Serializable {
   @NonNull private final String unicode;
   @DrawableRes private final int resource;
   private final boolean isDuplicate;
+  private final boolean isAnimated;
   @NonNull private final List<Emoji> variants;
   @Nullable private Emoji base;
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
                final boolean isDuplicate) {
-    this(codePoints, resource, isDuplicate, new Emoji[0]);
+    this(codePoints, resource, isDuplicate, false, new Emoji[0]);
+  }
+
+  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
+               final boolean isDuplicate, final boolean isAnimated) {
+    this(codePoints, resource, isDuplicate, isAnimated, new Emoji[0]);
   }
 
   public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate) {
@@ -34,14 +41,15 @@ public class Emoji implements Serializable {
 
   public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate,
                final Emoji... variants) {
-    this(new int[]{codePoint}, resource, isDuplicate, variants);
+    this(new int[]{codePoint}, resource, isDuplicate,false,  variants);
   }
 
   public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
-               final boolean isDuplicate, final Emoji... variants) {
+               final boolean isDuplicate, final boolean isAnimated,  final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.resource = resource;
     this.isDuplicate = isDuplicate;
+    this.isAnimated = isAnimated;
     this.variants = variants.length == 0 ? EMPTY_EMOJI_LIST : asList(variants);
     for (final Emoji variant : variants) {
       variant.base = this;
@@ -62,6 +70,10 @@ public class Emoji implements Serializable {
 
   @NonNull public Drawable getDrawable(final Context context) {
     return AppCompatResources.getDrawable(context, resource);
+  }
+
+  public AnimationDrawable getAnimatedDrawable(final Context context) {
+    return null;
   }
 
   public boolean isDuplicate() {
@@ -89,6 +101,8 @@ public class Emoji implements Serializable {
   public boolean hasVariants() {
     return !variants.isEmpty();
   }
+
+  public boolean isAnimated() { return isAnimated; }
 
   public void destroy() {
     // For inheritors to override.

@@ -7,7 +7,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
 public final class GoogleCompatEmoji extends Emoji {
   public GoogleCompatEmoji(final int[] ints, final Emoji... emojis) {
-    super(ints, -1, false, emojis);
+    super(ints, -1, false, false, emojis);
   }
 
   public GoogleCompatEmoji(final int codePoint, final Emoji... emojis) {

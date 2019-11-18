@@ -5,6 +5,7 @@ import com.vanniktech.emoji.EmojiProvider;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.ios.category.ActivitiesCategory;
 import com.vanniktech.emoji.ios.category.AnimalsAndNatureCategory;
+import com.vanniktech.emoji.ios.category.CustomAnimatedCategory;
 import com.vanniktech.emoji.ios.category.FlagsCategory;
 import com.vanniktech.emoji.ios.category.FoodAndDrinkCategory;
 import com.vanniktech.emoji.ios.category.ObjectsCategory;
@@ -22,7 +23,8 @@ public final class IosEmojiProvider implements EmojiProvider {
       new TravelAndPlacesCategory(),
       new ObjectsCategory(),
       new SymbolsCategory(),
-      new FlagsCategory()
+      new FlagsCategory(),
+      new CustomAnimatedCategory()
     };
   }
 }
