@@ -19,7 +19,7 @@ public class CustomViewActivity extends AppCompatActivity {
   }
 
   static class CustomView extends LinearLayout {
-    public CustomView(final Context context, @Nullable final AttributeSet attrs) {
+    CustomView(final Context context, @Nullable final AttributeSet attrs) {
       super(context, attrs);
       View.inflate(context, R.layout.view_custom, this);
     }
