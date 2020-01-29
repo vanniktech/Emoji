@@ -24,10 +24,10 @@ public class CustomViewActivity extends AppCompatActivity {
       View.inflate(context, R.layout.view_custom, this);
     }
 
-    @Override protected void onAttachedToWindow() {
+    @Override @SuppressLint("WrongViewCast") protected void onAttachedToWindow() {
       super.onAttachedToWindow();
 
-      @SuppressLint("WrongViewCast") final EmojiEditText editText = findViewById(R.id.customViewEditText);
+      final EmojiEditText editText = findViewById(R.id.customViewEditText);
 
       final EmojiPopup emojiPopup = EmojiPopup.Builder.fromRootView((View) getParent())
           .build(editText);
