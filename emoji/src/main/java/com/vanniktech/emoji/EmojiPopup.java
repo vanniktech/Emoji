@@ -133,22 +133,18 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     }
   };
 
-  EmojiPopup(@NonNull final View rootView, @NonNull final EditText editText,
-      @Nullable final RecentEmoji recent, @Nullable final VariantEmoji variant,
-      @ColorInt final int backgroundColor, @ColorInt final int iconColor, @ColorInt final int dividerColor,
-      @StyleRes final int animationStyle, @Nullable final ViewPager.PageTransformer pageTransformer) {
-    this.context = Utils.asActivity(rootView.getContext());
-    this.rootView = rootView.getRootView();
+  EmojiPopup(@NonNull final EmojiPopup.Builder builder, @NonNull final EditText editText) {
+    this.context = Utils.asActivity(builder.rootView.getContext());
+    this.rootView = builder.rootView.getRootView();
     this.editText = editText;
-    this.recentEmoji = recent != null ? recent : new RecentEmojiManager(context);
-    this.variantEmoji = variant != null ? variant : new VariantEmojiManager(context);
+    this.recentEmoji = builder.recentEmoji;
+    this.variantEmoji = builder.variantEmoji;
 
     popupWindow = new PopupWindow(context);
-    variantPopup = new EmojiVariantPopup(this.rootView, internalOnEmojiClickListener);
+    variantPopup = new EmojiVariantPopup(rootView, internalOnEmojiClickListener);
 
     final EmojiView emojiView = new EmojiView(context,
-            internalOnEmojiClickListener, internalOnEmojiLongClickListener, recentEmoji, variantEmoji,
-            backgroundColor, iconColor, dividerColor, pageTransformer);
+            internalOnEmojiClickListener, internalOnEmojiLongClickListener, builder);
 
     emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 
@@ -157,8 +153,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(onDismissListener);
 
-    if (animationStyle != 0) {
-      popupWindow.setAnimationStyle(animationStyle);
+    if (builder.keyboardAnimationStyle != 0) {
+      popupWindow.setAnimationStyle(builder.keyboardAnimationStyle);
     }
 
     rootView.addOnAttachStateChangeListener(onAttachStateChangeListener);
@@ -346,24 +342,27 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   }
 
   public static final class Builder {
-    @NonNull private final View rootView;
-    @StyleRes private int keyboardAnimationStyle;
-    @ColorInt private int backgroundColor;
-    @ColorInt private int iconColor;
-    @ColorInt private int dividerColor;
-    @Nullable private ViewPager.PageTransformer pageTransformer;
-    @Nullable private OnEmojiPopupShownListener onEmojiPopupShownListener;
-    @Nullable private OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
-    @Nullable private OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
-    @Nullable private OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
-    @Nullable private OnEmojiClickListener onEmojiClickListener;
-    @Nullable private OnEmojiPopupDismissListener onEmojiPopupDismissListener;
-    @Nullable private RecentEmoji recentEmoji;
-    @Nullable private VariantEmoji variantEmoji;
-    private int popupWindowHeight;
+    @NonNull final View rootView;
+    @StyleRes int keyboardAnimationStyle;
+    @ColorInt int backgroundColor;
+    @ColorInt int iconColor;
+    @ColorInt int selectedIconColor;
+    @ColorInt int dividerColor;
+    @Nullable ViewPager.PageTransformer pageTransformer;
+    @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
+    @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
+    @Nullable OnSoftKeyboardOpenListener onSoftKeyboardOpenListener;
+    @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
+    @Nullable OnEmojiClickListener onEmojiClickListener;
+    @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
+    @NonNull RecentEmoji recentEmoji;
+    @NonNull VariantEmoji variantEmoji;
+    int popupWindowHeight;
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
+      this.recentEmoji = new RecentEmojiManager(rootView.getContext());
+      this.variantEmoji = new VariantEmojiManager(rootView.getContext());
     }
 
     /**
@@ -414,7 +413,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
      * @since 0.7.0
      */
     @CheckResult public Builder setPopupWindowHeight(final int windowHeight) {
-      this.popupWindowHeight = windowHeight >= 0 ? windowHeight : 0;
+      this.popupWindowHeight = Math.max(windowHeight, 0);
       return this;
     }
 
@@ -424,8 +423,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
      *
      * @since 0.2.0
      */
-    @CheckResult public Builder setRecentEmoji(@Nullable final RecentEmoji recent) {
-      recentEmoji = recent;
+    @CheckResult public Builder setRecentEmoji(@NonNull final RecentEmoji recent) {
+      recentEmoji = checkNotNull(recent, "recent can't be null");
       return this;
     }
 
@@ -435,8 +434,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
      *
      * @since 0.5.0
      */
-    @CheckResult public Builder setVariantEmoji(@Nullable final VariantEmoji variant) {
-      variantEmoji = variant;
+    @CheckResult public Builder setVariantEmoji(@NonNull final VariantEmoji variant) {
+      variantEmoji = checkNotNull(variant, "variant can't be null");
       return this;
     }
 
@@ -447,6 +446,11 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     @CheckResult public Builder setIconColor(@ColorInt final int color) {
       iconColor = color;
+      return this;
+    }
+
+    @CheckResult public Builder setSelectedIconColor(@ColorInt final int color) {
+      selectedIconColor = color;
       return this;
     }
 
@@ -469,15 +473,14 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
 
-      final EmojiPopup emojiPopup = new EmojiPopup(rootView, editText, recentEmoji, variantEmoji, backgroundColor,
-          iconColor, dividerColor, keyboardAnimationStyle, pageTransformer);
+      final EmojiPopup emojiPopup = new EmojiPopup(this, editText);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
       emojiPopup.onEmojiClickListener = onEmojiClickListener;
       emojiPopup.onSoftKeyboardOpenListener = onSoftKeyboardOpenListener;
       emojiPopup.onEmojiPopupShownListener = onEmojiPopupShownListener;
       emojiPopup.onEmojiPopupDismissListener = onEmojiPopupDismissListener;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
-      emojiPopup.popupWindowHeight = popupWindowHeight >= 0 ? popupWindowHeight : 0;
+      emojiPopup.popupWindowHeight = Math.max(popupWindowHeight, 0);
       return emojiPopup;
     }
   }

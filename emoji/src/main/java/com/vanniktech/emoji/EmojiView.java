@@ -41,28 +41,25 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context,
       final OnEmojiClickListener onEmojiClickListener,
-      final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final RecentEmoji recentEmoji,
-      @NonNull final VariantEmoji variantManager, @ColorInt final int backgroundColor,
-      @ColorInt final int iconColor, @ColorInt final int dividerColor,
-      @Nullable final ViewPager.PageTransformer pageTransformer) {
+      final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final EmojiPopup.Builder builder) {
     super(context);
 
     View.inflate(context, R.layout.emoji_view, this);
 
     setOrientation(VERTICAL);
-    setBackgroundColor(backgroundColor != 0 ? backgroundColor : Utils.resolveColor(context, R.attr.emojiBackground, R.color.emoji_background));
-    themeIconColor = iconColor != 0 ? iconColor : Utils.resolveColor(context, R.attr.emojiIcons, R.color.emoji_icons);
+    setBackgroundColor(builder.backgroundColor != 0 ? builder.backgroundColor : Utils.resolveColor(context, R.attr.emojiBackground, R.color.emoji_background));
+    themeIconColor = builder.iconColor != 0 ? builder.iconColor : Utils.resolveColor(context, R.attr.emojiIcons, R.color.emoji_icons);
 
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
-    themeAccentColor = value.data;
+    themeAccentColor = builder.selectedIconColor != 0 ? builder.selectedIconColor : value.data;
 
     final ViewPager emojisPager = findViewById(R.id.emojiViewPager);
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
-    emojiDivider.setBackgroundColor(dividerColor != 0 ? dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
+    emojiDivider.setBackgroundColor(builder.dividerColor != 0 ? builder.dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
 
-    if (pageTransformer != null) {
-      emojisPager.setPageTransformer(true, pageTransformer);
+    if (builder.pageTransformer != null) {
+      emojisPager.setPageTransformer(true, builder.pageTransformer);
     }
 
     final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
@@ -79,7 +76,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     handleOnClicks(emojisPager);
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, recentEmoji, variantManager);
+    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
     emojisPager.setAdapter(emojiPagerAdapter);
 
     final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
