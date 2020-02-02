@@ -16,17 +16,17 @@ const targets = [{
     package: "ios",
     name: "IosEmoji",
     dataSource: "apple",
-    dataAttribute: "has_img_apple"
+    dataAttribute: "has_img_apple",
 }, {
     package: "google",
     name: "GoogleEmoji",
     dataSource: "google",
-    dataAttribute: "has_img_google"
+    dataAttribute: "has_img_google",
 }, {
     package: "twitter",
     name: "TwitterEmoji",
     dataSource: "twitter",
-    dataAttribute: "has_img_twitter"
+    dataAttribute: "has_img_twitter",
 }];
 
 /**
@@ -41,6 +41,12 @@ const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939
  */
 const categoryOrder = ["SmileysAndPeople", "AnimalsAndNature", "FoodAndDrink", "Activities", "TravelAndPlaces",
     "Objects", "Symbols", "Flags"];
+
+/**
+ * The amount of emojis to put in a chunk.
+ * @type {number}
+ */
+const chunkSize = 250;
 
 /**
  * Helper function to be used by {@link #copyImages} for copying (and optimizing) the images of a single target
@@ -70,22 +76,24 @@ async function copyTargetImages(map, target, shouldOptimize) {
         }
     });
 
-    const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets/64.png`;
+    const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets-clean/64.png`;
     const sheet = await Jimp.read(src);
     const strips = sheet.bitmap.width / 66 - 1;
+
     for (let i = 0; i < strips; i++) {
+        const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_sheet_${i}.png`;
         const maxY = emojiByStrip[i].map(it => it.sheet_y).reduce((a, b) => Math.max(a, b), 0);
         const height = (maxY + 1) * 66;
-        const strip = await new Jimp(66, height);
-        await strip.blit(sheet, 0, 0, i * 66, 0, 66, height);
-        const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_sheet_${i}.png`;
+
+        const strip = await sheet.clone().crop(i * 66, 0, 66, height)
+
         if (shouldOptimize) {
             const buffer = await strip.getBufferAsync('image/png');
             const optimizedStrip = await imagemin.buffer(buffer, {
                 plugins: [
                     imageminPngquant(),
-                    imageminZopfli()
-                ]
+                    imageminZopfli(),
+                ],
             });
             await fs.writeFile(dest, optimizedStrip);
         } else {
@@ -94,19 +102,33 @@ async function copyTargetImages(map, target, shouldOptimize) {
     }
 
     for (const [category] of map) {
-        await fs.copy(`img/${category.toLowerCase()}.png`,
-            `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`);
+        const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`
+
+        await fs.copy(`img/${category.toLowerCase()}.png`, dest);
     }
+}
+
+/**
+ * Generates a list of code chunks for the given list of emojis with their variants if present.
+ * @param target The target to generate for. It is checked if the target has support for the emoji before generating.
+ * @param emojis The emojis.
+ * @returns {string[]} List of generated code chunks
+ */
+function generateChunkedEmojiCode(target, emojis) {
+    const list = generateEmojiCode(target, emojis)
+    const chunked = _.chunk(list, chunkSize)
+
+    return chunked.map(chunk => chunk.join(`,\n      `))
 }
 
 /**
  * Generates the code for a list of emoji with their variants if present.
  * @param target The target to generate for. It is checked if the target has support for the emoji before generating.
  * @param emojis The emojis.
- * @param indent The indent to use. Defaults to 4.
+ * @param indent The indent to use. Defaults to 6.
  * @returns {string} The generated code.
  */
-function generateEmojiCode(target, emojis, indent = 4) {
+function generateEmojiCode(target, emojis, indent = 6) {
     let indentString = "";
 
     for (let i = 0; i < indent; i++) {
@@ -120,15 +142,17 @@ function generateEmojiCode(target, emojis, indent = 4) {
         if (unicodeParts.length === 1) {
             result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
         } else {
-            result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ") } }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+            result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
         }
 
         if (it.variants.filter(it => it[target.package]).length > 0) {
-            return `${result},\n${indentString}  ${generateEmojiCode(target, it.variants, indent + 2)}\n${indentString})`;
+            const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`,\n${indentString}  `)
+
+            return `${result},\n${indentString}  ${generatedVariants}\n${indentString})`;
         } else {
             return `${result})`;
         }
-    }).join(`,\n${indentString}`);
+    })
 }
 
 /**
@@ -151,7 +175,7 @@ async function parse() {
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
             isDuplicate: isDuplicate,
-            variants: []
+            variants: [],
         };
 
         if (dataEntry.skin_variations) {
@@ -163,7 +187,7 @@ async function parse() {
                     x: variantDataEntry.sheet_x,
                     y: variantDataEntry.sheet_y,
                     isDuplicate: isDuplicate,
-                    variants: []
+                    variants: [],
                 };
 
                 for (const target of targets) {
@@ -188,6 +212,14 @@ async function parse() {
             result.set(category, new Array(emoji));
         }
     }
+
+    // Normalize the new "Smileys & Emotion" and "People & Body" categories to the ones we have.
+    const smileysAndEmotion = result.get("SmileysAndEmotion")
+    const peopleAndBody = result.get("PeopleAndBody")
+
+    result.set("SmileysAndPeople", smileysAndEmotion.concat(peopleAndBody))
+    result.delete("SmileysAndEmotion")
+    result.delete("PeopleAndBody")
 
     return result;
 }
@@ -223,6 +255,7 @@ async function generateCode(map, targets) {
 
     const emojiTemplate = await fs.readFile("template/Emoji.java", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.java", "utf-8");
+    const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
@@ -237,16 +270,34 @@ async function generateCode(map, targets) {
 
         let strips = 0;
         for (const [category, emojis] of entries) {
-            const data = generateEmojiCode(target, emojis);
             emojis.forEach(emoji => strips = Math.max(strips, emoji.x + 1));
+
+            const dataChunks = generateChunkedEmojiCode(target, emojis);
+            const chunkClasses = [];
+
+            for (let index = 0; index < dataChunks.length; index++) {
+                const chunk = dataChunks[index];
+                const chunkClass = `${category}CategoryChunk${index}`
+
+                chunkClasses.push(chunkClass)
+
+                await fs.writeFile(`${dir}/category/${chunkClass}.java`,
+                    _(categoryChunkTemplate).template()({
+                        package: target.package,
+                        name: target.name,
+                        category: category,
+                        index: index,
+                        data: chunk,
+                    }));
+            }
 
             await fs.writeFile(`${dir}/category/${category}Category.java`,
                 _(categoryTemplate).template()({
                     package: target.package,
                     name: target.name,
                     category: category,
-                    data: data,
-                    icon: category.toLowerCase()
+                    chunks: chunkClasses.map(it => `${it}.get()`).join(", "),
+                    icon: category.toLowerCase(),
                 }));
         }
 
@@ -264,13 +315,13 @@ async function generateCode(map, targets) {
             package: target.package,
             imports: imports,
             name: target.name,
-            categories: categories
+            categories: categories,
         }));
 
         await fs.writeFile(`${dir}/${target.name}.java`, _(emojiTemplate).template()({
             package: target.package,
             name: target.name,
-            strips: strips
+            strips: strips,
         }));
     }
 }
@@ -289,8 +340,8 @@ async function generateCode(map, targets) {
 async function run() {
     const options = commandLineArgs([
         {name: 'no-copy', type: Boolean},
-        {name: 'no-optimize', type: Boolean,},
-        {name: 'no-generate', type: Boolean}
+        {name: 'no-optimize', type: Boolean},
+        {name: 'no-generate', type: Boolean},
     ]);
 
     const map = await parse();
