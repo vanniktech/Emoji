@@ -45,8 +45,16 @@ const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939
  * The order of the categories.
  * @type {string[]}
  */
-const categoryOrder = ["SmileysAndPeople", "AnimalsAndNature", "FoodAndDrink", "Activities", "TravelAndPlaces",
-    "Objects", "Symbols", "Flags"];
+const categoryInfo = [
+    {"name": "SmileysAndPeople", "text": "Faces"},
+    {"name": "AnimalsAndNature", "text": "Nature"},
+    {"name": "FoodAndDrink", "text": "Food"},
+    {"name": "Activities", "text": "Activities"},
+    {"name": "TravelAndPlaces", "text": "Places"},
+    {"name": "Objects", "text": "Objects"},
+    {"name": "Symbols", "text": "Symbols"},
+    {"name": "Flags", "text": "Flags"},
+];
 
 /**
  * The amount of emojis to put in a chunk.
@@ -261,20 +269,23 @@ async function generateCode(map, targets) {
     console.log("Generating java code...");
 
     const emojiTemplate = await fs.readFile("template/Emoji.java", "utf-8");
+    const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.java", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
-        return categoryOrder.indexOf(first[0]) - categoryOrder.indexOf(second[0]);
+        return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
     });
 
     for (const target of targets) {
-        const dir = `../emoji-${target.package}/src/main/java/com/vanniktech/emoji/${target.package}`;
+        const srcDir = `../emoji-${target.package}/src/main/java/com/vanniktech/emoji/${target.package}`;
+        const valuesDir = `../emoji-${target.package}/src/main/res/values`;
 
-        await fs.emptyDir(dir);
-        await fs.mkdir(`${dir}/category`);
+        await fs.emptyDir(srcDir);
+        await fs.emptyDir(valuesDir);
+        await fs.mkdir(`${srcDir}/category`);
 
         let strips = 0;
         for (const [category, emojis] of entries) {
@@ -289,7 +300,7 @@ async function generateCode(map, targets) {
 
                 chunkClasses.push(chunkClass)
 
-                await fs.writeFile(`${dir}/category/${chunkClass}.java`,
+                await fs.writeFile(`${srcDir}/category/${chunkClass}.java`,
                     template(categoryChunkTemplate)({
                         package: target.package,
                         name: target.name,
@@ -300,7 +311,7 @@ async function generateCode(map, targets) {
                 );
             }
 
-            await fs.writeFile(`${dir}/category/${category}Category.java`,
+            await fs.writeFile(`${srcDir}/category/${category}Category.java`,
                 template(categoryTemplate)({
                     package: target.package,
                     name: target.name,
@@ -310,11 +321,11 @@ async function generateCode(map, targets) {
                 }),
             );
 
-            await fs.writeFile(`${dir}/category/CategoryUtils.java`,
+            await fs.writeFile(`${srcDir}/category/CategoryUtils.java`,
                 template(categoryUtilsTemplate)({
                     package: target.package,
                     name: target.name,
-                })
+                }),
             )
         }
 
@@ -328,17 +339,21 @@ async function generateCode(map, targets) {
             return `new ${category}Category()`
         }).join(",\n      ");
 
-        await fs.writeFile(`${dir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
+        await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
             package: target.package,
             imports: imports,
             name: target.name,
             categories: categories,
         }));
 
-        await fs.writeFile(`${dir}/${target.name}.java`, template(emojiTemplate)({
+        await fs.writeFile(`${srcDir}/${target.name}.java`, template(emojiTemplate)({
             package: target.package,
             name: target.name,
             strips: strips,
+        }));
+
+        await fs.writeFile(`${valuesDir}/strings.xml`, template(stringsTemplate)({
+            categories: categoryInfo.map(it => Object.assign({}, it, {name: it.name.toLowerCase()})),
         }));
     }
 }
