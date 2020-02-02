@@ -15,21 +15,31 @@ const Jimp = require("jimp");
  */
 const targets = [{
     package: "ios",
+    module: "ios",
     name: "IosEmoji",
     dataSource: "apple",
     dataAttribute: "has_img_apple",
 }, {
     package: "google",
+    module: "google",
     name: "GoogleEmoji",
     dataSource: "google",
     dataAttribute: "has_img_google",
 }, {
+    package: "googlecompat",
+    module: "google-compat",
+    name: "GoogleCompatEmoji",
+    dataSource: "google",
+    dataAttribute: "has_img_google",
+}, {
     package: "twitter",
+    module: "twitter",
     name: "TwitterEmoji",
     dataSource: "twitter",
     dataAttribute: "has_img_twitter",
 }, {
     package: "facebook",
+    module: "facebook",
     name: "FacebookEmoji",
     dataSource: "facebook",
     dataAttribute: "has_img_facebook",
@@ -71,7 +81,7 @@ const chunkSize = 250;
  * @returns {Promise.<void>} Empty Promise.
  */
 async function copyTargetImages(map, target, shouldOptimize) {
-    await fs.emptyDir(`../emoji-${target.package}/src/main/res/drawable-nodpi`);
+    await fs.emptyDir(`../emoji-${target.module}/src/main/res/drawable-nodpi`);
 
     const allEmoji = emojiData.reduce((all, it) => {
         all.push(it);
@@ -90,33 +100,35 @@ async function copyTargetImages(map, target, shouldOptimize) {
         }
     });
 
-    const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets-clean/64.png`;
-    const sheet = await Jimp.read(src);
-    const strips = sheet.bitmap.width / 66 - 1;
+    if (target.module !== "google-compat") {
+        const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets-clean/64.png`;
+        const sheet = await Jimp.read(src);
+        const strips = sheet.bitmap.width / 66 - 1;
 
-    for (let i = 0; i < strips; i++) {
-        const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_sheet_${i}.png`;
-        const maxY = emojiByStrip[i].map(it => it.sheet_y).reduce((a, b) => Math.max(a, b), 0);
-        const height = (maxY + 1) * 66;
+        for (let i = 0; i < strips; i++) {
+            const dest = `../emoji-${target.module}/src/main/res/drawable-nodpi/emoji_${target.module}_sheet_${i}.png`;
+            const maxY = emojiByStrip[i].map(it => it.sheet_y).reduce((a, b) => Math.max(a, b), 0);
+            const height = (maxY + 1) * 66;
 
-        const strip = await sheet.clone().crop(i * 66, 0, 66, height)
+            const strip = await sheet.clone().crop(i * 66, 0, 66, height)
 
-        if (shouldOptimize) {
-            const buffer = await strip.getBufferAsync('image/png');
-            const optimizedStrip = await imagemin.buffer(buffer, {
-                plugins: [
-                    imageminPngquant(),
-                    imageminZopfli(),
-                ],
-            });
-            await fs.writeFile(dest, optimizedStrip);
-        } else {
-            await strip.writeAsync(dest);
+            if (shouldOptimize) {
+                const buffer = await strip.getBufferAsync('image/png');
+                const optimizedStrip = await imagemin.buffer(buffer, {
+                    plugins: [
+                        imageminPngquant(),
+                        imageminZopfli(),
+                    ],
+                });
+                await fs.writeFile(dest, optimizedStrip);
+            } else {
+                await strip.writeAsync(dest);
+            }
         }
     }
 
     for (const [category] of map) {
-        const dest = `../emoji-${target.package}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`
+        const dest = `../emoji-${target.module}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`
 
         await fs.copy(`img/${category.toLowerCase()}.png`, dest);
     }
@@ -154,10 +166,18 @@ function generateEmojiCode(target, emojis, indent = 6) {
         const unicodeParts = it.unicode.split("-");
         let result = "";
 
-        if (unicodeParts.length === 1) {
-            result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+        if (target.module !== "google-compat") {
+            if (unicodeParts.length === 1) {
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+            } else {
+                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+            }
         } else {
-            result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+            if (unicodeParts.length === 1) {
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.isDuplicate}`;
+            } else {
+                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.isDuplicate}`;
+            }
         }
 
         if (it.variants.filter(it => it[target.package]).length > 0) {
@@ -274,18 +294,24 @@ async function generateCode(map, targets) {
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
+    const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.java", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
         return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
     });
 
     for (const target of targets) {
-        const srcDir = `../emoji-${target.package}/src/main/java/com/vanniktech/emoji/${target.package}`;
-        const valuesDir = `../emoji-${target.package}/src/main/res/values`;
+        const srcDir = `../emoji-${target.module}/src/main/java/com/vanniktech/emoji/${target.package}`;
+        const valuesDir = `../emoji-${target.module}/src/main/res/values`;
 
-        await fs.emptyDir(srcDir);
+        if (target.module !== "google-compat") {
+            await fs.emptyDir(srcDir);
+            await fs.mkdir(`${srcDir}/category`);
+        } else {
+            await fs.emptyDir(`${srcDir}/category`)
+        }
+
         await fs.emptyDir(valuesDir);
-        await fs.mkdir(`${srcDir}/category`);
 
         let strips = 0;
         for (const [category, emojis] of entries) {
@@ -339,20 +365,32 @@ async function generateCode(map, targets) {
             return `new ${category}Category()`
         }).join(",\n      ");
 
-        await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
-            package: target.package,
-            imports: imports,
-            name: target.name,
-            categories: categories,
-        }));
+        if (target.module !== "google-compat") {
+            await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
+                package: target.package,
+                imports: imports,
+                name: target.name,
+                categories: categories,
+            }));
+        } else {
+            await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderCompatTemplate)({
+                package: target.package,
+                imports: imports,
+                name: target.name,
+                categories: categories,
+            }));
+        }
 
-        await fs.writeFile(`${srcDir}/${target.name}.java`, template(emojiTemplate)({
-            package: target.package,
-            name: target.name,
-            strips: strips,
-        }));
+        if (target.module !== "google-compat") {
+            await fs.writeFile(`${srcDir}/${target.name}.java`, template(emojiTemplate)({
+                package: target.package,
+                name: target.name,
+                strips: strips,
+            }));
+        }
 
         await fs.writeFile(`${valuesDir}/strings.xml`, template(stringsTemplate)({
+            package: target.package,
             categories: categoryInfo.map(it => Object.assign({}, it, {name: it.name.toLowerCase()})),
         }));
     }
