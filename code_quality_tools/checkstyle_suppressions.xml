@@ -3,5 +3,5 @@
 <suppressions>
   <suppress files="[\w]*Test.java" checks="MagicNumberCheck"/>
   <suppress files="[\w]*Test.java" checks="MultipleStringLiterals"/>
-  <suppress files="[\w]*Category.java" checks="MagicNumberCheck"/>
+  <suppress files="[\w]*CategoryChunk[\d].java" checks="MagicNumberCheck"/>
 </suppressions>

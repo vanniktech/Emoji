@@ -263,6 +263,7 @@ async function generateCode(map, targets) {
     const emojiTemplate = await fs.readFile("template/Emoji.java", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.java", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
+    const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
@@ -308,6 +309,13 @@ async function generateCode(map, targets) {
                     icon: category.toLowerCase(),
                 }),
             );
+
+            await fs.writeFile(`${dir}/category/CategoryUtils.java`,
+                template(categoryUtilsTemplate)({
+                    package: target.package,
+                    name: target.name,
+                })
+            )
         }
 
         const imports = [...map.keys()].sort().map((category) => {
