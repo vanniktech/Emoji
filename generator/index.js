@@ -52,8 +52,8 @@ const targets = [{
 const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939"];
 
 /**
- * The order of the categories.
- * @type {string[]}
+ * Metadata about the categories.
+ * @type {{name: string, text: string}[]}
  */
 const categoryInfo = [
     {"name": "SmileysAndPeople", "text": "Faces"},
@@ -164,7 +164,7 @@ function generateEmojiCode(target, emojis, indent = 6) {
 
     return emojis.filter(it => it[target.package]).map((it) => {
         const unicodeParts = it.unicode.split("-");
-        let result = "";
+        let result;
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
