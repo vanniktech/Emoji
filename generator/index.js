@@ -1,7 +1,8 @@
 const commandLineArgs = require("command-line-args");
 const fs = require("fs-extra");
 const stable = require("stable");
-const _ = require("underscore");
+const chunk = require("lodash.chunk");
+const template = require("lodash.template");
 const imagemin = require("imagemin");
 const imageminZopfli = require("imagemin-zopfli");
 const imageminPngquant = require("imagemin-pngquant");
@@ -27,6 +28,11 @@ const targets = [{
     name: "TwitterEmoji",
     dataSource: "twitter",
     dataAttribute: "has_img_twitter",
+}, {
+    package: "facebook",
+    name: "FacebookEmoji",
+    dataSource: "facebook",
+    dataAttribute: "has_img_facebook",
 }];
 
 /**
@@ -116,17 +122,18 @@ async function copyTargetImages(map, target, shouldOptimize) {
  */
 function generateChunkedEmojiCode(target, emojis) {
     const list = generateEmojiCode(target, emojis)
-    const chunked = _.chunk(list, chunkSize)
+    const chunked = chunk(list, chunkSize)
 
     return chunked.map(chunk => chunk.join(`,\n      `))
 }
 
 /**
+ /**
  * Generates the code for a list of emoji with their variants if present.
  * @param target The target to generate for. It is checked if the target has support for the emoji before generating.
  * @param emojis The emojis.
  * @param indent The indent to use. Defaults to 6.
- * @returns {string} The generated code.
+ * @returns {string[]} The list of generated code parts.
  */
 function generateEmojiCode(target, emojis, indent = 6) {
     let indentString = "";
@@ -282,23 +289,25 @@ async function generateCode(map, targets) {
                 chunkClasses.push(chunkClass)
 
                 await fs.writeFile(`${dir}/category/${chunkClass}.java`,
-                    _(categoryChunkTemplate).template()({
+                    template(categoryChunkTemplate)({
                         package: target.package,
                         name: target.name,
                         category: category,
                         index: index,
                         data: chunk,
-                    }));
+                    }),
+                );
             }
 
             await fs.writeFile(`${dir}/category/${category}Category.java`,
-                _(categoryTemplate).template()({
+                template(categoryTemplate)({
                     package: target.package,
                     name: target.name,
                     category: category,
                     chunks: chunkClasses.map(it => `${it}.get()`).join(", "),
                     icon: category.toLowerCase(),
-                }));
+                }),
+            );
         }
 
         const imports = [...map.keys()].sort().map((category) => {
@@ -311,14 +320,14 @@ async function generateCode(map, targets) {
             return `new ${category}Category()`
         }).join(",\n      ");
 
-        await fs.writeFile(`${dir}/${target.name}Provider.java`, _(emojiProviderTemplate).template()({
+        await fs.writeFile(`${dir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
             package: target.package,
             imports: imports,
             name: target.name,
             categories: categories,
         }));
 
-        await fs.writeFile(`${dir}/${target.name}.java`, _(emojiTemplate).template()({
+        await fs.writeFile(`${dir}/${target.name}.java`, template(emojiTemplate)({
             package: target.package,
             name: target.name,
             strips: strips,

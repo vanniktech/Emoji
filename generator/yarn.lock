@@ -781,6 +781,11 @@ emoji-datasource-apple@^5.0.1:
   resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-5.0.1.tgz#fd3a3fb9993f1c58a53b015e3a30fe640641044f"
   integrity sha512-VmbD3iwv5FS2XUuxzmRpkicGNwXWrMe45f5ZL6YkcMznp0YtCsKO2bCxsSZ41XU1aWtwH5IZDqF12038TC01kw==
 
+emoji-datasource-facebook@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-facebook/-/emoji-datasource-facebook-5.0.1.tgz#1d1958e2416e290dfc2adfae4ecbe0cc843dfef6"
+  integrity sha512-OLDHjoUqLaYSw5IWBcwRKsgLSuDCu6+3OILweGsPxNFCXQoOGc6CqPgT9mIYjGNZChm0W4ARehhByglipZDciQ==
+
 emoji-datasource-google@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-5.0.1.tgz#81ac5bdbbd153976196a516d840e04303f19375d"
@@ -1465,10 +1470,35 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
+lodash._reinterpolate@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
+  integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
+
+lodash.chunk@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.chunk/-/lodash.chunk-4.2.0.tgz#66e5ce1f76ed27b4303d8c6512e8d1216e8106bc"
+  integrity sha1-ZuXOH3btJ7QwPYxlEujRIW6BBrw=
+
+lodash.template@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+  integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
+  dependencies:
+    lodash._reinterpolate "^3.0.0"
+    lodash.templatesettings "^4.0.0"
+
+lodash.templatesettings@^4.0.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+  integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
+  dependencies:
+    lodash._reinterpolate "^3.0.0"
 
 logalot@^2.0.0, logalot@^2.1.0:
   version "2.1.0"
@@ -2295,11 +2325,6 @@ unbzip2-stream@^1.0.9:
   dependencies:
     buffer "^3.0.1"
     through "^2.3.6"
-
-underscore@^1.8.3:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.2.tgz#0c8d6f536d6f378a5af264a72f7bec50feb7cf2f"
-  integrity sha512-D39qtimx0c1fI3ya1Lnhk3E9nONswSKhnffBI0gME9C99fYOkNi04xs8K6pePLhvl1frbDemkaBQ5ikWllR2HQ==
 
 universalify@^0.1.0:
   version "0.1.2"
