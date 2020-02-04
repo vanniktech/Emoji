@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
@@ -94,6 +95,11 @@ import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
       case R.id.menuMainTwitter:
         EmojiManager.destroy();
         EmojiManager.install(new TwitterEmojiProvider());
+        recreate();
+        return true;
+      case R.id.menuMainFacebook:
+        EmojiManager.destroy();
+        EmojiManager.install(new FacebookEmojiProvider());
         recreate();
         return true;
       case R.id.menuMainGoogleCompat:

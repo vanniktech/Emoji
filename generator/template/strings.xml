@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><% categories.forEach(function(category) { %>
+    <string name="emoji_<%= package %>_category_<%= category.name %>"><%= category.text %></string><% }); %>
+</resources>

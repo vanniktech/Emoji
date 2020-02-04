@@ -18,7 +18,7 @@ public class GoogleEmoji extends Emoji {
   private static final int CACHE_SIZE = 100;
   private static final int SPRITE_SIZE = 64;
   private static final int SPRITE_SIZE_INC_BORDER = 66;
-  private static final int NUM_STRIPS = 51;
+  private static final int NUM_STRIPS = 56;
 
   private static final Object LOCK = new Object();
 

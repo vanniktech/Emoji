@@ -2,17 +2,16 @@ package com.vanniktech.emoji.<%= package %>.category;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.<%= package %>.R;
 import com.vanniktech.emoji.<%= package %>.<%= name %>;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class <%= category %>Category implements EmojiCategory {
-  private static final <%= name %>[] DATA = new <%= name %>[] {
-    <%= data %>
-  };
+  private static final <%= name %>[] EMOJIS = CategoryUtils.concatAll(<%= chunks %>);
 
   @Override @NonNull public <%= name %>[] getEmojis() {
-    return DATA;
+    return EMOJIS;
   }
 
   @Override @DrawableRes public int getIcon() {

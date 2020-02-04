@@ -41,6 +41,10 @@ import static java.util.Locale.US;
     start(Variant.TWITTER);
   }
 
+  @Test public void takeScreenShotsEmojiFacebook() throws InterruptedException {
+    start(Variant.FACEBOOK);
+  }
+
   private void start(final Variant variant) throws InterruptedException {
     final String name = variant.name().toLowerCase(US);
 
@@ -84,7 +88,8 @@ import static java.util.Locale.US;
   enum Variant {
     GOOGLE("Google"),
     IOS("Ios"),
-    TWITTER("Twitter");
+    TWITTER("Twitter"),
+    FACEBOOK("Facebook");
 
     final String title;
 

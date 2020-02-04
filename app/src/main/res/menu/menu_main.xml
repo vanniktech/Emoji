@@ -25,6 +25,9 @@
                 <item
                     android:id="@+id/menuMainTwitter"
                     android:title="@string/variant_twitter_title"/>
+                <item
+                    android:id="@+id/menuMainFacebook"
+                    android:title="@string/variant_facebook_title"/>
             </group>
         </menu>
     </item>
