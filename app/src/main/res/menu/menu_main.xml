@@ -6,31 +6,30 @@
   <item
       android:id="@+id/menuMainShowDialog"
       android:icon="@drawable/ic_message"
-      android:title="Show dialog"
-      app:showAsAction="ifRoom"/>
-  <item
-      android:id="@+id/menuMainCustomView"
-      android:title="Custom view"
-      app:showAsAction="ifRoom"/>
+      android:title="Show Dialog"
+      app:showAsAction="ifRoom" />
   <item
       android:id="@+id/menuMainSearchOption"
       android:icon="@drawable/ic_swap"
-      android:title="Variant"
+      android:title="Emoji Variant"
       app:showAsAction="ifRoom">
     <menu>
       <group>
         <item
             android:id="@+id/menuMainVariantIos"
-            android:title="Ios"/>
+            android:title="iOS" />
         <item
             android:id="@+id/menuMainGoogle"
-            android:title="Google"/>
+            android:title="Google" />
         <item
             android:id="@+id/menuMainGoogleCompat"
-            android:title="GoogleCompat"/>
+            android:title="Google Compat" />
         <item
             android:id="@+id/menuMainTwitter"
-            android:title="Twitter"/>
+            android:title="Twitter" />
+        <item
+            android:id="@+id/menuMainFacebook"
+            android:title="Facebook" />
       </group>
     </menu>
   </item>

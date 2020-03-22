@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
@@ -121,6 +122,11 @@ import static android.view.View.VISIBLE;
       case R.id.menuMainTwitter:
         EmojiManager.destroy();
         EmojiManager.install(new TwitterEmojiProvider());
+        recreate();
+        return true;
+      case R.id.menuMainFacebook:
+        EmojiManager.destroy();
+        EmojiManager.install(new FacebookEmojiProvider());
         recreate();
         return true;
       case R.id.menuMainGoogleCompat:
