@@ -12,6 +12,10 @@
       android:id="@+id/menuMainSearchOption"
       android:icon="@drawable/ic_swap"
       android:title="Emoji Variant"
+      app:showAsAction="ifRoom"/>
+  <item
+      android:id="@+id/menuMainCustomView"
+      android:title="Custom View"
       app:showAsAction="ifRoom">
     <menu>
       <group>
