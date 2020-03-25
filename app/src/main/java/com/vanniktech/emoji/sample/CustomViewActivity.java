@@ -27,12 +27,13 @@ public class CustomViewActivity extends AppCompatActivity {
     @Override @SuppressLint("WrongViewCast") protected void onAttachedToWindow() {
       super.onAttachedToWindow();
 
+      final View button = findViewById(R.id.customViewButton);
       final EmojiEditText editText = findViewById(R.id.customViewEditText);
 
       final EmojiPopup emojiPopup = EmojiPopup.Builder.fromRootView((View) getParent())
           .build(editText);
 
-      editText.disableKeyboardInput(emojiPopup);
+      button.setOnClickListener(ignore -> emojiPopup.toggle());
     }
   }
 }
