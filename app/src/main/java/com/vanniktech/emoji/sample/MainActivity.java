@@ -1,6 +1,7 @@
 package com.vanniktech.emoji.sample;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
@@ -103,6 +104,10 @@ import static android.view.View.VISIBLE;
       case R.id.menuMainShowDialog:
         emojiPopup.dismiss();
         MainDialog.show(this);
+        return true;
+      case R.id.menuMainCustomView:
+        emojiPopup.dismiss();
+        startActivity(new Intent(this, CustomViewActivity.class));
         return true;
       case R.id.menuMainVariantIos:
         EmojiManager.destroy();

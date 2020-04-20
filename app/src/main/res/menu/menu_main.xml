@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/menuMainShowDialog"
-        android:icon="@drawable/ic_message"
-        android:title="@string/show_dialog_title"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menuMainSearchOption"
-        android:icon="@drawable/ic_swap"
-        android:title="@string/variant_group_title"
-        app:showAsAction="ifRoom">
-        <menu>
-            <group>
-                <item
-                    android:id="@+id/menuMainVariantIos"
-                    android:title="@string/variant_ios_title"/>
-                <item
-                    android:id="@+id/menuMainGoogle"
-                    android:title="@string/variant_google_title"/>
-                <item
-                    android:id="@+id/menuMainGoogleCompat"
-                    android:title="@string/variant_google_compat_title"/>
-                <item
-                    android:id="@+id/menuMainTwitter"
-                    android:title="@string/variant_twitter_title"/>
-                <item
-                    android:id="@+id/menuMainFacebook"
-                    android:title="@string/variant_facebook_title"/>
-            </group>
-        </menu>
-    </item>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+  <item
+      android:id="@+id/menuMainShowDialog"
+      android:icon="@drawable/ic_message"
+      android:title="Show Dialog"
+      app:showAsAction="ifRoom" />
+  <item
+      android:id="@+id/menuMainSearchOption"
+      android:icon="@drawable/ic_swap"
+      android:title="Emoji Variant"
+      app:showAsAction="ifRoom"/>
+  <item
+      android:id="@+id/menuMainCustomView"
+      android:title="Custom View"
+      app:showAsAction="ifRoom">
+    <menu>
+      <group>
+        <item
+            android:id="@+id/menuMainVariantIos"
+            android:title="iOS" />
+        <item
+            android:id="@+id/menuMainGoogle"
+            android:title="Google" />
+        <item
+            android:id="@+id/menuMainGoogleCompat"
+            android:title="Google Compat" />
+        <item
+            android:id="@+id/menuMainTwitter"
+            android:title="Twitter" />
+        <item
+            android:id="@+id/menuMainFacebook"
+            android:title="Facebook" />
+      </group>
+    </menu>
+  </item>
 </menu>
