@@ -43,6 +43,11 @@ import android.util.AttributeSet;
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {
+    if (isInEditMode()) {
+      super.setText(rawText, type);
+      return;
+    }
+
     final CharSequence text = rawText == null ? "" : rawText;
     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
     final Paint.FontMetrics fontMetrics = getPaint().getFontMetrics();
