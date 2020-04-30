@@ -215,7 +215,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     }
   }
 
-  void updateKeyboardStateOpened(final int keyboardHeight) {
+  @SuppressWarnings("PMD.CyclomaticComplexity") void updateKeyboardStateOpened(final int keyboardHeight) {
     if (popupWindowHeight > 0 && popupWindow.getHeight() != popupWindowHeight) {
       popupWindow.setHeight(popupWindowHeight);
     } else if (popupWindowHeight == 0 && popupWindow.getHeight() != keyboardHeight) {
