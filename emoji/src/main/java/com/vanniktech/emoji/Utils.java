@@ -6,8 +6,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -16,6 +19,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
@@ -43,6 +47,32 @@ final class Utils {
     }
 
     return reference;
+  }
+
+  static float initTextView(final TextView textView, final AttributeSet attrs) {
+    if (!textView.isInEditMode()) {
+      EmojiManager.getInstance().verifyInstalled();
+    }
+
+    final Paint.FontMetrics fontMetrics = textView.getPaint().getFontMetrics();
+    final float defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent;
+
+    final float emojiSize;
+
+    if (attrs == null) {
+      emojiSize = defaultEmojiSize;
+    } else {
+      final TypedArray a = textView.getContext().obtainStyledAttributes(attrs, R.styleable.EmojiTextView);
+
+      try {
+        emojiSize = a.getDimension(R.styleable.EmojiTextView_emojiSize, defaultEmojiSize);
+      } finally {
+        a.recycle();
+      }
+    }
+
+    textView.setText(textView.getText());
+    return emojiSize;
   }
 
   static int dpToPx(@NonNull final Context context, final float dp) {

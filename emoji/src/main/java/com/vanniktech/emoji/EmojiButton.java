@@ -3,14 +3,14 @@ package com.vanniktech.emoji;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
+import android.text.SpannableStringBuilder;
+import android.util.AttributeSet;
 import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatButton;
-import android.text.SpannableStringBuilder;
-import android.util.AttributeSet;
 
-@SuppressWarnings("CPD-START") public class EmojiButton extends AppCompatButton {
+@SuppressWarnings("CPD-START") public class EmojiButton extends AppCompatButton implements EmojiDisplayable {
   private float emojiSize;
 
   public EmojiButton(final Context context) {
@@ -56,13 +56,15 @@ import android.util.AttributeSet;
     super.setText(spannableStringBuilder, type);
   }
 
-  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size */
-  public final void setEmojiSize(@Px final int pixels) {
+  @Override public float getEmojiSize() {
+    return emojiSize;
+  }
+
+  @Override public final void setEmojiSize(@Px final int pixels) {
     setEmojiSize(pixels, true);
   }
 
-  /** sets the emoji size in pixels and automatically invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
-  public final void setEmojiSize(@Px final int pixels, final boolean shouldInvalidate) {
+  @Override public final void setEmojiSize(@Px final int pixels, final boolean shouldInvalidate) {
     emojiSize = pixels;
 
     if (shouldInvalidate) {
@@ -70,13 +72,11 @@ import android.util.AttributeSet;
     }
   }
 
-  /** sets the emoji size in pixels with the provided resource and automatically invalidates the text and renders it with the new size */
-  public final void setEmojiSizeRes(@DimenRes final int res) {
+  @Override public final void setEmojiSizeRes(@DimenRes final int res) {
     setEmojiSizeRes(res, true);
   }
 
-  /** sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when {@code shouldInvalidate} is true */
-  public final void setEmojiSizeRes(@DimenRes final int res, final boolean shouldInvalidate) {
+  @Override public final void setEmojiSizeRes(@DimenRes final int res, final boolean shouldInvalidate) {
     setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
   }
 }
