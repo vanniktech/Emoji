@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.SingleEmojiTrait;
 
 public class CustomViewActivity extends AppCompatActivity {
   @Override protected void onCreate(final Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class CustomViewActivity extends AppCompatActivity {
 
       emojiButton = findViewById(R.id.customViewButton);
       editText = findViewById(R.id.customViewEditText);
+      new SingleEmojiTrait(editText);
     }
 
     void setUpEmojiPopup() {

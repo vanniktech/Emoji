@@ -126,6 +126,11 @@ import com.vanniktech.emoji.emoji.Emoji;
     }
   }
 
+  /** Forces this EditText to contain only one Emoji. */
+  public void forceSingleEmoji() {
+    new SingleEmojiTrait(this);
+  }
+
   static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {
     final EmojiPopup emojiPopup;
     @Nullable final OnFocusChangeListener onFocusChangeListener;
