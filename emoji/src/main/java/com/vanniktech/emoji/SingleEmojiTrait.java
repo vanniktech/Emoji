@@ -14,7 +14,11 @@ import java.util.List;
 public final class SingleEmojiTrait implements TextWatcher {
   final EditText editText;
 
-  public SingleEmojiTrait(final EditText editText) {
+  public static void install(final EditText editText) {
+    new SingleEmojiTrait(editText);
+  }
+
+  private SingleEmojiTrait(final EditText editText) {
     this.editText = editText;
 
     final List<InputFilter> filters = new ArrayList<>(Arrays.asList(editText.getFilters()));

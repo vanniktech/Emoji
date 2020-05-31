@@ -128,7 +128,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
   /** Forces this EditText to contain only one Emoji. */
   public void forceSingleEmoji() {
-    new SingleEmojiTrait(this);
+    SingleEmojiTrait.install(this);
   }
 
   static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {

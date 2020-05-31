@@ -32,7 +32,7 @@ public class CustomViewActivity extends AppCompatActivity {
 
       emojiButton = findViewById(R.id.customViewButton);
       editText = findViewById(R.id.customViewEditText);
-      new SingleEmojiTrait(editText);
+      SingleEmojiTrait.install(editText);
     }
 
     void setUpEmojiPopup() {
