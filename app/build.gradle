@@ -18,7 +18,7 @@ android {
 
     vectorDrawables.useSupportLibrary = true
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
   archivesBaseName = "app-$versionName"
@@ -68,6 +68,7 @@ dependencies {
   androidTestImplementation deps.support.test.espresso.core
   androidTestImplementation deps.support.test.runner
   androidTestImplementation deps.support.test.rules
+  androidTestImplementation deps.support.test.junitExt
   androidTestImplementation deps.fastLaneScreenGrab
   androidTestAnnotationProcessor deps.support.test.autoService
 }

@@ -1,15 +1,20 @@
 package com.vanniktech.emoji.sample.screenshots;
 
+import android.content.Context;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 import com.vanniktech.emoji.sample.MainActivity;
 import com.vanniktech.emoji.sample.R;
+import java.io.File;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import tools.fastlane.screengrab.FileWritingScreenshotCallback;
 import tools.fastlane.screengrab.Screengrab;
+import tools.fastlane.screengrab.ScreenshotStrategy;
 import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
 import tools.fastlane.screengrab.locale.LocaleTestRule;
 
@@ -46,6 +51,8 @@ import static java.util.Locale.US;
   }
 
   private void start(final Variant variant) throws InterruptedException {
+    final ScreenshotStrategy screenshotStrategy = Screengrab.getDefaultScreenshotStrategy();
+    final ConstantFileWritingScreenshotCallback callback = new ConstantFileWritingScreenshotCallback(InstrumentationRegistry.getInstrumentation().getTargetContext().getApplicationContext());
     final String name = variant.name().toLowerCase(US);
 
     // Select the right variant.
@@ -59,7 +66,7 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_chat_bottom_message_edittext)).perform(append("Hello what's up? " + new String(firstEmojis, 0, firstEmojis.length)));
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_1");
+    Screengrab.screenshot(name + "_1", screenshotStrategy, callback);
 
     onView(withId(R.id.main_activity_send)).perform(click());
 
@@ -73,7 +80,7 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_send)).perform(click());
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_2");
+    Screengrab.screenshot(name + "_2", screenshotStrategy, callback);
 
     // Third text.
     onView(withId(R.id.main_activity_send)).perform(click());
@@ -82,12 +89,22 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_chat_bottom_message_edittext)).perform(append("I don't know " + new String(secondEmojis, 0, secondEmojis.length)));
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_3");
+    Screengrab.screenshot(name + "_3", screenshotStrategy, callback);
+  }
+
+  static class ConstantFileWritingScreenshotCallback extends FileWritingScreenshotCallback {
+    public ConstantFileWritingScreenshotCallback(Context appContext) {
+      super(appContext);
+    }
+
+    @Override protected File getScreenshotFile(File screenshotDirectory, String screenshotName) {
+      return new File(screenshotDirectory, screenshotName + ".png");
+    }
   }
 
   enum Variant {
     GOOGLE("Google"),
-    IOS("Ios"),
+    IOS("iOS"),
     TWITTER("Twitter"),
     FACEBOOK("Facebook");
 

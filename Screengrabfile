@@ -1,9 +1,11 @@
-app_package_name 'com.vanniktech.emoji.sample'
-use_tests_in_packages ['com.vanniktech.emoji.sample.screenshots']
+app_package_name('com.vanniktech.emoji.sample')
+use_tests_in_packages(['com.vanniktech.emoji.sample.screenshots'])
+test_instrumentation_runner('androidx.test.runner.AndroidJUnitRunner')
 
-app_apk_path 'app/build/outputs/apk/app-0.6.0-SNAPSHOT-debug.apk'
-tests_apk_path 'app/build/outputs/apk/app-0.6.0-SNAPSHOT-debug-androidTest.apk'
+app_apk_path('app/build/outputs/apk/debug/app-0.7.0-SNAPSHOT-debug.apk')
+tests_apk_path('app/build/outputs/apk/androidTest/debug/app-0.7.0-SNAPSHOT-debug-androidTest.apk')
 
-locales ['en-US']
+locales(['en-US'])
 
-clear_previous_screenshots true
+use_adb_root(true)
+exit_on_test_failure(false)

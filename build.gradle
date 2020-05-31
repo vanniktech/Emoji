@@ -4,8 +4,8 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
   ext.versions = [
-    espresso: '3.0.2',
-    testRules: '1.0.2',
+    espresso: '3.3.0',
+    testRules: '1.3.0',
     kotlin: '1.3.50',
   ]
 
@@ -20,11 +20,12 @@ buildscript {
         ],
         'runner': "com.android.support.test:runner:${versions.testRules}",
         'rules': "com.android.support.test:rules:${versions.testRules}",
+        'junitExt': "androidx.test.ext:junit:1.1.2-alpha02",
         'autoService': "com.google.auto.service:auto-service:1.0-rc4",
       ],
       'material': "com.google.android.material:material:1.1.0-beta01",
     ],
-    'fastLaneScreenGrab': "tools.fastlane:screengrab:1.2.0",
+    'fastLaneScreenGrab': "tools.fastlane:screengrab:2.0.0",
   ]
 
   repositories {
@@ -33,12 +34,12 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.19.0'
+    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.20.0'
     classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.15.0'
     classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
 
     classpath 'com.android.tools.build:gradle:3.5.1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.26.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.28.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vanniktech.emoji.sample">
+  <!-- Needed since we have minSdk 15 -->
+  <uses-sdk tools:overrideLibrary="android_libs.ub_uiautomator,android.support.test.uiautomator.v18,tools.fastlane.screengrab"/>
+</manifest>

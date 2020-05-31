@@ -10,7 +10,7 @@ before_install:
 
 install: true
 
-script: ./gradlew clean build
+script: ./gradlew clean :app:assembleAndroidTest build
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
