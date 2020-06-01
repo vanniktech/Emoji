@@ -93,11 +93,11 @@ import static java.util.Locale.US;
   }
 
   static class ConstantFileWritingScreenshotCallback extends FileWritingScreenshotCallback {
-    public ConstantFileWritingScreenshotCallback(Context appContext) {
+    ConstantFileWritingScreenshotCallback(final Context appContext) {
       super(appContext);
     }
 
-    @Override protected File getScreenshotFile(File screenshotDirectory, String screenshotName) {
+    @Override protected File getScreenshotFile(final File screenshotDirectory, final String screenshotName) {
       return new File(screenshotDirectory, screenshotName + ".png");
     }
   }

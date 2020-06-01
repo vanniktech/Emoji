@@ -200,6 +200,13 @@ setPageTransformer(new MagicTransformer());
 
 If no transformer is set ViewPager will behave as its usual self. Please do note that this library currently does not ship any example Page Transformers.
 
+### Other goodies
+
+- [`MaximalNumberOfEmojisInputFilter`](emoji/src/main/java/com/vanniktech/emoji/MaximalNumberOfEmojisInputFilter.java) can be used to limit the number of Emojis one can type into an EditText
+- [`OnlyEmojisInputFilter`](emoji/src/main/java/com/vanniktech/emoji/OnlyEmojisInputFilter.java) can be used to limit the input of an EditText to emoji only
+- [`SingleEmojiTrait`](emoji/src/main/java/com/vanniktech/emoji/SingleEmojiTrait.java) can be used to force a single emoji which can be replaced by a new one
+- EmojiEditText#disableKeyboardInput to disable keyboard input
+
 # Snapshots
 
 This library is also distributed as a SNAPSHOT if you like to check out the latest features.
