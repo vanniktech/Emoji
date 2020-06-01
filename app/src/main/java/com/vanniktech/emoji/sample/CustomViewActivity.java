@@ -16,9 +16,15 @@ public class CustomViewActivity extends AppCompatActivity {
   @Override protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    final CustomView customView = new CustomView(this, null);
-    setContentView(customView);
-    customView.setUpEmojiPopup();
+    final CustomView customView1 = new CustomView(this, null);
+    final CustomView customView2 = new CustomView(this, null);
+    final LinearLayout linearLayout = new LinearLayout(this);
+    linearLayout.setOrientation(LinearLayout.VERTICAL);
+    linearLayout.addView(customView1);
+    linearLayout.addView(customView2);
+    setContentView(linearLayout);
+    customView1.setUpEmojiPopup();
+    customView2.setUpEmojiPopup();
   }
 
   static class CustomView extends LinearLayout {
