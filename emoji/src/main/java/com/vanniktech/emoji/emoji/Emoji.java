@@ -18,28 +18,33 @@ public class Emoji implements Serializable {
   private static final List<Emoji> EMPTY_EMOJI_LIST = emptyList();
 
   @NonNull private final String unicode;
+  @Nullable private final String shortcode;
   @DrawableRes private final int resource;
   private final boolean isDuplicate;
   @NonNull private final List<Emoji> variants;
   @Nullable private Emoji base;
 
-  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
-               final boolean isDuplicate) {
-    this(codePoints, resource, isDuplicate, new Emoji[0]);
+  public Emoji(@NonNull final int[] codePoints, @Nullable final String shortcode,
+               @DrawableRes final int resource, final boolean isDuplicate) {
+    this(codePoints, shortcode, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate) {
-    this(codePoint, resource, isDuplicate, new Emoji[0]);
+  public Emoji(final int codePoint, @Nullable final String shortcode,
+               @DrawableRes final int resource, final boolean isDuplicate) {
+    this(codePoint, shortcode, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @DrawableRes final int resource, final boolean isDuplicate,
+  public Emoji(final int codePoint, @Nullable final String shortcode,
+               @DrawableRes final int resource, final boolean isDuplicate,
                final Emoji... variants) {
-    this(new int[]{codePoint}, resource, isDuplicate, variants);
+    this(new int[]{codePoint}, shortcode, resource, isDuplicate, variants);
   }
 
-  public Emoji(@NonNull final int[] codePoints, @DrawableRes final int resource,
-               final boolean isDuplicate, final Emoji... variants) {
+  public Emoji(@NonNull final int[] codePoints, @Nullable final String shortcode,
+               @DrawableRes final int resource, final boolean isDuplicate,
+               final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
+    this.shortcode = shortcode;
     this.resource = resource;
     this.isDuplicate = isDuplicate;
     this.variants = variants.length == 0 ? EMPTY_EMOJI_LIST : asList(variants);
@@ -50,6 +55,10 @@ public class Emoji implements Serializable {
 
   @NonNull public String getUnicode() {
     return unicode;
+  }
+
+  @Nullable public String getShortcode() {
+    return shortcode;
   }
 
   /**
@@ -107,11 +116,13 @@ public class Emoji implements Serializable {
 
     return resource == emoji.resource
             && unicode.equals(emoji.unicode)
+            && shortcode != null ? shortcode.equals(emoji.shortcode) : emoji.shortcode == null
             && variants.equals(emoji.variants);
   }
 
   @Override public int hashCode() {
     int result = unicode.hashCode();
+    result = 31 * result + (shortcode != null ? shortcode.hashCode() : 0);
     result = 31 * result + resource;
     result = 31 * result + variants.hashCode();
     return result;

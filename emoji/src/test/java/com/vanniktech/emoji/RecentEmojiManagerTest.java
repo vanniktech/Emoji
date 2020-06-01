@@ -24,19 +24,19 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   }
 
   @Test public void addEmoji() {
-    recentEmojiManager.addEmoji(new Emoji(0x1f437, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0x1f43d, R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f437, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f43d, "test", R.drawable.emoji_recent, false));
 
     assertThat(recentEmojiManager.getRecentEmojis()).hasSize(2)
         .containsExactly(
-            new Emoji(0x1f43d, R.drawable.emoji_recent, false),
-            new Emoji(0x1f437, R.drawable.emoji_recent, false));
+            new Emoji(0x1f43d, "test", R.drawable.emoji_recent, false),
+            new Emoji(0x1f437, "test", R.drawable.emoji_recent, false));
   }
 
   @Test public void persist() {
-    final Emoji firstEmoji = new Emoji(0x1f437, R.drawable.emoji_recent, false);
+    final Emoji firstEmoji = new Emoji(0x1f437, "test", R.drawable.emoji_recent, false);
     recentEmojiManager.addEmoji(firstEmoji);
-    final Emoji secondEmoji = new Emoji(0x1f43d, R.drawable.emoji_recent, false);
+    final Emoji secondEmoji = new Emoji(0x1f43d, "test", R.drawable.emoji_recent, false);
     recentEmojiManager.addEmoji(secondEmoji);
 
     recentEmojiManager.persist();
@@ -46,7 +46,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   }
 
   @Test public void duplicateEmojis() {
-    final Emoji emoji = new Emoji(0x1f437, R.drawable.emoji_recent, false);
+    final Emoji emoji = new Emoji(0x1f437, "test", R.drawable.emoji_recent, false);
     recentEmojiManager.addEmoji(emoji);
     recentEmojiManager.addEmoji(emoji);
     recentEmojiManager.persist();
@@ -56,46 +56,46 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   }
 
   @Test public void inOrder() {
-    recentEmojiManager.addEmoji(new Emoji(0x1f55a, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0x1f561, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0x1f4e2, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0x1f562, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0xe535, R.drawable.emoji_recent, false));
-    recentEmojiManager.addEmoji(new Emoji(0x1f563, R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f55a, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f561, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f4e2, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f562, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0xe535, "test", R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f563, "test", R.drawable.emoji_recent, false));
 
     recentEmojiManager.persist();
 
     final Collection<Emoji> recentEmojis = recentEmojiManager.getRecentEmojis();
     assertThat(recentEmojis).containsExactly(
-        new Emoji(0x1f563, R.drawable.emoji_recent, false),
-        new Emoji(0xe535, R.drawable.emoji_recent, false),
-        new Emoji(0x1f562, R.drawable.emoji_recent, false),
-        new Emoji(0x1f4e2, R.drawable.emoji_recent, false),
-        new Emoji(0x1f561, R.drawable.emoji_recent, false),
-        new Emoji(0x1f55a, R.drawable.emoji_recent, false));
+        new Emoji(0x1f563, "test", R.drawable.emoji_recent, false),
+        new Emoji(0xe535, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x1f562, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x1f4e2, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x1f561, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x1f55a, "test", R.drawable.emoji_recent, false));
   }
 
   @Test public void newShouldReplaceOld() {
-    recentEmojiManager.addEmoji(new Emoji(0x2764, R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x2764, "test", R.drawable.emoji_recent, false));
     assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(
-        new Emoji(0x2764, R.drawable.emoji_recent, false));
+        new Emoji(0x2764, "test", R.drawable.emoji_recent, false));
 
-    recentEmojiManager.addEmoji(new Emoji(0x1f577, R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x1f577, "test", R.drawable.emoji_recent, false));
     assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(
-        new Emoji(0x1f577, R.drawable.emoji_recent, false),
-        new Emoji(0x2764, R.drawable.emoji_recent, false));
+        new Emoji(0x1f577, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x2764, "test", R.drawable.emoji_recent, false));
 
-    recentEmojiManager.addEmoji(new Emoji(0x2764, R.drawable.emoji_recent, false));
+    recentEmojiManager.addEmoji(new Emoji(0x2764, "test", R.drawable.emoji_recent, false));
     assertThat(recentEmojiManager.getRecentEmojis()).containsExactly(
-        new Emoji(0x2764, R.drawable.emoji_recent, false),
-        new Emoji(0x1f577, R.drawable.emoji_recent, false));
+        new Emoji(0x2764, "test", R.drawable.emoji_recent, false),
+        new Emoji(0x1f577, "test", R.drawable.emoji_recent, false));
   }
 
   @Test public void addSkinTone() {
-    final Emoji variant1 = new Emoji(0x1f55b, R.drawable.emoji_recent, false);
-    final Emoji variant2 = new Emoji(0x1f55c, R.drawable.emoji_recent, false);
-    final Emoji variant3 = new Emoji(0x1f55d, R.drawable.emoji_recent, false);
-    final Emoji base = new Emoji(0x1f55a, R.drawable.emoji_recent, false, variant1, variant2, variant3);
+    final Emoji variant1 = new Emoji(0x1f55b, "test", R.drawable.emoji_recent, false);
+    final Emoji variant2 = new Emoji(0x1f55c, "test", R.drawable.emoji_recent, false);
+    final Emoji variant3 = new Emoji(0x1f55d, "test", R.drawable.emoji_recent, false);
+    final Emoji base = new Emoji(0x1f55a, "test", R.drawable.emoji_recent, false, variant1, variant2, variant3);
 
     recentEmojiManager.addEmoji(base);
 
@@ -111,7 +111,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
   @Test public void maxRecents() {
     for (int i = 0; i < 500; i++) {
-      recentEmojiManager.addEmoji(new Emoji(i, R.drawable.emoji_recent, false));
+      recentEmojiManager.addEmoji(new Emoji(i, "test", R.drawable.emoji_recent, false));
     }
 
     assertThat(recentEmojiManager.getRecentEmojis()).hasSize(40);

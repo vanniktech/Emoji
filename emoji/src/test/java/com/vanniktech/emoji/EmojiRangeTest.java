@@ -11,8 +11,8 @@ public final class EmojiRangeTest {
   private Emoji emoji2;
 
   @Before public void setUp() {
-    emoji = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent, false);
-    emoji2 = new Emoji(new int[] { 0x5678 }, R.drawable.emoji_backspace, false);
+    emoji = new Emoji(new int[] { 0x1234 }, "test", R.drawable.emoji_recent, false);
+    emoji2 = new Emoji(new int[] { 0x5678 }, "test", R.drawable.emoji_backspace, false);
   }
 
   @Test public void equality() {

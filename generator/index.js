@@ -163,20 +163,25 @@ function generateEmojiCode(target, emojis, indent = 6) {
     }
 
     return emojis.filter(it => it[target.package]).map((it) => {
+        const stringifiedShortcode = it.shortcode ? "\"" + it.shortcode + "\"" : null;
         const unicodeParts = it.unicode.split("-");
         let result;
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${stringifiedShortcode}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
-                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${stringifiedShortcode}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${stringifiedShortcode}, ${it.isDuplicate}`;
             } else {
-                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.isDuplicate}`;
+                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${stringifiedShortcode}, ${it.isDuplicate}`;
             }
         }
 
@@ -207,6 +212,7 @@ async function parse() {
 
         const emoji = {
             unicode: dataEntry.unified,
+            shortcode: dataEntry.short_name,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
             isDuplicate: isDuplicate,

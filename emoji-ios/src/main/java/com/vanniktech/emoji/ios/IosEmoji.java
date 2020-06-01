@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.LruCache;
 
 import com.vanniktech.emoji.emoji.CacheKey;
@@ -34,31 +35,33 @@ public class IosEmoji extends Emoji {
   private final int x;
   private final int y;
 
-  public IosEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate) {
-    super(codePoints, -1, isDuplicate);
+  public IosEmoji(@NonNull final int[] codePoints, @Nullable final String shortcode, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoints, shortcode, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public IosEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate) {
-    super(codePoint, -1, isDuplicate);
+  public IosEmoji(final int codePoint, @Nullable final String shortcode, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoint, shortcode, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public IosEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoint, -1, isDuplicate, variants);
+  public IosEmoji(final int codePoint, @Nullable final String shortcode, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoint, shortcode, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;
   }
 
-  public IosEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoints, -1, isDuplicate, variants);
+  public IosEmoji(@NonNull final int[] codePoints, @Nullable final String shortcode, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoints, shortcode, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;
