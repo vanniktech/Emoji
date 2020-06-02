@@ -8,43 +8,44 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 
-public class Emoji implements Serializable {
+@SuppressWarnings("PMD.ArrayIsStoredDirectly") public class Emoji implements Serializable {
   private static final long serialVersionUID = 3L;
   private static final List<Emoji> EMPTY_EMOJI_LIST = emptyList();
 
   @NonNull private final String unicode;
-  @Nullable private final String shortcode;
+  @NonNull private final String[] shortcodes;
   @DrawableRes private final int resource;
   private final boolean isDuplicate;
   @NonNull private final List<Emoji> variants;
   @Nullable private Emoji base;
 
-  public Emoji(@NonNull final int[] codePoints, @Nullable final String shortcode,
+  public Emoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes,
                @DrawableRes final int resource, final boolean isDuplicate) {
-    this(codePoints, shortcode, resource, isDuplicate, new Emoji[0]);
+    this(codePoints, shortcodes, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @Nullable final String shortcode,
+  public Emoji(final int codePoint, @NonNull final String[] shortcodes,
                @DrawableRes final int resource, final boolean isDuplicate) {
-    this(codePoint, shortcode, resource, isDuplicate, new Emoji[0]);
+    this(codePoint, shortcodes, resource, isDuplicate, new Emoji[0]);
   }
 
-  public Emoji(final int codePoint, @Nullable final String shortcode,
+  public Emoji(final int codePoint, @NonNull final String[] shortcodes,
                @DrawableRes final int resource, final boolean isDuplicate,
                final Emoji... variants) {
-    this(new int[]{codePoint}, shortcode, resource, isDuplicate, variants);
+    this(new int[]{codePoint}, shortcodes, resource, isDuplicate, variants);
   }
 
-  public Emoji(@NonNull final int[] codePoints, @Nullable final String shortcode,
+  public Emoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes,
                @DrawableRes final int resource, final boolean isDuplicate,
                final Emoji... variants) {
     this.unicode = new String(codePoints, 0, codePoints.length);
-    this.shortcode = shortcode;
+    this.shortcodes = shortcodes;
     this.resource = resource;
     this.isDuplicate = isDuplicate;
     this.variants = variants.length == 0 ? EMPTY_EMOJI_LIST : asList(variants);
@@ -57,8 +58,8 @@ public class Emoji implements Serializable {
     return unicode;
   }
 
-  @Nullable public String getShortcode() {
-    return shortcode;
+  @Nullable public List<String> getShortcodes() {
+    return asList(shortcodes);
   }
 
   /**
@@ -116,13 +117,13 @@ public class Emoji implements Serializable {
 
     return resource == emoji.resource
             && unicode.equals(emoji.unicode)
-            && shortcode != null ? shortcode.equals(emoji.shortcode) : emoji.shortcode == null
+            && Arrays.equals(shortcodes, emoji.shortcodes)
             && variants.equals(emoji.variants);
   }
 
   @Override public int hashCode() {
     int result = unicode.hashCode();
-    result = 31 * result + (shortcode != null ? shortcode.hashCode() : 0);
+    result = 31 * result + Arrays.hashCode(shortcodes);
     result = 31 * result + resource;
     result = 31 * result + variants.hashCode();
     return result;

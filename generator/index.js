@@ -163,25 +163,24 @@ function generateEmojiCode(target, emojis, indent = 6) {
     }
 
     return emojis.filter(it => it[target.package]).map((it) => {
-        const stringifiedShortcode = it.shortcode ? "\"" + it.shortcode + "\"" : null;
         const unicodeParts = it.unicode.split("-");
         let result;
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${stringifiedShortcode}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${stringifiedShortcode}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${stringifiedShortcode}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${stringifiedShortcode}, ${it.isDuplicate}`;
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             }
         }
 
@@ -193,6 +192,14 @@ function generateEmojiCode(target, emojis, indent = 6) {
             return `${result})`;
         }
     })
+}
+
+function generateShortcodeCode(emoji) {
+    if (!emoji.shortcodes || emoji.shortcodes.length === 0) {
+        return 'new String[0]'
+    } else {
+        return `new String[]{"${emoji.shortcodes.join(`", "`)}"}`
+    }
 }
 
 /**
@@ -212,7 +219,7 @@ async function parse() {
 
         const emoji = {
             unicode: dataEntry.unified,
-            shortcode: dataEntry.short_name,
+            shortcodes: dataEntry.short_names,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
             isDuplicate: isDuplicate,
