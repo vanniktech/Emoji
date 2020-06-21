@@ -34,6 +34,7 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.O;
+import static androidx.core.view.ViewCompat.requestApplyInsets;
 import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
@@ -273,6 +274,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     if (!popupWindow.isShowing()) {
       // this is needed because something might have cleared the insets listener
       start();
+      requestApplyInsets(context.getWindow().getDecorView());
       show();
     } else {
       dismiss();
