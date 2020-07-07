@@ -13,11 +13,11 @@ public final class EmojiResultReceiver extends ResultReceiver {
    * {@link #onReceiveResult} method will be called from the thread running
    * <var>handler</var> if given, or from an arbitrary thread if null.
    */
-  EmojiResultReceiver(final Handler handler) {
+  public EmojiResultReceiver(final Handler handler) {
     super(handler);
   }
 
-  void setReceiver(final Receiver receiver) {
+  public void setReceiver(final Receiver receiver) {
     this.receiver = receiver;
   }
 

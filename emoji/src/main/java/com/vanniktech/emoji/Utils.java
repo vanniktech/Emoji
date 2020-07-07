@@ -36,12 +36,12 @@ import java.util.List;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
-final class Utils {
+public final class Utils {
   static final String TAG = "Utils";
 
   static final int DONT_UPDATE_FLAG = -1;
 
-  @NonNull static <T> T checkNotNull(@Nullable final T reference, final String message) {
+  @NonNull public static <T> T checkNotNull(@Nullable final T reference, final String message) {
     if (reference == null) {
       throw new IllegalArgumentException(message);
     }
@@ -75,7 +75,7 @@ final class Utils {
     return emojiSize;
   }
 
-  static int dpToPx(@NonNull final Context context, final float dp) {
+  public static int dpToPx(@NonNull final Context context, final float dp) {
     return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
         context.getResources().getDisplayMetrics()) + 0.5f);
   }
@@ -84,12 +84,12 @@ final class Utils {
     return context.getResources().getConfiguration().orientation;
   }
 
-  static int getProperWidth(final Activity activity) {
+  public static int getProperWidth(final Activity activity) {
     final Rect rect = Utils.windowVisibleDisplayFrame(activity);
     return Utils.getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT ? rect.right : getScreenWidth(activity);
   }
 
-  static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
+  public static boolean shouldOverrideRegularCondition(@NonNull final Context context, final EditText editText) {
     if ((editText.getImeOptions() & EditorInfo.IME_FLAG_NO_EXTRACT_UI) == 0) {
       return getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE;
     }
@@ -97,7 +97,8 @@ final class Utils {
     return false;
   }
 
-  @SuppressWarnings({"unchecked", "JavaReflectionMemberAccess"}) static int getInputMethodHeight(final Context context, final View rootView) {
+  @SuppressWarnings({"unchecked", "JavaReflectionMemberAccess"})
+  public static int getInputMethodHeight(final Context context, final View rootView) {
     try {
       final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
       final Class inputMethodManagerClass = imm.getClass();
@@ -146,7 +147,7 @@ final class Utils {
     return availableHeight - (rect.bottom - rect.top);
   }
 
-  static int getProperHeight(final Activity activity) {
+  public static int getProperHeight(final Activity activity) {
     return Utils.windowVisibleDisplayFrame(activity).bottom;
   }
 
@@ -166,7 +167,7 @@ final class Utils {
     return result;
   }
 
-  static void backspace(@NonNull final EditText editText) {
+  public static void backspace(@NonNull final EditText editText) {
     final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
     editText.dispatchKeyEvent(event);
   }
@@ -183,7 +184,7 @@ final class Utils {
     return result;
   }
 
-  static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
+  public static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
     if (emoji != null) {
       final int start = editText.getSelectionStart();
       final int end = editText.getSelectionEnd();
@@ -196,7 +197,7 @@ final class Utils {
     }
   }
 
-  static Activity asActivity(@NonNull final Context context) {
+  public static Activity asActivity(@NonNull final Context context) {
     Context result = context;
 
     while (result instanceof ContextWrapper) {
@@ -240,7 +241,8 @@ final class Utils {
     });
   }
 
-  @ColorInt static int resolveColor(final Context context, @AttrRes final int resource, @ColorRes final int fallback) {
+  @ColorInt
+  public static int resolveColor(final Context context, @AttrRes final int resource, @ColorRes final int fallback) {
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(resource, value, true);
     final int resolvedColor;

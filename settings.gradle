@@ -1,5 +1,6 @@
 include ':app'
 include ':emoji'
+include ':emoji-stickers'
 include ':emoji-google'
 include ':emoji-google-compat'
 include ':emoji-ios'

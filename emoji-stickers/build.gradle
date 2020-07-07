@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion as int
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion as int
+    }
+
+    resourcePrefix 'emoji_'
+}
+
+dependencies {
+    api rootProject.ext.supportAppCompat
+    api rootProject.ext.supportCardView
+
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    implementation project(path: ':emoji')
+
+    testImplementation rootProject.ext.testing.junit
+    testImplementation rootProject.ext.testing.assertJ
+    testImplementation rootProject.ext.testing.robolectric
+    testImplementation rootProject.ext.testing.privateConstructor
+    androidTestAnnotationProcessor deps.support.test.autoService
+}
+
+apply plugin: "com.vanniktech.maven.publish"

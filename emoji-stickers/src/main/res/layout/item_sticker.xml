@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="4dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="100dp"
+    android:layout_height="100dp"
+    tools:ignore="ResourceName"
+    android:scaleType="fitCenter"
+    android:background="?attr/selectableItemBackground"
+    android:id="@+id/img_row">
+
+</ImageButton>

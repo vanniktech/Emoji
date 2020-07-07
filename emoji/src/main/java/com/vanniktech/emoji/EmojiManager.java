@@ -1,10 +1,10 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.text.Spannable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import java.util.ArrayList;
@@ -180,7 +180,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize, DEFAULT_EMOJI_REPLACER);
   }
 
-  EmojiCategory[] getCategories() {
+  public EmojiCategory[] getCategories() {
     verifyInstalled();
     return categories; // NOPMD
   }

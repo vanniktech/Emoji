@@ -14,7 +14,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 /** Reference implementation for an EditText with emoji support. */
 @SuppressWarnings("CPD-START") public class EmojiEditText extends AppCompatEditText implements EmojiEditable {
   private float emojiSize;
-  private boolean disableKeyboardInput;
+  public boolean disableKeyboardInput;
 
   public EmojiEditText(final Context context) {
     this(context, null);
@@ -83,12 +83,13 @@ import com.vanniktech.emoji.emoji.Emoji;
   }
 
   /** Disables the keyboard input using a focus change listener and delegating to the previous focus change listener. */
-  public void disableKeyboardInput(final EmojiPopup emojiPopup) {
+  public void disableKeyboardInput(final EmojiPopupBase emojiPopup) {
     disableKeyboardInput = true;
     super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
   }
 
-  /** Enables the keyboard input. If it has been disabled before using {@link #disableKeyboardInput(EmojiPopup)} the OnFocusChangeListener will be preserved. */
+
+  /** Enables the keyboard input. If it has been disabled before using {@link #disableKeyboardInput(EmojiPopupBase)} the OnFocusChangeListener will be preserved. */
   public void enableKeyboardInput() {
     disableKeyboardInput = false;
     final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
@@ -105,10 +106,10 @@ import com.vanniktech.emoji.emoji.Emoji;
   }
 
   static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {
-    final EmojiPopup emojiPopup;
+    final EmojiPopupBase emojiPopup;
     @Nullable final OnFocusChangeListener onFocusChangeListener;
 
-    ForceEmojisOnlyFocusChangeListener(@Nullable final OnFocusChangeListener onFocusChangeListener, final EmojiPopup emojiPopup) {
+    ForceEmojisOnlyFocusChangeListener(@Nullable final OnFocusChangeListener onFocusChangeListener, final EmojiPopupBase emojiPopup) {
       this.emojiPopup = emojiPopup;
       this.onFocusChangeListener = onFocusChangeListener;
     }

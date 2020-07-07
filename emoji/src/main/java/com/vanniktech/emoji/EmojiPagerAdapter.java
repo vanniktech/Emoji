@@ -1,8 +1,8 @@
 package com.vanniktech.emoji;
 
-import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.viewpager.widget.PagerAdapter;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 
@@ -16,9 +16,9 @@ public final class EmojiPagerAdapter extends PagerAdapter {
 
   private RecentEmojiGridView recentEmojiGridView;
 
-  EmojiPagerAdapter(final OnEmojiClickListener listener,
-                    final OnEmojiLongClickListener longListener,
-                    final RecentEmoji recentEmoji, final VariantEmoji variantManager) {
+  public EmojiPagerAdapter(final OnEmojiClickListener listener,
+                           final OnEmojiLongClickListener longListener,
+                           final RecentEmoji recentEmoji, final VariantEmoji variantManager) {
     this.listener = listener;
     this.longListener = longListener;
     this.recentEmoji = recentEmoji;
@@ -57,11 +57,11 @@ public final class EmojiPagerAdapter extends PagerAdapter {
     return view.equals(object);
   }
 
-  int numberOfRecentEmojis() {
+  public int numberOfRecentEmojis() {
     return recentEmoji.getRecentEmojis().size();
   }
 
-  void invalidateRecentEmojis() {
+  public void invalidateRecentEmojis() {
     if (recentEmojiGridView != null) {
       recentEmojiGridView.invalidateEmojis();
     }

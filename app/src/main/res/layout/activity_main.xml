@@ -60,8 +60,7 @@
         android:importantForAutofill="no"
         android:inputType="textCapSentences|textMultiLine"
         android:maxLines="3"
-        tools:ignore="LabelFor"
-        />
+        tools:ignore="LabelFor" />
     <ImageView
         android:id="@+id/main_activity_send"
         android:layout_width="48dp"
