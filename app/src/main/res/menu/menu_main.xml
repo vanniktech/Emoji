@@ -8,6 +8,14 @@
       android:icon="@drawable/ic_message"
       android:title="Show Dialog"
       app:showAsAction="ifRoom" />
+
+  <item
+      android:id="@+id/menuMainSticker"
+      android:icon="@drawable/emoji_sticker_tab"
+      android:iconTint="@android:color/white"
+      android:title="Stickers"
+      app:showAsAction="ifRoom" />
+
   <item
       android:id="@+id/menuMainSearchOption"
       android:icon="@drawable/ic_swap"
