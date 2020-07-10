@@ -1,7 +1,6 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
@@ -19,27 +18,12 @@ import androidx.appcompat.widget.AppCompatButton;
 
   public EmojiButton(final Context context, final AttributeSet attrs) {
     super(context, attrs);
+    emojiSize = Utils.initTextView(this, attrs);
+  }
 
-    if (!isInEditMode()) {
-      EmojiManager.getInstance().verifyInstalled();
-    }
-
-    final Paint.FontMetrics fontMetrics = getPaint().getFontMetrics();
-    final float defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent;
-
-    if (attrs == null) {
-      emojiSize = defaultEmojiSize;
-    } else {
-      final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.EmojiButton);
-
-      try {
-        emojiSize = a.getDimension(R.styleable.EmojiButton_emojiSize, defaultEmojiSize);
-      } finally {
-        a.recycle();
-      }
-    }
-
-    setText(getText());
+  public EmojiButton(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    emojiSize = Utils.initTextView(this, attrs);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {
