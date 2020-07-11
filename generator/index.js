@@ -168,15 +168,19 @@ function generateEmojiCode(target, emojis, indent = 6) {
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
-                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${it.isDuplicate}`;
+                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             } else {
-                result = `new ${target.name}(new int[] { ${unicodeParts.map(it => "0x" + it).join(", ")} }, ${it.isDuplicate}`;
+                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+
+                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             }
         }
 
@@ -188,6 +192,14 @@ function generateEmojiCode(target, emojis, indent = 6) {
             return `${result})`;
         }
     })
+}
+
+function generateShortcodeCode(emoji) {
+    if (!emoji.shortcodes || emoji.shortcodes.length === 0) {
+        return 'new String[0]'
+    } else {
+        return `new String[]{"${emoji.shortcodes.join(`", "`)}"}`
+    }
 }
 
 /**
@@ -207,6 +219,7 @@ async function parse() {
 
         const emoji = {
             unicode: dataEntry.unified,
+            shortcodes: dataEntry.short_names,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
             isDuplicate: isDuplicate,

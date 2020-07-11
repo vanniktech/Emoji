@@ -21,6 +21,11 @@ import androidx.appcompat.widget.AppCompatTextView;
     emojiSize = Utils.initTextView(this, attrs);
   }
 
+  public EmojiTextView(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    emojiSize = Utils.initTextView(this, attrs);
+  }
+
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {
     if (isInEditMode()) {
       super.setText(rawText, type);

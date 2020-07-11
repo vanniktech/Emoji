@@ -23,6 +23,11 @@ import com.vanniktech.emoji.EmojiDisplayable;
     emojiSize = Utils.initTextView(this, attrs);
   }
 
+  public EmojiMaterialCheckBox(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    emojiSize = Utils.initTextView(this, attrs);
+  }
+
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {
     final CharSequence text = rawText == null ? "" : rawText;
     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
