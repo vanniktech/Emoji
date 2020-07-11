@@ -161,6 +161,11 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       popupWindow.setAnimationStyle(builder.keyboardAnimationStyle);
     }
 
+    // Root view might already be laid out in which case we need to manually call start()
+    if (rootView.getParent() != null) {
+      start();
+    }
+
     rootView.addOnAttachStateChangeListener(onAttachStateChangeListener);
   }
 
