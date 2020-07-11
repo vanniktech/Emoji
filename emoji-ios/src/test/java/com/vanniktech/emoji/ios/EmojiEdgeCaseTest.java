@@ -13,8 +13,7 @@ public class EmojiEdgeCaseTest {
   }
 
   @Test public void starWithVariantSelector() {
-    String s = "⭐️⭐️⭐️";
-
+    final String s = "⭐️⭐️⭐️";
     assertThat(EmojiUtils.emojisCount(s)).isEqualTo(3);
     assertThat(EmojiUtils.isOnlyEmojis(s)).isTrue();
   }
