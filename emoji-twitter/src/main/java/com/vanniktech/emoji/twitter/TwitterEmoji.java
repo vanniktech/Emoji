@@ -51,31 +51,33 @@ public class TwitterEmoji extends Emoji {
   private final int x;
   private final int y;
 
-  public TwitterEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate) {
-    super(codePoints, -1, isDuplicate);
+  public TwitterEmoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoints, shortcodes, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public TwitterEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate) {
-    super(codePoint, -1, isDuplicate);
+  public TwitterEmoji(final int codePoint, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoint, shortcodes, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public TwitterEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoint, -1, isDuplicate, variants);
+  public TwitterEmoji(final int codePoint, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoint, shortcodes, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;
   }
 
-  public TwitterEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoints, -1, isDuplicate, variants);
+  public TwitterEmoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoints, shortcodes, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;

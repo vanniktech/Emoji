@@ -51,31 +51,33 @@ public class GoogleEmoji extends Emoji {
   private final int x;
   private final int y;
 
-  public GoogleEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate) {
-    super(codePoints, -1, isDuplicate);
+  public GoogleEmoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoints, shortcodes, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public GoogleEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate) {
-    super(codePoint, -1, isDuplicate);
+  public GoogleEmoji(final int codePoint, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate) {
+    super(codePoint, shortcodes, -1, isDuplicate);
 
     this.x = x;
     this.y = y;
   }
 
-  public GoogleEmoji(final int codePoint, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoint, -1, isDuplicate, variants);
+  public GoogleEmoji(final int codePoint, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoint, shortcodes, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;
   }
 
-  public GoogleEmoji(@NonNull final int[] codePoints, final int x, final int y, final boolean isDuplicate,
-                     final Emoji... variants) {
-    super(codePoints, -1, isDuplicate, variants);
+  public GoogleEmoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes, final int x, final int y,
+                     final boolean isDuplicate, final Emoji... variants) {
+    super(codePoints, shortcodes, -1, isDuplicate, variants);
 
     this.x = x;
     this.y = y;

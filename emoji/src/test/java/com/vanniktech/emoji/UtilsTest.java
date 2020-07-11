@@ -51,8 +51,8 @@ public class UtilsTest {
 
   @Test public void asListFilter() {
     final Emoji[] emojis = new Emoji[] {
-      new Emoji("\u1234".codePointAt(0), R.drawable.emoji_backspace, false),
-      new Emoji("\u1234".codePointAt(0), R.drawable.emoji_backspace, true),
+      new Emoji("\u1234".codePointAt(0), new String[]{"test"}, R.drawable.emoji_backspace, false),
+      new Emoji("\u1234".codePointAt(0), new String[]{"test"}, R.drawable.emoji_backspace, true),
     };
 
     final List<Emoji> filtered = Utils.asListWithoutDuplicates(emojis);

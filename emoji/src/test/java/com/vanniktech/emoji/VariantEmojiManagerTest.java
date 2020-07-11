@@ -43,11 +43,11 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
   @Before public void setUp() {
     variantEmojiManager = new VariantEmojiManager(RuntimeEnvironment.application);
 
-    emoji = new Emoji(0x1f437, R.drawable.emoji_recent, false);
-    variant1 = new Emoji(0x1f55b, R.drawable.emoji_recent, false);
-    variant2 = new Emoji(0x1f55c, R.drawable.emoji_recent, false);
-    variant3 = new Emoji(0x1f55d, R.drawable.emoji_recent, false);
-    base = new Emoji(0x1f55a, R.drawable.emoji_recent, false, variant1, variant2, variant3);
+    emoji = new Emoji(0x1f437, new String[]{"test"}, R.drawable.emoji_recent, false);
+    variant1 = new Emoji(0x1f55b, new String[]{"test"}, R.drawable.emoji_recent, false);
+    variant2 = new Emoji(0x1f55c, new String[]{"test"}, R.drawable.emoji_recent, false);
+    variant3 = new Emoji(0x1f55d, new String[]{"test"}, R.drawable.emoji_recent, false);
+    base = new Emoji(0x1f55a, new String[]{"test"}, R.drawable.emoji_recent, false, variant1, variant2, variant3);
   }
 
   @Test public void getVariantDefault() {

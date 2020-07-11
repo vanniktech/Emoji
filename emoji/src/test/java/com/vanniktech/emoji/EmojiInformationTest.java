@@ -39,7 +39,7 @@ public final class EmojiInformationTest {
     empty = new EmojiInformation(false, emptyList);
     empty2 = new EmojiInformation(false, emptyList);
 
-    final Emoji emoji = new Emoji(new int[] { 0x1234 }, R.drawable.emoji_recent, false);
+    final Emoji emoji = new Emoji(new int[] { 0x1234 }, new String[]{"test"}, R.drawable.emoji_recent, false);
     one = new EmojiInformation(false, singletonList(new EmojiRange(0, 1, emoji)));
     one2 = new EmojiInformation(false, singletonList(new EmojiRange(0, 1, emoji)));
   }
