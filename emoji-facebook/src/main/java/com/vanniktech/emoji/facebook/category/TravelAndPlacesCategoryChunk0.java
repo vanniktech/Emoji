@@ -185,7 +185,9 @@ final class TravelAndPlacesCategoryChunk0 {
       new FacebookEmoji(0x1F31D, new String[]{"full_moon_with_face"}, 5, 48, false),
       new FacebookEmoji(0x1F31E, new String[]{"sun_with_face"}, 5, 49, false),
       new FacebookEmoji(0x1FA90, new String[]{"ringed_planet"}, 52, 4, false),
-      new FacebookEmoji(0x2B50, new String[]{"star"}, 55, 42, false),
+      new FacebookEmoji(0x2B50, new String[]{"star"}, 55, 42, true,
+        new FacebookEmoji(new int[] { 0x2B50, 0xFE0F }, new String[0], 55, 42, true)
+      ),
       new FacebookEmoji(0x1F31F, new String[]{"star2"}, 5, 50, false),
       new FacebookEmoji(0x1F320, new String[]{"stars"}, 5, 51, false),
       new FacebookEmoji(0x1F30C, new String[]{"milky_way"}, 5, 31, false),

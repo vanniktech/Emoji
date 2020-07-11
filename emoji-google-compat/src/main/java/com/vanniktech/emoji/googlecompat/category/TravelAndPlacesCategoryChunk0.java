@@ -185,7 +185,9 @@ final class TravelAndPlacesCategoryChunk0 {
       new GoogleCompatEmoji(0x1F31D, new String[]{"full_moon_with_face"}, false),
       new GoogleCompatEmoji(0x1F31E, new String[]{"sun_with_face"}, false),
       new GoogleCompatEmoji(0x1FA90, new String[]{"ringed_planet"}, false),
-      new GoogleCompatEmoji(0x2B50, new String[]{"star"}, false),
+      new GoogleCompatEmoji(0x2B50, new String[]{"star"}, true,
+        new GoogleCompatEmoji(new int[] { 0x2B50, 0xFE0F }, new String[0], true)
+      ),
       new GoogleCompatEmoji(0x1F31F, new String[]{"star2"}, false),
       new GoogleCompatEmoji(0x1F320, new String[]{"stars"}, false),
       new GoogleCompatEmoji(0x1F30C, new String[]{"milky_way"}, false),

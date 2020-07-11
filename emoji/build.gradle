@@ -18,11 +18,16 @@ android {
 dependencies {
   api rootProject.ext.supportAppCompat
   api rootProject.ext.supportCardView
+}
 
+dependencies {
   testImplementation rootProject.ext.testing.junit
   testImplementation rootProject.ext.testing.assertJ
   testImplementation rootProject.ext.testing.robolectric
   testImplementation rootProject.ext.testing.privateConstructor
+}
+
+dependencies {
   androidTestAnnotationProcessor deps.support.test.autoService
 }
 

@@ -68,11 +68,11 @@ Does not regenerate the Java code.
 Parameters are passed to the script like this:
 
 ```
-npm start -- --no-download --no-copy
+npm start -- --no-optimize --no-copy
 ```
 
 or
 
 ```
-yarn start --no-download --no-copy
+yarn start --no-optimize --no-copy
 ```

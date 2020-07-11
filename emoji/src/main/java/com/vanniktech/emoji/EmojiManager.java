@@ -1,10 +1,9 @@
 package com.vanniktech.emoji;
 
 import android.content.Context;
+import android.text.Spannable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.text.Spannable;
-import android.text.TextUtils;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import java.util.ArrayList;
@@ -194,7 +193,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     final List<EmojiRange> result = new ArrayList<>();
 
-    if (!TextUtils.isEmpty(text)) {
+    if (text != null && text.length() > 0) {
       final Matcher matcher = emojiPattern.matcher(text);
 
       while (matcher.find()) {
