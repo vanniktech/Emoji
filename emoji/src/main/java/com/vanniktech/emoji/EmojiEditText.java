@@ -25,6 +25,11 @@ import com.vanniktech.emoji.emoji.Emoji;
     emojiSize = Utils.initTextView(this, attrs);
   }
 
+  public EmojiEditText(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    emojiSize = Utils.initTextView(this, attrs);
+  }
+
   @Override @CallSuper protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
     if (isInEditMode()) {
       return;
