@@ -33,7 +33,7 @@ import static android.view.View.VISIBLE;
 @SuppressWarnings("CPD-START") public class StickersActivity extends AppCompatActivity {
     static final String TAG = "StickersActivity";
 
-    ChatAdapter chatAdapter;
+    ChatAdapterStickers chatAdapter;
     EmojiPopupSticker emojiPopupSticker;
 
     EmojiEditText editText;
@@ -48,7 +48,7 @@ import static android.view.View.VISIBLE;
         setContentView(R.layout.activity_main);
 
 
-        chatAdapter = new ChatAdapter();
+        chatAdapter = new ChatAdapterStickers();
 
         final Button button = findViewById(R.id.main_activity_material_button);
         button.setText("\uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
@@ -79,7 +79,7 @@ import static android.view.View.VISIBLE;
             final String text = editText.getText().toString().trim();
 
             if (text.length() > 0) {
-                chatAdapter.add(text);
+                chatAdapter.add(new AdapterItem(null,text));
 
                 editText.setText("");
             }
@@ -114,7 +114,8 @@ import static android.view.View.VISIBLE;
                 .setStickerSettings(new StickerSettings.Builder().stickers(stickerList).listener(new StickerListener() {
                     @Override
                     public void onClick(Sticker sticker) {
-                        Log.d(TAG,"onClick sticker "+sticker.toString());
+                        chatAdapter.add(new AdapterItem(sticker,null));
+
                     }
 
                     @Override
