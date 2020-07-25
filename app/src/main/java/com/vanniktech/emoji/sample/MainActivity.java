@@ -80,7 +80,6 @@ import static android.view.View.VISIBLE;
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
     final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
-    forceEmojisOnly.setText("Force emojis only \uD83D\uDE18");
     forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
       if (isChecked) {
         editText.clearFocus();

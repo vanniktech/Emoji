@@ -16,13 +16,15 @@
       android:layout_marginStart="16dp"
       android:layout_marginLeft="16dp"
       />
-  <CheckBox
+  <com.vanniktech.emoji.EmojiCheckbox
       android:id="@+id/main_activity_force_emojis_only"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_below="@id/main_activity_material_button"
       android:layout_marginStart="12dp"
       android:layout_marginLeft="12dp"
+      android:text="Force Emojis only 🌱🔥"
+      tools:ignore="HardcodedText"
       />
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/main_activity_recycler_view"

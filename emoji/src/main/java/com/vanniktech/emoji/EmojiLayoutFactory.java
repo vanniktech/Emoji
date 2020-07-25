@@ -42,6 +42,8 @@ public class EmojiLayoutFactory implements LayoutInflater.Factory2 {
       return new EmojiEditText(context, attrs);
     } else if ("Button".equals(name)) {
       return new EmojiButton(context, attrs);
+    } else if ("Checkbox".equals(name)) {
+      return new EmojiCheckbox(context, attrs);
     } else if ("AutoCompleteTextView".equals(name)) {
       return new EmojiAutoCompleteTextView(context, attrs);
     } else if ("MultiAutoCompleteTextView".equals(name)) {
