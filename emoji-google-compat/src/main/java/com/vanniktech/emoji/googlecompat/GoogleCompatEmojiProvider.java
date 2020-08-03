@@ -53,11 +53,10 @@ public final class GoogleCompatEmojiProvider implements EmojiProvider, EmojiRepl
     };
   }
 
-  @Override public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize, final EmojiReplacer fallback) {
+  @Override public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final EmojiReplacer fallback) {
     if (EmojiCompat.get().getLoadState() != EmojiCompat.LOAD_STATE_SUCCEEDED
-            || emojiSize != defaultEmojiSize
             || EmojiCompat.get().process(text, 0, text.length()) != text) {
-      fallback.replaceWithImages(context, text, emojiSize, defaultEmojiSize, null);
+      fallback.replaceWithImages(context, text, emojiSize, null);
     }
   }
 }

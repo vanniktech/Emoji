@@ -52,7 +52,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   };
 
   private static final EmojiReplacer DEFAULT_EMOJI_REPLACER = new EmojiReplacer() {
-    @Override public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize, final EmojiReplacer fallback) {
+    @Override public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final EmojiReplacer fallback) {
       final EmojiManager emojiManager = EmojiManager.getInstance();
       final EmojiSpan[] existingSpans = text.getSpans(0, text.length(), EmojiSpan.class);
       final List<Integer> existingSpanPositions = new ArrayList<>(existingSpans.length);
@@ -190,10 +190,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     }
   }
 
-  public void replaceWithImages(final Context context, final Spannable text, final float emojiSize, final float defaultEmojiSize) {
+  public void replaceWithImages(final Context context, final Spannable text, final float emojiSize) {
     verifyInstalled();
 
-    emojiReplacer.replaceWithImages(context, text, emojiSize, defaultEmojiSize, DEFAULT_EMOJI_REPLACER);
+    emojiReplacer.replaceWithImages(context, text, emojiSize, DEFAULT_EMOJI_REPLACER);
   }
 
   EmojiCategory[] getCategories() {
