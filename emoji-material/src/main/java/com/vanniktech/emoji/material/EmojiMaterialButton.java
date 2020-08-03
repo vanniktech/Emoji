@@ -50,7 +50,7 @@ import com.vanniktech.emoji.EmojiManager;
     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
     final Paint.FontMetrics fontMetrics = getPaint().getFontMetrics();
     final float defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent;
-    EmojiManager.getInstance().replaceWithImages(getContext(), spannableStringBuilder, emojiSize, defaultEmojiSize);
+    EmojiManager.getInstance().replaceWithImages(getContext(), spannableStringBuilder, emojiSize != 0 ? emojiSize : defaultEmojiSize);
     super.setText(spannableStringBuilder, type);
   }
 

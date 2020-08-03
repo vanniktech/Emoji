@@ -54,7 +54,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 
     final Paint.FontMetrics fontMetrics = getPaint().getFontMetrics();
     final float defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent;
-    EmojiManager.getInstance().replaceWithImages(getContext(), getText(), emojiSize, defaultEmojiSize);
+    EmojiManager.getInstance().replaceWithImages(getContext(), getText(), emojiSize != 0 ? emojiSize : defaultEmojiSize);
   }
 
   @Override @CallSuper public void backspace() {
