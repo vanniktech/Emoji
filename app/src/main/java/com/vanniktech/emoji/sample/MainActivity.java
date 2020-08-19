@@ -50,7 +50,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 // We don't care about duplicated code in the sample.
-@SuppressWarnings("CPD-START") public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
   static final String TAG = "MainActivity";
 
   ChatAdapter chatAdapter;

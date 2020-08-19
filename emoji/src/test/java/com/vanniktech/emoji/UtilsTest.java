@@ -17,26 +17,16 @@
 
 package com.vanniktech.emoji;
 
-import com.pushtorefresh.private_constructor_checker.PrivateConstructorChecker;
 import com.vanniktech.emoji.emoji.Emoji;
-
+import java.util.List;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UtilsTest {
   @Rule public final ExpectedException expectedException = ExpectedException.none();
-
-  @Test public void constructorShouldBePrivate() {
-    PrivateConstructorChecker.forClass(Utils.class)
-        .expectedTypeOfException(AssertionError.class)
-        .expectedExceptionMessage("No instances.")
-        .check();
-  }
 
   @Test public void checkNull() {
     expectedException.expect(IllegalArgumentException.class);

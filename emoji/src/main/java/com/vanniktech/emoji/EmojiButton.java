@@ -26,7 +26,7 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatButton;
 
-@SuppressWarnings("CPD-START") public class EmojiButton extends AppCompatButton implements EmojiDisplayable {
+public class EmojiButton extends AppCompatButton implements EmojiDisplayable {
   private float emojiSize;
 
   public EmojiButton(final Context context) {

@@ -37,7 +37,7 @@ import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 
 // We don't care about duplicated code in the sample.
-@SuppressWarnings("CPD-START") public class MainDialog extends DialogFragment {
+public class MainDialog extends DialogFragment {
   static final String FRAGMENT_MANAGER_TAG = "dialog_main";
   static final String TAG = "MainDialog";
 

@@ -43,7 +43,7 @@ import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 // We don't care about duplicated code in the sample.
-@SuppressWarnings("CPD-START") public class MainActivityMultiAutoCompeteTextView extends AppCompatActivity {
+public class MainActivityMultiAutoCompeteTextView extends AppCompatActivity {
   static final String TAG = "MainActivity";
 
   ChatAdapter chatAdapter;

@@ -28,7 +28,7 @@ import com.google.android.material.checkbox.MaterialCheckBox;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiDisplayable;
 
-@SuppressWarnings("CPD-START") public class EmojiMaterialCheckBox extends MaterialCheckBox implements EmojiDisplayable {
+public class EmojiMaterialCheckBox extends MaterialCheckBox implements EmojiDisplayable {
   private float emojiSize;
 
   public EmojiMaterialCheckBox(final Context context) {

@@ -17,15 +17,19 @@
 
 package com.vanniktech.emoji.sample.screenshots;
 
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
+import android.content.Context;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import com.vanniktech.emoji.sample.MainActivity;
 import com.vanniktech.emoji.sample.R;
+import java.io.File;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import tools.fastlane.screengrab.FileWritingScreenshotCallback;
 import tools.fastlane.screengrab.Screengrab;
 import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
 import tools.fastlane.screengrab.locale.LocaleTestRule;
@@ -40,7 +44,7 @@ import static java.util.Locale.US;
 @RunWith(AndroidJUnit4.class) public final class ScreenshotsTest {
   @ClassRule public static final LocaleTestRule LOCALE_TEST_RULE = new LocaleTestRule();
 
-  @Rule public final ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
+  @Rule public final ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
 
   @Before public void setUp() {
     Screengrab.setDefaultScreenshotStrategy(new UiAutomatorScreenshotStrategy());
@@ -62,7 +66,7 @@ import static java.util.Locale.US;
     start(Variant.FACEBOOK);
   }
 
-  private void start(final Variant variant) throws InterruptedException {
+  private static void start(final Variant variant) throws InterruptedException {
     final String name = variant.name().toLowerCase(US);
 
     // Select the right variant.
@@ -76,7 +80,7 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_chat_bottom_message_edittext)).perform(append("Hello what's up? " + new String(firstEmojis, 0, firstEmojis.length)));
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_1");
+    Screengrab.screenshot(name + "_1", Screengrab.getDefaultScreenshotStrategy(), new ConstantFileWritingScreenshotCallback(InstrumentationRegistry.getInstrumentation().getTargetContext()));
 
     onView(withId(R.id.main_activity_send)).perform(click());
 
@@ -90,7 +94,7 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_send)).perform(click());
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_2");
+    Screengrab.screenshot(name + "_2", Screengrab.getDefaultScreenshotStrategy(), new ConstantFileWritingScreenshotCallback(InstrumentationRegistry.getInstrumentation().getTargetContext()));
 
     // Third text.
     onView(withId(R.id.main_activity_send)).perform(click());
@@ -99,12 +103,22 @@ import static java.util.Locale.US;
     onView(withId(R.id.main_activity_chat_bottom_message_edittext)).perform(append("I don't know " + new String(secondEmojis, 0, secondEmojis.length)));
 
     Thread.sleep(500); // Espresso does not synchronize it right away.
-    Screengrab.screenshot(name + "_3");
+    Screengrab.screenshot(name + "_3", Screengrab.getDefaultScreenshotStrategy(), new ConstantFileWritingScreenshotCallback(InstrumentationRegistry.getInstrumentation().getTargetContext()));
+  }
+
+  static class ConstantFileWritingScreenshotCallback extends FileWritingScreenshotCallback {
+    ConstantFileWritingScreenshotCallback(final Context appContext) {
+      super(appContext);
+    }
+
+    @Override protected File getScreenshotFile(final File screenshotDirectory, final String screenshotName) {
+      return new File(screenshotDirectory, screenshotName + ".png");
+    }
   }
 
   enum Variant {
     GOOGLE("Google"),
-    IOS("Ios"),
+    IOS("iOS"),
     TWITTER("Twitter"),
     FACEBOOK("Facebook");
 

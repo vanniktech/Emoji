@@ -28,7 +28,7 @@ import com.google.android.material.button.MaterialButton;
 import com.vanniktech.emoji.EmojiDisplayable;
 import com.vanniktech.emoji.EmojiManager;
 
-@SuppressWarnings("CPD-START") public class EmojiMaterialButton extends MaterialButton implements EmojiDisplayable {
+public class EmojiMaterialButton extends MaterialButton implements EmojiDisplayable {
   private float emojiSize;
 
   public EmojiMaterialButton(final Context context) {

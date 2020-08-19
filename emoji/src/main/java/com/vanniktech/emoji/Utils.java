@@ -17,8 +17,6 @@
 
 package com.vanniktech.emoji;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -28,12 +26,10 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -44,14 +40,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.vanniktech.emoji.emoji.Emoji;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 final class Utils {
   static final String TAG = "Utils";
@@ -112,55 +102,6 @@ final class Utils {
     }
 
     return false;
-  }
-
-  @SuppressWarnings({"unchecked", "JavaReflectionMemberAccess"}) static int getInputMethodHeight(final Context context, final View rootView) {
-    try {
-      final InputMethodManager imm = (InputMethodManager) context.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-      final Class inputMethodManagerClass = imm.getClass();
-      @SuppressLint("PrivateApi") final Method visibleHeightMethod = inputMethodManagerClass.getDeclaredMethod("getInputMethodWindowVisibleHeight");
-      visibleHeightMethod.setAccessible(true);
-      return (int) visibleHeightMethod.invoke(imm);
-    } catch (NoSuchMethodException exception) {
-      Log.w(TAG, exception.getLocalizedMessage());
-    } catch (IllegalAccessException exception) {
-      Log.w(TAG, exception.getLocalizedMessage());
-    } catch (InvocationTargetException exception) {
-      Log.w(TAG, exception.getLocalizedMessage());
-    }
-
-    return alternativeInputMethodHeight(rootView);
-  }
-
-  @SuppressWarnings("JavaReflectionMemberAccess") @TargetApi(LOLLIPOP) static int getViewBottomInset(final View rootView) {
-    try {
-      final Field attachInfoField = View.class.getDeclaredField("mAttachInfo");
-      attachInfoField.setAccessible(true);
-      final Object attachInfo = attachInfoField.get(rootView);
-      if (attachInfo != null) {
-        final Field stableInsetsField = attachInfo.getClass().getDeclaredField("mStableInsets");
-        stableInsetsField.setAccessible(true);
-        return ((Rect) stableInsetsField.get(attachInfo)).bottom;
-      }
-    } catch (NoSuchFieldException noSuchFieldException) {
-      Log.w(TAG, noSuchFieldException.getLocalizedMessage());
-    } catch (IllegalAccessException illegalAccessException) {
-      Log.w(TAG, illegalAccessException.getLocalizedMessage());
-    }
-    return 0;
-  }
-
-  static int alternativeInputMethodHeight(final View rootView) {
-    int viewInset = 0;
-    if (SDK_INT >= LOLLIPOP) {
-      viewInset = getViewBottomInset(rootView);
-    }
-
-    final Rect rect = new Rect();
-    rootView.getWindowVisibleDisplayFrame(rect);
-
-    final int availableHeight = rootView.getHeight() - viewInset - rect.top;
-    return availableHeight - (rect.bottom - rect.top);
   }
 
   static int getProperHeight(final Activity activity) {

@@ -27,7 +27,7 @@ import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EmojiAutoCompleteTextView with emoji support. */
-@SuppressWarnings("CPD-START") public class EmojiMultiAutoCompleteTextView extends AppCompatMultiAutoCompleteTextView implements EmojiEditable {
+public class EmojiMultiAutoCompleteTextView extends AppCompatMultiAutoCompleteTextView implements EmojiEditable {
   private float emojiSize;
 
   public EmojiMultiAutoCompleteTextView(final Context context) {

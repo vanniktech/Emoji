@@ -4,8 +4,8 @@ android {
   compileSdkVersion rootProject.ext.compileSdkVersion as int
 
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 
   defaultConfig {
@@ -16,19 +16,14 @@ android {
 }
 
 dependencies {
-  api rootProject.ext.supportAppCompat
-  api rootProject.ext.supportCardView
+  api "androidx.appcompat:appcompat:1.2.0"
+  api "androidx.cardview:cardview:1.0.0"
 }
 
 dependencies {
   testImplementation rootProject.ext.testing.junit
   testImplementation rootProject.ext.testing.assertJ
-  testImplementation rootProject.ext.testing.robolectric
-  testImplementation rootProject.ext.testing.privateConstructor
-}
-
-dependencies {
-  androidTestAnnotationProcessor deps.support.test.autoService
+  testImplementation "org.robolectric:robolectric:4.3.1"
 }
 
 apply plugin: "com.vanniktech.maven.publish"

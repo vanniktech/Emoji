@@ -18,7 +18,7 @@ android {
 
     vectorDrawables.useSupportLibrary = true
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
   archivesBaseName = "app-$versionName"
@@ -59,21 +59,16 @@ dependencies {
   implementation project(':emoji-facebook')
   implementation project(':emoji-kotlin')
   implementation project(':emoji-material')
-
-  implementation rootProject.ext.supportAppCompat
-  implementation rootProject.ext.supportRecyclerView
-
-  debugImplementation rootProject.ext.leakCanaryDebug
-
-  androidTestImplementation deps.support.test.espresso.core
-  androidTestImplementation deps.support.test.runner
-  androidTestImplementation deps.support.test.rules
-  androidTestImplementation deps.fastLaneScreenGrab
-  androidTestAnnotationProcessor deps.support.test.autoService
+  implementation "androidx.recyclerview:recyclerview:1.1.0"
 }
 
-configurations.all {
-  resolutionStrategy {
-    force rootProject.ext.supportAnnotations
-  }
+dependencies {
+  debugImplementation "com.squareup.leakcanary:leakcanary-android:2.4"
+}
+
+dependencies {
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
+  androidTestImplementation "androidx.test:rules:1.3.0-rc03"
+  androidTestImplementation "androidx.test.ext:junit:1.1.2-rc03"
+  androidTestImplementation "tools.fastlane:screengrab:2.0.0"
 }

@@ -17,7 +17,6 @@
 
 package com.vanniktech.emoji;
 
-import com.pushtorefresh.private_constructor_checker.PrivateConstructorChecker;
 import com.vanniktech.emoji.emoji.Emoji;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,13 +36,6 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
     final Emoji emoji1 = new Emoji(CODE_POINT_1, new String[]{"test"}, R.drawable.emoji_recent, false);
     final Emoji emoji2 = new Emoji(CODE_POINT_2, new String[]{"test"}, R.drawable.emoji_backspace, false);
     EmojiManager.install(TestEmojiProvider.from(emoji1, emoji2));
-  }
-
-  @Test public void constructorShouldBePrivate() {
-    PrivateConstructorChecker.forClass(EmojiUtils.class)
-          .expectedTypeOfException(AssertionError.class)
-          .expectedExceptionMessage("No instances.")
-          .check();
   }
 
   @Test public void isOnlyEmojisEmpty() {

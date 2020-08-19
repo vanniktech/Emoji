@@ -28,7 +28,7 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiDisplayable;
 
-@SuppressWarnings("CPD-START") public class EmojiMaterialRadioButton extends MaterialRadioButton implements EmojiDisplayable {
+public class EmojiMaterialRadioButton extends MaterialRadioButton implements EmojiDisplayable {
   private float emojiSize;
 
   public EmojiMaterialRadioButton(final Context context) {

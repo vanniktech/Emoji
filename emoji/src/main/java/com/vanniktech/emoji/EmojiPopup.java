@@ -26,7 +26,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.view.autofill.AutofillManager;
 import android.view.inputmethod.EditorInfo;
@@ -49,7 +48,6 @@ import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 
 import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.O;
 import static androidx.core.view.ViewCompat.requestApplyInsets;
 import static com.vanniktech.emoji.Utils.backspace;
@@ -88,12 +86,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
 
-  final ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-    @Override @SuppressWarnings("PMD.CyclomaticComplexity") public void onGlobalLayout() {
-      updateKeyboardState();
-    }
-  };
-
   final View.OnAttachStateChangeListener onAttachStateChangeListener = new View.OnAttachStateChangeListener() {
     @Override public void onViewAttachedToWindow(final View v) {
       start();
@@ -103,11 +95,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       stop();
 
       popupWindow.setOnDismissListener(null);
-
-      if (SDK_INT < LOLLIPOP) {
-          rootView.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
-      }
-
       rootView.removeOnAttachStateChangeListener(this);
     }
   };
@@ -187,55 +174,38 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     rootView.addOnAttachStateChangeListener(onAttachStateChangeListener);
   }
 
-  void updateKeyboardState() {
-    final int keyboardHeight = Utils.getInputMethodHeight(context, rootView);
-
-    if (keyboardHeight > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
-      updateKeyboardStateOpened(keyboardHeight);
-    } else {
-      updateKeyboardStateClosed();
-    }
-  }
-
   void start() {
-    if (SDK_INT >= LOLLIPOP) {
-      context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-        int previousOffset;
+    context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+      int previousOffset;
 
-        @Override public WindowInsets onApplyWindowInsets(final View v, final WindowInsets insets) {
-          final int offset;
+      @Override public WindowInsets onApplyWindowInsets(final View v, final WindowInsets insets) {
+        final int offset;
 
-          if (insets.getSystemWindowInsetBottom() < insets.getStableInsetBottom()) {
-            offset = insets.getSystemWindowInsetBottom();
-          } else {
-            offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
-          }
-
-          if (offset != previousOffset || offset == 0) {
-            previousOffset = offset;
-
-            if (offset > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
-              updateKeyboardStateOpened(offset);
-            } else {
-              updateKeyboardStateClosed();
-            }
-          }
-
-          return context.getWindow().getDecorView().onApplyWindowInsets(insets);
+        if (insets.getSystemWindowInsetBottom() < insets.getStableInsetBottom()) {
+          offset = insets.getSystemWindowInsetBottom();
+        } else {
+          offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
         }
-      });
-    } else {
-      rootView.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
-      rootView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
-    }
+
+        if (offset != previousOffset || offset == 0) {
+          previousOffset = offset;
+
+          if (offset > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
+            updateKeyboardStateOpened(offset);
+          } else {
+            updateKeyboardStateClosed();
+          }
+        }
+
+        return context.getWindow().getDecorView().onApplyWindowInsets(insets);
+      }
+    });
   }
 
   void stop() {
     dismiss();
 
-    if (SDK_INT >= LOLLIPOP) {
-      context.getWindow().getDecorView().setOnApplyWindowInsetsListener(null);
-    }
+    context.getWindow().getDecorView().setOnApplyWindowInsetsListener(null);
   }
 
   @SuppressWarnings("PMD.CyclomaticComplexity") void updateKeyboardStateOpened(final int keyboardHeight) {

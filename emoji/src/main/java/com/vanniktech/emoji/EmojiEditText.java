@@ -29,7 +29,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EditText with emoji support. */
-@SuppressWarnings("CPD-START") public class EmojiEditText extends AppCompatEditText implements EmojiEditable {
+public class EmojiEditText extends AppCompatEditText implements EmojiEditable {
   private float emojiSize;
   private boolean disableKeyboardInput;
 
