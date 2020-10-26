@@ -364,13 +364,12 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
     @Nullable OnEmojiClickListener onEmojiClickListener;
     @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
-    @NonNull RecentEmoji recentEmoji;
+    @Nullable RecentEmoji recentEmoji;
     @NonNull VariantEmoji variantEmoji;
     int popupWindowHeight;
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
-      this.recentEmoji = new RecentEmojiManager(rootView.getContext());
       this.variantEmoji = new VariantEmojiManager(rootView.getContext());
     }
 
@@ -481,6 +480,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     @CheckResult public EmojiPopup build(@NonNull final EditText editText) {
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
+
+      if(recentEmoji == null){
+        recentEmoji = new RecentEmojiManager(rootView.getContext());
+      }
 
       final EmojiPopup emojiPopup = new EmojiPopup(this, editText);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;
