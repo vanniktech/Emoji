@@ -481,7 +481,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
 
-      if(recentEmoji == null){
+      if (recentEmoji == null) {
         recentEmoji = new RecentEmojiManager(rootView.getContext());
       }
 
