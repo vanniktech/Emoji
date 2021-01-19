@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
   ImageView emojiButton;
   EmojiCompat emojiCompat;
 
-  @RequiresApi(api = Build.VERSION_CODES.N)
   @Override @SuppressLint("SetTextI18n") protected void onCreate(final Bundle savedInstanceState) {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
