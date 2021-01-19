@@ -105,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
         chatAdapter.add(text);
 
         editText.setText("");
-        Log.e("emoji", ">>> " + text + " >>  " + " is emoji? = " + EmojiUtils.isOnlyEmojis(text));
-        text.codePoints().mapToObj(Integer::toHexString).forEach(System.out::println);
       }
     });
 
