@@ -36,6 +36,7 @@ import static java.util.Collections.emptyList;
   private static final List<Emoji> EMPTY_EMOJI_LIST = emptyList();
 
   @NonNull private final String unicode;
+  @NonNull private final String unicodeForPattern;
   @NonNull private final String[] shortcodes;
   @DrawableRes private final int resource;
   private final boolean isDuplicate;
@@ -61,6 +62,7 @@ import static java.util.Collections.emptyList;
   public Emoji(@NonNull final int[] codePoints, @NonNull final String[] shortcodes,
                @DrawableRes final int resource, final boolean isDuplicate,
                final Emoji... variants) {
+    this.unicodeForPattern = new String(new int[]{codePoints[0]}, 0, 1);
     this.unicode = new String(codePoints, 0, codePoints.length);
     this.shortcodes = shortcodes;
     this.resource = resource;
@@ -73,6 +75,10 @@ import static java.util.Collections.emptyList;
 
   @NonNull public String getUnicode() {
     return unicode;
+  }
+
+  @NonNull public String getUnicodeForPattern() {
+    return unicodeForPattern;
   }
 
   @Nullable public List<String> getShortcodes() {
@@ -133,16 +139,18 @@ import static java.util.Collections.emptyList;
     final Emoji emoji = (Emoji) o;
 
     return resource == emoji.resource
-            && unicode.equals(emoji.unicode)
+            && unicodeForPattern.equals(emoji.unicodeForPattern)
             && Arrays.equals(shortcodes, emoji.shortcodes)
             && variants.equals(emoji.variants);
   }
 
   @Override public int hashCode() {
-    int result = unicode.hashCode();
+    int result = unicodeForPattern.hashCode();
     result = 31 * result + Arrays.hashCode(shortcodes);
     result = 31 * result + resource;
     result = 31 * result + variants.hashCode();
     return result;
   }
+
+
 }

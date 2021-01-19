@@ -20,6 +20,7 @@ package com.vanniktech.emoji.sample;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.provider.FontRequest;
@@ -39,6 +42,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.EmojiUtils;
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
   ImageView emojiButton;
   EmojiCompat emojiCompat;
 
+  @RequiresApi(api = Build.VERSION_CODES.N)
   @Override @SuppressLint("SetTextI18n") protected void onCreate(final Bundle savedInstanceState) {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
@@ -100,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
         chatAdapter.add(text);
 
         editText.setText("");
+        Log.e("emoji", ">>> " + text + " >>  " + " is emoji? = " + EmojiUtils.isOnlyEmojis(text));
+        text.codePoints().mapToObj(Integer::toHexString).forEach(System.out::println);
       }
     });
 

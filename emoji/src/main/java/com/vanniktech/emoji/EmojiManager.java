@@ -117,7 +117,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
         //noinspection ForLoopReplaceableByForEach
         for (int j = 0; j < emojisSize; j++) {
           final Emoji emoji = emojis[j];
-          final String unicode = emoji.getUnicode();
+          final String unicode = emoji.getUnicodeForPattern();
           final List<Emoji> variants = emoji.getVariants();
 
           INSTANCE.emojiMap.put(unicode, emoji);
@@ -150,7 +150,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
       final String regex = patternBuilder.deleteCharAt(patternBuilder.length() - 1).toString();
       INSTANCE.emojiPattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-      INSTANCE.emojiRepetitivePattern = Pattern.compile('(' + regex + ")+", Pattern.CASE_INSENSITIVE);
+      INSTANCE.emojiRepetitivePattern = Pattern.compile("(" + regex + ")+", Pattern.CASE_INSENSITIVE);
     }
   }
 
