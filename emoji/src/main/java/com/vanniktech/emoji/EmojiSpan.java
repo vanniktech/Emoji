@@ -22,7 +22,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.DynamicDrawableSpan;
-
 import com.vanniktech.emoji.emoji.Emoji;
 
 final class EmojiSpan extends DynamicDrawableSpan {
@@ -37,8 +36,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
     this.size = size;
   }
 
-  @Override
-  public Drawable getDrawable() {
+  @Override public Drawable getDrawable() {
     if (deferredDrawable == null) {
       deferredDrawable = emoji.getDrawable(context);
       deferredDrawable.setBounds(0, 0, (int) size, (int) size);
@@ -46,14 +44,12 @@ final class EmojiSpan extends DynamicDrawableSpan {
     return deferredDrawable;
   }
 
-  @Override
-  public int getSize(final Paint paint, final CharSequence text, final int start,
-                     final int end, final Paint.FontMetricsInt fontMetrics) {
+  @Override public int getSize(final Paint paint, final CharSequence text, final int start,
+      final int end, final Paint.FontMetricsInt fontMetrics) {
     if (fontMetrics != null) {
       final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
       final float ascent = paintFontMetrics.ascent;
       final float descent = paintFontMetrics.descent;
-
       final float targetSize = Math.abs(ascent) + Math.abs(descent);
       final int roundEmojiSize = Math.round(size);
       // equal size use default font metrics.
@@ -75,10 +71,9 @@ final class EmojiSpan extends DynamicDrawableSpan {
     return (int) size;
   }
 
-  @Override
-  public void draw(final Canvas canvas, final CharSequence text, final int start,
-                   final int end, final float x, final int top, final int y,
-                   final int bottom, final Paint paint) {
+  @Override public void draw(final Canvas canvas, final CharSequence text, final int start,
+      final int end, final float x, final int top, final int y,
+      final int bottom, final Paint paint) {
     final Drawable drawable = getDrawable();
     final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
     final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
