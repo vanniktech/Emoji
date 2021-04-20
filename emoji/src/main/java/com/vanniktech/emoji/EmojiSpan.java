@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.DynamicDrawableSpan;
-
 import com.vanniktech.emoji.emoji.Emoji;
 
 final class EmojiSpan extends DynamicDrawableSpan {
@@ -37,8 +36,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
     this.size = size;
   }
 
-  @Override
-  public Drawable getDrawable() {
+  @Override public Drawable getDrawable() {
     if (deferredDrawable == null) {
       deferredDrawable = emoji.getDrawable(context);
       deferredDrawable.setBounds(0, 0, (int) size, (int) size);
@@ -46,8 +44,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
     return deferredDrawable;
   }
 
-  @Override
-  public int getSize(final Paint paint, final CharSequence text, final int start,
+  @Override public int getSize(final Paint paint, final CharSequence text, final int start,
       final int end, final Paint.FontMetricsInt fontMetrics) {
     if (fontMetrics != null) {
       final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
@@ -75,8 +72,7 @@ final class EmojiSpan extends DynamicDrawableSpan {
     return (int) size;
   }
 
-  @Override
-  public void draw(final Canvas canvas, final CharSequence text, final int start,
+  @Override public void draw(final Canvas canvas, final CharSequence text, final int start,
       final int end, final float x, final int top, final int y,
       final int bottom, final Paint paint) {
     final Drawable drawable = getDrawable();
