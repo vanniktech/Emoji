@@ -26,67 +26,68 @@ import android.text.style.DynamicDrawableSpan;
 import com.vanniktech.emoji.emoji.Emoji;
 
 final class EmojiSpan extends DynamicDrawableSpan {
-    private final float size;
-    private final Context context;
-    private final Emoji emoji;
-    private Drawable deferredDrawable;
+  private final float size;
+  private final Context context;
+  private final Emoji emoji;
+  private Drawable deferredDrawable;
 
-    EmojiSpan(final Context context, final Emoji emoji, final float size) {
-        this.context = context;
-        this.emoji = emoji;
-        this.size = size;
+  EmojiSpan(final Context context, final Emoji emoji, final float size) {
+    this.context = context;
+    this.emoji = emoji;
+    this.size = size;
+  }
+
+  @Override
+  public Drawable getDrawable() {
+    if (deferredDrawable == null) {
+      deferredDrawable = emoji.getDrawable(context);
+      deferredDrawable.setBounds(0, 0, (int) size, (int) size);
     }
+    return deferredDrawable;
+  }
 
-    @Override
-    public Drawable getDrawable() {
-        if (deferredDrawable == null) {
-            deferredDrawable = emoji.getDrawable(context);
-            deferredDrawable.setBounds(0, 0, (int) size, (int) size);
-        }
-        return deferredDrawable;
-    }
+  @Override
+  public int getSize(final Paint paint, final CharSequence text, final int start,
+                     final int end, final Paint.FontMetricsInt fontMetrics) {
+    if (fontMetrics != null) {
+      final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
+      final float ascent = paintFontMetrics.ascent;
+      final float descent = paintFontMetrics.descent;
 
-    @Override
-    public int getSize(final Paint paint, final CharSequence text, final int start,
-                       final int end, final Paint.FontMetricsInt fontMetrics) {
-        if (fontMetrics != null) {
-            final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
-            final int ascent = (int) paintFontMetrics.ascent;
-            final int descent = (int) paintFontMetrics.descent;
-
-            final int roundEmojiSize = Math.round(size);
-            // equal size use default font metrics.
-            if (roundEmojiSize == (Math.abs(ascent) + Math.abs(descent))) {
-                fontMetrics.ascent = ascent;
-                fontMetrics.descent = descent;
-                fontMetrics.top = (int) paintFontMetrics.top;
-                fontMetrics.bottom = (int) paintFontMetrics.bottom;
-            } else {
-                final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
-                final float centerY = paintFontMetrics.ascent + fontHeight / 2;
-
-                fontMetrics.ascent = (int) (centerY - size / 2);
-                fontMetrics.top = fontMetrics.ascent;
-                fontMetrics.bottom = (int) (centerY + size / 2);
-                fontMetrics.descent = fontMetrics.bottom;
-            }
-        }
-        return (int) size;
-    }
-
-    @Override
-    public void draw(final Canvas canvas, final CharSequence text, final int start,
-                     final int end, final float x, final int top, final int y,
-                     final int bottom, final Paint paint) {
-        final Drawable drawable = getDrawable();
-        final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
+      final float targetSize = Math.abs(ascent) + Math.abs(descent);
+      final int roundEmojiSize = Math.round(size);
+      // equal size use default font metrics.
+      if (roundEmojiSize == Math.round(targetSize)) {
+        fontMetrics.ascent = (int) ascent;
+        fontMetrics.descent = (int) descent;
+        fontMetrics.top = (int) paintFontMetrics.top;
+        fontMetrics.bottom = (int) paintFontMetrics.bottom;
+      } else {
         final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
-        final float centerY = y + paintFontMetrics.descent - fontHeight / 2;
-        final float transitionY = centerY - size / 2;
+        final float centerY = paintFontMetrics.ascent + fontHeight / 2;
 
-        canvas.save();
-        canvas.translate(x, transitionY);
-        drawable.draw(canvas);
-        canvas.restore();
+        fontMetrics.ascent = (int) (centerY - size / 2);
+        fontMetrics.top = fontMetrics.ascent;
+        fontMetrics.bottom = (int) (centerY + size / 2);
+        fontMetrics.descent = fontMetrics.bottom;
+      }
     }
+    return (int) size;
+  }
+
+  @Override
+  public void draw(final Canvas canvas, final CharSequence text, final int start,
+                   final int end, final float x, final int top, final int y,
+                   final int bottom, final Paint paint) {
+    final Drawable drawable = getDrawable();
+    final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
+    final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
+    final float centerY = y + paintFontMetrics.descent - fontHeight / 2;
+    final float transitionY = centerY - size / 2;
+
+    canvas.save();
+    canvas.translate(x, transitionY);
+    drawable.draw(canvas);
+    canvas.restore();
+  }
 }
