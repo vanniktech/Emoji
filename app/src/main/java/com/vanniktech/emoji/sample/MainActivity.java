@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
         .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
         .setPageTransformer(new PageTransformer())
+        .NoRecentEmoji()
         .build(editText);
   }
 }

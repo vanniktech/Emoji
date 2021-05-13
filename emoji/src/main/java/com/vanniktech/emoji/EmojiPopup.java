@@ -366,6 +366,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
     @Nullable RecentEmoji recentEmoji;
     @NonNull VariantEmoji variantEmoji;
+    boolean omitRecentEmoji =false ; //this field is added to check if  the recentEmoji tab should be preserved
     int popupWindowHeight;
 
     private Builder(final View rootView) {
@@ -409,6 +410,13 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     @CheckResult public Builder setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener listener) {
       onEmojiBackspaceClickListener = listener;
+      return this;
+    }
+    /*
+    call the following method to omit the recent emoji tab from the popup
+     */
+    @CheckResult public Builder NoRecentEmoji() {
+      omitRecentEmoji = true;
       return this;
     }
 
@@ -482,7 +490,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       checkNotNull(editText, "EditText can't be null");
 
       if (recentEmoji == null) {
-        recentEmoji = new RecentEmojiManager(rootView.getContext());
+        if(omitRecentEmoji) // we will pass the singleton object "noRecentEmoji" as recentEmoji
+          recentEmoji = NoRecentEmoji.getInstance();
+        else
+          recentEmoji = new RecentEmojiManager(rootView.getContext());
       }
 
       final EmojiPopup emojiPopup = new EmojiPopup(this, editText);

@@ -18,6 +18,8 @@
 package com.vanniktech.emoji;
 
 import androidx.viewpager.widget.PagerAdapter;
+
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
@@ -44,18 +46,31 @@ public final class EmojiPagerAdapter extends PagerAdapter {
   }
 
   @Override public int getCount() {
-    return EmojiManager.getInstance().getCategories().length + 1;
+    if (recentEmojiAllowed())
+      return EmojiManager.getInstance().getCategories().length + 1;
+    else
+      return EmojiManager.getInstance().getCategories().length;
+
   }
 
   @Override public Object instantiateItem(final ViewGroup pager, final int position) {
     final View newView;
+    Log.d("hellloooo", String.valueOf(position));
 
-    if (position == RECENT_POSITION) {
+    /*
+    this part is modified to cover emojiview with no recent tabs
+     */
+    if (position == RECENT_POSITION && !(recentEmoji instanceof NoRecentEmoji)) {
       newView = new RecentEmojiGridView(pager.getContext()).init(listener, longListener, recentEmoji);
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
+      int correctPosition;
+      if (recentEmojiAllowed())
+        correctPosition = position - 1;
+      else
+        correctPosition = position;
       newView = new EmojiGridView(pager.getContext()).init(listener, longListener,
-              EmojiManager.getInstance().getCategories()[position - 1], variantManager);
+              EmojiManager.getInstance().getCategories()[correctPosition], variantManager);
     }
 
     pager.addView(newView);
@@ -65,7 +80,7 @@ public final class EmojiPagerAdapter extends PagerAdapter {
   @Override public void destroyItem(final ViewGroup pager, final int position, final Object view) {
     pager.removeView((View) view);
 
-    if (position == RECENT_POSITION) {
+    if (position == RECENT_POSITION && recentEmojiAllowed()) {
       recentEmojiGridView = null;
     }
   }
@@ -82,5 +97,8 @@ public final class EmojiPagerAdapter extends PagerAdapter {
     if (recentEmojiGridView != null) {
       recentEmojiGridView.invalidateEmojis();
     }
+  }
+  boolean recentEmojiAllowed(){
+    return !(recentEmoji instanceof  NoRecentEmoji);
   }
 }
