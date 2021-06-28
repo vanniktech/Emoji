@@ -95,44 +95,44 @@ public class MainActivityMultiAutoCompeteTextView extends AppCompatActivity {
   }
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.menuMainShowDialog:
-        emojiPopup.dismiss();
-        MainDialog.show(this);
-        return true;
-      case R.id.menuMainVariantIos:
-        EmojiManager.destroy();
-        EmojiManager.install(new IosEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainGoogle:
-        EmojiManager.destroy();
-        EmojiManager.install(new GoogleEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainTwitter:
-        EmojiManager.destroy();
-        EmojiManager.install(new TwitterEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainFacebook:
-        EmojiManager.destroy();
-        EmojiManager.install(new FacebookEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainGoogleCompat:
-        if (emojiCompat == null) {
-          emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
-              new FontRequest("com.google.android.gms.fonts", "com.google.android.gms", "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
-          ).setReplaceAll(true));
-        }
-        EmojiManager.destroy();
-        EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
-        recreate();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
+    final int itemId = item.getItemId();
+    if (itemId == R.id.menuMainShowDialog) {
+      emojiPopup.dismiss();
+      MainDialog.show(this);
+      return true;
+    } else if (itemId == R.id.menuMainVariantIos) {
+      EmojiManager.destroy();
+      EmojiManager.install(new IosEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainGoogle) {
+      EmojiManager.destroy();
+      EmojiManager.install(new GoogleEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainTwitter) {
+      EmojiManager.destroy();
+      EmojiManager.install(new TwitterEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainFacebook) {
+      EmojiManager.destroy();
+      EmojiManager.install(new FacebookEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainGoogleCompat) {
+      if (emojiCompat == null) {
+        emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
+            new FontRequest("com.google.android.gms.fonts", "com.google.android.gms",
+                "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
+        ).setReplaceAll(true));
+      }
+      EmojiManager.destroy();
+      EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
+      recreate();
+      return true;
     }
+    return super.onOptionsItemSelected(item);
   }
 
   @Override public void onBackPressed() {
