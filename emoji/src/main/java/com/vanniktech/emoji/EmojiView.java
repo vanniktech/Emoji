@@ -83,11 +83,20 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojisPager.addOnPageChangeListener(this);
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
-
-    emojiTabs = new ImageButton[categories.length + 2];
-    emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
-    for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + 1] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+    if(builder.recentEmoji instanceof NoRecentEmoji) // this means we don't want the recentEmojiTab
+    {
+      emojiTabs = new ImageButton[categories.length + 1];
+      for (int i = 0; i < categories.length; i++) {
+        emojiTabs[i] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+      }
+    }
+    else
+    {
+      emojiTabs = new ImageButton[categories.length + 2];
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
+      for (int i = 0; i < categories.length; i++) {
+        emojiTabs[i + 1] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+      }
     }
     emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
 
@@ -96,7 +105,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
     emojisPager.setAdapter(emojiPagerAdapter);
 
-    final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
+    int startIndex;
+    if(builder.recentEmoji instanceof NoRecentEmoji)
+      startIndex = 0;
+    else
+      startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
     emojisPager.setCurrentItem(startIndex);
     onPageSelected(startIndex);
   }
@@ -133,7 +146,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   @Override public void onPageSelected(final int i) {
     if (emojiTabLastSelectedIndex != i) {
-      if (i == 0) {
+      if (i == 0 && emojiPagerAdapter.recentEmojiAllowed()) {
         emojiPagerAdapter.invalidateRecentEmojis();
       }
 

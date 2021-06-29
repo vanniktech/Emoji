@@ -8,8 +8,10 @@ buildscript {
   ]
 
   repositories {
-    mavenCentral()
+    maven { url "https://maven.google.com" }
     google()
+    jcenter()
+    mavenCentral()
     gradlePluginPortal()
   }
   dependencies {
@@ -54,9 +56,11 @@ junitJacoco {
 
 subprojects {
   repositories {
+    maven { url "https://maven.google.com" }
     google()
     jcenter()
     mavenCentral()
+    gradlePluginPortal()
   }
 }
 
