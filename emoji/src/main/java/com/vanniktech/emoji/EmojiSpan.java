@@ -45,24 +45,35 @@ final class EmojiSpan extends DynamicDrawableSpan {
   }
 
   @Override public int getSize(final Paint paint, final CharSequence text, final int start,
-                               final int end, final Paint.FontMetricsInt fontMetrics) {
+      final int end, final Paint.FontMetricsInt fontMetrics) {
     if (fontMetrics != null) {
       final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
-      final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
-      final float centerY = paintFontMetrics.ascent + fontHeight / 2;
+      final float ascent = paintFontMetrics.ascent;
+      final float descent = paintFontMetrics.descent;
+      final float targetSize = Math.abs(ascent) + Math.abs(descent);
+      final int roundEmojiSize = Math.round(size);
+      // equal size use default font metrics.
+      if (roundEmojiSize == Math.round(targetSize)) {
+        fontMetrics.ascent = (int) ascent;
+        fontMetrics.descent = (int) descent;
+        fontMetrics.top = (int) paintFontMetrics.top;
+        fontMetrics.bottom = (int) paintFontMetrics.bottom;
+      } else {
+        final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
+        final float centerY = paintFontMetrics.ascent + fontHeight / 2;
 
-      fontMetrics.ascent = (int) (centerY - size / 2);
-      fontMetrics.top = fontMetrics.ascent;
-      fontMetrics.bottom = (int) (centerY + size / 2);
-      fontMetrics.descent = fontMetrics.bottom;
+        fontMetrics.ascent = (int) (centerY - size / 2);
+        fontMetrics.top = fontMetrics.ascent;
+        fontMetrics.bottom = (int) (centerY + size / 2);
+        fontMetrics.descent = fontMetrics.bottom;
+      }
     }
-
     return (int) size;
   }
 
   @Override public void draw(final Canvas canvas, final CharSequence text, final int start,
-                             final int end, final float x, final int top, final int y,
-                             final int bottom, final Paint paint) {
+      final int end, final float x, final int top, final int y,
+      final int bottom, final Paint paint) {
     final Drawable drawable = getDrawable();
     final Paint.FontMetrics paintFontMetrics = paint.getFontMetrics();
     final float fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent;
