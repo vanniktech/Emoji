@@ -70,7 +70,7 @@ implementation 'com.vanniktech:emoji-facebook:0.7.0'
 And install the provider in your application class.
 
 ```java
-EmojiManager.install(new GoogleEmojiProvider());
+EmojiManager.install(new FacebookEmojiProvider());
 ```
 
 ## Twitter
