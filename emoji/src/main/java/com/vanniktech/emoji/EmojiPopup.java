@@ -46,6 +46,7 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
+import java.lang.ref.WeakReference;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O;
@@ -85,19 +86,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   int originalImeOptions = -1;
 
   final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
-
-  final View.OnAttachStateChangeListener onAttachStateChangeListener = new View.OnAttachStateChangeListener() {
-    @Override public void onViewAttachedToWindow(final View v) {
-      start();
-    }
-
-    @Override public void onViewDetachedFromWindow(final View v) {
-      stop();
-
-      popupWindow.setOnDismissListener(null);
-      rootView.removeOnAttachStateChangeListener(this);
-    }
-  };
 
   final OnEmojiClickListener internalOnEmojiClickListener = new OnEmojiClickListener() {
     @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
@@ -171,7 +159,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       start();
     }
 
-    rootView.addOnAttachStateChangeListener(onAttachStateChangeListener);
+    rootView.addOnAttachStateChangeListener(new EmojiPopUpOnAttachStateChangeListener(this));
   }
 
   void start() {
@@ -204,8 +192,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   void stop() {
     dismiss();
-
     context.getWindow().getDecorView().setOnApplyWindowInsetsListener(null);
+    popupWindow.setOnDismissListener(null);
   }
 
   @SuppressWarnings("PMD.CyclomaticComplexity") void updateKeyboardStateOpened(final int keyboardHeight) {
@@ -494,6 +482,33 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       emojiPopup.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
       emojiPopup.popupWindowHeight = Math.max(popupWindowHeight, 0);
       return emojiPopup;
+    }
+  }
+
+  static final class EmojiPopUpOnAttachStateChangeListener implements View.OnAttachStateChangeListener {
+    private final WeakReference<EmojiPopup> emojiPopup;
+
+    EmojiPopUpOnAttachStateChangeListener(final EmojiPopup emojiPopup) {
+      this.emojiPopup = new WeakReference<>(emojiPopup);
+    }
+
+    @Override public void onViewAttachedToWindow(final View v) {
+      final EmojiPopup popup = emojiPopup.get();
+
+      if (popup != null) {
+        popup.start();
+      }
+    }
+
+    @Override public void onViewDetachedFromWindow(final View v) {
+      final EmojiPopup popup = emojiPopup.get();
+
+      if (popup != null) {
+        popup.stop();
+      }
+
+      emojiPopup.clear();
+      v.removeOnAttachStateChangeListener(this);
     }
   }
 }

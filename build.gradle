@@ -4,7 +4,7 @@ apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
   ext.versions = [
-    kotlin: '1.4.0',
+    kotlin: '1.5.21',
   ]
 
   repositories {
@@ -40,6 +40,7 @@ codeQualityTools {
     toolVersion = '1.0.1'
   }
   errorProne {
+    enabled = false
     toolVersion = '2.1.2'
   }
   cpd {
@@ -75,7 +76,7 @@ ext {
 }
 
 wrapper {
-  gradleVersion = '6.8.3'
+  gradleVersion = '7.1.1'
   distributionType = Wrapper.DistributionType.ALL
 }
 
