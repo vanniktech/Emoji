@@ -56,7 +56,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  @SuppressWarnings("PMD.CyclomaticComplexity") public EmojiView(final Context context,
+  @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" }) public EmojiView(final Context context,
       final OnEmojiClickListener onEmojiClickListener,
       final OnEmojiLongClickListener onEmojiLongClickListener, @NonNull final EmojiPopup.Builder builder) {
     super(context);
@@ -84,19 +84,24 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
-    emojiTabs = new ImageButton[categories.length + 2];
-    emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
-    for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + 1] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
+    emojiTabs = new ImageButton[emojiPagerAdapter.recentCount() + categories.length + 1];
+
+    if (emojiPagerAdapter.hasRecentEmoji()) {
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     }
+
+    for (int i = 0; i < categories.length; i++) {
+      emojiTabs[i + emojiPagerAdapter.recentCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+    }
+
     emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
 
     handleOnClicks(emojisPager);
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
     emojisPager.setAdapter(emojiPagerAdapter);
 
-    final int startIndex = emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1;
+    final int startIndex = emojiPagerAdapter.hasRecentEmoji() ? emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1 : 0;
     emojisPager.setCurrentItem(startIndex);
     onPageSelected(startIndex);
   }
