@@ -85,14 +85,14 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
     emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
-    emojiTabs = new ImageButton[emojiPagerAdapter.recentCount() + categories.length + 1];
+    emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
       emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     }
 
     for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + emojiPagerAdapter.recentCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
     }
 
     emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
