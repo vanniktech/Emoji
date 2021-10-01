@@ -16,7 +16,7 @@
     "emoji-datasource-google": "^5.0.1",
     "emoji-datasource-twitter": "^5.0.1",
     "fs-extra": "^9.0.0",
-    "imagemin": "^7.0.1",
+    "imagemin": "^8.0.1",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-zopfli": "^7.0.0",
     "jimp": "^0.12.1",
