@@ -71,7 +71,7 @@ ext {
 
   testing = [
           junit             : 'junit:junit:4.13',
-          assertJ           : 'org.assertj:assertj-core:2.9.1',
+          assertJ           : 'org.assertj:assertj-core:3.22.0',
   ]
 }
 
