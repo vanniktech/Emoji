@@ -788,10 +788,10 @@ emoji-datasource-facebook@^5.0.1:
   resolved "https://registry.yarnpkg.com/emoji-datasource-facebook/-/emoji-datasource-facebook-5.0.1.tgz#1d1958e2416e290dfc2adfae4ecbe0cc843dfef6"
   integrity sha512-OLDHjoUqLaYSw5IWBcwRKsgLSuDCu6+3OILweGsPxNFCXQoOGc6CqPgT9mIYjGNZChm0W4ARehhByglipZDciQ==
 
-emoji-datasource-google@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-5.0.1.tgz#81ac5bdbbd153976196a516d840e04303f19375d"
-  integrity sha512-JLlz6tcuNRqg/BUhfWjWmOAaj8VhBvF7E88yRblMh+6c3IBmSeAqlYbepsavS1QPEhhvZICGUkch7+yxWTrRlQ==
+emoji-datasource-google@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-14.0.0.tgz#9c80e305100afb6fc78e535ff49ac2825a335a19"
+  integrity sha512-/hXr4zEfcgKNfV3FR3DmTDhP3u2p1RYqEmW2eSQfkPYZbcKjfdwxZsRjBnnxxjj3sG/d/rtF6Ob7hwzN+LITHA==
 
 emoji-datasource-twitter@^5.0.1:
   version "5.0.1"
