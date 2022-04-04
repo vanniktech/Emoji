@@ -793,10 +793,10 @@ emoji-datasource-google@^5.0.1:
   resolved "https://registry.yarnpkg.com/emoji-datasource-google/-/emoji-datasource-google-5.0.1.tgz#81ac5bdbbd153976196a516d840e04303f19375d"
   integrity sha512-JLlz6tcuNRqg/BUhfWjWmOAaj8VhBvF7E88yRblMh+6c3IBmSeAqlYbepsavS1QPEhhvZICGUkch7+yxWTrRlQ==
 
-emoji-datasource-twitter@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-twitter/-/emoji-datasource-twitter-5.0.1.tgz#a4e1c85e4def8235cadbcd85fbce32a2335d165c"
-  integrity sha512-PiQav2Y6V/P3FjA6p5GJRhzbINv/yc6pn/YCuyJFmk/ZZzI++COXyPCC7SUv9HUeKnJWK+gdj1josUK0vCjvvA==
+emoji-datasource-twitter@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-twitter/-/emoji-datasource-twitter-14.0.0.tgz#18c58183cb0b845823a19f3fea7f87bdd4a340cb"
+  integrity sha512-n0HDKNdUM+dtkXhNzSslo9GLFpe25S0HoP/cubuu321yEx0a3k4oLigzgnL1jyZZz8LF2Tt4Wk/4RHpABUO0yQ==
 
 emoji-datasource@^5.0.1:
   version "5.0.1"
