@@ -1,10 +1,9 @@
-apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.vanniktech.code.quality.tools'
 apply plugin: 'com.vanniktech.android.junit.jacoco'
 
 buildscript {
   ext.versions = [
-    kotlin: '1.5.21',
+    kotlin: '1.6.10',
   ]
 
   repositories {
@@ -13,12 +12,11 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.20.0'
+    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.21.0'
     classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.16.0'
-    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.16.0'
+    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.19.0'
 
-    classpath 'com.android.tools.build:gradle:4.2.1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.29.0'
+    classpath 'com.android.tools.build:gradle:7.1.2'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
 }
@@ -38,10 +36,6 @@ codeQualityTools {
   }
   detekt {
     toolVersion = '1.0.1'
-  }
-  errorProne {
-    enabled = false
-    toolVersion = '2.1.2'
   }
   cpd {
     enabled = false
@@ -63,20 +57,20 @@ subprojects {
 
 ext {
   minSdkVersion = 21
-  compileSdkVersion = 29
-  targetSdkVersion = 29
+  compileSdkVersion = 31
+  targetSdkVersion = 31
 
   versionCode = VERSION_CODE
   versionName = VERSION_NAME
 
   testing = [
-          junit             : 'junit:junit:4.13',
+          junit             : 'junit:junit:4.13.2',
           assertJ           : 'org.assertj:assertj-core:2.9.1',
   ]
 }
 
 wrapper {
-  gradleVersion = '7.1.1'
+  gradleVersion = '7.4'
   distributionType = Wrapper.DistributionType.ALL
 }
 

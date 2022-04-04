@@ -3,28 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.vanniktech.emoji.sample">
   <application
-      android:name=".EmojiApplication"
-      android:allowBackup="true"
+      android:allowBackup="false"
       android:fullBackupContent="false"
+      android:dataExtractionRules="@null"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
+      android:name=".EmojiApplication"
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
-      tools:ignore="GoogleAppIndexingWarning">
+      tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
     <activity
+        android:exported="true"
         android:name=".MainActivity"
         android:windowSoftInputMode="stateVisible|adjustResize">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+        <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-      <activity android:name=".MainActivityAutoCompeteTextView"
-          android:windowSoftInputMode="stateVisible|adjustResize"/>
-      <activity android:name=".MainActivityMultiAutoCompeteTextView"
-          android:windowSoftInputMode="stateVisible|adjustResize"/>
-      <activity android:name=".CustomViewActivity"
-          android:windowSoftInputMode="stateVisible|adjustResize"/>
+    <activity
+        android:name=".MainActivityAutoCompeteTextView"
+        android:windowSoftInputMode="stateVisible|adjustResize" />
+    <activity
+        android:name=".MainActivityMultiAutoCompeteTextView"
+        android:windowSoftInputMode="stateVisible|adjustResize" />
+    <activity
+        android:name=".CustomViewActivity"
+        android:windowSoftInputMode="stateVisible|adjustResize" />
   </application>
 </manifest>
