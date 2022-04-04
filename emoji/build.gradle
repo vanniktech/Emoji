@@ -23,7 +23,7 @@ dependencies {
 dependencies {
   testImplementation rootProject.ext.testing.junit
   testImplementation rootProject.ext.testing.assertJ
-  testImplementation "org.robolectric:robolectric:4.3.1"
+  testImplementation "org.robolectric:robolectric:4.7.3"
 }
 
 apply plugin: "com.vanniktech.maven.publish"
