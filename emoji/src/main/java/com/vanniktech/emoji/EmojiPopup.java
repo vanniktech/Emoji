@@ -163,31 +163,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   }
 
   void start() {
-    context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-      int previousOffset;
-
-      @Override public WindowInsets onApplyWindowInsets(final View v, final WindowInsets insets) {
-        final int offset;
-
-        if (insets.getSystemWindowInsetBottom() < insets.getStableInsetBottom()) {
-          offset = insets.getSystemWindowInsetBottom();
-        } else {
-          offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
-        }
-
-        if (offset != previousOffset || offset == 0) {
-          previousOffset = offset;
-
-          if (offset > Utils.dpToPx(context, MIN_KEYBOARD_HEIGHT)) {
-            updateKeyboardStateOpened(offset);
-          } else {
-            updateKeyboardStateClosed();
-          }
-        }
-
-        return context.getWindow().getDecorView().onApplyWindowInsets(insets);
-      }
-    });
+    context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new EmojiPopUpOnApplyWindowInsetsListener(this));
   }
 
   void stop() {
@@ -509,6 +485,43 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
       emojiPopup.clear();
       v.removeOnAttachStateChangeListener(this);
+    }
+  }
+
+  static final class EmojiPopUpOnApplyWindowInsetsListener implements View.OnApplyWindowInsetsListener {
+    private final WeakReference<EmojiPopup> emojiPopup;
+    int previousOffset;
+
+    EmojiPopUpOnApplyWindowInsetsListener(final EmojiPopup emojiPopup) {
+      this.emojiPopup = new WeakReference<>(emojiPopup);
+    }
+
+    @Override public WindowInsets onApplyWindowInsets(final View v, final WindowInsets insets) {
+      final EmojiPopup popup = emojiPopup.get();
+
+      if (popup != null) {
+        final int offset;
+
+        if (insets.getSystemWindowInsetBottom() < insets.getStableInsetBottom()) {
+          offset = insets.getSystemWindowInsetBottom();
+        } else {
+          offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
+        }
+
+        if (offset != previousOffset || offset == 0) {
+          previousOffset = offset;
+
+          if (offset > Utils.dpToPx(popup.context, MIN_KEYBOARD_HEIGHT)) {
+            popup.updateKeyboardStateOpened(offset);
+          } else {
+            popup.updateKeyboardStateClosed();
+          }
+        }
+
+        return popup.context.getWindow().getDecorView().onApplyWindowInsets(insets);
+      }
+
+      return insets;
     }
   }
 }
