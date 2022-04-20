@@ -15,7 +15,7 @@
  *
  */
 
-package com.vanniktech.emoji;
+package com.vanniktech.emoji.material;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -25,26 +25,30 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
-import androidx.appcompat.widget.AppCompatEditText;
+import com.google.android.material.textfield.TextInputEditText;
+import com.vanniktech.emoji.EmojiEditable;
+import com.vanniktech.emoji.EmojiForceable;
+import com.vanniktech.emoji.EmojiManager;
+import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.SingleEmojiTrait;
 import com.vanniktech.emoji.emoji.Emoji;
 
-/** Reference implementation for an EditText with emoji support. */
-public class EmojiEditText extends AppCompatEditText implements EmojiEditable, EmojiForceable {
+public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiForceable {
   private float emojiSize;
   private boolean disableKeyboardInput;
 
-  public EmojiEditText(final Context context) {
+  public EmojiTextInputEditText(final Context context) {
     this(context, null);
   }
 
-  public EmojiEditText(final Context context, final AttributeSet attrs) {
+  public EmojiTextInputEditText(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = com.vanniktech.emoji.Utils.initTextView(this, attrs);
   }
 
-  public EmojiEditText(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+  public EmojiTextInputEditText(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = com.vanniktech.emoji.Utils.initTextView(this, attrs);
   }
 
   @Override @CallSuper protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
@@ -58,11 +62,11 @@ public class EmojiEditText extends AppCompatEditText implements EmojiEditable, E
   }
 
   @Override @CallSuper public void backspace() {
-    Utils.backspace(this);
+    com.vanniktech.emoji.Utils.backspace(this);
   }
 
   @Override @CallSuper public void input(final Emoji emoji) {
-    Utils.input(this, emoji);
+    com.vanniktech.emoji.Utils.input(this, emoji);
   }
 
   @Override public final float getEmojiSize() {

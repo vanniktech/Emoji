@@ -23,10 +23,10 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".MainActivityAutoCompeteTextView"
+        android:name=".MainActivityAutoCompleteTextView"
         android:windowSoftInputMode="stateVisible|adjustResize" />
     <activity
-        android:name=".MainActivityMultiAutoCompeteTextView"
+        android:name=".MainActivityMultiAutoCompleteTextView"
         android:windowSoftInputMode="stateVisible|adjustResize" />
     <activity
         android:name=".CustomViewActivity"

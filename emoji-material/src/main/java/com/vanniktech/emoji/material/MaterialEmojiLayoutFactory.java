@@ -41,6 +41,8 @@ public class MaterialEmojiLayoutFactory extends EmojiLayoutFactory {
       return new EmojiMaterialCheckBox(context, attrs);
     } else if ("RadioButton".equals(name)) {
       return new EmojiMaterialRadioButton(context, attrs);
+    } else if ("com.google.android.material.textfield.TextInputEditText".equals(name)) {
+      return new EmojiTextInputEditText(context, attrs);
     } else {
       return super.onCreateView(parent, name, context, attrs);
     }

@@ -43,9 +43,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 import java.util.ArrayList;
 import java.util.List;
 
-final class Utils {
-  static final String TAG = "Utils";
-
+public final class Utils {
   static final int DONT_UPDATE_FLAG = -1;
 
   @NonNull static <T> T checkNotNull(@Nullable final T reference, final String message) {
@@ -56,7 +54,7 @@ final class Utils {
     return reference;
   }
 
-  static float initTextView(final TextView textView, final AttributeSet attrs) {
+  @PrivateApi public static float initTextView(final TextView textView, final AttributeSet attrs) {
     if (!textView.isInEditMode()) {
       EmojiManager.getInstance().verifyInstalled();
     }
@@ -124,7 +122,7 @@ final class Utils {
     return result;
   }
 
-  static void backspace(@NonNull final EditText editText) {
+  @PrivateApi public static void backspace(@NonNull final EditText editText) {
     final KeyEvent event = new KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
     editText.dispatchKeyEvent(event);
   }
@@ -141,7 +139,7 @@ final class Utils {
     return result;
   }
 
-  static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
+  @PrivateApi public static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
     if (emoji != null) {
       final int start = editText.getSelectionStart();
       final int end = editText.getSelectionEnd();

@@ -24,8 +24,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.provider.FontRequest;
@@ -43,13 +43,13 @@ import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 // We don't care about duplicated code in the sample.
-public class MainActivityAutoCompeteTextView extends AppCompatActivity {
+public class MainActivityMultiAutoCompleteTextView extends AppCompatActivity {
   static final String TAG = "MainActivity";
 
   ChatAdapter chatAdapter;
   EmojiPopup emojiPopup;
 
-  AutoCompleteTextView editText;
+  MultiAutoCompleteTextView editText;
   ViewGroup rootView;
   ImageView emojiButton;
   EmojiCompat emojiCompat;
@@ -58,7 +58,7 @@ public class MainActivityAutoCompeteTextView extends AppCompatActivity {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
     super.onCreate(savedInstanceState);
 
-    setContentView(R.layout.activity_main_autocompletetextview);
+    setContentView(R.layout.activity_main_multiautocompletetextview);
 
     chatAdapter = new ChatAdapter();
 
@@ -71,6 +71,7 @@ public class MainActivityAutoCompeteTextView extends AppCompatActivity {
     sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
 
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
+
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
 

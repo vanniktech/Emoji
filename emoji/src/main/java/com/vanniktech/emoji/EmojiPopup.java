@@ -121,7 +121,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final PopupWindow.OnDismissListener onDismissListener = new PopupWindow.OnDismissListener() {
     @Override public void onDismiss() {
-      if (editText instanceof EmojiEditText && ((EmojiEditText) editText).isKeyboardInputDisabled()) {
+      if (editText instanceof EmojiForceable && ((EmojiForceable) editText).isKeyboardInputDisabled()) {
         editText.clearFocus();
       }
       if (onEmojiPopupDismissListener != null) {
@@ -162,7 +162,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     rootView.addOnAttachStateChangeListener(new EmojiPopUpOnAttachStateChangeListener(this));
   }
 
-  void start() {
+  @PrivateApi public void start() {
     context.getWindow().getDecorView().setOnApplyWindowInsetsListener(new EmojiPopUpOnApplyWindowInsetsListener(this));
   }
 
