@@ -57,7 +57,6 @@ dependencies {
   implementation project(':emoji-google-compat')
   implementation project(':emoji-twitter')
   implementation project(':emoji-facebook')
-  implementation project(':emoji-kotlin')
   implementation project(':emoji-material')
   implementation "androidx.recyclerview:recyclerview:1.2.1"
 }
