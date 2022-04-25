@@ -32,10 +32,10 @@ codeQualityTools {
     toolVersion = '6.0.1'
   }
   ktlint {
-    toolVersion = '0.34.2'
+    toolVersion = '0.45.2'
   }
   detekt {
-    toolVersion = '1.0.1'
+    enabled = false
   }
   cpd {
     enabled = false
