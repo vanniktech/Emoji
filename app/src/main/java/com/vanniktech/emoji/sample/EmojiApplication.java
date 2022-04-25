@@ -33,9 +33,7 @@ public class EmojiApplication extends Application {
 
     EmojiManager.install(new IosEmojiProvider());
 
-    if (BuildConfig.DEBUG) {
-      StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
-      StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().build());
-    }
+    StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
+    StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().build());
   }
 }

@@ -50,7 +50,6 @@ junitJacoco {
 subprojects {
   repositories {
     google()
-    jcenter()
     mavenCentral()
   }
 }
@@ -71,10 +70,4 @@ ext {
 wrapper {
   gradleVersion = '7.4.2'
   distributionType = Wrapper.DistributionType.ALL
-}
-
-subprojects {
-  project.plugins.withId("com.android.library") {
-    project.android.buildFeatures.buildConfig = false
-  }
 }
