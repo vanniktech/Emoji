@@ -17,18 +17,15 @@
 
 package com.vanniktech.emoji;
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import com.vanniktech.emoji.listeners.OnEmojiClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
-public final class EmojiPagerAdapter extends PagerAdapter {
+final class EmojiPagerAdapter extends PagerAdapter {
   private static final int RECENT_POSITION = 0;
 
-  private final OnEmojiClickListener listener;
-  private final OnEmojiLongClickListener longListener;
+  private final EmojiPagerDelegate delegate;
   private final RecentEmoji recentEmoji;
   private final VariantEmoji variantManager;
   @NonNull private final EmojiTheming theming;
@@ -36,14 +33,12 @@ public final class EmojiPagerAdapter extends PagerAdapter {
   private RecentEmojiGridView recentEmojiGridView;
 
   EmojiPagerAdapter(
-      final OnEmojiClickListener listener,
-      final OnEmojiLongClickListener longListener,
+      final EmojiPagerDelegate delegate,
       final RecentEmoji recentEmoji,
       final VariantEmoji variantManager,
       @NonNull final EmojiTheming theming
   ) {
-    this.listener = listener;
-    this.longListener = longListener;
+    this.delegate = delegate;
     this.recentEmoji = recentEmoji;
     this.variantManager = variantManager;
     this.theming = theming;
@@ -65,10 +60,10 @@ public final class EmojiPagerAdapter extends PagerAdapter {
     final View newView;
 
     if (hasRecentEmoji() && position == RECENT_POSITION) {
-      newView = new RecentEmojiGridView(pager.getContext()).init(listener, longListener, recentEmoji, theming);
+      newView = new RecentEmojiGridView(pager.getContext()).init(delegate, delegate, recentEmoji, theming);
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
-      newView = new EmojiGridView(pager.getContext()).init(listener, longListener,
+      newView = new EmojiGridView(pager.getContext()).init(delegate, delegate,
               EmojiManager.getInstance().getCategories()[position - recentAdapterItemCount()], variantManager, theming);
     }
 
