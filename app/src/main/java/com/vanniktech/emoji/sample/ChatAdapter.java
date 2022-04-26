@@ -17,6 +17,7 @@
 
 package com.vanniktech.emoji.sample;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +31,12 @@ import java.util.List;
 final class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
   private final List<String> texts = new ArrayList<>();
 
-  @Override public ChatViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+  @Override @NonNull public ChatViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
     final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
     return new ChatViewHolder(layoutInflater.inflate(R.layout.item_adapter_chat, parent, false));
   }
 
-  @Override public void onBindViewHolder(final ChatViewHolder chatViewHolder, final int position) {
+  @Override public void onBindViewHolder(@NonNull final ChatViewHolder chatViewHolder, final int position) {
     final String text = texts.get(position);
 
     final EmojiInformation emojiInformation = EmojiUtils.emojiInformation(text);
@@ -59,7 +60,7 @@ final class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder>
 
   public void add(final String text) {
     texts.add(text);
-    notifyItemInserted(texts.size());
+    notifyItemInserted(texts.size() - 1);
   }
 
   static class ChatViewHolder extends RecyclerView.ViewHolder {

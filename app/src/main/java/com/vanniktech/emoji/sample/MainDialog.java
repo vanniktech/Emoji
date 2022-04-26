@@ -18,6 +18,7 @@
 package com.vanniktech.emoji.sample;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +31,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
@@ -41,7 +41,6 @@ public class MainDialog extends DialogFragment {
   static final String FRAGMENT_MANAGER_TAG = "dialog_main";
   static final String TAG = "MainDialog";
 
-  ChatAdapter chatAdapter;
   EmojiPopup emojiPopup;
 
   EmojiEditText editText;
@@ -55,27 +54,27 @@ public class MainDialog extends DialogFragment {
   @Override public void onCreate(@Nullable final Bundle savedInstanceState) {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory(null));
     super.onCreate(savedInstanceState);
-
-    chatAdapter = new ChatAdapter();
   }
 
   @Override @NonNull public Dialog onCreateDialog(final Bundle savedInstanceState) {
-    return new AlertDialog.Builder(getContext())
+    return new AlertDialog.Builder(requireContext())
             .setView(buildView())
             .create();
   }
 
   private View buildView() {
-    final View result = View.inflate(getContext(), R.layout.dialog_main, null);
+    final Context context = requireContext();
+    final View result = View.inflate(context, R.layout.dialog_main, null);
 
     editText = result.findViewById(R.id.main_dialog_chat_bottom_message_edittext);
     rootView = result.findViewById(R.id.main_dialog_root_view);
     emojiButton = result.findViewById(R.id.main_dialog_emoji);
     final ImageView sendButton = result.findViewById(R.id.main_dialog_send);
 
-    emojiButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
-    sendButton.setColorFilter(ContextCompat.getColor(getContext(), R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
+    emojiButton.setColorFilter(ContextCompat.getColor(context, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
+    sendButton.setColorFilter(ContextCompat.getColor(context, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
 
+    final ChatAdapter chatAdapter = new ChatAdapter();
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
     sendButton.setOnClickListener(ignore -> {
       final String text = editText.getText().toString().trim();
@@ -89,7 +88,6 @@ public class MainDialog extends DialogFragment {
 
     final RecyclerView recyclerView = result.findViewById(R.id.main_dialog_recycler_view);
     recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
     setUpEmojiPopup();
 

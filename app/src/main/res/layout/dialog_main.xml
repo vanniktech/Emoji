@@ -12,6 +12,7 @@
       android:id="@+id/main_dialog_recycler_view"
       android:layout_width="match_parent"
       android:layout_height="200dp"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       />
   <LinearLayout
       android:id="@+id/main_dialog_emoji_bar"

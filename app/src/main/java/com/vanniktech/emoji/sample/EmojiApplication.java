@@ -23,13 +23,13 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 
-import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
 
 public class EmojiApplication extends Application {
   @Override public void onCreate() {
     super.onCreate();
 
-    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_AUTO_BATTERY);
+    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
 
     EmojiManager.install(new IosEmojiProvider());
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <dimen name="emoji_size_default">20sp</dimen>
-  <dimen name="emoji_size_only_emojis">40sp</dimen>
-  <dimen name="emoji_size_single_emoji">60sp</dimen>
+  <dimen name="emoji_size_only_emojis">30sp</dimen>
+  <dimen name="emoji_size_single_emoji">40sp</dimen>
 </resources>
