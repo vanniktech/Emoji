@@ -31,6 +31,7 @@ public final class EmojiPagerAdapter extends PagerAdapter {
   private final OnEmojiLongClickListener longListener;
   private final RecentEmoji recentEmoji;
   private final VariantEmoji variantManager;
+  @NonNull private final EmojiTheming theming;
 
   private RecentEmojiGridView recentEmojiGridView;
 
@@ -38,12 +39,14 @@ public final class EmojiPagerAdapter extends PagerAdapter {
       final OnEmojiClickListener listener,
       final OnEmojiLongClickListener longListener,
       final RecentEmoji recentEmoji,
-      final VariantEmoji variantManager
+      final VariantEmoji variantManager,
+      @NonNull final EmojiTheming theming
   ) {
     this.listener = listener;
     this.longListener = longListener;
     this.recentEmoji = recentEmoji;
     this.variantManager = variantManager;
+    this.theming = theming;
   }
 
   boolean hasRecentEmoji() {
@@ -62,11 +65,11 @@ public final class EmojiPagerAdapter extends PagerAdapter {
     final View newView;
 
     if (hasRecentEmoji() && position == RECENT_POSITION) {
-      newView = new RecentEmojiGridView(pager.getContext()).init(listener, longListener, recentEmoji);
+      newView = new RecentEmojiGridView(pager.getContext()).init(listener, longListener, recentEmoji, theming);
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
       newView = new EmojiGridView(pager.getContext()).init(listener, longListener,
-              EmojiManager.getInstance().getCategories()[position - recentAdapterItemCount()], variantManager);
+              EmojiManager.getInstance().getCategories()[position - recentAdapterItemCount()], variantManager, theming);
     }
 
     pager.addView(newView);

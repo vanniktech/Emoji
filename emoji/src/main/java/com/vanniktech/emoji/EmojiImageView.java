@@ -54,7 +54,6 @@ public final class EmojiImageView extends AppCompatImageView {
   public EmojiImageView(final Context context, final AttributeSet attrs) {
     super(context, attrs);
 
-    variantIndicatorPaint.setColor(Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color));
     variantIndicatorPaint.setStyle(Paint.Style.FILL);
     variantIndicatorPaint.setAntiAlias(true);
   }
@@ -101,7 +100,10 @@ public final class EmojiImageView extends AppCompatImageView {
     }
   }
 
-  void setEmoji(@NonNull final Emoji emoji) {
+  void setEmoji(@NonNull final EmojiTheming theming, @NonNull final Emoji emoji) {
+    variantIndicatorPaint.setColor(EmojiThemings.dividerColor(theming, getContext()));
+    postInvalidate();
+
     if (!emoji.equals(currentEmoji)) {
       setImageDrawable(null);
 

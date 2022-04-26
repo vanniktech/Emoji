@@ -36,17 +36,20 @@ import static com.vanniktech.emoji.Utils.asListWithoutDuplicates;
 
 final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
   @Nullable private final VariantEmoji variantManager;
+  @NonNull private final EmojiTheming theming;
 
   @Nullable private final OnEmojiClickListener listener;
   @Nullable private final OnEmojiLongClickListener longListener;
 
   EmojiArrayAdapter(@NonNull final Context context, @NonNull final Emoji[] emojis, @Nullable final VariantEmoji variantManager,
-                    @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener) {
+                    @Nullable final OnEmojiClickListener listener, @Nullable final OnEmojiLongClickListener longListener,
+                    @NonNull final EmojiTheming theming) {
     super(context, 0, asListWithoutDuplicates(emojis));
 
     this.variantManager = variantManager;
     this.listener = listener;
     this.longListener = longListener;
+    this.theming = theming;
   }
 
   @Override @NonNull public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
@@ -64,7 +67,7 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
     final Emoji emoji = checkNotNull(getItem(position), "emoji == null");
     final Emoji variantToUse = variantManager == null ? emoji : variantManager.getVariant(emoji);
     image.setContentDescription(emoji.getUnicode());
-    image.setEmoji(variantToUse);
+    image.setEmoji(theming, variantToUse);
 
     return image;
   }

@@ -2,7 +2,6 @@
 <resources>
   <attr name="emojiSize" format="dimension"/>
   <attr name="emojiBackgroundColor" format="color|reference"/>
-  <attr name="emojiPrimaryColor" format="color|reference"/>
   <attr name="emojiDividerColor" format="color|reference"/>
   <declare-styleable name="EmojiButton">
     <attr name="emojiSize"/>

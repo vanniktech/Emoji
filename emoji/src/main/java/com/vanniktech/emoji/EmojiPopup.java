@@ -33,7 +33,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import androidx.annotation.CheckResult;
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
@@ -317,10 +316,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   public static final class Builder {
     @NonNull final View rootView;
     @StyleRes int keyboardAnimationStyle;
-    @ColorInt int backgroundColor;
-    @ColorInt int iconColor;
-    @ColorInt int selectedIconColor;
-    @ColorInt int dividerColor;
+    EmojiTheming theming = new EmojiTheming();
     @Nullable ViewPager.PageTransformer pageTransformer;
     @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
     @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
@@ -411,23 +407,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       return this;
     }
 
-    @CheckResult public Builder setBackgroundColor(@ColorInt final int color) {
-      backgroundColor = color;
-      return this;
-    }
-
-    @CheckResult public Builder setIconColor(@ColorInt final int color) {
-      iconColor = color;
-      return this;
-    }
-
-    @CheckResult public Builder setSelectedIconColor(@ColorInt final int color) {
-      selectedIconColor = color;
-      return this;
-    }
-
-    @CheckResult public Builder setDividerColor(@ColorInt final int color) {
-      dividerColor = color;
+    @CheckResult public Builder setTheming(@NonNull final EmojiTheming theming) {
+      this.theming = checkNotNull(theming, "theming can't be null");
       return this;
     }
 

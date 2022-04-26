@@ -20,14 +20,12 @@ package com.vanniktech.emoji;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
-import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.content.res.AppCompatResources;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +44,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   private static final long INITIAL_INTERVAL = SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
-  @ColorInt private final int themeAccentColor;
-  @ColorInt private final int themeIconColor;
+  private final EmojiTheming theming;
 
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
@@ -63,17 +60,14 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     View.inflate(context, R.layout.emoji_view, this);
 
-    setOrientation(VERTICAL);
-    setBackgroundColor(builder.backgroundColor != 0 ? builder.backgroundColor : Utils.resolveColor(context, R.attr.emojiBackgroundColor, R.color.emoji_background_color));
-    themeIconColor = builder.iconColor != 0 ? builder.iconColor : Utils.resolveColor(context, R.attr.emojiPrimaryColor, R.color.emoji_primary_color);
+    theming = builder.theming;
 
-    final TypedValue value = new TypedValue();
-    context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
-    themeAccentColor = builder.selectedIconColor != 0 ? builder.selectedIconColor : value.data;
+    setOrientation(VERTICAL);
+    setBackgroundColor(EmojiThemings.backgroundColor(theming, context));
 
     final ViewPager emojisPager = findViewById(R.id.emojiViewPager);
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
-    emojiDivider.setBackgroundColor(builder.dividerColor != 0 ? builder.dividerColor : Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color));
+    emojiDivider.setBackgroundColor(EmojiThemings.dividerColor(theming, context));
 
     if (builder.pageTransformer != null) {
       emojisPager.setPageTransformer(true, builder.pageTransformer);
@@ -84,7 +78,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji);
+    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji, builder.theming);
     emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
@@ -128,7 +122,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     final ImageButton button = (ImageButton) LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false);
 
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon));
-    button.setColorFilter(themeIconColor, PorterDuff.Mode.SRC_IN);
+    button.setColorFilter(EmojiThemings.primaryColor(theming, context), PorterDuff.Mode.SRC_IN);
     button.setContentDescription(context.getString(categoryName));
 
     parent.addView(button);
@@ -137,6 +131,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   }
 
   @Override public void onPageSelected(final int i) {
+    final Context context = getContext();
+
     if (emojiTabLastSelectedIndex != i) {
       if (i == 0) {
         emojiPagerAdapter.invalidateRecentEmojis();
@@ -144,11 +140,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
       if (emojiTabLastSelectedIndex >= 0 && emojiTabLastSelectedIndex < emojiTabs.length) {
         emojiTabs[emojiTabLastSelectedIndex].setSelected(false);
-        emojiTabs[emojiTabLastSelectedIndex].setColorFilter(themeIconColor, PorterDuff.Mode.SRC_IN);
+        emojiTabs[emojiTabLastSelectedIndex].setColorFilter(EmojiThemings.primaryColor(theming, context), PorterDuff.Mode.SRC_IN);
       }
 
       emojiTabs[i].setSelected(true);
-      emojiTabs[i].setColorFilter(themeAccentColor, PorterDuff.Mode.SRC_IN);
+      emojiTabs[i].setColorFilter(EmojiThemings.secondaryColor(theming, context), PorterDuff.Mode.SRC_IN);
 
       emojiTabLastSelectedIndex = i;
     }

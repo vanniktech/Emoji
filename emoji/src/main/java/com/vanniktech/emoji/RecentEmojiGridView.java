@@ -34,12 +34,13 @@ final class RecentEmojiGridView extends EmojiGridView {
 
   public RecentEmojiGridView init(@Nullable final OnEmojiClickListener onEmojiClickListener,
       @Nullable final OnEmojiLongClickListener onEmojiLongClickListener,
-      @NonNull final RecentEmoji recentEmoji) {
+      @NonNull final RecentEmoji recentEmoji,
+      @NonNull final EmojiTheming theming) {
     recentEmojis = recentEmoji;
 
     final Collection<Emoji> emojis = recentEmojis.getRecentEmojis();
     emojiArrayAdapter = new EmojiArrayAdapter(getContext(), emojis.toArray(new Emoji[0]), null,
-            onEmojiClickListener, onEmojiLongClickListener);
+            onEmojiClickListener, onEmojiLongClickListener, theming);
 
     setAdapter(emojiArrayAdapter);
 
