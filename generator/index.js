@@ -15,16 +15,17 @@
  *
  */
 
-const commandLineArgs = require("command-line-args");
-const fs = require("fs-extra");
-const stable = require("stable");
-const chunk = require("lodash.chunk");
-const template = require("lodash.template");
-const imagemin = require("imagemin");
-const imageminZopfli = require("imagemin-zopfli");
-const imageminPngquant = require("imagemin-pngquant");
-const emojiData = require("./node_modules/emoji-datasource/emoji.json");
-const Jimp = require("jimp");
+import commandLineArgs from "command-line-args"
+import fs from "fs-extra"
+import stable from "stable"
+import chunk from "lodash.chunk";
+import template from "lodash.template";
+import imagemin from "imagemin";
+import imageminZopfli from "imagemin-zopfli"
+import imageminPngquant from "imagemin-pngquant"
+import Jimp from "jimp"
+
+const emojiData = await fs.readJson("./node_modules/emoji-datasource/emoji.json");
 
 /**
  * The targets for generating. Extend these for adding more emoji variants.
@@ -87,7 +88,7 @@ const categoryInfo = [
  * The amount of emojis to put in a chunk.
  * @type {number}
  */
-const chunkSize = 250;
+const chunkSize = 200;
 
 /**
  * Helper function to be used by {@link #copyImages} for copying (and optimizing) the images of a single target
@@ -227,7 +228,7 @@ async function parse() {
     console.log("Parsing files...");
 
     const result = new Map();
-    const filteredEmojiData = emojiData.filter(it => it.category !== "Skin Tones");
+    const filteredEmojiData = emojiData.filter(it => it.category !== "Component");
     const preparedEmojiData = stable(filteredEmojiData, (first, second) => first.sort_order - second.sort_order);
 
     for (const dataEntry of preparedEmojiData) {
@@ -244,7 +245,7 @@ async function parse() {
         };
 
         // Star can have an extra variant selector - https://github.com/vanniktech/Emoji/issues/449
-        if (dataEntry.unified == "2B50") {
+        if (dataEntry.unified === "2B50") {
             const variantEmoji = {
                 unicode: dataEntry.unified + "-FE0F",
                 x: dataEntry.sheet_x,
