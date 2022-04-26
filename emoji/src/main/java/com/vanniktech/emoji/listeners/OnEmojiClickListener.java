@@ -22,5 +22,5 @@ import com.vanniktech.emoji.EmojiImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public interface OnEmojiClickListener {
-  void onEmojiClick(@NonNull EmojiImageView emoji, @NonNull Emoji imageView);
+  void onEmojiClick(@NonNull EmojiImageView emojiImageView, @NonNull Emoji emoji);
 }

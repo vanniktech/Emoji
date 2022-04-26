@@ -50,18 +50,20 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
   private final EditText editText;
-  private final OnEmojiClickListener onEmojiClickListener;
+  @Nullable private final OnEmojiClickListener onEmojiClickListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
   private int emojiTabLastSelectedIndex = -1;
 
   @NonNull final EmojiVariantPopup variantPopup;
+  @NonNull final RecentEmoji recentEmoji;
+  @NonNull final VariantEmoji variantEmoji;
 
   @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" }) public EmojiView(final Context context,
-      final OnEmojiClickListener onEmojiClickListener,
+      @Nullable final OnEmojiClickListener onEmojiClickListener,
       @NonNull final EmojiTheming theming,
-      @Nullable final RecentEmoji recentEmoji,
+      @NonNull final RecentEmoji recentEmoji,
       @NonNull final VariantEmoji variantEmoji,
       @Nullable final ViewPager.PageTransformer pageTransformer,
       @NonNull final View rootView,
@@ -70,6 +72,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     this.editText = editText;
     this.theming = theming;
+    this.recentEmoji = recentEmoji;
+    this.variantEmoji = variantEmoji;
     this.onEmojiClickListener = onEmojiClickListener;
     this.variantPopup = new EmojiVariantPopup(rootView, this);
 
@@ -186,8 +190,16 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojiPagerAdapter.invalidateRecentEmojis();
   }
 
-  @Override public void onEmojiClick(@NonNull final EmojiImageView emoji, @NonNull final Emoji imageView) {
-    onEmojiClickListener.onEmojiClick(emoji, imageView);
+  @Override public void onEmojiClick(@NonNull final EmojiImageView emojiImageView, @NonNull final Emoji emoji) {
+    Utils.input(editText, emoji);
+
+    recentEmoji.addEmoji(emoji);
+    variantEmoji.addVariant(emoji);
+    emojiImageView.updateEmoji(emoji);
+
+    if (onEmojiClickListener != null) {
+      onEmojiClickListener.onEmojiClick(emojiImageView, emoji);
+    }
     dismiss();
   }
 
