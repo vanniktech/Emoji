@@ -37,7 +37,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.viewpager.widget.ViewPager;
-import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
@@ -85,20 +84,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
 
-  final OnEmojiClickListener internalOnEmojiClickListener = new OnEmojiClickListener() {
-    @Override public void onEmojiClick(@NonNull final EmojiImageView imageView, @NonNull final Emoji emoji) {
-      Utils.input(editText, emoji);
-
-      recentEmoji.addEmoji(emoji);
-      variantEmoji.addVariant(emoji);
-      imageView.updateEmoji(emoji);
-
-      if (onEmojiClickListener != null) {
-        onEmojiClickListener.onEmojiClick(imageView, emoji);
-      }
-    }
-  };
-
   final OnEmojiBackspaceClickListener internalOnEmojiBackspaceClickListener = new OnEmojiBackspaceClickListener() {
     @Override public void onEmojiBackspaceClick(final View v) {
       backspace(editText);
@@ -131,7 +116,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     emojiView = new EmojiView(
       context,
-      internalOnEmojiClickListener,
+      onEmojiClickListener,
       builder.theming,
       builder.recentEmoji,
       builder.variantEmoji,
