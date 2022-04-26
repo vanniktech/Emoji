@@ -140,7 +140,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     variantPopup = new EmojiVariantPopup(rootView, internalOnEmojiClickListener);
 
     final EmojiView emojiView = new EmojiView(context,
-            internalOnEmojiClickListener, internalOnEmojiLongClickListener, builder);
+            internalOnEmojiClickListener, internalOnEmojiLongClickListener, builder, editText);
 
     emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 

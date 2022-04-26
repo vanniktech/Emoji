@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="emoji_background_color">@color/emoji_grey_900</color>
-  <color name="emoji_primary_color">@color/emoji_white</color>
-  <color name="emoji_divider_color">@color/emoji_gray70</color>
+  <color name="emoji_background_color">#212121</color>
+  <color name="emoji_divider_color">#ff4d4d4d</color>
+  <color name="emoji_text_color">@color/emoji_white</color>
+  <color name="emoji_text_secondary_color">#99FFFFFF</color>
 </resources>
