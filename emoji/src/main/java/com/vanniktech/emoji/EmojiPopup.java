@@ -40,7 +40,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener;
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
@@ -62,7 +61,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   @NonNull final RecentEmoji recentEmoji;
   @NonNull final VariantEmoji variantEmoji;
-  @NonNull final EmojiVariantPopup variantPopup;
+  @NonNull final EmojiView emojiView;
 
   final PopupWindow popupWindow;
   final EditText editText;
@@ -97,14 +96,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       if (onEmojiClickListener != null) {
         onEmojiClickListener.onEmojiClick(imageView, emoji);
       }
-
-      variantPopup.dismiss();
-    }
-  };
-
-  final OnEmojiLongClickListener internalOnEmojiLongClickListener = new OnEmojiLongClickListener() {
-    @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
-      variantPopup.show(view, emoji);
     }
   };
 
@@ -137,10 +128,9 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     this.variantEmoji = builder.variantEmoji;
 
     popupWindow = new PopupWindow(context);
-    variantPopup = new EmojiVariantPopup(rootView, internalOnEmojiClickListener);
 
-    final EmojiView emojiView = new EmojiView(context,
-            internalOnEmojiClickListener, internalOnEmojiLongClickListener, builder, editText);
+    emojiView = new EmojiView(context,
+            internalOnEmojiClickListener, builder, rootView, editText);
 
     emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 
@@ -270,7 +260,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   public void dismiss() {
     popupWindow.dismiss();
-    variantPopup.dismiss();
+    emojiView.dismiss();
     recentEmoji.persist();
     variantEmoji.persist();
 
