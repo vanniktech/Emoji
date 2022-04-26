@@ -60,18 +60,20 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" }) public EmojiView(final Context context,
       final OnEmojiClickListener onEmojiClickListener,
-      @NonNull final EmojiPopup.Builder builder,
+      @NonNull final EmojiTheming theming,
+      @Nullable final RecentEmoji recentEmoji,
+      @NonNull final VariantEmoji variantEmoji,
+      @Nullable final ViewPager.PageTransformer pageTransformer,
       @NonNull final View rootView,
       @NonNull final EditText editText) {
     super(context);
 
     this.editText = editText;
+    this.theming = theming;
     this.onEmojiClickListener = onEmojiClickListener;
     this.variantPopup = new EmojiVariantPopup(rootView, this);
 
     View.inflate(context, R.layout.emoji_view, this);
-
-    theming = builder.theming;
 
     setOrientation(VERTICAL);
     setBackgroundColor(EmojiThemings.backgroundColor(theming, context));
@@ -80,8 +82,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
     emojiDivider.setBackgroundColor(EmojiThemings.dividerColor(theming, context));
 
-    if (builder.pageTransformer != null) {
-      emojisPager.setPageTransformer(true, builder.pageTransformer);
+    if (pageTransformer != null) {
+      emojisPager.setPageTransformer(true, pageTransformer);
     }
 
     final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
@@ -89,7 +91,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
-    emojiPagerAdapter = new EmojiPagerAdapter(this, builder.recentEmoji, builder.variantEmoji, builder.theming);
+    emojiPagerAdapter = new EmojiPagerAdapter(this, recentEmoji, variantEmoji, theming);
     emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
@@ -103,7 +105,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
     emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
 
-    handleOnClicks(emojisPager, builder);
+    handleOnClicks(emojisPager, recentEmoji);
 
     emojisPager.setAdapter(emojiPagerAdapter);
 
@@ -112,7 +114,10 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     onPageSelected(startIndex);
   }
 
-  private void handleOnClicks(final ViewPager emojisPager, final EmojiPopup.Builder builder) {
+  private void handleOnClicks(
+      final ViewPager emojisPager,
+      final RecentEmoji recentEmoji
+  ) {
     for (int i = 0; i < emojiTabs.length - 1; i++) {
       emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
     }
@@ -122,8 +127,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojiTabs[emojiTabs.length - 2].setOnClickListener(v -> EmojiSearchDialog.show(
       getContext(),
       emojiSearchDialogDelegate,
-      builder.recentEmoji,
-      builder.theming
+      recentEmoji,
+      theming
     ));
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, view -> {
       if (onEmojiBackspaceClickListener != null) {

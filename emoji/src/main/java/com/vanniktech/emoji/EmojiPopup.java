@@ -129,8 +129,16 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     popupWindow = new PopupWindow(context);
 
-    emojiView = new EmojiView(context,
-            internalOnEmojiClickListener, builder, rootView, editText);
+    emojiView = new EmojiView(
+      context,
+      internalOnEmojiClickListener,
+      builder.theming,
+      builder.recentEmoji,
+      builder.variantEmoji,
+      builder.pageTransformer,
+      rootView,
+      editText
+    );
 
     emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 
@@ -306,7 +314,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   public static final class Builder {
     @NonNull final View rootView;
     @StyleRes int keyboardAnimationStyle;
-    EmojiTheming theming = new EmojiTheming();
+    @NonNull EmojiTheming theming = new EmojiTheming();
     @Nullable ViewPager.PageTransformer pageTransformer;
     @Nullable OnEmojiPopupShownListener onEmojiPopupShownListener;
     @Nullable OnSoftKeyboardCloseListener onSoftKeyboardCloseListener;
