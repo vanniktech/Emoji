@@ -2,7 +2,7 @@
 <resources>
   <color name="emoji_background_color">@color/emoji_white</color>
   <color name="emoji_primary_color">@color/emoji_black</color>
-  <color name="emoji_divider">@color/emoji_gray20</color>
+  <color name="emoji_divider_color">@color/emoji_gray20</color>
 
   <color name="emoji_white">#ffffffff</color>
   <color name="emoji_black">#ff000000</color>

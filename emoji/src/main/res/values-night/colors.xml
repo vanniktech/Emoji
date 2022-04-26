@@ -2,5 +2,5 @@
 <resources>
   <color name="emoji_background_color">@color/emoji_grey_900</color>
   <color name="emoji_primary_color">@color/emoji_white</color>
-  <color name="emoji_divider">@color/emoji_gray70</color>
+  <color name="emoji_divider_color">@color/emoji_gray70</color>
 </resources>

@@ -73,7 +73,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     final ViewPager emojisPager = findViewById(R.id.emojiViewPager);
     final View emojiDivider = findViewById(R.id.emojiViewDivider);
-    emojiDivider.setBackgroundColor(builder.dividerColor != 0 ? builder.dividerColor : Utils.resolveColor(context, R.attr.emojiDivider, R.color.emoji_divider));
+    emojiDivider.setBackgroundColor(builder.dividerColor != 0 ? builder.dividerColor : Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color));
 
     if (builder.pageTransformer != null) {
       emojisPager.setPageTransformer(true, builder.pageTransformer);
