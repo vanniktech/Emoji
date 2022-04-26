@@ -174,6 +174,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
   @Override public void onClicked(@NotNull final Emoji emoji) {
     Utils.input(editText, emoji);
+    emojiPagerAdapter.invalidateRecentEmojis();
   }
 
   static class EmojiTabsClickListener implements OnClickListener {
