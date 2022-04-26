@@ -32,12 +32,26 @@ import kotlinx.parcelize.Parcelize
    * If that isn't found, the library has a default.
    */
   @ColorInt val dividerColor: Int?,
+  /**
+   * If set, it will be taken.
+   * Otherwise it'll look for a theme attribute called emojiTextColor.
+   * If that isn't found, the library has a default.
+   */
+  @ColorInt val textColor: Int?,
+  /**
+   * If set, it will be taken.
+   * Otherwise it'll look for a theme attribute called emojiTextSecondaryColor.
+   * If that isn't found, the library has a default.
+   */
+  @ColorInt val textSecondaryColor: Int?,
 ) : Parcelable {
   constructor() : this(
     backgroundColor = null,
     primaryColor = null,
     secondaryColor = null,
     dividerColor = null,
+    textColor = null,
+    textSecondaryColor = null,
   )
 }
 
@@ -67,4 +81,14 @@ internal fun EmojiTheming.secondaryColor(context: Context) = when {
 internal fun EmojiTheming.dividerColor(context: Context) = when {
   dividerColor != null -> dividerColor
   else -> Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color)
+}
+
+internal fun EmojiTheming.textColor(context: Context) = when {
+  textColor != null -> textColor
+  else -> Utils.resolveColor(context, R.attr.emojiTextColor, R.color.emoji_text_color)
+}
+
+internal fun EmojiTheming.textSecondaryColor(context: Context) = when {
+  textSecondaryColor != null -> textSecondaryColor
+  else -> Utils.resolveColor(context, R.attr.emojiTextSecondaryColor, R.color.emoji_text_secondary_color)
 }

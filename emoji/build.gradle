@@ -20,6 +20,7 @@ android {
 dependencies {
   api "androidx.appcompat:appcompat:1.4.1"
   api "androidx.cardview:cardview:1.0.0"
+  api "androidx.recyclerview:recyclerview:1.2.1"
 }
 
 dependencies {

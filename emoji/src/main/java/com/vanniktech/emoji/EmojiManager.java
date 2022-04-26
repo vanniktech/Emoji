@@ -47,7 +47,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       final int firstLength = first.length();
       final int secondLength = second.length();
 
-      return firstLength < secondLength ? 1 : firstLength == secondLength ? 0 : -1;
+      return Integer.compare(secondLength, firstLength);
     }
   };
 

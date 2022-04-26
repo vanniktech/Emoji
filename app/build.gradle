@@ -58,7 +58,6 @@ dependencies {
   implementation project(':emoji-twitter')
   implementation project(':emoji-facebook')
   implementation project(':emoji-material')
-  implementation "androidx.recyclerview:recyclerview:1.2.1"
 }
 
 dependencies {
@@ -66,7 +65,7 @@ dependencies {
 }
 
 dependencies {
-  androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
+  androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
   androidTestImplementation "androidx.test:rules:1.4.0"
   androidTestImplementation "androidx.test.ext:junit:1.1.3"
   androidTestImplementation "tools.fastlane:screengrab:2.1.1"

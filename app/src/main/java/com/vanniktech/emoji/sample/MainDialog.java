@@ -71,8 +71,8 @@ public class MainDialog extends DialogFragment {
     emojiButton = result.findViewById(R.id.main_dialog_emoji);
     final ImageView sendButton = result.findViewById(R.id.main_dialog_send);
 
-    emojiButton.setColorFilter(ContextCompat.getColor(context, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
-    sendButton.setColorFilter(ContextCompat.getColor(context, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
+    emojiButton.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+    sendButton.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
 
     final ChatAdapter chatAdapter = new ChatAdapter();
     emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
