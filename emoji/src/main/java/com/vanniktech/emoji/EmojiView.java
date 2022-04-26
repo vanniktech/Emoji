@@ -64,7 +64,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     View.inflate(context, R.layout.emoji_view, this);
 
     setOrientation(VERTICAL);
-    setBackgroundColor(builder.backgroundColor != 0 ? builder.backgroundColor : Utils.resolveColor(context, R.attr.emojiBackground, R.color.emoji_background));
+    setBackgroundColor(builder.backgroundColor != 0 ? builder.backgroundColor : Utils.resolveColor(context, R.attr.emojiBackgroundColor, R.color.emoji_background_color));
     themeIconColor = builder.iconColor != 0 ? builder.iconColor : Utils.resolveColor(context, R.attr.emojiPrimaryColor, R.color.emoji_primary_color);
 
     final TypedValue value = new TypedValue();

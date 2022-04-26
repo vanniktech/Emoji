@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <attr name="emojiSize" format="dimension"/>
-  <attr name="emojiBackground" format="color|reference"/>
+  <attr name="emojiBackgroundColor" format="color|reference"/>
   <attr name="emojiPrimaryColor" format="color|reference"/>
   <attr name="emojiDivider" format="color|reference"/>
   <declare-styleable name="EmojiButton">

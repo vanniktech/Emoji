@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="emoji_background">@color/emoji_white</color>
+  <color name="emoji_background_color">@color/emoji_white</color>
   <color name="emoji_primary_color">@color/emoji_black</color>
   <color name="emoji_divider">@color/emoji_gray20</color>
 
