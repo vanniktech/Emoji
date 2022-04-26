@@ -24,8 +24,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -70,6 +68,54 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     chatAdapter = new ChatAdapter();
+
+    setUpShowcaseButtons();
+
+    editText = findViewById(R.id.main_activity_chat_bottom_message_edittext);
+    rootView = findViewById(R.id.main_activity_root_view);
+    emojiButton = findViewById(R.id.main_activity_emoji);
+    final ImageView sendButton = findViewById(R.id.main_activity_send);
+
+    emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+    sendButton.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+    final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
+    forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
+      if (isChecked) {
+        editText.clearFocus();
+        emojiButton.setVisibility(GONE);
+        editText.disableKeyboardInput(emojiPopup);
+      } else {
+        emojiButton.setVisibility(VISIBLE);
+        editText.enableKeyboardInput();
+      }
+    });
+
+    emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
+
+    sendButton.setOnClickListener(ignore -> {
+      final String text = editText.getText().toString().trim();
+
+      if (text.length() > 0) {
+        chatAdapter.add(text);
+
+        editText.setText("");
+      }
+    });
+
+    final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
+    recyclerView.setAdapter(chatAdapter);
+    recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+
+    setUpEmojiPopup();
+  }
+
+  @SuppressLint("SetTextI18n") private void setUpShowcaseButtons() {
+    final Button customViewButton = findViewById(R.id.custom_view);
+    customViewButton.setOnClickListener(ignore -> {
+      emojiPopup.dismiss();
+      startActivity(new Intent(this, CustomViewActivity.class));
+    });
 
     final Button dialogButton = findViewById(R.id.dialog_button);
     dialogButton.setOnClickListener(ignore -> {
@@ -121,59 +167,6 @@ public class MainActivity extends AppCompatActivity {
       });
       menu.show();
     });
-
-    editText = findViewById(R.id.main_activity_chat_bottom_message_edittext);
-    rootView = findViewById(R.id.main_activity_root_view);
-    emojiButton = findViewById(R.id.main_activity_emoji);
-    final ImageView sendButton = findViewById(R.id.main_activity_send);
-
-    emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-    sendButton.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-
-    final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
-    forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
-      if (isChecked) {
-        editText.clearFocus();
-        emojiButton.setVisibility(GONE);
-        editText.disableKeyboardInput(emojiPopup);
-      } else {
-        emojiButton.setVisibility(VISIBLE);
-        editText.enableKeyboardInput();
-      }
-    });
-
-    emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
-
-    sendButton.setOnClickListener(ignore -> {
-      final String text = editText.getText().toString().trim();
-
-      if (text.length() > 0) {
-        chatAdapter.add(text);
-
-        editText.setText("");
-      }
-    });
-
-    final RecyclerView recyclerView = findViewById(R.id.main_activity_recycler_view);
-    recyclerView.setAdapter(chatAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-
-    setUpEmojiPopup();
-  }
-
-  @Override public boolean onCreateOptionsMenu(final Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_main, menu);
-    return super.onCreateOptionsMenu(menu);
-  }
-
-  @Override public boolean onOptionsItemSelected(final MenuItem item) {
-    final int itemId = item.getItemId();
-    if (itemId == R.id.menuMainCustomView) {
-      emojiPopup.dismiss();
-      startActivity(new Intent(this, CustomViewActivity.class));
-      return true;
-    }
-    return super.onOptionsItemSelected(item);
   }
 
   private void setUpEmojiPopup() {

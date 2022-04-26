@@ -20,7 +20,16 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:text="Showcase chat in Dialog 💬"
+      android:text="Chat in Dialog 💬"
+      tools:ignore="HardcodedText"
+      />
+  <!-- This one gets automatically replaced into a EmojiMaterialButton as we're using a MaterialEmojiLayoutFactory. -->
+  <Button
+      android:id="@+id/custom_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:text="Custom View 🖼️"
       tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiCheckbox
