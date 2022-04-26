@@ -17,9 +17,9 @@
 
 package com.vanniktech.emoji;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,35 +41,55 @@ import org.jetbrains.annotations.NotNull;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-@SuppressLint("ViewConstructor") public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate, EmojiPagerDelegate {
+public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate, EmojiPagerDelegate {
   private static final long INITIAL_INTERVAL = SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
-  private final EmojiTheming theming;
-
-  private final ImageButton[] emojiTabs;
-  private final EmojiPagerAdapter emojiPagerAdapter;
-  private final EditText editText;
-  @Nullable private final OnEmojiClickListener onEmojiClickListener;
+  private EmojiTheming theming;
+  private ImageButton[] emojiTabs = new ImageButton[0];
+  private EmojiPagerAdapter emojiPagerAdapter;
+  private EditText editText;
+  @Nullable private OnEmojiClickListener onEmojiClickListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
   private int emojiTabLastSelectedIndex = -1;
 
-  @NonNull final EmojiVariantPopup variantPopup;
-  @NonNull final RecentEmoji recentEmoji;
-  @NonNull final VariantEmoji variantEmoji;
+  EmojiVariantPopup variantPopup;
+  RecentEmoji recentEmoji;
+  VariantEmoji variantEmoji;
 
-  @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" }) public EmojiView(final Context context,
-      @Nullable final OnEmojiClickListener onEmojiClickListener,
-      @NonNull final EmojiTheming theming,
-      @NonNull final RecentEmoji recentEmoji,
-      @NonNull final VariantEmoji variantEmoji,
-      @Nullable final ViewPager.PageTransformer pageTransformer,
-      @NonNull final View rootView,
-      @NonNull final EditText editText) {
+  public EmojiView(final Context context) {
     super(context);
+    init(context);
+  }
 
+  public EmojiView(final Context context, @Nullable final AttributeSet attrs) {
+    super(context, attrs);
+    init(context);
+  }
+
+  public EmojiView(final Context context, @Nullable final AttributeSet attrs, final int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    init(context);
+  }
+
+  private void init(final Context context) {
+    View.inflate(context, R.layout.emoji_view, this);
+    setOrientation(VERTICAL);
+  }
+
+  @SuppressWarnings({ "PMD.JUnit4TestShouldUseBeforeAnnotation" })
+  void setUp(
+    @Nullable final OnEmojiClickListener onEmojiClickListener,
+    @NonNull final EmojiTheming theming,
+    @NonNull final RecentEmoji recentEmoji,
+    @NonNull final VariantEmoji variantEmoji,
+    @Nullable final ViewPager.PageTransformer pageTransformer,
+    @NonNull final View rootView,
+    @NonNull final EditText editText
+  ) {
+    final Context context = getContext();
     this.editText = editText;
     this.theming = theming;
     this.recentEmoji = recentEmoji;
@@ -77,9 +97,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     this.onEmojiClickListener = onEmojiClickListener;
     this.variantPopup = new EmojiVariantPopup(rootView, this);
 
-    View.inflate(context, R.layout.emoji_view, this);
-
-    setOrientation(VERTICAL);
     setBackgroundColor(EmojiThemings.backgroundColor(theming, context));
 
     final ViewPager emojisPager = findViewById(R.id.emojiViewPager);
@@ -99,17 +116,17 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
-      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab, theming);
     }
 
     for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab, theming);
     }
 
-    emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
-    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
+    emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab, theming);
+    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab, theming);
 
-    handleOnClicks(emojisPager, recentEmoji);
+    handleOnClicks(emojisPager);
 
     emojisPager.setAdapter(emojiPagerAdapter);
 
@@ -119,8 +136,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   }
 
   private void handleOnClicks(
-      final ViewPager emojisPager,
-      final RecentEmoji recentEmoji
+      final ViewPager emojisPager
   ) {
     for (int i = 0; i < emojiTabs.length - 1; i++) {
       emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
@@ -145,7 +161,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
     this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
   }
 
-  private ImageButton inflateButton(final Context context, @DrawableRes final int icon, @StringRes final int categoryName, final ViewGroup parent) {
+  private ImageButton inflateButton(
+      final Context context,
+      @DrawableRes final int icon,
+      @StringRes final int categoryName,
+      final ViewGroup parent,
+      final EmojiTheming theming
+  ) {
     final ImageButton button = (ImageButton) LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false);
 
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon));

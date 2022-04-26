@@ -114,8 +114,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     popupWindow = new PopupWindow(context);
 
-    emojiView = new EmojiView(
-      context,
+    emojiView = new EmojiView(context);
+    emojiView.setUp(
       onEmojiClickListener,
       builder.theming,
       builder.recentEmoji,
