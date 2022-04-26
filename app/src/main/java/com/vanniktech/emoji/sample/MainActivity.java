@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
     emojiButton = findViewById(R.id.main_activity_emoji);
     final ImageView sendButton = findViewById(R.id.main_activity_send);
 
-    emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
-    sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_icons), PorterDuff.Mode.SRC_IN);
+    emojiButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
+    sendButton.setColorFilter(ContextCompat.getColor(this, R.color.emoji_primary_color), PorterDuff.Mode.SRC_IN);
 
     final CheckBox forceEmojisOnly = findViewById(R.id.main_activity_force_emojis_only);
     forceEmojisOnly.setOnCheckedChangeListener((ignore, isChecked) -> {
@@ -116,48 +116,48 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.menuMainShowDialog:
-        emojiPopup.dismiss();
-        MainDialog.show(this);
-        return true;
-      case R.id.menuMainCustomView:
-        emojiPopup.dismiss();
-        startActivity(new Intent(this, CustomViewActivity.class));
-        return true;
-      case R.id.menuMainVariantIos:
-        EmojiManager.destroy();
-        EmojiManager.install(new IosEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainGoogle:
-        EmojiManager.destroy();
-        EmojiManager.install(new GoogleEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainTwitter:
-        EmojiManager.destroy();
-        EmojiManager.install(new TwitterEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainFacebook:
-        EmojiManager.destroy();
-        EmojiManager.install(new FacebookEmojiProvider());
-        recreate();
-        return true;
-      case R.id.menuMainGoogleCompat:
-        if (emojiCompat == null) {
-          emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
-              new FontRequest("com.google.android.gms.fonts", "com.google.android.gms", "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
-          ).setReplaceAll(true));
-        }
-        EmojiManager.destroy();
-        EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
-        recreate();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
+    final int itemId = item.getItemId();
+    if (itemId == R.id.menuMainShowDialog) {
+      emojiPopup.dismiss();
+      MainDialog.show(this);
+      return true;
+    } else if (itemId == R.id.menuMainCustomView) {
+      emojiPopup.dismiss();
+      startActivity(new Intent(this, CustomViewActivity.class));
+      return true;
+    } else if (itemId == R.id.menuMainVariantIos) {
+      EmojiManager.destroy();
+      EmojiManager.install(new IosEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainGoogle) {
+      EmojiManager.destroy();
+      EmojiManager.install(new GoogleEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainTwitter) {
+      EmojiManager.destroy();
+      EmojiManager.install(new TwitterEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainFacebook) {
+      EmojiManager.destroy();
+      EmojiManager.install(new FacebookEmojiProvider());
+      recreate();
+      return true;
+    } else if (itemId == R.id.menuMainGoogleCompat) {
+      if (emojiCompat == null) {
+        emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
+            new FontRequest("com.google.android.gms.fonts", "com.google.android.gms",
+                "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
+        ).setReplaceAll(true));
+      }
+      EmojiManager.destroy();
+      EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
+      recreate();
+      return true;
     }
+    return super.onOptionsItemSelected(item);
   }
 
   private void setUpEmojiPopup() {
@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         .setOnSoftKeyboardCloseListener(() -> Log.d(TAG, "Closed soft keyboard"))
         .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
         .setPageTransformer(new PageTransformer())
+        //.setRecentEmoji(NoRecentEmoji.INSTANCE) // Uncomment this to hide recent emojis.
         .build(editText);
   }
 }

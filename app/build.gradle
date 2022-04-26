@@ -13,7 +13,7 @@ android {
     applicationId "com.vanniktech.emoji.sample"
     minSdkVersion rootProject.ext.minSdkVersion as int
     targetSdkVersion rootProject.ext.targetSdkVersion as int
-    versionCode rootProject.ext.versionCode as int
+    versionCode 10
     versionName rootProject.ext.versionName as String
 
     vectorDrawables.useSupportLibrary = true
@@ -57,18 +57,17 @@ dependencies {
   implementation project(':emoji-google-compat')
   implementation project(':emoji-twitter')
   implementation project(':emoji-facebook')
-  implementation project(':emoji-kotlin')
   implementation project(':emoji-material')
-  implementation "androidx.recyclerview:recyclerview:1.1.0"
+  implementation "androidx.recyclerview:recyclerview:1.2.1"
 }
 
 dependencies {
-  debugImplementation "com.squareup.leakcanary:leakcanary-android:2.4"
+  debugImplementation "com.squareup.leakcanary:leakcanary-android:2.9.1"
 }
 
 dependencies {
   androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
-  androidTestImplementation "androidx.test:rules:1.3.0-rc03"
-  androidTestImplementation "androidx.test.ext:junit:1.1.2-rc03"
-  androidTestImplementation "tools.fastlane:screengrab:2.0.0"
+  androidTestImplementation "androidx.test:rules:1.4.0"
+  androidTestImplementation "androidx.test.ext:junit:1.1.3"
+  androidTestImplementation "tools.fastlane:screengrab:2.1.1"
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <style name="emoji_fade_animation_style">
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <style name="emoji_fade_animation_style" tools:ignore="UnusedResources">
     <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
     <item name="android:windowExitAnimation">@android:anim/fade_out</item>
   </style>

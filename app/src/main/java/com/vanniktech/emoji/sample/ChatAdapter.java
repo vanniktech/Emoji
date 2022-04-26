@@ -59,7 +59,7 @@ final class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder>
 
   public void add(final String text) {
     texts.add(text);
-    notifyDataSetChanged();
+    notifyItemInserted(texts.size());
   }
 
   static class ChatViewHolder extends RecyclerView.ViewHolder {
