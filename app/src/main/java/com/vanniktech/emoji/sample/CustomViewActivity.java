@@ -27,7 +27,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.SingleEmojiTrait;
 
 public class CustomViewActivity extends AppCompatActivity {
   @Override protected void onCreate(final Bundle savedInstanceState) {
@@ -38,27 +37,25 @@ public class CustomViewActivity extends AppCompatActivity {
     customView.setUpEmojiPopup();
   }
 
-  static class CustomView extends LinearLayout {
-    final Button emojiButton;
-    final EmojiEditText editText;
-    EmojiPopup emojiPopup;
-
+  static final class CustomView extends LinearLayout {
     CustomView(final Context context, @Nullable final AttributeSet attrs) {
       super(context, attrs);
       View.inflate(context, R.layout.view_custom, this);
-
-      emojiButton = findViewById(R.id.customViewButton);
-      editText = findViewById(R.id.customViewEditText);
-      SingleEmojiTrait.install(editText);
+      setOrientation(VERTICAL);
     }
 
     void setUpEmojiPopup() {
-      emojiPopup = EmojiPopup.Builder.fromRootView(this)
+      final EmojiEditText editText = findViewById(R.id.customViewEditText);
+
+      final EmojiPopup emojiPopup = EmojiPopup.Builder.fromRootView(this)
           .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
           .setPageTransformer(new PageTransformer())
           .build(editText);
 
-      emojiButton.setOnClickListener(ignore -> emojiPopup.toggle());
+      final Button emojiButton = findViewById(R.id.customViewButton);
+      editText.disableKeyboardInput(emojiPopup);
+      editText.forceSingleEmoji();
+      emojiButton.setOnClickListener(ignore -> editText.requestFocus());
     }
   }
 }

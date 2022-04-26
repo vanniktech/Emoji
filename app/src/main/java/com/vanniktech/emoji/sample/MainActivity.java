@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     chatAdapter = new ChatAdapter();
 
     final Button button = findViewById(R.id.main_activity_material_button);
-    button.setText("\uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
+    button.setText("Text with emojis \uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
     editText = findViewById(R.id.main_activity_chat_bottom_message_edittext);
     rootView = findViewById(R.id.main_activity_root_view);
     emojiButton = findViewById(R.id.main_activity_emoji);
