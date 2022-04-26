@@ -65,7 +65,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     setOrientation(VERTICAL);
     setBackgroundColor(builder.backgroundColor != 0 ? builder.backgroundColor : Utils.resolveColor(context, R.attr.emojiBackground, R.color.emoji_background));
-    themeIconColor = builder.iconColor != 0 ? builder.iconColor : Utils.resolveColor(context, R.attr.emojiIcons, R.color.emoji_icons);
+    themeIconColor = builder.iconColor != 0 ? builder.iconColor : Utils.resolveColor(context, R.attr.emojiPrimaryColor, R.color.emoji_primary_color);
 
     final TypedValue value = new TypedValue();
     context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
