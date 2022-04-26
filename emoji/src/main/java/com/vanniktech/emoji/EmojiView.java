@@ -36,13 +36,12 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import org.jetbrains.annotations.NotNull;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-@SuppressLint("ViewConstructor") public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate {
+@SuppressLint("ViewConstructor") public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate, EmojiPagerDelegate {
   private static final long INITIAL_INTERVAL = SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
@@ -51,19 +50,24 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   private final ImageButton[] emojiTabs;
   private final EmojiPagerAdapter emojiPagerAdapter;
   private final EditText editText;
+  private final OnEmojiClickListener onEmojiClickListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
 
   private int emojiTabLastSelectedIndex = -1;
 
+  @NonNull final EmojiVariantPopup variantPopup;
+
   @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" }) public EmojiView(final Context context,
       final OnEmojiClickListener onEmojiClickListener,
-      final OnEmojiLongClickListener onEmojiLongClickListener,
       @NonNull final EmojiPopup.Builder builder,
+      @NonNull final View rootView,
       @NonNull final EditText editText) {
     super(context);
 
     this.editText = editText;
+    this.onEmojiClickListener = onEmojiClickListener;
+    this.variantPopup = new EmojiVariantPopup(rootView, this);
 
     View.inflate(context, R.layout.emoji_view, this);
 
@@ -85,7 +89,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
 
-    emojiPagerAdapter = new EmojiPagerAdapter(onEmojiClickListener, onEmojiLongClickListener, builder.recentEmoji, builder.variantEmoji, builder.theming);
+    emojiPagerAdapter = new EmojiPagerAdapter(this, builder.recentEmoji, builder.variantEmoji, builder.theming);
     emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
@@ -175,6 +179,19 @@ import static java.util.concurrent.TimeUnit.SECONDS;
   @Override public void onClicked(@NotNull final Emoji emoji) {
     Utils.input(editText, emoji);
     emojiPagerAdapter.invalidateRecentEmojis();
+  }
+
+  @Override public void onEmojiClick(@NonNull final EmojiImageView emoji, @NonNull final Emoji imageView) {
+    onEmojiClickListener.onEmojiClick(emoji, imageView);
+    dismiss();
+  }
+
+  @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
+    variantPopup.show(view, emoji);
+  }
+
+  void dismiss() {
+    variantPopup.dismiss();
   }
 
   static class EmojiTabsClickListener implements OnClickListener {

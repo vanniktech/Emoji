@@ -56,13 +56,14 @@ public final class EmojiVariantPopup {
 
     rootImageView = clickedImage;
 
-    final View content = initView(clickedImage.getContext(), emoji, clickedImage.getWidth());
+    final Context context = clickedImage.getContext();
+    final View content = initView(context, emoji, clickedImage.getWidth());
 
     popupWindow = new PopupWindow(content, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
     popupWindow.setFocusable(true);
     popupWindow.setOutsideTouchable(true);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
-    popupWindow.setBackgroundDrawable(new BitmapDrawable(clickedImage.getContext().getResources(), (Bitmap) null));
+    popupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null)); // To avoid borders and overdraw.
 
     content.measure(makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 
