@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     chatAdapter = new ChatAdapter();
 
+    final Button dialogButton = findViewById(R.id.dialog_button);
+    dialogButton.setOnClickListener(ignore -> {
+      emojiPopup.dismiss();
+      MainDialog.show(this);
+    });
     final Button button = findViewById(R.id.main_activity_material_button);
     button.setText("Switch between Emoji Provider \uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
     button.setOnClickListener(ignore -> {
@@ -163,11 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override public boolean onOptionsItemSelected(final MenuItem item) {
     final int itemId = item.getItemId();
-    if (itemId == R.id.menuMainShowDialog) {
-      emojiPopup.dismiss();
-      MainDialog.show(this);
-      return true;
-    } else if (itemId == R.id.menuMainCustomView) {
+    if (itemId == R.id.menuMainCustomView) {
       emojiPopup.dismiss();
       startActivity(new Intent(this, CustomViewActivity.class));
       return true;

@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="HardcodedText">
   <item
-      android:id="@+id/menuMainShowDialog"
-      android:icon="@drawable/ic_message"
-      android:title="Show Dialog"
-      app:showAsAction="ifRoom" />
-  <item
       android:id="@+id/menuMainCustomView"
       android:title="Custom View"
       app:showAsAction="ifRoom">
