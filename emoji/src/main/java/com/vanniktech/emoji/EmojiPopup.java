@@ -45,6 +45,7 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import java.lang.ref.WeakReference;
+import java.util.concurrent.Executors;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O;
@@ -261,8 +262,11 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   public void dismiss() {
     popupWindow.dismiss();
     emojiView.dismiss();
-    recentEmoji.persist();
-    variantEmoji.persist();
+
+    Executors.newSingleThreadExecutor().submit(() -> {
+      recentEmoji.persist();
+      variantEmoji.persist();
+    });
 
     emojiResultReceiver.setReceiver(null);
 
