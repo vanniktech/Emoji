@@ -2,4 +2,5 @@
 <resources>
     <string name="emoji_category_recent">Recent</string>
     <string name="emoji_backspace">Backspace</string>
+    <string name="emoji_search">Search</string>
 </resources>
