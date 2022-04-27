@@ -14,11 +14,10 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji.listeners
 
-package com.vanniktech.emoji.listeners;
+import androidx.annotation.Px
 
-import androidx.annotation.Px;
-
-public interface OnSoftKeyboardOpenListener {
-  void onKeyboardOpen(@Px int keyBoardHeight);
+interface OnSoftKeyboardOpenListener {
+  fun onKeyboardOpen(@Px keyBoardHeight: Int)
 }
