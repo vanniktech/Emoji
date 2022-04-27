@@ -14,11 +14,10 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
-
-import android.content.Context;
-import android.text.Spannable;
+import android.content.Context
+import android.text.Spannable
 
 /**
  * EmojiProviders can implement this interface to perform text emoji image replacement in a more efficient way.
@@ -27,6 +26,6 @@ import android.text.Spannable;
  *
  * @since 6.0.0
  */
-public interface EmojiReplacer {
-  void replaceWithImages(Context context, Spannable text, float emojiSize, EmojiReplacer fallback);
+interface EmojiReplacer {
+  fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer)
 }
