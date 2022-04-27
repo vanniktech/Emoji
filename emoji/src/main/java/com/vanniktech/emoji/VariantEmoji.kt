@@ -14,44 +14,41 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
-
-import androidx.annotation.NonNull;
-import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.emoji.Emoji
 
 /**
  * Interface for providing some custom implementation for variant emojis.
  *
  * @since 0.5.0
  */
-public interface VariantEmoji {
+interface VariantEmoji {
   /**
    * Returns the variant for the passed emoji. Could be loaded from a database, shared preferences or just hard
-   * coded.<br>
+   * coded.
    *
    * This method will be called more than one time hence it is recommended to hold a collection of
    * desired emojis.
    *
-   * @param desiredEmoji The emoji to retrieve the variant for. If none is found,
-   *                     the passed emoji should be returned.
+   * [desiredEmoji] The emoji to retrieve the variant for. If none is found, [desiredEmoji] should be returned.
    * @since 0.5.0
    */
-  @NonNull Emoji getVariant(Emoji desiredEmoji);
+  fun getVariant(desiredEmoji: Emoji): Emoji
 
   /**
-   * Should add the emoji to the variants. After calling this method, {@link #getVariant(Emoji)}
+   * Should add the emoji to the variants. After calling this method, [getVariant]
    * should return the emoji that was just added.
    *
-   * @param newVariant The new variant to save.
+   * [newVariant] The new variant to save.
    * @since 0.5.0
    */
-  void addVariant(@NonNull Emoji newVariant);
+  fun addVariant(newVariant: Emoji)
 
   /**
    * Should persist all emojis.
    *
    * @since 0.5.0
    */
-  void persist();
+  fun persist()
 }
