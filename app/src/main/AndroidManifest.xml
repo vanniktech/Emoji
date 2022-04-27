@@ -23,12 +23,6 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".MainActivityAutoCompleteTextView"
-        android:windowSoftInputMode="stateVisible|adjustResize" />
-    <activity
-        android:name=".MainActivityMultiAutoCompleteTextView"
-        android:windowSoftInputMode="stateVisible|adjustResize" />
-    <activity
         android:name=".CustomViewActivity"
         android:windowSoftInputMode="stateVisible|adjustResize" />
   </application>
