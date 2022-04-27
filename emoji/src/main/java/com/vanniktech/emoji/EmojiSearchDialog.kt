@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -123,7 +125,7 @@ internal class EmojiAdapter(
   private val emojiSearchDialogDelegate: EmojiSearchDialogDelegate?,
 ) : RecyclerView.Adapter<EmojiViewHolder>() {
   @Px private var marginStart: Int? = null
-  private var items = emptyList<Emoji>()
+  private var items = emptyList<SearchEmojiResult>()
 
   init {
     setHasStableIds(true)
@@ -133,32 +135,33 @@ internal class EmojiAdapter(
 
   override fun onBindViewHolder(holder: EmojiViewHolder, position: Int) {
     val context = holder.textView.context
-    val emoji = items[position]
-    holder.textView.text = emoji.unicode
+    val item = items[position]
+    holder.textView.text = item.emoji.unicode
 
     (holder.textView.layoutParams as LinearLayout.LayoutParams).marginStart = marginStart ?: context.resources.getDimensionPixelSize(R.dimen.emoji_search_spacing)
 
-    val shortCodes = emoji.shortcodes.orEmpty().joinToString(separator = ", ")
-    holder.shortCodes.text = shortCodes
-    holder.shortCodes.visibility = if (shortCodes.isBlank()) View.GONE else View.VISIBLE
-    holder.shortCodes.setTextColor(theming.textSecondaryColor(context))
+    val shortCode = item.shortcode
+    holder.shortCodes.text = SpannableString(shortCode).apply {
+      setSpan(ForegroundColorSpan(theming.textSecondaryColor(context)), 0, shortCode.length, 0)
+      setSpan(ForegroundColorSpan(theming.secondaryColor(context)), item.range.first, item.range.last + 1, 0)
+    }
 
     holder.itemView.setOnClickListener {
-      emojiSearchDialogDelegate?.onSearchEmojiClick(emoji)
+      emojiSearchDialogDelegate?.onSearchEmojiClick(item.emoji)
     }
   }
 
   override fun getItemCount() = items.size
 
   fun update(
-    new: List<Emoji>,
+    new: List<SearchEmojiResult>,
     @Px marginStart: Int?,
   ) {
     val old = ArrayList(items)
     items = new
     this.marginStart = marginStart
 
-    DiffUtil.calculateDiff(DiffUtilHelper(old, items) { it.hashCode() })
+    DiffUtil.calculateDiff(DiffUtilHelper(old, items) { it.emoji.hashCode() })
       .dispatchUpdatesTo(this)
   }
 }

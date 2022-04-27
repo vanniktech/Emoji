@@ -25,14 +25,26 @@ import com.vanniktech.emoji.emoji.Emoji
  */
 interface SearchEmoji {
   /**
-   * Return the emojis that match your search algorithm for the given query.
+   * Return the emojis that match your search algorithm for the given query as a list of [SearchEmojiResult].
    *
    * @since 0.10.0
    */
-  fun search(query: String): List<Emoji>
+  fun search(query: String): List<SearchEmojiResult>
+}
+
+data class SearchEmojiResult(
+  val emoji: Emoji,
+  val shortcode: String,
+  /** The range in [shortcode], which matches the query. This is used for highlighting. */
+  val range: IntRange,
+) {
+  init {
+    require(range.first in shortcode.indices) { "Index ${range.first} is out of bounds in $shortcode" }
+    require(range.last in shortcode.indices) { "Index ${range.last} is out of bounds in $shortcode" }
+  }
 }
 
 /** Use this object to hide the search. */
 object NoSearchEmoji : SearchEmoji {
-  override fun search(query: String) = emptyList<Emoji>()
+  override fun search(query: String) = emptyList<SearchEmojiResult>()
 }

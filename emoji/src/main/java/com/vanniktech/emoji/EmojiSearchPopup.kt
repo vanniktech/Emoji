@@ -40,7 +40,7 @@ internal class EmojiSearchPopup(
   private var popupWindow: PopupWindow? = null
 
   internal fun show(
-    emojis: List<Emoji>,
+    emojis: List<SearchEmojiResult>,
     delegate: EmojiSearchDelegate?,
   ) {
     if (emojis.isNotEmpty()) {

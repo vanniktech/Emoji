@@ -1,14 +1,26 @@
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
-
 class SearchEmojiManager : SearchEmoji {
-  override fun search(query: String): List<Emoji> {
+  override fun search(query: String): List<SearchEmojiResult> {
     val categories = EmojiManager.getInstance().categories
 
     return when {
       query.length > 1 -> categories.flatMap { it.emojis.toList() }
-        .filter { emoji -> emoji.shortcodes.orEmpty().any { it.contains(query, ignoreCase = true) } }
+        .mapNotNull { emoji ->
+          emoji.shortcodes.orEmpty().mapNotNull { shortcode ->
+            val index = shortcode.indexOf(query, ignoreCase = true)
+
+            if (index >= 0) {
+              SearchEmojiResult(
+                emoji = emoji,
+                shortcode = shortcode,
+                range = index until (index + query.length),
+              )
+            } else {
+              null
+            }
+          }.firstOrNull()
+        }
       else -> emptyList()
     }
   }
