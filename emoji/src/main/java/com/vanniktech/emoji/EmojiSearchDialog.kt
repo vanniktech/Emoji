@@ -27,7 +27,7 @@ import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
 internal interface EmojiSearchDialogDelegate {
-  fun onClicked(emoji: Emoji)
+  fun onSearchEmojiClick(emoji: Emoji)
 }
 
 internal class EmojiSearchDialog : DialogFragment() {
@@ -146,7 +146,7 @@ private class EmojiAdapter(
 
     holder.itemView.setOnClickListener {
       recentEmoji?.addEmoji(emoji)
-      emojiSearchDialogDelegate?.onClicked(emoji)
+      emojiSearchDialogDelegate?.onSearchEmojiClick(emoji)
     }
   }
 

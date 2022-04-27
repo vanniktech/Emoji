@@ -22,11 +22,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import android.util.AttributeSet;
-import android.view.View;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
@@ -114,20 +113,15 @@ public final class EmojiImageView extends AppCompatImageView {
         imageLoadingTask.cancel(true);
       }
 
-      setOnClickListener(new OnClickListener() {
-        @Override public void onClick(final View view) {
-          if (clickListener != null) {
-            clickListener.onEmojiClick(EmojiImageView.this, currentEmoji);
-          }
+      setOnClickListener(view -> {
+        if (clickListener != null) {
+          clickListener.onEmojiClick(currentEmoji);
         }
       });
 
-      setOnLongClickListener(hasVariants ? new OnLongClickListener() {
-        @Override public boolean onLongClick(final View view) {
-          longClickListener.onEmojiLongClick(EmojiImageView.this, currentEmoji);
-
-          return true;
-        }
+      setOnLongClickListener(hasVariants ? (OnLongClickListener) view -> {
+        longClickListener.onEmojiLongClick(this, currentEmoji);
+        return true;
       } : null);
 
       imageLoadingTask = new ImageLoadingTask(this);
@@ -146,15 +140,15 @@ public final class EmojiImageView extends AppCompatImageView {
     if (!emoji.equals(currentEmoji)) {
       currentEmoji = emoji;
 
-      setImageDrawable(emoji.getDrawable(this.getContext()));
+      setImageDrawable(emoji.getDrawable(getContext()));
     }
   }
 
   void setOnEmojiClickListener(@Nullable final OnEmojiClickListener listener) {
-    this.clickListener = listener;
+    clickListener = listener;
   }
 
   void setOnEmojiLongClickListener(@Nullable final OnEmojiLongClickListener listener) {
-    this.longClickListener = listener;
+    longClickListener = listener;
   }
 }

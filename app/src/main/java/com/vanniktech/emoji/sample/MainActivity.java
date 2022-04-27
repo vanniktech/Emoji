@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
   private void setUpEmojiPopup() {
     emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
         .setOnEmojiBackspaceClickListener(ignore -> Log.d(TAG, "Clicked on Backspace"))
-        .setOnEmojiClickListener((ignore, ignore2) -> Log.d(TAG, "Clicked on emoji"))
+        .setOnEmojiClickListener(emoji -> Log.d(TAG, "Clicked on Emoji " + emoji.getUnicode()))
         .setOnEmojiPopupShownListener(() -> emojiButton.setImageResource(R.drawable.ic_keyboard))
         .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))
         .setOnEmojiPopupDismissListener(() -> emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople))

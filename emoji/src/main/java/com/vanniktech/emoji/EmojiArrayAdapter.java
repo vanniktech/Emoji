@@ -59,7 +59,6 @@ final class EmojiArrayAdapter extends ArrayAdapter<Emoji> {
 
     if (image == null) {
       image = (EmojiImageView) LayoutInflater.from(context).inflate(R.layout.emoji_adapter_item, parent, false);
-
       image.setOnEmojiClickListener(listener);
       image.setOnEmojiLongClickListener(longListener);
     }

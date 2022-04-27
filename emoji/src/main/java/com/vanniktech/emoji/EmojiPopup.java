@@ -243,7 +243,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   public void dismiss() {
     popupWindow.dismiss();
-    emojiView.dismiss();
+    emojiView.dismissVariantPopup();
 
     Executors.newSingleThreadExecutor().submit(() -> {
       recentEmoji.persist();

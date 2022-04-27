@@ -21,8 +21,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +29,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.vanniktech.emoji.emoji.Emoji;
-import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import java.util.List;
 
 import static android.view.View.MeasureSpec.makeMeasureSpec;
@@ -43,12 +42,12 @@ public final class EmojiVariantPopup {
   @NonNull private final View rootView;
   @Nullable private PopupWindow popupWindow;
 
-  @Nullable final OnEmojiClickListener listener;
+  @Nullable final EmojiVariantDelegate delegate;
   @Nullable EmojiImageView rootImageView;
 
-  public EmojiVariantPopup(@NonNull final View rootView, @Nullable final OnEmojiClickListener listener) {
+  public EmojiVariantPopup(@NonNull final View rootView, @Nullable final EmojiVariantDelegate delegate) {
     this.rootView = rootView;
-    this.listener = listener;
+    this.delegate = delegate;
   }
 
   public void show(@NonNull final EmojiImageView clickedImage, @NonNull final Emoji emoji) {
@@ -108,8 +107,8 @@ public final class EmojiVariantPopup {
 
       emojiImage.setOnClickListener(new View.OnClickListener() {
         @Override public void onClick(final View view) {
-          if (listener != null && rootImageView != null) {
-            listener.onEmojiClick(rootImageView, variant);
+          if (delegate != null && rootImageView != null) {
+            delegate.onEmojiClick(rootImageView, variant);
           }
         }
       });
