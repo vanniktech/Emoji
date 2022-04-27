@@ -6,12 +6,14 @@
     android:background="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="16dp"
+    android:paddingBottom="@dimen/emoji_search_spacing"
+    android:paddingTop="@dimen/emoji_search_spacing"
     >
   <com.vanniktech.emoji.EmojiTextView
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/emoji_search_spacing"
       android:textIsSelectable="false"
       tools:text="❤️"
       />
@@ -19,6 +21,7 @@
       android:id="@+id/shortCodes"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/emoji_search_spacing"
       android:layout_marginStart="8dp"
       android:textIsSelectable="false"
       tools:text="Heart️"

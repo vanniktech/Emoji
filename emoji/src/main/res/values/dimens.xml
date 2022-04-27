@@ -2,4 +2,6 @@
 <resources>
     <dimen name="emoji_grid_view_column_width">36dp</dimen>
     <dimen name="emoji_grid_view_spacing">6dp</dimen>
+    <dimen name="emoji_search_spacing">16dp</dimen>
+    <dimen name="emoji_search_max_height">300dp</dimen>
 </resources>

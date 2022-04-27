@@ -14,7 +14,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.Px
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
@@ -32,7 +34,6 @@ internal interface EmojiSearchDialogDelegate {
 
 internal class EmojiSearchDialog : DialogFragment() {
   private var delegate: EmojiSearchDialogDelegate? = null
-  private var recentEmoji: RecentEmoji? = null
   private var searchEmoji: SearchEmoji? = null
 
   private val handler = Handler(Looper.getMainLooper())
@@ -59,7 +60,6 @@ internal class EmojiSearchDialog : DialogFragment() {
     val recyclerView = dialog.findViewById<RecyclerView>(R.id.recyclerView)
     val adapter = EmojiAdapter(
       theming = theming,
-      recentEmoji = recentEmoji,
       emojiSearchDialogDelegate = delegate,
     )
     recyclerView?.adapter = adapter
@@ -74,7 +74,7 @@ internal class EmojiSearchDialog : DialogFragment() {
         future = executorService.schedule({
           val emojis = searchEmoji?.search(query).orEmpty()
           handler.post {
-            adapter.update(emojis)
+            adapter.update(emojis, marginStart = null)
           }
         }, 300, TimeUnit.MILLISECONDS)
       }
@@ -94,7 +94,6 @@ internal class EmojiSearchDialog : DialogFragment() {
     executorService?.shutdownNow()
     handler.removeCallbacksAndMessages(null)
     delegate = null
-    recentEmoji = null
   }
 
   internal companion object {
@@ -105,7 +104,6 @@ internal class EmojiSearchDialog : DialogFragment() {
       context: Context,
       delegate: EmojiSearchDialogDelegate,
       searchEmoji: SearchEmoji,
-      recentEmoji: RecentEmoji,
       theming: EmojiTheming,
     ) {
       EmojiSearchDialog().apply {
@@ -114,18 +112,17 @@ internal class EmojiSearchDialog : DialogFragment() {
         }
         this.delegate = delegate
         this.searchEmoji = searchEmoji
-        this.recentEmoji = recentEmoji
         show((Utils.asActivity(context) as FragmentActivity).supportFragmentManager, TAG)
       }
     }
   }
 }
 
-private class EmojiAdapter(
+internal class EmojiAdapter(
   private val theming: EmojiTheming,
   private val emojiSearchDialogDelegate: EmojiSearchDialogDelegate?,
-  private val recentEmoji: RecentEmoji?,
 ) : RecyclerView.Adapter<EmojiViewHolder>() {
+  @Px private var marginStart: Int? = null
   private var items = emptyList<Emoji>()
 
   init {
@@ -139,29 +136,34 @@ private class EmojiAdapter(
     val emoji = items[position]
     holder.textView.text = emoji.unicode
 
+    (holder.textView.layoutParams as LinearLayout.LayoutParams).marginStart = marginStart ?: context.resources.getDimensionPixelSize(R.dimen.emoji_search_spacing)
+
     val shortCodes = emoji.shortcodes.orEmpty().joinToString(separator = ", ")
     holder.shortCodes.text = shortCodes
     holder.shortCodes.visibility = if (shortCodes.isBlank()) View.GONE else View.VISIBLE
     holder.shortCodes.setTextColor(theming.textSecondaryColor(context))
 
     holder.itemView.setOnClickListener {
-      recentEmoji?.addEmoji(emoji)
       emojiSearchDialogDelegate?.onSearchEmojiClick(emoji)
     }
   }
 
   override fun getItemCount() = items.size
 
-  fun update(new: List<Emoji>) {
+  fun update(
+    new: List<Emoji>,
+    @Px marginStart: Int?,
+  ) {
     val old = ArrayList(items)
     items = new
+    this.marginStart = marginStart
 
     DiffUtil.calculateDiff(DiffUtilHelper(old, items) { it.hashCode() })
       .dispatchUpdatesTo(this)
   }
 }
 
-private class EmojiViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.emoji_adapter_item_emoji_search, parent, false)) {
+internal class EmojiViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.emoji_adapter_item_emoji_search, parent, false)) {
   val textView: EmojiTextView by lazy(LazyThreadSafetyMode.NONE) { itemView.findViewById(R.id.textView) }
   val shortCodes: TextView by lazy(LazyThreadSafetyMode.NONE) { itemView.findViewById(R.id.shortCodes) }
 }
