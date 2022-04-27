@@ -14,21 +14,19 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
-
-import androidx.annotation.NonNull;
-import com.vanniktech.emoji.emoji.EmojiCategory;
+import com.vanniktech.emoji.emoji.EmojiCategory
 
 /**
- * Interface for a custom emoji implementation that can be used with {@link EmojiManager}.
+ * Interface for a custom emoji implementation that can be used with [EmojiManager].
  *
  * @since 0.4.0
  */
-public interface EmojiProvider {
+interface EmojiProvider {
   /**
    * @return The Array of categories.
    * @since 0.4.0
    */
-  @NonNull EmojiCategory[] getCategories();
+  val categories: Array<EmojiCategory>
 }
