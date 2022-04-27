@@ -14,32 +14,15 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
-
-import androidx.annotation.NonNull;
-import com.vanniktech.emoji.emoji.Emoji;
-import java.util.Collection;
-import java.util.Collections;
+import com.vanniktech.emoji.emoji.Emoji
 
 /**
- * Use this class to hide recent Emoji.
+ * Use this object to hide recent Emoji.
  */
-public final class NoRecentEmoji implements RecentEmoji {
-  public static final RecentEmoji INSTANCE = new NoRecentEmoji();
-
-  private NoRecentEmoji() {
-  }
-
-  @NonNull @Override public Collection<Emoji> getRecentEmojis() {
-    return Collections.emptyList();
-  }
-
-  @Override public void addEmoji(@NonNull final Emoji emoji) {
-    // Do nothing.
-  }
-
-  @Override public void persist() {
-    // Do nothing.
-  }
+object NoRecentEmoji : RecentEmoji {
+  override fun getRecentEmojis(): Collection<Emoji> = emptyList()
+  override fun addEmoji(emoji: Emoji) = Unit
+  override fun persist() = Unit
 }
