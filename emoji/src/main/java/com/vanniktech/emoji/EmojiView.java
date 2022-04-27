@@ -110,26 +110,9 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       emojisPager.setPageTransformer(true, pageTransformer);
     }
 
-    final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
     emojisPager.addOnPageChangeListener(this);
 
-    final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
-
-    emojiPagerAdapter = new EmojiPagerAdapter(this, recentEmoji, variantEmoji, theming);
-    emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
-
-    if (emojiPagerAdapter.hasRecentEmoji()) {
-      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
-    }
-
-    for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
-    }
-
-    emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
-    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
-
-    handleOnClicks(emojisPager);
+    handleEmojiTabs(context, emojisPager);
 
     emojisPager.setAdapter(emojiPagerAdapter);
 
@@ -138,30 +121,56 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     onPageSelected(startIndex);
   }
 
-  private void handleOnClicks(
+  @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" })
+  private void handleEmojiTabs(
+      final Context context,
       final ViewPager emojisPager
   ) {
-    for (int i = 0; i < emojiTabs.length - 1; i++) {
-      emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
+    final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
+    final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
+
+    emojiPagerAdapter = new EmojiPagerAdapter(this, recentEmoji, variantEmoji, theming);
+
+    final boolean hasBackspace = editText != null || onEmojiBackspaceClickListener != null;
+    final int endIndexes = 1 + (hasBackspace ? 1 : 0);
+    final int recentAdapterItemCount = emojiPagerAdapter.recentAdapterItemCount();
+    emojiTabs = new ImageButton[recentAdapterItemCount + categories.length + endIndexes];
+
+    if (emojiPagerAdapter.hasRecentEmoji()) {
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     }
 
-    final EmojiSearchDialogDelegate emojiSearchDialogDelegate = this;
+    final int searchIndex = emojiTabs.length - (hasBackspace ? 2 : 1);
+    final Integer backspaceIndex = hasBackspace ? emojiTabs.length - 1 : null;
 
-    emojiTabs[emojiTabs.length - 2].setOnClickListener(v -> EmojiSearchDialog.show(
-      getContext(),
-      emojiSearchDialogDelegate,
-      recentEmoji,
-      theming
+    for (int i = 0; i < categories.length; i++) {
+      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
+    }
+
+    emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
+    emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
+        getContext(),
+        this,
+        recentEmoji,
+        theming
     ));
-    emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, view -> {
-      if (editText != null) {
-        backspace(editText);
-      }
 
-      if (onEmojiBackspaceClickListener != null) {
-        onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
-      }
-    }));
+    if (backspaceIndex != null) {
+      emojiTabs[backspaceIndex] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
+      emojiTabs[backspaceIndex].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, view -> {
+        if (editText != null) {
+          backspace(editText);
+        }
+
+        if (onEmojiBackspaceClickListener != null) {
+          onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
+        }
+      }));
+    }
+
+    for (int i = 0; i < emojiTabs.length - endIndexes; i++) {
+      emojiTabs[i].setOnClickListener(new EmojiTabsClickListener(emojisPager, i));
+    }
   }
 
   private ImageButton inflateButton(
