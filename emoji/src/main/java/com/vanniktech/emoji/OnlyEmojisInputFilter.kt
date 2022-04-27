@@ -14,19 +14,18 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
+import android.text.InputFilter
+import android.text.Spanned
+import com.vanniktech.emoji.kotlin.isOnlyEmojis
 
-import android.text.InputFilter;
-import android.text.Spanned;
-
-/** InputFilter that only accepts emojis. **/
-public final class OnlyEmojisInputFilter implements InputFilter {
-  @Override public CharSequence filter(final CharSequence source, final int start, final int end, final Spanned dest, final int dstart, final int dend) {
-    if (!EmojiUtils.isOnlyEmojis(source.subSequence(start, end))) {
-      return ""; // Reject.
+/** InputFilter that only accepts emojis.  */
+class OnlyEmojisInputFilter : InputFilter {
+  override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? {
+    return when {
+      !source.subSequence(start, end).isOnlyEmojis() -> "" // Reject.
+      else -> null
     }
-
-    return null;
   }
 }
