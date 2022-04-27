@@ -14,9 +14,8 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji.listeners
 
-package com.vanniktech.emoji.listeners;
-
-public interface OnSoftKeyboardCloseListener {
-  void onKeyboardClose();
+interface OnSoftKeyboardCloseListener {
+  fun onKeyboardClose()
 }
