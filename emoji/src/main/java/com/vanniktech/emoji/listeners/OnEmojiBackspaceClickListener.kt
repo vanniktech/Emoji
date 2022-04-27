@@ -16,8 +16,6 @@
  */
 package com.vanniktech.emoji.listeners
 
-import android.view.View
-
 interface OnEmojiBackspaceClickListener {
-  fun onEmojiBackspaceClick(v: View)
+  fun onEmojiBackspaceClick()
 }

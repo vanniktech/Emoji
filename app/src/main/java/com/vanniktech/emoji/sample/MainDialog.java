@@ -96,7 +96,7 @@ public class MainDialog extends DialogFragment {
 
   private void setUpEmojiPopup() {
     emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
-        .setOnEmojiBackspaceClickListener(ignore -> Log.d(TAG, "Clicked on Backspace"))
+        .setOnEmojiBackspaceClickListener(() -> Log.d(TAG, "Clicked on Backspace"))
         .setOnEmojiClickListener(emoji -> Log.d(TAG, "Clicked on Emoji " + emoji.getUnicode()))
         .setOnEmojiPopupShownListener(() -> emojiButton.setImageResource(R.drawable.ic_keyboard))
         .setOnSoftKeyboardOpenListener(ignore -> Log.d(TAG, "Opened soft keyboard"))

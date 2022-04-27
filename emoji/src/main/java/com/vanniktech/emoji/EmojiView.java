@@ -174,7 +174,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
         }
 
         if (onEmojiBackspaceClickListener != null) {
-          onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
+          onEmojiBackspaceClickListener.onEmojiBackspaceClick();
         }
       }));
     }
