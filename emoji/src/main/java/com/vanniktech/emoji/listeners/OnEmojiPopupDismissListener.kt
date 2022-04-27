@@ -14,9 +14,8 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji.listeners
 
-package com.vanniktech.emoji.listeners;
-
-public interface OnEmojiPopupDismissListener {
-  void onEmojiPopupDismiss();
+interface OnEmojiPopupDismissListener {
+  fun onEmojiPopupDismiss()
 }
