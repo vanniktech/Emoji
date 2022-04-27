@@ -65,7 +65,7 @@ internal class EmojiSearchPopup(
       val resources = context.resources
       recyclerView.measure(
         MeasureSpec.makeMeasureSpec(rootView.width, MeasureSpec.EXACTLY),
-        MeasureSpec.makeMeasureSpec(resources.getDimensionPixelSize(R.dimen.emoji_search_max_height), MeasureSpec.AT_MOST),
+        0, // Internals will already limit this.
       )
 
       val height = recyclerView.measuredHeight
