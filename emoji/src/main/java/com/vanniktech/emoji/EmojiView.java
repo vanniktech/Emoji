@@ -36,7 +36,6 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
-import com.vanniktech.emoji.listeners.RepeatListener;
 import org.jetbrains.annotations.NotNull;
 
 import static com.vanniktech.emoji.Utils.backspace;
