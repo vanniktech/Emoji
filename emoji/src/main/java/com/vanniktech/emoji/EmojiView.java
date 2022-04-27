@@ -39,6 +39,7 @@ import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.RepeatListener;
 import org.jetbrains.annotations.NotNull;
 
+import static com.vanniktech.emoji.Utils.backspace;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate, EmojiPagerDelegate {
@@ -82,6 +83,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
   @SuppressWarnings({ "PMD.JUnit4TestShouldUseBeforeAnnotation" })
   void setUp(
     @Nullable final OnEmojiClickListener onEmojiClickListener,
+    @Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener,
     @NonNull final EmojiTheming theming,
     @NonNull final RecentEmoji recentEmoji,
     @NonNull final VariantEmoji variantEmoji,
@@ -94,6 +96,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     this.theming = theming;
     this.recentEmoji = recentEmoji;
     this.variantEmoji = variantEmoji;
+    this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
     this.onEmojiClickListener = onEmojiClickListener;
     this.variantPopup = new EmojiVariantPopup(rootView, this);
 
@@ -151,14 +154,12 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       theming
     ));
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, view -> {
+      backspace(editText);
+
       if (onEmojiBackspaceClickListener != null) {
         onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
       }
     }));
-  }
-
-  public void setOnEmojiBackspaceClickListener(@Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener) {
-    this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
   }
 
   private ImageButton inflateButton(

@@ -49,7 +49,6 @@ import java.util.concurrent.Executors;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O;
 import static androidx.core.view.ViewCompat.requestApplyInsets;
-import static com.vanniktech.emoji.Utils.backspace;
 import static com.vanniktech.emoji.Utils.checkNotNull;
 
 @SuppressWarnings("PMD.GodClass") public final class EmojiPopup implements EmojiResultReceiver.Receiver {
@@ -85,16 +84,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final EmojiResultReceiver emojiResultReceiver = new EmojiResultReceiver(new Handler(Looper.getMainLooper()));
 
-  final OnEmojiBackspaceClickListener internalOnEmojiBackspaceClickListener = new OnEmojiBackspaceClickListener() {
-    @Override public void onEmojiBackspaceClick(final View v) {
-      backspace(editText);
-
-      if (onEmojiBackspaceClickListener != null) {
-        onEmojiBackspaceClickListener.onEmojiBackspaceClick(v);
-      }
-    }
-  };
-
   final PopupWindow.OnDismissListener onDismissListener = new PopupWindow.OnDismissListener() {
     @Override public void onDismiss() {
       if (editText instanceof EmojiForceable && ((EmojiForceable) editText).isKeyboardInputDisabled()) {
@@ -118,6 +107,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     emojiView = new EmojiView(context);
     emojiView.setUp(
       onEmojiClickListener,
+      onEmojiBackspaceClickListener,
       builder.theming,
       builder.recentEmoji,
       builder.variantEmoji,
@@ -125,8 +115,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       rootView,
       editText
     );
-
-    emojiView.setOnEmojiBackspaceClickListener(internalOnEmojiBackspaceClickListener);
 
     popupWindow.setContentView(emojiView);
     popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NOT_NEEDED);
