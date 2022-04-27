@@ -44,7 +44,6 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener;
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener;
 import java.lang.ref.WeakReference;
-import java.util.concurrent.Executors;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.O;
@@ -58,8 +57,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   final View rootView;
   final Activity context;
 
-  @NonNull final RecentEmoji recentEmoji;
-  @NonNull final VariantEmoji variantEmoji;
   @NonNull final EmojiView emojiView;
 
   final PopupWindow popupWindow;
@@ -96,24 +93,22 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   };
 
   EmojiPopup(@NonNull final EmojiPopup.Builder builder, @NonNull final EditText editText) {
-    this.context = Utils.asActivity(builder.rootView.getContext());
-    this.rootView = builder.rootView.getRootView();
+    context = Utils.asActivity(builder.rootView.getContext());
+    rootView = builder.rootView.getRootView();
     this.editText = editText;
-    this.recentEmoji = builder.recentEmoji;
-    this.variantEmoji = builder.variantEmoji;
 
     popupWindow = new PopupWindow(context);
 
     emojiView = new EmojiView(context);
     emojiView.setUp(
-      onEmojiClickListener,
-      onEmojiBackspaceClickListener,
+      rootView,
       builder.theming,
       builder.recentEmoji,
       builder.searchEmoji,
       builder.variantEmoji,
       builder.pageTransformer,
-      rootView,
+      onEmojiClickListener,
+      onEmojiBackspaceClickListener,
       editText
     );
 
@@ -243,12 +238,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   public void dismiss() {
     popupWindow.dismiss();
-    emojiView.dismissVariantPopup();
-
-    Executors.newSingleThreadExecutor().submit(() -> {
-      recentEmoji.persist();
-      variantEmoji.persist();
-    });
+    emojiView.tearDown();
 
     emojiResultReceiver.setReceiver(null);
 
@@ -271,12 +261,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   void showAtBottom() {
     isPendingOpen = false;
-    editText.postDelayed(new Runnable() {
-      @Override public void run() {
-        popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
-            Utils.getProperHeight(context) + popupWindowHeight);
-      }
-    }, delay);
+    editText.postDelayed(() -> popupWindow.showAtLocation(rootView, Gravity.NO_GRAVITY, 0,
+        Utils.getProperHeight(context) + popupWindowHeight), delay);
 
     if (onEmojiPopupShownListener != null) {
       onEmojiPopupShownListener.onEmojiPopupShown();
@@ -300,14 +286,16 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
     @Nullable OnEmojiClickListener onEmojiClickListener;
     @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
-    @Nullable RecentEmoji recentEmoji;
-    @Nullable SearchEmoji searchEmoji;
+    @NonNull RecentEmoji recentEmoji;
+    @NonNull SearchEmoji searchEmoji;
     @NonNull VariantEmoji variantEmoji;
     int popupWindowHeight;
 
     private Builder(final View rootView) {
       this.rootView = checkNotNull(rootView, "The root View can't be null");
-      this.variantEmoji = new VariantEmojiManager(rootView.getContext());
+      recentEmoji = new RecentEmojiManager(rootView.getContext());
+      searchEmoji = new SearchEmojiManager();
+      variantEmoji = new VariantEmojiManager(rootView.getContext());
     }
 
     /**
@@ -358,7 +346,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
      * @since 0.7.0
      */
     @CheckResult public Builder setPopupWindowHeight(final int windowHeight) {
-      this.popupWindowHeight = Math.max(windowHeight, 0);
+      popupWindowHeight = Math.max(windowHeight, 0);
       return this;
     }
 
@@ -411,16 +399,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     }
 
     @CheckResult public EmojiPopup build(@NonNull final EditText editText) {
-      EmojiManager.getInstance().verifyInstalled();
       checkNotNull(editText, "EditText can't be null");
-
-      if (recentEmoji == null) {
-        recentEmoji = new RecentEmojiManager(rootView.getContext());
-      }
-
-      if (searchEmoji == null) {
-        searchEmoji = new SearchEmojiManager();
-      }
+      EmojiManager.getInstance().verifyInstalled();
 
       final EmojiPopup emojiPopup = new EmojiPopup(this, editText);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;

@@ -36,6 +36,7 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
+import java.util.concurrent.Executors;
 
 import static com.vanniktech.emoji.Utils.backspace;
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -79,16 +80,20 @@ public final class EmojiView extends LinearLayout {
     setOrientation(VERTICAL);
   }
 
+  /**
+   * Call this method to set up the EmojiView.
+   * Once you're done with it, please call {@link #tearDown()}.
+   */
   @SuppressWarnings({ "PMD.JUnit4TestShouldUseBeforeAnnotation" })
-  void setUp(
-    @Nullable final OnEmojiClickListener onEmojiClickListener,
-    @Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener,
+  public void setUp(
+    @NonNull final View rootView,
     @NonNull final EmojiTheming theming,
     @NonNull final RecentEmoji recentEmoji,
     @NonNull final SearchEmoji searchEmoji,
     @NonNull final VariantEmoji variantEmoji,
     @Nullable final ViewPager.PageTransformer pageTransformer,
-    @NonNull final View rootView,
+    @Nullable final OnEmojiClickListener onEmojiClickListener,
+    @Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener,
     @Nullable final EditText editText
   ) {
     final Context context = getContext();
@@ -256,6 +261,19 @@ public final class EmojiView extends LinearLayout {
     if (onEmojiClickListener != null) {
       onEmojiClickListener.onEmojiClick(emoji);
     }
+  }
+
+  /**
+   * Counterpart of {@link #setUp(View, EmojiTheming, RecentEmoji, SearchEmoji, VariantEmoji, ViewPager.PageTransformer, OnEmojiClickListener, OnEmojiBackspaceClickListener, EditText)}
+   */
+  @SuppressWarnings({ "PMD.JUnit4TestShouldUseAfterAnnotation" })
+  public void tearDown() {
+    dismissVariantPopup();
+
+    Executors.newSingleThreadExecutor().submit(() -> {
+      recentEmoji.persist();
+      variantEmoji.persist();
+    });
   }
 
   void dismissVariantPopup() {
