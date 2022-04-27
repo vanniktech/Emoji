@@ -14,11 +14,10 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji.listeners
 
-package com.vanniktech.emoji.listeners;
+import android.view.View
 
-import android.view.View;
-
-public interface OnEmojiBackspaceClickListener {
-  void onEmojiBackspaceClick(View v);
+interface OnEmojiBackspaceClickListener {
+  fun onEmojiBackspaceClick(v: View)
 }
