@@ -111,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @SuppressLint("SetTextI18n") private void setUpShowcaseButtons() {
+    final Button emojis = findViewById(R.id.emojis);
+    emojis.setOnClickListener(ignore -> {
+      emojiPopup.dismiss();
+      startActivity(new Intent(this, EmojisActivity.class));
+    });
+
     final Button customViewButton = findViewById(R.id.custom_view);
     customViewButton.setOnClickListener(ignore -> {
       emojiPopup.dismiss();

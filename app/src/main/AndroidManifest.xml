@@ -4,8 +4,8 @@
     package="com.vanniktech.emoji.sample">
   <application
       android:allowBackup="false"
-      android:fullBackupContent="false"
       android:dataExtractionRules="@null"
+      android:fullBackupContent="false"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
       android:name=".EmojiApplication"
@@ -25,5 +25,6 @@
     <activity
         android:name=".CustomViewActivity"
         android:windowSoftInputMode="stateVisible|adjustResize" />
+    <activity android:name=".EmojisActivity" />
   </application>
 </manifest>

@@ -32,6 +32,15 @@
       android:text="Custom View 🖼️"
       tools:ignore="HardcodedText"
       />
+  <!-- This one gets automatically replaced into a EmojiMaterialButton as we're using a MaterialEmojiLayoutFactory. -->
+  <Button
+      android:id="@+id/emojis"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:text="Emojis without keyboard ⌨️️"
+      tools:ignore="HardcodedText"
+      />
   <com.vanniktech.emoji.EmojiCheckbox
       android:id="@+id/main_activity_force_emojis_only"
       android:layout_width="wrap_content"
