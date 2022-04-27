@@ -135,7 +135,8 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     emojiPagerAdapter = new EmojiPagerAdapter(this, recentEmoji, variantEmoji, theming);
 
     final boolean hasBackspace = editText != null || onEmojiBackspaceClickListener != null;
-    final int endIndexes = 1 + (hasBackspace ? 1 : 0);
+    final boolean hasSearch = !(searchEmoji instanceof NoSearchEmoji);
+    final int endIndexes = (hasSearch ? 1 : 0) + (hasBackspace ? 1 : 0);
     final int recentAdapterItemCount = emojiPagerAdapter.recentAdapterItemCount();
     emojiTabs = new ImageButton[recentAdapterItemCount + categories.length + endIndexes];
 
@@ -143,21 +144,23 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     }
 
-    final int searchIndex = emojiTabs.length - (hasBackspace ? 2 : 1);
+    final Integer searchIndex = hasSearch ? emojiTabs.length - (hasBackspace ? 2 : 1) : null;
     final Integer backspaceIndex = hasBackspace ? emojiTabs.length - 1 : null;
 
     for (int i = 0; i < categories.length; i++) {
       emojiTabs[i + recentAdapterItemCount] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
     }
 
-    emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
-    emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
-        getContext(),
-        this,
-        searchEmoji,
-        recentEmoji,
-        theming
-    ));
+    if (searchIndex != null) {
+      emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
+      emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
+          getContext(),
+          this,
+          searchEmoji,
+          recentEmoji,
+          theming
+      ));
+    }
 
     if (backspaceIndex != null) {
       emojiTabs[backspaceIndex] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);

@@ -31,3 +31,8 @@ interface SearchEmoji {
    */
   fun search(query: String): List<Emoji>
 }
+
+/** Use this object to hide the search. */
+object NoSearchEmoji : SearchEmoji {
+  override fun search(query: String) = emptyList<Emoji>()
+}
