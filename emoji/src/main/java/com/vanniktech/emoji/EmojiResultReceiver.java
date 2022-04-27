@@ -22,7 +22,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import androidx.annotation.Nullable;
 
-public final class EmojiResultReceiver extends ResultReceiver {
+final class EmojiResultReceiver extends ResultReceiver {
   @Nullable private Receiver receiver;
 
   /**
@@ -44,7 +44,7 @@ public final class EmojiResultReceiver extends ResultReceiver {
     }
   }
 
-  public interface Receiver {
+  interface Receiver {
     void onReceiveResult(int resultCode, Bundle data);
   }
 }

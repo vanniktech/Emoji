@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_root_view"
@@ -8,34 +8,39 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
-  <Button
+  <com.vanniktech.emoji.material.EmojiMaterialButton
       android:id="@+id/main_activity_material_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
       android:layout_marginStart="16dp"
+      />
+  <!-- This one gets automatically replaced into a EmojiMaterialButton as we're using a MaterialEmojiLayoutFactory. -->
+  <Button
+      android:id="@+id/dialog_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:text="Showcase chat in Dialog 💬"
+      tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiCheckbox
       android:id="@+id/main_activity_force_emojis_only"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_below="@id/main_activity_material_button"
       android:layout_marginStart="12dp"
-      android:text="Force Emojis only 🌱🔥"
+      android:text="In chat force Emojis only 🌱🔥"
       tools:ignore="HardcodedText"
       />
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/main_activity_recycler_view"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_above="@+id/main_activity_emoji_bar"
-      android:layout_below="@id/main_activity_force_emojis_only"
+      android:layout_height="0dp"
+      android:layout_weight="1"
       />
   <LinearLayout
       android:id="@+id/main_activity_emoji_bar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
       android:background="@color/chat_input_background"
       android:gravity="center_vertical"
       android:orientation="horizontal"
@@ -56,11 +61,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:hint="Type a message ..."
         android:imeOptions="actionSend"
         android:importantForAutofill="no"
         android:inputType="textCapSentences|textMultiLine"
         android:maxLines="3"
-        tools:ignore="LabelFor"
+        tools:ignore="HardcodedText,LabelFor"
         />
     <ImageView
         android:id="@+id/main_activity_send"
@@ -73,4 +79,4 @@
         tools:ignore="ContentDescription"
         />
   </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

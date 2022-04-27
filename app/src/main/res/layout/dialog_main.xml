@@ -38,11 +38,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:hint="Type a message ..."
         android:imeOptions="actionSend"
         android:importantForAutofill="no"
         android:inputType="textCapSentences|textMultiLine"
         android:maxLines="3"
-        tools:ignore="LabelFor"
+        tools:ignore="HardcodedText,LabelFor"
         />
     <ImageView
         android:id="@+id/main_dialog_send"
