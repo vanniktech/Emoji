@@ -36,12 +36,11 @@ import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.emoji.EmojiCategory;
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
-import org.jetbrains.annotations.NotNull;
 
 import static com.vanniktech.emoji.Utils.backspace;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public final class EmojiView extends LinearLayout implements ViewPager.OnPageChangeListener, EmojiSearchDialogDelegate, EmojiPagerDelegate {
+public final class EmojiView extends LinearLayout {
   private static final long INITIAL_INTERVAL = SECONDS.toMillis(1) / 2;
   private static final int NORMAL_INTERVAL = 50;
 
@@ -101,9 +100,9 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
     this.onEmojiClickListener = onEmojiClickListener;
     variantPopup = new EmojiVariantPopup(rootView, (emojiImageView, emoji) -> {
-      onEmojiClick(emoji);
+      handleEmojiClick(emoji);
 
-      emojiImageView.updateEmoji(emoji);
+      emojiImageView.updateEmoji(emoji); // To reflect new variant in the UI.
       dismissVariantPopup();
     });
 
@@ -117,7 +116,19 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       emojisPager.setPageTransformer(true, pageTransformer);
     }
 
-    emojisPager.addOnPageChangeListener(this);
+    emojisPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      @Override public void onPageScrolled(final int i, final float v, final int i2) {
+        // No-op.
+      }
+
+      @Override public void onPageScrollStateChanged(final int i) {
+        // No-op.
+      }
+
+      @Override public void onPageSelected(final int i) {
+        selectPage(i);
+      }
+    });
 
     handleEmojiTabs(context, emojisPager);
 
@@ -125,7 +136,27 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
 
     final int startIndex = emojiPagerAdapter.hasRecentEmoji() ? emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1 : 0;
     emojisPager.setCurrentItem(startIndex);
-    onPageSelected(startIndex);
+    selectPage(startIndex);
+  }
+
+  void selectPage(final int index) {
+    final Context context = getContext();
+
+    if (emojiTabLastSelectedIndex != index) {
+      if (index == 0) {
+        emojiPagerAdapter.invalidateRecentEmojis();
+      }
+
+      if (emojiTabLastSelectedIndex >= 0 && emojiTabLastSelectedIndex < emojiTabs.length) {
+        emojiTabs[emojiTabLastSelectedIndex].setSelected(false);
+        emojiTabs[emojiTabLastSelectedIndex].setColorFilter(EmojiThemings.primaryColor(theming, context), PorterDuff.Mode.SRC_IN);
+      }
+
+      emojiTabs[index].setSelected(true);
+      emojiTabs[index].setColorFilter(EmojiThemings.secondaryColor(theming, context), PorterDuff.Mode.SRC_IN);
+
+      emojiTabLastSelectedIndex = index;
+    }
   }
 
   @SuppressWarnings({ "PMD.CyclomaticComplexity", "PMD.NPathComplexity" })
@@ -136,7 +167,15 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     final EmojiCategory[] categories = EmojiManager.getInstance().getCategories();
     final LinearLayout emojisTab = findViewById(R.id.emojiViewTab);
 
-    emojiPagerAdapter = new EmojiPagerAdapter(this, recentEmoji, variantEmoji, theming);
+    emojiPagerAdapter = new EmojiPagerAdapter(new EmojiPagerDelegate() {
+      @Override public void onEmojiClick(@NonNull final Emoji emoji) {
+        handleEmojiClick(emoji);
+      }
+
+      @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
+        variantPopup.show(view, emoji);
+      }
+    }, recentEmoji, variantEmoji, theming);
 
     final boolean hasBackspace = editText != null || onEmojiBackspaceClickListener != null;
     final boolean hasSearch = !(searchEmoji instanceof NoSearchEmoji);
@@ -159,7 +198,12 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
       emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
           getContext(),
-          this,
+          emoji -> {
+            handleEmojiClick(emoji);
+
+            // Maybe the search was opened from the recent tab and hence we'll invalidate.
+            emojiPagerAdapter.invalidateRecentEmojis();
+          },
           searchEmoji,
           recentEmoji,
           theming
@@ -201,42 +245,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     return button;
   }
 
-  @Override public void onPageSelected(final int i) {
-    final Context context = getContext();
-
-    if (emojiTabLastSelectedIndex != i) {
-      if (i == 0) {
-        emojiPagerAdapter.invalidateRecentEmojis();
-      }
-
-      if (emojiTabLastSelectedIndex >= 0 && emojiTabLastSelectedIndex < emojiTabs.length) {
-        emojiTabs[emojiTabLastSelectedIndex].setSelected(false);
-        emojiTabs[emojiTabLastSelectedIndex].setColorFilter(EmojiThemings.primaryColor(theming, context), PorterDuff.Mode.SRC_IN);
-      }
-
-      emojiTabs[i].setSelected(true);
-      emojiTabs[i].setColorFilter(EmojiThemings.secondaryColor(theming, context), PorterDuff.Mode.SRC_IN);
-
-      emojiTabLastSelectedIndex = i;
-    }
-  }
-
-  @Override public void onPageScrolled(final int i, final float v, final int i2) {
-    // No-op.
-  }
-
-  @Override public void onPageScrollStateChanged(final int i) {
-    // No-op.
-  }
-
-  @Override public void onSearchEmojiClick(@NotNull final Emoji emoji) {
-    onEmojiClick(emoji);
-
-    // Maybe the search was opened from the recent tab and hence we'll invalidate.
-    emojiPagerAdapter.invalidateRecentEmojis();
-  }
-
-  @Override public void onEmojiClick(@NonNull final Emoji emoji) {
+  void handleEmojiClick(@NonNull final Emoji emoji) {
     if (editText != null) {
       Utils.input(editText, emoji);
     }
@@ -247,10 +256,6 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     if (onEmojiClickListener != null) {
       onEmojiClickListener.onEmojiClick(emoji);
     }
-  }
-
-  @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
-    variantPopup.show(view, emoji);
   }
 
   void dismissVariantPopup() {
