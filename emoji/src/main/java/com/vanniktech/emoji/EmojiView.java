@@ -49,7 +49,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
   private EmojiTheming theming;
   private ImageButton[] emojiTabs = new ImageButton[0];
   private EmojiPagerAdapter emojiPagerAdapter;
-  private EditText editText;
+  @Nullable private EditText editText;
   @Nullable private OnEmojiClickListener onEmojiClickListener;
 
   @Nullable OnEmojiBackspaceClickListener onEmojiBackspaceClickListener;
@@ -89,7 +89,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     @NonNull final VariantEmoji variantEmoji,
     @Nullable final ViewPager.PageTransformer pageTransformer,
     @NonNull final View rootView,
-    @NonNull final EditText editText
+    @Nullable final EditText editText
   ) {
     final Context context = getContext();
     this.editText = editText;
@@ -119,15 +119,15 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     emojiTabs = new ImageButton[emojiPagerAdapter.recentAdapterItemCount() + categories.length + 1];
 
     if (emojiPagerAdapter.hasRecentEmoji()) {
-      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab, theming);
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab);
     }
 
     for (int i = 0; i < categories.length; i++) {
-      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab, theming);
+      emojiTabs[i + emojiPagerAdapter.recentAdapterItemCount()] = inflateButton(context, categories[i].getIcon(), categories[i].getCategoryName(), emojisTab);
     }
 
-    emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab, theming);
-    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab, theming);
+    emojiTabs[emojiTabs.length - 2] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab);
+    emojiTabs[emojiTabs.length - 1] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab);
 
     handleOnClicks(emojisPager);
 
@@ -154,7 +154,9 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       theming
     ));
     emojiTabs[emojiTabs.length - 1].setOnTouchListener(new RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL, view -> {
-      backspace(editText);
+      if (editText != null) {
+        backspace(editText);
+      }
 
       if (onEmojiBackspaceClickListener != null) {
         onEmojiBackspaceClickListener.onEmojiBackspaceClick(view);
@@ -166,8 +168,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
       final Context context,
       @DrawableRes final int icon,
       @StringRes final int categoryName,
-      final ViewGroup parent,
-      final EmojiTheming theming
+      final ViewGroup parent
   ) {
     final ImageButton button = (ImageButton) LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false);
 
@@ -209,12 +210,17 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
   }
 
   @Override public void onClicked(@NotNull final Emoji emoji) {
-    Utils.input(editText, emoji);
+    if (editText != null) {
+      Utils.input(editText, emoji);
+    }
+
     emojiPagerAdapter.invalidateRecentEmojis();
   }
 
   @Override public void onEmojiClick(@NonNull final EmojiImageView emojiImageView, @NonNull final Emoji emoji) {
-    Utils.input(editText, emoji);
+    if (editText != null) {
+      Utils.input(editText, emoji);
+    }
 
     recentEmoji.addEmoji(emoji);
     variantEmoji.addVariant(emoji);
