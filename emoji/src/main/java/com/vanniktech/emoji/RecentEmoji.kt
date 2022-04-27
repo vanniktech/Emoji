@@ -14,42 +14,39 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
-
-import androidx.annotation.NonNull;
-import com.vanniktech.emoji.emoji.Emoji;
-import java.util.Collection;
+import com.vanniktech.emoji.emoji.Emoji
 
 /**
  * Interface for providing some custom implementation for recent emojis.
  *
  * @since 0.2.0
  */
-public interface RecentEmoji {
+interface RecentEmoji {
   /**
    * Returns the recent emojis. Could be loaded from a database, shared preferences or just hard
-   * coded.<br>
+   * coded.
    *
    * This method will be called more than one time hence it is recommended to hold a collection of
    * recent emojis.
    *
    * @since 0.2.0
    */
-  @NonNull Collection<Emoji> getRecentEmojis();
+  fun getRecentEmojis(): Collection<Emoji>
 
   /**
-   * Should add the emoji to the recent ones. After calling this method, {@link #getRecentEmojis()}
+   * Should add the emoji to the recent ones. After calling this method, [.getRecentEmojis]
    * should return the emoji that was just added.
    *
    * @since 0.2.0
    */
-  void addEmoji(@NonNull Emoji emoji);
+  fun addEmoji(emoji: Emoji)
 
   /**
    * Should persist all emojis.
    *
    * @since 0.2.0
    */
-  void persist();
+  fun persist()
 }
