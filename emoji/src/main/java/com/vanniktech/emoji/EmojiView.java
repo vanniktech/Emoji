@@ -58,6 +58,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
 
   EmojiVariantPopup variantPopup;
   RecentEmoji recentEmoji;
+  SearchEmoji searchEmoji;
   VariantEmoji variantEmoji;
 
   public EmojiView(final Context context) {
@@ -86,6 +87,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     @Nullable final OnEmojiBackspaceClickListener onEmojiBackspaceClickListener,
     @NonNull final EmojiTheming theming,
     @NonNull final RecentEmoji recentEmoji,
+    @NonNull final SearchEmoji searchEmoji,
     @NonNull final VariantEmoji variantEmoji,
     @Nullable final ViewPager.PageTransformer pageTransformer,
     @NonNull final View rootView,
@@ -95,6 +97,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     this.editText = editText;
     this.theming = theming;
     this.recentEmoji = recentEmoji;
+    this.searchEmoji = searchEmoji;
     this.variantEmoji = variantEmoji;
     this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
     this.onEmojiClickListener = onEmojiClickListener;
@@ -151,6 +154,7 @@ public final class EmojiView extends LinearLayout implements ViewPager.OnPageCha
     emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
         getContext(),
         this,
+        searchEmoji,
         recentEmoji,
         theming
     ));

@@ -110,6 +110,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       onEmojiBackspaceClickListener,
       builder.theming,
       builder.recentEmoji,
+      builder.searchEmoji,
       builder.variantEmoji,
       builder.pageTransformer,
       rootView,
@@ -300,6 +301,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     @Nullable OnEmojiClickListener onEmojiClickListener;
     @Nullable OnEmojiPopupDismissListener onEmojiPopupDismissListener;
     @Nullable RecentEmoji recentEmoji;
+    @Nullable SearchEmoji searchEmoji;
     @NonNull VariantEmoji variantEmoji;
     int popupWindowHeight;
 
@@ -372,6 +374,17 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     }
 
     /**
+     * Allows you to pass your own implementation of searching emojis. If not provided the default one
+     * {@link SearchEmojiManager} will be used.
+     *
+     * @since 0.10.0
+     */
+    @CheckResult public Builder setSearchEmoji(@NonNull final SearchEmoji search) {
+      searchEmoji = checkNotNull(search, "search can't be null");
+      return this;
+    }
+
+    /**
      * Allows you to pass your own implementation of variant emojis. If not provided the default one
      * {@link VariantEmojiManager} will be used.
      *
@@ -403,6 +416,10 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
       if (recentEmoji == null) {
         recentEmoji = new RecentEmojiManager(rootView.getContext());
+      }
+
+      if (searchEmoji == null) {
+        searchEmoji = new SearchEmojiManager();
       }
 
       final EmojiPopup emojiPopup = new EmojiPopup(this, editText);

@@ -33,6 +33,7 @@ internal interface EmojiSearchDialogDelegate {
 internal class EmojiSearchDialog : DialogFragment() {
   private var delegate: EmojiSearchDialogDelegate? = null
   private var recentEmoji: RecentEmoji? = null
+  private var searchEmoji: SearchEmoji? = null
 
   private val handler = Handler(Looper.getMainLooper())
 
@@ -63,8 +64,6 @@ internal class EmojiSearchDialog : DialogFragment() {
     )
     recyclerView?.adapter = adapter
 
-    val categories = EmojiManager.getInstance().categories
-
     editText.addTextChangedListener(object : TextWatcher {
       override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
       override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
@@ -73,12 +72,7 @@ internal class EmojiSearchDialog : DialogFragment() {
 
         future?.cancel(true)
         future = executorService.schedule({
-          val emojis = when {
-            query.length > 1 -> categories.flatMap { it.emojis.toList() }
-              .filter { emoji -> emoji.shortcodes.orEmpty().any { it.contains(query, ignoreCase = true) } }
-            else -> emptyList()
-          }
-
+          val emojis = searchEmoji?.search(query).orEmpty()
           handler.post {
             adapter.update(emojis)
           }
@@ -110,6 +104,7 @@ internal class EmojiSearchDialog : DialogFragment() {
     @JvmStatic fun show(
       context: Context,
       delegate: EmojiSearchDialogDelegate,
+      searchEmoji: SearchEmoji,
       recentEmoji: RecentEmoji,
       theming: EmojiTheming,
     ) {
@@ -118,6 +113,7 @@ internal class EmojiSearchDialog : DialogFragment() {
           putParcelable(ARG_THEMING, theming)
         }
         this.delegate = delegate
+        this.searchEmoji = searchEmoji
         this.recentEmoji = recentEmoji
         show((Utils.asActivity(context) as FragmentActivity).supportFragmentManager, TAG)
       }
