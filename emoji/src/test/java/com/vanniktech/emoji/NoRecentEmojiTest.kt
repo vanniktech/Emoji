@@ -14,21 +14,17 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
+import com.vanniktech.emoji.emoji.Emoji
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-import com.vanniktech.emoji.emoji.Emoji;
-import org.junit.Test;
-
-import static org.assertj.core.api.Java6Assertions.assertThat;
-
-public class NoRecentEmojiTest {
-  @Test public void alwaysEmpty() {
-    assertThat(NoRecentEmoji.INSTANCE.getRecentEmojis()).isEmpty();
-
-    NoRecentEmoji.INSTANCE.addEmoji(new Emoji(0x1f55a, new String[]{"test"}, R.drawable.emoji_recent, false));
-    NoRecentEmoji.INSTANCE.persist();
-
-    assertThat(NoRecentEmoji.INSTANCE.getRecentEmojis()).isEmpty();
+class NoRecentEmojiTest {
+  @Test fun alwaysEmpty() {
+    assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
+    NoRecentEmoji.addEmoji(Emoji(0x1f55a, arrayOf("test"), R.drawable.emoji_recent, false))
+    NoRecentEmoji.persist()
+    assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
   }
 }
