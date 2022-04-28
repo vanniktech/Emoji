@@ -27,8 +27,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Future
 
 class EmojiImageView @JvmOverloads constructor(
   context: Context,
@@ -46,7 +44,7 @@ class EmojiImageView @JvmOverloads constructor(
   private val variantIndicatorBottomRight = Point()
   private val variantIndicatorBottomLeft = Point()
   private var hasVariants = false
-  private var future: Future<*>? = null
+  private var imageLoadingTask: ImageLoadingTask? = null
 
   public override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -82,11 +80,11 @@ class EmojiImageView @JvmOverloads constructor(
   }
 
   private fun cancelFuture() {
-    future?.cancel(true)
-    future = null
+    imageLoadingTask?.cancel()
+    imageLoadingTask = null
   }
 
-  fun setEmoji(executorService: ExecutorService, theming: EmojiTheming, emoji: Emoji) {
+  fun setEmoji(theming: EmojiTheming, emoji: Emoji) {
     val context = context
     variantIndicatorPaint.color = theming.dividerColor(context)
     postInvalidate()
@@ -108,7 +106,9 @@ class EmojiImageView @JvmOverloads constructor(
           else -> null
         }
       )
-      future = executorService.submit { setImageDrawable(emoji.getDrawable(context)) }
+
+      imageLoadingTask = ImageLoadingTask(this)
+      imageLoadingTask?.start(emoji)
     }
   }
 

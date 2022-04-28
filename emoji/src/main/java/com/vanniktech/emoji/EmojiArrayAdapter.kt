@@ -24,7 +24,6 @@ import android.widget.ArrayAdapter
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
-import java.util.concurrent.Executors
 
 internal class EmojiArrayAdapter(
   context: Context,
@@ -34,8 +33,6 @@ internal class EmojiArrayAdapter(
   private val longListener: OnEmojiLongClickListener?,
   private val theming: EmojiTheming,
 ) : ArrayAdapter<Emoji>(context, 0, Utils.asListWithoutDuplicates(emojis)) {
-  private val executorService = Executors.newSingleThreadExecutor()
-
   override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
     var image = convertView as? EmojiImageView
     val context = context
@@ -47,7 +44,7 @@ internal class EmojiArrayAdapter(
     val emoji = getItem(position)!!
     val variantToUse = variantManager?.getVariant(emoji) ?: emoji
     image.contentDescription = emoji.unicode
-    image.setEmoji(executorService, theming, variantToUse)
+    image.setEmoji(theming, variantToUse)
     return image
   }
 
@@ -55,9 +52,5 @@ internal class EmojiArrayAdapter(
     clear()
     addAll(emojis)
     notifyDataSetChanged()
-  }
-
-  fun destroy() {
-    executorService.shutdownNow()
   }
 }
