@@ -12,8 +12,8 @@ import com.vanniktech.emoji.emoji.Emoji
  */
 class SearchInPlaceTrait(
   private val emojiPopup: EmojiPopup,
-) {
-  fun install(editText: EditText): EmojiTrait {
+) : EmojiTraitable {
+  override fun install(editText: EditText): EmojiTrait {
     if (emojiPopup.searchEmoji is NoSearchEmoji) {
       return EmptyEmojiTrait
     }

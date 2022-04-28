@@ -27,7 +27,7 @@ interface EmojiInput {
   fun disableKeyboardInput(emojiPopup: EmojiPopup)
 
   /** Forces this EditText to contain only one Emoji.  */
-  fun forceSingleEmoji()
+  fun installForceSingleEmoji(): EmojiTrait
 
   /** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */
   fun installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait

@@ -24,28 +24,34 @@ import android.widget.EditText
  * Forces the [EditText] to only contain one Emoji,
  * while also being able to replace the previous one.
  */
-class SingleEmojiTrait private constructor(val editText: EditText) : TextWatcher {
-  init {
+class ForceSingleEmojiTrait : EmojiTraitable {
+  override fun install(editText: EditText): EmojiTrait {
+    val listener = object : TextWatcher {
+      override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
+      override fun afterTextChanged(s: Editable) = Unit
+
+      override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+        editText.removeTextChangedListener(this)
+
+        val emoji = s.subSequence(start, start + count)
+        editText.text = null
+        editText.append(emoji)
+        editText.addTextChangedListener(this)
+      }
+    }
+
     editText.filters = editText.filters
       .plus(OnlyEmojisInputFilter())
-    editText.addTextChangedListener(this)
-  }
+    editText.addTextChangedListener(listener)
 
-  override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
-  override fun afterTextChanged(s: Editable) = Unit
-
-  override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-    editText.removeTextChangedListener(this)
-
-    val emoji = s.subSequence(start, start + count)
-    editText.text = null
-    editText.append(emoji)
-    editText.addTextChangedListener(this)
-  }
-
-  companion object {
-    @JvmStatic fun install(editText: EditText) {
-      SingleEmojiTrait(editText)
+    return object : EmojiTrait {
+      override fun uninstall() {
+        editText.filters = editText.filters
+          .filterNot { it is OnlyEmojisInputFilter }
+          .toList()
+          .toTypedArray()
+        editText.removeTextChangedListener(listener)
+      }
     }
   }
 }

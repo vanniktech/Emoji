@@ -120,8 +120,8 @@ public class EmojiEditText extends AppCompatEditText implements EmojiEditable, E
     }
   }
 
-  @Override public void forceSingleEmoji() {
-    SingleEmojiTrait.install(this);
+  @Override @NonNull public EmojiTrait installForceSingleEmoji() {
+    return new ForceSingleEmojiTrait().install(this);
   }
 
   @Override @NonNull public EmojiTrait installSearchInPlace(@NonNull final EmojiPopup emojiPopup) {

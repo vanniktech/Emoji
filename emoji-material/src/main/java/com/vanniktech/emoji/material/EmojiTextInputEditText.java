@@ -33,7 +33,7 @@ import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.EmojiTrait;
 import com.vanniktech.emoji.SearchInPlaceTrait;
-import com.vanniktech.emoji.SingleEmojiTrait;
+import com.vanniktech.emoji.ForceSingleEmojiTrait;
 import com.vanniktech.emoji.emoji.Emoji;
 
 public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiInput {
@@ -126,8 +126,8 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
     }
   }
 
-  @Override public void forceSingleEmoji() {
-    SingleEmojiTrait.install(this);
+  @Override @NonNull public EmojiTrait installForceSingleEmoji() {
+    return new ForceSingleEmojiTrait().install(this);
   }
 
   @Override @NonNull public EmojiTrait installSearchInPlace(@NonNull final EmojiPopup emojiPopup) {

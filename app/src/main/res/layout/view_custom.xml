@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
     tools:layout_height="match_parent"
     tools:layout_width="match_parent"
     tools:orientation="vertical"
@@ -10,8 +11,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="8dp"
-      android:text="Custom view which only allows a single emoji to be entered."
-      tools:ignore="HardcodedText"
+      android:text="Custom view which only allows emojis to be entered."
       />
   <Button
       android:id="@+id/customViewButton"
@@ -19,7 +19,13 @@
       android:layout_height="wrap_content"
       android:layout_margin="8dp"
       android:text="Trigger keyboard"
-      tools:ignore="HardcodedText"
+      />
+  <com.vanniktech.emoji.material.EmojiMaterialCheckBox
+      android:id="@+id/onlyAllowSingleEmoji"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:text="Only allow single emoji"
       />
   <com.vanniktech.emoji.EmojiEditText
       android:id="@+id/customViewEditText"

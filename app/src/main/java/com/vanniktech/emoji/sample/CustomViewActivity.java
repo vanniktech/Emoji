@@ -22,11 +22,13 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.EmojiTrait;
 
 public class CustomViewActivity extends AppCompatActivity {
   @Override protected void onCreate(final Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class CustomViewActivity extends AppCompatActivity {
   }
 
   static final class CustomView extends LinearLayout {
+    @Nullable EmojiTrait forceSingleEmoji;
     CustomView(final Context context, @Nullable final AttributeSet attrs) {
       super(context, attrs);
       View.inflate(context, R.layout.view_custom, this);
@@ -46,6 +49,15 @@ public class CustomViewActivity extends AppCompatActivity {
 
     void setUpEmojiPopup() {
       final EmojiEditText editText = findViewById(R.id.customViewEditText);
+      final CheckBox checkBox = findViewById(R.id.onlyAllowSingleEmoji);
+
+      checkBox.setOnCheckedChangeListener((ignore, isChecked) -> {
+        if (isChecked) {
+          forceSingleEmoji = editText.installForceSingleEmoji();
+        } else if (forceSingleEmoji != null) {
+          forceSingleEmoji.uninstall();
+        }
+      });
 
       final EmojiPopup emojiPopup = EmojiPopup.Builder.fromRootView(this)
           .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
@@ -54,7 +66,6 @@ public class CustomViewActivity extends AppCompatActivity {
 
       final Button emojiButton = findViewById(R.id.customViewButton);
       editText.disableKeyboardInput(emojiPopup);
-      editText.forceSingleEmoji();
       emojiButton.setOnClickListener(ignore -> editText.requestFocus());
     }
   }
