@@ -14,10 +14,11 @@
  * limitations under the License.
  *
  */
-package com.vanniktech.emoji
+package com.vanniktech.emoji.inputfilters
 
 import android.text.InputFilter
 import android.text.Spanned
+import com.vanniktech.emoji.EmojiUtils
 
 /** Input Filter that accepts only a certain number of Emojis.  */
 class MaximalNumberOfEmojisInputFilter(
