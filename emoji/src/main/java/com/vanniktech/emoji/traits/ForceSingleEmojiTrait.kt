@@ -14,11 +14,12 @@
  * limitations under the License.
  *
  */
-package com.vanniktech.emoji
+package com.vanniktech.emoji.traits
 
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import com.vanniktech.emoji.OnlyEmojisInputFilter
 
 /**
  * Forces the [EditText] to only contain one Emoji,

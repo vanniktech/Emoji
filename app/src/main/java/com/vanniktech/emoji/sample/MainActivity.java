@@ -40,12 +40,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.EmojiTrait;
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
+import com.vanniktech.emoji.traits.EmojiTrait;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
 
 import static android.view.View.GONE;

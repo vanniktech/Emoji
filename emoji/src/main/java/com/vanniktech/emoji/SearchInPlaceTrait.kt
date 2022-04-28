@@ -6,6 +6,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.traits.EmojiTrait
+import com.vanniktech.emoji.traits.EmojiTraitable
+import com.vanniktech.emoji.traits.EmptyEmojiTrait
 
 /**
  * Popup similar to how Telegram and Slack does it to search for an Emoji

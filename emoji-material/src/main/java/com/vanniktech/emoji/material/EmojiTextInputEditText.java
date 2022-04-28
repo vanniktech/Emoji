@@ -31,10 +31,10 @@ import com.vanniktech.emoji.EmojiEditable;
 import com.vanniktech.emoji.EmojiInput;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.EmojiTrait;
 import com.vanniktech.emoji.SearchInPlaceTrait;
-import com.vanniktech.emoji.ForceSingleEmojiTrait;
 import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.traits.EmojiTrait;
+import com.vanniktech.emoji.traits.ForceSingleEmojiTrait;
 
 public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiInput {
   private float emojiSize;

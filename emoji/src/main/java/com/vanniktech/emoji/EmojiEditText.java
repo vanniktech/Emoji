@@ -28,6 +28,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.traits.EmojiTrait;
+import com.vanniktech.emoji.traits.ForceSingleEmojiTrait;
 
 /** Reference implementation for an EditText with emoji support. */
 public class EmojiEditText extends AppCompatEditText implements EmojiEditable, EmojiInput {

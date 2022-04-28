@@ -28,7 +28,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiPopup;
-import com.vanniktech.emoji.EmojiTrait;
+import com.vanniktech.emoji.traits.EmojiTrait;
 
 public class CustomViewActivity extends AppCompatActivity {
   @Override protected void onCreate(final Bundle savedInstanceState) {

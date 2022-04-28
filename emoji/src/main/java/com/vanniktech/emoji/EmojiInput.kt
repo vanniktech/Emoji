@@ -16,6 +16,8 @@
  */
 package com.vanniktech.emoji
 
+import com.vanniktech.emoji.traits.EmojiTrait
+
 interface EmojiInput {
   /** Returns true when [enableKeyboardInput] was called and otherwise false.  */
   val isKeyboardInputDisabled: Boolean
