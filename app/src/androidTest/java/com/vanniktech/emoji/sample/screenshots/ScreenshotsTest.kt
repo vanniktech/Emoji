@@ -25,6 +25,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vanniktech.emoji.sample.MainActivity
 import com.vanniktech.emoji.sample.R
 import com.vanniktech.espresso.core.utils.AppendTextAction.appendText
+import com.vanniktech.junit4androidintegrationrules.DemoModeRule
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,6 +33,8 @@ import tools.fastlane.screengrab.Screengrab
 import tools.fastlane.screengrab.locale.LocaleTestRule
 
 @RunWith(AndroidJUnit4::class) class ScreenshotsTest {
+  @Rule @JvmField val demoModeRule = DemoModeRule()
+
   @get:Rule val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
   @Rule @JvmField val localeTestRule = LocaleTestRule()

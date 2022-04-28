@@ -68,9 +68,10 @@ dependencies {
 
 dependencies {
   androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
-  androidTestImplementation 'com.vanniktech:espresso-core-utils:0.3.0'
-  androidTestImplementation "androidx.test:rules:1.4.0"
   androidTestImplementation "androidx.test.ext:junit:1.1.3"
-  androidTestImplementation "tools.fastlane:screengrab:2.1.1"
+  androidTestImplementation "androidx.test:rules:1.4.0"
   androidTestImplementation "com.jraska:falcon:2.2.0"
+  androidTestImplementation "com.vanniktech:junit4-android-integration-rules:0.3.0"
+  androidTestImplementation "tools.fastlane:screengrab:2.1.1"
+  androidTestImplementation 'com.vanniktech:espresso-core-utils:0.3.0'
 }
