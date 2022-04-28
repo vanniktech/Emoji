@@ -56,4 +56,9 @@ class EmojiGridView extends GridView {
 
     return this;
   }
+
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    emojiArrayAdapter.destroy();
+  }
 }

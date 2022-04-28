@@ -29,6 +29,8 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.listeners.OnEmojiClickListener;
 import com.vanniktech.emoji.listeners.OnEmojiLongClickListener;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 public final class EmojiImageView extends AppCompatImageView {
   private static final int VARIANT_INDICATOR_PART_AMOUNT = 6;
@@ -46,9 +48,9 @@ public final class EmojiImageView extends AppCompatImageView {
   private final Point variantIndicatorBottomRight = new Point();
   private final Point variantIndicatorBottomLeft = new Point();
 
-  private ImageLoadingTask imageLoadingTask;
-
   private boolean hasVariants;
+
+  @Nullable private Future<?> future;
 
   public EmojiImageView(final Context context, final AttributeSet attrs) {
     super(context, attrs);
@@ -93,14 +95,20 @@ public final class EmojiImageView extends AppCompatImageView {
   @Override protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
 
-    if (imageLoadingTask != null) {
-      imageLoadingTask.cancel(true);
-      imageLoadingTask = null;
-    }
+    cancelFuture();
   }
 
-  void setEmoji(@NonNull final EmojiTheming theming, @NonNull final Emoji emoji) {
-    variantIndicatorPaint.setColor(EmojiThemings.dividerColor(theming, getContext()));
+  private void cancelFuture() {
+    if (future != null) {
+      future.cancel(true);
+    }
+
+    future = null;
+  }
+
+  void setEmoji(@NonNull final ExecutorService executorService, @NonNull final EmojiTheming theming, @NonNull final Emoji emoji) {
+    final Context context = getContext();
+    variantIndicatorPaint.setColor(EmojiThemings.dividerColor(theming, context));
     postInvalidate();
 
     if (!emoji.equals(currentEmoji)) {
@@ -109,9 +117,7 @@ public final class EmojiImageView extends AppCompatImageView {
       currentEmoji = emoji;
       hasVariants = emoji.getBase().hasVariants();
 
-      if (imageLoadingTask != null) {
-        imageLoadingTask.cancel(true);
-      }
+      cancelFuture();
 
       setOnClickListener(view -> {
         if (clickListener != null) {
@@ -124,8 +130,9 @@ public final class EmojiImageView extends AppCompatImageView {
         return true;
       } : null);
 
-      imageLoadingTask = new ImageLoadingTask(this);
-      imageLoadingTask.execute(emoji);
+      future = executorService.submit(() -> {
+          setImageDrawable(emoji.getDrawable(context));
+      });
     }
   }
 
