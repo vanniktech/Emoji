@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     final Button dialogButton = findViewById(R.id.dialog_button);
     dialogButton.setOnClickListener(ignore -> {
       emojiPopup.dismiss();
-      MainDialog.show(this);
+      MainDialog.Companion.show(this);
     });
     final Button button = findViewById(R.id.main_activity_material_button);
     button.setText("Switch between Emoji Provider \uD83D\uDE18\uD83D\uDE02\uD83E\uDD8C");
