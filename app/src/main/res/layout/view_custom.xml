@@ -14,7 +14,7 @@
       android:text="Custom view which only allows emojis to be entered."
       />
   <Button
-      android:id="@+id/customViewButton"
+      android:id="@+id/button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="8dp"
@@ -28,7 +28,7 @@
       android:text="Only allow single emoji"
       />
   <com.vanniktech.emoji.EmojiEditText
-      android:id="@+id/customViewEditText"
+      android:id="@+id/editText"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="8dp"
