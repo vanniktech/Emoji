@@ -14,25 +14,24 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
+import androidx.annotation.DimenRes
+import androidx.annotation.Px
 
-import androidx.annotation.DimenRes;
-import androidx.annotation.Px;
-
-public interface EmojiDisplayable {
+interface EmojiDisplayable {
   /** Returns the emoji size */
-  float getEmojiSize();
+  fun getEmojiSize(): Float
 
   /** Sets the emoji size in pixels and automatically invalidates the text and renders it with the new size. */
-  void setEmojiSize(@Px int pixels);
+  fun setEmojiSize(@Px pixels: Int)
 
-  /** Sets the emoji size in pixels and automatically invalidates the text and renders it with the new size when {@code shouldInvalidate} is true. */
-  void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+  /** Sets the emoji size in pixels and automatically invalidates the text and renders it with the new size when `shouldInvalidate` is true. */
+  fun setEmojiSize(@Px pixels: Int, shouldInvalidate: Boolean)
 
   /** Sets the emoji size in pixels with the provided resource and automatically invalidates the text and renders it with the new size. */
-  void setEmojiSizeRes(@DimenRes int res);
+  fun setEmojiSizeRes(@DimenRes res: Int)
 
-  /** Sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when {@code shouldInvalidate} is true. */
-  void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  /** Sets the emoji size in pixels with the provided resource and invalidates the text and renders it with the new size when `shouldInvalidate` is true. */
+  fun setEmojiSizeRes(@DimenRes res: Int, shouldInvalidate: Boolean)
 }
