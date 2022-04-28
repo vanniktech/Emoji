@@ -16,6 +16,6 @@
  */
 package com.vanniktech.emoji.listeners
 
-interface OnSoftKeyboardCloseListener {
+fun interface OnSoftKeyboardCloseListener {
   fun onKeyboardClose()
 }

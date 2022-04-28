@@ -16,6 +16,6 @@
  */
 package com.vanniktech.emoji.listeners
 
-interface OnEmojiPopupShownListener {
+fun interface OnEmojiPopupShownListener {
   fun onEmojiPopupShown()
 }

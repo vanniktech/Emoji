@@ -36,7 +36,7 @@ internal class EmojiResultReceiver(handler: Handler?) : ResultReceiver(handler) 
     receiver?.onReceiveResult(resultCode, resultData)
   }
 
-  internal interface Receiver {
+  internal fun interface Receiver {
     fun onReceiveResult(resultCode: Int, data: Bundle?)
   }
 }

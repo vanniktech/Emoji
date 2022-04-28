@@ -16,6 +16,6 @@
  */
 package com.vanniktech.emoji.listeners
 
-interface OnEmojiBackspaceClickListener {
+fun interface OnEmojiBackspaceClickListener {
   fun onEmojiBackspaceClick()
 }

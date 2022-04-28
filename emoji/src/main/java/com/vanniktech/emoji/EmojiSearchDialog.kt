@@ -30,7 +30,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
-internal interface EmojiSearchDialogDelegate {
+internal fun interface EmojiSearchDialogDelegate {
   fun onSearchEmojiClick(emoji: Emoji)
 }
 

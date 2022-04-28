@@ -18,6 +18,6 @@ package com.vanniktech.emoji.listeners
 
 import com.vanniktech.emoji.emoji.Emoji
 
-interface OnEmojiClickListener {
+fun interface OnEmojiClickListener {
   fun onEmojiClick(emoji: Emoji)
 }

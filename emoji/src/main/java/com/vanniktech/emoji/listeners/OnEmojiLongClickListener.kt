@@ -19,6 +19,6 @@ package com.vanniktech.emoji.listeners
 import com.vanniktech.emoji.EmojiImageView
 import com.vanniktech.emoji.emoji.Emoji
 
-interface OnEmojiLongClickListener {
+fun interface OnEmojiLongClickListener {
   fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji)
 }

@@ -28,7 +28,7 @@ import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.emoji.Emoji
 
-internal interface EmojiSearchDelegate {
+internal fun interface EmojiSearchDelegate {
   fun onEmojiClicked(emoji: Emoji)
 }
 
