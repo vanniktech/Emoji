@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+import com.vanniktech.emoji.emoji.EmojiCategory;
 
 final class EmojiPagerAdapter extends PagerAdapter {
   private static final int RECENT_POSITION = 0;
@@ -60,11 +61,11 @@ final class EmojiPagerAdapter extends PagerAdapter {
     final View newView;
 
     if (hasRecentEmoji() && position == RECENT_POSITION) {
-      newView = new RecentEmojiGridView(pager.getContext()).init(delegate, delegate, recentEmoji, theming);
+      newView = new RecentEmojiGridView(pager.getContext()).init(delegate, delegate, theming, recentEmoji);
       recentEmojiGridView = (RecentEmojiGridView) newView;
     } else {
-      newView = new EmojiGridView(pager.getContext()).init(delegate, delegate,
-              EmojiManager.getInstance().getCategories()[position - recentAdapterItemCount()], variantManager, theming);
+      final EmojiCategory category = EmojiManager.getInstance().getCategories()[position - recentAdapterItemCount()];
+      newView = new CategoryGridView(pager.getContext()).init(delegate, delegate, theming, category, variantManager);
     }
 
     pager.addView(newView);
