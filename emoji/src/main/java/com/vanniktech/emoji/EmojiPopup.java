@@ -459,10 +459,12 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
       if (popup != null) {
         final int offset;
 
-        if (insets.getSystemWindowInsetBottom() < insets.getStableInsetBottom()) {
-          offset = insets.getSystemWindowInsetBottom();
+        final int systemWindowInsetBottom = insets.getSystemWindowInsetBottom();
+        final int stableInsetBottom = insets.getStableInsetBottom();
+        if (systemWindowInsetBottom < stableInsetBottom) {
+          offset = systemWindowInsetBottom;
         } else {
-          offset = insets.getSystemWindowInsetBottom() - insets.getStableInsetBottom();
+          offset = systemWindowInsetBottom - stableInsetBottom;
         }
 
         if (offset != previousOffset || offset == 0) {
