@@ -29,6 +29,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.provider.FontRequest;
@@ -39,6 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vanniktech.emoji.EmojiEditText;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.EmojiTrait;
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
   ViewGroup rootView;
   ImageView emojiButton;
   EmojiCompat emojiCompat;
+
+  @Nullable EmojiTrait searchInPlaceEmojiTrait;
 
   @Override @SuppressLint("SetTextI18n") protected void onCreate(final Bundle savedInstanceState) {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
@@ -88,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
       } else {
         emojiButton.setVisibility(VISIBLE);
         editText.enableKeyboardInput();
+      }
+    });
+
+    final CheckBox inPlaceEmojis = findViewById(R.id.in_place_emojis);
+    inPlaceEmojis.setOnCheckedChangeListener((ignore, isChecked) -> {
+      if (isChecked) {
+        searchInPlaceEmojiTrait = editText.installSearchInPlace(emojiPopup);
+      } else if (searchInPlaceEmojiTrait != null) {
+        searchInPlaceEmojiTrait.uninstall();
       }
     });
 

@@ -23,13 +23,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.vanniktech.emoji.emoji.Emoji;
 
 /** Reference implementation for an EditText with emoji support. */
-public class EmojiEditText extends AppCompatEditText implements EmojiEditable, EmojiForceable {
+public class EmojiEditText extends AppCompatEditText implements EmojiEditable, EmojiInput {
   private float emojiSize;
   private boolean disableKeyboardInput;
 
@@ -104,7 +105,7 @@ public class EmojiEditText extends AppCompatEditText implements EmojiEditable, E
     return disableKeyboardInput;
   }
 
-  @Override public void disableKeyboardInput(final EmojiPopup emojiPopup) {
+  @Override public void disableKeyboardInput(@NonNull final EmojiPopup emojiPopup) {
     disableKeyboardInput = true;
     super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
   }
@@ -121,6 +122,10 @@ public class EmojiEditText extends AppCompatEditText implements EmojiEditable, E
 
   @Override public void forceSingleEmoji() {
     SingleEmojiTrait.install(this);
+  }
+
+  @Override @NonNull public EmojiTrait installSearchInPlace(@NonNull final EmojiPopup emojiPopup) {
+    return new SearchInPlaceTrait(emojiPopup).install(this);
   }
 
   static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {

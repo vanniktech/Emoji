@@ -49,6 +49,14 @@
       android:text="In chat force Emojis only 🌱🔥"
       tools:ignore="HardcodedText"
       />
+  <com.vanniktech.emoji.EmojiCheckbox
+      android:id="@+id/in_place_emojis"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:text="Allow searching for emoji with :query"
+      tools:ignore="HardcodedText"
+      />
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/main_activity_recycler_view"
       android:layout_width="match_parent"

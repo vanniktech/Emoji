@@ -61,6 +61,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final PopupWindow popupWindow;
   final EditText editText;
+  final EmojiTheming theming;
+  final SearchEmoji searchEmoji;
 
   boolean isPendingOpen;
   boolean isKeyboardOpen;
@@ -83,7 +85,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final PopupWindow.OnDismissListener onDismissListener = new PopupWindow.OnDismissListener() {
     @Override public void onDismiss() {
-      if (editText instanceof EmojiForceable && ((EmojiForceable) editText).isKeyboardInputDisabled()) {
+      if (editText instanceof EmojiInput && ((EmojiInput) editText).isKeyboardInputDisabled()) {
         editText.clearFocus();
       }
       if (onEmojiPopupDismissListener != null) {
@@ -95,6 +97,8 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
   EmojiPopup(@NonNull final EmojiPopup.Builder builder, @NonNull final EditText editText) {
     context = Utils.asActivity(builder.rootView.getContext());
     rootView = builder.rootView.getRootView();
+    theming = builder.theming;
+    searchEmoji = builder.searchEmoji;
     this.editText = editText;
 
     popupWindow = new PopupWindow(context);

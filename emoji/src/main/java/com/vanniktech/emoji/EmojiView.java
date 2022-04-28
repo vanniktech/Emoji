@@ -105,7 +105,7 @@ public final class EmojiView extends LinearLayout {
     this.onEmojiBackspaceClickListener = onEmojiBackspaceClickListener;
     this.onEmojiClickListener = onEmojiClickListener;
     variantPopup = new EmojiVariantPopup(rootView, (emojiImageView, emoji) -> {
-      handleEmojiClick(emoji, true);
+      handleEmojiClick(emoji);
 
       emojiImageView.updateEmoji(emoji); // To reflect new variant in the UI.
       dismissVariantPopup();
@@ -142,12 +142,6 @@ public final class EmojiView extends LinearLayout {
     final int startIndex = emojiPagerAdapter.hasRecentEmoji() ? emojiPagerAdapter.numberOfRecentEmojis() > 0 ? 0 : 1 : 0;
     emojisPager.setCurrentItem(startIndex);
     selectPage(startIndex);
-
-    if (editText != null) {
-      EditTextSearchKt.include(editText, rootView, searchEmoji, theming, emoji -> {
-        handleEmojiClick(emoji, false);
-      });
-    }
   }
 
   void selectPage(final int index) {
@@ -180,7 +174,7 @@ public final class EmojiView extends LinearLayout {
 
     emojiPagerAdapter = new EmojiPagerAdapter(new EmojiPagerDelegate() {
       @Override public void onEmojiClick(@NonNull final Emoji emoji) {
-        handleEmojiClick(emoji, true);
+        handleEmojiClick(emoji);
       }
 
       @Override public void onEmojiLongClick(@NonNull final EmojiImageView view, @NonNull final Emoji emoji) {
@@ -210,7 +204,7 @@ public final class EmojiView extends LinearLayout {
       emojiTabs[searchIndex].setOnClickListener(v -> EmojiSearchDialog.show(
           getContext(),
           emoji -> {
-            handleEmojiClick(emoji, true);
+            handleEmojiClick(emoji);
 
             // Maybe the search was opened from the recent tab and hence we'll invalidate.
             emojiPagerAdapter.invalidateRecentEmojis();
@@ -255,8 +249,8 @@ public final class EmojiView extends LinearLayout {
     return button;
   }
 
-  void handleEmojiClick(@NonNull final Emoji emoji, final boolean shouldInput) {
-    if (shouldInput && editText != null) {
+  void handleEmojiClick(@NonNull final Emoji emoji) {
+    if (editText != null) {
       Utils.input(editText, emoji);
     }
 

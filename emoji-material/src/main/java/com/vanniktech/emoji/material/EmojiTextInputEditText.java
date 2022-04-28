@@ -23,17 +23,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vanniktech.emoji.EmojiEditable;
-import com.vanniktech.emoji.EmojiForceable;
+import com.vanniktech.emoji.EmojiInput;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
+import com.vanniktech.emoji.EmojiTrait;
+import com.vanniktech.emoji.SearchInPlaceTrait;
 import com.vanniktech.emoji.SingleEmojiTrait;
 import com.vanniktech.emoji.emoji.Emoji;
 
-public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiForceable {
+public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiInput {
   private float emojiSize;
   private boolean disableKeyboardInput;
 
@@ -108,7 +111,7 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
     return disableKeyboardInput;
   }
 
-  @Override public void disableKeyboardInput(final EmojiPopup emojiPopup) {
+  @Override public void disableKeyboardInput(@NonNull final EmojiPopup emojiPopup) {
     disableKeyboardInput = true;
     super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
   }
@@ -125,6 +128,10 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
 
   @Override public void forceSingleEmoji() {
     SingleEmojiTrait.install(this);
+  }
+
+  @Override @NonNull public EmojiTrait installSearchInPlace(@NonNull final EmojiPopup emojiPopup) {
+    return new SearchInPlaceTrait(emojiPopup).install(this);
   }
 
   static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {

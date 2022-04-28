@@ -26,7 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Forces the {@link EditText} to only contain one Emoji, while also being able to replace the previous one.
+ * Forces the {@link EditText} to only contain one Emoji,
+ * while also being able to replace the previous one.
  */
 public final class SingleEmojiTrait implements TextWatcher {
   final EditText editText;
