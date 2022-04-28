@@ -14,15 +14,14 @@
  * limitations under the License.
  *
  */
+package com.vanniktech.emoji
 
-package com.vanniktech.emoji;
+import com.vanniktech.emoji.emoji.Emoji
 
-import com.vanniktech.emoji.emoji.Emoji;
-
-public interface EmojiEditable extends EmojiDisplayable {
+interface EmojiEditable : EmojiDisplayable {
   /** Issues a backspace. */
-  void backspace();
+  fun backspace()
 
   /** Adds the emoji. */
-  void input(Emoji emoji);
+  fun input(emoji: Emoji?)
 }
