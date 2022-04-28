@@ -96,7 +96,7 @@ public final class EmojiVariantPopup {
     final LayoutInflater inflater = LayoutInflater.from(context);
 
     for (final Emoji variant : variants) {
-      final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_adapter_item, imageContainer, false);
+      final ImageView emojiImage = (ImageView) inflater.inflate(R.layout.emoji_adapter_item_emoji, imageContainer, false);
       final ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) emojiImage.getLayoutParams();
       final int margin = Utils.dpToPx(context, MARGIN);
 
