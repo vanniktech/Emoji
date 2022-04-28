@@ -25,7 +25,6 @@ dependencies {
 
 dependencies {
   testImplementation rootProject.ext.testing.junit
-  testImplementation rootProject.ext.testing.assertJ
   testImplementation "org.robolectric:robolectric:4.7.3"
 }
 
