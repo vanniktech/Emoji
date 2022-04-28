@@ -25,8 +25,9 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
 import androidx.annotation.Px;
 import com.google.android.material.radiobutton.MaterialRadioButton;
-import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiDisplayable;
+import com.vanniktech.emoji.EmojiManager;
+import com.vanniktech.emoji.Utils;
 
 public class EmojiMaterialRadioButton extends MaterialRadioButton implements EmojiDisplayable {
   private float emojiSize;
@@ -37,12 +38,12 @@ public class EmojiMaterialRadioButton extends MaterialRadioButton implements Emo
 
   public EmojiMaterialRadioButton(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialRadioButton, R.styleable.EmojiMaterialRadioButton_emojiSize);
   }
 
   public EmojiMaterialRadioButton(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialRadioButton, R.styleable.EmojiMaterialRadioButton_emojiSize);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

@@ -35,12 +35,12 @@ public class EmojiCheckbox extends AppCompatCheckBox implements EmojiDisplayable
 
   public EmojiCheckbox(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiCheckBox, R.styleable.EmojiCheckBox_emojiSize);
   }
 
   public EmojiCheckbox(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiCheckBox, R.styleable.EmojiCheckBox_emojiSize);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

@@ -11,6 +11,9 @@
   <declare-styleable name="EmojiEditText">
     <attr name="emojiSize"/>
   </declare-styleable>
+  <declare-styleable name="EmojiCheckBox">
+    <attr name="emojiSize"/>
+  </declare-styleable>
   <declare-styleable name="EmojiTextView">
     <attr name="emojiSize"/>
   </declare-styleable>

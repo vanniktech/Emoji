@@ -32,6 +32,7 @@ import com.vanniktech.emoji.EmojiInput;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.SearchInPlaceTrait;
+import com.vanniktech.emoji.Utils;
 import com.vanniktech.emoji.emoji.Emoji;
 import com.vanniktech.emoji.traits.EmojiTrait;
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait;
@@ -46,12 +47,12 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
 
   public EmojiTextInputEditText(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = com.vanniktech.emoji.Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiTextInputEditText, R.styleable.EmojiTextInputEditText_emojiSize);
   }
 
   public EmojiTextInputEditText(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = com.vanniktech.emoji.Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiTextInputEditText, R.styleable.EmojiTextInputEditText_emojiSize);
   }
 
   @Override @CallSuper protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {
@@ -65,11 +66,11 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
   }
 
   @Override @CallSuper public void backspace() {
-    com.vanniktech.emoji.Utils.backspace(this);
+    Utils.backspace(this);
   }
 
   @Override @CallSuper public void input(final Emoji emoji) {
-    com.vanniktech.emoji.Utils.input(this, emoji);
+    Utils.input(this, emoji);
   }
 
   @Override public final float getEmojiSize() {

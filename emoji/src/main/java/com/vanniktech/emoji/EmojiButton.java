@@ -35,12 +35,12 @@ public class EmojiButton extends AppCompatButton implements EmojiDisplayable {
 
   public EmojiButton(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiButton, R.styleable.EmojiButton_emojiSize);
   }
 
   public EmojiButton(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiButton, R.styleable.EmojiButton_emojiSize);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

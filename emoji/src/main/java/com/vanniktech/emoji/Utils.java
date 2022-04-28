@@ -38,6 +38,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StyleableRes;
 import androidx.core.content.ContextCompat;
 import com.vanniktech.emoji.emoji.Emoji;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public final class Utils {
     return reference;
   }
 
-  @PrivateApi public static float initTextView(final TextView textView, final AttributeSet attrs) {
+  @PrivateApi public static float initTextView(final TextView textView, final AttributeSet attrs, @StyleableRes final int[] stylable, @StyleableRes final int emojiSizeAttr) {
     if (!textView.isInEditMode()) {
       EmojiManager.getInstance().verifyInstalled();
     }
@@ -67,10 +68,10 @@ public final class Utils {
     if (attrs == null) {
       emojiSize = defaultEmojiSize;
     } else {
-      final TypedArray a = textView.getContext().obtainStyledAttributes(attrs, R.styleable.EmojiTextView);
+      final TypedArray a = textView.getContext().obtainStyledAttributes(attrs, stylable);
 
       try {
-        emojiSize = a.getDimension(R.styleable.EmojiTextView_emojiSize, defaultEmojiSize);
+        emojiSize = a.getDimension(emojiSizeAttr, defaultEmojiSize);
       } finally {
         a.recycle();
       }

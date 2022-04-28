@@ -36,12 +36,12 @@ public class EmojiMultiAutoCompleteTextView extends AppCompatMultiAutoCompleteTe
 
   public EmojiMultiAutoCompleteTextView(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMultiAutoCompleteTextView, R.styleable.EmojiMultiAutoCompleteTextView_emojiSize);
   }
 
   public EmojiMultiAutoCompleteTextView(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMultiAutoCompleteTextView, R.styleable.EmojiMultiAutoCompleteTextView_emojiSize);
   }
 
   @Override @CallSuper protected void onTextChanged(final CharSequence text, final int start, final int lengthBefore, final int lengthAfter) {

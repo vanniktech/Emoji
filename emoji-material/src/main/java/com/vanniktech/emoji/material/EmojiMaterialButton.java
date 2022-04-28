@@ -27,6 +27,7 @@ import androidx.annotation.Px;
 import com.google.android.material.button.MaterialButton;
 import com.vanniktech.emoji.EmojiDisplayable;
 import com.vanniktech.emoji.EmojiManager;
+import com.vanniktech.emoji.Utils;
 
 public class EmojiMaterialButton extends MaterialButton implements EmojiDisplayable {
   private float emojiSize;
@@ -37,12 +38,12 @@ public class EmojiMaterialButton extends MaterialButton implements EmojiDisplaya
 
   public EmojiMaterialButton(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialButton, R.styleable.EmojiMaterialButton_emojiSize);
   }
 
   public EmojiMaterialButton(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialButton, R.styleable.EmojiMaterialButton_emojiSize);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

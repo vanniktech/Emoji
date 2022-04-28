@@ -25,8 +25,9 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
 import androidx.annotation.Px;
 import com.google.android.material.checkbox.MaterialCheckBox;
-import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiDisplayable;
+import com.vanniktech.emoji.EmojiManager;
+import com.vanniktech.emoji.Utils;
 
 public class EmojiMaterialCheckBox extends MaterialCheckBox implements EmojiDisplayable {
   private float emojiSize;
@@ -37,12 +38,12 @@ public class EmojiMaterialCheckBox extends MaterialCheckBox implements EmojiDisp
 
   public EmojiMaterialCheckBox(final Context context, final AttributeSet attrs) {
     super(context, attrs);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialCheckBox, R.styleable.EmojiMaterialCheckBox_emojiSize);
   }
 
   public EmojiMaterialCheckBox(final Context context, final AttributeSet attrs, final int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    emojiSize = Utils.initTextView(this, attrs);
+    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialCheckBox, R.styleable.EmojiMaterialCheckBox_emojiSize);
   }
 
   @Override @CallSuper public void setText(final CharSequence rawText, final BufferType type) {

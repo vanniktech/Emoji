@@ -9,4 +9,7 @@
   <declare-styleable name="EmojiMaterialRadioButton">
     <attr name="emojiSize"/>
   </declare-styleable>
+  <declare-styleable name="EmojiTextInputEditText">
+    <attr name="emojiSize"/>
+  </declare-styleable>
 </resources>
