@@ -41,8 +41,8 @@ internal class EmojiArrayAdapter(
     val context = context
     if (image == null) {
       image = LayoutInflater.from(context).inflate(R.layout.emoji_adapter_item_emoji, parent, false) as EmojiImageView
-      image.setOnEmojiClickListener(listener)
-      image.setOnEmojiLongClickListener(longListener)
+      image.clickListener = listener
+      image.longClickListener = longListener
     }
     val emoji = getItem(position)!!
     val variantToUse = variantManager?.getVariant(emoji) ?: emoji
