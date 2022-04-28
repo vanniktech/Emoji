@@ -56,8 +56,11 @@ internal class EmojiSearchDialog : DialogFragment() {
 
     val editText = dialog.findViewById<EditText>(R.id.editText)!!
     editText.setTextColor(theming.textColor(activity))
-    editText.highlightColor = theming.secondaryColor(activity)
-    ViewCompat.setBackgroundTintList(editText, ColorStateList.valueOf(theming.secondaryColor(activity)))
+    val secondaryColor = theming.secondaryColor(activity)
+    editText.setCursorDrawableColor(secondaryColor)
+    editText.setHandlesColor(secondaryColor)
+    editText.highlightColor = secondaryColor
+    ViewCompat.setBackgroundTintList(editText, ColorStateList.valueOf(secondaryColor))
 
     val recyclerView = dialog.findViewById<RecyclerView>(R.id.recyclerView)
     val adapter = EmojiAdapter(
