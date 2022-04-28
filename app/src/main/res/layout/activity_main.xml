@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_activity_root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
   <com.vanniktech.emoji.material.EmojiMaterialButton
-      android:id="@+id/main_activity_material_button"
+      android:id="@+id/button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
       tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiCheckbox
-      android:id="@+id/main_activity_force_emojis_only"
+      android:id="@+id/force_emojis_only"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="12dp"
@@ -58,13 +58,13 @@
       tools:ignore="HardcodedText"
       />
   <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/main_activity_recycler_view"
+      android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_weight="1"
       />
   <LinearLayout
-      android:id="@+id/main_activity_emoji_bar"
+      android:id="@+id/chat"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/chat_input_background"
@@ -73,7 +73,7 @@
       android:padding="4dp"
       >
     <ImageButton
-        android:id="@+id/main_activity_emoji"
+        android:id="@+id/chatEmoji"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -83,7 +83,7 @@
         tools:ignore="ContentDescription"
         />
     <com.vanniktech.emoji.EmojiEditText
-        android:id="@+id/main_activity_chat_bottom_message_edittext"
+        android:id="@+id/chatEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -95,7 +95,7 @@
         tools:ignore="HardcodedText,LabelFor"
         />
     <ImageView
-        android:id="@+id/main_activity_send"
+        android:id="@+id/chatSend"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
