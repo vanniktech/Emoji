@@ -18,14 +18,14 @@ package com.vanniktech.emoji.inputfilters
 
 import android.text.InputFilter
 import android.text.Spanned
-import com.vanniktech.emoji.EmojiUtils
+import com.vanniktech.emoji.emojiInformation
 
 /** Input Filter that accepts only a certain number of Emojis.  */
 class MaximalNumberOfEmojisInputFilter(
   private val maxCount: Int,
 ) : InputFilter {
   override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? {
-    val (_, emojis) = EmojiUtils.emojiInformation(dest.subSequence(0, dest.length))
+    val (_, emojis) = dest.subSequence(0, dest.length).emojiInformation()
     return when {
       emojis.size >= maxCount -> "" // Reject.
       else -> null

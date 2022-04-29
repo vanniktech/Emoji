@@ -18,7 +18,7 @@ package com.vanniktech.emoji.inputfilters
 
 import android.text.InputFilter
 import android.text.Spanned
-import com.vanniktech.emoji.kotlin.isOnlyEmojis
+import com.vanniktech.emoji.isOnlyEmojis
 
 /** InputFilter that only accepts emojis.  */
 class OnlyEmojisInputFilter : InputFilter {

@@ -21,7 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.EmojiTextView
-import com.vanniktech.emoji.EmojiUtils
+import com.vanniktech.emoji.emojiInformation
 import com.vanniktech.emoji.sample.ChatAdapter.ChatViewHolder
 
 internal class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
@@ -34,7 +34,7 @@ internal class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
 
   override fun onBindViewHolder(chatViewHolder: ChatViewHolder, position: Int) {
     val text = texts[position]
-    val (isOnlyEmojis, emojis) = EmojiUtils.emojiInformation(text)
+    val (isOnlyEmojis, emojis) = text.emojiInformation()
     val res: Int = when {
       isOnlyEmojis && emojis.size == 1 -> R.dimen.emoji_size_single_emoji
       isOnlyEmojis && emojis.size > 1 -> R.dimen.emoji_size_only_emojis
