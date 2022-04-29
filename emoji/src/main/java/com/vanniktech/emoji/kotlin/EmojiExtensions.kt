@@ -17,12 +17,19 @@
 
 package com.vanniktech.emoji.kotlin
 
-import com.vanniktech.emoji.EmojiUtils
+import com.vanniktech.emoji.isOnlyEmojis
+import com.vanniktech.emoji.emojisCount
+import com.vanniktech.emoji.emojis
+import com.vanniktech.emoji.emojiInformation
 
-fun CharSequence.isOnlyEmojis() = EmojiUtils.isOnlyEmojis(this)
+@Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("this.isOnlyEmojis()", imports = arrayOf("com.vanniktech.emoji.isOnlyEmojis")))
+fun CharSequence.isOnlyEmojis() = isOnlyEmojis()
 
-fun CharSequence.emojisCount() = EmojiUtils.emojisCount(this)
+@Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("this.emojis()", imports = arrayOf("com.vanniktech.emoji.emojis")))
+fun CharSequence.emojis() = emojis()
 
-fun CharSequence.emojis() = EmojiUtils.emojis(this)
+@Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("this.emojisCount()", imports = arrayOf("com.vanniktech.emoji.emojisCount")))
+fun CharSequence.emojisCount() = emojisCount()
 
-fun CharSequence.emojiInformation() = EmojiUtils.emojiInformation(this)
+@Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("this.emojiInformation()", imports = arrayOf("com.vanniktech.emoji.emojiInformation")))
+fun CharSequence.emojiInformation() = emojiInformation()

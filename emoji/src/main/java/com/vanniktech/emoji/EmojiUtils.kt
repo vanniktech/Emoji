@@ -21,30 +21,45 @@ import java.util.regex.Pattern
 
 private val SPACE_REMOVAL = Pattern.compile("[\\s]")
 
+@Suppress("UNUSED")
 object EmojiUtils {
   /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
-  fun isOnlyEmojis(text: CharSequence?): Boolean {
-    if (text != null && text.isNotEmpty()) {
-      val inputWithoutSpaces = SPACE_REMOVAL.matcher(text).replaceAll(Matcher.quoteReplacement(""))
-      return EmojiManager.getInstance()
-        .emojiRepetitivePattern
-        .matcher(inputWithoutSpaces)
-        .matches()
-    }
-    return false
-  }
+  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.isOnlyEmojis()", imports = arrayOf("com.vanniktech.emoji.isOnlyEmojis")))
+  fun isOnlyEmojis(text: CharSequence?) = text.isOnlyEmojis()
 
   /** Returns the emojis that were found in the given text. */
-  fun emojis(text: CharSequence?): List<EmojiRange> =
-    EmojiManager.getInstance().findAllEmojis(text)
+  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojis()", imports = arrayOf("com.vanniktech.emoji.emojis")))
+  fun emojis(text: CharSequence?) = text.emojis()
 
   /** Returns the number of all emojis that were found in the given text. */
-  fun emojisCount(text: CharSequence?): Int = emojis(text).size
+  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojisCount()", imports = arrayOf("com.vanniktech.emoji.emojisCount")))
+  fun emojisCount(text: CharSequence?) = text.emojisCount()
 
   /** Returns a class that contains all of the emoji information that was found in the given text. */
-  fun emojiInformation(text: CharSequence?): EmojiInformation {
-    val emojis = EmojiManager.getInstance().findAllEmojis(text)
-    val isOnlyEmojis = isOnlyEmojis(text)
-    return EmojiInformation(isOnlyEmojis, emojis)
+  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojiInformation()", imports = arrayOf("com.vanniktech.emoji.emojiInformation")))
+  fun emojiInformation(text: CharSequence?) = text.emojiInformation()
+}
+
+/** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
+fun CharSequence?.isOnlyEmojis(): Boolean {
+  if (this != null && this.isNotEmpty()) {
+    val inputWithoutSpaces = SPACE_REMOVAL.matcher(this).replaceAll(Matcher.quoteReplacement(""))
+    return EmojiManager.getInstance()
+      .emojiRepetitivePattern
+      .matcher(inputWithoutSpaces)
+      .matches()
   }
+  return false
+}
+
+/** Returns the emojis that were found in the given text. */
+fun CharSequence?.emojis(): List<EmojiRange> = EmojiManager.getInstance().findAllEmojis(this)
+
+/** Returns the number of all emojis that were found in the given text. */
+fun CharSequence?.emojisCount() = emojis().size
+
+/** Returns a class that contains all of the emoji information that was found in the given text. */
+fun CharSequence?.emojiInformation(): EmojiInformation {
+  val emojis = EmojiManager.getInstance().findAllEmojis(this)
+  return EmojiInformation(isOnlyEmojis(), emojis)
 }

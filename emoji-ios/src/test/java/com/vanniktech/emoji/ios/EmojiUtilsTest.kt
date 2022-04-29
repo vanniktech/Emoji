@@ -1,7 +1,8 @@
 package com.vanniktech.emoji.ios
 
 import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.EmojiUtils
+import com.vanniktech.emoji.emojisCount
+import com.vanniktech.emoji.isOnlyEmojis
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Ignore
@@ -14,8 +15,8 @@ class EmojiUtilsTest {
 
   @Test fun starWithVariantSelector() {
     val s = "⭐️⭐️⭐️"
-    assertEquals(true, EmojiUtils.isOnlyEmojis(s))
-    assertEquals(3, EmojiUtils.emojisCount(s))
+    assertEquals(true, s.isOnlyEmojis())
+    assertEquals(3, s.emojisCount())
   }
 
   @Ignore("https://github.com/vanniktech/Emoji/issues/485")
@@ -29,10 +30,10 @@ class EmojiUtilsTest {
     )
 
     emojis.forEach {
-      assertEquals(it, false, EmojiUtils.isOnlyEmojis("f$it"))
-      assertEquals(it, false, EmojiUtils.isOnlyEmojis("${it}f"))
-      assertEquals(it, 1, EmojiUtils.emojisCount(it))
-      assertEquals(it, true, EmojiUtils.isOnlyEmojis(it))
+      assertEquals(it, false, "f$it".isOnlyEmojis())
+      assertEquals(it, false, "${it}f".isOnlyEmojis())
+      assertEquals(it, 1, it.emojisCount())
+      assertEquals(it, true, it.isOnlyEmojis())
     }
   }
 }

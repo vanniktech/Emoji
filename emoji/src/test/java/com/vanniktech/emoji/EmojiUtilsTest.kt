@@ -33,83 +33,83 @@ import org.robolectric.annotation.Config
   }
 
   @Test fun isOnlyEmojisEmpty() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis(""))
+    assertEquals(false, "".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisNull() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis(null))
+    assertEquals(false, null.isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisText() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis("hello world!"))
+    assertEquals(false, "hello world!".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisSingleEmoji() {
-    assertEquals(true, EmojiUtils.isOnlyEmojis(EMOJI_1))
+    assertEquals(true, EMOJI_1.isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojis() {
-    assertEquals(true, EmojiUtils.isOnlyEmojis(EMOJI_1 + EMOJI_2))
+    assertEquals(true, (EMOJI_1 + EMOJI_2).isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojisWithSpaces() {
-    assertEquals(true, EmojiUtils.isOnlyEmojis(""" 	$EMOJI_1	    $EMOJI_2  """))
+    assertEquals(true, """ 	$EMOJI_1	    $EMOJI_2  """.isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisSingleEmojiAndText() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis(EMOJI_1 + "hello"))
+    assertEquals(false, (EMOJI_1 + "hello").isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisSingleTextAndEmoji() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis("hello" + EMOJI_1))
+    assertEquals(false, ("hello$EMOJI_1").isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojisAndText() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis(EMOJI_1 + "hello" + EMOJI_2))
+    assertEquals(false, (EMOJI_1 + "hello" + EMOJI_2).isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleTextAndEmojis() {
-    assertEquals(false, EmojiUtils.isOnlyEmojis("hello" + EMOJI_1 + "world"))
+    assertEquals(false, ("hello" + EMOJI_1 + "world").isOnlyEmojis())
   }
 
   @Test fun emojisCountEmpty() {
-    assertEquals(0, EmojiUtils.emojisCount(""))
+    assertEquals(0, "".emojisCount())
   }
 
   @Test fun emojisCountNull() {
-    assertEquals(0, EmojiUtils.emojisCount(null))
+    assertEquals(0, null.emojisCount())
   }
 
   @Test fun emojisCountText() {
-    assertEquals(0, EmojiUtils.emojisCount("hello world!"))
+    assertEquals(0, "hello world!".emojisCount())
   }
 
   @Test fun emojisCountSingleEmoji() {
-    assertEquals(1, EmojiUtils.emojisCount(EMOJI_1))
+    assertEquals(1, EMOJI_1.emojisCount())
   }
 
   @Test fun emojisCountMultipleEmoji() {
-    assertEquals(2, EmojiUtils.emojisCount(EMOJI_1 + EMOJI_2))
+    assertEquals(2, (EMOJI_1 + EMOJI_2).emojisCount())
   }
 
   @Test fun emojisCountMultipleEmojisWithSpaces() {
-    assertEquals(2, EmojiUtils.emojisCount(""" $EMOJI_1    $EMOJI_2  """))
+    assertEquals(2, """ $EMOJI_1    $EMOJI_2  """.emojisCount())
   }
 
   @Test fun emojisCountSingleEmojiAndText() {
-    assertEquals(1, EmojiUtils.emojisCount(EMOJI_1 + "hello"))
+    assertEquals(1, (EMOJI_1 + "hello").emojisCount())
   }
 
   @Test fun emojisCountSingleTextAndEmoji() {
-    assertEquals(1, EmojiUtils.emojisCount("hello" + EMOJI_1))
+    assertEquals(1, ("hello$EMOJI_1").emojisCount())
   }
 
   @Test fun emojisCountMultipleEmojisAndText() {
-    assertEquals(2, EmojiUtils.emojisCount(EMOJI_1 + "hello" + EMOJI_2))
+    assertEquals(2, (EMOJI_1 + "hello" + EMOJI_2).emojisCount())
   }
 
   @Test fun emojisCountMultipleTextAndEmojis() {
-    assertEquals(1, EmojiUtils.emojisCount("hello" + EMOJI_1 + "world"))
+    assertEquals(1, ("hello" + EMOJI_1 + "world").emojisCount())
   }
 
   companion object {
