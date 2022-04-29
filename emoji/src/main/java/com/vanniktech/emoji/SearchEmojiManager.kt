@@ -7,7 +7,7 @@ class SearchEmojiManager : SearchEmoji {
     return when {
       query.length > 1 -> categories.flatMap { it.emojis.toList() }
         .mapNotNull { emoji ->
-          emoji.shortcodes.orEmpty().mapNotNull { shortcode ->
+          emoji.shortcodes.mapNotNull { shortcode ->
             val index = shortcode.indexOf(query, ignoreCase = true)
 
             if (index >= 0) {

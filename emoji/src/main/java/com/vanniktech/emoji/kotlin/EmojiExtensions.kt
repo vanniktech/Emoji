@@ -17,10 +17,10 @@
 
 package com.vanniktech.emoji.kotlin
 
-import com.vanniktech.emoji.isOnlyEmojis
-import com.vanniktech.emoji.emojisCount
-import com.vanniktech.emoji.emojis
 import com.vanniktech.emoji.emojiInformation
+import com.vanniktech.emoji.emojis
+import com.vanniktech.emoji.emojisCount
+import com.vanniktech.emoji.isOnlyEmojis
 
 @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("this.isOnlyEmojis()", imports = arrayOf("com.vanniktech.emoji.isOnlyEmojis")))
 fun CharSequence.isOnlyEmojis() = isOnlyEmojis()

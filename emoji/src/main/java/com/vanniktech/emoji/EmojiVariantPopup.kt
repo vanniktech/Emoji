@@ -69,7 +69,7 @@ internal class EmojiVariantPopup internal constructor(
   private fun initView(context: Context, emoji: Emoji, width: Int, clickedImage: EmojiImageView): View {
     val result = View.inflate(context, R.layout.emoji_popup_window_skin, null)
     val imageContainer = result.findViewById<LinearLayout>(R.id.emojiPopupWindowSkinPopupContainer)
-    val variants = emoji.base.variants
+    val variants = emoji.base.variants.toMutableList()
     variants.add(0, emoji.base)
     val inflater = LayoutInflater.from(context)
 

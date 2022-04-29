@@ -118,14 +118,14 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
         for (int j = 0; j < emojisSize; j++) {
           final Emoji emoji = emojis[j];
           final String unicode = emoji.getUnicode();
-          final List<Emoji> variants = emoji.getVariants();
+          final Emoji[] variants = emoji.getVariants();
 
           INSTANCE.emojiMap.put(unicode, emoji);
           unicodesForPattern.add(unicode);
 
           //noinspection ForLoopReplaceableByForEach
-          for (int k = 0; k < variants.size(); k++) {
-            final Emoji variant = variants.get(k);
+          for (int k = 0; k < variants.length; k++) {
+            final Emoji variant = variants[k];
             final String variantUnicode = variant.getUnicode();
 
             INSTANCE.emojiMap.put(variantUnicode, variant);
