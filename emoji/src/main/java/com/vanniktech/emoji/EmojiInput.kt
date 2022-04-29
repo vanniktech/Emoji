@@ -19,16 +19,10 @@ package com.vanniktech.emoji
 import com.vanniktech.emoji.traits.EmojiTrait
 
 interface EmojiInput {
-  /** Returns true when [enableKeyboardInput] was called and otherwise false.  */
-  val isKeyboardInputDisabled: Boolean
+  /** Disables the keyboard. Only EmojiPopup will be shown. */
+  fun installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait
 
-  /** Enables the keyboard input. If it has been disabled before using [disableKeyboardInput] the OnFocusChangeListener will be preserved.  */
-  fun enableKeyboardInput()
-
-  /** Disables the keyboard input using a focus change listener and delegating to the previous focus change listener.  */
-  fun disableKeyboardInput(emojiPopup: EmojiPopup)
-
-  /** Forces this EditText to contain only one Emoji.  */
+  /** Forces this EditText to contain only one Emoji. */
   fun installForceSingleEmoji(): EmojiTrait
 
   /** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */

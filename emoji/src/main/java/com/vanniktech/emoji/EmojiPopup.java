@@ -85,9 +85,6 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
   final PopupWindow.OnDismissListener onDismissListener = new PopupWindow.OnDismissListener() {
     @Override public void onDismiss() {
-      if (editText instanceof EmojiInput && ((EmojiInput) editText).isKeyboardInputDisabled()) {
-        editText.clearFocus();
-      }
       if (onEmojiPopupDismissListener != null) {
         onEmojiPopupDismissListener.onEmojiPopupDismiss();
       }

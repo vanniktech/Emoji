@@ -20,11 +20,9 @@ package com.vanniktech.emoji.material;
 import android.content.Context;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vanniktech.emoji.EmojiEditable;
@@ -34,12 +32,12 @@ import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.SearchInPlaceTrait;
 import com.vanniktech.emoji.Utils;
 import com.vanniktech.emoji.emoji.Emoji;
+import com.vanniktech.emoji.traits.DisableKeyboardInputTrait;
 import com.vanniktech.emoji.traits.EmojiTrait;
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait;
 
 public class EmojiTextInputEditText extends TextInputEditText implements EmojiEditable, EmojiInput {
   private float emojiSize;
-  private boolean disableKeyboardInput;
 
   public EmojiTextInputEditText(final Context context) {
     this(context, null);
@@ -97,34 +95,8 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
     setEmojiSize(getResources().getDimensionPixelSize(res), shouldInvalidate);
   }
 
-  @Override public void setOnFocusChangeListener(final OnFocusChangeListener l) {
-    final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
-
-    if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
-      final ForceEmojisOnlyFocusChangeListener cast = (ForceEmojisOnlyFocusChangeListener) onFocusChangeListener;
-      super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(l, cast.emojiPopup));
-    } else {
-      super.setOnFocusChangeListener(l);
-    }
-  }
-
-  @Override public boolean isKeyboardInputDisabled() {
-    return disableKeyboardInput;
-  }
-
-  @Override public void disableKeyboardInput(@NonNull final EmojiPopup emojiPopup) {
-    disableKeyboardInput = true;
-    super.setOnFocusChangeListener(new ForceEmojisOnlyFocusChangeListener(getOnFocusChangeListener(), emojiPopup));
-  }
-
-  @Override public void enableKeyboardInput() {
-    disableKeyboardInput = false;
-    final OnFocusChangeListener onFocusChangeListener = getOnFocusChangeListener();
-
-    if (onFocusChangeListener instanceof ForceEmojisOnlyFocusChangeListener) {
-      final ForceEmojisOnlyFocusChangeListener cast = (ForceEmojisOnlyFocusChangeListener) onFocusChangeListener;
-      super.setOnFocusChangeListener(cast.onFocusChangeListener);
-    }
+  @Override @NonNull public EmojiTrait installDisableKeyboardInput(@NonNull final EmojiPopup emojiPopup) {
+    return new DisableKeyboardInputTrait(emojiPopup).install(this);
   }
 
   @Override @NonNull public EmojiTrait installForceSingleEmoji() {
@@ -133,28 +105,5 @@ public class EmojiTextInputEditText extends TextInputEditText implements EmojiEd
 
   @Override @NonNull public EmojiTrait installSearchInPlace(@NonNull final EmojiPopup emojiPopup) {
     return new SearchInPlaceTrait(emojiPopup).install(this);
-  }
-
-  static class ForceEmojisOnlyFocusChangeListener implements OnFocusChangeListener {
-    final EmojiPopup emojiPopup;
-    @Nullable final OnFocusChangeListener onFocusChangeListener;
-
-    ForceEmojisOnlyFocusChangeListener(@Nullable final OnFocusChangeListener onFocusChangeListener, final EmojiPopup emojiPopup) {
-      this.emojiPopup = emojiPopup;
-      this.onFocusChangeListener = onFocusChangeListener;
-    }
-
-    @Override public void onFocusChange(final View view, final boolean hasFocus) {
-      if (hasFocus) {
-        emojiPopup.start();
-        emojiPopup.show();
-      } else {
-        emojiPopup.dismiss();
-      }
-
-      if (onFocusChangeListener != null) {
-        onFocusChangeListener.onFocusChange(view, hasFocus);
-      }
-    }
   }
 }

@@ -50,15 +50,16 @@ class CustomViewActivity : AppCompatActivity() {
       binding.onlyAllowSingleEmoji.setOnCheckedChangeListener { _, isChecked: Boolean ->
         if (isChecked) {
           forceSingleEmoji = binding.editText.installForceSingleEmoji()
-        } else if (forceSingleEmoji != null) {
-          forceSingleEmoji!!.uninstall()
+        } else {
+          forceSingleEmoji?.uninstall()
         }
       }
+
       val emojiPopup = EmojiPopup.Builder.fromRootView(this)
         .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
         .setPageTransformer(PageTransformer())
         .build(binding.editText)
-      binding.editText.disableKeyboardInput(emojiPopup)
+      binding.editText.installDisableKeyboardInput(emojiPopup)
       binding.button.setOnClickListener { binding.editText.requestFocus() }
     }
   }

@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
   private lateinit var emojiPopup: EmojiPopup
   private var emojiCompat: EmojiCompat? = null
   private var searchInPlaceEmojiTrait: EmojiTrait? = null
+  private var disableKeyboardInputEmojiTrait: EmojiTrait? = null
 
   @SuppressLint("SetTextI18n")
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,17 +81,17 @@ class MainActivity : AppCompatActivity() {
       if (isChecked) {
         binding.chatEditText.clearFocus()
         binding.chatEmoji.visibility = View.GONE
-        binding.chatEditText.disableKeyboardInput(emojiPopup)
+        disableKeyboardInputEmojiTrait = binding.chatEditText.installDisableKeyboardInput(emojiPopup)
       } else {
         binding.chatEmoji.visibility = View.VISIBLE
-        binding.chatEditText.enableKeyboardInput()
+        disableKeyboardInputEmojiTrait?.uninstall()
       }
     }
     binding.inPlaceEmojis.setOnCheckedChangeListener { _, isChecked: Boolean ->
       if (isChecked) {
         searchInPlaceEmojiTrait = binding.chatEditText.installSearchInPlace(emojiPopup)
-      } else if (searchInPlaceEmojiTrait != null) {
-        searchInPlaceEmojiTrait!!.uninstall()
+      } else {
+        searchInPlaceEmojiTrait?.uninstall()
       }
     }
     binding.chatEmoji.setOnClickListener { emojiPopup.toggle() }
