@@ -401,7 +401,7 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
 
     @CheckResult public EmojiPopup build(@NonNull final EditText editText) {
       checkNotNull(editText, "EditText can't be null");
-      EmojiManager.getInstance().verifyInstalled();
+      EmojiManager.INSTANCE.verifyInstalled();
 
       final EmojiPopup emojiPopup = new EmojiPopup(this, editText);
       emojiPopup.onSoftKeyboardCloseListener = onSoftKeyboardCloseListener;

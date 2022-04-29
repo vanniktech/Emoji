@@ -84,7 +84,7 @@ class VariantEmojiManager(
       variantsList = ArrayList(stringTokenizer.countTokens())
       while (stringTokenizer.hasMoreTokens()) {
         val token = stringTokenizer.nextToken()
-        val emoji = EmojiManager.getInstance().findEmoji(token)
+        val emoji = EmojiManager.findEmoji(token)
         if (emoji != null && emoji.length == token.length) {
           variantsList.add(emoji)
         }

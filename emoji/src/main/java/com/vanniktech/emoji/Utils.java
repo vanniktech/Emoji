@@ -58,7 +58,7 @@ public final class Utils {
 
   @PrivateApi @Px public static float initTextView(final TextView textView, final AttributeSet attrs, @StyleableRes final int[] stylable, @StyleableRes final int emojiSizeAttr) {
     if (!textView.isInEditMode()) {
-      EmojiManager.getInstance().verifyInstalled();
+      EmojiManager.INSTANCE.verifyInstalled();
     }
 
     final Paint.FontMetrics fontMetrics = textView.getPaint().getFontMetrics();

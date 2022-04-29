@@ -43,9 +43,9 @@ object EmojiUtils {
 /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
 fun CharSequence?.isOnlyEmojis(): Boolean {
   if (this != null && this.isNotEmpty()) {
+    EmojiManager.verifyInstalled()
     val inputWithoutSpaces = SPACE_REMOVAL.matcher(this).replaceAll(Matcher.quoteReplacement(""))
-    return EmojiManager.getInstance()
-      .emojiRepetitivePattern
+    return EmojiManager.emojiRepetitivePattern!!
       .matcher(inputWithoutSpaces)
       .matches()
   }
@@ -53,13 +53,13 @@ fun CharSequence?.isOnlyEmojis(): Boolean {
 }
 
 /** Returns the emojis that were found in the given text. */
-fun CharSequence?.emojis(): List<EmojiRange> = EmojiManager.getInstance().findAllEmojis(this)
+fun CharSequence?.emojis(): List<EmojiRange> = EmojiManager.findAllEmojis(this)
 
 /** Returns the number of all emojis that were found in the given text. */
 fun CharSequence?.emojisCount() = emojis().size
 
 /** Returns a class that contains all of the emoji information that was found in the given text. */
 fun CharSequence?.emojiInformation(): EmojiInformation {
-  val emojis = EmojiManager.getInstance().findAllEmojis(this)
+  val emojis = EmojiManager.findAllEmojis(this)
   return EmojiInformation(isOnlyEmojis(), emojis)
 }

@@ -49,12 +49,12 @@ class EmojiManagerTest {
 
   @Test fun installNormalCategory() {
     EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.getInstance().categories.isNotEmpty())
+    assertEquals(true, EmojiManager.categories().isNotEmpty())
   }
 
   @Test fun noProviderInstalled() {
     assertThrows("Please install an EmojiProvider through the EmojiManager.install() method first.", IllegalStateException::class.java) {
-      EmojiManager.getInstance().findEmoji("test")
+      EmojiManager.findEmoji("test")
     }
   }
 
@@ -74,7 +74,7 @@ class EmojiManagerTest {
     EmojiManager.install(provider)
     assertEquals(
       Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_recent, false),
-      EmojiManager.getInstance().findEmoji(String(intArrayOf(0x1234), 0, 1)),
+      EmojiManager.findEmoji(String(intArrayOf(0x1234), 0, 1)),
     )
   }
 
@@ -83,13 +83,13 @@ class EmojiManagerTest {
     EmojiManager.install(provider)
 
     // No duplicate categories.
-    assertEquals(1, EmojiManager.getInstance().categories.size)
+    assertEquals(1, EmojiManager.categories().size)
   }
 
   @Test fun destroy() {
     EmojiManager.destroy()
     assertThrows("Please install an EmojiProvider through the EmojiManager.install() method first.", IllegalStateException::class.java) {
-      EmojiManager.getInstance().findEmoji("test")
+      EmojiManager.findEmoji("test")
     }
   }
 
@@ -97,13 +97,13 @@ class EmojiManagerTest {
     EmojiManager.install(provider)
     assertEquals(
       Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_backspace, false),
-      EmojiManager.getInstance().findEmoji(String(intArrayOf(0x5678), 0, 1)),
+      EmojiManager.findEmoji(String(intArrayOf(0x5678), 0, 1)),
     )
   }
 
   @Test fun findEmojiEmpty() {
     EmojiManager.install(provider)
-    assertEquals(null, EmojiManager.getInstance().findEmoji(""))
+    assertEquals(null, EmojiManager.findEmoji(""))
   }
 
   @Test fun findAllEmojisNormal() {
@@ -119,25 +119,25 @@ class EmojiManagerTest {
         firstExpectedRange,
         secondExpectedRange,
       ),
-      EmojiManager.getInstance().findAllEmojis(text),
+      EmojiManager.findAllEmojis(text),
     )
   }
 
   @Test fun findAllEmojisEmpty() {
     EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.getInstance().findAllEmojis("").isEmpty())
+    assertEquals(true, EmojiManager.findAllEmojis("").isEmpty())
   }
 
   @Test fun findAllEmojisNull() {
     EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.getInstance().findAllEmojis(null).isEmpty())
+    assertEquals(true, EmojiManager.findAllEmojis(null).isEmpty())
   }
 
   @Suppress("DEPRECATION")
   @Test fun simple() {
     EmojiManager.install(provider)
     val text = SpannableString(String(intArrayOf(0x1234), 0, 1))
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 44f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 44f)
     assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -145,7 +145,7 @@ class EmojiManagerTest {
   @Test fun inString() {
     EmojiManager.install(provider)
     val text = SpannableString("test" + String(intArrayOf(0x1234), 0, 1) + "abc")
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -153,7 +153,7 @@ class EmojiManagerTest {
   @Test fun multiple() {
     EmojiManager.install(provider)
     val text = SpannableString(String(intArrayOf(0x1234), 0, 1) + String(intArrayOf(0x5678), 0, 1))
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(2, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -161,7 +161,7 @@ class EmojiManagerTest {
   @Test fun multipleInString() {
     EmojiManager.install(provider)
     val text = SpannableString("abc" + String(intArrayOf(0x1234), 0, 1) + "cba" + String(intArrayOf(0x5678), 0, 1) + "xyz")
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(2, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -169,7 +169,7 @@ class EmojiManagerTest {
   @Test fun halfPath() {
     EmojiManager.install(provider)
     val text = SpannableString(String(intArrayOf(0x1234, 0x4321), 0, 1))
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 11f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 11f)
     assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -177,7 +177,7 @@ class EmojiManagerTest {
   @Test fun fullPath() {
     EmojiManager.install(provider)
     val text = SpannableString(String(intArrayOf(0x1234, 0x4321, 0x9999), 0, 1))
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -185,7 +185,7 @@ class EmojiManagerTest {
   @Test fun empty() {
     EmojiManager.install(provider)
     val text = SpannableString("")
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(0, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 
@@ -193,7 +193,7 @@ class EmojiManagerTest {
   @Test fun noneInString() {
     EmojiManager.install(provider)
     val text = SpannableString("abcdefg")
-    EmojiManager.getInstance().replaceWithImages(RuntimeEnvironment.application, text, 22f)
+    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
     assertEquals(0, text.getSpans(0, text.length, EmojiSpan::class.java).size)
   }
 }

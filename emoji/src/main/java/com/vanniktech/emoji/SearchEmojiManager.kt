@@ -2,7 +2,7 @@ package com.vanniktech.emoji
 
 class SearchEmojiManager : SearchEmoji {
   override fun search(query: String): List<SearchEmojiResult> {
-    val categories = EmojiManager.getInstance().categories
+    val categories = EmojiManager.categories()
 
     return when {
       query.length > 1 -> categories.flatMap { it.emojis.toList() }

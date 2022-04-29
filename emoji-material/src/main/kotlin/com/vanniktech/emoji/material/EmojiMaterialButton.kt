@@ -45,7 +45,7 @@ class EmojiMaterialButton @JvmOverloads constructor(
     val spannableStringBuilder = SpannableStringBuilder(rawText ?: "")
     val fontMetrics = paint.fontMetrics
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
-    EmojiManager.getInstance().replaceWithImages(context, spannableStringBuilder, if (emojiSize != 0f) emojiSize else defaultEmojiSize)
+    EmojiManager.replaceWithImages(context, spannableStringBuilder, if (emojiSize != 0f) emojiSize else defaultEmojiSize)
     super.setText(spannableStringBuilder, type)
   }
 

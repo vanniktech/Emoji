@@ -32,7 +32,7 @@ internal class EmojiPagerAdapter(
 
   fun recentAdapterItemCount() = if (hasRecentEmoji()) 1 else 0
 
-  override fun getCount() = EmojiManager.getInstance().categories.size + recentAdapterItemCount()
+  override fun getCount() = EmojiManager.categories().size + recentAdapterItemCount()
 
   override fun instantiateItem(pager: ViewGroup, position: Int): Any {
     val newView = when {
@@ -42,7 +42,7 @@ internal class EmojiPagerAdapter(
         view
       }
       else -> {
-        val category = EmojiManager.getInstance().categories[position - recentAdapterItemCount()]
+        val category = EmojiManager.categories()[position - recentAdapterItemCount()]
         CategoryGridView(pager.context).init(delegate, delegate, theming, category, variantManager)
       }
     }

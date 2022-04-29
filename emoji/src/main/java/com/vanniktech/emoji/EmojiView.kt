@@ -124,7 +124,7 @@ class EmojiView @JvmOverloads constructor(
     context: Context,
     emojisPager: ViewPager
   ) {
-    val categories = EmojiManager.getInstance().categories
+    val categories = EmojiManager.categories()
     val emojisTab = findViewById<LinearLayout>(R.id.emojiViewTab)
     emojiPagerAdapter = EmojiPagerAdapter(
       object : EmojiPagerDelegate {

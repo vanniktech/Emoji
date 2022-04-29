@@ -41,7 +41,7 @@ class EmojiMultiAutoCompleteTextView @JvmOverloads constructor(
     }
     val fontMetrics = paint.fontMetrics
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
-    EmojiManager.getInstance().replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
+    EmojiManager.replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
   }
 
   @CallSuper override fun backspace() = Utils.backspace(this)
