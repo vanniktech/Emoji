@@ -31,7 +31,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import com.vanniktech.emoji.emoji.Emoji
 
-internal class EmojiVariantPopup(
+internal class EmojiVariantPopup internal constructor(
   private val rootView: View,
   private val delegate: EmojiVariantDelegate?,
 ) {

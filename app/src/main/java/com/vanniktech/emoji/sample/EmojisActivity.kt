@@ -2,10 +2,6 @@ package com.vanniktech.emoji.sample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.vanniktech.emoji.EmojiTheming
-import com.vanniktech.emoji.RecentEmojiManager
-import com.vanniktech.emoji.SearchEmojiManager
-import com.vanniktech.emoji.VariantEmojiManager
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
@@ -21,15 +17,10 @@ class EmojisActivity : AppCompatActivity(), OnEmojiClickListener, OnEmojiBackspa
     setContentView(binding.root)
 
     binding.emojiView.setUp(
-      binding.root,
-      EmojiTheming(),
-      RecentEmojiManager(this),
-      SearchEmojiManager(),
-      VariantEmojiManager(this),
-      null,
-      this,
-      this,
-      null,
+      rootView = binding.root,
+      onEmojiClickListener = this,
+      onEmojiBackspaceClickListener = this,
+      editText = null,
     )
   }
 

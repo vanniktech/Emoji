@@ -106,14 +106,14 @@ import static com.vanniktech.emoji.Utils.checkNotNull;
     emojiView = new EmojiView(context);
     emojiView.setUp(
       rootView,
+      onEmojiClickListener,
+      onEmojiBackspaceClickListener,
+      editText,
       builder.theming,
       builder.recentEmoji,
       builder.searchEmoji,
       builder.variantEmoji,
-      builder.pageTransformer,
-      onEmojiClickListener,
-      onEmojiBackspaceClickListener,
-      editText
+      builder.pageTransformer
     );
 
     popupWindow.setContentView(emojiView);
