@@ -23,5 +23,5 @@ interface EmojiEditable : EmojiDisplayable {
   fun backspace()
 
   /** Adds the emoji. */
-  fun input(emoji: Emoji?)
+  fun input(emoji: Emoji)
 }

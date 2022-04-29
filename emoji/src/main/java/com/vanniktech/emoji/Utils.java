@@ -141,16 +141,14 @@ public final class Utils {
     return result;
   }
 
-  @PrivateApi public static void input(@NonNull final EditText editText, @Nullable final Emoji emoji) {
-    if (emoji != null) {
-      final int start = editText.getSelectionStart();
-      final int end = editText.getSelectionEnd();
+  @PrivateApi public static void input(@NonNull final EditText editText, @NonNull final Emoji emoji) {
+    final int start = editText.getSelectionStart();
+    final int end = editText.getSelectionEnd();
 
-      if (start < 0) {
-        editText.append(emoji.getUnicode());
-      } else {
-        editText.getText().replace(Math.min(start, end), Math.max(start, end), emoji.getUnicode(), 0, emoji.getUnicode().length());
-      }
+    if (start < 0) {
+      editText.append(emoji.getUnicode());
+    } else {
+      editText.getText().replace(Math.min(start, end), Math.max(start, end), emoji.getUnicode(), 0, emoji.getUnicode().length());
     }
   }
 

@@ -44,13 +44,9 @@ class EmojiAutoCompleteTextView @JvmOverloads constructor(
     EmojiManager.getInstance().replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
   }
 
-  @CallSuper override fun backspace() {
-    Utils.backspace(this)
-  }
+  @CallSuper override fun backspace() = Utils.backspace(this)
 
-  @CallSuper override fun input(emoji: Emoji?) {
-    Utils.input(this, emoji)
-  }
+  @CallSuper override fun input(emoji: Emoji) = Utils.input(this, emoji)
 
   override fun getEmojiSize() = emojiSize
 
