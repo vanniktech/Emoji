@@ -23,7 +23,6 @@ import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import com.google.android.material.textfield.TextInputEditText
 import com.vanniktech.emoji.EmojiEditable
-import com.vanniktech.emoji.EmojiInput
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.SearchInPlaceTrait
@@ -36,7 +35,7 @@ import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
 class EmojiTextInputEditText @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : TextInputEditText(context, attrs), EmojiEditable, EmojiInput {
+) : TextInputEditText(context, attrs), EmojiEditable {
   @Px private var emojiSize: Float
 
   init {

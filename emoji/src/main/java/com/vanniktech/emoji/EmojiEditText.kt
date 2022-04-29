@@ -31,7 +31,7 @@ import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
 class EmojiEditText @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : AppCompatEditText(context, attrs), EmojiEditable, EmojiInput {
+) : AppCompatEditText(context, attrs), EmojiEditable {
   @Px private var emojiSize: Float
 
   init {

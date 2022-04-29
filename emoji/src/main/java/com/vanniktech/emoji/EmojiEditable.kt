@@ -17,6 +17,7 @@
 package com.vanniktech.emoji
 
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.traits.EmojiTrait
 
 interface EmojiEditable : EmojiDisplayable {
   /** Issues a backspace. */
@@ -24,4 +25,13 @@ interface EmojiEditable : EmojiDisplayable {
 
   /** Adds the emoji. */
   fun input(emoji: Emoji)
+
+  /** Disables the keyboard. Only EmojiPopup will be shown. */
+  fun installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait
+
+  /** Forces this EditText to contain only one Emoji. */
+  fun installForceSingleEmoji(): EmojiTrait
+
+  /** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */
+  fun installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait
 }
