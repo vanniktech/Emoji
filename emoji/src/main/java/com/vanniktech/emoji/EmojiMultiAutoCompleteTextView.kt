@@ -35,7 +35,10 @@ class EmojiMultiAutoCompleteTextView @JvmOverloads constructor(
     emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMultiAutoCompleteTextView, R.styleable.EmojiMultiAutoCompleteTextView_emojiSize)
   }
 
-  @CallSuper override fun onTextChanged(text: CharSequence, start: Int, lengthBefore: Int, lengthAfter: Int) {
+  @CallSuper override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
+    if (isInEditMode) {
+      return
+    }
     val fontMetrics = paint.fontMetrics
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
     EmojiManager.getInstance().replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)

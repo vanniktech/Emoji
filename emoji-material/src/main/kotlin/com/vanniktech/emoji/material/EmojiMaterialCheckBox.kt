@@ -39,6 +39,10 @@ class EmojiMaterialCheckBox @JvmOverloads constructor(
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {
+    if (isInEditMode) {
+      super.setText(rawText, type)
+      return
+    }
     val spannableStringBuilder = SpannableStringBuilder(rawText ?: "")
     val fontMetrics = paint.fontMetrics
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
