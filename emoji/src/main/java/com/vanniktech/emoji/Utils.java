@@ -38,6 +38,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.annotation.StyleableRes;
 import androidx.core.content.ContextCompat;
 import com.vanniktech.emoji.emoji.Emoji;
@@ -55,7 +56,7 @@ public final class Utils {
     return reference;
   }
 
-  @PrivateApi public static float initTextView(final TextView textView, final AttributeSet attrs, @StyleableRes final int[] stylable, @StyleableRes final int emojiSizeAttr) {
+  @PrivateApi @Px public static float initTextView(final TextView textView, final AttributeSet attrs, @StyleableRes final int[] stylable, @StyleableRes final int emojiSizeAttr) {
     if (!textView.isInEditMode()) {
       EmojiManager.getInstance().verifyInstalled();
     }
