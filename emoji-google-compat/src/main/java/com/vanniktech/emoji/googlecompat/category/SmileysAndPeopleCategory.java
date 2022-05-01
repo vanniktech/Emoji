@@ -25,7 +25,7 @@ import com.vanniktech.emoji.googlecompat.R;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class SmileysAndPeopleCategory implements EmojiCategory {
-  private static final GoogleCompatEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get());
+  private static final GoogleCompatEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get(), SmileysAndPeopleCategoryChunk2.get());
 
   @Override @NonNull public GoogleCompatEmoji[] getEmojis() {
     return EMOJIS;

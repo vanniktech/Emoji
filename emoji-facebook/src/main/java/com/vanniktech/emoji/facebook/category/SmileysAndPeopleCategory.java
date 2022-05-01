@@ -25,7 +25,7 @@ import com.vanniktech.emoji.facebook.R;
 import com.vanniktech.emoji.facebook.FacebookEmoji;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class SmileysAndPeopleCategory implements EmojiCategory {
-  private static final FacebookEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get());
+  private static final FacebookEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get(), SmileysAndPeopleCategoryChunk2.get());
 
   @Override @NonNull public FacebookEmoji[] getEmojis() {
     return EMOJIS;

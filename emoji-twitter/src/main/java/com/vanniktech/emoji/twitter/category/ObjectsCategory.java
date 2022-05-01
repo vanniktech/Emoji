@@ -25,7 +25,7 @@ import com.vanniktech.emoji.twitter.R;
 import com.vanniktech.emoji.twitter.TwitterEmoji;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class ObjectsCategory implements EmojiCategory {
-  private static final TwitterEmoji[] EMOJIS = CategoryUtils.concatAll(ObjectsCategoryChunk0.get());
+  private static final TwitterEmoji[] EMOJIS = CategoryUtils.concatAll(ObjectsCategoryChunk0.get(), ObjectsCategoryChunk1.get());
 
   @Override @NonNull public TwitterEmoji[] getEmojis() {
     return EMOJIS;

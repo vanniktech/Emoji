@@ -25,7 +25,7 @@ import com.vanniktech.emoji.ios.R;
 import com.vanniktech.emoji.ios.IosEmoji;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class SmileysAndPeopleCategory implements EmojiCategory {
-  private static final IosEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get());
+  private static final IosEmoji[] EMOJIS = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get(), SmileysAndPeopleCategoryChunk2.get());
 
   @Override @NonNull public IosEmoji[] getEmojis() {
     return EMOJIS;

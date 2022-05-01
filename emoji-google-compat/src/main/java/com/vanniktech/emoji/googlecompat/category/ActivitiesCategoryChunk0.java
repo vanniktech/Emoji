@@ -81,13 +81,18 @@ final class ActivitiesCategoryChunk0 {
       new GoogleCompatEmoji(0x1FA81, new String[]{"kite"}, false),
       new GoogleCompatEmoji(0x1F3B1, new String[]{"8ball"}, false),
       new GoogleCompatEmoji(0x1F52E, new String[]{"crystal_ball"}, false),
+      new GoogleCompatEmoji(0x1FA84, new String[]{"magic_wand"}, false),
       new GoogleCompatEmoji(0x1F9FF, new String[]{"nazar_amulet"}, false),
+      new GoogleCompatEmoji(0x1FAAC, new String[]{"hamsa"}, false),
       new GoogleCompatEmoji(0x1F3AE, new String[]{"video_game"}, false),
       new GoogleCompatEmoji(new int[] { 0x1F579, 0xFE0F }, new String[]{"joystick"}, false),
       new GoogleCompatEmoji(0x1F3B0, new String[]{"slot_machine"}, false),
       new GoogleCompatEmoji(0x1F3B2, new String[]{"game_die"}, false),
       new GoogleCompatEmoji(0x1F9E9, new String[]{"jigsaw"}, false),
       new GoogleCompatEmoji(0x1F9F8, new String[]{"teddy_bear"}, false),
+      new GoogleCompatEmoji(0x1FA85, new String[]{"pinata"}, false),
+      new GoogleCompatEmoji(0x1FAA9, new String[]{"mirror_ball"}, false),
+      new GoogleCompatEmoji(0x1FA86, new String[]{"nesting_dolls"}, false),
       new GoogleCompatEmoji(new int[] { 0x2660, 0xFE0F }, new String[]{"spades"}, false),
       new GoogleCompatEmoji(new int[] { 0x2665, 0xFE0F }, new String[]{"hearts"}, false),
       new GoogleCompatEmoji(new int[] { 0x2666, 0xFE0F }, new String[]{"diamonds"}, false),
@@ -100,7 +105,9 @@ final class ActivitiesCategoryChunk0 {
       new GoogleCompatEmoji(new int[] { 0x1F5BC, 0xFE0F }, new String[]{"frame_with_picture"}, false),
       new GoogleCompatEmoji(0x1F3A8, new String[]{"art"}, false),
       new GoogleCompatEmoji(0x1F9F5, new String[]{"thread"}, false),
-      new GoogleCompatEmoji(0x1F9F6, new String[]{"yarn"}, false)
+      new GoogleCompatEmoji(0x1FAA1, new String[]{"sewing_needle"}, false),
+      new GoogleCompatEmoji(0x1F9F6, new String[]{"yarn"}, false),
+      new GoogleCompatEmoji(0x1FAA2, new String[]{"knot"}, false)
     };
   }
 

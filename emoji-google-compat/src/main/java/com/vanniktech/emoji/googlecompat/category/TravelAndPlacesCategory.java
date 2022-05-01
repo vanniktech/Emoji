@@ -25,7 +25,7 @@ import com.vanniktech.emoji.googlecompat.R;
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji;
 
 @SuppressWarnings("PMD.MethodReturnsInternalArray") public final class TravelAndPlacesCategory implements EmojiCategory {
-  private static final GoogleCompatEmoji[] EMOJIS = CategoryUtils.concatAll(TravelAndPlacesCategoryChunk0.get());
+  private static final GoogleCompatEmoji[] EMOJIS = CategoryUtils.concatAll(TravelAndPlacesCategoryChunk0.get(), TravelAndPlacesCategoryChunk1.get());
 
   @Override @NonNull public GoogleCompatEmoji[] getEmojis() {
     return EMOJIS;
