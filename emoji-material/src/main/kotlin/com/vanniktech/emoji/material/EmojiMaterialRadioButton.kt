@@ -25,7 +25,7 @@ import androidx.annotation.Px
 import com.google.android.material.radiobutton.MaterialRadioButton
 import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.Utils
+import com.vanniktech.emoji.init
 import kotlin.jvm.JvmOverloads
 
 class EmojiMaterialRadioButton @JvmOverloads constructor(
@@ -35,7 +35,7 @@ class EmojiMaterialRadioButton @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialRadioButton, R.styleable.EmojiMaterialRadioButton_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiMaterialRadioButton, R.styleable.EmojiMaterialRadioButton_emojiSize)
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {

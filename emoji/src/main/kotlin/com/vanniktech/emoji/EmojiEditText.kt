@@ -34,7 +34,7 @@ class EmojiEditText @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiEditText, R.styleable.EmojiEditText_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiEditText, R.styleable.EmojiEditText_emojiSize)
   }
 
   @CallSuper override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {

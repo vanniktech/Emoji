@@ -102,7 +102,6 @@ class EmojiPopup internal constructor(
     rootView.addOnAttachStateChangeListener(EmojiPopUpOnAttachStateChangeListener(this))
   }
 
-  @PrivateApi
   internal fun start() {
     context.window.decorView.setOnApplyWindowInsetsListener(EmojiPopUpOnApplyWindowInsetsListener(this))
   }

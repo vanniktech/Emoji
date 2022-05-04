@@ -47,28 +47,6 @@ import kotlin.math.roundToInt
 private const val DONT_UPDATE_FLAG = -1
 
 object Utils {
-  @PrivateApi
-  @Px
-  fun initTextView(textView: TextView, attrs: AttributeSet?, @StyleableRes stylable: IntArray?, @StyleableRes emojiSizeAttr: Int): Float {
-    if (!textView.isInEditMode) {
-      verifyInstalled()
-    }
-    val fontMetrics = textView.paint.fontMetrics
-    val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
-    val emojiSize: Float = if (attrs == null) {
-      defaultEmojiSize
-    } else {
-      val a = textView.context.obtainStyledAttributes(attrs, stylable!!)
-      try {
-        a.getDimension(emojiSizeAttr, defaultEmojiSize)
-      } finally {
-        a.recycle()
-      }
-    }
-    textView.text = textView.text
-    return emojiSize
-  }
-
   internal fun dpToPx(context: Context, dp: Float): Int {
     return (
       TypedValue.applyDimension(
@@ -121,17 +99,6 @@ object Utils {
       }
     }
     return result
-  }
-
-  @PrivateApi
-  fun input(editText: EditText, emoji: Emoji) {
-    val start = editText.selectionStart
-    val end = editText.selectionEnd
-    if (start < 0) {
-      editText.append(emoji.unicode)
-    } else {
-      editText.text.replace(min(start, end), max(start, end), emoji.unicode, 0, emoji.unicode.length)
-    }
   }
 
   internal fun asActivity(context: Context): Activity {
@@ -198,4 +165,29 @@ fun EditText.input(emoji: Emoji) {
   } else {
     text.replace(min(start, end), max(start, end), emoji.unicode, 0, emoji.unicode.length)
   }
+}
+
+@Px fun TextView.init(
+  attrs: AttributeSet?,
+  @StyleableRes styleable: IntArray,
+  @StyleableRes emojiSizeAttr: Int,
+): Float {
+  if (!isInEditMode) {
+    verifyInstalled()
+  }
+  val fontMetrics = paint.fontMetrics
+  val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
+  val emojiSize: Float = if (attrs == null) {
+    defaultEmojiSize
+  } else {
+    val a = context.obtainStyledAttributes(attrs, styleable)
+    try {
+      a.getDimension(emojiSizeAttr, defaultEmojiSize)
+    } finally {
+      a.recycle()
+    }
+  }
+
+  text = text // Reassign.
+  return emojiSize
 }

@@ -25,7 +25,7 @@ import androidx.annotation.Px
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.Utils
+import com.vanniktech.emoji.init
 import kotlin.jvm.JvmOverloads
 
 class EmojiMaterialCheckBox @JvmOverloads constructor(
@@ -35,7 +35,7 @@ class EmojiMaterialCheckBox @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialCheckBox, R.styleable.EmojiMaterialCheckBox_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiMaterialCheckBox, R.styleable.EmojiMaterialCheckBox_emojiSize)
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {

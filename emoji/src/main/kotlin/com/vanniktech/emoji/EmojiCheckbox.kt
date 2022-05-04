@@ -31,7 +31,7 @@ class EmojiCheckbox @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiCheckBox, R.styleable.EmojiCheckBox_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiCheckBox, R.styleable.EmojiCheckBox_emojiSize)
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {

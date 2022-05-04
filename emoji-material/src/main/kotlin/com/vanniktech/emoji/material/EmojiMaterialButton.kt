@@ -25,7 +25,7 @@ import androidx.annotation.Px
 import com.google.android.material.button.MaterialButton
 import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.Utils
+import com.vanniktech.emoji.init
 
 class EmojiMaterialButton @JvmOverloads constructor(
   context: Context,
@@ -34,7 +34,7 @@ class EmojiMaterialButton @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiMaterialButton, R.styleable.EmojiMaterialButton_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiMaterialButton, R.styleable.EmojiMaterialButton_emojiSize)
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {

@@ -34,7 +34,7 @@ class EmojiAutoCompleteTextView @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiAutoCompleteTextView, R.styleable.EmojiAutoCompleteTextView_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiAutoCompleteTextView, R.styleable.EmojiAutoCompleteTextView_emojiSize)
   }
 
   @CallSuper override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {

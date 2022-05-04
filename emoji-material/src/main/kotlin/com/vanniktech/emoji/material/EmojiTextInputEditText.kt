@@ -26,7 +26,7 @@ import com.vanniktech.emoji.EmojiEditable
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.SearchInPlaceTrait
-import com.vanniktech.emoji.Utils
+import com.vanniktech.emoji.init
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
@@ -38,7 +38,7 @@ class EmojiTextInputEditText @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiTextInputEditText, R.styleable.EmojiTextInputEditText_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiTextInputEditText, R.styleable.EmojiTextInputEditText_emojiSize)
   }
 
   @CallSuper override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {

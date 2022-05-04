@@ -31,7 +31,7 @@ class EmojiButton @JvmOverloads constructor(
   @Px private var emojiSize: Float
 
   init {
-    emojiSize = Utils.initTextView(this, attrs, R.styleable.EmojiButton, R.styleable.EmojiButton_emojiSize)
+    emojiSize = init(attrs, R.styleable.EmojiButton, R.styleable.EmojiButton_emojiSize)
   }
 
   @CallSuper override fun setText(rawText: CharSequence?, type: BufferType) {
