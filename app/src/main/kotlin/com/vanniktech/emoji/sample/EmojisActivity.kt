@@ -1,6 +1,7 @@
 package com.vanniktech.emoji.sample
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
@@ -15,6 +16,10 @@ class EmojisActivity : AppCompatActivity(), OnEmojiClickListener, OnEmojiBackspa
 
     binding = ActivityEmojisBinding.inflate(layoutInflater)
     setContentView(binding.root)
+    setSupportActionBar(binding.toolbar)
+
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
 
     binding.emojiView.setUp(
       rootView = binding.root,
@@ -22,6 +27,14 @@ class EmojisActivity : AppCompatActivity(), OnEmojiClickListener, OnEmojiBackspa
       onEmojiBackspaceClickListener = this,
       editText = null,
     )
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    android.R.id.home -> {
+      finish()
+      true
+    }
+    else -> super.onOptionsItemSelected(item)
   }
 
   override fun onDestroy() {

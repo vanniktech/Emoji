@@ -20,6 +20,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.vanniktech.emoji.EmojiPopup
@@ -31,14 +32,27 @@ class CustomViewActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     val customView = CustomView(this, null)
     setContentView(customView)
+    setSupportActionBar(customView.binding.toolbar)
+
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
+
     customView.setUpEmojiPopup()
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    android.R.id.home -> {
+      finish()
+      true
+    }
+    else -> super.onOptionsItemSelected(item)
   }
 
   internal class CustomView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
   ) : LinearLayout(context, attrs) {
-    private val binding = ViewCustomBinding.inflate(LayoutInflater.from(context), this)
+    internal val binding = ViewCustomBinding.inflate(LayoutInflater.from(context), this)
 
     private var forceSingleEmoji: EmojiTrait? = null
 

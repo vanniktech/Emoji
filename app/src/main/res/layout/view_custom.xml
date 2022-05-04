@@ -7,6 +7,12 @@
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout"
     >
+  <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      style="@style/Widget.MaterialComponents.Toolbar.Primary"
+      android:layout_height="wrap_content"
+      />
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -24,7 +30,7 @@
       android:id="@+id/onlyAllowSingleEmoji"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="8dp"
+      android:layout_marginHorizontal="8dp"
       android:text="Only allow single emoji"
       />
   <com.vanniktech.emoji.EmojiEditText

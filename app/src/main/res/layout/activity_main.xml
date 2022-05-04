@@ -8,11 +8,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
+  <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      style="@style/Widget.MaterialComponents.Toolbar.Primary"
+      />
   <com.vanniktech.emoji.material.EmojiMaterialButton
       android:id="@+id/button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
       />
   <!-- This one gets automatically replaced into a EmojiMaterialButton as we're using a MaterialEmojiLayoutFactory. -->
   <Button
@@ -20,7 +27,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:text="Chat in Dialog 💬"
+      android:text="Emojis in Dialog 💬"
       tools:ignore="HardcodedText"
       />
   <!-- This one gets automatically replaced into a EmojiMaterialButton as we're using a MaterialEmojiLayoutFactory. -->
