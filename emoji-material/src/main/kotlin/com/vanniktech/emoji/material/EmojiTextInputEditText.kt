@@ -29,6 +29,7 @@ import com.vanniktech.emoji.SearchInPlaceTrait
 import com.vanniktech.emoji.Utils
 import com.vanniktech.emoji.dispatchBackspace
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.inputEmoji
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
@@ -54,7 +55,7 @@ class EmojiTextInputEditText @JvmOverloads constructor(
 
   @CallSuper override fun backspace() = dispatchBackspace()
 
-  @CallSuper override fun input(emoji: Emoji) = Utils.input(this, emoji)
+  @CallSuper override fun input(emoji: Emoji) = inputEmoji(emoji)
 
   override fun getEmojiSize() = emojiSize
 

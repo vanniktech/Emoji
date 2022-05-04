@@ -49,7 +49,7 @@ class EmojiAutoCompleteTextView @JvmOverloads constructor(
 
   @CallSuper override fun backspace() = dispatchBackspace()
 
-  @CallSuper override fun input(emoji: Emoji) = Utils.input(this, emoji)
+  @CallSuper override fun input(emoji: Emoji) = inputEmoji(emoji)
 
   override fun getEmojiSize() = emojiSize
 
