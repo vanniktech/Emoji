@@ -32,6 +32,6 @@ class SmileysAndPeopleCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<IosEmoji> = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.get(), SmileysAndPeopleCategoryChunk1.get(), SmileysAndPeopleCategoryChunk2.get())
+    val ALL_EMOJIS: Array<IosEmoji> = CategoryUtils.concatAll(SmileysAndPeopleCategoryChunk0.EMOJIS, SmileysAndPeopleCategoryChunk1.EMOJIS, SmileysAndPeopleCategoryChunk2.EMOJIS)
   }
 }

@@ -32,6 +32,6 @@ class SymbolsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<GoogleCompatEmoji> = CategoryUtils.concatAll(SymbolsCategoryChunk0.get(), SymbolsCategoryChunk1.get())
+    val ALL_EMOJIS: Array<GoogleCompatEmoji> = CategoryUtils.concatAll(SymbolsCategoryChunk0.EMOJIS, SymbolsCategoryChunk1.EMOJIS)
   }
 }

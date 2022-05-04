@@ -20,26 +20,24 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object TravelAndPlacesCategoryChunk1 {
-  fun get(): Array<GoogleCompatEmoji> {
-    return arrayOf(
-      GoogleCompatEmoji(intArrayOf(0x1F329, 0xFE0F), arrayOf("lightning", "lightning_cloud"), false),
-      GoogleCompatEmoji(intArrayOf(0x1F32A, 0xFE0F), arrayOf("tornado", "tornado_cloud"), false),
-      GoogleCompatEmoji(intArrayOf(0x1F32B, 0xFE0F), arrayOf("fog"), false),
-      GoogleCompatEmoji(intArrayOf(0x1F32C, 0xFE0F), arrayOf("wind_blowing_face"), false),
-      GoogleCompatEmoji(0x1F300, arrayOf("cyclone"), false),
-      GoogleCompatEmoji(0x1F308, arrayOf("rainbow"), false),
-      GoogleCompatEmoji(0x1F302, arrayOf("closed_umbrella"), false),
-      GoogleCompatEmoji(intArrayOf(0x2602, 0xFE0F), arrayOf("umbrella"), false),
-      GoogleCompatEmoji(0x2614, arrayOf("umbrella_with_rain_drops"), false),
-      GoogleCompatEmoji(intArrayOf(0x26F1, 0xFE0F), arrayOf("umbrella_on_ground"), false),
-      GoogleCompatEmoji(0x26A1, arrayOf("zap"), false),
-      GoogleCompatEmoji(intArrayOf(0x2744, 0xFE0F), arrayOf("snowflake"), false),
-      GoogleCompatEmoji(intArrayOf(0x2603, 0xFE0F), arrayOf("snowman"), false),
-      GoogleCompatEmoji(0x26C4, arrayOf("snowman_without_snow"), false),
-      GoogleCompatEmoji(intArrayOf(0x2604, 0xFE0F), arrayOf("comet"), false),
-      GoogleCompatEmoji(0x1F525, arrayOf("fire"), false),
-      GoogleCompatEmoji(0x1F4A7, arrayOf("droplet"), false),
-      GoogleCompatEmoji(0x1F30A, arrayOf("ocean"), false)
-    )
-  }
+  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+    GoogleCompatEmoji(intArrayOf(0x1F329, 0xFE0F), arrayOf("lightning", "lightning_cloud"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F32A, 0xFE0F), arrayOf("tornado", "tornado_cloud"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F32B, 0xFE0F), arrayOf("fog"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F32C, 0xFE0F), arrayOf("wind_blowing_face"), false),
+    GoogleCompatEmoji(0x1F300, arrayOf("cyclone"), false),
+    GoogleCompatEmoji(0x1F308, arrayOf("rainbow"), false),
+    GoogleCompatEmoji(0x1F302, arrayOf("closed_umbrella"), false),
+    GoogleCompatEmoji(intArrayOf(0x2602, 0xFE0F), arrayOf("umbrella"), false),
+    GoogleCompatEmoji(0x2614, arrayOf("umbrella_with_rain_drops"), false),
+    GoogleCompatEmoji(intArrayOf(0x26F1, 0xFE0F), arrayOf("umbrella_on_ground"), false),
+    GoogleCompatEmoji(0x26A1, arrayOf("zap"), false),
+    GoogleCompatEmoji(intArrayOf(0x2744, 0xFE0F), arrayOf("snowflake"), false),
+    GoogleCompatEmoji(intArrayOf(0x2603, 0xFE0F), arrayOf("snowman"), false),
+    GoogleCompatEmoji(0x26C4, arrayOf("snowman_without_snow"), false),
+    GoogleCompatEmoji(intArrayOf(0x2604, 0xFE0F), arrayOf("comet"), false),
+    GoogleCompatEmoji(0x1F525, arrayOf("fire"), false),
+    GoogleCompatEmoji(0x1F4A7, arrayOf("droplet"), false),
+    GoogleCompatEmoji(0x1F30A, arrayOf("ocean"), false),
+  )
 }

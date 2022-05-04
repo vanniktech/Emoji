@@ -32,6 +32,6 @@ class TravelAndPlacesCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<GoogleEmoji> = CategoryUtils.concatAll(TravelAndPlacesCategoryChunk0.get(), TravelAndPlacesCategoryChunk1.get())
+    val ALL_EMOJIS: Array<GoogleEmoji> = CategoryUtils.concatAll(TravelAndPlacesCategoryChunk0.EMOJIS, TravelAndPlacesCategoryChunk1.EMOJIS)
   }
 }

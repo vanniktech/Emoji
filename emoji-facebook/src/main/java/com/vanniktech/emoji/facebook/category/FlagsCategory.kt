@@ -32,6 +32,6 @@ class FlagsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<FacebookEmoji> = CategoryUtils.concatAll(FlagsCategoryChunk0.get(), FlagsCategoryChunk1.get())
+    val ALL_EMOJIS: Array<FacebookEmoji> = CategoryUtils.concatAll(FlagsCategoryChunk0.EMOJIS, FlagsCategoryChunk1.EMOJIS)
   }
 }

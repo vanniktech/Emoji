@@ -20,9 +20,7 @@ package com.vanniktech.emoji.<%= package %>.category
 import com.vanniktech.emoji.<%= package %>.<%= name %>
 
 internal object <%= category %>CategoryChunk<%= index %> {
-  fun get(): Array<<%= name %>> {
-    return arrayOf(
-      <%= data %>
-    )
-  }
+  val EMOJIS: Array<<%= name %>> = arrayOf(
+    <%= data %>
+  )
 }

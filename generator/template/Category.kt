@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.<%= package %>.<%= name %>
 
-class <%= category %>Category : EmojiCategory {
+internal class <%= category %>Category : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.<%= package %>.R.drawable.emoji_<%= package %>_category_<%= icon %>
 

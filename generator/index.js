@@ -162,7 +162,7 @@ function generateChunkedEmojiCode(target, emojis) {
     const list = generateEmojiCode(target, emojis)
     const chunked = chunk(list, chunkSize)
 
-    return chunked.map(chunk => chunk.join(`,\n      `))
+    return chunked.map(chunk => chunk.join(`\n    `))
 }
 
 /**
@@ -170,10 +170,10 @@ function generateChunkedEmojiCode(target, emojis) {
  * Generates the code for a list of emoji with their variants if present.
  * @param target The target to generate for. It is checked if the target has support for the emoji before generating.
  * @param emojis The emojis.
- * @param indent The indent to use. Defaults to 6.
+ * @param indent The indent to use. Defaults to 4.
  * @returns {string[]} The list of generated code parts.
  */
-function generateEmojiCode(target, emojis, indent = 6) {
+function generateEmojiCode(target, emojis, indent = 4) {
     let indentString = "";
 
     for (let i = 0; i < indent; i++) {
@@ -206,11 +206,11 @@ function generateEmojiCode(target, emojis, indent = 6) {
         }
 
         if (hasVariants) {
-            const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`,\n${indentString}  `)
+            const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`\n${indentString}  `)
 
-            return `${result},${newLinePrefix}${generatedVariants}\n${indentString})`;
+            return `${result},${newLinePrefix}${generatedVariants}\n${indentString}),`;
         } else {
-            return `${result})`;
+            return `${result}),`;
         }
     })
 }
@@ -391,7 +391,7 @@ async function generateCode(map, targets) {
                     package: target.package,
                     name: target.name,
                     category: category,
-                    chunks: chunkClasses.map(it => `${it}.get()`).join(", "),
+                    chunks: chunkClasses.map(it => `${it}.EMOJIS`).join(", "),
                     icon: category.toLowerCase(),
                 }),
             );
