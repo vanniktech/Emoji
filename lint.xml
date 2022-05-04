@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+  <issue id="ConvertToWebp">
+    <ignore regexp="_sheet_.*.png"/>
+    <ignore regexp="emoji_.*_category_.*.png"/>
+    <ignore regexp="ic_launcher.png"/>
+  </issue>
+
+  <!-- View Binding bugs. -->
+  <issue id="UnusedIds">
+    <ignore regexp=".*"/>
+  </issue>
 </lint>
