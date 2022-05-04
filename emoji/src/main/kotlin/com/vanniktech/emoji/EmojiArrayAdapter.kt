@@ -27,7 +27,7 @@ import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
 
 internal class EmojiArrayAdapter(
   context: Context,
-  emojis: Array<Emoji>,
+  emojis: Array<out Emoji>,
   private val variantManager: VariantEmoji?,
   private val listener: OnEmojiClickListener?,
   private val longListener: OnEmojiLongClickListener?,

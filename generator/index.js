@@ -332,11 +332,11 @@ async function copyImages(map, targets, shouldOptimize) {
  * @returns {Promise.<void>} Empty Promise.
  */
 async function generateCode(map, targets) {
-    console.log("Generating java code...");
+    console.log("Generating code...");
 
     const emojiTemplate = await fs.readFile("template/Emoji.java", "utf-8");
     const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
-    const categoryTemplate = await fs.readFile("template/Category.java", "utf-8");
+    const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
@@ -383,7 +383,7 @@ async function generateCode(map, targets) {
                 );
             }
 
-            await fs.writeFile(`${srcDir}/category/${category}Category.java`,
+            await fs.writeFile(`${srcDir}/category/${category}Category.kt`,
                 template(categoryTemplate)({
                     package: target.package,
                     name: target.name,

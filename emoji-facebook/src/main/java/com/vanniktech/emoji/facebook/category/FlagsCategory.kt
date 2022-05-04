@@ -14,37 +14,24 @@
  * limitations under the License.
  *
  */
-package com.vanniktech.emoji.emoji
+
+package com.vanniktech.emoji.facebook.category
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.vanniktech.emoji.emoji.EmojiCategory
+import com.vanniktech.emoji.facebook.FacebookEmoji
 
-/**
- * Interface for defining a category.
- *
- * @since 0.4.0
- */
-interface EmojiCategory {
-  /**
-   * Returns all of the emojis it can display.
-   *
-   * @since 0.4.0
-   */
-  val emojis: Array<out Emoji>
+class FlagsCategory : EmojiCategory {
+  @get:DrawableRes override val icon: Int
+    get() = com.vanniktech.emoji.facebook.R.drawable.emoji_facebook_category_flags
 
-  /**
-   * Returns the icon of the category that should be displayed.
-   *
-   * @since 0.4.0
-   */
-  @get:DrawableRes
-  val icon: Int
+  @get:StringRes override val categoryName: Int
+    get() = com.vanniktech.emoji.facebook.R.string.emoji_facebook_category_flags
 
-  /**
-   * Returns category name.
-   *
-   * @since 0.7.0
-   */
-  @get:StringRes
-  val categoryName: Int
+  override val emojis = ALL_EMOJIS
+
+  private companion object {
+    val ALL_EMOJIS: Array<FacebookEmoji> = CategoryUtils.concatAll(FlagsCategoryChunk0.get(), FlagsCategoryChunk1.get())
+  }
 }
