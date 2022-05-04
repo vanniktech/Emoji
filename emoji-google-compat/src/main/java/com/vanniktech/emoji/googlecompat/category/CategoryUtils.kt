@@ -21,7 +21,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 import java.util.Arrays
 
 internal object CategoryUtils {
-  fun concatAll(first: Array<GoogleCompatEmoji>, vararg rest: Array<GoogleCompatEmoji>): Array<GoogleCompatEmoji> {
+  internal fun concatAll(first: Array<GoogleCompatEmoji>, vararg rest: Array<GoogleCompatEmoji>): Array<GoogleCompatEmoji> {
     var totalLength = first.size
     for (array in rest) {
       totalLength += array.size

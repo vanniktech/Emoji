@@ -27,11 +27,11 @@ import com.vanniktech.emoji.emoji.CacheKey
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
-class TwitterEmoji : Emoji {
+internal class TwitterEmoji : Emoji {
   private val x: Int
   private val y: Int
 
-  constructor(
+  internal constructor(
     codePoints: IntArray,
     shortcodes: Array<String>,
     x: Int,
@@ -42,7 +42,7 @@ class TwitterEmoji : Emoji {
     this.y = y
   }
 
-  constructor(
+  internal constructor(
     codePoint: Int,
     shortcodes: Array<String>,
     x: Int,
@@ -53,7 +53,7 @@ class TwitterEmoji : Emoji {
     this.y = y
   }
 
-  constructor(
+  internal constructor(
     codePoint: Int,
     shortcodes: Array<String>,
     x: Int,
@@ -65,7 +65,7 @@ class TwitterEmoji : Emoji {
     this.y = y
   }
 
-  constructor(
+  internal constructor(
     codePoints: IntArray,
     shortcodes: Array<String>,
     x: Int,

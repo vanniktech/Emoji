@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
-class TravelAndPlacesCategory : EmojiCategory {
+internal class TravelAndPlacesCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.facebook.R.drawable.emoji_facebook_category_travelandplaces
 

@@ -21,7 +21,7 @@ import com.vanniktech.emoji.<%= package %>.<%= name %>
 import java.util.Arrays
 
 internal object CategoryUtils {
-  fun concatAll(first: Array<<%= name %>>, vararg rest: Array<<%= name %>>): Array<<%= name %>> {
+  internal fun concatAll(first: Array<<%= name %>>, vararg rest: Array<<%= name %>>): Array<<%= name %>> {
     var totalLength = first.size
     for (array in rest) {
       totalLength += array.size

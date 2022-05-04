@@ -21,7 +21,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji
 import java.util.Arrays
 
 internal object CategoryUtils {
-  fun concatAll(first: Array<TwitterEmoji>, vararg rest: Array<TwitterEmoji>): Array<TwitterEmoji> {
+  internal fun concatAll(first: Array<TwitterEmoji>, vararg rest: Array<TwitterEmoji>): Array<TwitterEmoji> {
     var totalLength = first.size
     for (array in rest) {
       totalLength += array.size

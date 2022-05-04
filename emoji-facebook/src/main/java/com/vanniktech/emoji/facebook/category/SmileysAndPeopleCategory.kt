@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
-class SmileysAndPeopleCategory : EmojiCategory {
+internal class SmileysAndPeopleCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.facebook.R.drawable.emoji_facebook_category_smileysandpeople
 

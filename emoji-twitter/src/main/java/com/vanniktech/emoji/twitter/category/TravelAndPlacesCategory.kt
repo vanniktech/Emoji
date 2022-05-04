@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
-class TravelAndPlacesCategory : EmojiCategory {
+internal class TravelAndPlacesCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.twitter.R.drawable.emoji_twitter_category_travelandplaces
 

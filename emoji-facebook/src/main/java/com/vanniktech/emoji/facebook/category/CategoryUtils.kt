@@ -21,7 +21,7 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 import java.util.Arrays
 
 internal object CategoryUtils {
-  fun concatAll(first: Array<FacebookEmoji>, vararg rest: Array<FacebookEmoji>): Array<FacebookEmoji> {
+  internal fun concatAll(first: Array<FacebookEmoji>, vararg rest: Array<FacebookEmoji>): Array<FacebookEmoji> {
     var totalLength = first.size
     for (array in rest) {
       totalLength += array.size

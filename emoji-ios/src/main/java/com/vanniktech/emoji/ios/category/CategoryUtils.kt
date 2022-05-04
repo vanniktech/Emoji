@@ -21,7 +21,7 @@ import com.vanniktech.emoji.ios.IosEmoji
 import java.util.Arrays
 
 internal object CategoryUtils {
-  fun concatAll(first: Array<IosEmoji>, vararg rest: Array<IosEmoji>): Array<IosEmoji> {
+  internal fun concatAll(first: Array<IosEmoji>, vararg rest: Array<IosEmoji>): Array<IosEmoji> {
     var totalLength = first.size
     for (array in rest) {
       totalLength += array.size

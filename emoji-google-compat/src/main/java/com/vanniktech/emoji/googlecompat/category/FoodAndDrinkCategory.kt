@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
-class FoodAndDrinkCategory : EmojiCategory {
+internal class FoodAndDrinkCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.googlecompat.R.drawable.emoji_googlecompat_category_foodanddrink
 

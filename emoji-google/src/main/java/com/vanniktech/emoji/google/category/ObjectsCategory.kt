@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.google.GoogleEmoji
 
-class ObjectsCategory : EmojiCategory {
+internal class ObjectsCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.google.R.drawable.emoji_google_category_objects
 

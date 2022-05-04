@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
-class SmileysAndPeopleCategory : EmojiCategory {
+internal class SmileysAndPeopleCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.twitter.R.drawable.emoji_twitter_category_smileysandpeople
 

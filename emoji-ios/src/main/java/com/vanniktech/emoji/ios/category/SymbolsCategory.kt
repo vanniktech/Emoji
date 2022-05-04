@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.ios.IosEmoji
 
-class SymbolsCategory : EmojiCategory {
+internal class SymbolsCategory : EmojiCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.ios.R.drawable.emoji_ios_category_symbols
 
