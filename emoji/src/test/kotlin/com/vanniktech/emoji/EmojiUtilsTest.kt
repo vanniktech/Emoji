@@ -17,7 +17,6 @@
 package com.vanniktech.emoji
 
 import com.vanniktech.emoji.TestEmojiProvider.Companion.from
-import com.vanniktech.emoji.emoji.Emoji
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -27,8 +26,8 @@ import org.robolectric.annotation.Config
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner::class) class EmojiUtilsTest {
   @Before fun setUp() {
-    val emoji1 = Emoji(intArrayOf(CODE_POINT_1), arrayOf("test"), false)
-    val emoji2 = Emoji(intArrayOf(CODE_POINT_2), arrayOf("test"), false)
+    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), arrayOf("test"), false)
+    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), arrayOf("test"), false)
     EmojiManager.install(from(emoji1, emoji2))
   }
 

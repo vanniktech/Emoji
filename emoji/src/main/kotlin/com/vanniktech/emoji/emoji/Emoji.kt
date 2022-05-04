@@ -20,7 +20,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import java.io.Serializable
 
-open class Emoji(
+abstract class Emoji(
   codePoints: IntArray,
   val shortcodes: Array<String>,
   val isDuplicate: Boolean,
@@ -45,17 +45,14 @@ open class Emoji(
     }
   }
 
-  open fun getDrawable(context: Context): Drawable = error("Needs to be overridden")
+  abstract fun getDrawable(context: Context): Drawable
+  abstract fun destroy()
 
   val length: Int
     get() = unicode.length
 
   fun hasVariants(): Boolean {
     return variants.isNotEmpty()
-  }
-
-  open fun destroy() {
-    // For inheritors to override.
   }
 
   override fun equals(other: Any?): Boolean {

@@ -27,4 +27,5 @@ internal class GoogleCompatEmoji internal constructor(
   vararg emojis: Emoji,
 ) : Emoji(ints, shortcodes, isDuplicate, *emojis) {
   override fun getDrawable(context: Context): Drawable = GoogleCompatEmojiDrawable(unicode)
+  override fun destroy() = Unit
 }

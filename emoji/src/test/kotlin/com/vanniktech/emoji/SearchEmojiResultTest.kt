@@ -1,12 +1,11 @@
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Test
 
 class SearchEmojiResultTest {
-  private val emoji = Emoji(intArrayOf(0x1f437), arrayOf("test"), false)
+  private val emoji = TestEmoji(intArrayOf(0x1f437), arrayOf("test"), false)
 
   @Test fun valid() {
     val validRanges = listOf(
