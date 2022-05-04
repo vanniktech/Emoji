@@ -33,7 +33,7 @@ internal class <%= name %> internal constructor(
   private val y: Int,
   isDuplicate: Boolean,
   vararg variants: Emoji,
-) : Emoji(codePoints, shortcodes, -1, isDuplicate, *variants) {
+) : Emoji(codePoints, shortcodes, isDuplicate, *variants) {
   override fun getDrawable(context: Context): Drawable {
     val key = Point(x, y)
     val bitmap = BITMAP_CACHE[key]

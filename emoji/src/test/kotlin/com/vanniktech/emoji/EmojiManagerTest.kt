@@ -35,10 +35,10 @@ class EmojiManagerTest {
 
   @Before
   fun setUp() {
-    val emoji1 = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_recent, false)
-    val emoji2 = Emoji(intArrayOf(0x4321), arrayOf("test"), R.drawable.emoji_recent, false)
-    val emoji3 = Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_backspace, false)
-    val emoji4 = Emoji(intArrayOf(0x1234, 0x4321, 0x9999), arrayOf("test"), R.drawable.emoji_recent, false)
+    val emoji1 = Emoji(intArrayOf(0x1234), arrayOf("test"), false)
+    val emoji2 = Emoji(intArrayOf(0x4321), arrayOf("test"), false)
+    val emoji3 = Emoji(intArrayOf(0x5678), arrayOf("test"), false)
+    val emoji4 = Emoji(intArrayOf(0x1234, 0x4321, 0x9999), arrayOf("test"), false)
     provider = TestEmojiProvider.from(emoji1, emoji2, emoji3, emoji4)
   }
 
@@ -73,7 +73,7 @@ class EmojiManagerTest {
   @Test fun installNormalEmoji() {
     EmojiManager.install(provider)
     assertEquals(
-      Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_recent, false),
+      Emoji(intArrayOf(0x1234), arrayOf("test"), false),
       EmojiManager.findEmoji(String(intArrayOf(0x1234), 0, 1)),
     )
   }
@@ -96,7 +96,7 @@ class EmojiManagerTest {
   @Test fun findEmojiNormal() {
     EmojiManager.install(provider)
     assertEquals(
-      Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_backspace, false),
+      Emoji(intArrayOf(0x5678), arrayOf("test"), false),
       EmojiManager.findEmoji(String(intArrayOf(0x5678), 0, 1)),
     )
   }
@@ -112,8 +112,8 @@ class EmojiManagerTest {
       "te" + String(intArrayOf(0x5678), 0, 1) +
         "st" + String(intArrayOf(0x1234), 0, 1)
       )
-    val firstExpectedRange = EmojiRange(2, 3, Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_backspace, false))
-    val secondExpectedRange = EmojiRange(5, 6, Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_recent, false))
+    val firstExpectedRange = EmojiRange(2, 3, Emoji(intArrayOf(0x5678), arrayOf("test"), false))
+    val secondExpectedRange = EmojiRange(5, 6, Emoji(intArrayOf(0x1234), arrayOf("test"), false))
     assertEquals(
       listOf(
         firstExpectedRange,

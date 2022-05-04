@@ -40,11 +40,11 @@ import org.robolectric.annotation.Config
   @Before fun setUp() {
     application = RuntimeEnvironment.application
     variantEmojiManager = VariantEmojiManager(application)
-    emoji = Emoji(intArrayOf(0x1f437), arrayOf("test"), R.drawable.emoji_recent, false)
-    variant1 = Emoji(intArrayOf(0x1f55b), arrayOf("test"), R.drawable.emoji_recent, false)
-    variant2 = Emoji(intArrayOf(0x1f55c), arrayOf("test"), R.drawable.emoji_recent, false)
-    variant3 = Emoji(intArrayOf(0x1f55d), arrayOf("test"), R.drawable.emoji_recent, false)
-    base = Emoji(intArrayOf(0x1f55a), arrayOf("test"), R.drawable.emoji_recent, false, variant1, variant2, variant3)
+    emoji = Emoji(intArrayOf(0x1f437), arrayOf("test"), false)
+    variant1 = Emoji(intArrayOf(0x1f55b), arrayOf("test"), false)
+    variant2 = Emoji(intArrayOf(0x1f55c), arrayOf("test"), false)
+    variant3 = Emoji(intArrayOf(0x1f55d), arrayOf("test"), false)
+    base = Emoji(intArrayOf(0x1f55a), arrayOf("test"), false, variant1, variant2, variant3)
   }
 
   @Test fun variantDefault() {

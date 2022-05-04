@@ -18,15 +18,11 @@ package com.vanniktech.emoji.emoji
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import androidx.annotation.DrawableRes
-import androidx.appcompat.content.res.AppCompatResources
 import java.io.Serializable
 
 open class Emoji(
   codePoints: IntArray,
   val shortcodes: Array<String>,
-  @Deprecated("""Please migrate to getDrawable(). May return -1 in the future for providers that don't use resources.""")
-  @DrawableRes val resource: Int,
   val isDuplicate: Boolean,
   vararg val variants: Emoji,
 ) : Serializable {
@@ -49,10 +45,7 @@ open class Emoji(
     }
   }
 
-  open fun getDrawable(context: Context): Drawable {
-    @Suppress("DEPRECATION")
-    return AppCompatResources.getDrawable(context, resource)!!
-  }
+  open fun getDrawable(context: Context): Drawable = error("Needs to be overridden")
 
   val length: Int
     get() = unicode.length
@@ -73,9 +66,8 @@ open class Emoji(
       return false
     }
     val emoji = other as Emoji
-    @Suppress("DEPRECATION")
     return (
-      resource == emoji.resource && unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
+      unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
         variants.contentEquals(emoji.variants)
       )
   }
@@ -83,8 +75,6 @@ open class Emoji(
   override fun hashCode(): Int {
     var result = unicode.hashCode()
     result = 31 * result + shortcodes.contentHashCode()
-    @Suppress("DEPRECATION")
-    result = 31 * result + resource
     result = 31 * result + variants.hashCode()
     return result
   }

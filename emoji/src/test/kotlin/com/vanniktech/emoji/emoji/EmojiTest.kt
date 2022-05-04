@@ -16,56 +16,50 @@
 
 package com.vanniktech.emoji.emoji
 
-import com.vanniktech.emoji.R
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class EmojiTest {
   @Test fun multipleCodePoints() {
-    val emoji = Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), R.drawable.emoji_backspace, false)
+    val emoji = Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), false)
     assertEquals(2, emoji.unicode.length)
     assertEquals(String(intArrayOf(0x1234, 0x5678), 0, 2), emoji.unicode)
   }
 
   @Test fun baseWithoutVariant() {
-    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_backspace, false)
+    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), false)
     assertEquals(emoji, emoji.base)
   }
 
   @Test fun baseWithVariant() {
-    val variant = Emoji(intArrayOf(0x4321), arrayOf("test"), R.drawable.emoji_recent, false)
-    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_backspace, false, variant)
+    val variant = Emoji(intArrayOf(0x4321), arrayOf("test"), false)
+    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), false, variant)
     assertEquals(emoji, variant.base)
   }
 
   @Test fun baseWithMultipleVariants() {
-    val variant = Emoji(intArrayOf(0x4321), arrayOf("test"), R.drawable.emoji_recent, false)
-    val variant2 = Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_recent, false)
-    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_backspace, false, variant, variant2)
+    val variant = Emoji(intArrayOf(0x4321), arrayOf("test"), false)
+    val variant2 = Emoji(intArrayOf(0x5678), arrayOf("test"), false)
+    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), false, variant, variant2)
     assertEquals(emoji, variant.base)
     assertEquals(emoji, variant2.base)
   }
 
   @Test fun baseWithRecursiveVariant() {
-    val variantOfVariant = Emoji(intArrayOf(0x4321), arrayOf("test"), R.drawable.emoji_recent, false)
-    val variant = Emoji(intArrayOf(0x5678), arrayOf("test"), R.drawable.emoji_recent, false, variantOfVariant)
-    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_backspace, false, variant)
+    val variantOfVariant = Emoji(intArrayOf(0x4321), arrayOf("test"), false)
+    val variant = Emoji(intArrayOf(0x5678), arrayOf("test"), false, variantOfVariant)
+    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), false, variant)
     assertEquals(emoji, variantOfVariant.base)
     assertEquals(emoji, variant.base)
   }
 
   @Test fun hasVariants() {
-    assertEquals(false, Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), R.drawable.emoji_backspace, false).hasVariants())
-    assertEquals(true, Emoji(intArrayOf(0x1f3cb), arrayOf("test"), R.drawable.emoji_backspace, false, Emoji(intArrayOf(0x1f3cb, 0x1f3fb), arrayOf("test"), R.drawable.emoji_backspace, false)).hasVariants())
-  }
-
-  @Test fun resource() {
-    @Suppress("DEPRECATION")
-    assertEquals(R.drawable.emoji_backspace, Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), R.drawable.emoji_backspace, false).resource)
+    assertEquals(false, Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), false).hasVariants())
+    assertEquals(true, Emoji(intArrayOf(0x1f3cb), arrayOf("test"), false, Emoji(intArrayOf(0x1f3cb, 0x1f3fb), arrayOf("test"), false)).hasVariants())
   }
 
   @Test fun length() {
-    assertEquals(1, Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_backspace, false).length)
-    assertEquals(2, Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), R.drawable.emoji_backspace, false).length)
+    assertEquals(1, Emoji(intArrayOf(0x1234), arrayOf("test"), false).length)
+    assertEquals(2, Emoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), false).length)
   }
 }

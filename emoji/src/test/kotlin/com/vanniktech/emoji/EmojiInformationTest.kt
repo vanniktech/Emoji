@@ -32,7 +32,7 @@ class EmojiInformationTest {
     val emptyList: List<EmojiRange> = emptyList()
     empty = EmojiInformation(false, emptyList)
     empty2 = EmojiInformation(false, emptyList)
-    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), R.drawable.emoji_recent, false)
+    val emoji = Emoji(intArrayOf(0x1234), arrayOf("test"), false)
     one = EmojiInformation(false, listOf(EmojiRange(0, 1, emoji)))
     one2 = EmojiInformation(false, listOf(EmojiRange(0, 1, emoji)))
   }
