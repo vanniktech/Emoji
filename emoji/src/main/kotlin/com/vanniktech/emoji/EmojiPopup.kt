@@ -396,7 +396,12 @@ class EmojiPopup internal constructor(
       val popup = emojiPopup.get()
 
       if (popup != null) {
-        val systemWindowInsetBottom = insets.systemWindowInsetBottom
+        val systemWindowInsetBottom = if (VERSION.SDK_INT >= VERSION_CODES.R) {
+          insets.getInsets(WindowInsets.Type.ime()).bottom
+        } else {
+          @Suppress("DEPRECATION")
+          insets.systemWindowInsetBottom
+        }
 
         val stableInsetBottom = if (VERSION.SDK_INT >= VERSION_CODES.R) {
           insets.getInsetsIgnoringVisibility(WindowInsets.Type.systemBars()).bottom
