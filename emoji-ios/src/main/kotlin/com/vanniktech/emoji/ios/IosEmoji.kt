@@ -26,33 +26,14 @@ import android.util.LruCache
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
-internal class IosEmoji : Emoji {
-  private val x: Int
-  private val y: Int
-
-  internal constructor(
-    codePoints: IntArray,
-    shortcodes: Array<String>,
-    x: Int,
-    y: Int,
-    isDuplicate: Boolean,
-  ) : super(codePoints, shortcodes, -1, isDuplicate) {
-    this.x = x
-    this.y = y
-  }
-
-  internal constructor(
-    codePoints: IntArray,
-    shortcodes: Array<String>,
-    x: Int,
-    y: Int,
-    isDuplicate: Boolean,
-    vararg variants: Emoji,
-  ) : super(codePoints, shortcodes, -1, isDuplicate, *variants) {
-    this.x = x
-    this.y = y
-  }
-
+internal class IosEmoji internal constructor(
+  codePoints: IntArray,
+  shortcodes: Array<String>,
+  private val x: Int,
+  private val y: Int,
+  isDuplicate: Boolean,
+  vararg variants: Emoji,
+) : Emoji(codePoints, shortcodes, -1, isDuplicate, *variants) {
   override fun getDrawable(context: Context): Drawable {
     val key = Point(x, y)
     val bitmap = BITMAP_CACHE[key]
