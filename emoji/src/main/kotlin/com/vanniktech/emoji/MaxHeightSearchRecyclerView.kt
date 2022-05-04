@@ -24,6 +24,10 @@ internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : RecyclerView(context, attrs) {
+  init {
+    clipToPadding = false
+  }
+
   override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(
       widthMeasureSpec,

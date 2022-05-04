@@ -22,10 +22,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.vanniktech.emoji.EmojiPopup
-import com.vanniktech.emoji.EmojiSearchDelegate
 import com.vanniktech.emoji.EmojiSearchPopup
 import com.vanniktech.emoji.NoSearchEmoji
-import com.vanniktech.emoji.emoji.Emoji
 
 /**
  * Popup similar to how Telegram and Slack does it to search for an Emoji
@@ -58,13 +56,11 @@ class SearchInPlaceTrait(
 
             if (isProperQuery) {
               popup.show(
-                emojiPopup.searchEmoji.search(query),
-                object : EmojiSearchDelegate {
-                  override fun onEmojiClicked(emoji: Emoji) {
-                    editText.text.replace(lastColon, s.length, emoji.unicode, 0, emoji.unicode.length)
-                    editText.text.append(" ")
-                  }
-                }
+                emojis = emojiPopup.searchEmoji.search(query),
+                delegate = {
+                  editText.text.replace(lastColon, s.length, it.unicode, 0, it.unicode.length)
+                  editText.text.append(" ")
+                },
               )
             } else {
               popup.dismiss()

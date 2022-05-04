@@ -49,13 +49,11 @@ internal class EmojiSearchPopup(
       recyclerView.setBackgroundColor(theming.backgroundColor(context))
 
       val adapter = EmojiAdapter(
-        theming,
-        object : EmojiSearchDialogDelegate {
-          override fun onSearchEmojiClick(emoji: Emoji) {
-            delegate?.onEmojiClicked(emoji)
-            dismiss()
-          }
-        }
+        theming = theming,
+        emojiSearchDialogDelegate = {
+          delegate?.onEmojiClicked(it)
+          dismiss()
+        },
       )
       recyclerView.adapter = adapter
 

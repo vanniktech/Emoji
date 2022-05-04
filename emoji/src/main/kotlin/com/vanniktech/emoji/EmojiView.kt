@@ -153,10 +153,13 @@ class EmojiView @JvmOverloads constructor(
     if (searchIndex != null) {
       emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab)
       emojiTabs[searchIndex]!!.setOnClickListener {
+        editText?.hideKeyboardAndFocus()
+
         EmojiSearchDialog.show(
           getContext(),
           {
-            handleEmojiClick(it)
+            handleEmojiClick(it, addWhitespace = true)
+            editText?.showKeyboardAndFocus()
 
             // Maybe the search was opened from the recent tab and hence we'll invalidate.
             emojiPagerAdapter.invalidateRecentEmojis()
@@ -195,8 +198,13 @@ class EmojiView @JvmOverloads constructor(
     return button
   }
 
-  internal fun handleEmojiClick(emoji: Emoji) {
+  internal fun handleEmojiClick(emoji: Emoji, addWhitespace: Boolean = false) {
     editText?.input(emoji)
+
+    if (addWhitespace) {
+      editText?.text?.append(" ")
+    }
+
     recentEmoji.addEmoji(emoji)
     variantEmoji.addVariant(emoji)
     onEmojiClickListener?.onEmojiClick(emoji)

@@ -17,7 +17,6 @@
 package com.vanniktech.emoji
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build.VERSION
@@ -176,15 +175,14 @@ class EmojiPopup(
 
   private fun showAtBottomPending() {
     isPendingOpen = true
-    val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+    val inputMethodManager = context.inputMethodManager
     if (Utils.shouldOverrideRegularCondition(context, editText)) {
       editText.imeOptions = editText.imeOptions or EditorInfo.IME_FLAG_NO_EXTRACT_UI
-      inputMethodManager?.restartInput(editText)
+      inputMethodManager.restartInput(editText)
     }
-    if (inputMethodManager != null) {
-      emojiResultReceiver.setReceiver(this)
-      inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, emojiResultReceiver)
-    }
+
+    emojiResultReceiver.setReceiver(this)
+    inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, emojiResultReceiver)
   }
 
   val isShowing: Boolean
@@ -196,8 +194,9 @@ class EmojiPopup(
     emojiResultReceiver.setReceiver(null)
     if (originalImeOptions != -1) {
       editText.imeOptions = originalImeOptions
-      val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-      inputMethodManager?.restartInput(editText)
+      val inputMethodManager = context.inputMethodManager
+      inputMethodManager.restartInput(editText)
+
       if (VERSION.SDK_INT >= VERSION_CODES.O) {
         val autofillManager = context.getSystemService(AutofillManager::class.java)
         autofillManager?.cancel()

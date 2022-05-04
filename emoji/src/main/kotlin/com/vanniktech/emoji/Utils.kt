@@ -25,6 +25,7 @@ import android.graphics.Rect
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.PopupWindow
 import androidx.annotation.AttrRes
@@ -127,5 +128,20 @@ internal object Utils {
     } else {
       ContextCompat.getColor(context, fallback)
     }
+  }
+}
+
+internal inline val Context.inputMethodManager get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+internal fun EditText.showKeyboardAndFocus() {
+  post {
+    requestFocus()
+    context.inputMethodManager.showSoftInput(this, 0)
+  }
+}
+
+internal fun EditText.hideKeyboardAndFocus() {
+  post {
+    clearFocus()
+    context.inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
   }
 }

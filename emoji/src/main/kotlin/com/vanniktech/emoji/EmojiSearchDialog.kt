@@ -30,7 +30,6 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -81,7 +80,10 @@ internal class EmojiSearchDialog : DialogFragment() {
     val recyclerView = dialog.findViewById<RecyclerView>(R.id.recyclerView)
     val adapter = EmojiAdapter(
       theming = theming,
-      emojiSearchDialogDelegate = delegate,
+      emojiSearchDialogDelegate = {
+        delegate?.onSearchEmojiClick(it)
+        dismiss()
+      },
     )
     recyclerView?.adapter = adapter
 
@@ -102,8 +104,7 @@ internal class EmojiSearchDialog : DialogFragment() {
     })
 
     editText.postDelayed({
-      editText.requestFocus()
-      (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(editText, 0)
+      editText.showKeyboardAndFocus()
     }, 300L)
 
     return dialog
