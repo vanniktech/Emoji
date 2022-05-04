@@ -339,7 +339,7 @@ async function generateCode(map, targets) {
     const categoryTemplate = await fs.readFile("template/Category.java", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
-    const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.java", "utf-8");
+    const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.java", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
@@ -411,12 +411,22 @@ async function generateCode(map, targets) {
             return `new ${category}Category()`
         }).join(",\n      ");
 
+        const kotlinImports = [...map.keys()].sort().map((category) => {
+            return `import com.vanniktech.emoji.${target.package}.category.${category}Category`
+        }).join("\n");
+
+        const kotlinCategories = entries.map(entry => {
+            const [category] = entry;
+
+            return `${category}Category(),`
+        }).join("\n      ");
+
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderTemplate)({
+            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderTemplate)({
                 package: target.package,
-                imports: imports,
+                imports: kotlinImports,
                 name: target.name,
-                categories: categories,
+                categories: kotlinCategories,
             }));
         } else {
             await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderCompatTemplate)({

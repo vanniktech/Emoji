@@ -91,7 +91,7 @@ EmojiManager.install(new TwitterEmojiProvider());
 
 ## Custom Emojis
 
-If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](emoji/src/main/java/com/vanniktech/emoji/EmojiProvider.java) and pass it to `EmojiManager.install`.
+If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](emoji/src/main/java/com/vanniktech/emoji/EmojiProvider.kt) and pass it to `EmojiManager.install`.
 
 All of the core API lays in `emoji`, which is being pulled in automatically by the provided implementations:
 
