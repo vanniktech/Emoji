@@ -183,29 +183,32 @@ function generateEmojiCode(target, emojis, indent = 6) {
     return emojis.filter(it => it[target.package]).map((it) => {
         const unicodeParts = it.unicode.split("-");
         let result;
+        let hasVariants = it.variants.filter(it => it[target.package]).length > 0;
+        let newLinePrefix = `\n${indentString}  `
+        let separator = hasVariants ? newLinePrefix : ""
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}intArrayOf(${transformedUnicodeParts}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `new ${target.name}(0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}0x${unicodeParts[0]}, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `new ${target.name}(new int[] { ${transformedUnicodeParts} }, ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}intArrayOf(${transformedUnicodeParts}), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             }
         }
 
-        if (it.variants.filter(it => it[target.package]).length > 0) {
+        if (hasVariants) {
             const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`,\n${indentString}  `)
 
-            return `${result},\n${indentString}  ${generatedVariants}\n${indentString})`;
+            return `${result},${newLinePrefix}${generatedVariants}\n${indentString})`;
         } else {
             return `${result})`;
         }
@@ -214,9 +217,9 @@ function generateEmojiCode(target, emojis, indent = 6) {
 
 function generateShortcodeCode(emoji) {
     if (!emoji.shortcodes || emoji.shortcodes.length === 0) {
-        return 'new String[0]'
+        return 'emptyArray<String>()'
     } else {
-        return `new String[]{"${emoji.shortcodes.join(`", "`)}"}`
+        return `arrayOf("${emoji.shortcodes.join(`", "`)}")`
     }
 }
 
@@ -337,7 +340,7 @@ async function generateCode(map, targets) {
     const emojiTemplate = await fs.readFile("template/Emoji.kt", "utf-8");
     const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
-    const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
+    const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.kt", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
@@ -372,7 +375,7 @@ async function generateCode(map, targets) {
 
                 chunkClasses.push(chunkClass)
 
-                await fs.writeFile(`${srcDir}/category/${chunkClass}.java`,
+                await fs.writeFile(`${srcDir}/category/${chunkClass}.kt`,
                     template(categoryChunkTemplate)({
                         package: target.package,
                         name: target.name,
