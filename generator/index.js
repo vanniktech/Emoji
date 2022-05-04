@@ -340,7 +340,7 @@ async function generateCode(map, targets) {
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
     const categoryUtilsTemplate = await fs.readFile("template/CategoryUtils.java", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
-    const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.java", "utf-8");
+    const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
         return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
@@ -402,20 +402,10 @@ async function generateCode(map, targets) {
         }
 
         const imports = [...map.keys()].sort().map((category) => {
-            return `import com.vanniktech.emoji.${target.package}.category.${category}Category;`
-        }).join("\n");
-
-        const categories = entries.map(entry => {
-            const [category] = entry;
-
-            return `new ${category}Category()`
-        }).join(",\n      ");
-
-        const kotlinImports = [...map.keys()].sort().map((category) => {
             return `import com.vanniktech.emoji.${target.package}.category.${category}Category`
         }).join("\n");
 
-        const kotlinCategories = entries.map(entry => {
+        const categories = entries.map(entry => {
             const [category] = entry;
 
             return `${category}Category(),`
@@ -424,12 +414,12 @@ async function generateCode(map, targets) {
         if (target.module !== "google-compat") {
             await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderTemplate)({
                 package: target.package,
-                imports: kotlinImports,
+                imports: imports,
                 name: target.name,
-                categories: kotlinCategories,
+                categories: categories,
             }));
         } else {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.java`, template(emojiProviderCompatTemplate)({
+            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderCompatTemplate)({
                 package: target.package,
                 imports: imports,
                 name: target.name,
