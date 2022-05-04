@@ -19,6 +19,7 @@ package com.vanniktech.emoji.material
 import android.content.Context
 import android.text.SpannableStringBuilder
 import android.util.AttributeSet
+import androidx.annotation.AttrRes
 import androidx.annotation.CallSuper
 import androidx.annotation.DimenRes
 import androidx.annotation.Px
@@ -31,7 +32,8 @@ import kotlin.jvm.JvmOverloads
 open class EmojiMaterialRadioButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : MaterialRadioButton(context, attrs), EmojiDisplayable {
+  @AttrRes defStyleAttr: Int = com.google.android.material.R.attr.radioButtonStyle,
+) : MaterialRadioButton(context, attrs, defStyleAttr), EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {
