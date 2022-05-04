@@ -23,6 +23,7 @@ import android.os.StrictMode.VmPolicy
 import androidx.appcompat.app.AppCompatDelegate
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.ios.IosEmojiProvider
+import timber.log.Timber
 
 class EmojiApplication : Application() {
   override fun onCreate() {
@@ -31,5 +32,7 @@ class EmojiApplication : Application() {
     EmojiManager.install(IosEmojiProvider())
     StrictMode.setThreadPolicy(ThreadPolicy.Builder().detectAll().build())
     StrictMode.setVmPolicy(VmPolicy.Builder().detectAll().build())
+
+    Timber.plant(Timber.DebugTree())
   }
 }

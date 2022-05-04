@@ -19,7 +19,6 @@ package com.vanniktech.emoji.sample
 import android.app.Dialog
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -32,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
+import timber.log.Timber
 
 // We don't care about duplicated code in the sample.
 class MainDialog : DialogFragment() {
@@ -55,12 +55,12 @@ class MainDialog : DialogFragment() {
     val sendButton = result.findViewById<ImageView>(R.id.main_dialog_send)
 
     val emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
-      .setOnEmojiBackspaceClickListener { Log.d(TAG, "Clicked on Backspace") }
-      .setOnEmojiClickListener { emoji: Emoji -> Log.d(TAG, "Clicked on Emoji " + emoji.unicode) }
+      .setOnEmojiBackspaceClickListener { Timber.d(TAG, "Clicked on Backspace") }
+      .setOnEmojiClickListener { emoji: Emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) }
       .setOnEmojiPopupShownListener { emojiButton.setImageResource(R.drawable.ic_keyboard) }
-      .setOnSoftKeyboardOpenListener { px -> Log.d(TAG, "Opened soft keyboard with height $px") }
+      .setOnSoftKeyboardOpenListener { px -> Timber.d(TAG, "Opened soft keyboard with height $px") }
       .setOnEmojiPopupDismissListener { emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) }
-      .setOnSoftKeyboardCloseListener { Log.d(TAG, "Closed soft keyboard") }
+      .setOnSoftKeyboardCloseListener { Timber.d(TAG, "Closed soft keyboard") }
       .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
       .setPageTransformer(PageTransformer())
       .build(editText)

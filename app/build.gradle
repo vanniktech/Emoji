@@ -60,6 +60,7 @@ dependencies {
   implementation project(':emoji-twitter')
   implementation project(':emoji-facebook')
   implementation project(':emoji-material')
+  implementation "com.jakewharton.timber:timber:5.0.1"
 }
 
 dependencies {

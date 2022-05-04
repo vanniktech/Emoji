@@ -20,7 +20,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater.Factory2
 import android.view.MenuItem
@@ -43,6 +42,7 @@ import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
 import com.vanniktech.emoji.sample.databinding.ActivityMainBinding
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider
+import timber.log.Timber
 
 // We don't care about duplicated code in the sample.
 class MainActivity : AppCompatActivity() {
@@ -64,12 +64,12 @@ class MainActivity : AppCompatActivity() {
     setUpShowcaseButtons()
 
     emojiPopup = EmojiPopup.Builder.fromRootView(binding.rootView)
-      .setOnEmojiBackspaceClickListener { Log.d(TAG, "Clicked on Backspace") }
-      .setOnEmojiClickListener { emoji -> Log.d(TAG, "Clicked on Emoji " + emoji.unicode) }
+      .setOnEmojiBackspaceClickListener { Timber.d(TAG, "Clicked on Backspace") }
+      .setOnEmojiClickListener { emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) }
       .setOnEmojiPopupShownListener { binding.chatEmoji.setImageResource(R.drawable.ic_keyboard) }
-      .setOnSoftKeyboardOpenListener { px -> Log.d(TAG, "Opened soft keyboard with height $px") }
+      .setOnSoftKeyboardOpenListener { px -> Timber.d(TAG, "Opened soft keyboard with height $px") }
       .setOnEmojiPopupDismissListener { binding.chatEmoji.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) }
-      .setOnSoftKeyboardCloseListener { Log.d(TAG, "Closed soft keyboard") }
+      .setOnSoftKeyboardCloseListener { Timber.d(TAG, "Closed soft keyboard") }
       .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
       .setPageTransformer(PageTransformer())
       // .setRecentEmoji(NoRecentEmoji.INSTANCE) // Uncomment this to hide recent emojis.
