@@ -27,9 +27,6 @@ import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.SearchInPlaceTrait
 import com.vanniktech.emoji.Utils
-import com.vanniktech.emoji.dispatchBackspace
-import com.vanniktech.emoji.emoji.Emoji
-import com.vanniktech.emoji.inputEmoji
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
@@ -52,10 +49,6 @@ class EmojiTextInputEditText @JvmOverloads constructor(
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
     EmojiManager.replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
   }
-
-  @CallSuper override fun backspace() = dispatchBackspace()
-
-  @CallSuper override fun input(emoji: Emoji) = inputEmoji(emoji)
 
   override fun getEmojiSize() = emojiSize
 

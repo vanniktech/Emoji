@@ -171,7 +171,7 @@ class EmojiView @JvmOverloads constructor(
       //noinspection AndroidLintClickableViewAccessibility
       emojiTabs[backspaceIndex]?.setOnTouchListener(
         RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL.toLong()) {
-          editText?.dispatchBackspace()
+          editText?.backspace()
           onEmojiBackspaceClickListener?.onEmojiBackspaceClick()
         }
       )
@@ -196,7 +196,7 @@ class EmojiView @JvmOverloads constructor(
   }
 
   private fun handleEmojiClick(emoji: Emoji) {
-    editText?.inputEmoji(emoji)
+    editText?.input(emoji)
     recentEmoji.addEmoji(emoji)
     variantEmoji.addVariant(emoji)
     onEmojiClickListener?.onEmojiClick(emoji)

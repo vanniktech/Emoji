@@ -184,13 +184,13 @@ object Utils {
 }
 
 /** Dispatches a KeyEvent which mimics the press of the Backspace key */
-fun EditText.dispatchBackspace() {
+fun EditText.backspace() {
   val event = KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL)
   dispatchKeyEvent(event)
 }
 
 /** Inserts the given [emoji] into [this] while preserving the current selection. */
-fun EditText.inputEmoji(emoji: Emoji) {
+fun EditText.input(emoji: Emoji) {
   val start = selectionStart
   val end = selectionEnd
   if (start < 0) {

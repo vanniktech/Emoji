@@ -22,7 +22,6 @@ import androidx.annotation.CallSuper
 import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
@@ -46,10 +45,6 @@ class EmojiMultiAutoCompleteTextView @JvmOverloads constructor(
     val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
     EmojiManager.replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
   }
-
-  @CallSuper override fun backspace() = dispatchBackspace()
-
-  @CallSuper override fun input(emoji: Emoji) = inputEmoji(emoji)
 
   override fun getEmojiSize(): Float = emojiSize
 

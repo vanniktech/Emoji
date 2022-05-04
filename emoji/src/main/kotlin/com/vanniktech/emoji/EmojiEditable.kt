@@ -16,16 +16,9 @@
  */
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.traits.EmojiTrait
 
 interface EmojiEditable : EmojiDisplayable {
-  /** Issues a backspace. */
-  fun backspace()
-
-  /** Adds the emoji. */
-  fun input(emoji: Emoji)
-
   /** Disables the keyboard. Only EmojiPopup will be shown. */
   fun installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait
 
