@@ -21,6 +21,7 @@ buildscript {
 
 codeQualityTools {
   lint {
+    lintConfig = rootProject.file("lint.xml")
     textReport = true
   }
   checkstyle {

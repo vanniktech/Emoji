@@ -168,6 +168,7 @@ class EmojiView @JvmOverloads constructor(
     }
     if (backspaceIndex != null) {
       emojiTabs[backspaceIndex] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab)
+      //noinspection AndroidLintClickableViewAccessibility
       emojiTabs[backspaceIndex]?.setOnTouchListener(
         RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL.toLong()) {
           editText?.let(Utils::backspace)
