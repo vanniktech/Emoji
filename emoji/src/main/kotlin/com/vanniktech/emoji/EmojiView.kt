@@ -195,7 +195,7 @@ class EmojiView @JvmOverloads constructor(
     return button
   }
 
-  private fun handleEmojiClick(emoji: Emoji) {
+  internal fun handleEmojiClick(emoji: Emoji) {
     editText?.input(emoji)
     recentEmoji.addEmoji(emoji)
     variantEmoji.addVariant(emoji)
