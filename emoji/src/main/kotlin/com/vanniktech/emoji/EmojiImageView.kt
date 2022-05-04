@@ -84,7 +84,7 @@ class EmojiImageView @JvmOverloads constructor(
     imageLoadingTask = null
   }
 
-  fun setEmoji(theming: EmojiTheming, emoji: Emoji) {
+  fun setEmoji(theming: EmojiTheming, emoji: Emoji, variantEmoji: VariantEmoji?) {
     val context = context
     variantIndicatorPaint.color = theming.dividerColor(context)
     postInvalidate()
@@ -92,7 +92,7 @@ class EmojiImageView @JvmOverloads constructor(
     if (emoji != currentEmoji) {
       setImageDrawable(null)
       currentEmoji = emoji
-      hasVariants = emoji.base.hasVariants()
+      hasVariants = emoji.base.hasVariants() && variantEmoji !is NoVariantEmoji
       cancelFuture()
       setOnClickListener {
         clickListener?.onEmojiClick(currentEmoji!!)

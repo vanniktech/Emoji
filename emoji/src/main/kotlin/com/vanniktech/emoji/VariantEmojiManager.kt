@@ -34,15 +34,7 @@ class VariantEmojiManager(
     }
 
     val baseEmoji = desiredEmoji.base
-
-    for (i in variantsList.indices) {
-      val emoji = variantsList[i]
-      if (baseEmoji == emoji.base) {
-        return emoji
-      }
-    }
-
-    return desiredEmoji
+    return variantsList.firstOrNull { it.base == baseEmoji } ?: desiredEmoji
   }
 
   override fun addVariant(newVariant: Emoji) {

@@ -28,7 +28,7 @@ import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
 internal class EmojiArrayAdapter(
   context: Context,
   emojis: Array<out Emoji>,
-  private val variantManager: VariantEmoji?,
+  private val variantEmoji: VariantEmoji?,
   private val listener: OnEmojiClickListener?,
   private val longListener: OnEmojiLongClickListener?,
   private val theming: EmojiTheming,
@@ -42,9 +42,9 @@ internal class EmojiArrayAdapter(
       image.longClickListener = longListener
     }
     val emoji = getItem(position)!!
-    val variantToUse = variantManager?.getVariant(emoji) ?: emoji
+    val variantToUse = variantEmoji?.getVariant(emoji) ?: emoji
     image.contentDescription = emoji.unicode
-    image.setEmoji(theming, variantToUse)
+    image.setEmoji(theming, variantToUse, variantEmoji)
     return image
   }
 

@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
       keyboardAnimationStyle = R.style.emoji_fade_animation_style,
       pageTransformer = PageTransformer(),
+//      variantEmoji = NoVariantEmoji, // Uncomment this to hide variant emojis.
 //      searchEmoji = NoSearchEmoji, // Uncomment this to hide search emojis.
 //      recentEmoji = NoRecentEmoji, // Uncomment this to hide recent emojis.
     )
