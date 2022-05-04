@@ -83,7 +83,7 @@ object EmojiManager {
   }
 
   private val DEFAULT_EMOJI_REPLACER: EmojiReplacer = object : EmojiReplacer {
-    override fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer) {
+    override fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer?) {
       val existingSpans = text.getSpans(0, text.length, EmojiSpan::class.java)
       val existingSpanPositions: MutableList<Int> = ArrayList(existingSpans.size)
       val size = existingSpans.size

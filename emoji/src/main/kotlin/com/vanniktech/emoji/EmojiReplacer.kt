@@ -27,5 +27,5 @@ import android.text.Spannable
  * @since 6.0.0
  */
 interface EmojiReplacer {
-  fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer)
+  fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer?)
 }
