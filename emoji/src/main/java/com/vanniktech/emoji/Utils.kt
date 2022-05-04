@@ -113,12 +113,6 @@ object Utils {
     return result
   }
 
-  @PrivateApi
-  fun backspace(editText: EditText) {
-    val event = KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL)
-    editText.dispatchKeyEvent(event)
-  }
-
   internal fun asListWithoutDuplicates(emojis: Array<Emoji>): List<Emoji> {
     val result: MutableList<Emoji> = ArrayList(emojis.size)
     for (emoji in emojis) {
@@ -187,4 +181,10 @@ object Utils {
       ContextCompat.getColor(context, fallback)
     }
   }
+}
+
+/** Dispatches a KeyEvent which mimics the press of the Backspace key */
+fun EditText.dispatchBackspace() {
+  val event = KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL)
+  dispatchKeyEvent(event)
 }

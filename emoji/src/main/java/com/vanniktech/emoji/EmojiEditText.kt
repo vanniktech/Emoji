@@ -47,7 +47,7 @@ class EmojiEditText @JvmOverloads constructor(
     EmojiManager.replaceWithImages(context, getText(), if (emojiSize != 0f) emojiSize else defaultEmojiSize)
   }
 
-  @CallSuper override fun backspace() = Utils.backspace(this)
+  @CallSuper override fun backspace() = dispatchBackspace()
 
   @CallSuper override fun input(emoji: Emoji) = Utils.input(this, emoji)
 
