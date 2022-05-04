@@ -24,7 +24,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatTextView
 
-class EmojiTextView @JvmOverloads constructor(
+open class EmojiTextView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : AppCompatTextView(context, attrs), EmojiDisplayable {

@@ -28,7 +28,7 @@ import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
 import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
 /** Reference implementation for an EmojiAutoCompleteTextView with emoji support.  */
-class EmojiAutoCompleteTextView @JvmOverloads constructor(
+open class EmojiAutoCompleteTextView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : AppCompatAutoCompleteTextView(context, attrs), EmojiEditable {

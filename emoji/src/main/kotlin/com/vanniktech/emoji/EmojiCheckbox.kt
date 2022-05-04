@@ -24,7 +24,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatCheckBox
 
-class EmojiCheckbox @JvmOverloads constructor(
+open class EmojiCheckbox @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : AppCompatCheckBox(context, attrs), EmojiDisplayable {

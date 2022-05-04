@@ -31,7 +31,7 @@ import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
 import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
-class EmojiTextInputEditText @JvmOverloads constructor(
+open class EmojiTextInputEditText @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : TextInputEditText(context, attrs), EmojiEditable {

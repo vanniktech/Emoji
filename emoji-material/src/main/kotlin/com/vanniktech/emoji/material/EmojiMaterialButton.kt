@@ -27,7 +27,7 @@ import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.init
 
-class EmojiMaterialButton @JvmOverloads constructor(
+open class EmojiMaterialButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : MaterialButton(context, attrs), EmojiDisplayable {

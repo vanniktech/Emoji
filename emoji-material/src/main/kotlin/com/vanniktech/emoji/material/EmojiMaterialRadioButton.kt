@@ -28,7 +28,7 @@ import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.init
 import kotlin.jvm.JvmOverloads
 
-class EmojiMaterialRadioButton @JvmOverloads constructor(
+open class EmojiMaterialRadioButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : MaterialRadioButton(context, attrs), EmojiDisplayable {

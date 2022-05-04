@@ -28,7 +28,7 @@ import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.init
 import kotlin.jvm.JvmOverloads
 
-class EmojiMaterialCheckBox @JvmOverloads constructor(
+open class EmojiMaterialCheckBox @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : MaterialCheckBox(context, attrs), EmojiDisplayable {

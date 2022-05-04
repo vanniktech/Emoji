@@ -24,7 +24,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
-class EmojiButton @JvmOverloads constructor(
+open class EmojiButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : AppCompatButton(context, attrs), EmojiDisplayable {
