@@ -25,11 +25,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.vanniktech.emoji.EmojiEditable
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiPopup
-import com.vanniktech.emoji.SearchInPlaceTrait
 import com.vanniktech.emoji.init
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
+import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
 class EmojiTextInputEditText @JvmOverloads constructor(
   context: Context,

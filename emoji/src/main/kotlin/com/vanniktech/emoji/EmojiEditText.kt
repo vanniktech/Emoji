@@ -25,6 +25,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
+import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
 /** Reference implementation for an EditText with emoji support.  */
 class EmojiEditText @JvmOverloads constructor(

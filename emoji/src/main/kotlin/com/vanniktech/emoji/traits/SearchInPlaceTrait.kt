@@ -1,14 +1,15 @@
-package com.vanniktech.emoji
+package com.vanniktech.emoji.traits
 
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import com.vanniktech.emoji.EmojiPopup
+import com.vanniktech.emoji.EmojiSearchDelegate
+import com.vanniktech.emoji.EmojiSearchPopup
+import com.vanniktech.emoji.NoSearchEmoji
 import com.vanniktech.emoji.emoji.Emoji
-import com.vanniktech.emoji.traits.EmojiTrait
-import com.vanniktech.emoji.traits.EmojiTraitable
-import com.vanniktech.emoji.traits.EmptyEmojiTrait
 
 /**
  * Popup similar to how Telegram and Slack does it to search for an Emoji

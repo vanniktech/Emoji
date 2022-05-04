@@ -25,6 +25,7 @@ import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
+import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
 /** Reference implementation for an EmojiAutoCompleteTextView with emoji support.  */
 class EmojiMultiAutoCompleteTextView @JvmOverloads constructor(
