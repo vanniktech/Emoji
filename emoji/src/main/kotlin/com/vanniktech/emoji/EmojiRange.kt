@@ -19,7 +19,7 @@ package com.vanniktech.emoji
 import com.vanniktech.emoji.emoji.Emoji
 
 data class EmojiRange(
-  @JvmField val start: Int,
-  @JvmField val end: Int,
-  @JvmField val emoji: Emoji,
+  val start: Int,
+  val end: Int,
+  val emoji: Emoji,
 )

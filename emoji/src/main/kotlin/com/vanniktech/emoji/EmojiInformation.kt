@@ -17,6 +17,6 @@
 package com.vanniktech.emoji
 
 data class EmojiInformation internal constructor(
-  @JvmField val isOnlyEmojis: Boolean,
-  @JvmField val emojis: List<EmojiRange>,
+  val isOnlyEmojis: Boolean,
+  val emojis: List<EmojiRange>,
 )
