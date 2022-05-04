@@ -5,7 +5,14 @@ plugins {
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.kotlin.parcelize)
   alias(libs.plugins.publish)
+  alias(libs.plugins.metalava)
 }
+
+metalava {
+  filename = "api/current.txt"
+  sourcePaths = ["src/main"]
+}
+
 
 android {
   namespace "com.vanniktech.emoji"

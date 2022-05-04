@@ -1,0 +1,362 @@
+// Signature format: 4.0
+package com.vanniktech.emoji {
+
+  public interface Emoji extends android.os.Parcelable {
+    method public void destroy();
+    method public com.vanniktech.emoji.Emoji getBase();
+    method public android.graphics.drawable.Drawable getDrawable(android.content.Context context);
+    method public java.util.List<java.lang.String> getShortcodes();
+    method public String getUnicode();
+    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants();
+    method public boolean isDuplicate();
+    property public abstract com.vanniktech.emoji.Emoji base;
+    property public abstract boolean isDuplicate;
+    property public abstract java.util.List<java.lang.String> shortcodes;
+    property public abstract String unicode;
+    property public abstract java.util.List<com.vanniktech.emoji.Emoji> variants;
+  }
+
+  public class EmojiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiAutoCompleteTextView(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class EmojiButton extends androidx.appcompat.widget.AppCompatButton implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiButton(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiButton(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public interface EmojiCategory {
+    method @StringRes public int getCategoryName();
+    method public java.util.List<com.vanniktech.emoji.Emoji> getEmojis();
+    method @DrawableRes public int getIcon();
+    property @StringRes public abstract int categoryName;
+    property public abstract java.util.List<com.vanniktech.emoji.Emoji> emojis;
+    property @DrawableRes public abstract int icon;
+  }
+
+  public class EmojiCheckbox extends androidx.appcompat.widget.AppCompatCheckBox implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiCheckbox(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiCheckbox(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public interface EmojiDisplayable {
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class EmojiEditText extends androidx.appcompat.widget.AppCompatEditText implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiEditText(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiEditText(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public final class EmojiEditTexts {
+    method public static void backspace(android.widget.EditText);
+    method public static void input(android.widget.EditText, com.vanniktech.emoji.Emoji emoji, optional boolean addWhitespace);
+    method public static com.vanniktech.emoji.traits.EmojiTrait installDisableKeyboardInput(android.widget.EditText, com.vanniktech.emoji.EmojiPopup emojiPopup);
+    method public static com.vanniktech.emoji.traits.EmojiTrait installForceSingleEmoji(android.widget.EditText);
+    method public static com.vanniktech.emoji.traits.EmojiTrait installSearchInPlace(android.widget.EditText, com.vanniktech.emoji.EmojiPopup emojiPopup);
+  }
+
+  public final class EmojiInformation {
+    method public boolean component1();
+    method public java.util.List<com.vanniktech.emoji.EmojiRange> component2();
+    method public com.vanniktech.emoji.EmojiInformation copy(boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojis);
+    method public java.util.List<com.vanniktech.emoji.EmojiRange> getEmojis();
+    method public boolean isOnlyEmojis();
+    property public final java.util.List<com.vanniktech.emoji.EmojiRange> emojis;
+    property public final boolean isOnlyEmojis;
+  }
+
+  public class EmojiLayoutFactory implements android.view.LayoutInflater.Factory2 {
+    ctor public EmojiLayoutFactory(optional android.view.LayoutInflater.Factory2? delegate);
+    method public android.view.View? onCreateView(android.view.View? parent, String name, android.content.Context context, android.util.AttributeSet attrs);
+    method public android.view.View? onCreateView(String name, android.content.Context context, android.util.AttributeSet attrs);
+  }
+
+  public final class EmojiManager {
+    method public void destroy();
+    method public void install(com.vanniktech.emoji.EmojiProvider provider);
+    method public void release();
+    method public void replaceWithImages(android.content.Context? context, android.text.Spannable? text, float emojiSize);
+    field public static final com.vanniktech.emoji.EmojiManager INSTANCE;
+  }
+
+  public class EmojiMultiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiMultiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiMultiAutoCompleteTextView(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public final class EmojiPopup {
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, optional com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener? onEmojiPopupDismissListener);
+    method public void dismiss();
+    method public boolean isShowing();
+    method public void show();
+    method public void toggle();
+    property public final boolean isShowing;
+  }
+
+  public interface EmojiProvider {
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    property public abstract com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
+  public final class EmojiRange {
+    ctor public EmojiRange(com.vanniktech.emoji.Emoji emoji, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.Emoji component1();
+    method public kotlin.ranges.IntRange component2();
+    method public com.vanniktech.emoji.EmojiRange copy(com.vanniktech.emoji.Emoji emoji, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.Emoji getEmoji();
+    method public kotlin.ranges.IntRange getRange();
+    property public final com.vanniktech.emoji.Emoji emoji;
+    property public final kotlin.ranges.IntRange range;
+  }
+
+  public fun interface EmojiReplacer {
+    method public void replaceWithImages(android.content.Context context, android.text.Spannable text, float emojiSize, com.vanniktech.emoji.EmojiReplacer? fallback);
+  }
+
+  public class EmojiTextView extends androidx.appcompat.widget.AppCompatTextView implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiTextView(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public final class EmojiTextViews {
+    method @Px public static float init(android.widget.TextView, android.util.AttributeSet? attrs, @StyleableRes int[] styleable, @StyleableRes int emojiSizeAttr);
+  }
+
+  @kotlinx.parcelize.Parcelize public final class EmojiTheming implements android.os.Parcelable {
+    ctor public EmojiTheming(@ColorInt Integer? backgroundColor, @ColorInt Integer? primaryColor, @ColorInt Integer? secondaryColor, @ColorInt Integer? dividerColor, @ColorInt Integer? textColor, @ColorInt Integer? textSecondaryColor);
+    ctor public EmojiTheming();
+    method public Integer? component1();
+    method public Integer? component2();
+    method public Integer? component3();
+    method public Integer? component4();
+    method public Integer? component5();
+    method public Integer? component6();
+    method public com.vanniktech.emoji.EmojiTheming copy(@ColorInt Integer? backgroundColor, @ColorInt Integer? primaryColor, @ColorInt Integer? secondaryColor, @ColorInt Integer? dividerColor, @ColorInt Integer? textColor, @ColorInt Integer? textSecondaryColor);
+    method public Integer? getBackgroundColor();
+    method public Integer? getDividerColor();
+    method public Integer? getPrimaryColor();
+    method public Integer? getSecondaryColor();
+    method public Integer? getTextColor();
+    method public Integer? getTextSecondaryColor();
+    property public final Integer? backgroundColor;
+    property public final Integer? dividerColor;
+    property public final Integer? primaryColor;
+    property public final Integer? secondaryColor;
+    property public final Integer? textColor;
+    property public final Integer? textSecondaryColor;
+  }
+
+  public final class EmojiView extends android.widget.LinearLayout {
+    ctor public EmojiView(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiView(android.content.Context context);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer);
+    method public void tearDown();
+  }
+
+  public final class Emojis {
+    method public static com.vanniktech.emoji.EmojiInformation emojiInformation(CharSequence?);
+    method public static java.util.List<com.vanniktech.emoji.EmojiRange> emojis(CharSequence?);
+    method public static int emojisCount(CharSequence?);
+    method public static boolean isOnlyEmojis(CharSequence?);
+  }
+
+}
+
+package com.vanniktech.emoji.inputfilters {
+
+  public final class MaximalNumberOfEmojisInputFilter implements android.text.InputFilter {
+    ctor public MaximalNumberOfEmojisInputFilter(int maxCount);
+    method public CharSequence? filter(CharSequence source, int start, int end, android.text.Spanned dest, int dstart, int dend);
+  }
+
+  public final class OnlyEmojisInputFilter implements android.text.InputFilter {
+    ctor public OnlyEmojisInputFilter();
+    method public CharSequence? filter(CharSequence source, int start, int end, android.text.Spanned dest, int dstart, int dend);
+  }
+
+}
+
+package com.vanniktech.emoji.internal {
+
+  public final class ThemingKt {
+  }
+
+  public final class ThemingsKt {
+  }
+
+  public final class UtilsKt {
+  }
+
+}
+
+package com.vanniktech.emoji.listeners {
+
+  public fun interface OnEmojiBackspaceClickListener {
+    method public void onEmojiBackspaceClick();
+  }
+
+  public fun interface OnEmojiClickListener {
+    method public void onEmojiClick(com.vanniktech.emoji.Emoji emoji);
+  }
+
+  public fun interface OnEmojiPopupDismissListener {
+    method public void onEmojiPopupDismiss();
+  }
+
+  public fun interface OnEmojiPopupShownListener {
+    method public void onEmojiPopupShown();
+  }
+
+  public fun interface OnSoftKeyboardCloseListener {
+    method public void onKeyboardClose();
+  }
+
+  public fun interface OnSoftKeyboardOpenListener {
+    method public void onKeyboardOpen(@Px int keyBoardHeight);
+  }
+
+}
+
+package com.vanniktech.emoji.recent {
+
+  public final class NoRecentEmoji implements com.vanniktech.emoji.recent.RecentEmoji {
+    method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
+    method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
+    method public void persist();
+    field public static final com.vanniktech.emoji.recent.NoRecentEmoji INSTANCE;
+  }
+
+  public interface RecentEmoji {
+    method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
+    method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
+    method public void persist();
+  }
+
+  public final class RecentEmojiManager implements com.vanniktech.emoji.recent.RecentEmoji {
+    ctor public RecentEmojiManager(android.content.Context context);
+    method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
+    method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
+    method public void persist();
+  }
+
+}
+
+package com.vanniktech.emoji.search {
+
+  public final class NoSearchEmoji implements com.vanniktech.emoji.search.SearchEmoji {
+    method public java.util.List<com.vanniktech.emoji.search.SearchEmojiResult> search(String query);
+    field public static final com.vanniktech.emoji.search.NoSearchEmoji INSTANCE;
+  }
+
+  public interface SearchEmoji {
+    method public java.util.List<com.vanniktech.emoji.search.SearchEmojiResult> search(String query);
+  }
+
+  public final class SearchEmojiManager implements com.vanniktech.emoji.search.SearchEmoji {
+    ctor public SearchEmojiManager();
+    method public java.util.List<com.vanniktech.emoji.search.SearchEmojiResult> search(String query);
+  }
+
+  public final class SearchEmojiResult {
+    ctor public SearchEmojiResult(com.vanniktech.emoji.Emoji emoji, String shortcode, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.Emoji component1();
+    method public String component2();
+    method public kotlin.ranges.IntRange component3();
+    method public com.vanniktech.emoji.search.SearchEmojiResult copy(com.vanniktech.emoji.Emoji emoji, String shortcode, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.Emoji getEmoji();
+    method public kotlin.ranges.IntRange getRange();
+    method public String getShortcode();
+    property public final com.vanniktech.emoji.Emoji emoji;
+    property public final kotlin.ranges.IntRange range;
+    property public final String shortcode;
+  }
+
+}
+
+package com.vanniktech.emoji.traits {
+
+  public final class DisableKeyboardInputTrait implements com.vanniktech.emoji.traits.EmojiTraitable {
+    ctor public DisableKeyboardInputTrait(com.vanniktech.emoji.EmojiPopup emojiPopup);
+    method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
+  }
+
+  public interface EmojiTrait {
+    method public void uninstall();
+  }
+
+  public interface EmojiTraitable {
+    method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
+  }
+
+  public final class ForceSingleEmojiTrait implements com.vanniktech.emoji.traits.EmojiTraitable {
+    ctor public ForceSingleEmojiTrait();
+    method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
+  }
+
+  public final class SearchInPlaceTrait implements com.vanniktech.emoji.traits.EmojiTraitable {
+    ctor public SearchInPlaceTrait(com.vanniktech.emoji.EmojiPopup emojiPopup);
+    method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
+  }
+
+}
+
+package com.vanniktech.emoji.variant {
+
+  public final class NoVariantEmoji implements com.vanniktech.emoji.variant.VariantEmoji {
+    method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
+    method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public void persist();
+    field public static final com.vanniktech.emoji.variant.NoVariantEmoji INSTANCE;
+  }
+
+  public interface VariantEmoji {
+    method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
+    method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public void persist();
+  }
+
+  public final class VariantEmojiManager implements com.vanniktech.emoji.variant.VariantEmoji {
+    ctor public VariantEmojiManager(android.content.Context context);
+    method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
+    method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public void persist();
+  }
+
+}
+

@@ -1,0 +1,11 @@
+// Signature format: 4.0
+package com.vanniktech.emoji.twitter {
+
+  public final class TwitterEmojiProvider implements com.vanniktech.emoji.EmojiProvider {
+    ctor public TwitterEmojiProvider();
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    property public com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
+}
+

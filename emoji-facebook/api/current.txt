@@ -1,0 +1,11 @@
+// Signature format: 4.0
+package com.vanniktech.emoji.facebook {
+
+  public final class FacebookEmojiProvider implements com.vanniktech.emoji.EmojiProvider {
+    ctor public FacebookEmojiProvider();
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    property public com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
+}
+

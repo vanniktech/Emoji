@@ -1,0 +1,53 @@
+// Signature format: 4.0
+package com.vanniktech.emoji.material {
+
+  public class EmojiMaterialButton extends com.google.android.material.button.MaterialButton implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiMaterialButton(android.content.Context context, optional android.util.AttributeSet? attrs, optional @AttrRes int defStyleAttr);
+    ctor public EmojiMaterialButton(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiMaterialButton(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class EmojiMaterialCheckBox extends com.google.android.material.checkbox.MaterialCheckBox implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiMaterialCheckBox(android.content.Context context, optional android.util.AttributeSet? attrs, optional @AttrRes int defStyleAttr);
+    ctor public EmojiMaterialCheckBox(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiMaterialCheckBox(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class EmojiMaterialRadioButton extends com.google.android.material.radiobutton.MaterialRadioButton implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiMaterialRadioButton(android.content.Context context, optional android.util.AttributeSet? attrs, optional @AttrRes int defStyleAttr);
+    ctor public EmojiMaterialRadioButton(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiMaterialRadioButton(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class EmojiTextInputEditText extends com.google.android.material.textfield.TextInputEditText implements com.vanniktech.emoji.EmojiDisplayable {
+    ctor public EmojiTextInputEditText(android.content.Context context, optional android.util.AttributeSet? attrs, optional @AttrRes int defStyleAttr);
+    ctor public EmojiTextInputEditText(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public EmojiTextInputEditText(android.content.Context context);
+    method public float getEmojiSize();
+    method public void setEmojiSize(@Px int pixels);
+    method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
+    method public void setEmojiSizeRes(@DimenRes int res);
+    method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public class MaterialEmojiLayoutFactory extends com.vanniktech.emoji.EmojiLayoutFactory {
+    ctor public MaterialEmojiLayoutFactory(android.view.LayoutInflater.Factory2? delegate);
+  }
+
+}
+
