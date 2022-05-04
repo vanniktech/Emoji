@@ -20,10 +20,10 @@ import com.vanniktech.emoji.ios.IosEmoji
 
 internal object FlagsCategoryChunk0 {
   val EMOJIS: Array<IosEmoji> = arrayOf(
-    IosEmoji(0x1F3C1, arrayOf("checkered_flag"), 8, 7, false),
-    IosEmoji(0x1F6A9, arrayOf("triangular_flag_on_post"), 36, 29, false),
-    IosEmoji(0x1F38C, arrayOf("crossed_flags"), 7, 20, false),
-    IosEmoji(0x1F3F4, arrayOf("waving_black_flag"), 10, 35, false),
+    IosEmoji(intArrayOf(0x1F3C1), arrayOf("checkered_flag"), 8, 7, false),
+    IosEmoji(intArrayOf(0x1F6A9), arrayOf("triangular_flag_on_post"), 36, 29, false),
+    IosEmoji(intArrayOf(0x1F38C), arrayOf("crossed_flags"), 7, 20, false),
+    IosEmoji(intArrayOf(0x1F3F4), arrayOf("waving_black_flag"), 10, 35, false),
     IosEmoji(intArrayOf(0x1F3F3, 0xFE0F), arrayOf("waving_white_flag"), 10, 30, false),
     IosEmoji(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), arrayOf("rainbow-flag"), 10, 28, false),
     IosEmoji(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), arrayOf("transgender_flag"), 10, 29, false),

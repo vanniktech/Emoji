@@ -20,20 +20,11 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import com.vanniktech.emoji.emoji.Emoji
 
-internal class GoogleCompatEmoji : Emoji {
-  internal constructor(
-    ints: IntArray,
-    shortcodes: Array<String>,
-    isDuplicate: Boolean,
-    vararg emojis: Emoji
-  ) : super(ints, shortcodes, -1, isDuplicate, *emojis)
-
-  internal constructor(
-    codePoint: Int,
-    shortcodes: Array<String>,
-    isDuplicate: Boolean,
-    vararg emojis: Emoji
-  ) : super(codePoint, shortcodes, -1, isDuplicate, *emojis)
-
+internal class GoogleCompatEmoji internal constructor(
+  ints: IntArray,
+  shortcodes: Array<String>,
+  isDuplicate: Boolean,
+  vararg emojis: Emoji,
+) : Emoji(ints, shortcodes, -1, isDuplicate, *emojis) {
   override fun getDrawable(context: Context): Drawable = GoogleCompatEmojiDrawable(unicode)
 }

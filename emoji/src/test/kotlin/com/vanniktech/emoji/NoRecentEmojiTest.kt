@@ -23,7 +23,7 @@ import org.junit.Test
 class NoRecentEmojiTest {
   @Test fun alwaysEmpty() {
     assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
-    NoRecentEmoji.addEmoji(Emoji(0x1f55a, arrayOf("test"), R.drawable.emoji_recent, false))
+    NoRecentEmoji.addEmoji(Emoji(intArrayOf(0x1f55a), arrayOf("test"), R.drawable.emoji_recent, false))
     NoRecentEmoji.persist()
     assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
   }

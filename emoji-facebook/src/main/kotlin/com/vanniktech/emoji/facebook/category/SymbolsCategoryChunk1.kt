@@ -20,11 +20,11 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object SymbolsCategoryChunk1 {
   val EMOJIS: Array<FacebookEmoji> = arrayOf(
-    FacebookEmoji(0x1F53A, arrayOf("small_red_triangle"), 30, 22, false),
-    FacebookEmoji(0x1F53B, arrayOf("small_red_triangle_down"), 30, 23, false),
-    FacebookEmoji(0x1F4A0, arrayOf("diamond_shape_with_a_dot_inside"), 27, 47, false),
-    FacebookEmoji(0x1F518, arrayOf("radio_button"), 29, 49, false),
-    FacebookEmoji(0x1F533, arrayOf("white_square_button"), 30, 15, false),
-    FacebookEmoji(0x1F532, arrayOf("black_square_button"), 30, 14, false),
+    FacebookEmoji(intArrayOf(0x1F53A), arrayOf("small_red_triangle"), 30, 22, false),
+    FacebookEmoji(intArrayOf(0x1F53B), arrayOf("small_red_triangle_down"), 30, 23, false),
+    FacebookEmoji(intArrayOf(0x1F4A0), arrayOf("diamond_shape_with_a_dot_inside"), 27, 47, false),
+    FacebookEmoji(intArrayOf(0x1F518), arrayOf("radio_button"), 29, 49, false),
+    FacebookEmoji(intArrayOf(0x1F533), arrayOf("white_square_button"), 30, 15, false),
+    FacebookEmoji(intArrayOf(0x1F532), arrayOf("black_square_button"), 30, 14, false),
   )
 }

@@ -42,21 +42,6 @@ open class Emoji(
     result
   }
 
-  constructor(
-    codePoint: Int,
-    shortcodes: Array<String>,
-    @DrawableRes resource: Int,
-    isDuplicate: Boolean,
-  ) : this(intArrayOf(codePoint), shortcodes, resource, isDuplicate)
-
-  constructor(
-    codePoint: Int,
-    shortcodes: Array<String>,
-    @DrawableRes resource: Int,
-    isDuplicate: Boolean,
-    vararg variants: Emoji,
-  ) : this(intArrayOf(codePoint), shortcodes, resource, isDuplicate, *(variants))
-
   init {
     @Suppress("LeakingThis")
     for (variant in variants) {

@@ -20,10 +20,10 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object FlagsCategoryChunk0 {
   val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
-    GoogleCompatEmoji(0x1F3C1, arrayOf("checkered_flag"), false),
-    GoogleCompatEmoji(0x1F6A9, arrayOf("triangular_flag_on_post"), false),
-    GoogleCompatEmoji(0x1F38C, arrayOf("crossed_flags"), false),
-    GoogleCompatEmoji(0x1F3F4, arrayOf("waving_black_flag"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F3C1), arrayOf("checkered_flag"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F6A9), arrayOf("triangular_flag_on_post"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F38C), arrayOf("crossed_flags"), false),
+    GoogleCompatEmoji(intArrayOf(0x1F3F4), arrayOf("waving_black_flag"), false),
     GoogleCompatEmoji(intArrayOf(0x1F3F3, 0xFE0F), arrayOf("waving_white_flag"), false),
     GoogleCompatEmoji(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), arrayOf("rainbow-flag"), false),
     GoogleCompatEmoji(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), arrayOf("transgender_flag"), false),

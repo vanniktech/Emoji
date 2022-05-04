@@ -20,10 +20,10 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object FlagsCategoryChunk0 {
   val EMOJIS: Array<FacebookEmoji> = arrayOf(
-    FacebookEmoji(0x1F3C1, arrayOf("checkered_flag"), 8, 7, false),
-    FacebookEmoji(0x1F6A9, arrayOf("triangular_flag_on_post"), 36, 29, false),
-    FacebookEmoji(0x1F38C, arrayOf("crossed_flags"), 7, 20, false),
-    FacebookEmoji(0x1F3F4, arrayOf("waving_black_flag"), 10, 35, false),
+    FacebookEmoji(intArrayOf(0x1F3C1), arrayOf("checkered_flag"), 8, 7, false),
+    FacebookEmoji(intArrayOf(0x1F6A9), arrayOf("triangular_flag_on_post"), 36, 29, false),
+    FacebookEmoji(intArrayOf(0x1F38C), arrayOf("crossed_flags"), 7, 20, false),
+    FacebookEmoji(intArrayOf(0x1F3F4), arrayOf("waving_black_flag"), 10, 35, false),
     FacebookEmoji(intArrayOf(0x1F3F3, 0xFE0F), arrayOf("waving_white_flag"), 10, 30, false),
     FacebookEmoji(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), arrayOf("rainbow-flag"), 10, 28, false),
     FacebookEmoji(intArrayOf(0x1F3F4, 0x200D, 0x2620, 0xFE0F), arrayOf("pirate_flag"), 10, 31, false),

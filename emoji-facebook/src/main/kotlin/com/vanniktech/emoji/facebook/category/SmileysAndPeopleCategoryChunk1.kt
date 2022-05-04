@@ -20,9 +20,9 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object SmileysAndPeopleCategoryChunk1 {
   val EMOJIS: Array<FacebookEmoji> = arrayOf(
-    FacebookEmoji(0x1F444, arrayOf("lips"), 12, 6, false),
+    FacebookEmoji(intArrayOf(0x1F444), arrayOf("lips"), 12, 6, false),
     FacebookEmoji(
-      0x1F476, arrayOf("baby"), 24, 28, false,
+      intArrayOf(0x1F476), arrayOf("baby"), 24, 28, false,
       FacebookEmoji(intArrayOf(0x1F476, 0x1F3FB), emptyArray<String>(), 24, 29, false),
       FacebookEmoji(intArrayOf(0x1F476, 0x1F3FC), emptyArray<String>(), 24, 30, false),
       FacebookEmoji(intArrayOf(0x1F476, 0x1F3FD), emptyArray<String>(), 24, 31, false),
@@ -30,7 +30,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F476, 0x1F3FF), emptyArray<String>(), 24, 33, false),
     ),
     FacebookEmoji(
-      0x1F9D2, arrayOf("child"), 50, 11, false,
+      intArrayOf(0x1F9D2), arrayOf("child"), 50, 11, false,
       FacebookEmoji(intArrayOf(0x1F9D2, 0x1F3FB), emptyArray<String>(), 50, 12, false),
       FacebookEmoji(intArrayOf(0x1F9D2, 0x1F3FC), emptyArray<String>(), 50, 13, false),
       FacebookEmoji(intArrayOf(0x1F9D2, 0x1F3FD), emptyArray<String>(), 50, 14, false),
@@ -38,7 +38,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D2, 0x1F3FF), emptyArray<String>(), 50, 16, false),
     ),
     FacebookEmoji(
-      0x1F466, arrayOf("boy"), 13, 34, false,
+      intArrayOf(0x1F466), arrayOf("boy"), 13, 34, false,
       FacebookEmoji(intArrayOf(0x1F466, 0x1F3FB), emptyArray<String>(), 13, 35, false),
       FacebookEmoji(intArrayOf(0x1F466, 0x1F3FC), emptyArray<String>(), 13, 36, false),
       FacebookEmoji(intArrayOf(0x1F466, 0x1F3FD), emptyArray<String>(), 13, 37, false),
@@ -46,7 +46,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F466, 0x1F3FF), emptyArray<String>(), 13, 39, false),
     ),
     FacebookEmoji(
-      0x1F467, arrayOf("girl"), 13, 40, false,
+      intArrayOf(0x1F467), arrayOf("girl"), 13, 40, false,
       FacebookEmoji(intArrayOf(0x1F467, 0x1F3FB), emptyArray<String>(), 13, 41, false),
       FacebookEmoji(intArrayOf(0x1F467, 0x1F3FC), emptyArray<String>(), 13, 42, false),
       FacebookEmoji(intArrayOf(0x1F467, 0x1F3FD), emptyArray<String>(), 13, 43, false),
@@ -54,7 +54,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F467, 0x1F3FF), emptyArray<String>(), 13, 45, false),
     ),
     FacebookEmoji(
-      0x1F9D1, arrayOf("adult"), 50, 5, false,
+      intArrayOf(0x1F9D1), arrayOf("adult"), 50, 5, false,
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FB), emptyArray<String>(), 50, 6, false),
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FC), emptyArray<String>(), 50, 7, false),
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FD), emptyArray<String>(), 50, 8, false),
@@ -62,7 +62,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FF), emptyArray<String>(), 50, 10, false),
     ),
     FacebookEmoji(
-      0x1F471, arrayOf("person_with_blond_hair"), 23, 47, true,
+      intArrayOf(0x1F471), arrayOf("person_with_blond_hair"), 23, 47, true,
       FacebookEmoji(intArrayOf(0x1F471, 0x1F3FB), emptyArray<String>(), 23, 48, false),
       FacebookEmoji(intArrayOf(0x1F471, 0x1F3FC), emptyArray<String>(), 23, 49, false),
       FacebookEmoji(intArrayOf(0x1F471, 0x1F3FD), emptyArray<String>(), 23, 50, false),
@@ -70,7 +70,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F471, 0x1F3FF), emptyArray<String>(), 23, 52, false),
     ),
     FacebookEmoji(
-      0x1F468, arrayOf("man"), 17, 13, false,
+      intArrayOf(0x1F468), arrayOf("man"), 17, 13, false,
       FacebookEmoji(intArrayOf(0x1F468, 0x1F3FB), emptyArray<String>(), 17, 14, false),
       FacebookEmoji(intArrayOf(0x1F468, 0x1F3FC), emptyArray<String>(), 17, 15, false),
       FacebookEmoji(intArrayOf(0x1F468, 0x1F3FD), emptyArray<String>(), 17, 16, false),
@@ -78,7 +78,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F468, 0x1F3FF), emptyArray<String>(), 17, 18, false),
     ),
     FacebookEmoji(
-      0x1F9D4, arrayOf("bearded_person"), 50, 35, false,
+      intArrayOf(0x1F9D4), arrayOf("bearded_person"), 50, 35, false,
       FacebookEmoji(intArrayOf(0x1F9D4, 0x1F3FB), emptyArray<String>(), 50, 36, false),
       FacebookEmoji(intArrayOf(0x1F9D4, 0x1F3FC), emptyArray<String>(), 50, 37, false),
       FacebookEmoji(intArrayOf(0x1F9D4, 0x1F3FD), emptyArray<String>(), 50, 38, false),
@@ -118,7 +118,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F9B2), emptyArray<String>(), 15, 46, false),
     ),
     FacebookEmoji(
-      0x1F469, arrayOf("woman"), 21, 33, false,
+      intArrayOf(0x1F469), arrayOf("woman"), 21, 33, false,
       FacebookEmoji(intArrayOf(0x1F469, 0x1F3FB), emptyArray<String>(), 21, 34, false),
       FacebookEmoji(intArrayOf(0x1F469, 0x1F3FC), emptyArray<String>(), 21, 35, false),
       FacebookEmoji(intArrayOf(0x1F469, 0x1F3FD), emptyArray<String>(), 21, 36, false),
@@ -190,7 +190,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F471, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), emptyArray<String>(), 23, 46, false),
     ),
     FacebookEmoji(
-      0x1F9D3, arrayOf("older_adult"), 50, 17, false,
+      intArrayOf(0x1F9D3), arrayOf("older_adult"), 50, 17, false,
       FacebookEmoji(intArrayOf(0x1F9D3, 0x1F3FB), emptyArray<String>(), 50, 18, false),
       FacebookEmoji(intArrayOf(0x1F9D3, 0x1F3FC), emptyArray<String>(), 50, 19, false),
       FacebookEmoji(intArrayOf(0x1F9D3, 0x1F3FD), emptyArray<String>(), 50, 20, false),
@@ -198,7 +198,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D3, 0x1F3FF), emptyArray<String>(), 50, 22, false),
     ),
     FacebookEmoji(
-      0x1F474, arrayOf("older_man"), 24, 16, false,
+      intArrayOf(0x1F474), arrayOf("older_man"), 24, 16, false,
       FacebookEmoji(intArrayOf(0x1F474, 0x1F3FB), emptyArray<String>(), 24, 17, false),
       FacebookEmoji(intArrayOf(0x1F474, 0x1F3FC), emptyArray<String>(), 24, 18, false),
       FacebookEmoji(intArrayOf(0x1F474, 0x1F3FD), emptyArray<String>(), 24, 19, false),
@@ -206,7 +206,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F474, 0x1F3FF), emptyArray<String>(), 24, 21, false),
     ),
     FacebookEmoji(
-      0x1F475, arrayOf("older_woman"), 24, 22, false,
+      intArrayOf(0x1F475), arrayOf("older_woman"), 24, 22, false,
       FacebookEmoji(intArrayOf(0x1F475, 0x1F3FB), emptyArray<String>(), 24, 23, false),
       FacebookEmoji(intArrayOf(0x1F475, 0x1F3FC), emptyArray<String>(), 24, 24, false),
       FacebookEmoji(intArrayOf(0x1F475, 0x1F3FD), emptyArray<String>(), 24, 25, false),
@@ -214,7 +214,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F475, 0x1F3FF), emptyArray<String>(), 24, 27, false),
     ),
     FacebookEmoji(
-      0x1F64D, arrayOf("person_frowning"), 35, 2, true,
+      intArrayOf(0x1F64D), arrayOf("person_frowning"), 35, 2, true,
       FacebookEmoji(intArrayOf(0x1F64D, 0x1F3FB), emptyArray<String>(), 35, 3, false),
       FacebookEmoji(intArrayOf(0x1F64D, 0x1F3FC), emptyArray<String>(), 35, 4, false),
       FacebookEmoji(intArrayOf(0x1F64D, 0x1F3FD), emptyArray<String>(), 35, 5, false),
@@ -238,7 +238,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F64D, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 34, 56, false),
     ),
     FacebookEmoji(
-      0x1F64E, arrayOf("person_with_pouting_face"), 35, 20, true,
+      intArrayOf(0x1F64E), arrayOf("person_with_pouting_face"), 35, 20, true,
       FacebookEmoji(intArrayOf(0x1F64E, 0x1F3FB), emptyArray<String>(), 35, 21, false),
       FacebookEmoji(intArrayOf(0x1F64E, 0x1F3FC), emptyArray<String>(), 35, 22, false),
       FacebookEmoji(intArrayOf(0x1F64E, 0x1F3FD), emptyArray<String>(), 35, 23, false),
@@ -262,7 +262,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F64E, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 35, 13, false),
     ),
     FacebookEmoji(
-      0x1F645, arrayOf("no_good"), 33, 43, true,
+      intArrayOf(0x1F645), arrayOf("no_good"), 33, 43, true,
       FacebookEmoji(intArrayOf(0x1F645, 0x1F3FB), emptyArray<String>(), 33, 44, false),
       FacebookEmoji(intArrayOf(0x1F645, 0x1F3FC), emptyArray<String>(), 33, 45, false),
       FacebookEmoji(intArrayOf(0x1F645, 0x1F3FD), emptyArray<String>(), 33, 46, false),
@@ -286,7 +286,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F645, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 33, 36, false),
     ),
     FacebookEmoji(
-      0x1F646, arrayOf("ok_woman"), 34, 0, true,
+      intArrayOf(0x1F646), arrayOf("ok_woman"), 34, 0, true,
       FacebookEmoji(intArrayOf(0x1F646, 0x1F3FB), emptyArray<String>(), 34, 1, false),
       FacebookEmoji(intArrayOf(0x1F646, 0x1F3FC), emptyArray<String>(), 34, 2, false),
       FacebookEmoji(intArrayOf(0x1F646, 0x1F3FD), emptyArray<String>(), 34, 3, false),
@@ -310,7 +310,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F646, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 33, 54, false),
     ),
     FacebookEmoji(
-      0x1F481, arrayOf("information_desk_person"), 25, 22, true,
+      intArrayOf(0x1F481), arrayOf("information_desk_person"), 25, 22, true,
       FacebookEmoji(intArrayOf(0x1F481, 0x1F3FB), emptyArray<String>(), 25, 23, false),
       FacebookEmoji(intArrayOf(0x1F481, 0x1F3FC), emptyArray<String>(), 25, 24, false),
       FacebookEmoji(intArrayOf(0x1F481, 0x1F3FD), emptyArray<String>(), 25, 25, false),
@@ -334,7 +334,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F481, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 25, 15, false),
     ),
     FacebookEmoji(
-      0x1F64B, arrayOf("raising_hand"), 34, 39, true,
+      intArrayOf(0x1F64B), arrayOf("raising_hand"), 34, 39, true,
       FacebookEmoji(intArrayOf(0x1F64B, 0x1F3FB), emptyArray<String>(), 34, 40, false),
       FacebookEmoji(intArrayOf(0x1F64B, 0x1F3FC), emptyArray<String>(), 34, 41, false),
       FacebookEmoji(intArrayOf(0x1F64B, 0x1F3FD), emptyArray<String>(), 34, 42, false),
@@ -358,7 +358,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F64B, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 34, 32, false),
     ),
     FacebookEmoji(
-      0x1F9CF, arrayOf("deaf_person"), 47, 5, false,
+      intArrayOf(0x1F9CF), arrayOf("deaf_person"), 47, 5, false,
       FacebookEmoji(intArrayOf(0x1F9CF, 0x1F3FB), emptyArray<String>(), 47, 6, false),
       FacebookEmoji(intArrayOf(0x1F9CF, 0x1F3FC), emptyArray<String>(), 47, 7, false),
       FacebookEmoji(intArrayOf(0x1F9CF, 0x1F3FD), emptyArray<String>(), 47, 8, false),
@@ -382,7 +382,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9CF, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 46, 59, false),
     ),
     FacebookEmoji(
-      0x1F647, arrayOf("bow"), 34, 18, true,
+      intArrayOf(0x1F647), arrayOf("bow"), 34, 18, true,
       FacebookEmoji(intArrayOf(0x1F647, 0x1F3FB), emptyArray<String>(), 34, 19, false),
       FacebookEmoji(intArrayOf(0x1F647, 0x1F3FC), emptyArray<String>(), 34, 20, false),
       FacebookEmoji(intArrayOf(0x1F647, 0x1F3FD), emptyArray<String>(), 34, 21, false),
@@ -406,7 +406,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F647, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 34, 11, false),
     ),
     FacebookEmoji(
-      0x1F926, arrayOf("face_palm"), 40, 30, true,
+      intArrayOf(0x1F926), arrayOf("face_palm"), 40, 30, true,
       FacebookEmoji(intArrayOf(0x1F926, 0x1F3FB), emptyArray<String>(), 40, 31, false),
       FacebookEmoji(intArrayOf(0x1F926, 0x1F3FC), emptyArray<String>(), 40, 32, false),
       FacebookEmoji(intArrayOf(0x1F926, 0x1F3FD), emptyArray<String>(), 40, 33, false),
@@ -430,7 +430,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F926, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 40, 23, false),
     ),
     FacebookEmoji(
-      0x1F937, arrayOf("shrug"), 41, 50, true,
+      intArrayOf(0x1F937), arrayOf("shrug"), 41, 50, true,
       FacebookEmoji(intArrayOf(0x1F937, 0x1F3FB), emptyArray<String>(), 41, 51, false),
       FacebookEmoji(intArrayOf(0x1F937, 0x1F3FC), emptyArray<String>(), 41, 52, false),
       FacebookEmoji(intArrayOf(0x1F937, 0x1F3FD), emptyArray<String>(), 41, 53, false),
@@ -838,7 +838,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F692), emptyArray<String>(), 18, 51, false),
     ),
     FacebookEmoji(
-      0x1F46E, arrayOf("cop"), 23, 8, true,
+      intArrayOf(0x1F46E), arrayOf("cop"), 23, 8, true,
       FacebookEmoji(intArrayOf(0x1F46E, 0x1F3FB), emptyArray<String>(), 23, 9, false),
       FacebookEmoji(intArrayOf(0x1F46E, 0x1F3FC), emptyArray<String>(), 23, 10, false),
       FacebookEmoji(intArrayOf(0x1F46E, 0x1F3FD), emptyArray<String>(), 23, 11, false),
@@ -870,7 +870,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F575, 0x1F3FF), emptyArray<String>(), 31, 21, false),
     ),
     FacebookEmoji(
-      0x1F482, arrayOf("guardsman"), 25, 40, true,
+      intArrayOf(0x1F482), arrayOf("guardsman"), 25, 40, true,
       FacebookEmoji(intArrayOf(0x1F482, 0x1F3FB), emptyArray<String>(), 25, 41, false),
       FacebookEmoji(intArrayOf(0x1F482, 0x1F3FC), emptyArray<String>(), 25, 42, false),
       FacebookEmoji(intArrayOf(0x1F482, 0x1F3FD), emptyArray<String>(), 25, 43, false),
@@ -894,7 +894,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F482, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 25, 33, false),
     ),
     FacebookEmoji(
-      0x1F977, arrayOf("ninja"), 44, 4, false,
+      intArrayOf(0x1F977), arrayOf("ninja"), 44, 4, false,
       FacebookEmoji(intArrayOf(0x1F977, 0x1F3FB), emptyArray<String>(), 44, 5, false),
       FacebookEmoji(intArrayOf(0x1F977, 0x1F3FC), emptyArray<String>(), 44, 6, false),
       FacebookEmoji(intArrayOf(0x1F977, 0x1F3FD), emptyArray<String>(), 44, 7, false),
@@ -902,7 +902,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F977, 0x1F3FF), emptyArray<String>(), 44, 9, false),
     ),
     FacebookEmoji(
-      0x1F477, arrayOf("construction_worker"), 24, 46, true,
+      intArrayOf(0x1F477), arrayOf("construction_worker"), 24, 46, true,
       FacebookEmoji(intArrayOf(0x1F477, 0x1F3FB), emptyArray<String>(), 24, 47, false),
       FacebookEmoji(intArrayOf(0x1F477, 0x1F3FC), emptyArray<String>(), 24, 48, false),
       FacebookEmoji(intArrayOf(0x1F477, 0x1F3FD), emptyArray<String>(), 24, 49, false),
@@ -926,7 +926,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F477, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 24, 39, false),
     ),
     FacebookEmoji(
-      0x1F934, arrayOf("prince"), 41, 8, false,
+      intArrayOf(0x1F934), arrayOf("prince"), 41, 8, false,
       FacebookEmoji(intArrayOf(0x1F934, 0x1F3FB), emptyArray<String>(), 41, 9, false),
       FacebookEmoji(intArrayOf(0x1F934, 0x1F3FC), emptyArray<String>(), 41, 10, false),
       FacebookEmoji(intArrayOf(0x1F934, 0x1F3FD), emptyArray<String>(), 41, 11, false),
@@ -934,7 +934,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F934, 0x1F3FF), emptyArray<String>(), 41, 13, false),
     ),
     FacebookEmoji(
-      0x1F478, arrayOf("princess"), 24, 52, false,
+      intArrayOf(0x1F478), arrayOf("princess"), 24, 52, false,
       FacebookEmoji(intArrayOf(0x1F478, 0x1F3FB), emptyArray<String>(), 24, 53, false),
       FacebookEmoji(intArrayOf(0x1F478, 0x1F3FC), emptyArray<String>(), 24, 54, false),
       FacebookEmoji(intArrayOf(0x1F478, 0x1F3FD), emptyArray<String>(), 24, 55, false),
@@ -942,7 +942,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F478, 0x1F3FF), emptyArray<String>(), 24, 57, false),
     ),
     FacebookEmoji(
-      0x1F473, arrayOf("man_with_turban"), 24, 10, true,
+      intArrayOf(0x1F473), arrayOf("man_with_turban"), 24, 10, true,
       FacebookEmoji(intArrayOf(0x1F473, 0x1F3FB), emptyArray<String>(), 24, 11, false),
       FacebookEmoji(intArrayOf(0x1F473, 0x1F3FC), emptyArray<String>(), 24, 12, false),
       FacebookEmoji(intArrayOf(0x1F473, 0x1F3FD), emptyArray<String>(), 24, 13, false),
@@ -966,7 +966,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F473, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 24, 3, false),
     ),
     FacebookEmoji(
-      0x1F472, arrayOf("man_with_gua_pi_mao"), 23, 53, false,
+      intArrayOf(0x1F472), arrayOf("man_with_gua_pi_mao"), 23, 53, false,
       FacebookEmoji(intArrayOf(0x1F472, 0x1F3FB), emptyArray<String>(), 23, 54, false),
       FacebookEmoji(intArrayOf(0x1F472, 0x1F3FC), emptyArray<String>(), 23, 55, false),
       FacebookEmoji(intArrayOf(0x1F472, 0x1F3FD), emptyArray<String>(), 23, 56, false),
@@ -974,7 +974,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F472, 0x1F3FF), emptyArray<String>(), 23, 58, false),
     ),
     FacebookEmoji(
-      0x1F9D5, arrayOf("person_with_headscarf"), 50, 41, false,
+      intArrayOf(0x1F9D5), arrayOf("person_with_headscarf"), 50, 41, false,
       FacebookEmoji(intArrayOf(0x1F9D5, 0x1F3FB), emptyArray<String>(), 50, 42, false),
       FacebookEmoji(intArrayOf(0x1F9D5, 0x1F3FC), emptyArray<String>(), 50, 43, false),
       FacebookEmoji(intArrayOf(0x1F9D5, 0x1F3FD), emptyArray<String>(), 50, 44, false),
@@ -982,7 +982,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D5, 0x1F3FF), emptyArray<String>(), 50, 46, false),
     ),
     FacebookEmoji(
-      0x1F935, arrayOf("person_in_tuxedo"), 41, 26, false,
+      intArrayOf(0x1F935), arrayOf("person_in_tuxedo"), 41, 26, false,
       FacebookEmoji(intArrayOf(0x1F935, 0x1F3FB), emptyArray<String>(), 41, 27, false),
       FacebookEmoji(intArrayOf(0x1F935, 0x1F3FC), emptyArray<String>(), 41, 28, false),
       FacebookEmoji(intArrayOf(0x1F935, 0x1F3FD), emptyArray<String>(), 41, 29, false),
@@ -1006,7 +1006,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F935, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 41, 19, false),
     ),
     FacebookEmoji(
-      0x1F470, arrayOf("bride_with_veil"), 23, 29, false,
+      intArrayOf(0x1F470), arrayOf("bride_with_veil"), 23, 29, false,
       FacebookEmoji(intArrayOf(0x1F470, 0x1F3FB), emptyArray<String>(), 23, 30, false),
       FacebookEmoji(intArrayOf(0x1F470, 0x1F3FC), emptyArray<String>(), 23, 31, false),
       FacebookEmoji(intArrayOf(0x1F470, 0x1F3FD), emptyArray<String>(), 23, 32, false),
@@ -1030,7 +1030,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F470, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 23, 22, false),
     ),
     FacebookEmoji(
-      0x1F930, arrayOf("pregnant_woman"), 40, 45, false,
+      intArrayOf(0x1F930), arrayOf("pregnant_woman"), 40, 45, false,
       FacebookEmoji(intArrayOf(0x1F930, 0x1F3FB), emptyArray<String>(), 40, 46, false),
       FacebookEmoji(intArrayOf(0x1F930, 0x1F3FC), emptyArray<String>(), 40, 47, false),
       FacebookEmoji(intArrayOf(0x1F930, 0x1F3FD), emptyArray<String>(), 40, 48, false),
@@ -1038,7 +1038,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F930, 0x1F3FF), emptyArray<String>(), 40, 50, false),
     ),
     FacebookEmoji(
-      0x1F931, arrayOf("breast-feeding"), 40, 51, false,
+      intArrayOf(0x1F931), arrayOf("breast-feeding"), 40, 51, false,
       FacebookEmoji(intArrayOf(0x1F931, 0x1F3FB), emptyArray<String>(), 40, 52, false),
       FacebookEmoji(intArrayOf(0x1F931, 0x1F3FC), emptyArray<String>(), 40, 53, false),
       FacebookEmoji(intArrayOf(0x1F931, 0x1F3FD), emptyArray<String>(), 40, 54, false),
@@ -1070,7 +1070,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F37C), emptyArray<String>(), 47, 29, false),
     ),
     FacebookEmoji(
-      0x1F47C, arrayOf("angel"), 25, 0, false,
+      intArrayOf(0x1F47C), arrayOf("angel"), 25, 0, false,
       FacebookEmoji(intArrayOf(0x1F47C, 0x1F3FB), emptyArray<String>(), 25, 1, false),
       FacebookEmoji(intArrayOf(0x1F47C, 0x1F3FC), emptyArray<String>(), 25, 2, false),
       FacebookEmoji(intArrayOf(0x1F47C, 0x1F3FD), emptyArray<String>(), 25, 3, false),
@@ -1078,7 +1078,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F47C, 0x1F3FF), emptyArray<String>(), 25, 5, false),
     ),
     FacebookEmoji(
-      0x1F385, arrayOf("santa"), 7, 8, false,
+      intArrayOf(0x1F385), arrayOf("santa"), 7, 8, false,
       FacebookEmoji(intArrayOf(0x1F385, 0x1F3FB), emptyArray<String>(), 7, 9, false),
       FacebookEmoji(intArrayOf(0x1F385, 0x1F3FC), emptyArray<String>(), 7, 10, false),
       FacebookEmoji(intArrayOf(0x1F385, 0x1F3FD), emptyArray<String>(), 7, 11, false),
@@ -1086,7 +1086,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F385, 0x1F3FF), emptyArray<String>(), 7, 13, false),
     ),
     FacebookEmoji(
-      0x1F936, arrayOf("mrs_claus", "mother_christmas"), 41, 32, false,
+      intArrayOf(0x1F936), arrayOf("mrs_claus", "mother_christmas"), 41, 32, false,
       FacebookEmoji(intArrayOf(0x1F936, 0x1F3FB), emptyArray<String>(), 41, 33, false),
       FacebookEmoji(intArrayOf(0x1F936, 0x1F3FC), emptyArray<String>(), 41, 34, false),
       FacebookEmoji(intArrayOf(0x1F936, 0x1F3FD), emptyArray<String>(), 41, 35, false),
@@ -1102,7 +1102,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F384), emptyArray<String>(), 47, 35, false),
     ),
     FacebookEmoji(
-      0x1F9B8, arrayOf("superhero"), 45, 31, false,
+      intArrayOf(0x1F9B8), arrayOf("superhero"), 45, 31, false,
       FacebookEmoji(intArrayOf(0x1F9B8, 0x1F3FB), emptyArray<String>(), 45, 32, false),
       FacebookEmoji(intArrayOf(0x1F9B8, 0x1F3FC), emptyArray<String>(), 45, 33, false),
       FacebookEmoji(intArrayOf(0x1F9B8, 0x1F3FD), emptyArray<String>(), 45, 34, false),
@@ -1126,7 +1126,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9B8, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 45, 24, false),
     ),
     FacebookEmoji(
-      0x1F9B9, arrayOf("supervillain"), 45, 49, false,
+      intArrayOf(0x1F9B9), arrayOf("supervillain"), 45, 49, false,
       FacebookEmoji(intArrayOf(0x1F9B9, 0x1F3FB), emptyArray<String>(), 45, 50, false),
       FacebookEmoji(intArrayOf(0x1F9B9, 0x1F3FC), emptyArray<String>(), 45, 51, false),
       FacebookEmoji(intArrayOf(0x1F9B9, 0x1F3FD), emptyArray<String>(), 45, 52, false),
@@ -1150,7 +1150,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9B9, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 45, 42, false),
     ),
     FacebookEmoji(
-      0x1F9D9, arrayOf("mage"), 51, 52, true,
+      intArrayOf(0x1F9D9), arrayOf("mage"), 51, 52, true,
       FacebookEmoji(intArrayOf(0x1F9D9, 0x1F3FB), emptyArray<String>(), 51, 53, true),
       FacebookEmoji(intArrayOf(0x1F9D9, 0x1F3FC), emptyArray<String>(), 51, 54, true),
       FacebookEmoji(intArrayOf(0x1F9D9, 0x1F3FD), emptyArray<String>(), 51, 55, true),
@@ -1174,7 +1174,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D9, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 51, 45, false),
     ),
     FacebookEmoji(
-      0x1F9DA, arrayOf("fairy"), 52, 9, true,
+      intArrayOf(0x1F9DA), arrayOf("fairy"), 52, 9, true,
       FacebookEmoji(intArrayOf(0x1F9DA, 0x1F3FB), emptyArray<String>(), 52, 10, true),
       FacebookEmoji(intArrayOf(0x1F9DA, 0x1F3FC), emptyArray<String>(), 52, 11, true),
       FacebookEmoji(intArrayOf(0x1F9DA, 0x1F3FD), emptyArray<String>(), 52, 12, true),
@@ -1198,7 +1198,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9DA, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 52, 2, false),
     ),
     FacebookEmoji(
-      0x1F9DB, arrayOf("vampire"), 52, 27, true,
+      intArrayOf(0x1F9DB), arrayOf("vampire"), 52, 27, true,
       FacebookEmoji(intArrayOf(0x1F9DB, 0x1F3FB), emptyArray<String>(), 52, 28, true),
       FacebookEmoji(intArrayOf(0x1F9DB, 0x1F3FC), emptyArray<String>(), 52, 29, true),
       FacebookEmoji(intArrayOf(0x1F9DB, 0x1F3FD), emptyArray<String>(), 52, 30, true),
@@ -1222,7 +1222,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9DB, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 52, 20, false),
     ),
     FacebookEmoji(
-      0x1F9DC, arrayOf("merperson"), 52, 45, true,
+      intArrayOf(0x1F9DC), arrayOf("merperson"), 52, 45, true,
       FacebookEmoji(intArrayOf(0x1F9DC, 0x1F3FB), emptyArray<String>(), 52, 46, true),
       FacebookEmoji(intArrayOf(0x1F9DC, 0x1F3FC), emptyArray<String>(), 52, 47, true),
       FacebookEmoji(intArrayOf(0x1F9DC, 0x1F3FD), emptyArray<String>(), 52, 48, true),
@@ -1246,7 +1246,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9DC, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 52, 38, false),
     ),
     FacebookEmoji(
-      0x1F9DD, arrayOf("elf"), 53, 2, true,
+      intArrayOf(0x1F9DD), arrayOf("elf"), 53, 2, true,
       FacebookEmoji(intArrayOf(0x1F9DD, 0x1F3FB), emptyArray<String>(), 53, 3, true),
       FacebookEmoji(intArrayOf(0x1F9DD, 0x1F3FC), emptyArray<String>(), 53, 4, true),
       FacebookEmoji(intArrayOf(0x1F9DD, 0x1F3FD), emptyArray<String>(), 53, 5, true),
@@ -1269,14 +1269,14 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9DD, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 52, 55, false),
       FacebookEmoji(intArrayOf(0x1F9DD, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 52, 56, false),
     ),
-    FacebookEmoji(0x1F9DE, arrayOf("genie"), 53, 10, true),
+    FacebookEmoji(intArrayOf(0x1F9DE), arrayOf("genie"), 53, 10, true),
     FacebookEmoji(intArrayOf(0x1F9DE, 0x200D, 0x2642, 0xFE0F), arrayOf("male_genie"), 53, 9, false),
     FacebookEmoji(intArrayOf(0x1F9DE, 0x200D, 0x2640, 0xFE0F), arrayOf("female_genie"), 53, 8, false),
-    FacebookEmoji(0x1F9DF, arrayOf("zombie"), 53, 13, true),
+    FacebookEmoji(intArrayOf(0x1F9DF), arrayOf("zombie"), 53, 13, true),
     FacebookEmoji(intArrayOf(0x1F9DF, 0x200D, 0x2642, 0xFE0F), arrayOf("male_zombie"), 53, 12, false),
     FacebookEmoji(intArrayOf(0x1F9DF, 0x200D, 0x2640, 0xFE0F), arrayOf("female_zombie"), 53, 11, false),
     FacebookEmoji(
-      0x1F486, arrayOf("massage"), 26, 10, true,
+      intArrayOf(0x1F486), arrayOf("massage"), 26, 10, true,
       FacebookEmoji(intArrayOf(0x1F486, 0x1F3FB), emptyArray<String>(), 26, 11, false),
       FacebookEmoji(intArrayOf(0x1F486, 0x1F3FC), emptyArray<String>(), 26, 12, false),
       FacebookEmoji(intArrayOf(0x1F486, 0x1F3FD), emptyArray<String>(), 26, 13, false),
@@ -1300,7 +1300,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F486, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 26, 3, false),
     ),
     FacebookEmoji(
-      0x1F487, arrayOf("haircut"), 26, 28, true,
+      intArrayOf(0x1F487), arrayOf("haircut"), 26, 28, true,
       FacebookEmoji(intArrayOf(0x1F487, 0x1F3FB), emptyArray<String>(), 26, 29, false),
       FacebookEmoji(intArrayOf(0x1F487, 0x1F3FC), emptyArray<String>(), 26, 30, false),
       FacebookEmoji(intArrayOf(0x1F487, 0x1F3FD), emptyArray<String>(), 26, 31, false),
@@ -1324,7 +1324,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F487, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 26, 21, false),
     ),
     FacebookEmoji(
-      0x1F6B6, arrayOf("walking"), 37, 27, true,
+      intArrayOf(0x1F6B6), arrayOf("walking"), 37, 27, true,
       FacebookEmoji(intArrayOf(0x1F6B6, 0x1F3FB), emptyArray<String>(), 37, 28, false),
       FacebookEmoji(intArrayOf(0x1F6B6, 0x1F3FC), emptyArray<String>(), 37, 29, false),
       FacebookEmoji(intArrayOf(0x1F6B6, 0x1F3FD), emptyArray<String>(), 37, 30, false),
@@ -1348,7 +1348,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F6B6, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 37, 20, false),
     ),
     FacebookEmoji(
-      0x1F9CD, arrayOf("standing_person"), 46, 30, false,
+      intArrayOf(0x1F9CD), arrayOf("standing_person"), 46, 30, false,
       FacebookEmoji(intArrayOf(0x1F9CD, 0x1F3FB), emptyArray<String>(), 46, 31, false),
       FacebookEmoji(intArrayOf(0x1F9CD, 0x1F3FC), emptyArray<String>(), 46, 32, false),
       FacebookEmoji(intArrayOf(0x1F9CD, 0x1F3FD), emptyArray<String>(), 46, 33, false),
@@ -1372,7 +1372,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9CD, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 46, 23, false),
     ),
     FacebookEmoji(
-      0x1F9CE, arrayOf("kneeling_person"), 46, 48, false,
+      intArrayOf(0x1F9CE), arrayOf("kneeling_person"), 46, 48, false,
       FacebookEmoji(intArrayOf(0x1F9CE, 0x1F3FB), emptyArray<String>(), 46, 49, false),
       FacebookEmoji(intArrayOf(0x1F9CE, 0x1F3FC), emptyArray<String>(), 46, 50, false),
       FacebookEmoji(intArrayOf(0x1F9CE, 0x1F3FD), emptyArray<String>(), 46, 51, false),
@@ -1468,7 +1468,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F9BD), emptyArray<String>(), 19, 32, false),
     ),
     FacebookEmoji(
-      0x1F3C3, arrayOf("runner", "running"), 8, 26, true,
+      intArrayOf(0x1F3C3), arrayOf("runner", "running"), 8, 26, true,
       FacebookEmoji(intArrayOf(0x1F3C3, 0x1F3FB), emptyArray<String>(), 8, 27, false),
       FacebookEmoji(intArrayOf(0x1F3C3, 0x1F3FC), emptyArray<String>(), 8, 28, false),
       FacebookEmoji(intArrayOf(0x1F3C3, 0x1F3FD), emptyArray<String>(), 8, 29, false),
@@ -1492,7 +1492,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F3C3, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 8, 19, false),
     ),
     FacebookEmoji(
-      0x1F483, arrayOf("dancer"), 25, 46, false,
+      intArrayOf(0x1F483), arrayOf("dancer"), 25, 46, false,
       FacebookEmoji(intArrayOf(0x1F483, 0x1F3FB), emptyArray<String>(), 25, 47, false),
       FacebookEmoji(intArrayOf(0x1F483, 0x1F3FC), emptyArray<String>(), 25, 48, false),
       FacebookEmoji(intArrayOf(0x1F483, 0x1F3FD), emptyArray<String>(), 25, 49, false),
@@ -1500,7 +1500,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F483, 0x1F3FF), emptyArray<String>(), 25, 51, false),
     ),
     FacebookEmoji(
-      0x1F57A, arrayOf("man_dancing"), 31, 26, false,
+      intArrayOf(0x1F57A), arrayOf("man_dancing"), 31, 26, false,
       FacebookEmoji(intArrayOf(0x1F57A, 0x1F3FB), emptyArray<String>(), 31, 27, false),
       FacebookEmoji(intArrayOf(0x1F57A, 0x1F3FC), emptyArray<String>(), 31, 28, false),
       FacebookEmoji(intArrayOf(0x1F57A, 0x1F3FD), emptyArray<String>(), 31, 29, false),
@@ -1515,11 +1515,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F574, 0x1F3FE), emptyArray<String>(), 31, 2, false),
       FacebookEmoji(intArrayOf(0x1F574, 0x1F3FF), emptyArray<String>(), 31, 3, false),
     ),
-    FacebookEmoji(0x1F46F, arrayOf("dancers"), 23, 16, true),
+    FacebookEmoji(intArrayOf(0x1F46F), arrayOf("dancers"), 23, 16, true),
     FacebookEmoji(intArrayOf(0x1F46F, 0x200D, 0x2642, 0xFE0F), arrayOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), 23, 15, false),
     FacebookEmoji(intArrayOf(0x1F46F, 0x200D, 0x2640, 0xFE0F), arrayOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"), 23, 14, false),
     FacebookEmoji(
-      0x1F9D6, arrayOf("person_in_steamy_room"), 50, 59, true,
+      intArrayOf(0x1F9D6), arrayOf("person_in_steamy_room"), 50, 59, true,
       FacebookEmoji(intArrayOf(0x1F9D6, 0x1F3FB), emptyArray<String>(), 50, 60, true),
       FacebookEmoji(intArrayOf(0x1F9D6, 0x1F3FC), emptyArray<String>(), 51, 0, true),
       FacebookEmoji(intArrayOf(0x1F9D6, 0x1F3FD), emptyArray<String>(), 51, 1, true),
@@ -1543,7 +1543,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       FacebookEmoji(intArrayOf(0x1F9D6, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), emptyArray<String>(), 50, 52, false),
     ),
     FacebookEmoji(
-      0x1F9D7, arrayOf("person_climbing"), 51, 16, true,
+      intArrayOf(0x1F9D7), arrayOf("person_climbing"), 51, 16, true,
       FacebookEmoji(intArrayOf(0x1F9D7, 0x1F3FB), emptyArray<String>(), 51, 17, true),
       FacebookEmoji(intArrayOf(0x1F9D7, 0x1F3FC), emptyArray<String>(), 51, 18, true),
       FacebookEmoji(intArrayOf(0x1F9D7, 0x1F3FD), emptyArray<String>(), 51, 19, true),

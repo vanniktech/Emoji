@@ -42,29 +42,6 @@ internal class FacebookEmoji : Emoji {
   }
 
   internal constructor(
-    codePoint: Int,
-    shortcodes: Array<String>,
-    x: Int,
-    y: Int,
-    isDuplicate: Boolean,
-  ) : super(codePoint, shortcodes, -1, isDuplicate) {
-    this.x = x
-    this.y = y
-  }
-
-  internal constructor(
-    codePoint: Int,
-    shortcodes: Array<String>,
-    x: Int,
-    y: Int,
-    isDuplicate: Boolean,
-    vararg variants: Emoji,
-  ) : super(codePoint, shortcodes, -1, isDuplicate, *variants) {
-    this.x = x
-    this.y = y
-  }
-
-  internal constructor(
     codePoints: IntArray,
     shortcodes: Array<String>,
     x: Int,

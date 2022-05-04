@@ -6,7 +6,7 @@ import org.junit.Assert.fail
 import org.junit.Test
 
 class SearchEmojiResultTest {
-  private val emoji = Emoji(0x1f437, arrayOf("test"), R.drawable.emoji_recent, false)
+  private val emoji = Emoji(intArrayOf(0x1f437), arrayOf("test"), R.drawable.emoji_recent, false)
 
   @Test fun valid() {
     val validRanges = listOf(
