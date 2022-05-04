@@ -39,7 +39,6 @@ import androidx.core.content.ContextCompat
 import com.vanniktech.emoji.EmojiManager.verifyInstalled
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.IllegalArgumentException
-import java.util.ArrayList
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -88,16 +87,6 @@ object Utils {
   private fun windowVisibleDisplayFrame(context: Activity): Rect {
     val result = Rect()
     context.window.decorView.getWindowVisibleDisplayFrame(result)
-    return result
-  }
-
-  internal fun asListWithoutDuplicates(emojis: Array<Emoji>): List<Emoji> {
-    val result: MutableList<Emoji> = ArrayList(emojis.size)
-    for (emoji in emojis) {
-      if (!emoji.isDuplicate) {
-        result.add(emoji)
-      }
-    }
     return result
   }
 
