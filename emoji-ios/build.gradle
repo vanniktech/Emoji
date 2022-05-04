@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
@@ -24,4 +26,8 @@ dependencies {
   testImplementation rootProject.ext.testing.junit
 }
 
-apply plugin: "com.vanniktech.maven.publish"
+apply plugin: "com.vanniktech.maven.publish.base"
+
+mavenPublishing {
+  configure(new AndroidSingleVariantLibrary("release"))
+}

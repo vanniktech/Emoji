@@ -54,8 +54,6 @@ ext {
   compileSdkVersion = 31
   targetSdkVersion = 31
 
-  versionName = VERSION_NAME
-
   testing = [
           junit             : 'junit:junit:4.13.2',
   ]
@@ -64,4 +62,17 @@ ext {
 wrapper {
   gradleVersion = '7.4.2'
   distributionType = Wrapper.DistributionType.ALL
+}
+
+allprojects {
+  plugins.withId("com.vanniktech.maven.publish.base") {
+    group = "com.vanniktech"
+    version = VERSION_NAME
+
+    mavenPublishing {
+      publishToMavenCentral("DEFAULT")
+      signAllPublications()
+      pomFromGradleProperties()
+    }
+  }
 }
