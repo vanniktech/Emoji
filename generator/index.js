@@ -334,7 +334,7 @@ async function copyImages(map, targets, shouldOptimize) {
 async function generateCode(map, targets) {
     console.log("Generating code...");
 
-    const emojiTemplate = await fs.readFile("template/Emoji.java", "utf-8");
+    const emojiTemplate = await fs.readFile("template/Emoji.kt", "utf-8");
     const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.java", "utf-8");
@@ -428,7 +428,7 @@ async function generateCode(map, targets) {
         }
 
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${srcDir}/${target.name}.java`, template(emojiTemplate)({
+            await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiTemplate)({
                 package: target.package,
                 name: target.name,
                 strips: strips,

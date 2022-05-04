@@ -64,9 +64,9 @@ open class Emoji(
     }
   }
 
-  open fun getDrawable(context: Context?): Drawable {
+  open fun getDrawable(context: Context): Drawable {
     @Suppress("DEPRECATION")
-    return AppCompatResources.getDrawable(context!!, resource)!!
+    return AppCompatResources.getDrawable(context, resource)!!
   }
 
   val length: Int
