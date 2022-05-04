@@ -37,7 +37,6 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.StyleableRes;
 import androidx.core.content.ContextCompat;
@@ -47,14 +46,6 @@ import java.util.List;
 
 public final class Utils {
   static final int DONT_UPDATE_FLAG = -1;
-
-  @NonNull static <T> T checkNotNull(@Nullable final T reference, final String message) {
-    if (reference == null) {
-      throw new IllegalArgumentException(message);
-    }
-
-    return reference;
-  }
 
   @PrivateApi @Px public static float initTextView(final TextView textView, final AttributeSet attrs, @StyleableRes final int[] stylable, @StyleableRes final int emojiSizeAttr) {
     if (!textView.isInEditMode()) {

@@ -38,6 +38,9 @@ codeQualityTools {
   cpd {
     enabled = false
   }
+  kotlin {
+    allWarningsAsErrors = false
+  }
 }
 
 subprojects {

@@ -18,20 +18,9 @@ package com.vanniktech.emoji
 
 import com.vanniktech.emoji.emoji.Emoji
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertThrows
 import org.junit.Test
 
 class UtilsTest {
-  @Test fun checkNull() {
-    assertThrows("param is null", IllegalArgumentException::class.java) {
-      Utils.checkNotNull<Any>(null, "param is null")
-    }
-  }
-
-  @Test fun checkNotNull() {
-    Utils.checkNotNull("valid", "null is null")
-  }
-
   @Test fun asListFilter() {
     val emojis = arrayOf(
       Emoji("\u1234".codePointAt(0), arrayOf("test"), R.drawable.emoji_backspace, false),
