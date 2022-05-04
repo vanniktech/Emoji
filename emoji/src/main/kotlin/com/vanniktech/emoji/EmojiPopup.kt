@@ -152,16 +152,6 @@ class EmojiPopup internal constructor(
     }
   }
 
-  /**
-   * Set PopUpWindow's height.
-   * If height is greater than 0 then this value will be used later on. If it is 0 then the
-   * keyboard height will be dynamically calculated and set as [PopupWindow] height.
-   * @param popupWindowHeight - the height of [PopupWindow]
-   */
-  fun setPopupWindowHeight(popupWindowHeight: Int) {
-    this.popupWindowHeight = if (popupWindowHeight >= 0) popupWindowHeight else 0
-  }
-
   fun toggle() {
     if (!popupWindow.isShowing) {
       // this is needed because something might have cleared the insets listener
