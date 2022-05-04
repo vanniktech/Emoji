@@ -22,30 +22,21 @@ import android.content.ContextWrapper
 import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.Rect
-import android.util.AttributeSet
 import android.util.TypedValue
-import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.PopupWindow
-import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import androidx.annotation.Px
-import androidx.annotation.StyleableRes
 import androidx.core.content.ContextCompat
-import com.vanniktech.emoji.EmojiManager.verifyInstalled
-import com.vanniktech.emoji.emoji.Emoji
 import java.lang.IllegalArgumentException
-import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.roundToInt
 
 private const val DONT_UPDATE_FLAG = -1
 
-object Utils {
+internal object Utils {
   internal fun dpToPx(context: Context, dp: Float): Int {
     return (
       TypedValue.applyDimension(
@@ -70,7 +61,7 @@ object Utils {
     } else false
   }
 
-  fun getProperHeight(activity: Activity): Int {
+  internal fun getProperHeight(activity: Activity): Int {
     return windowVisibleDisplayFrame(activity).bottom
   }
 
@@ -137,46 +128,4 @@ object Utils {
       ContextCompat.getColor(context, fallback)
     }
   }
-}
-
-/** Dispatches a KeyEvent which mimics the press of the Backspace key */
-fun EditText.backspace() {
-  val event = KeyEvent(0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL)
-  dispatchKeyEvent(event)
-}
-
-/** Inserts the given [emoji] into [this] while preserving the current selection. */
-fun EditText.input(emoji: Emoji) {
-  val start = selectionStart
-  val end = selectionEnd
-  if (start < 0) {
-    append(emoji.unicode)
-  } else {
-    text.replace(min(start, end), max(start, end), emoji.unicode, 0, emoji.unicode.length)
-  }
-}
-
-@Px fun TextView.init(
-  attrs: AttributeSet?,
-  @StyleableRes styleable: IntArray,
-  @StyleableRes emojiSizeAttr: Int,
-): Float {
-  if (!isInEditMode) {
-    verifyInstalled()
-  }
-  val fontMetrics = paint.fontMetrics
-  val defaultEmojiSize = fontMetrics.descent - fontMetrics.ascent
-  val emojiSize: Float = if (attrs == null) {
-    defaultEmojiSize
-  } else {
-    val a = context.obtainStyledAttributes(attrs, styleable)
-    try {
-      a.getDimension(emojiSizeAttr, defaultEmojiSize)
-    } finally {
-      a.recycle()
-    }
-  }
-
-  text = text // Reassign.
-  return emojiSize
 }
