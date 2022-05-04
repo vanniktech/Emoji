@@ -25,7 +25,7 @@ import com.vanniktech.emoji.emoji.EmojiCategory
 <%= imports %>
 
 class <%= name %>Provider(
-  @Suppress("unused") val emojiCompat: EmojiCompat,
+  @Suppress("unused") private val emojiCompat: EmojiCompat,
 ) : EmojiProvider, EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(

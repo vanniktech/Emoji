@@ -349,7 +349,7 @@ async function generateCode(map, targets) {
     });
 
     for (const target of targets) {
-        const srcDir = `../emoji-${target.module}/src/main/java/com/vanniktech/emoji/${target.package}`;
+        const srcDir = `../emoji-${target.module}/src/main/kotlin/com/vanniktech/emoji/${target.package}`;
         const valuesDir = `../emoji-${target.module}/src/main/res/values`;
 
         if (target.module !== "google-compat") {

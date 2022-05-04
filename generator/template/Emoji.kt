@@ -19,10 +19,10 @@ package com.vanniktech.emoji.<%= package %>
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Point
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.LruCache
-import com.vanniktech.emoji.emoji.CacheKey
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
@@ -77,7 +77,7 @@ internal class <%= name %> : Emoji {
   }
 
   override fun getDrawable(context: Context): Drawable {
-    val key = CacheKey(x, y)
+    val key = Point(x, y)
     val bitmap = BITMAP_CACHE[key]
     if (bitmap != null) {
       return BitmapDrawable(context.resources, bitmap)
@@ -123,7 +123,7 @@ internal class <%= name %> : Emoji {
     private const val NUM_STRIPS = <%= strips %>
     private val LOCK = Any()
     private val STRIP_REFS: Array<SoftReference<*>?> = arrayOfNulls(NUM_STRIPS)
-    private val BITMAP_CACHE = LruCache<CacheKey, Bitmap>(CACHE_SIZE)
+    private val BITMAP_CACHE = LruCache<Point, Bitmap>(CACHE_SIZE)
 
     init {
       for (i in 0 until NUM_STRIPS) {
