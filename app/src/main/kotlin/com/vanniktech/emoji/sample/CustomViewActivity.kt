@@ -55,10 +55,11 @@ class CustomViewActivity : AppCompatActivity() {
         }
       }
 
-      val emojiPopup = EmojiPopup.Builder.fromRootView(this)
-        .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
-        .setPageTransformer(PageTransformer())
-        .build(binding.editText)
+      val emojiPopup = EmojiPopup(
+        rootView = this,
+        keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+        editText = binding.editText,
+      )
       binding.editText.installDisableKeyboardInput(emojiPopup)
       binding.button.setOnClickListener { binding.editText.requestFocus() }
     }

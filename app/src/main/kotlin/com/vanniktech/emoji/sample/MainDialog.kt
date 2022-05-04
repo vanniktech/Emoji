@@ -54,16 +54,17 @@ class MainDialog : DialogFragment() {
     val emojiButton = result.findViewById<ImageButton>(R.id.main_dialog_emoji)
     val sendButton = result.findViewById<ImageView>(R.id.main_dialog_send)
 
-    val emojiPopup = EmojiPopup.Builder.fromRootView(rootView)
-      .setOnEmojiBackspaceClickListener { Timber.d(TAG, "Clicked on Backspace") }
-      .setOnEmojiClickListener { emoji: Emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) }
-      .setOnEmojiPopupShownListener { emojiButton.setImageResource(R.drawable.ic_keyboard) }
-      .setOnSoftKeyboardOpenListener { px -> Timber.d(TAG, "Opened soft keyboard with height $px") }
-      .setOnEmojiPopupDismissListener { emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) }
-      .setOnSoftKeyboardCloseListener { Timber.d(TAG, "Closed soft keyboard") }
-      .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
-      .setPageTransformer(PageTransformer())
-      .build(editText)
+    val emojiPopup = EmojiPopup(
+      rootView = rootView,
+      editText = editText,
+      onEmojiBackspaceClickListener = { Timber.d(TAG, "Clicked on Backspace") },
+      onEmojiClickListener = { emoji: Emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) },
+      onEmojiPopupShownListener = { emojiButton.setImageResource(R.drawable.ic_keyboard) },
+      onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
+      onEmojiPopupDismissListener = { emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) },
+      onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
+      keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+    )
 
     emojiButton.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)
     sendButton.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)

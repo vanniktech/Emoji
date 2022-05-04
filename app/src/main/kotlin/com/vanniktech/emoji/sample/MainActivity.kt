@@ -63,17 +63,20 @@ class MainActivity : AppCompatActivity() {
     chatAdapter = ChatAdapter()
     setUpShowcaseButtons()
 
-    emojiPopup = EmojiPopup.Builder.fromRootView(binding.rootView)
-      .setOnEmojiBackspaceClickListener { Timber.d(TAG, "Clicked on Backspace") }
-      .setOnEmojiClickListener { emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) }
-      .setOnEmojiPopupShownListener { binding.chatEmoji.setImageResource(R.drawable.ic_keyboard) }
-      .setOnSoftKeyboardOpenListener { px -> Timber.d(TAG, "Opened soft keyboard with height $px") }
-      .setOnEmojiPopupDismissListener { binding.chatEmoji.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) }
-      .setOnSoftKeyboardCloseListener { Timber.d(TAG, "Closed soft keyboard") }
-      .setKeyboardAnimationStyle(R.style.emoji_fade_animation_style)
-      .setPageTransformer(PageTransformer())
-      // .setRecentEmoji(NoRecentEmoji.INSTANCE) // Uncomment this to hide recent emojis.
-      .build(binding.chatEditText)
+    emojiPopup = EmojiPopup(
+      rootView = binding.rootView,
+      editText = binding.chatEditText,
+      onEmojiBackspaceClickListener = { Timber.d(TAG, "Clicked on Backspace") },
+      onEmojiClickListener = { emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) },
+      onEmojiPopupShownListener = { binding.chatEmoji.setImageResource(R.drawable.ic_keyboard) },
+      onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
+      onEmojiPopupDismissListener = { binding.chatEmoji.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) },
+      onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
+      keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+      pageTransformer = PageTransformer(),
+//      searchEmoji = NoSearchEmoji, // Uncomment this to hide search emojis.
+//      recentEmoji = NoRecentEmoji, // Uncomment this to hide recent emojis.
+    )
 
     binding.chatSend.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)
     binding.chatEmoji.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)
