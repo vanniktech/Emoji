@@ -33,7 +33,7 @@ import com.vanniktech.emoji.googlecompat.category.SymbolsCategory
 import com.vanniktech.emoji.googlecompat.category.TravelAndPlacesCategory
 
 class GoogleCompatEmojiProvider(
-  @Suppress("unused") val emojiCompat: EmojiCompat,
+  @Suppress("unused") private val emojiCompat: EmojiCompat,
 ) : EmojiProvider, EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(

@@ -26,18 +26,19 @@ import java.util.Collections
 import java.util.LinkedHashMap
 import java.util.regex.Pattern
 
-private const val GUESSED_UNICODE_AMOUNT = 3000
-private const val GUESSED_TOTAL_PATTERN_LENGTH = GUESSED_UNICODE_AMOUNT * 4
-
 /**
  * EmojiManager where an EmojiProvider can be installed for further usage.
  */
 object EmojiManager {
+  private const val GUESSED_UNICODE_AMOUNT = 3000
+  private const val GUESSED_TOTAL_PATTERN_LENGTH = GUESSED_UNICODE_AMOUNT * 4
+
   private val emojiMap: MutableMap<String, Emoji> = LinkedHashMap(GUESSED_UNICODE_AMOUNT)
   private var categories: Array<EmojiCategory>? = null
   private var emojiPattern: Pattern? = null
   internal var emojiRepetitivePattern: Pattern? = null
   private var emojiReplacer: EmojiReplacer? = null
+
   fun replaceWithImages(context: Context?, text: Spannable?, emojiSize: Float) {
     verifyInstalled()
     emojiReplacer!!.replaceWithImages(context!!, text!!, emojiSize, DEFAULT_EMOJI_REPLACER)

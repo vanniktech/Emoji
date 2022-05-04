@@ -106,7 +106,7 @@ class RecentEmojiManager(
     private const val TIME_DELIMITER = ";"
     private const val EMOJI_DELIMITER = "~"
     private const val RECENT_EMOJIS = "recent-emojis"
-    const val EMOJI_GUESS_SIZE = 5
-    const val MAX_RECENTS = 40
+    internal const val EMOJI_GUESS_SIZE = 5
+    internal const val MAX_RECENTS = 40
   }
 }

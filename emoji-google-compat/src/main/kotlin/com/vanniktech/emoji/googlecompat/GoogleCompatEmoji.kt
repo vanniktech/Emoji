@@ -20,15 +20,15 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import com.vanniktech.emoji.emoji.Emoji
 
-class GoogleCompatEmoji : Emoji {
-  constructor(
+internal class GoogleCompatEmoji : Emoji {
+  internal constructor(
     ints: IntArray,
     shortcodes: Array<String>,
     isDuplicate: Boolean,
     vararg emojis: Emoji
   ) : super(ints, shortcodes, -1, isDuplicate, *emojis)
 
-  constructor(
+  internal constructor(
     codePoint: Int,
     shortcodes: Array<String>,
     isDuplicate: Boolean,

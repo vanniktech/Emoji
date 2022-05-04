@@ -174,7 +174,7 @@ internal class EmojiViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(Layo
   val shortCodes: TextView by lazy(LazyThreadSafetyMode.NONE) { itemView.findViewById(R.id.shortCodes) }
 }
 
-class DiffUtilHelper<T>(
+internal class DiffUtilHelper<T>(
   private val old: List<T>,
   private val new: List<T>,
   private val id: (T) -> Int
