@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -29,10 +29,8 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
+import com.vanniktech.emoji.R
 import com.vanniktech.emoji.emoji.Emoji
-import com.vanniktech.emoji.internal.EmojiImageView
-import com.vanniktech.emoji.internal.EmojiVariantDelegate
-import com.vanniktech.emoji.internal.Utils
 
 internal class EmojiVariantPopup internal constructor(
   private val rootView: View,

@@ -23,9 +23,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
-import com.vanniktech.emoji.VariantEmoji
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
+import com.vanniktech.emoji.variant.VariantEmoji
 
 internal class EmojiArrayAdapter(
   context: Context,

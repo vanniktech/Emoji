@@ -35,6 +35,7 @@ import com.vanniktech.emoji.internal.EmojiImageView
 import com.vanniktech.emoji.internal.EmojiPagerAdapter
 import com.vanniktech.emoji.internal.EmojiPagerDelegate
 import com.vanniktech.emoji.internal.EmojiSearchDialog
+import com.vanniktech.emoji.internal.EmojiVariantPopup
 import com.vanniktech.emoji.internal.RepeatListener
 import com.vanniktech.emoji.internal.backgroundColor
 import com.vanniktech.emoji.internal.dividerColor
@@ -47,6 +48,8 @@ import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.search.NoSearchEmoji
 import com.vanniktech.emoji.search.SearchEmoji
 import com.vanniktech.emoji.search.SearchEmojiManager
+import com.vanniktech.emoji.variant.VariantEmoji
+import com.vanniktech.emoji.variant.VariantEmojiManager
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

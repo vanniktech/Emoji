@@ -19,6 +19,7 @@ package com.vanniktech.emoji
 import android.app.Application
 import com.vanniktech.emoji.TestEmojiProvider.Companion.from
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.variant.VariantEmojiManager
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

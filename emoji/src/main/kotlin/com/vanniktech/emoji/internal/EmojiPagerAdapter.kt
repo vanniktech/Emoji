@@ -23,7 +23,7 @@ import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.NoRecentEmoji
 import com.vanniktech.emoji.RecentEmoji
-import com.vanniktech.emoji.VariantEmoji
+import com.vanniktech.emoji.variant.VariantEmoji
 
 internal class EmojiPagerAdapter(
   private val delegate: EmojiPagerDelegate,
