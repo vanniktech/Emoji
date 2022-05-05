@@ -37,8 +37,9 @@ class RecentEmojiManager(
           val token = stringTokenizer.nextToken()
           val parts = token.split(TIME_DELIMITER).toTypedArray()
           if (parts.size == 2) {
-            val emoji = EmojiManager.findEmoji(parts[0])
-            if (emoji != null && emoji.length == parts[0].length) {
+            val candidate = parts[0]
+            val emoji = EmojiManager.findEmoji(candidate)
+            if (emoji != null) {
               val timestamp = parts[1].toLong()
               emojiList.add(emoji, timestamp)
             }

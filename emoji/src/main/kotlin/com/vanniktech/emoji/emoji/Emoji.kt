@@ -48,9 +48,6 @@ abstract class Emoji(
   abstract fun getDrawable(context: Context): Drawable
   abstract fun destroy()
 
-  val length: Int
-    get() = unicode.length
-
   override fun equals(other: Any?): Boolean {
     if (this === other) {
       return true

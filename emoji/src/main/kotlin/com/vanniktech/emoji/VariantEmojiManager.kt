@@ -77,7 +77,7 @@ class VariantEmojiManager(
       while (stringTokenizer.hasMoreTokens()) {
         val token = stringTokenizer.nextToken()
         val emoji = EmojiManager.findEmoji(token)
-        if (emoji != null && emoji.length == token.length) {
+        if (emoji != null) {
           variantsList.add(emoji)
         }
       }
@@ -88,6 +88,6 @@ class VariantEmojiManager(
     private const val PREFERENCE_NAME = "variant-emoji-manager"
     private const val EMOJI_DELIMITER = "~"
     private const val VARIANT_EMOJIS = "variant-emojis"
-    const val EMOJI_GUESS_SIZE = 5
+    private const val EMOJI_GUESS_SIZE = 5
   }
 }
