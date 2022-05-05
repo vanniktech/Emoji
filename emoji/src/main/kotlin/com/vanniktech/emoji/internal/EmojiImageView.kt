@@ -94,7 +94,7 @@ internal class EmojiImageView @JvmOverloads constructor(
     if (emoji != currentEmoji) {
       setImageDrawable(null)
       currentEmoji = emoji
-      hasVariants = emoji.base.hasVariants() && variantEmoji !is NoVariantEmoji
+      hasVariants = emoji.base.variants.isNotEmpty() && variantEmoji !is NoVariantEmoji
       cancelFuture()
       setOnClickListener {
         clickListener?.onEmojiClick(currentEmoji!!)

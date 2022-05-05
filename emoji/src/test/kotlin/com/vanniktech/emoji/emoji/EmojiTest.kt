@@ -54,11 +54,6 @@ class EmojiTest {
     assertEquals(emoji, variant.base)
   }
 
-  @Test fun hasVariants() {
-    assertEquals(false, TestEmoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), false).hasVariants())
-    assertEquals(true, TestEmoji(intArrayOf(0x1f3cb), arrayOf("test"), false, TestEmoji(intArrayOf(0x1f3cb, 0x1f3fb), arrayOf("test"), false)).hasVariants())
-  }
-
   @Test fun length() {
     assertEquals(1, TestEmoji(intArrayOf(0x1234), arrayOf("test"), false).length)
     assertEquals(2, TestEmoji(intArrayOf(0x1234, 0x5678), arrayOf("test"), false).length)

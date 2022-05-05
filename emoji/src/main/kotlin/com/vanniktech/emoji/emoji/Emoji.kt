@@ -51,10 +51,6 @@ abstract class Emoji(
   val length: Int
     get() = unicode.length
 
-  fun hasVariants(): Boolean {
-    return variants.isNotEmpty()
-  }
-
   override fun equals(other: Any?): Boolean {
     if (this === other) {
       return true
