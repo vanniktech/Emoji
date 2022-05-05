@@ -16,10 +16,7 @@
 
 package com.vanniktech.emoji
 
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
-private val SPACE_REMOVAL = Pattern.compile("[\\s]")
+private val SPACE_REMOVAL = Regex("[\\s]")
 
 @Suppress("UNUSED")
 object EmojiUtils {
@@ -44,7 +41,7 @@ object EmojiUtils {
 fun CharSequence?.isOnlyEmojis(): Boolean {
   if (this != null && this.isNotEmpty()) {
     EmojiManager.verifyInstalled()
-    val inputWithoutSpaces = SPACE_REMOVAL.matcher(this).replaceAll(Matcher.quoteReplacement(""))
+    val inputWithoutSpaces = replace(SPACE_REMOVAL, "")
     return EmojiManager.emojiRepetitivePattern!!
       .matcher(inputWithoutSpaces)
       .matches()

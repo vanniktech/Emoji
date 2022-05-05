@@ -19,7 +19,6 @@ package com.vanniktech.emoji.recent
 import android.content.Context
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.emoji.Emoji
-import java.util.StringTokenizer
 
 class RecentEmojiManager(
   context: Context,
@@ -32,11 +31,10 @@ class RecentEmojiManager(
       val savedRecentEmojis = sharedPreferences.getString(RECENT_EMOJIS, "").orEmpty()
 
       if (savedRecentEmojis.isNotEmpty()) {
-        val stringTokenizer = StringTokenizer(savedRecentEmojis, EMOJI_DELIMITER)
-        emojiList = EmojiList(stringTokenizer.countTokens())
-        while (stringTokenizer.hasMoreTokens()) {
-          val token = stringTokenizer.nextToken()
-          val parts = token.split(TIME_DELIMITER).toTypedArray()
+        val split = savedRecentEmojis.split(EMOJI_DELIMITER)
+        emojiList = EmojiList(split.size)
+        split.forEach {
+          val parts = it.split(TIME_DELIMITER).toTypedArray()
           if (parts.size == 2) {
             val candidate = parts[0]
             val emoji = EmojiManager.findEmoji(candidate)

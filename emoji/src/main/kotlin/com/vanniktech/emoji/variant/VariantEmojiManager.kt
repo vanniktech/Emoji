@@ -19,9 +19,6 @@ package com.vanniktech.emoji.variant
 import android.content.Context
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.emoji.Emoji
-import java.lang.StringBuilder
-import java.util.ArrayList
-import java.util.StringTokenizer
 
 class VariantEmojiManager(
   context: Context,
@@ -73,15 +70,9 @@ class VariantEmojiManager(
   private fun initFromSharedPreferences() {
     val savedRecentVariants = preferences.getString(VARIANT_EMOJIS, "").orEmpty()
     if (savedRecentVariants.isNotEmpty()) {
-      val stringTokenizer = StringTokenizer(savedRecentVariants, EMOJI_DELIMITER)
-      variantsList = ArrayList(stringTokenizer.countTokens())
-      while (stringTokenizer.hasMoreTokens()) {
-        val token = stringTokenizer.nextToken()
-        val emoji = EmojiManager.findEmoji(token)
-        if (emoji != null) {
-          variantsList.add(emoji)
-        }
-      }
+      variantsList = savedRecentVariants.split(EMOJI_DELIMITER)
+        .mapNotNull { EmojiManager.findEmoji(it) }
+        .toMutableList()
     }
   }
 

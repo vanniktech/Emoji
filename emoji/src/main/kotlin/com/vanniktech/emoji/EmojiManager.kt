@@ -21,10 +21,6 @@ import android.text.Spannable
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.internal.EmojiSpan
-import java.lang.StringBuilder
-import java.util.ArrayList
-import java.util.Collections
-import java.util.LinkedHashMap
 import java.util.regex.Pattern
 
 /**
@@ -140,7 +136,7 @@ object EmojiManager {
       require(unicodesForPattern.isNotEmpty()) { "Your EmojiProvider must at least have one category with at least one emoji." }
 
       // We need to sort the unicodes by length so the longest one gets matched first.
-      Collections.sort(unicodesForPattern, STRING_LENGTH_COMPARATOR)
+      unicodesForPattern.sortWith(STRING_LENGTH_COMPARATOR)
       val patternBuilder = StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH)
       val unicodesForPatternSize = unicodesForPattern.size
       for (i in 0 until unicodesForPatternSize) {

@@ -32,7 +32,6 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
-import java.lang.IllegalArgumentException
 import kotlin.math.roundToInt
 
 private const val DONT_UPDATE_FLAG = -1
@@ -90,7 +89,7 @@ internal object Utils {
       }
       result = result.baseContext
     }
-    throw IllegalArgumentException("The passed Context is not an Activity.")
+    error("The passed Context is not an Activity.")
   }
 
   internal fun fixPopupLocation(popupWindow: PopupWindow, desiredLocation: Point) {
