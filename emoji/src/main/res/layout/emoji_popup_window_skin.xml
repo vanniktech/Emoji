@@ -11,12 +11,18 @@
       app:cardElevation="2dp"
       app:cardUseCompatPadding="true"
       >
-    <LinearLayout
-        android:id="@+id/emojiPopupWindowSkinPopupContainer"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:orientation="horizontal"
-        />
+        android:scrollbars="horizontal"
+        >
+      <LinearLayout
+          android:id="@+id/emojiPopupWindowSkinPopupContainer"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="4dp"
+          android:orientation="horizontal"
+          />
+    </HorizontalScrollView>
   </androidx.cardview.widget.CardView>
 </FrameLayout>
