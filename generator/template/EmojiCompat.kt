@@ -21,13 +21,11 @@ import android.graphics.drawable.Drawable
 import com.vanniktech.emoji.emoji.Emoji
 
 internal class <%= name %> internal constructor(
-  codePoints: IntArray,
+  override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<<%= name %>> = emptyList(),
 ) : Emoji {
-  override val unicode: String = String(codePoints, 0, codePoints.size)
-
   private var parent: <%= name %>? = null
 
   override val base by lazy(LazyThreadSafetyMode.NONE) {

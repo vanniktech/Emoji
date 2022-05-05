@@ -27,15 +27,13 @@ import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
 internal class IosEmoji internal constructor(
-  codePoints: IntArray,
+  override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
   override val variants: List<IosEmoji> = emptyList(),
 ) : Emoji {
-  override val unicode: String = String(codePoints, 0, codePoints.size)
-
   private var parent: IosEmoji? = null
 
   override val base by lazy(LazyThreadSafetyMode.NONE) {

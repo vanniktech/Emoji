@@ -188,19 +188,19 @@ function generateEmojiCode(target, emojis, indent = 4) {
 
         if (target.module !== "google-compat") {
             if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}intArrayOf(0x${unicodeParts[0]}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `${target.name}(${separator}intArrayOf(${transformedUnicodeParts}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}intArrayOf(0x${unicodeParts[0]}), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `${target.name}(${separator}intArrayOf(${transformedUnicodeParts}), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
             }
         }
 

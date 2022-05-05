@@ -27,15 +27,13 @@ import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
 internal class TwitterEmoji internal constructor(
-  codePoints: IntArray,
+  override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
   override val variants: List<TwitterEmoji> = emptyList(),
 ) : Emoji {
-  override val unicode: String = String(codePoints, 0, codePoints.size)
-
   private var parent: TwitterEmoji? = null
 
   override val base by lazy(LazyThreadSafetyMode.NONE) {

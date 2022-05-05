@@ -21,13 +21,11 @@ import android.graphics.drawable.Drawable
 import com.vanniktech.emoji.emoji.Emoji
 
 internal class GoogleCompatEmoji internal constructor(
-  codePoints: IntArray,
+  override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<GoogleCompatEmoji> = emptyList(),
 ) : Emoji {
-  override val unicode: String = String(codePoints, 0, codePoints.size)
-
   private var parent: GoogleCompatEmoji? = null
 
   override val base by lazy(LazyThreadSafetyMode.NONE) {
