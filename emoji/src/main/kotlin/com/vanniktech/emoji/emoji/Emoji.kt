@@ -18,8 +18,9 @@ package com.vanniktech.emoji.emoji
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Parcelable
 
-interface Emoji {
+interface Emoji : Parcelable {
   val base: Emoji
   val unicode: String
   val shortcodes: List<String>

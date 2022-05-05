@@ -22,11 +22,14 @@ import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.os.Parcelable
 import android.util.LruCache
 import com.vanniktech.emoji.emoji.Emoji
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import java.lang.ref.SoftReference
 
-internal data class FacebookEmoji internal constructor(
+@Parcelize internal data class FacebookEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
@@ -34,8 +37,8 @@ internal data class FacebookEmoji internal constructor(
   override val isDuplicate: Boolean,
   override val variants: List<FacebookEmoji> = emptyList(),
   private var parent: FacebookEmoji? = null,
-) : Emoji {
-  override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji, Parcelable {
+  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!

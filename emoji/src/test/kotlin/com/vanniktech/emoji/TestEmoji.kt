@@ -1,19 +1,26 @@
 package com.vanniktech.emoji
 
 import android.content.Context
+import android.os.Parcelable
 import com.vanniktech.emoji.emoji.Emoji
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
-class TestEmoji(
-  codePoints: IntArray,
+@Parcelize data class TestEmoji(
+  override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<TestEmoji> = emptyList(),
-) : Emoji {
-  override val unicode: String = String(codePoints, 0, codePoints.size)
+  private var parent: TestEmoji? = null,
+) : Emoji, Parcelable {
+  constructor(
+    codePoints: IntArray,
+    shortcodes: List<String>,
+    isDuplicate: Boolean,
+    variants: List<TestEmoji> = emptyList(),
+  ) : this(String(codePoints, 0, codePoints.size), shortcodes, isDuplicate, variants)
 
-  private var parent: TestEmoji? = null
-
-  override val base by lazy(LazyThreadSafetyMode.NONE) {
+  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
@@ -26,27 +33,6 @@ class TestEmoji(
     for (variant in variants) {
       variant.parent = this
     }
-  }
-
-  override fun equals(other: Any?): Boolean {
-    if (this === other) {
-      return true
-    }
-    if (other == null || javaClass != other.javaClass) {
-      return false
-    }
-    val emoji = other as TestEmoji
-    return (
-      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
-        variants == emoji.variants
-      )
-  }
-
-  override fun hashCode(): Int {
-    var result = unicode.hashCode()
-    result = 31 * result + shortcodes.hashCode()
-    result = 31 * result + variants.hashCode()
-    return result
   }
 
   override fun getDrawable(context: Context) = error("Not available from tests")

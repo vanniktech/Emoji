@@ -18,16 +18,19 @@ package com.vanniktech.emoji.<%= package %>
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Parcelable
 import com.vanniktech.emoji.emoji.Emoji
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
-internal data class <%= name %> internal constructor(
+@Parcelize internal data class <%= name %> internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<<%= name %>> = emptyList(),
   private var parent: <%= name %>? = null,
-) : Emoji {
-  override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji, Parcelable {
+  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
