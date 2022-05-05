@@ -14,33 +14,27 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.util.AttributeSet
-import com.vanniktech.emoji.emoji.EmojiCategory
-import com.vanniktech.emoji.listeners.OnEmojiClickListener
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
+import android.widget.GridView
+import com.vanniktech.emoji.R
 
-internal open class CategoryGridView @JvmOverloads constructor(
+internal open class EmojiGridView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null
-) : EmojiGridView(context, attrs) {
-  fun init(
-    onEmojiClickListener: OnEmojiClickListener?,
-    onEmojiLongClickListener: OnEmojiLongClickListener?,
-    theming: EmojiTheming,
-    category: EmojiCategory,
-    variantManager: VariantEmoji,
-  ): CategoryGridView {
-    adapter = EmojiArrayAdapter(
-      context,
-      category.emojis,
-      variantManager,
-      onEmojiClickListener,
-      onEmojiLongClickListener,
-      theming,
-    )
-    return this
+) : GridView(context, attrs) {
+  init {
+    val width = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_column_width)
+    val spacing = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_spacing)
+    columnWidth = width
+    horizontalSpacing = spacing
+    verticalSpacing = spacing
+    @Suppress("LeakingThis")
+    setPadding(spacing, spacing, spacing, spacing)
+    numColumns = AUTO_FIT
+    clipToPadding = false
+    isVerticalScrollBarEnabled = false
   }
 }

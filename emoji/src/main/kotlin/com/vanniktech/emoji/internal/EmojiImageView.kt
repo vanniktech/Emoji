@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.graphics.Canvas
@@ -24,11 +24,13 @@ import android.graphics.Point
 import android.util.AttributeSet
 import android.view.View.OnLongClickListener
 import androidx.appcompat.widget.AppCompatImageView
+import com.vanniktech.emoji.EmojiTheming
+import com.vanniktech.emoji.NoVariantEmoji
+import com.vanniktech.emoji.VariantEmoji
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
 
-class EmojiImageView @JvmOverloads constructor(
+internal class EmojiImageView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
 ) : AppCompatImageView(context, attrs) {

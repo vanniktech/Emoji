@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.GridView
+import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.R
 
-internal open class EmojiGridView @JvmOverloads constructor(
+internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
   context: Context,
-  attrs: AttributeSet? = null
-) : GridView(context, attrs) {
+  attrs: AttributeSet? = null,
+) : RecyclerView(context, attrs) {
   init {
-    val width = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_column_width)
-    val spacing = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_spacing)
-    columnWidth = width
-    horizontalSpacing = spacing
-    verticalSpacing = spacing
-    @Suppress("LeakingThis")
-    setPadding(spacing, spacing, spacing, spacing)
-    numColumns = AUTO_FIT
     clipToPadding = false
-    isVerticalScrollBarEnabled = false
+  }
+
+  override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    super.onMeasure(
+      widthMeasureSpec,
+      MeasureSpec.makeMeasureSpec(context.resources.getDimensionPixelSize(R.dimen.emoji_search_max_height), MeasureSpec.AT_MOST),
+    )
   }
 }

@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.vanniktech.emoji.EmojiTheming
+import com.vanniktech.emoji.R
+import com.vanniktech.emoji.VariantEmoji
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
 
 internal class EmojiArrayAdapter(
   context: Context,

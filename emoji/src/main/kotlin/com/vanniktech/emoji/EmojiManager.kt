@@ -20,6 +20,7 @@ import android.content.Context
 import android.text.Spannable
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.emoji.EmojiCategory
+import com.vanniktech.emoji.internal.EmojiSpan
 import java.lang.StringBuilder
 import java.util.ArrayList
 import java.util.Collections

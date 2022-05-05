@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
-import com.vanniktech.emoji.listeners.OnEmojiLongClickListener
 
 internal interface EmojiPagerDelegate : OnEmojiClickListener, OnEmojiLongClickListener

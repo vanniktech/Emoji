@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.annotation.SuppressLint
 import android.os.Handler

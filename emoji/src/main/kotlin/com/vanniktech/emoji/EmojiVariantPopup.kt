@@ -30,6 +30,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.internal.EmojiImageView
+import com.vanniktech.emoji.internal.EmojiVariantDelegate
+import com.vanniktech.emoji.internal.Utils
 
 internal class EmojiVariantPopup internal constructor(
   private val rootView: View,

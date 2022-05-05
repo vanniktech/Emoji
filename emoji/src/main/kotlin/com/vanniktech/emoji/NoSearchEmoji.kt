@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji.listeners
+package com.vanniktech.emoji
 
-import com.vanniktech.emoji.EmojiImageView
-import com.vanniktech.emoji.emoji.Emoji
-
-fun interface OnEmojiLongClickListener {
-  fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji)
+/** Use this object to hide the search. */
+object NoSearchEmoji : SearchEmoji {
+  override fun search(query: String) = emptyList<SearchEmojiResult>()
 }

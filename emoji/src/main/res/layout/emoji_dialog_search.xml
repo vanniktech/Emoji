@@ -19,7 +19,7 @@
       tools:ignore="LabelFor,UnusedAttribute"
       tools:text="My brilliant name"
       />
-  <com.vanniktech.emoji.MaxHeightSearchRecyclerView
+  <com.vanniktech.emoji.internal.MaxHeightSearchRecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

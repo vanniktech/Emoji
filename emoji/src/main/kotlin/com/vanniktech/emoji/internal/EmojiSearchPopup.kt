@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.graphics.Bitmap
 import android.graphics.Point
@@ -26,6 +26,9 @@ import android.view.WindowManager
 import android.widget.EditText
 import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.EmojiTheming
+import com.vanniktech.emoji.R
+import com.vanniktech.emoji.SearchEmojiResult
 import com.vanniktech.emoji.emoji.Emoji
 
 internal fun interface EmojiSearchDelegate {

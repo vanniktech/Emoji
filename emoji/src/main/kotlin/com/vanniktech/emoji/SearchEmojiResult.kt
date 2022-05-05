@@ -16,22 +16,16 @@
 
 package com.vanniktech.emoji
 
-import android.content.Context
-import android.util.AttributeSet
-import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.emoji.Emoji
 
-internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null,
-) : RecyclerView(context, attrs) {
+data class SearchEmojiResult(
+  val emoji: Emoji,
+  val shortcode: String,
+  /** The range in [shortcode], which matches the query. This is used for highlighting. */
+  val range: IntRange,
+) {
   init {
-    clipToPadding = false
-  }
-
-  override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-    super.onMeasure(
-      widthMeasureSpec,
-      MeasureSpec.makeMeasureSpec(context.resources.getDimensionPixelSize(R.dimen.emoji_search_max_height), MeasureSpec.AT_MOST),
-    )
+    require(range.first in shortcode.indices) { "Index ${range.first} is out of bounds in $shortcode" }
+    require(range.last in shortcode.indices) { "Index ${range.last} is out of bounds in $shortcode" }
   }
 }

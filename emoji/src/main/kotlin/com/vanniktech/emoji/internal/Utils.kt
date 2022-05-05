@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.app.Activity
 import android.content.Context

@@ -14,18 +14,10 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
-/**
- * Interface for providing some custom implementation for searching emojis.
- *
- * @since 0.10.0
- */
-interface SearchEmoji {
-  /**
-   * Return the emojis that match your search algorithm for the given query as a list of [SearchEmojiResult].
-   *
-   * @since 0.10.0
-   */
-  fun search(query: String): List<SearchEmojiResult>
+import com.vanniktech.emoji.emoji.Emoji
+
+internal fun interface OnEmojiLongClickListener {
+  fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji)
 }

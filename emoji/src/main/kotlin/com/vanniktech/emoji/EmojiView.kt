@@ -31,6 +31,17 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.internal.EmojiImageView
+import com.vanniktech.emoji.internal.EmojiPagerAdapter
+import com.vanniktech.emoji.internal.EmojiPagerDelegate
+import com.vanniktech.emoji.internal.EmojiSearchDialog
+import com.vanniktech.emoji.internal.RepeatListener
+import com.vanniktech.emoji.internal.backgroundColor
+import com.vanniktech.emoji.internal.dividerColor
+import com.vanniktech.emoji.internal.hideKeyboardAndFocus
+import com.vanniktech.emoji.internal.primaryColor
+import com.vanniktech.emoji.internal.secondaryColor
+import com.vanniktech.emoji.internal.showKeyboardAndFocus
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import java.util.concurrent.Executors

@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
+import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.EmojiTheming
+import com.vanniktech.emoji.NoRecentEmoji
+import com.vanniktech.emoji.RecentEmoji
+import com.vanniktech.emoji.VariantEmoji
 
 internal class EmojiPagerAdapter(
   private val delegate: EmojiPagerDelegate,

@@ -17,6 +17,7 @@
 package com.vanniktech.emoji
 
 import android.text.SpannableString
+import com.vanniktech.emoji.internal.EmojiSpan
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows

@@ -37,6 +37,9 @@ import androidx.annotation.StyleRes
 import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.ViewPager
 import com.vanniktech.emoji.EmojiManager.verifyInstalled
+import com.vanniktech.emoji.internal.EmojiResultReceiver
+import com.vanniktech.emoji.internal.Utils
+import com.vanniktech.emoji.internal.inputMethodManager
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener
@@ -414,7 +417,8 @@ class EmojiPopup(
 
   internal class EmojiPopUpOnApplyWindowInsetsListener(emojiPopup: EmojiPopup) : View.OnApplyWindowInsetsListener {
     private val emojiPopup: WeakReference<EmojiPopup> = WeakReference(emojiPopup)
-    var previousOffset = 0
+    private var previousOffset = 0
+
     override fun onApplyWindowInsets(v: View, insets: WindowInsets): WindowInsets {
       val popup = emojiPopup.get()
 

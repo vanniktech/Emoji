@@ -16,7 +16,7 @@
 
 @file:Suppress("DEPRECATION")
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.graphics.drawable.Drawable
