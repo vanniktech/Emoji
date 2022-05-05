@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.recent
 
 import com.vanniktech.emoji.emoji.Emoji
 

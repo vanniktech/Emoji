@@ -19,8 +19,8 @@ package com.vanniktech.emoji.internal
 import android.content.Context
 import android.util.AttributeSet
 import com.vanniktech.emoji.EmojiTheming
-import com.vanniktech.emoji.RecentEmoji
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
+import com.vanniktech.emoji.recent.RecentEmoji
 
 internal class RecentEmojiGridView @JvmOverloads constructor(
   context: Context,

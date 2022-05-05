@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.recent
 
 import android.content.Context
+import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.emoji.Emoji
 import java.util.StringTokenizer
 

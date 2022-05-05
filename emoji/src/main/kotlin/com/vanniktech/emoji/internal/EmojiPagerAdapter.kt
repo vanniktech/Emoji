@@ -21,8 +21,8 @@ import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiTheming
-import com.vanniktech.emoji.NoRecentEmoji
-import com.vanniktech.emoji.RecentEmoji
+import com.vanniktech.emoji.recent.NoRecentEmoji
+import com.vanniktech.emoji.recent.RecentEmoji
 import com.vanniktech.emoji.variant.VariantEmoji
 
 internal class EmojiPagerAdapter(
