@@ -28,8 +28,8 @@ import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
-import com.vanniktech.emoji.SearchEmojiResult
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.search.SearchEmojiResult
 
 internal fun interface EmojiSearchDelegate {
   fun onEmojiClicked(emoji: Emoji)

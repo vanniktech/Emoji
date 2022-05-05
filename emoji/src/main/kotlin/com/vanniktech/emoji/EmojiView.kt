@@ -44,6 +44,9 @@ import com.vanniktech.emoji.internal.secondaryColor
 import com.vanniktech.emoji.internal.showKeyboardAndFocus
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
+import com.vanniktech.emoji.search.NoSearchEmoji
+import com.vanniktech.emoji.search.SearchEmoji
+import com.vanniktech.emoji.search.SearchEmojiManager
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

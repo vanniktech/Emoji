@@ -1,5 +1,6 @@
-package com.vanniktech.emoji
+package com.vanniktech.emoji.search
 
+import com.vanniktech.emoji.TestEmoji
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Test

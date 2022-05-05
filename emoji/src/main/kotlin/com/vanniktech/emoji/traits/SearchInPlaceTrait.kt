@@ -22,8 +22,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.vanniktech.emoji.EmojiPopup
-import com.vanniktech.emoji.NoSearchEmoji
 import com.vanniktech.emoji.internal.EmojiSearchPopup
+import com.vanniktech.emoji.search.NoSearchEmoji
 
 /**
  * Popup similar to how Telegram and Slack does it to search for an Emoji

@@ -43,9 +43,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.EmojiTextView
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
-import com.vanniktech.emoji.SearchEmoji
-import com.vanniktech.emoji.SearchEmojiResult
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.search.SearchEmoji
+import com.vanniktech.emoji.search.SearchEmojiResult
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit

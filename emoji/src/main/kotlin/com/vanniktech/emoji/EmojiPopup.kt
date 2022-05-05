@@ -46,6 +46,8 @@ import com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener
 import com.vanniktech.emoji.listeners.OnEmojiPopupShownListener
 import com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener
 import com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener
+import com.vanniktech.emoji.search.SearchEmoji
+import com.vanniktech.emoji.search.SearchEmojiManager
 import java.lang.ref.WeakReference
 import kotlin.math.max
 

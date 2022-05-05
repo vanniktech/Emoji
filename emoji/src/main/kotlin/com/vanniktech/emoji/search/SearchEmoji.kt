@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.search
 
 /**
  * Interface for providing some custom implementation for searching emojis.

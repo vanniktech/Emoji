@@ -14,18 +14,9 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.search
 
-import com.vanniktech.emoji.emoji.Emoji
-
-data class SearchEmojiResult(
-  val emoji: Emoji,
-  val shortcode: String,
-  /** The range in [shortcode], which matches the query. This is used for highlighting. */
-  val range: IntRange,
-) {
-  init {
-    require(range.first in shortcode.indices) { "Index ${range.first} is out of bounds in $shortcode" }
-    require(range.last in shortcode.indices) { "Index ${range.last} is out of bounds in $shortcode" }
-  }
+/** Use this object to hide the search. */
+object NoSearchEmoji : SearchEmoji {
+  override fun search(query: String) = emptyList<SearchEmojiResult>()
 }

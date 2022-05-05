@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.search
+
+import com.vanniktech.emoji.EmojiManager
 
 class SearchEmojiManager : SearchEmoji {
   override fun search(query: String): List<SearchEmojiResult> {
