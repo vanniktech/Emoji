@@ -18,7 +18,6 @@ package com.vanniktech.emoji
 
 import android.app.Application
 import com.vanniktech.emoji.TestEmojiProvider.Companion.from
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.variant.VariantEmojiManager
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -30,11 +29,11 @@ import org.robolectric.annotation.Config
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner::class) class VariantEmojiManagerTest {
   private lateinit var variantEmojiManager: VariantEmojiManager
-  private lateinit var variant1: Emoji
-  private lateinit var variant2: Emoji
-  private lateinit var variant3: Emoji
-  private lateinit var base: Emoji
-  private lateinit var emoji: Emoji
+  private lateinit var variant1: TestEmoji
+  private lateinit var variant2: TestEmoji
+  private lateinit var variant3: TestEmoji
+  private lateinit var base: TestEmoji
+  private lateinit var emoji: TestEmoji
   private lateinit var application: Application
 
   @Suppress("DEPRECATION")

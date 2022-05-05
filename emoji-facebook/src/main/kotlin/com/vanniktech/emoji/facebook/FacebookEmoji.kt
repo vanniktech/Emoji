@@ -28,12 +28,31 @@ import java.lang.ref.SoftReference
 
 internal class FacebookEmoji internal constructor(
   codePoints: IntArray,
-  shortcodes: Array<String>,
+  override val shortcodes: Array<String>,
   private val x: Int,
   private val y: Int,
-  isDuplicate: Boolean,
-  vararg variants: Emoji,
-) : Emoji(codePoints, shortcodes, isDuplicate, *variants) {
+  override val isDuplicate: Boolean,
+  override vararg val variants: FacebookEmoji,
+) : Emoji {
+  override val unicode: String = String(codePoints, 0, codePoints.size)
+
+  private var parent: FacebookEmoji? = null
+
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
+    var result = this
+    while (result.parent != null) {
+      result = result.parent!!
+    }
+    result
+  }
+
+  init {
+    @Suppress("LeakingThis")
+    for (variant in variants) {
+      variant.parent = this
+    }
+  }
+
   override fun getDrawable(context: Context): Drawable {
     val key = Point(x, y)
     val bitmap = BITMAP_CACHE[key]
@@ -72,6 +91,27 @@ internal class FacebookEmoji internal constructor(
         softReference?.clear()
       }
     }
+  }
+
+  override fun equals(other: Any?): Boolean {
+    if (this === other) {
+      return true
+    }
+    if (other == null || javaClass != other.javaClass) {
+      return false
+    }
+    val emoji = other as FacebookEmoji
+    return (
+      unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
+        variants.contentEquals(emoji.variants)
+      )
+  }
+
+  override fun hashCode(): Int {
+    var result = unicode.hashCode()
+    result = 31 * result + shortcodes.contentHashCode()
+    result = 31 * result + variants.hashCode()
+    return result
   }
 
   private companion object {
