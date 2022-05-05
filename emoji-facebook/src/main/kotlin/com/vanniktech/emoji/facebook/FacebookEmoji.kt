@@ -26,16 +26,15 @@ import android.util.LruCache
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
-internal class FacebookEmoji internal constructor(
+internal data class FacebookEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
   override val variants: List<FacebookEmoji> = emptyList(),
+  private var parent: FacebookEmoji? = null,
 ) : Emoji {
-  private var parent: FacebookEmoji? = null
-
   override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
@@ -89,27 +88,6 @@ internal class FacebookEmoji internal constructor(
         softReference?.clear()
       }
     }
-  }
-
-  override fun equals(other: Any?): Boolean {
-    if (this === other) {
-      return true
-    }
-    if (other == null || javaClass != other.javaClass) {
-      return false
-    }
-    val emoji = other as FacebookEmoji
-    return (
-      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
-        variants == emoji.variants
-      )
-  }
-
-  override fun hashCode(): Int {
-    var result = unicode.hashCode()
-    result = 31 * result + shortcodes.hashCode()
-    result = 31 * result + variants.hashCode()
-    return result
   }
 
   private companion object {

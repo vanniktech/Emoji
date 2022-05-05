@@ -26,16 +26,15 @@ import android.util.LruCache
 import com.vanniktech.emoji.emoji.Emoji
 import java.lang.ref.SoftReference
 
-internal class TwitterEmoji internal constructor(
+internal data class TwitterEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
   override val variants: List<TwitterEmoji> = emptyList(),
+  private var parent: TwitterEmoji? = null,
 ) : Emoji {
-  private var parent: TwitterEmoji? = null
-
   override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
@@ -89,27 +88,6 @@ internal class TwitterEmoji internal constructor(
         softReference?.clear()
       }
     }
-  }
-
-  override fun equals(other: Any?): Boolean {
-    if (this === other) {
-      return true
-    }
-    if (other == null || javaClass != other.javaClass) {
-      return false
-    }
-    val emoji = other as TwitterEmoji
-    return (
-      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
-        variants == emoji.variants
-      )
-  }
-
-  override fun hashCode(): Int {
-    var result = unicode.hashCode()
-    result = 31 * result + shortcodes.hashCode()
-    result = 31 * result + variants.hashCode()
-    return result
   }
 
   private companion object {
