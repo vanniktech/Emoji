@@ -28,7 +28,7 @@ import java.lang.ref.SoftReference
 
 internal class TwitterEmoji internal constructor(
   codePoints: IntArray,
-  override val shortcodes: Array<String>,
+  override val shortcodes: List<String>,
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
@@ -102,14 +102,14 @@ internal class TwitterEmoji internal constructor(
     }
     val emoji = other as TwitterEmoji
     return (
-      unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
+      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
         variants == emoji.variants
       )
   }
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()
-    result = 31 * result + shortcodes.contentHashCode()
+    result = 31 * result + shortcodes.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }

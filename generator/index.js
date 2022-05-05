@@ -216,9 +216,9 @@ function generateEmojiCode(target, emojis, indent = 4) {
 
 function generateShortcodeCode(emoji) {
     if (!emoji.shortcodes || emoji.shortcodes.length === 0) {
-        return 'emptyArray<String>()'
+        return 'emptyList<String>()'
     } else {
-        return `arrayOf("${emoji.shortcodes.join(`", "`)}")`
+        return `listOf("${emoji.shortcodes.join(`", "`)}")`
     }
 }
 

@@ -26,8 +26,8 @@ import org.robolectric.annotation.Config
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner::class) class EmojiUtilsTest {
   @Before fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), arrayOf("test"), false)
-    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), arrayOf("test"), false)
+    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), listOf("test"), false)
+    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), listOf("test"), false)
     EmojiManager.install(from(emoji1, emoji2))
   }
 

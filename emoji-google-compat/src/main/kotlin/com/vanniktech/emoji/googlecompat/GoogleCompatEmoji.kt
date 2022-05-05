@@ -22,7 +22,7 @@ import com.vanniktech.emoji.emoji.Emoji
 
 internal class GoogleCompatEmoji internal constructor(
   codePoints: IntArray,
-  override val shortcodes: Array<String>,
+  override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<GoogleCompatEmoji> = emptyList(),
 ) : Emoji {
@@ -57,14 +57,14 @@ internal class GoogleCompatEmoji internal constructor(
     }
     val emoji = other as GoogleCompatEmoji
     return (
-      unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
+      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
         variants == emoji.variants
       )
   }
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()
-    result = 31 * result + shortcodes.contentHashCode()
+    result = 31 * result + shortcodes.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }

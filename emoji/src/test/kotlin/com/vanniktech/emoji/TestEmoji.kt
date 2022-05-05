@@ -5,7 +5,7 @@ import com.vanniktech.emoji.emoji.Emoji
 
 class TestEmoji(
   codePoints: IntArray,
-  override val shortcodes: Array<String>,
+  override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<TestEmoji> = emptyList(),
 ) : Emoji {
@@ -37,14 +37,14 @@ class TestEmoji(
     }
     val emoji = other as TestEmoji
     return (
-      unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
+      unicode == emoji.unicode && shortcodes == emoji.shortcodes &&
         variants == emoji.variants
       )
   }
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()
-    result = 31 * result + shortcodes.contentHashCode()
+    result = 31 * result + shortcodes.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }
