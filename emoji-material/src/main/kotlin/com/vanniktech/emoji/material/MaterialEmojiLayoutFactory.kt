@@ -23,8 +23,8 @@ import android.view.View
 import com.vanniktech.emoji.EmojiLayoutFactory
 
 /** Layout Factory that substitutes certain Views to add automatic Emoji support.  */
-class MaterialEmojiLayoutFactory(
-  delegate: Factory2?
+open class MaterialEmojiLayoutFactory(
+  delegate: Factory2?,
 ) : EmojiLayoutFactory(delegate) {
   override fun onCreateView(parent: View?, name: String, context: Context, attrs: AttributeSet) = when (name) {
     "Button" -> EmojiMaterialButton(context, attrs)
