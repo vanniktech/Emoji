@@ -337,6 +337,7 @@ async function generateCode(map, targets) {
     console.log("Generating code...");
 
     const emojiTemplate = await fs.readFile("template/Emoji.kt", "utf-8");
+    const emojiCompatTemplate = await fs.readFile("template/EmojiCompat.kt", "utf-8");
     const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
@@ -434,6 +435,11 @@ async function generateCode(map, targets) {
                 package: target.package,
                 name: target.name,
                 strips: strips,
+            }));
+        } else {
+            await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiCompatTemplate)({
+                package: target.package,
+                name: target.name,
             }));
         }
 
