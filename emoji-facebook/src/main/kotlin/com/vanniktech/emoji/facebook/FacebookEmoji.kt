@@ -32,7 +32,7 @@ internal class FacebookEmoji internal constructor(
   private val x: Int,
   private val y: Int,
   override val isDuplicate: Boolean,
-  override vararg val variants: FacebookEmoji,
+  override val variants: List<FacebookEmoji> = emptyList(),
 ) : Emoji {
   override val unicode: String = String(codePoints, 0, codePoints.size)
 
@@ -103,7 +103,7 @@ internal class FacebookEmoji internal constructor(
     val emoji = other as FacebookEmoji
     return (
       unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
-        variants.contentEquals(emoji.variants)
+        variants == emoji.variants
       )
   }
 

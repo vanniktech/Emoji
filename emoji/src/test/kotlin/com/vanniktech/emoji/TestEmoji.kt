@@ -7,7 +7,7 @@ class TestEmoji(
   codePoints: IntArray,
   override val shortcodes: Array<String>,
   override val isDuplicate: Boolean,
-  override vararg val variants: TestEmoji,
+  override val variants: List<TestEmoji> = emptyList(),
 ) : Emoji {
   override val unicode: String = String(codePoints, 0, codePoints.size)
 
@@ -38,7 +38,7 @@ class TestEmoji(
     val emoji = other as TestEmoji
     return (
       unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
-        variants.contentEquals(emoji.variants)
+        variants == emoji.variants
       )
   }
 

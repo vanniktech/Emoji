@@ -60,7 +60,9 @@ internal object TravelAndPlacesCategoryChunk1 {
     TwitterEmoji(intArrayOf(0x1FA90), arrayOf("ringed_planet"), 54, 2, false),
     TwitterEmoji(
       intArrayOf(0x2B50), arrayOf("star"), 59, 24, false,
-      TwitterEmoji(intArrayOf(0x2B50, 0xFE0F), emptyArray<String>(), 59, 24, false),
+      variants = listOf(
+        TwitterEmoji(intArrayOf(0x2B50, 0xFE0F), emptyArray<String>(), 59, 24, false),
+      )
     ),
     TwitterEmoji(intArrayOf(0x1F31F), arrayOf("star2"), 5, 30, false),
     TwitterEmoji(intArrayOf(0x1F320), arrayOf("stars"), 5, 31, false),

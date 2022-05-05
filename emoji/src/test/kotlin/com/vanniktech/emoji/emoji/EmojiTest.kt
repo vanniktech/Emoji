@@ -34,22 +34,22 @@ class EmojiTest {
 
   @Test fun baseWithVariant() {
     val variant = TestEmoji(intArrayOf(0x4321), arrayOf("test"), false)
-    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, variant)
+    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, listOf(variant))
     assertEquals(emoji, variant.base)
   }
 
   @Test fun baseWithMultipleVariants() {
     val variant = TestEmoji(intArrayOf(0x4321), arrayOf("test"), false)
     val variant2 = TestEmoji(intArrayOf(0x5678), arrayOf("test"), false)
-    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, variant, variant2)
+    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, listOf(variant, variant2))
     assertEquals(emoji, variant.base)
     assertEquals(emoji, variant2.base)
   }
 
   @Test fun baseWithRecursiveVariant() {
     val variantOfVariant = TestEmoji(intArrayOf(0x4321), arrayOf("test"), false)
-    val variant = TestEmoji(intArrayOf(0x5678), arrayOf("test"), false, variantOfVariant)
-    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, variant)
+    val variant = TestEmoji(intArrayOf(0x5678), arrayOf("test"), false, listOf(variantOfVariant))
+    val emoji = TestEmoji(intArrayOf(0x1234), arrayOf("test"), false, listOf(variant))
     assertEquals(emoji, variantOfVariant.base)
     assertEquals(emoji, variant.base)
   }

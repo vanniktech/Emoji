@@ -105,7 +105,7 @@ import org.robolectric.annotation.Config
     val variant1 = TestEmoji(intArrayOf(0x1f55b), arrayOf("test"), false)
     val variant2 = TestEmoji(intArrayOf(0x1f55c), arrayOf("test"), false)
     val variant3 = TestEmoji(intArrayOf(0x1f55d), arrayOf("test"), false)
-    val base = TestEmoji(intArrayOf(0x1f55a), arrayOf("test"), false, variant1, variant2, variant3)
+    val base = TestEmoji(intArrayOf(0x1f55a), arrayOf("test"), false, listOf(variant1, variant2, variant3))
     recentEmojiManager.addEmoji(base)
     recentEmojiManager.addEmoji(variant1)
     assertEquals(listOf(variant1), recentEmojiManager.getRecentEmojis())

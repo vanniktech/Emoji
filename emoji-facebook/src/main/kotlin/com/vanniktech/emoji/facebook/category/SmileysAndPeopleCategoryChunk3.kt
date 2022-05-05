@@ -24,11 +24,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
     FacebookEmoji(intArrayOf(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F48B, 0x200D, 0x1F469), arrayOf("woman-kiss-woman"), 21, 7, false),
     FacebookEmoji(
       intArrayOf(0x1F491), arrayOf("couple_with_heart"), 27, 7, false,
-      FacebookEmoji(intArrayOf(0x1F491, 0x1F3FB), emptyArray<String>(), 27, 8, false),
-      FacebookEmoji(intArrayOf(0x1F491, 0x1F3FC), emptyArray<String>(), 27, 9, false),
-      FacebookEmoji(intArrayOf(0x1F491, 0x1F3FD), emptyArray<String>(), 27, 10, false),
-      FacebookEmoji(intArrayOf(0x1F491, 0x1F3FE), emptyArray<String>(), 27, 11, false),
-      FacebookEmoji(intArrayOf(0x1F491, 0x1F3FF), emptyArray<String>(), 27, 12, false),
+      variants = listOf(
+        FacebookEmoji(intArrayOf(0x1F491, 0x1F3FB), emptyArray<String>(), 27, 8, false),
+        FacebookEmoji(intArrayOf(0x1F491, 0x1F3FC), emptyArray<String>(), 27, 9, false),
+        FacebookEmoji(intArrayOf(0x1F491, 0x1F3FD), emptyArray<String>(), 27, 10, false),
+        FacebookEmoji(intArrayOf(0x1F491, 0x1F3FE), emptyArray<String>(), 27, 11, false),
+        FacebookEmoji(intArrayOf(0x1F491, 0x1F3FF), emptyArray<String>(), 27, 12, false),
+      )
     ),
     FacebookEmoji(intArrayOf(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F468), arrayOf("woman-heart-man"), 19, 51, false),
     FacebookEmoji(intArrayOf(0x1F468, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F468), arrayOf("man-heart-man"), 16, 22, false),

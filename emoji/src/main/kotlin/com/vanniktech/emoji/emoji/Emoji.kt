@@ -24,7 +24,7 @@ interface Emoji {
   val unicode: String
   val shortcodes: Array<String>
   val isDuplicate: Boolean
-  val variants: Array<out Emoji>
+  val variants: List<Emoji>
 
   fun getDrawable(context: Context): Drawable
   fun destroy()

@@ -126,7 +126,7 @@ object EmojiManager {
         for (j in 0 until emojisSize) {
           val emoji = emojis[j]
           val unicode = emoji.unicode
-          val variants: Array<out Emoji> = emoji.variants
+          val variants = emoji.variants
           emojiMap[unicode] = emoji
           unicodesForPattern.add(unicode)
           for (k in variants.indices) {

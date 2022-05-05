@@ -60,7 +60,9 @@ internal object TravelAndPlacesCategoryChunk1 {
     GoogleCompatEmoji(intArrayOf(0x1FA90), arrayOf("ringed_planet"), false),
     GoogleCompatEmoji(
       intArrayOf(0x2B50), arrayOf("star"), false,
-      GoogleCompatEmoji(intArrayOf(0x2B50, 0xFE0F), emptyArray<String>(), false),
+      variants = listOf(
+        GoogleCompatEmoji(intArrayOf(0x2B50, 0xFE0F), emptyArray<String>(), false),
+      )
     ),
     GoogleCompatEmoji(intArrayOf(0x1F31F), arrayOf("star2"), false),
     GoogleCompatEmoji(intArrayOf(0x1F320), arrayOf("stars"), false),

@@ -24,7 +24,7 @@ internal class GoogleCompatEmoji internal constructor(
   codePoints: IntArray,
   override val shortcodes: Array<String>,
   override val isDuplicate: Boolean,
-  override vararg val variants: GoogleCompatEmoji,
+  override val variants: List<GoogleCompatEmoji> = emptyList(),
 ) : Emoji {
   override val unicode: String = String(codePoints, 0, codePoints.size)
 
@@ -58,7 +58,7 @@ internal class GoogleCompatEmoji internal constructor(
     val emoji = other as GoogleCompatEmoji
     return (
       unicode == emoji.unicode && shortcodes.contentEquals(emoji.shortcodes) &&
-        variants.contentEquals(emoji.variants)
+        variants == emoji.variants
       )
   }
 
