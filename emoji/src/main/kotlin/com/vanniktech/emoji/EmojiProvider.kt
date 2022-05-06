@@ -16,8 +16,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.EmojiCategory
-
 /**
  * Interface for a custom emoji implementation that can be used with [EmojiManager].
  *

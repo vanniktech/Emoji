@@ -19,9 +19,9 @@ package com.vanniktech.emoji.googlecompat
 import android.content.Context
 import android.text.Spannable
 import androidx.emoji.text.EmojiCompat
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.EmojiReplacer
-import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.category.ActivitiesCategory
 import com.vanniktech.emoji.googlecompat.category.AnimalsAndNatureCategory
 import com.vanniktech.emoji.googlecompat.category.FlagsCategory

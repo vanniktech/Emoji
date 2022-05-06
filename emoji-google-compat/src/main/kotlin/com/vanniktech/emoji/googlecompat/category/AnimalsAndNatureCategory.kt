@@ -18,7 +18,7 @@ package com.vanniktech.emoji.googlecompat.category
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.vanniktech.emoji.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal class AnimalsAndNatureCategory : EmojiCategory {

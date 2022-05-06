@@ -17,7 +17,6 @@
 package com.vanniktech.emoji
 
 import com.vanniktech.emoji.emoji.Emoji
-import com.vanniktech.emoji.emoji.EmojiCategory
 
 internal class TestEmojiProvider
 private constructor(

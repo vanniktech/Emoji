@@ -18,7 +18,7 @@ package com.vanniktech.emoji.facebook.category
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.vanniktech.emoji.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal class TravelAndPlacesCategory : EmojiCategory {

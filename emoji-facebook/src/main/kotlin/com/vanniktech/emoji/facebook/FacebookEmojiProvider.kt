@@ -16,8 +16,8 @@
 
 package com.vanniktech.emoji.facebook
 
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.facebook.category.ActivitiesCategory
 import com.vanniktech.emoji.facebook.category.AnimalsAndNatureCategory
 import com.vanniktech.emoji.facebook.category.FlagsCategory

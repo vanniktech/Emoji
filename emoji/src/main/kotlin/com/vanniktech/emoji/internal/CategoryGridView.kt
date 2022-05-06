@@ -18,8 +18,8 @@ package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.util.AttributeSet
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiTheming
-import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.variant.VariantEmoji
 

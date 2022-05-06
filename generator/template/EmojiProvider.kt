@@ -16,8 +16,8 @@
 
 package com.vanniktech.emoji.<%= package %>
 
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.emoji.EmojiCategory
 <%= imports %>
 
 class <%= name %>Provider : EmojiProvider {

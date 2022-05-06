@@ -16,8 +16,8 @@
 
 package com.vanniktech.emoji.google
 
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.google.category.ActivitiesCategory
 import com.vanniktech.emoji.google.category.AnimalsAndNatureCategory
 import com.vanniktech.emoji.google.category.FlagsCategory

@@ -16,8 +16,8 @@
 
 package com.vanniktech.emoji.ios
 
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.ios.category.ActivitiesCategory
 import com.vanniktech.emoji.ios.category.AnimalsAndNatureCategory
 import com.vanniktech.emoji.ios.category.FlagsCategory

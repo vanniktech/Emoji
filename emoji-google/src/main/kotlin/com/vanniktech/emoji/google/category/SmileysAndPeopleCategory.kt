@@ -18,7 +18,7 @@ package com.vanniktech.emoji.google.category
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.vanniktech.emoji.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.google.GoogleEmoji
 
 internal class SmileysAndPeopleCategory : EmojiCategory {

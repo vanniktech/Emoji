@@ -19,9 +19,9 @@ package com.vanniktech.emoji.<%= package %>
 import android.content.Context
 import android.text.Spannable
 import androidx.emoji.text.EmojiCompat
+import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.EmojiReplacer
-import com.vanniktech.emoji.emoji.EmojiCategory
 <%= imports %>
 
 class <%= name %>Provider(
