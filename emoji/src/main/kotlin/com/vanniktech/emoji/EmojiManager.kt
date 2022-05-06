@@ -21,7 +21,6 @@ import android.text.Spannable
 import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.emoji.EmojiCategory
 import com.vanniktech.emoji.internal.EmojiSpan
-import java.util.regex.Pattern
 
 /**
  * EmojiManager where an EmojiProvider can be installed for further usage.
@@ -32,8 +31,8 @@ object EmojiManager {
 
   private val emojiMap: MutableMap<String, Emoji> = LinkedHashMap(GUESSED_UNICODE_AMOUNT)
   private var categories: Array<EmojiCategory>? = null
-  private var emojiPattern: Pattern? = null
-  internal var emojiRepetitivePattern: Pattern? = null
+  private var emojiPattern: Regex? = null
+  internal var emojiRepetitivePattern: Regex? = null
   private var emojiReplacer: EmojiReplacer? = null
 
   fun replaceWithImages(context: Context?, text: Spannable?, emojiSize: Float) {
@@ -48,17 +47,23 @@ object EmojiManager {
 
   internal fun findAllEmojis(text: CharSequence?): List<EmojiRange> {
     verifyInstalled()
-    val result: MutableList<EmojiRange> = ArrayList()
+
     if (text != null && text.isNotEmpty()) {
-      val matcher = emojiPattern!!.matcher(text)
-      while (matcher.find()) {
-        val found = findEmoji(text.subSequence(matcher.start(), matcher.end()))
-        if (found != null) {
-          result.add(EmojiRange(matcher.start(), matcher.end(), found))
+      return emojiPattern?.findAll(text)
+        ?.mapNotNull {
+          val emoji = findEmoji(it.value)
+
+          if (emoji != null) {
+            EmojiRange(it.range.first, it.range.last + 1, emoji)
+          } else {
+            null
+          }
         }
-      }
+        .orEmpty()
+        .toList()
     }
-    return result
+
+    return emptyList()
   }
 
   internal fun findEmoji(candidate: CharSequence): Emoji? {
@@ -140,11 +145,11 @@ object EmojiManager {
       val patternBuilder = StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH)
       val unicodesForPatternSize = unicodesForPattern.size
       for (i in 0 until unicodesForPatternSize) {
-        patternBuilder.append(Pattern.quote(unicodesForPattern[i])).append('|')
+        patternBuilder.append(Regex.escape(unicodesForPattern[i])).append('|')
       }
       val regex = patternBuilder.deleteCharAt(patternBuilder.length - 1).toString()
-      emojiPattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE)
-      emojiRepetitivePattern = Pattern.compile("($regex)+", Pattern.CASE_INSENSITIVE)
+      emojiPattern = Regex(regex, RegexOption.IGNORE_CASE)
+      emojiRepetitivePattern = Regex("($regex)+", RegexOption.IGNORE_CASE)
     }
   }
 
