@@ -29,7 +29,7 @@ import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.lang.ref.SoftReference
 
-@Parcelize internal data class IosEmoji internal constructor(
+@Parcelize internal class IosEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   private val x: Int,
@@ -91,6 +91,36 @@ import java.lang.ref.SoftReference
         softReference?.clear()
       }
     }
+  }
+
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (javaClass != other?.javaClass) return false
+
+    other as IosEmoji
+
+    if (unicode != other.unicode) return false
+    if (shortcodes != other.shortcodes) return false
+    if (x != other.x) return false
+    if (y != other.y) return false
+    if (isDuplicate != other.isDuplicate) return false
+    if (variants != other.variants) return false
+
+    return true
+  }
+
+  override fun hashCode(): Int {
+    var result = unicode.hashCode()
+    result = 31 * result + shortcodes.hashCode()
+    result = 31 * result + x
+    result = 31 * result + y
+    result = 31 * result + isDuplicate.hashCode()
+    result = 31 * result + variants.hashCode()
+    return result
+  }
+
+  override fun toString(): String {
+    return "IosEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
   }
 
   private companion object {

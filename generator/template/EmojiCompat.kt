@@ -23,7 +23,7 @@ import com.vanniktech.emoji.emoji.Emoji
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
-@Parcelize internal data class <%= name %> internal constructor(
+@Parcelize internal class <%= name %> internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
@@ -43,6 +43,32 @@ import kotlinx.parcelize.Parcelize
     for (variant in variants) {
       variant.parent = this
     }
+  }
+
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (javaClass != other?.javaClass) return false
+
+    other as <%= name %>
+
+    if (unicode != other.unicode) return false
+    if (shortcodes != other.shortcodes) return false
+    if (isDuplicate != other.isDuplicate) return false
+    if (variants != other.variants) return false
+
+    return true
+  }
+
+  override fun toString(): String {
+    return "<%= name %>(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
+  }
+
+  override fun hashCode(): Int {
+    var result = unicode.hashCode()
+    result = 31 * result + shortcodes.hashCode()
+    result = 31 * result + isDuplicate.hashCode()
+    result = 31 * result + variants.hashCode()
+    return result
   }
 
   override fun getDrawable(context: Context): Drawable = GoogleCompatEmojiDrawable(unicode)
