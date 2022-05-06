@@ -73,7 +73,7 @@ object EmojiManager {
     return emojiMap[candidate.toString()]
   }
 
-  fun verifyInstalled() {
+  internal fun verifyInstalled() {
     checkNotNull(categories) {
       "Please install an EmojiProvider through the EmojiManager.install() method first."
     }
