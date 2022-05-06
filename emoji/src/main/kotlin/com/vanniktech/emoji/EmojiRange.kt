@@ -16,8 +16,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
-
 data class EmojiRange(
   val start: Int,
   val end: Int,

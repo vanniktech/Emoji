@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji.search
 
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 
 data class SearchEmojiResult(
   val emoji: Emoji,

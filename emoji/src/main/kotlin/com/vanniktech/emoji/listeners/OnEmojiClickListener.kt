@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji.listeners
 
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 
 fun interface OnEmojiClickListener {
   fun onEmojiClick(emoji: Emoji)

@@ -28,8 +28,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiPopup
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
 import timber.log.Timber
 

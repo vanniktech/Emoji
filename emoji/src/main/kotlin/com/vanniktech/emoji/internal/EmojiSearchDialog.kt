@@ -40,10 +40,10 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiTextView
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.search.SearchEmoji
 import com.vanniktech.emoji.search.SearchEmojiResult
 import java.util.concurrent.Executors

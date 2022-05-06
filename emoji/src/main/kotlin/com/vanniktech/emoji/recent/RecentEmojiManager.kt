@@ -17,8 +17,8 @@
 package com.vanniktech.emoji.recent
 
 import android.content.Context
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.emoji.Emoji
 
 class RecentEmojiManager(
   context: Context,

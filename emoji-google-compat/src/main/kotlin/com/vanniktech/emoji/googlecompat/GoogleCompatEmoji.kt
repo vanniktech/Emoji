@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 

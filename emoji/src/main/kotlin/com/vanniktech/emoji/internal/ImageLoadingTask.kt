@@ -22,7 +22,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.AsyncTask
 import android.widget.ImageView
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 import java.lang.ref.WeakReference
 
 internal class ImageLoadingTask(imageView: ImageView) : AsyncTask<Emoji, Void?, Drawable?>() {

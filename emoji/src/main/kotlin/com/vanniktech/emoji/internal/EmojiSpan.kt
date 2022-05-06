@@ -21,7 +21,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Paint.FontMetricsInt
 import android.text.style.DynamicDrawableSpan
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 import kotlin.math.abs
 import kotlin.math.roundToInt
 

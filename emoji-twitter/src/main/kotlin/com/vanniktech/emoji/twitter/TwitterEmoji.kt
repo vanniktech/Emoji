@@ -24,7 +24,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.util.LruCache
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.lang.ref.SoftReference

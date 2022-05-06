@@ -16,8 +16,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
-
 internal class TestEmojiProvider(
   vararg val emojis: Emoji,
 ) : EmojiProvider {

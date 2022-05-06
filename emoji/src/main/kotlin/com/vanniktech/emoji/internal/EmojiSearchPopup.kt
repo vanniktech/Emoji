@@ -26,9 +26,9 @@ import android.view.WindowManager
 import android.widget.EditText
 import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.search.SearchEmojiResult
 
 internal fun interface EmojiSearchDelegate {

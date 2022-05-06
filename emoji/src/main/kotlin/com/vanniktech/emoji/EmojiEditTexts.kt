@@ -20,7 +20,6 @@ package com.vanniktech.emoji
 
 import android.view.KeyEvent
 import android.widget.EditText
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait

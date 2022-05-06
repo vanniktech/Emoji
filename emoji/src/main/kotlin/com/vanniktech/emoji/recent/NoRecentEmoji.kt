@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji.recent
 
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 
 /**
  * Use this object to hide recent Emoji.

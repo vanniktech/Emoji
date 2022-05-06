@@ -24,10 +24,10 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.util.LruCache
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
+import java.lang.ref.SoftReference
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import java.lang.ref.SoftReference
 
 @Parcelize internal class <%= name %> internal constructor(
   override val unicode: String,

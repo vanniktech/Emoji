@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji.internal
 
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 
 internal fun interface OnEmojiLongClickListener {
   fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji)

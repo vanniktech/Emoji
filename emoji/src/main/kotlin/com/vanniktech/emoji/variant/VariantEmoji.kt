@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji.variant
 
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 
 /**
  * Interface for providing some custom implementation for variant emojis.

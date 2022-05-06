@@ -16,7 +16,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.recent.NoRecentEmoji
 import org.junit.Assert.assertEquals
 import org.junit.Test

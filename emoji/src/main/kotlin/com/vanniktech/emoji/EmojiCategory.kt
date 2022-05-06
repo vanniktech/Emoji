@@ -18,7 +18,6 @@ package com.vanniktech.emoji
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.vanniktech.emoji.emoji.Emoji
 
 /**
  * Interface for defining a category.

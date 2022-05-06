@@ -30,7 +30,6 @@ import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.internal.EmojiImageView
 import com.vanniktech.emoji.internal.EmojiPagerAdapter
 import com.vanniktech.emoji.internal.EmojiPagerDelegate

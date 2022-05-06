@@ -19,7 +19,7 @@ package com.vanniktech.emoji.sample
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.sample.databinding.ActivityEmojisBinding

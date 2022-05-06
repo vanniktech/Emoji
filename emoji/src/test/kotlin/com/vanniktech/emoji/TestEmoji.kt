@@ -2,7 +2,6 @@ package com.vanniktech.emoji
 
 import android.content.Context
 import android.os.Parcelable
-import com.vanniktech.emoji.emoji.Emoji
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 

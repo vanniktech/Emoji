@@ -18,7 +18,6 @@ package com.vanniktech.emoji
 
 import android.content.Context
 import android.text.Spannable
-import com.vanniktech.emoji.emoji.Emoji
 import com.vanniktech.emoji.internal.EmojiSpan
 
 /**
