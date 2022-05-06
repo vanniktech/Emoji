@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object ObjectsCategoryChunk1 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F58A, 0xFE0F), 0, 2), listOf("lower_left_ballpoint_pen"), 31, 33, false),
     FacebookEmoji(String(intArrayOf(0x1F58C, 0xFE0F), 0, 2), listOf("lower_left_paintbrush"), 31, 35, false),
     FacebookEmoji(String(intArrayOf(0x1F58D, 0xFE0F), 0, 2), listOf("lower_left_crayon"), 31, 36, false),

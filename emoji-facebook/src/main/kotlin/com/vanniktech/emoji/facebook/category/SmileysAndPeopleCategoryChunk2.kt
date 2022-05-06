@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object SmileysAndPeopleCategoryChunk2 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F692), 0, 3), listOf("firefighter"), 48, 35, false,
       variants = listOf(

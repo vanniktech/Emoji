@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object AnimalsAndNatureCategoryChunk0 {
-  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(String(intArrayOf(0x1F435), 0, 1), listOf("monkey_face"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F412), 0, 1), listOf("monkey"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F98D), 0, 1), listOf("gorilla"), false),

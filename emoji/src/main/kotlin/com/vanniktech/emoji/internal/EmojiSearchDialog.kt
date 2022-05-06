@@ -127,7 +127,7 @@ internal class EmojiSearchDialog : DialogFragment() {
     private const val TAG = "EmojiSearchDialog"
     private const val ARG_THEMING = "arg-theming"
 
-    @JvmStatic fun show(
+    fun show(
       context: Context,
       delegate: EmojiSearchDialogDelegate,
       searchEmoji: SearchEmoji,

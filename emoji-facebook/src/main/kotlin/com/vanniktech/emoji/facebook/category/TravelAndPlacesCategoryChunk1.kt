@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object TravelAndPlacesCategoryChunk1 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F552), 0, 1), listOf("clock3"), 30, 34, false),
     FacebookEmoji(String(intArrayOf(0x1F55E), 0, 1), listOf("clock330"), 30, 46, false),
     FacebookEmoji(String(intArrayOf(0x1F553), 0, 1), listOf("clock4"), 30, 35, false),

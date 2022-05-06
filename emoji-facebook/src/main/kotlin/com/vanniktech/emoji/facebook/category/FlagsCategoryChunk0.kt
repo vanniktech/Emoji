@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object FlagsCategoryChunk0 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F3C1), 0, 1), listOf("checkered_flag"), 8, 7, false),
     FacebookEmoji(String(intArrayOf(0x1F6A9), 0, 1), listOf("triangular_flag_on_post"), 36, 29, false),
     FacebookEmoji(String(intArrayOf(0x1F38C), 0, 1), listOf("crossed_flags"), 7, 20, false),

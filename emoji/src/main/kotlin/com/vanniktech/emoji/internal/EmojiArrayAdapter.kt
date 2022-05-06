@@ -29,7 +29,7 @@ import com.vanniktech.emoji.variant.VariantEmoji
 
 internal class EmojiArrayAdapter(
   context: Context,
-  emojis: Array<out Emoji>,
+  emojis: Collection<Emoji>,
   private val variantEmoji: VariantEmoji?,
   private val listener: OnEmojiClickListener?,
   private val longListener: OnEmojiLongClickListener?,

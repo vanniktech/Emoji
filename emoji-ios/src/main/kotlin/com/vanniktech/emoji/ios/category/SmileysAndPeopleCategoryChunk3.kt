@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object SmileysAndPeopleCategoryChunk3 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(
       String(intArrayOf(0x26F9, 0xFE0F, 0x200D, 0x2642, 0xFE0F), 0, 5), listOf("man-bouncing-ball"), 58, 9, false,
       variants = listOf(

@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object SymbolsCategoryChunk0 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F3E7), 0, 1), listOf("atm"), 10, 18, false),
     FacebookEmoji(String(intArrayOf(0x1F6AE), 0, 1), listOf("put_litter_in_its_place"), 36, 34, false),
     FacebookEmoji(String(intArrayOf(0x1F6B0), 0, 1), listOf("potable_water"), 36, 36, false),

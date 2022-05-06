@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object SmileysAndPeopleCategoryChunk1 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F4A2), 0, 1), listOf("anger"), 27, 49, false),
     IosEmoji(String(intArrayOf(0x1F4A5), 0, 1), listOf("boom", "collision"), 27, 52, false),
     IosEmoji(String(intArrayOf(0x1F4AB), 0, 1), listOf("dizzy"), 28, 2, false),

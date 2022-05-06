@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object AnimalsAndNatureCategoryChunk0 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F435), 0, 1), listOf("monkey_face"), 11, 40, false),
     FacebookEmoji(String(intArrayOf(0x1F412), 0, 1), listOf("monkey"), 11, 4, false),
     FacebookEmoji(String(intArrayOf(0x1F98D), 0, 1), listOf("gorilla"), 44, 31, false),

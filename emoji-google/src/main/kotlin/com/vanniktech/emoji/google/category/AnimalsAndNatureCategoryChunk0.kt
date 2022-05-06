@@ -19,7 +19,7 @@ package com.vanniktech.emoji.google.category
 import com.vanniktech.emoji.google.GoogleEmoji
 
 internal object AnimalsAndNatureCategoryChunk0 {
-  val EMOJIS: Array<GoogleEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleEmoji> = listOf(
     GoogleEmoji(String(intArrayOf(0x1F435), 0, 1), listOf("monkey_face"), 11, 40, false),
     GoogleEmoji(String(intArrayOf(0x1F412), 0, 1), listOf("monkey"), 11, 4, false),
     GoogleEmoji(String(intArrayOf(0x1F98D), 0, 1), listOf("gorilla"), 44, 31, false),

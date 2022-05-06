@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object ObjectsCategoryChunk1 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F58B, 0xFE0F), 0, 2), listOf("lower_left_fountain_pen"), 31, 34, false),
     IosEmoji(String(intArrayOf(0x1F58A, 0xFE0F), 0, 2), listOf("lower_left_ballpoint_pen"), 31, 33, false),
     IosEmoji(String(intArrayOf(0x1F58C, 0xFE0F), 0, 2), listOf("lower_left_paintbrush"), 31, 35, false),

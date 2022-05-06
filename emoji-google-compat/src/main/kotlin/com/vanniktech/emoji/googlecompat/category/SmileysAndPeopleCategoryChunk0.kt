@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SmileysAndPeopleCategoryChunk0 {
-  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(String(intArrayOf(0x1F600), 0, 1), listOf("grinning"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F603), 0, 1), listOf("smiley"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F604), 0, 1), listOf("smile"), false),

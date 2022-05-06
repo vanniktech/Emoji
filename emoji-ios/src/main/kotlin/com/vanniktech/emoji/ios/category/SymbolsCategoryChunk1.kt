@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object SymbolsCategoryChunk1 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F170, 0xFE0F), 0, 2), listOf("a"), 0, 16, false),
     IosEmoji(String(intArrayOf(0x1F18E), 0, 1), listOf("ab"), 0, 20, false),
     IosEmoji(String(intArrayOf(0x1F171, 0xFE0F), 0, 2), listOf("b"), 0, 17, false),

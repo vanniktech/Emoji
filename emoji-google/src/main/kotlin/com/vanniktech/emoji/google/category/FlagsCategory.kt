@@ -31,6 +31,6 @@ internal class FlagsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<GoogleEmoji> = CategoryUtils.concatAll(FlagsCategoryChunk0.EMOJIS, FlagsCategoryChunk1.EMOJIS)
+    val ALL_EMOJIS: List<GoogleEmoji> = FlagsCategoryChunk0.EMOJIS + FlagsCategoryChunk1.EMOJIS
   }
 }

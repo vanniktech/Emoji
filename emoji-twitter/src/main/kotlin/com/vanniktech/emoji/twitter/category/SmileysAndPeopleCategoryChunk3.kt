@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object SmileysAndPeopleCategoryChunk3 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(
       String(intArrayOf(0x26F9, 0xFE0F, 0x200D, 0x2642, 0xFE0F), 0, 5), listOf("man-bouncing-ball"), 58, 9, false,
       variants = listOf(

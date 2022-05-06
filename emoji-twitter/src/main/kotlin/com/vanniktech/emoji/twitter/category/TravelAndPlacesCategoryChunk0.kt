@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object TravelAndPlacesCategoryChunk0 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(String(intArrayOf(0x1F30D), 0, 1), listOf("earth_africa"), 5, 12, false),
     TwitterEmoji(String(intArrayOf(0x1F30E), 0, 1), listOf("earth_americas"), 5, 13, false),
     TwitterEmoji(String(intArrayOf(0x1F30F), 0, 1), listOf("earth_asia"), 5, 14, false),

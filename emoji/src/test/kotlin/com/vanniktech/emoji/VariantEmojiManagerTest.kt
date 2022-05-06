@@ -17,7 +17,6 @@
 package com.vanniktech.emoji
 
 import android.app.Application
-import com.vanniktech.emoji.TestEmojiProvider.Companion.from
 import com.vanniktech.emoji.variant.VariantEmojiManager
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -75,14 +74,14 @@ import org.robolectric.annotation.Config
     variantEmojiManager.addVariant(variant1)
     variantEmojiManager.addVariant(variant2)
     variantEmojiManager.persist()
-    EmojiManager.install(from(variant1, variant2))
+    EmojiManager.install(TestEmojiProvider(variant1, variant2))
     val sharedPrefsManager = VariantEmojiManager(application)
     assertEquals(variant2, sharedPrefsManager.getVariant(base))
   }
 
   @Test fun persistEmpty() {
     variantEmojiManager.persist()
-    EmojiManager.install(from(variant1, variant2))
+    EmojiManager.install(TestEmojiProvider(variant1, variant2))
     val sharedPrefsManager = VariantEmojiManager(application)
     assertEquals(base, sharedPrefsManager.getVariant(base))
   }

@@ -38,7 +38,7 @@ internal class RecentEmojiGridView @JvmOverloads constructor(
     recentEmojis = recentEmoji
     emojiArrayAdapter = EmojiArrayAdapter(
       context,
-      recentEmoji.getRecentEmojis().toTypedArray(),
+      recentEmoji.getRecentEmojis(),
       null,
       onEmojiClickListener,
       onEmojiLongClickListener,

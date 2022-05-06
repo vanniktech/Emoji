@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object SmileysAndPeopleCategoryChunk1 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(
       String(intArrayOf(0x1F44B), 0, 1), listOf("wave"), 12, 38, false,
       variants = listOf(

@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object SmileysAndPeopleCategoryChunk2 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F527), 0, 3), listOf("female-mechanic"), 18, 28, false,
       variants = listOf(

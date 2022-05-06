@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object FlagsCategoryChunk1 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F1F2, 0x1F1E6), 0, 2), listOf("flag-ma"), 2, 51, false),
     IosEmoji(String(intArrayOf(0x1F1F2, 0x1F1E8), 0, 2), listOf("flag-mc"), 2, 52, false),
     IosEmoji(String(intArrayOf(0x1F1F2, 0x1F1E9), 0, 2), listOf("flag-md"), 2, 53, false),

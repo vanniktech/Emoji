@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SmileysAndPeopleCategoryChunk2 {
-  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F527), 0, 3), listOf("female-mechanic"), false,
       variants = listOf(

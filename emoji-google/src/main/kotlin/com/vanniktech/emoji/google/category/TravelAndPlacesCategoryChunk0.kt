@@ -19,7 +19,7 @@ package com.vanniktech.emoji.google.category
 import com.vanniktech.emoji.google.GoogleEmoji
 
 internal object TravelAndPlacesCategoryChunk0 {
-  val EMOJIS: Array<GoogleEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleEmoji> = listOf(
     GoogleEmoji(String(intArrayOf(0x1F30D), 0, 1), listOf("earth_africa"), 5, 12, false),
     GoogleEmoji(String(intArrayOf(0x1F30E), 0, 1), listOf("earth_americas"), 5, 13, false),
     GoogleEmoji(String(intArrayOf(0x1F30F), 0, 1), listOf("earth_asia"), 5, 14, false),

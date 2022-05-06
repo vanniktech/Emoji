@@ -31,6 +31,6 @@ internal class SymbolsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<TwitterEmoji> = CategoryUtils.concatAll(SymbolsCategoryChunk0.EMOJIS, SymbolsCategoryChunk1.EMOJIS)
+    val ALL_EMOJIS: List<TwitterEmoji> = SymbolsCategoryChunk0.EMOJIS + SymbolsCategoryChunk1.EMOJIS
   }
 }

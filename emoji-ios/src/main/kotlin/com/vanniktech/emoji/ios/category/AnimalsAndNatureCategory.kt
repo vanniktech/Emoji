@@ -31,6 +31,6 @@ internal class AnimalsAndNatureCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<IosEmoji> = CategoryUtils.concatAll(AnimalsAndNatureCategoryChunk0.EMOJIS)
+    val ALL_EMOJIS: List<IosEmoji> = AnimalsAndNatureCategoryChunk0.EMOJIS
   }
 }

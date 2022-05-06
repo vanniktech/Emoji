@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object TravelAndPlacesCategoryChunk1 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F55C), 0, 1), listOf("clock130"), 30, 44, false),
     IosEmoji(String(intArrayOf(0x1F551), 0, 1), listOf("clock2"), 30, 33, false),
     IosEmoji(String(intArrayOf(0x1F55D), 0, 1), listOf("clock230"), 30, 45, false),

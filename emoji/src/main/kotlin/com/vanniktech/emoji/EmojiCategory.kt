@@ -31,7 +31,7 @@ interface EmojiCategory {
    *
    * @since 0.4.0
    */
-  val emojis: Array<out Emoji>
+  val emojis: List<Emoji>
 
   /**
    * Returns the icon of the category that should be displayed.

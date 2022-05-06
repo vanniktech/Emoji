@@ -31,6 +31,6 @@ internal class FoodAndDrinkCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<GoogleEmoji> = CategoryUtils.concatAll(FoodAndDrinkCategoryChunk0.EMOJIS)
+    val ALL_EMOJIS: List<GoogleEmoji> = FoodAndDrinkCategoryChunk0.EMOJIS
   }
 }

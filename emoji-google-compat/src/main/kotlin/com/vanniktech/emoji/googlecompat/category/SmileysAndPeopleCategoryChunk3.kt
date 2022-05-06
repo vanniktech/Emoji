@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SmileysAndPeopleCategoryChunk3 {
-  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(
       String(intArrayOf(0x26F9, 0xFE0F, 0x200D, 0x2642, 0xFE0F), 0, 5), listOf("man-bouncing-ball"), false,
       variants = listOf(

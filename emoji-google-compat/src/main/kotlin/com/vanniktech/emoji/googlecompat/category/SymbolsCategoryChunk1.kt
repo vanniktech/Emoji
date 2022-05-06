@@ -19,7 +19,7 @@ package com.vanniktech.emoji.googlecompat.category
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SymbolsCategoryChunk1 {
-  val EMOJIS: Array<GoogleCompatEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(String(intArrayOf(0x1F522), 0, 1), listOf("1234"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F523), 0, 1), listOf("symbols"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F524), 0, 1), listOf("abc"), false),

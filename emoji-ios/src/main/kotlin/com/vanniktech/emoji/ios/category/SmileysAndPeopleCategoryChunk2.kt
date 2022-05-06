@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object SmileysAndPeopleCategoryChunk2 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F527), 0, 3), listOf("female-mechanic"), 18, 28, false,
       variants = listOf(

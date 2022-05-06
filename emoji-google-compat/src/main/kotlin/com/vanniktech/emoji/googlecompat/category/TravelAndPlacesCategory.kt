@@ -31,6 +31,6 @@ internal class TravelAndPlacesCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<GoogleCompatEmoji> = CategoryUtils.concatAll(TravelAndPlacesCategoryChunk0.EMOJIS, TravelAndPlacesCategoryChunk1.EMOJIS)
+    val ALL_EMOJIS: List<GoogleCompatEmoji> = TravelAndPlacesCategoryChunk0.EMOJIS + TravelAndPlacesCategoryChunk1.EMOJIS
   }
 }

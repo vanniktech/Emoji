@@ -31,6 +31,6 @@ internal class <%= category %>Category : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: Array<<%= name %>> = CategoryUtils.concatAll(<%= chunks %>)
+    val ALL_EMOJIS: List<<%= name %>> = <%= chunks %>
   }
 }

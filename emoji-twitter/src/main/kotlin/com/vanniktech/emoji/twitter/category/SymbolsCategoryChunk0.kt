@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object SymbolsCategoryChunk0 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(String(intArrayOf(0x1F3E7), 0, 1), listOf("atm"), 10, 18, false),
     TwitterEmoji(String(intArrayOf(0x1F6AE), 0, 1), listOf("put_litter_in_its_place"), 36, 34, false),
     TwitterEmoji(String(intArrayOf(0x1F6B0), 0, 1), listOf("potable_water"), 36, 36, false),

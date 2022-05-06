@@ -39,7 +39,7 @@ class EmojiManagerTest {
     val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
     val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
     val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"), false)
-    provider = TestEmojiProvider.from(emoji1, emoji2, emoji3, emoji4)
+    provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
   }
 
   @After
@@ -60,13 +60,13 @@ class EmojiManagerTest {
 
   @Test fun installEmptyProvider() {
     assertThrows("Your EmojiProvider must at least have one category with at least one emoji.", IllegalArgumentException::class.java) {
-      EmojiManager.install(TestEmojiProvider.emptyCategories())
+      EmojiManager.install(EmptyCategories)
     }
   }
 
   @Test fun installEmptyCategory() {
     assertThrows("Your EmojiProvider must at least have one category with at least one emoji.", IllegalArgumentException::class.java) {
-      EmojiManager.install(TestEmojiProvider.emptyEmojis())
+      EmojiManager.install(EmptyEmojiProvider)
     }
   }
 

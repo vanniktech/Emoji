@@ -18,16 +18,15 @@ package com.vanniktech.emoji
 
 import com.vanniktech.emoji.emoji.Emoji
 
-internal class TestEmojiProvider
-private constructor(
-  val emojis: Array<Emoji>
+internal class TestEmojiProvider(
+  vararg val emojis: Emoji,
 ) : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       object : EmojiCategory {
-        override val emojis: Array<Emoji>
+        override val emojis: List<Emoji>
           get() {
-            return this@TestEmojiProvider.emojis
+            return this@TestEmojiProvider.emojis.toList()
           }
 
         override val icon: Int
@@ -36,36 +35,23 @@ private constructor(
           get() = R.string.emoji_category_recent
       }
     )
+}
 
-  companion object {
-    @JvmStatic
-    fun from(vararg emojis: Emoji): EmojiProvider {
-      return TestEmojiProvider(emojis.toList().toTypedArray())
-    }
+object EmptyCategories : EmojiProvider {
+  override val categories: Array<EmojiCategory>
+    get() = emptyArray()
+}
 
-    @JvmStatic
-    fun emptyCategories(): EmojiProvider {
-      return object : EmojiProvider {
-        override val categories: Array<EmojiCategory>
-          get() = emptyArray()
+object EmptyEmojiProvider : EmojiProvider {
+  override val categories: Array<EmojiCategory>
+    get() = arrayOf(
+      object : EmojiCategory {
+        override val emojis: List<Emoji>
+          get() = emptyList()
+        override val icon: Int
+          get() = 0
+        override val categoryName: Int
+          get() = 0
       }
-    }
-
-    @JvmStatic
-    fun emptyEmojis(): EmojiProvider {
-      return object : EmojiProvider {
-        override val categories: Array<EmojiCategory>
-          get() = arrayOf(
-            object : EmojiCategory {
-              override val emojis: Array<Emoji>
-                get() = emptyArray()
-              override val icon: Int
-                get() = 0
-              override val categoryName: Int
-                get() = 0
-            }
-          )
-      }
-    }
-  }
+    )
 }

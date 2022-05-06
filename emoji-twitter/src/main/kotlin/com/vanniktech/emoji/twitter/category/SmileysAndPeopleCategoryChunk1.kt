@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object SmileysAndPeopleCategoryChunk1 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(String(intArrayOf(0x1F4A2), 0, 1), listOf("anger"), 27, 49, false),
     TwitterEmoji(String(intArrayOf(0x1F4A5), 0, 1), listOf("boom", "collision"), 27, 52, false),
     TwitterEmoji(String(intArrayOf(0x1F4AB), 0, 1), listOf("dizzy"), 28, 2, false),

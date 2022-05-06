@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object AnimalsAndNatureCategoryChunk0 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(String(intArrayOf(0x1F435), 0, 1), listOf("monkey_face"), 11, 40, false),
     TwitterEmoji(String(intArrayOf(0x1F412), 0, 1), listOf("monkey"), 11, 4, false),
     TwitterEmoji(String(intArrayOf(0x1F98D), 0, 1), listOf("gorilla"), 44, 31, false),

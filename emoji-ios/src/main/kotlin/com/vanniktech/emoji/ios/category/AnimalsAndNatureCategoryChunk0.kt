@@ -19,7 +19,7 @@ package com.vanniktech.emoji.ios.category
 import com.vanniktech.emoji.ios.IosEmoji
 
 internal object AnimalsAndNatureCategoryChunk0 {
-  val EMOJIS: Array<IosEmoji> = arrayOf(
+  internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F435), 0, 1), listOf("monkey_face"), 11, 40, false),
     IosEmoji(String(intArrayOf(0x1F412), 0, 1), listOf("monkey"), 11, 4, false),
     IosEmoji(String(intArrayOf(0x1F98D), 0, 1), listOf("gorilla"), 44, 31, false),

@@ -19,7 +19,7 @@ package com.vanniktech.emoji.google.category
 import com.vanniktech.emoji.google.GoogleEmoji
 
 internal object FoodAndDrinkCategoryChunk0 {
-  val EMOJIS: Array<GoogleEmoji> = arrayOf(
+  internal val EMOJIS: List<GoogleEmoji> = listOf(
     GoogleEmoji(String(intArrayOf(0x1F347), 0, 1), listOf("grapes"), 6, 7, false),
     GoogleEmoji(String(intArrayOf(0x1F348), 0, 1), listOf("melon"), 6, 8, false),
     GoogleEmoji(String(intArrayOf(0x1F349), 0, 1), listOf("watermelon"), 6, 9, false),

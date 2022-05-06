@@ -19,7 +19,7 @@ package com.vanniktech.emoji.twitter.category
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object FoodAndDrinkCategoryChunk0 {
-  val EMOJIS: Array<TwitterEmoji> = arrayOf(
+  internal val EMOJIS: List<TwitterEmoji> = listOf(
     TwitterEmoji(String(intArrayOf(0x1F347), 0, 1), listOf("grapes"), 6, 7, false),
     TwitterEmoji(String(intArrayOf(0x1F348), 0, 1), listOf("melon"), 6, 8, false),
     TwitterEmoji(String(intArrayOf(0x1F349), 0, 1), listOf("watermelon"), 6, 9, false),

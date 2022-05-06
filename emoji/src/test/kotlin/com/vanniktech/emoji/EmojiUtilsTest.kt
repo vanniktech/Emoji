@@ -16,7 +16,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.TestEmojiProvider.Companion.from
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -28,7 +27,7 @@ import org.robolectric.annotation.Config
   @Before fun setUp() {
     val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), listOf("test"), false)
     val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), listOf("test"), false)
-    EmojiManager.install(from(emoji1, emoji2))
+    EmojiManager.install(TestEmojiProvider(emoji1, emoji2))
   }
 
   @Test fun isOnlyEmojisEmpty() {

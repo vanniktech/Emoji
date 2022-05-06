@@ -19,7 +19,7 @@ package com.vanniktech.emoji.facebook.category
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object FoodAndDrinkCategoryChunk0 {
-  val EMOJIS: Array<FacebookEmoji> = arrayOf(
+  internal val EMOJIS: List<FacebookEmoji> = listOf(
     FacebookEmoji(String(intArrayOf(0x1F347), 0, 1), listOf("grapes"), 6, 7, false),
     FacebookEmoji(String(intArrayOf(0x1F348), 0, 1), listOf("melon"), 6, 8, false),
     FacebookEmoji(String(intArrayOf(0x1F349), 0, 1), listOf("watermelon"), 6, 9, false),
