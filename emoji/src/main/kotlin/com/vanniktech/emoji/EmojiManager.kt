@@ -79,12 +79,6 @@ object EmojiManager {
     }
   }
 
-  private val STRING_LENGTH_COMPARATOR = java.util.Comparator<String> { first, second ->
-    val firstLength = first.length
-    val secondLength = second.length
-    secondLength.compareTo(firstLength)
-  }
-
   private val DEFAULT_EMOJI_REPLACER: EmojiReplacer = object : EmojiReplacer {
     override fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer?) {
       val existingSpans = text.getSpans(0, text.length, EmojiSpan::class.java)
@@ -141,7 +135,7 @@ object EmojiManager {
       require(unicodesForPattern.isNotEmpty()) { "Your EmojiProvider must at least have one category with at least one emoji." }
 
       // We need to sort the unicodes by length so the longest one gets matched first.
-      unicodesForPattern.sortWith(STRING_LENGTH_COMPARATOR)
+      unicodesForPattern.sortWith { first, second -> second.length.compareTo(first.length) }
       val patternBuilder = StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH)
       val unicodesForPatternSize = unicodesForPattern.size
       for (i in 0 until unicodesForPatternSize) {

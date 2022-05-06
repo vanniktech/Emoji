@@ -51,7 +51,7 @@ internal class EmojiSpan(
       val descent = paintFontMetrics.descent
       val targetSize = abs(ascent) + abs(descent)
       val roundEmojiSize = size.roundToInt()
-      // equal size use default font metrics.
+      // Equal size use default font metrics.
       if (roundEmojiSize == targetSize.roundToInt()) {
         fontMetrics.ascent = ascent.toInt()
         fontMetrics.descent = descent.toInt()
@@ -78,7 +78,7 @@ internal class EmojiSpan(
     top: Int,
     y: Int,
     bottom: Int,
-    paint: Paint
+    paint: Paint,
   ) {
     val drawable = drawable
     val paintFontMetrics = paint.fontMetrics
