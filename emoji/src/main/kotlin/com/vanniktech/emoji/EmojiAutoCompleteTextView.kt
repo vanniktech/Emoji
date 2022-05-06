@@ -22,16 +22,12 @@ import androidx.annotation.CallSuper
 import androidx.annotation.DimenRes
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
-import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
-import com.vanniktech.emoji.traits.EmojiTrait
-import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
-import com.vanniktech.emoji.traits.SearchInPlaceTrait
 
 /** Reference implementation for an EmojiAutoCompleteTextView with emoji support.  */
 open class EmojiAutoCompleteTextView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : AppCompatAutoCompleteTextView(context, attrs), EmojiEditable {
+) : AppCompatAutoCompleteTextView(context, attrs), EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {
@@ -62,12 +58,4 @@ open class EmojiAutoCompleteTextView @JvmOverloads constructor(
 
   override fun setEmojiSizeRes(@DimenRes res: Int, shouldInvalidate: Boolean) =
     setEmojiSize(resources.getDimensionPixelSize(res), shouldInvalidate)
-
-  override fun installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait =
-    DisableKeyboardInputTrait(emojiPopup).install(this)
-
-  override fun installForceSingleEmoji(): EmojiTrait = ForceSingleEmojiTrait().install(this)
-
-  override fun installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait =
-    SearchInPlaceTrait(emojiPopup).install(this)
 }

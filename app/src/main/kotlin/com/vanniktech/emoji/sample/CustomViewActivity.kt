@@ -24,6 +24,8 @@ import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.vanniktech.emoji.EmojiPopup
+import com.vanniktech.emoji.installDisableKeyboardInput
+import com.vanniktech.emoji.installForceSingleEmoji
 import com.vanniktech.emoji.sample.databinding.ViewCustomBinding
 import com.vanniktech.emoji.traits.EmojiTrait
 

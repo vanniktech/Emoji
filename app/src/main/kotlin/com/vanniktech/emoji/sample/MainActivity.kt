@@ -37,6 +37,8 @@ import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider
 import com.vanniktech.emoji.google.GoogleEmojiProvider
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider
+import com.vanniktech.emoji.installDisableKeyboardInput
+import com.vanniktech.emoji.installSearchInPlace
 import com.vanniktech.emoji.ios.IosEmojiProvider
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
 import com.vanniktech.emoji.sample.databinding.ActivityMainBinding

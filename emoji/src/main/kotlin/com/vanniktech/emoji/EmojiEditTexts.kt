@@ -21,6 +21,10 @@ package com.vanniktech.emoji
 import android.view.KeyEvent
 import android.widget.EditText
 import com.vanniktech.emoji.emoji.Emoji
+import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
+import com.vanniktech.emoji.traits.EmojiTrait
+import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
+import com.vanniktech.emoji.traits.SearchInPlaceTrait
 import kotlin.math.max
 import kotlin.math.min
 
@@ -40,3 +44,15 @@ fun EditText.input(emoji: Emoji) {
     text.replace(min(start, end), max(start, end), emoji.unicode, 0, emoji.unicode.length)
   }
 }
+
+/** Disables the keyboard. Only [emojiPopup] will be shown. */
+fun EditText.installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait =
+  DisableKeyboardInputTrait(emojiPopup).install(this)
+
+/** Forces this EditText to contain only one Emoji. */
+fun EditText.installForceSingleEmoji(): EmojiTrait =
+  ForceSingleEmojiTrait().install(this)
+
+/** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */
+fun EditText.installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait =
+  SearchInPlaceTrait(emojiPopup).install(this)
