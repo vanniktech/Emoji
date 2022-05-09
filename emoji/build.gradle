@@ -1,11 +1,14 @@
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
+plugins {
+  alias(libs.plugins.android.library)
+  alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.kotlin.parcelize)
+  alias(libs.plugins.publish)
+}
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  compileSdkVersion libs.versions.compileSdk.get() as int
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
@@ -13,24 +16,22 @@ android {
   }
 
   defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion as int
+    minSdkVersion libs.versions.minSdk.get() as int
   }
 
   resourcePrefix 'emoji_'
 }
 
 dependencies {
-  api "androidx.appcompat:appcompat:1.4.1"
-  api "androidx.cardview:cardview:1.0.0"
-  api "androidx.recyclerview:recyclerview:1.2.1"
+  api libs.androidx.appcompat
+  api libs.androidx.cardview
+  api libs.androidx.recyclerview
 }
 
 dependencies {
-  testImplementation rootProject.ext.testing.junit
-  testImplementation "org.robolectric:robolectric:4.7.3"
+  testImplementation libs.junit
+  testImplementation libs.robolectric
 }
-
-apply plugin: "com.vanniktech.maven.publish.base"
 
 mavenPublishing {
   configure(new AndroidSingleVariantLibrary("release"))

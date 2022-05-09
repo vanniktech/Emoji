@@ -1,11 +1,14 @@
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
+plugins {
+  alias(libs.plugins.android.library)
+  alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.kotlin.parcelize)
+  alias(libs.plugins.publish)
+}
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  compileSdkVersion libs.versions.compileSdk.get() as int
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
@@ -13,7 +16,7 @@ android {
   }
 
   defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion as int
+    minSdkVersion libs.versions.minSdk.get() as int
   }
 
   resourcePrefix 'emoji'
@@ -24,10 +27,8 @@ dependencies {
 }
 
 dependencies {
-  testImplementation rootProject.ext.testing.junit
+  testImplementation libs.junit
 }
-
-apply plugin: "com.vanniktech.maven.publish.base"
 
 mavenPublishing {
   configure(new AndroidSingleVariantLibrary("release"))

@@ -1,3 +1,11 @@
+pluginManagement {
+  repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+  }
+}
+
 include ':app'
 include ':emoji'
 include ':emoji-google'
