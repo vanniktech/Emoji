@@ -26,10 +26,10 @@ codeQualityTools {
     textReport = true
   }
   checkstyle {
-    enabled = false
+    enabled = false // Kotlin only.
   }
   pmd {
-    toolVersion = '6.0.1'
+   enabled = false // Kotlin only.
   }
   ktlint {
     toolVersion = '0.45.2'
