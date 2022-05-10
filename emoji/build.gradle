@@ -8,6 +8,8 @@ plugins {
 }
 
 android {
+  namespace "com.vanniktech.emoji"
+
   compileSdkVersion libs.versions.compileSdk.get() as int
 
   compileOptions {

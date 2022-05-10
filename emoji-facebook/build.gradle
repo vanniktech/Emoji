@@ -8,6 +8,8 @@ plugins {
 }
 
 android {
+  namespace "com.vanniktech.emoji.facebook"
+
   compileSdkVersion libs.versions.compileSdk.get() as int
 
   compileOptions {
