@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.6.21"
-agp = "7.1.3"
+agp = "7.2.0"
 ktlint = "0.45.2"
 gradle = '7.4.2'
 minSdk = "21"
@@ -9,8 +9,8 @@ targetSdk = "31"
 
 [libraries]
 junit = { module = "junit:junit", version = "4.13.2" }
-robolectric = { module = "org.robolectric:robolectric", version = "4.7.3" }
-material = { module = "com.google.android.material:material", version = "1.5.0" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.8.1" }
+material = { module = "com.google.android.material:material", version = "1.6.0" }
 falcon = { module = "com.jraska:falcon", version = "2.2.0" }
 junitintegrationrules = { module = "com.vanniktech:junit4-android-integration-rules", version = "0.3.0" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }

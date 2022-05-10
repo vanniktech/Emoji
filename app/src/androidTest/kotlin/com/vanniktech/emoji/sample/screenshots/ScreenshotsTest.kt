@@ -35,7 +35,7 @@ import tools.fastlane.screengrab.locale.LocaleTestRule
 @RunWith(AndroidJUnit4::class) class ScreenshotsTest {
   @Rule @JvmField val demoModeRule = DemoModeRule()
 
-  @get:Rule val activityRule = ActivityScenarioRule(MainActivity::class.java)
+  @get:Rule val activityRule: ActivityScenarioRule<MainActivity> = ActivityScenarioRule(MainActivity::class.java)
 
   @Rule @JvmField val localeTestRule = LocaleTestRule()
 
