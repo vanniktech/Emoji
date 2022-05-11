@@ -27,7 +27,7 @@ android {
     minSdkVersion libs.versions.minSdk.get() as int
   }
 
-  resourcePrefix 'emoji'
+  resourcePrefix 'emoji_ios_'
 }
 
 dependencies {
