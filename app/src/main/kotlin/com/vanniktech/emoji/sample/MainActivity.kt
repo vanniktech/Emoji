@@ -38,6 +38,7 @@ import com.vanniktech.emoji.facebook.FacebookEmojiProvider
 import com.vanniktech.emoji.google.GoogleEmojiProvider
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider
 import com.vanniktech.emoji.installDisableKeyboardInput
+import com.vanniktech.emoji.installForceSingleEmoji
 import com.vanniktech.emoji.installSearchInPlace
 import com.vanniktech.emoji.ios.IosEmojiProvider
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
   private var emojiCompat: EmojiCompat? = null
   private var searchInPlaceEmojiTrait: EmojiTrait? = null
   private var disableKeyboardInputEmojiTrait: EmojiTrait? = null
+  private var forceSingleEmojiTrait: EmojiTrait? = null
 
   @SuppressLint("SetTextI18n")
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,9 +87,10 @@ class MainActivity : AppCompatActivity() {
 
     binding.chatSend.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)
     binding.chatEmoji.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)
-    binding.forceEmojisOnly.setOnCheckedChangeListener { _, isChecked: Boolean ->
+    binding.disableKeyboardInput.setOnCheckedChangeListener { _, isChecked: Boolean ->
       if (isChecked) {
-        binding.chatEditText.clearFocus()
+        binding.searchInPlace.isChecked = false
+
         binding.chatEmoji.visibility = View.GONE
         disableKeyboardInputEmojiTrait = binding.chatEditText.installDisableKeyboardInput(emojiPopup)
       } else {
@@ -95,13 +98,30 @@ class MainActivity : AppCompatActivity() {
         disableKeyboardInputEmojiTrait?.uninstall()
       }
     }
-    binding.inPlaceEmojis.setOnCheckedChangeListener { _, isChecked: Boolean ->
+    binding.forceSingleEmoji.setOnCheckedChangeListener { _, isChecked: Boolean ->
       if (isChecked) {
+        binding.searchInPlace.isChecked = false
+
+        if (!binding.disableKeyboardInput.isChecked) {
+          binding.disableKeyboardInput.isChecked = true
+        }
+
+        forceSingleEmojiTrait = binding.chatEditText.installForceSingleEmoji()
+      } else {
+        forceSingleEmojiTrait?.uninstall()
+      }
+    }
+    binding.searchInPlace.setOnCheckedChangeListener { _, isChecked: Boolean ->
+      if (isChecked) {
+        binding.disableKeyboardInput.isChecked = false
+        binding.forceSingleEmoji.isChecked = false
+
         searchInPlaceEmojiTrait = binding.chatEditText.installSearchInPlace(emojiPopup)
       } else {
         searchInPlaceEmojiTrait?.uninstall()
       }
     }
+
     binding.chatEmoji.setOnClickListener { emojiPopup.toggle() }
     binding.chatSend.setOnClickListener {
       val text = binding.chatEditText.text.toString().trim { it <= ' ' }

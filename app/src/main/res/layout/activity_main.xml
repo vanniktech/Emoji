@@ -49,19 +49,27 @@
       tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiCheckbox
-      android:id="@+id/force_emojis_only"
+      android:id="@+id/disableKeyboardInput"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="12dp"
-      android:text="In chat force Emojis only 🌱🔥"
+      android:text="Disable keyboard input 🎹"
       tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiCheckbox
-      android:id="@+id/in_place_emojis"
+      android:id="@+id/forceSingleEmoji"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="12dp"
-      android:text="Allow searching for emoji with :query"
+      android:text="Force single Emoji 🔥"
+      tools:ignore="HardcodedText"
+      />
+  <com.vanniktech.emoji.EmojiCheckbox
+      android:id="@+id/searchInPlace"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:text="Search in place with :query 🔎"
       tools:ignore="HardcodedText"
       />
   <androidx.recyclerview.widget.RecyclerView

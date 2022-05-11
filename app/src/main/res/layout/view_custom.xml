@@ -10,8 +10,8 @@
   <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
-      style="@style/Widget.MaterialComponents.Toolbar.Primary"
       android:layout_height="wrap_content"
+      style="@style/Widget.MaterialComponents.Toolbar.Primary"
       />
   <TextView
       android:layout_width="match_parent"
@@ -26,12 +26,13 @@
       android:layout_margin="8dp"
       android:text="Trigger keyboard"
       />
-  <com.vanniktech.emoji.material.EmojiMaterialCheckBox
-      android:id="@+id/onlyAllowSingleEmoji"
-      android:layout_width="match_parent"
+  <com.vanniktech.emoji.EmojiCheckbox
+      android:id="@+id/forceSingleEmoji"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="8dp"
-      android:text="Only allow single emoji"
+      android:text="Force single Emoji 🔥"
+      tools:ignore="HardcodedText"
       />
   <com.vanniktech.emoji.EmojiEditText
       android:id="@+id/editText"

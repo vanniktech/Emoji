@@ -58,8 +58,8 @@ class SearchInPlaceTrait(
               popup.show(
                 emojis = emojiPopup.searchEmoji.search(query),
                 delegate = {
-                  editText.text.replace(lastColon, s.length, it.unicode, 0, it.unicode.length)
-                  editText.text.append(" ")
+                  val new = "${it.unicode} "
+                  editText.text.replace(lastColon, s.length, new, 0, new.length)
                 },
               )
             } else {

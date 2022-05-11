@@ -35,21 +35,21 @@ class ForceSingleEmojiTrait : EmojiTraitable {
         editText.removeTextChangedListener(this)
 
         val emoji = s.subSequence(start, start + count)
+          .trim() // Important, when we're coming from a search.
         editText.text = null
         editText.append(emoji)
+
         editText.addTextChangedListener(this)
       }
     }
 
-    editText.filters = editText.filters
-      .plus(OnlyEmojisInputFilter())
+    editText.filters = editText.filters.plus(OnlyEmojisInputFilter())
     editText.addTextChangedListener(listener)
 
     return object : EmojiTrait {
       override fun uninstall() {
         editText.filters = editText.filters
           .filterNot { it is OnlyEmojisInputFilter }
-          .toList()
           .toTypedArray()
         editText.removeTextChangedListener(listener)
       }

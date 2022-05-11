@@ -63,7 +63,7 @@ class CustomViewActivity : AppCompatActivity() {
     }
 
     fun setUpEmojiPopup() {
-      binding.onlyAllowSingleEmoji.setOnCheckedChangeListener { _, isChecked: Boolean ->
+      binding.forceSingleEmoji.setOnCheckedChangeListener { _, isChecked: Boolean ->
         if (isChecked) {
           forceSingleEmoji = binding.editText.installForceSingleEmoji()
         } else {
