@@ -52,7 +52,7 @@ object EmojiManager {
           val emoji = findEmoji(it.value)
 
           if (emoji != null) {
-            EmojiRange(it.range.first, it.range.last + 1, emoji)
+            EmojiRange(emoji, IntRange(it.range.first, it.range.last + 1))
           } else {
             null
           }
@@ -86,11 +86,11 @@ object EmojiManager {
     }
     val findAllEmojis = findAllEmojis(text)
     for (i in findAllEmojis.indices) {
-      val (start, end, emoji) = findAllEmojis[i]
-      if (!existingSpanPositions.contains(start)) {
+      val (emoji, range) = findAllEmojis[i]
+      if (!existingSpanPositions.contains(range.first)) {
         text.setSpan(
           EmojiSpan(context, emoji, emojiSize),
-          start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+          range.first, range.last, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
       }
     }

@@ -31,18 +31,18 @@ class EmojiRangeTest {
   }
 
   @Test fun equality() {
-    assertEquals(EmojiRange(0, 1, emoji), EmojiRange(0, 1, emoji))
-    assertEquals(EmojiRange(0, 1, emoji2), EmojiRange(0, 1, emoji2))
-    assertNotEquals(EmojiRange(0, 1, emoji2), EmojiRange(0, 0, emoji2))
-    assertNotEquals(EmojiRange(10, 1, emoji2), EmojiRange(10, 0, emoji2))
-    assertNotEquals(EmojiRange(0, 1, emoji2), EmojiRange(0, 1, emoji))
+    assertEquals(EmojiRange(emoji, 0..1), EmojiRange(emoji, 0..1))
+    assertEquals(EmojiRange(emoji2, 0..1), EmojiRange(emoji2, 0..1))
+    assertNotEquals(EmojiRange(emoji2, 0..1), EmojiRange(emoji2, 0..0))
+    assertNotEquals(EmojiRange(emoji2, 1..10), EmojiRange(emoji2, 0..10))
+    assertNotEquals(EmojiRange(emoji2, 0..1), EmojiRange(emoji, 0..1))
   }
 
   @Test fun hashy() {
-    assertEquals(EmojiRange(0, 1, emoji).hashCode(), EmojiRange(0, 1, emoji).hashCode())
-    assertEquals(EmojiRange(0, 1, emoji2).hashCode(), EmojiRange(0, 1, emoji2).hashCode())
-    assertNotEquals(EmojiRange(0, 1, emoji2).hashCode(), EmojiRange(0, 0, emoji2).hashCode())
-    assertNotEquals(EmojiRange(10, 1, emoji2).hashCode(), EmojiRange(10, 0, emoji2).hashCode())
-    assertNotEquals(EmojiRange(0, 1, emoji2).hashCode(), EmojiRange(0, 1, emoji).hashCode())
+    assertEquals(EmojiRange(emoji, 0..1).hashCode(), EmojiRange(emoji, 0..1).hashCode())
+    assertEquals(EmojiRange(emoji2, 0..1).hashCode(), EmojiRange(emoji2, 0..1).hashCode())
+    assertNotEquals(EmojiRange(emoji2, 0..1).hashCode(), EmojiRange(emoji2, 0..0).hashCode())
+    assertNotEquals(EmojiRange(emoji2, 1..10).hashCode(), EmojiRange(emoji2, 0..10).hashCode())
+    assertNotEquals(EmojiRange(emoji2, 0..1).hashCode(), EmojiRange(emoji, 0..1).hashCode())
   }
 }

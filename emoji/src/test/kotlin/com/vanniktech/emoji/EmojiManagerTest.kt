@@ -112,8 +112,8 @@ class EmojiManagerTest {
       "te" + String(intArrayOf(0x5678), 0, 1) +
         "st" + String(intArrayOf(0x1234), 0, 1)
       )
-    val firstExpectedRange = EmojiRange(2, 3, TestEmoji(intArrayOf(0x5678), listOf("test"), false))
-    val secondExpectedRange = EmojiRange(5, 6, TestEmoji(intArrayOf(0x1234), listOf("test"), false))
+    val firstExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x5678), listOf("test"), false), 2..3)
+    val secondExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x1234), listOf("test"), false), 5..6)
     assertEquals(
       listOf(
         firstExpectedRange,

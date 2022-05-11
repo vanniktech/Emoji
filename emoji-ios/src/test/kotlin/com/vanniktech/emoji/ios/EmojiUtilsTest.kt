@@ -28,14 +28,12 @@ class EmojiUtilsTest {
     assertEquals(true, emojiInformation.isOnlyEmojis)
     assertEquals(2, emojiInformation.emojis.size)
 
-    assertEquals(0, emojiInformation.emojis[0].start)
-    assertEquals(5, emojiInformation.emojis[0].end)
-    assertEquals(mage1, text.substring(emojiInformation.emojis[0].start, emojiInformation.emojis[0].end))
+    assertEquals(0..5, emojiInformation.emojis[0].range)
+    assertEquals(mage1, text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
     assertEquals(mage1, emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(5, emojiInformation.emojis[1].start)
-    assertEquals(12, emojiInformation.emojis[1].end)
-    assertEquals(mage2, text.substring(emojiInformation.emojis[1].start, emojiInformation.emojis[1].end))
+    assertEquals(5..12, emojiInformation.emojis[1].range)
+    assertEquals(mage2, text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
     assertEquals(mage2, emojiInformation.emojis[1].emoji.unicode)
   }
 
@@ -47,14 +45,12 @@ class EmojiUtilsTest {
     assertEquals(false, emojiInformation.isOnlyEmojis)
     assertEquals(2, emojiInformation.emojis.size)
 
-    assertEquals(7, emojiInformation.emojis[0].start)
-    assertEquals(9, emojiInformation.emojis[0].end)
-    assertEquals(hamburger, text.substring(emojiInformation.emojis[0].start, emojiInformation.emojis[0].end))
+    assertEquals(7..9, emojiInformation.emojis[0].range)
+    assertEquals(hamburger, text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
     assertEquals(hamburger, emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(23, emojiInformation.emojis[1].start)
-    assertEquals(25, emojiInformation.emojis[1].end)
-    assertEquals(cheese, text.substring(emojiInformation.emojis[1].start, emojiInformation.emojis[1].end))
+    assertEquals(23..25, emojiInformation.emojis[1].range)
+    assertEquals(cheese, text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
     assertEquals(cheese, emojiInformation.emojis[1].emoji.unicode)
   }
 
