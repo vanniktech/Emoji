@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:JvmName("Emojis")
+
 package com.vanniktech.emoji
 
 private val SPACE_REMOVAL = Regex("[\\s]")
