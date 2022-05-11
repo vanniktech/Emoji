@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="emoji_twitter_category_smileysandpeople">Gesichter</string>
+  <string name="emoji_twitter_category_animalsandnature">Natur</string>
+  <string name="emoji_twitter_category_foodanddrink">Essen</string>
+  <string name="emoji_twitter_category_activities">Aktivitäten</string>
+  <string name="emoji_twitter_category_travelandplaces">Orte</string>
+  <string name="emoji_twitter_category_objects">Objekte</string>
+  <string name="emoji_twitter_category_symbols">Symbole</string>
+  <string name="emoji_twitter_category_flags">Flaggen</string>
+</resources>

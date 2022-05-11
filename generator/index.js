@@ -70,17 +70,49 @@ const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939
 
 /**
  * Metadata about the categories.
- * @type {{name: string, text: string}[]}
+ * @type {{name: string, text: string, textDe: string}[]}
  */
 const categoryInfo = [
-    {"name": "SmileysAndPeople", "text": "Faces"},
-    {"name": "AnimalsAndNature", "text": "Nature"},
-    {"name": "FoodAndDrink", "text": "Food"},
-    {"name": "Activities", "text": "Activities"},
-    {"name": "TravelAndPlaces", "text": "Places"},
-    {"name": "Objects", "text": "Objects"},
-    {"name": "Symbols", "text": "Symbols"},
-    {"name": "Flags", "text": "Flags"},
+    {
+      "name": "SmileysAndPeople",
+      "text": "Faces",
+      "textDe": "Gesichter"
+    },
+    {
+      "name": "AnimalsAndNature",
+      "text": "Nature",
+      "textDe": "Natur"
+    },
+    {
+      "name": "FoodAndDrink",
+      "text": "Food",
+      "textDe": "Essen"
+    },
+    {
+      "name": "Activities",
+      "text": "Activities",
+      "textDe": "Aktivitäten"
+    },
+    {
+      "name": "TravelAndPlaces",
+      "text": "Places",
+      "textDe": "Orte"
+    },
+    {
+      "name": "Objects",
+      "text": "Objects",
+      "textDe": "Objekte"
+    },
+    {
+      "name": "Symbols",
+      "text": "Symbols",
+      "textDe": "Symbole"
+    },
+    {
+      "name": "Flags",
+      "text": "Flags",
+      "textDe": "Flaggen"
+    },
 ];
 
 /**
@@ -437,7 +469,12 @@ async function generateCode(map, targets) {
 
         await fs.writeFile(`${valuesDir}/strings.xml`, template(stringsTemplate)({
             package: target.package,
-            categories: categoryInfo.map(it => Object.assign({}, it, {name: it.name.toLowerCase()})),
+            categories: categoryInfo.map(it => Object.assign({}, {name: it.name.toLowerCase(), text: it.text})),
+        }));
+
+        await fs.writeFile(`${valuesDir}-de/strings.xml`, template(stringsTemplate)({
+            package: target.package,
+            categories: categoryInfo.map(it => Object.assign({}, {name: it.name.toLowerCase(), text: it.textDe})),
         }));
     }
 }
