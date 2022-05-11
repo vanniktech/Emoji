@@ -34,13 +34,18 @@ fun EditText.backspace() {
 }
 
 /** Inserts the given [emoji] into [this] while preserving the current selection. */
-fun EditText.input(emoji: Emoji) {
+fun EditText.input(emoji: Emoji, addWhitespace: Boolean = false) {
   val start = selectionStart
   val end = selectionEnd
+  val new = emoji.unicode + when {
+    addWhitespace -> " "
+    else -> ""
+  }
+
   if (start < 0) {
-    append(emoji.unicode)
+    append(new)
   } else {
-    text.replace(min(start, end), max(start, end), emoji.unicode, 0, emoji.unicode.length)
+    text.replace(min(start, end), max(start, end), new, 0, new.length)
   }
 }
 

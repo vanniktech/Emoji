@@ -217,11 +217,7 @@ class EmojiView @JvmOverloads constructor(
   }
 
   internal fun handleEmojiClick(emoji: Emoji, addWhitespace: Boolean = false) {
-    editText?.input(emoji)
-
-    if (addWhitespace) {
-      editText?.text?.append(" ")
-    }
+    editText?.input(emoji, addWhitespace)
 
     recentEmoji.addEmoji(emoji)
     variantEmoji.addVariant(emoji)
