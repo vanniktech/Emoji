@@ -32,7 +32,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.PopupWindow
-import androidx.annotation.CheckResult
 import androidx.annotation.StyleRes
 import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.ViewPager
@@ -53,23 +52,30 @@ import com.vanniktech.emoji.search.SearchEmojiManager
 import com.vanniktech.emoji.variant.VariantEmoji
 import com.vanniktech.emoji.variant.VariantEmojiManager
 import java.lang.ref.WeakReference
-import kotlin.math.max
 
 class EmojiPopup(
+  /** The root View of your layout.xml which will be used for calculating the height of the keyboard. */
   rootView: View,
   private val editText: EditText,
   internal val theming: EmojiTheming = EmojiTheming(),
+  /** Option to customize with your own implementation of recent emojis. To hide use [com.vanniktech.emoji.recent.NoRecentEmoji]. */
   recentEmoji: RecentEmoji = RecentEmojiManager(rootView.context),
+  /** Option to customize with your own implementation of searching emojis. To hide use [com.vanniktech.emoji.search.NoSearchEmoji]. */
   internal val searchEmoji: SearchEmoji = SearchEmojiManager(),
+  /** Option to customize with your own implementation of variant emojis. To hide use [com.vanniktech.emoji.variant.NoVariantEmoji]. */
   variantEmoji: VariantEmoji = VariantEmojiManager(rootView.context),
   pageTransformer: ViewPager.PageTransformer? = null,
   @StyleRes keyboardAnimationStyle: Int = 0,
+  /**
+   * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
+   * be dynamically calculated and set as [PopupWindow] height.
+   */
   private var popupWindowHeight: Int = 0,
   private val onEmojiPopupShownListener: OnEmojiPopupShownListener? = null,
   private val onSoftKeyboardCloseListener: OnSoftKeyboardCloseListener? = null,
   private val onSoftKeyboardOpenListener: OnSoftKeyboardOpenListener? = null,
-  private val onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener? = null,
-  private val onEmojiClickListener: OnEmojiClickListener? = null,
+  onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener? = null,
+  onEmojiClickListener: OnEmojiClickListener? = null,
   private val onEmojiPopupDismissListener: OnEmojiPopupDismissListener? = null,
 ) : EmojiResultReceiver.Receiver {
   internal val rootView: View = rootView.rootView
@@ -89,15 +95,15 @@ class EmojiPopup(
   init {
     verifyInstalled()
     emojiView.setUp(
-      rootView,
-      onEmojiClickListener,
-      onEmojiBackspaceClickListener,
-      editText,
-      theming,
-      recentEmoji,
-      searchEmoji,
-      variantEmoji,
-      pageTransformer,
+      rootView = rootView,
+      onEmojiClickListener = onEmojiClickListener,
+      onEmojiBackspaceClickListener = onEmojiBackspaceClickListener,
+      editText = editText,
+      theming = theming,
+      recentEmoji = recentEmoji,
+      searchEmoji = searchEmoji,
+      variantEmoji = variantEmoji,
+      pageTransformer = pageTransformer,
     )
     popupWindow.contentView = emojiView
     popupWindow.inputMethodMode = PopupWindow.INPUT_METHOD_NOT_NEEDED
@@ -227,181 +233,6 @@ class EmojiPopup(
   override fun onReceiveResult(resultCode: Int, data: Bundle?) {
     if (resultCode == 0 || resultCode == 1) {
       showAtBottom()
-    }
-  }
-
-  @Suppress("DEPRECATION")
-  @Deprecated("Please use EmojiPopup constructor directly")
-  class Builder private constructor(val rootView: View) {
-    @StyleRes private var keyboardAnimationStyle = 0
-    private var theming = EmojiTheming()
-    private var pageTransformer: ViewPager.PageTransformer? = null
-    private var onEmojiPopupShownListener: OnEmojiPopupShownListener? = null
-    private var onSoftKeyboardCloseListener: OnSoftKeyboardCloseListener? = null
-    private var onSoftKeyboardOpenListener: OnSoftKeyboardOpenListener? = null
-    private var onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener? = null
-    private var onEmojiClickListener: OnEmojiClickListener? = null
-    private var onEmojiPopupDismissListener: OnEmojiPopupDismissListener? = null
-    private var recentEmoji: RecentEmoji
-    private var searchEmoji: SearchEmoji
-    private var variantEmoji: VariantEmoji
-    private var popupWindowHeight = 0
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnSoftKeyboardCloseListener(listener: OnSoftKeyboardCloseListener?): Builder {
-      onSoftKeyboardCloseListener = listener
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnEmojiClickListener(listener: OnEmojiClickListener?): Builder {
-      onEmojiClickListener = listener
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnSoftKeyboardOpenListener(listener: OnSoftKeyboardOpenListener?): Builder {
-      onSoftKeyboardOpenListener = listener
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnEmojiPopupShownListener(listener: OnEmojiPopupShownListener?): Builder {
-      onEmojiPopupShownListener = listener
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnEmojiPopupDismissListener(listener: OnEmojiPopupDismissListener?): Builder {
-      onEmojiPopupDismissListener = listener
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setOnEmojiBackspaceClickListener(listener: OnEmojiBackspaceClickListener?): Builder {
-      onEmojiBackspaceClickListener = listener
-      return this
-    }
-
-    /**
-     * Set PopUpWindow's height.
-     * If height is not 0 then this value will be used later on. If it is 0 then the keyboard height will
-     * be dynamically calculated and set as [PopupWindow] height.
-     * @param windowHeight - the height of [PopupWindow]
-     *
-     * @since 0.7.0
-     */
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setPopupWindowHeight(windowHeight: Int): Builder {
-      popupWindowHeight = max(windowHeight, 0)
-      return this
-    }
-
-    /**
-     * Allows you to pass your own implementation of recent emojis. If not provided the default one
-     * [RecentEmojiManager] will be used.
-     *
-     * @since 0.2.0
-     */
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setRecentEmoji(recent: RecentEmoji): Builder {
-      recentEmoji = recent
-      return this
-    }
-
-    /**
-     * Allows you to pass your own implementation of searching emojis. If not provided the default one
-     * [SearchEmojiManager] will be used.
-     *
-     * @since 0.10.0
-     */
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setSearchEmoji(search: SearchEmoji): Builder {
-      searchEmoji = search
-      return this
-    }
-
-    /**
-     * Allows you to pass your own implementation of variant emojis. If not provided the default one
-     * [VariantEmojiManager] will be used.
-     *
-     * @since 0.5.0
-     */
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setVariantEmoji(variant: VariantEmoji): Builder {
-      variantEmoji = variant
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setTheming(theming: EmojiTheming): Builder {
-      this.theming = theming
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setKeyboardAnimationStyle(@StyleRes animation: Int): Builder {
-      keyboardAnimationStyle = animation
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun setPageTransformer(transformer: ViewPager.PageTransformer?): Builder {
-      pageTransformer = transformer
-      return this
-    }
-
-    @CheckResult
-    @Deprecated("Please use EmojiPopup constructor directly")
-    fun build(editText: EditText): EmojiPopup = EmojiPopup(
-      rootView = rootView,
-      editText = editText,
-      theming = theming,
-      recentEmoji = recentEmoji,
-      searchEmoji = searchEmoji,
-      variantEmoji = variantEmoji,
-      pageTransformer = pageTransformer,
-      keyboardAnimationStyle = keyboardAnimationStyle,
-      onEmojiPopupShownListener = onEmojiPopupShownListener,
-      onSoftKeyboardCloseListener = onSoftKeyboardCloseListener,
-      onSoftKeyboardOpenListener = onSoftKeyboardOpenListener,
-      onEmojiBackspaceClickListener = onEmojiBackspaceClickListener,
-      onEmojiClickListener = onEmojiClickListener,
-      onEmojiPopupDismissListener = onEmojiPopupDismissListener,
-      popupWindowHeight = max(popupWindowHeight, 0),
-    )
-
-    @Deprecated("Please use EmojiPopup constructor directly")
-    companion object {
-      /**
-       * @param rootView The root View of your layout.xml which will be used for calculating the height
-       * of the keyboard.
-       * @return builder For building the [EmojiPopup].
-       */
-      @CheckResult
-      @Deprecated("Please use EmojiPopup constructor directly")
-      fun fromRootView(rootView: View): Builder {
-        return Builder(rootView)
-      }
-    }
-
-    init {
-      recentEmoji = RecentEmojiManager(rootView.context)
-      searchEmoji = SearchEmojiManager()
-      variantEmoji = VariantEmojiManager(rootView.context)
     }
   }
 

@@ -18,25 +18,6 @@ package com.vanniktech.emoji
 
 private val SPACE_REMOVAL = Regex("[\\s]")
 
-@Suppress("UNUSED")
-object EmojiUtils {
-  /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
-  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.isOnlyEmojis()", imports = arrayOf("com.vanniktech.emoji.isOnlyEmojis")))
-  fun isOnlyEmojis(text: CharSequence?) = text.isOnlyEmojis()
-
-  /** Returns the emojis that were found in the given text. */
-  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojis()", imports = arrayOf("com.vanniktech.emoji.emojis")))
-  fun emojis(text: CharSequence?) = text.emojis()
-
-  /** Returns the number of all emojis that were found in the given text. */
-  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojisCount()", imports = arrayOf("com.vanniktech.emoji.emojisCount")))
-  fun emojisCount(text: CharSequence?) = text.emojisCount()
-
-  /** Returns a class that contains all of the emoji information that was found in the given text. */
-  @Deprecated(message = "Moved to another package", replaceWith = ReplaceWith("text.emojiInformation()", imports = arrayOf("com.vanniktech.emoji.emojiInformation")))
-  fun emojiInformation(text: CharSequence?) = text.emojiInformation()
-}
-
 /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
 fun CharSequence?.isOnlyEmojis(): Boolean {
   if (this != null && this.isNotEmpty()) {
