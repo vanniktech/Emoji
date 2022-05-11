@@ -21,11 +21,11 @@ import android.text.Spannable
 
 /**
  * EmojiProviders can implement this interface to perform text emoji image replacement in a more efficient way.
- * For instance, the GooogleCompatEmojiProvider calls the corresponding AppCompat Emoji
+ * For instance, the GoogleCompatEmojiProvider calls the corresponding AppCompat Emoji
  * Support library replace method directly for emoji in the default size.
  *
  * @since 6.0.0
  */
-interface EmojiReplacer {
+fun interface EmojiReplacer {
   fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer?)
 }

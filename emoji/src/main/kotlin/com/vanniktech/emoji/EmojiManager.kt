@@ -77,23 +77,21 @@ object EmojiManager {
     }
   }
 
-  private val DEFAULT_EMOJI_REPLACER: EmojiReplacer = object : EmojiReplacer {
-    override fun replaceWithImages(context: Context, text: Spannable, emojiSize: Float, fallback: EmojiReplacer?) {
-      val existingSpans = text.getSpans(0, text.length, EmojiSpan::class.java)
-      val existingSpanPositions: MutableList<Int> = ArrayList(existingSpans.size)
-      val size = existingSpans.size
-      for (i in 0 until size) {
-        existingSpanPositions.add(text.getSpanStart(existingSpans[i]))
-      }
-      val findAllEmojis = findAllEmojis(text)
-      for (i in findAllEmojis.indices) {
-        val (start, end, emoji) = findAllEmojis[i]
-        if (!existingSpanPositions.contains(start)) {
-          text.setSpan(
-            EmojiSpan(context, emoji, emojiSize),
-            start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-          )
-        }
+  private val DEFAULT_EMOJI_REPLACER: EmojiReplacer = EmojiReplacer { context, text, emojiSize, _ ->
+    val existingSpans = text.getSpans(0, text.length, EmojiSpan::class.java)
+    val existingSpanPositions: MutableList<Int> = ArrayList(existingSpans.size)
+    val size = existingSpans.size
+    for (i in 0 until size) {
+      existingSpanPositions.add(text.getSpanStart(existingSpans[i]))
+    }
+    val findAllEmojis = findAllEmojis(text)
+    for (i in findAllEmojis.indices) {
+      val (start, end, emoji) = findAllEmojis[i]
+      if (!existingSpanPositions.contains(start)) {
+        text.setSpan(
+          EmojiSpan(context, emoji, emojiSize),
+          start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
       }
     }
   }
