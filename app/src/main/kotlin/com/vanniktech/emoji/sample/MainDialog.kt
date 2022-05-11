@@ -61,7 +61,7 @@ class MainDialog : DialogFragment() {
       onEmojiClickListener = { emoji: Emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) },
       onEmojiPopupShownListener = { emojiButton.setImageResource(R.drawable.ic_keyboard) },
       onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
-      onEmojiPopupDismissListener = { emojiButton.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) },
+      onEmojiPopupDismissListener = { emojiButton.setImageResource(R.drawable.ic_emojis) },
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
       keyboardAnimationStyle = R.style.emoji_fade_animation_style,
     )

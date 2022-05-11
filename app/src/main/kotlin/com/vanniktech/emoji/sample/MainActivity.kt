@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
       onEmojiClickListener = { emoji -> Timber.d(TAG, "Clicked on Emoji " + emoji.unicode) },
       onEmojiPopupShownListener = { binding.chatEmoji.setImageResource(R.drawable.ic_keyboard) },
       onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
-      onEmojiPopupDismissListener = { binding.chatEmoji.setImageResource(R.drawable.emoji_ios_category_smileysandpeople) },
+      onEmojiPopupDismissListener = { binding.chatEmoji.setImageResource(R.drawable.ic_emojis) },
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
       keyboardAnimationStyle = R.style.emoji_fade_animation_style,
       pageTransformer = PageTransformer(),
