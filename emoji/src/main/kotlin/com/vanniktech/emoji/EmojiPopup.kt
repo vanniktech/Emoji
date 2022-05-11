@@ -21,7 +21,6 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.Gravity
@@ -77,7 +76,7 @@ class EmojiPopup(
   onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener? = null,
   onEmojiClickListener: OnEmojiClickListener? = null,
   private val onEmojiPopupDismissListener: OnEmojiPopupDismissListener? = null,
-) : EmojiResultReceiver.Receiver {
+) {
   internal val rootView: View = rootView.rootView
   internal val context: Activity = Utils.asActivity(rootView.context)
   private val emojiView: EmojiView = EmojiView(context)
@@ -196,7 +195,11 @@ class EmojiPopup(
       inputMethodManager.restartInput(editText)
     }
 
-    emojiResultReceiver.setReceiver(this)
+    emojiResultReceiver.setReceiver { resultCode, _ ->
+      if (resultCode == 0 || resultCode == 1) {
+        showAtBottom()
+      }
+    }
     inputMethodManager.showSoftInput(editText, InputMethodManager.RESULT_UNCHANGED_SHOWN, emojiResultReceiver)
   }
 
@@ -228,12 +231,6 @@ class EmojiPopup(
       )
     }, delay.toLong())
     onEmojiPopupShownListener?.onEmojiPopupShown()
-  }
-
-  override fun onReceiveResult(resultCode: Int, data: Bundle?) {
-    if (resultCode == 0 || resultCode == 1) {
-      showAtBottom()
-    }
   }
 
   internal class EmojiPopUpOnAttachStateChangeListener(emojiPopup: EmojiPopup) : View.OnAttachStateChangeListener {
@@ -296,8 +293,8 @@ class EmojiPopup(
     }
   }
 
-  internal companion object {
-    const val MIN_KEYBOARD_HEIGHT = 50
-    const val APPLY_WINDOW_INSETS_DURATION = 250
+  private companion object {
+    private const val MIN_KEYBOARD_HEIGHT = 50
+    private const val APPLY_WINDOW_INSETS_DURATION = 250
   }
 }
