@@ -99,6 +99,7 @@ internal class EmojiSearchDialog : DialogFragment() {
         val query = s.toString()
 
         future?.cancel(true)
+        handler.removeCallbacksAndMessages(null)
         future = executorService.schedule({
           val emojis = searchEmoji?.search(query).orEmpty()
           handler.post {
@@ -186,7 +187,7 @@ internal class EmojiAdapter(
     items = new
     this.marginStart = marginStart
 
-    DiffUtil.calculateDiff(DiffUtilHelper(old, items) { it.emoji.hashCode() })
+    DiffUtil.calculateDiff(DiffUtilHelper(old, items) { it.hashCode() })
       .dispatchUpdatesTo(this)
   }
 }
