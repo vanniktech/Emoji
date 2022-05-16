@@ -19,10 +19,10 @@ package com.vanniktech.emoji.search
 import com.vanniktech.emoji.Emoji
 
 data class SearchEmojiResult(
-  val emoji: Emoji,
-  val shortcode: String,
+  @JvmField val emoji: Emoji,
+  @JvmField val shortcode: String,
   /** The range in [shortcode], which matches the query. This is used for highlighting. */
-  val range: IntRange,
+  @JvmField val range: IntRange,
 ) {
   init {
     require(range.first in shortcode.indices) { "Index ${range.first} is out of bounds in $shortcode" }

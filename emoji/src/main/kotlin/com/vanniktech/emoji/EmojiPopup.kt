@@ -52,7 +52,7 @@ import com.vanniktech.emoji.variant.VariantEmoji
 import com.vanniktech.emoji.variant.VariantEmojiManager
 import java.lang.ref.WeakReference
 
-class EmojiPopup(
+class EmojiPopup @JvmOverloads constructor(
   /** The root View of your layout.xml which will be used for calculating the height of the keyboard. */
   rootView: View,
   private val editText: EditText,

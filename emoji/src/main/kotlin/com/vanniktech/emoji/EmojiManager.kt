@@ -33,7 +33,7 @@ object EmojiManager {
   internal var emojiRepetitivePattern: Regex? = null
   private var emojiReplacer: EmojiReplacer? = null
 
-  fun replaceWithImages(context: Context?, text: Spannable?, emojiSize: Float) {
+  @JvmStatic fun replaceWithImages(context: Context?, text: Spannable?, emojiSize: Float) {
     verifyInstalled()
     emojiReplacer!!.replaceWithImages(context!!, text!!, emojiSize, DEFAULT_EMOJI_REPLACER)
   }
@@ -103,7 +103,7 @@ object EmojiManager {
    *
    * [provider] the provider that should be installed.
    */
-  fun install(provider: EmojiProvider) {
+  @JvmStatic fun install(provider: EmojiProvider) {
     synchronized(EmojiManager::class.java) {
       categories = provider.categories
       emojiMap.clear()
@@ -150,7 +150,7 @@ object EmojiManager {
    *
    * @see .destroy
    */
-  fun destroy() {
+  @JvmStatic fun destroy() {
     synchronized(EmojiManager::class.java) {
       release()
       emojiMap.clear()
@@ -170,7 +170,7 @@ object EmojiManager {
    *
    * @see .destroy
    */
-  fun release() {
+  @JvmStatic fun release() {
     synchronized(EmojiManager::class.java) {
       for (emoji in emojiMap.values) {
         emoji.destroy()

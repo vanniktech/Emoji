@@ -79,7 +79,7 @@ class EmojiView @JvmOverloads constructor(
    * Call this method to set up the EmojiView.
    * Once you're done with it, please call [.tearDown].
    */
-  fun setUp(
+  @JvmOverloads fun setUp(
     rootView: View,
     onEmojiClickListener: OnEmojiClickListener?,
     onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener?,

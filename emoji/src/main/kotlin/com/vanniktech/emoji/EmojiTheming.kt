@@ -23,48 +23,39 @@ import androidx.annotation.ColorInt
 import kotlinx.parcelize.Parcelize
 
 /** Control the colors of all Emoji UI components. */
-@Parcelize data class EmojiTheming(
+@Parcelize data class EmojiTheming @JvmOverloads constructor(
   /**
    * If set, it will be taken.
    * Otherwise it'll look for a theme attribute called emojiBackgroundColor.
    * If that isn't found, the library has a default.
    */
-  @ColorInt val backgroundColor: Int?,
+  @ColorInt @JvmField val backgroundColor: Int? = null,
   /**
    * If set, it will be taken.
    * Otherwise it'll take the color from your theme.
    */
-  @ColorInt val primaryColor: Int?,
+  @ColorInt @JvmField val primaryColor: Int? = null,
   /**
    * If set, it will be taken.
    * Otherwise it'll take the color from your theme.
    */
-  @ColorInt val secondaryColor: Int?,
+  @ColorInt @JvmField val secondaryColor: Int? = null,
   /**
    * If set, it will be taken.
    * Otherwise it'll look for a theme attribute called emojiDividerColor.
    * If that isn't found, the library has a default.
    */
-  @ColorInt val dividerColor: Int?,
+  @ColorInt @JvmField val dividerColor: Int? = null,
   /**
    * If set, it will be taken.
    * Otherwise it'll look for a theme attribute called emojiTextColor.
    * If that isn't found, the library has a default.
    */
-  @ColorInt val textColor: Int?,
+  @ColorInt @JvmField val textColor: Int? = null,
   /**
    * If set, it will be taken.
    * Otherwise it'll look for a theme attribute called emojiTextSecondaryColor.
    * If that isn't found, the library has a default.
    */
-  @ColorInt val textSecondaryColor: Int?,
-) : Parcelable {
-  constructor() : this(
-    backgroundColor = null,
-    primaryColor = null,
-    secondaryColor = null,
-    dividerColor = null,
-    textColor = null,
-    textSecondaryColor = null,
-  )
-}
+  @ColorInt @JvmField val textSecondaryColor: Int? = null,
+) : Parcelable
