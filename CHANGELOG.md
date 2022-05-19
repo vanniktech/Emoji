@@ -3,8 +3,8 @@
 Version 0.13.0 *(In development)*
 ---------------------------------
 
-Version 0.12.0 *(In development)*
----------------------------------
+Version 0.12.0 *(2022-05-16)*
+-----------------------------
 
 - EmojiSearchDialog: Fix crash when typing in swim \(each letter one by one with some delay\) [\#787](https://github.com/vanniktech/Emoji/pull/787) ([vanniktech](https://github.com/vanniktech))
 - Improve compatibility with Java Code. [\#786](https://github.com/vanniktech/Emoji/pull/786) ([vanniktech](https://github.com/vanniktech))

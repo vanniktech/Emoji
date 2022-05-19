@@ -1,6 +1,18 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.dependencyGuard)
+}
+
+dependencyGuard {
+  configuration("releaseRuntimeClasspath") {
+    tree = true
+  }
+}
+
+// https://github.com/dropbox/dependency-guard/issues/30
+tasks.named("check").configure {
+  it.dependsOn(tasks.named("dependencyGuard"))
 }
 
 android {
