@@ -18,7 +18,9 @@ package com.vanniktech.emoji.internal
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.EdgeEffect
 import androidx.recyclerview.widget.RecyclerView
+import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
 
 internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
@@ -34,5 +36,15 @@ internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
       widthMeasureSpec,
       MeasureSpec.makeMeasureSpec(context.resources.getDimensionPixelSize(R.dimen.emoji_search_max_height), MeasureSpec.AT_MOST),
     )
+  }
+
+  fun tint(emojiTheming: EmojiTheming) {
+    setBackgroundColor(emojiTheming.backgroundColor(context))
+    edgeEffectFactory = object : RecyclerView.EdgeEffectFactory() {
+      override fun createEdgeEffect(view: RecyclerView, direction: Int) =
+        EdgeEffect(view.context).apply {
+          color = emojiTheming.secondaryColor(context)
+        }
+    }
   }
 }

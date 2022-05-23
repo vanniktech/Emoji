@@ -82,7 +82,7 @@ internal class EmojiSearchDialog : DialogFragment() {
     editText.highlightColor = secondaryColor
     ViewCompat.setBackgroundTintList(editText, ColorStateList.valueOf(secondaryColor))
 
-    val recyclerView = dialog.findViewById<RecyclerView>(R.id.recyclerView)
+    val recyclerView = dialog.findViewById<MaxHeightSearchRecyclerView>(R.id.recyclerView)
     val adapter = EmojiAdapter(
       theming = theming,
       emojiSearchDialogDelegate = {
@@ -90,6 +90,7 @@ internal class EmojiSearchDialog : DialogFragment() {
         dismiss()
       },
     )
+    recyclerView?.tint(theming)
     recyclerView?.adapter = adapter
 
     editText.addTextChangedListener(object : TextWatcher {

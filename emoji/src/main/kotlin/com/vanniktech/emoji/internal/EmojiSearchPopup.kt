@@ -25,7 +25,6 @@ import android.view.View.MeasureSpec
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.PopupWindow
-import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
@@ -48,8 +47,8 @@ internal class EmojiSearchPopup(
   ) {
     if (emojis.isNotEmpty()) {
       val context = editText.context
-      val recyclerView = View.inflate(context, R.layout.emoji_popup_search, null) as RecyclerView
-      recyclerView.setBackgroundColor(theming.backgroundColor(context))
+      val recyclerView = View.inflate(context, R.layout.emoji_popup_search, null) as MaxHeightSearchRecyclerView
+      recyclerView.tint(theming)
 
       val adapter = EmojiAdapter(
         theming = theming,
