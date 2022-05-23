@@ -26,13 +26,21 @@ import android.graphics.drawable.RotateDrawable
 import android.graphics.drawable.VectorDrawable
 import android.os.Build
 import android.util.TypedValue
+import android.widget.EdgeEffect
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import androidx.viewpager.widget.ViewPager
 import java.lang.reflect.Field
 import kotlin.math.sqrt
+
+// https://stackoverflow.com/a/27343228/1979703
+internal fun ViewPager.setEdgeColor(@ColorInt color: Int) {
+  (ViewPager::class.java.getFieldByName("mLeftEdge")?.get(this) as? EdgeEffect)?.color = color
+  (ViewPager::class.java.getFieldByName("mRightEdge")?.get(this) as? EdgeEffect)?.color = color
+}
 
 // https://stackoverflow.com/a/59488928/1979703
 @SuppressLint("PrivateApi")

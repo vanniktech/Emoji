@@ -41,6 +41,7 @@ import com.vanniktech.emoji.internal.dividerColor
 import com.vanniktech.emoji.internal.hideKeyboardAndFocus
 import com.vanniktech.emoji.internal.primaryColor
 import com.vanniktech.emoji.internal.secondaryColor
+import com.vanniktech.emoji.internal.setEdgeColor
 import com.vanniktech.emoji.internal.showKeyboardAndFocus
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
@@ -105,6 +106,7 @@ class EmojiView @JvmOverloads constructor(
     }
     setBackgroundColor(theming.backgroundColor(context))
     val emojisPager: ViewPager = findViewById(R.id.emojiViewPager)
+    emojisPager.setEdgeColor(theming.secondaryColor(context))
     val emojiDivider = findViewById<View>(R.id.emojiViewDivider)
     emojiDivider.setBackgroundColor(theming.dividerColor(context))
     if (pageTransformer != null) {
