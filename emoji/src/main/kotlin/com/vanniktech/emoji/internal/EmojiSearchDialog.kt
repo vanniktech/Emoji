@@ -163,6 +163,7 @@ internal class EmojiAdapter(
   override fun onBindViewHolder(holder: EmojiViewHolder, position: Int) {
     val context = holder.textView.context
     val item = items[position]
+    holder.textView.setTextColor(theming.textColor(context)) // This is just in case there's a glyph shown.
     holder.textView.text = item.emoji.unicode
 
     (holder.textView.layoutParams as LinearLayout.LayoutParams).marginStart = marginStart ?: context.resources.getDimensionPixelSize(R.dimen.emoji_search_spacing)

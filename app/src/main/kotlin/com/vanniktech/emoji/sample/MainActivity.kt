@@ -79,6 +79,14 @@ class MainActivity : AppCompatActivity() {
       onEmojiPopupDismissListener = { binding.chatEmoji.setImageResource(R.drawable.ic_emojis) },
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
       keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+//      theming = com.vanniktech.emoji.EmojiTheming( // Uncomment this to use runtime theming.
+//        backgroundColor = android.graphics.Color.BLACK,
+//        primaryColor = android.graphics.Color.BLUE,
+//        secondaryColor = android.graphics.Color.YELLOW,
+//        dividerColor = android.graphics.Color.GRAY,
+//        textColor = android.graphics.Color.WHITE,
+//        textSecondaryColor = android.graphics.Color.GRAY,
+//      ),
       pageTransformer = PageTransformer(),
 //      variantEmoji = NoVariantEmoji, // Uncomment this to hide variant emojis.
 //      searchEmoji = NoSearchEmoji, // Uncomment this to hide search emojis.
