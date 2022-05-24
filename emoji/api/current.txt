@@ -285,6 +285,7 @@ package com.vanniktech.emoji.recent {
   }
 
   public final class RecentEmojiManager implements com.vanniktech.emoji.recent.RecentEmoji {
+    ctor public RecentEmojiManager(android.content.Context context, optional int maxRecents);
     ctor public RecentEmojiManager(android.content.Context context);
     method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
     method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();

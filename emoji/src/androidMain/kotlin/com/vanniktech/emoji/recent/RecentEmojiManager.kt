@@ -20,10 +20,12 @@ import android.content.Context
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 
-class RecentEmojiManager(
+class RecentEmojiManager @JvmOverloads constructor(
   context: Context,
+  /** Maximum number of recent Emojis we'll keep. */
+  private val maxRecents: Int = 40,
 ) : RecentEmoji {
-  private var emojiList = EmojiList(0)
+  private var emojiList = EmojiList(mutableListOf(), maxRecents)
   private val sharedPreferences = context.applicationContext.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
   override fun getRecentEmojis(): Collection<Emoji> {
@@ -32,22 +34,27 @@ class RecentEmojiManager(
 
       if (savedRecentEmojis.isNotEmpty()) {
         val split = savedRecentEmojis.split(EMOJI_DELIMITER)
-        emojiList = EmojiList(split.size)
-        split.forEach {
-          val parts = it.split(TIME_DELIMITER).toTypedArray()
-          if (parts.size == 2) {
-            val candidate = parts[0]
-            val emoji = EmojiManager.findEmoji(candidate)
-            if (emoji != null) {
-              val timestamp = parts[1].toLong()
-              emojiList.add(emoji, timestamp)
+        emojiList = EmojiList(
+          split.mapNotNull {
+            val parts = it.split(TIME_DELIMITER).toTypedArray()
+            if (parts.size == 2) {
+              val candidate = parts[0]
+              val emoji = EmojiManager.findEmoji(candidate)
+              if (emoji != null) {
+                val timestamp = parts[1].toLong()
+                RecentEmojiData(emoji, timestamp)
+              } else {
+                null
+              }
+            } else {
+              null
             }
-          }
-        }
-      } else {
-        emojiList = EmojiList(0)
+          }.sortedByDescending { it.timestamp }.toMutableList(),
+          maxRecents
+        )
       }
     }
+
     return emojiList.getEmojis()
   }
 
@@ -70,21 +77,25 @@ class RecentEmojiManager(
     }
   }
 
-  internal class EmojiList(size: Int) {
-    private val emojis: MutableList<Data>
-
+  internal class EmojiList(
+    private var emojis: MutableList<RecentEmojiData>,
+    private val maxRecents: Int,
+  ) {
     fun add(emoji: Emoji, timestamp: Long = System.currentTimeMillis()) {
       val iterator = emojis.iterator()
       val emojiBase = emoji.base
+
       while (iterator.hasNext()) {
         val data = iterator.next()
         if (data.emoji.base == emojiBase) { // Do the comparison by base so that skin tones are only saved once.
           iterator.remove()
         }
       }
-      emojis.add(0, Data(emoji, timestamp))
-      if (emojis.size > MAX_RECENTS) {
-        emojis.removeAt(MAX_RECENTS)
+
+      emojis.add(0, RecentEmojiData(emoji, timestamp))
+
+      if (emojis.size > maxRecents) {
+        emojis.removeAt(maxRecents)
       }
     }
 
@@ -93,13 +104,9 @@ class RecentEmojiManager(
     fun size() = emojis.size
 
     operator fun get(index: Int) = emojis[index]
-
-    init {
-      emojis = ArrayList(size)
-    }
   }
 
-  internal class Data(val emoji: Emoji, val timestamp: Long)
+  internal data class RecentEmojiData(val emoji: Emoji, val timestamp: Long)
 
   internal companion object {
     private const val PREFERENCE_NAME = "emoji-recent-manager"
@@ -107,6 +114,5 @@ class RecentEmojiManager(
     private const val EMOJI_DELIMITER = "~"
     private const val RECENT_EMOJIS = "recent-emojis"
     internal const val EMOJI_GUESS_SIZE = 5
-    internal const val MAX_RECENTS = 40
   }
 }
