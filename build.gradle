@@ -59,3 +59,11 @@ allprojects {
     }
   }
 }
+
+subprojects {
+  project.tasks.withType(Test) {
+    testLogging {
+      testLogging.exceptionFormat = 'full'
+    }
+  }
+}
