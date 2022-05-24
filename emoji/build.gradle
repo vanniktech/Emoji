@@ -10,7 +10,7 @@ plugins {
 
 metalava {
   filename = "api/current.txt"
-  sourcePaths = ["src/androidMain"]
+  sourcePaths = ["src/commonMain", "src/androidMain"]
 }
 
 // CocoaPods requires a version.
@@ -22,6 +22,12 @@ kotlin {
 //  jvm("jvm")
 
   sourceSets {
+    all {
+      languageSettings {
+        optIn("kotlin.RequiresOptIn")
+      }
+    }
+
     commonMain {
       dependencies {
       }

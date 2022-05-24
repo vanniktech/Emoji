@@ -1,6 +1,9 @@
 // Signature format: 4.0
 package com.vanniktech.emoji {
 
+  public final class CommonParcelableAndroidApiKt {
+  }
+
   public interface Emoji extends android.os.Parcelable {
     method public void destroy();
     method public com.vanniktech.emoji.Emoji getBase();
