@@ -1,16 +1,48 @@
-import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
-
 plugins {
+  alias(libs.plugins.dokka)
+  alias(libs.plugins.kotlin.multiplatform)
+  alias(libs.plugins.kotlin.native.cocoapods)
   alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin.android)
   alias(libs.plugins.kotlin.parcelize)
-  alias(libs.plugins.publish)
   alias(libs.plugins.metalava)
+  alias(libs.plugins.publish)
 }
 
 metalava {
   filename = "api/current.txt"
-  sourcePaths = ["src/main"]
+  sourcePaths = ["src/androidMain"]
+}
+
+// CocoaPods requires a version.
+version = VERSION_NAME
+
+kotlin {
+  android("android")
+//  ios("ios")
+//  jvm("jvm")
+
+  sourceSets {
+    commonMain {
+      dependencies {
+        api project(":emoji")
+      }
+    }
+
+    commonTest {
+      dependencies {
+        implementation libs.kotlin.test.common
+        implementation libs.kotlin.test.commonAnnotations
+      }
+    }
+
+    androidMain.dependencies {
+    }
+
+    androidTest.dependencies {
+      implementation libs.kotlin.test.junit
+      implementation libs.robolectric
+    }
+  }
 }
 
 android {
@@ -28,12 +60,4 @@ android {
   }
 
   resourcePrefix 'emoji_facebook_'
-}
-
-dependencies {
-  api project(':emoji')
-}
-
-mavenPublishing {
-  configure(new AndroidSingleVariantLibrary("release"))
 }

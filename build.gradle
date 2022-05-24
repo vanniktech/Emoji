@@ -4,6 +4,9 @@ plugins {
   alias(libs.plugins.codequality) apply true
   alias(libs.plugins.kotlin.android) apply false
   alias(libs.plugins.kotlin.parcelize) apply false
+  alias(libs.plugins.kotlin.multiplatform) apply false
+  alias(libs.plugins.kotlin.native.cocoapods) apply false
+  alias(libs.plugins.dokka) apply false
   alias(libs.plugins.publish) apply false
 }
 
@@ -30,27 +33,29 @@ codeQualityTools {
   }
 }
 
-subprojects {
-  repositories {
-    google()
-    mavenCentral()
-  }
-}
-
 wrapper {
   gradleVersion = libs.versions.gradle.get()
   distributionType = Wrapper.DistributionType.ALL
 }
 
 allprojects {
-  plugins.withId("com.vanniktech.maven.publish.base") {
-    group = "com.vanniktech"
-    version = VERSION_NAME
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+  }
 
-    mavenPublishing {
-      publishToMavenCentral("DEFAULT")
-      signAllPublications()
-      pomFromGradleProperties()
+  afterEvaluate {
+    // To avoid:
+    // The Kotlin source set androidAndroidTestRelease was configured but not added to any Kotlin compilation. You can add a source set to a target"s compilation by connecting it with the compilation"s default source set using "dependsOn".
+    // See https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#connecting-source-sets
+    project.extensions.findByType(org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.class)?.sourceSets?.removeAll {
+      [
+        "androidAndroidTestRelease",
+        "androidTestFixtures",
+        "androidTestFixturesDebug",
+        "androidTestFixturesRelease"
+      ].contains(it.name)
     }
   }
 }
