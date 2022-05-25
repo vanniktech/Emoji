@@ -1,7 +1,5 @@
 package com.vanniktech.emoji
 
-import kotlinx.parcelize.IgnoredOnParcel
-
 @Parcelize data class TestEmoji(
   override val unicode: String,
   override val shortcodes: List<String>,

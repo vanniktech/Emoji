@@ -17,9 +17,9 @@
 package com.vanniktech.emoji.facebook
 
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.IgnoredOnParcel
 import com.vanniktech.emoji.Parcelable
 import com.vanniktech.emoji.Parcelize
-import kotlinx.parcelize.IgnoredOnParcel
 
 @Parcelize internal class FacebookEmoji internal constructor(
   override val unicode: String,
