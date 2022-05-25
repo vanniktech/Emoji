@@ -5,9 +5,7 @@ package com.vanniktech.emoji {
   }
 
   public interface Emoji extends android.os.Parcelable {
-    method public void destroy();
     method public com.vanniktech.emoji.Emoji getBase();
-    method public android.graphics.drawable.Drawable getDrawable(android.content.Context context);
     method public java.util.List<java.lang.String> getShortcodes();
     method public String getUnicode();
     method public java.util.List<com.vanniktech.emoji.Emoji> getVariants();
@@ -64,6 +62,11 @@ package com.vanniktech.emoji {
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
     method public void setEmojiSizeRes(@DimenRes int res);
     method public void setEmojiSizeRes(@DimenRes int res, boolean shouldInvalidate);
+  }
+
+  public interface EmojiDrawableProvider {
+    method public void destroy();
+    method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
   }
 
   public class EmojiEditText extends androidx.appcompat.widget.AppCompatEditText implements com.vanniktech.emoji.EmojiDisplayable {

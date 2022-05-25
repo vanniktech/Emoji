@@ -16,10 +16,10 @@
 
 package com.vanniktech.emoji
 
-interface Emoji : Parcelable {
-  val base: Emoji
-  val unicode: String
-  val shortcodes: List<String>
-  val isDuplicate: Boolean
-  val variants: List<Emoji>
+import android.content.Context
+import android.graphics.drawable.Drawable
+
+interface EmojiDrawableProvider {
+  fun getDrawable(emoji: Emoji, context: Context): Drawable
+  fun destroy()
 }

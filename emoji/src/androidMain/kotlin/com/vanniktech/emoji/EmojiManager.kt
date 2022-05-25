@@ -28,6 +28,7 @@ object EmojiManager {
   private const val GUESSED_TOTAL_PATTERN_LENGTH = GUESSED_UNICODE_AMOUNT * 4
 
   private val emojiMap: MutableMap<String, Emoji> = LinkedHashMap(GUESSED_UNICODE_AMOUNT)
+  private var emojiDrawableProvider: EmojiDrawableProvider? = null
   private var categories: Array<EmojiCategory>? = null
   private var emojiPattern: Regex? = null
   internal var emojiRepetitivePattern: Regex? = null
@@ -41,6 +42,11 @@ object EmojiManager {
   internal fun categories(): Array<EmojiCategory> {
     verifyInstalled()
     return categories!!
+  }
+
+  internal fun emojiDrawableProvider(): EmojiDrawableProvider {
+    verifyInstalled()
+    return emojiDrawableProvider!!
   }
 
   internal fun findAllEmojis(text: CharSequence?): List<EmojiRange> {
@@ -105,7 +111,10 @@ object EmojiManager {
    */
   @JvmStatic fun install(provider: EmojiProvider) {
     synchronized(EmojiManager::class.java) {
+      require(provider is EmojiDrawableProvider) { "Your provider needs to implement EmojiDrawableProvider" }
       categories = provider.categories
+      @Suppress("UNCHECKED_CAST")
+      this.emojiDrawableProvider = provider
       emojiMap.clear()
       emojiReplacer = if (provider is EmojiReplacer) provider else DEFAULT_EMOJI_REPLACER
       val unicodesForPattern: MutableList<String> = ArrayList(GUESSED_UNICODE_AMOUNT)
@@ -172,9 +181,7 @@ object EmojiManager {
    */
   @JvmStatic fun release() {
     synchronized(EmojiManager::class.java) {
-      for (emoji in emojiMap.values) {
-        emoji.destroy()
-      }
+      (emojiDrawableProvider as EmojiDrawableProvider).destroy()
     }
   }
 }

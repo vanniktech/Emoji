@@ -22,6 +22,7 @@ import android.graphics.Paint
 import android.graphics.Paint.FontMetricsInt
 import android.text.style.DynamicDrawableSpan
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiManager
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
@@ -31,7 +32,7 @@ internal class EmojiSpan(
   private val size: Float,
 ) : DynamicDrawableSpan() {
   private val deferredDrawable by lazy(LazyThreadSafetyMode.NONE) {
-    val drawable = emoji.getDrawable(context)
+    val drawable = EmojiManager.emojiDrawableProvider().getDrawable(emoji, context)
     drawable.setBounds(0, 0, size.toInt(), size.toInt())
     drawable
   }

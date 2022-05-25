@@ -16,9 +16,11 @@
 
 package com.vanniktech.emoji
 
+import android.content.Context
+
 internal class TestEmojiProvider(
   vararg val emojis: Emoji,
-) : EmojiProvider {
+) : EmojiProvider, EmojiDrawableProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       object : EmojiCategory {
@@ -33,6 +35,9 @@ internal class TestEmojiProvider(
           get() = R.string.emoji_category_recent
       }
     )
+
+  override fun getDrawable(emoji: Emoji, context: Context) = error("Not available from tests")
+  override fun destroy() = Unit
 }
 
 object EmptyCategories : EmojiProvider {

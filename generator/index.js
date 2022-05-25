@@ -442,6 +442,7 @@ async function generateCode(map, targets) {
                 imports: imports,
                 name: target.name,
                 categories: categories,
+                strips: strips,
             }));
         } else {
             await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderCompatTemplate)({
@@ -456,7 +457,6 @@ async function generateCode(map, targets) {
             await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiTemplate)({
                 package: target.package,
                 name: target.name,
-                strips: strips,
             }));
         } else {
             await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiCompatTemplate)({

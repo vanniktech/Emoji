@@ -17,9 +17,12 @@
 package com.vanniktech.emoji.googlecompat
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.text.Spannable
 import androidx.emoji.text.EmojiCompat
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiDrawableProvider
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.EmojiReplacer
 import com.vanniktech.emoji.googlecompat.category.ActivitiesCategory
@@ -33,7 +36,7 @@ import com.vanniktech.emoji.googlecompat.category.TravelAndPlacesCategory
 
 class GoogleCompatEmojiProvider(
   @Suppress("unused") private val emojiCompat: EmojiCompat,
-) : EmojiProvider, EmojiReplacer {
+) : EmojiProvider, EmojiDrawableProvider, EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),
@@ -57,4 +60,7 @@ class GoogleCompatEmojiProvider(
       fallback?.replaceWithImages(context, text, emojiSize, null)
     }
   }
+
+  override fun getDrawable(emoji: Emoji, context: Context): Drawable = GoogleCompatEmojiDrawable(emoji.unicode)
+  override fun destroy() = Unit
 }

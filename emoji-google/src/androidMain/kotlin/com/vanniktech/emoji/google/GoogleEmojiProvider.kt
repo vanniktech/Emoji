@@ -16,7 +16,16 @@
 
 package com.vanniktech.emoji.google
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Point
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.util.LruCache
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiDrawableProvider
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.google.category.ActivitiesCategory
 import com.vanniktech.emoji.google.category.AnimalsAndNatureCategory
@@ -26,8 +35,9 @@ import com.vanniktech.emoji.google.category.ObjectsCategory
 import com.vanniktech.emoji.google.category.SmileysAndPeopleCategory
 import com.vanniktech.emoji.google.category.SymbolsCategory
 import com.vanniktech.emoji.google.category.TravelAndPlacesCategory
+import java.lang.ref.SoftReference
 
-class GoogleEmojiProvider : EmojiProvider {
+class GoogleEmojiProvider : EmojiProvider, EmojiDrawableProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),
@@ -39,4 +49,63 @@ class GoogleEmojiProvider : EmojiProvider {
       SymbolsCategory(),
       FlagsCategory(),
     )
+
+  override fun getDrawable(emoji: Emoji, context: Context): Drawable {
+    require(emoji is GoogleEmoji) { "emoji needs to be of type GoogleEmoji" }
+    val x = emoji.x
+    val y = emoji.y
+    val key = Point(x, y)
+    val bitmap = BITMAP_CACHE[key]
+    if (bitmap != null) {
+      return BitmapDrawable(context.resources, bitmap)
+    }
+    val strip = loadStrip(x, context)
+    val cut = Bitmap.createBitmap(strip!!, 1, y * SPRITE_SIZE_INC_BORDER + 1, SPRITE_SIZE, SPRITE_SIZE)
+    BITMAP_CACHE.put(key, cut)
+    return BitmapDrawable(context.resources, cut)
+  }
+
+  private fun loadStrip(x: Int, context: Context?): Bitmap? {
+    var strip = STRIP_REFS[x]?.get() as Bitmap?
+    if (strip == null) {
+      synchronized(LOCK) {
+        strip = STRIP_REFS[x]?.get() as Bitmap?
+        if (strip == null) {
+          val resources = context!!.resources
+          val resId = resources.getIdentifier("emoji_google_sheet_$x", "drawable", context.packageName)
+          strip = BitmapFactory.decodeResource(resources, resId)
+          STRIP_REFS[x] = SoftReference(strip)
+        }
+      }
+    }
+
+    return strip
+  }
+
+  override fun destroy() {
+    synchronized(LOCK) {
+      BITMAP_CACHE.evictAll()
+      for (i in 0 until NUM_STRIPS) {
+        val softReference = STRIP_REFS[i]
+        (softReference?.get() as Bitmap?)?.recycle()
+        softReference?.clear()
+      }
+    }
+  }
+
+  private companion object {
+    private const val CACHE_SIZE = 100
+    private const val SPRITE_SIZE = 64
+    private const val SPRITE_SIZE_INC_BORDER = 66
+    private const val NUM_STRIPS = 60
+    private val LOCK = Any()
+    private val STRIP_REFS: Array<SoftReference<*>?> = arrayOfNulls(NUM_STRIPS)
+    private val BITMAP_CACHE = LruCache<Point, Bitmap>(CACHE_SIZE)
+
+    init {
+      for (i in 0 until NUM_STRIPS) {
+        STRIP_REFS[i] = SoftReference<Bitmap?>(null)
+      }
+    }
+  }
 }

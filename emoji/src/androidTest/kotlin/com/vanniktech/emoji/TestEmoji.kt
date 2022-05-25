@@ -1,9 +1,6 @@
 package com.vanniktech.emoji
 
-import android.content.Context
-import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
-import kotlinx.parcelize.Parcelize
 
 @Parcelize data class TestEmoji(
   override val unicode: String,
@@ -33,7 +30,4 @@ import kotlinx.parcelize.Parcelize
       variant.parent = this
     }
   }
-
-  override fun getDrawable(context: Context) = error("Not available from tests")
-  override fun destroy() = Unit
 }

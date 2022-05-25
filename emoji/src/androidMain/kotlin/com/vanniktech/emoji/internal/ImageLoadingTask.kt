@@ -23,6 +23,7 @@ import android.graphics.drawable.Drawable
 import android.os.AsyncTask
 import android.widget.ImageView
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiManager
 import java.lang.ref.WeakReference
 
 internal class ImageLoadingTask(imageView: ImageView) : AsyncTask<Emoji, Void?, Drawable?>() {
@@ -33,7 +34,7 @@ internal class ImageLoadingTask(imageView: ImageView) : AsyncTask<Emoji, Void?, 
   override fun doInBackground(vararg emoji: Emoji): Drawable? {
     val context = contextReference.get()
     return if (context != null && !isCancelled) {
-      emoji[0].getDrawable(context)
+      EmojiManager.emojiDrawableProvider().getDrawable(emoji[0], context)
     } else null
   }
 

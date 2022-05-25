@@ -25,6 +25,7 @@ import android.util.AttributeSet
 import android.view.View.OnLongClickListener
 import androidx.appcompat.widget.AppCompatImageView
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.variant.NoVariantEmoji
@@ -124,7 +125,7 @@ internal class EmojiImageView @JvmOverloads constructor(
   fun updateEmoji(emoji: Emoji) {
     if (emoji != currentEmoji) {
       currentEmoji = emoji
-      setImageDrawable(emoji.getDrawable(context))
+      setImageDrawable(EmojiManager.emojiDrawableProvider().getDrawable(emoji, context))
     }
   }
 

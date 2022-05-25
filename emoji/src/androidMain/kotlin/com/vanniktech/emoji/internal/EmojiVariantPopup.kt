@@ -30,6 +30,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.R
 
 internal class EmojiVariantPopup internal constructor(
@@ -82,7 +83,7 @@ internal class EmojiVariantPopup internal constructor(
       // Use the same size for Emojis as in the picker.
       layoutParams.width = width
       layoutParams.setMargins(margin, margin, margin, margin)
-      emojiImage.setImageDrawable(variant.getDrawable(context))
+      emojiImage.setImageDrawable(EmojiManager.emojiDrawableProvider().getDrawable(variant, context))
       emojiImage.setOnClickListener {
         delegate?.onEmojiClick(clickedImage, variant)
       }

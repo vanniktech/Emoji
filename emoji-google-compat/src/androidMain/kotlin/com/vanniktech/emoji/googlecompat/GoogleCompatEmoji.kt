@@ -16,12 +16,10 @@
 
 package com.vanniktech.emoji.googlecompat
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.os.Parcelable
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.Parcelable
+import com.vanniktech.emoji.Parcelize
 import kotlinx.parcelize.IgnoredOnParcel
-import kotlinx.parcelize.Parcelize
 
 @Parcelize internal class GoogleCompatEmoji internal constructor(
   override val unicode: String,
@@ -70,7 +68,4 @@ import kotlinx.parcelize.Parcelize
     result = 31 * result + variants.hashCode()
     return result
   }
-
-  override fun getDrawable(context: Context): Drawable = GoogleCompatEmojiDrawable(unicode)
-  override fun destroy() = Unit
 }
