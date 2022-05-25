@@ -405,7 +405,7 @@ async function generateCode(map, targets) {
 
                 chunkClasses.push(chunkClass)
 
-                await fs.writeFile(`${srcDir}/category/${chunkClass}.kt`,
+                await fs.writeFile(`${commonSrcDir}/category/${chunkClass}.kt`,
                     template(categoryChunkTemplate)({
                         package: target.package,
                         name: target.name,
