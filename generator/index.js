@@ -382,6 +382,7 @@ async function generateCode(map, targets) {
 
     for (const target of targets) {
         const srcDir = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
         const valuesDir = `../emoji-${target.module}/src/androidMain/res/values`;
 
         if (target.module !== "google-compat") {
@@ -454,12 +455,12 @@ async function generateCode(map, targets) {
         }
 
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiTemplate)({
+            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiTemplate)({
                 package: target.package,
                 name: target.name,
             }));
         } else {
-            await fs.writeFile(`${srcDir}/${target.name}.kt`, template(emojiCompatTemplate)({
+            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiCompatTemplate)({
                 package: target.package,
                 name: target.name,
             }));

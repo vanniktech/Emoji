@@ -10,7 +10,7 @@ plugins {
 
 metalava {
   filename = "api/current.txt"
-  sourcePaths = ["src/androidMain"]
+  sourcePaths = ["src/commonMain", "src/androidMain"]
 }
 
 // CocoaPods requires a version.
