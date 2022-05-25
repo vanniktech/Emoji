@@ -23,7 +23,7 @@ internal class TestEmojiProvider(
 ) : EmojiProvider, EmojiDrawableProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
-      object : EmojiCategory {
+      object : EmojiCategory, EmojiAndroidCategory {
         override val emojis: List<Emoji>
           get() {
             return this@TestEmojiProvider.emojis.toList()
@@ -48,7 +48,7 @@ object EmptyCategories : EmojiProvider {
 object EmptyEmojiProvider : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
-      object : EmojiCategory {
+      object : EmojiCategory, EmojiAndroidCategory {
         override val emojis: List<Emoji>
           get() = emptyList()
         override val icon: Int

@@ -18,10 +18,11 @@ package com.vanniktech.emoji.facebook.category
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.facebook.FacebookEmoji
 
-internal class FlagsCategory : EmojiCategory {
+internal class FlagsCategory : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.facebook.R.drawable.emoji_facebook_category_flags
 

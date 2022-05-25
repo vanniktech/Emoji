@@ -168,7 +168,9 @@ class EmojiView @JvmOverloads constructor(
     val searchIndex = if (hasSearch) emojiTabs.size - (if (hasBackspace) 2 else 1) else null
     val backspaceIndex = if (hasBackspace) emojiTabs.size - 1 else null
     for (i in categories.indices) {
-      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, categories[i].icon, categories[i].categoryName, emojisTab)
+      val emojiCategory = categories[i]
+      require(emojiCategory is EmojiAndroidCategory) { "Your category needs to implement EmojiAndroidCategory" }
+      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, emojiCategory.icon, emojiCategory.categoryName, emojisTab)
     }
     if (searchIndex != null) {
       emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab)

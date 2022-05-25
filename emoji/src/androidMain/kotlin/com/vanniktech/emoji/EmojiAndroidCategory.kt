@@ -14,24 +14,18 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji.facebook.category
+package com.vanniktech.emoji
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.vanniktech.emoji.EmojiAndroidCategory
-import com.vanniktech.emoji.EmojiCategory
-import com.vanniktech.emoji.facebook.FacebookEmoji
 
-internal class ActivitiesCategory : EmojiCategory, EmojiAndroidCategory {
-  @get:DrawableRes override val icon: Int
-    get() = com.vanniktech.emoji.facebook.R.drawable.emoji_facebook_category_activities
+/**
+ * Interface for defining a category.
+ */
+interface EmojiAndroidCategory : EmojiCategory {
+  @get:DrawableRes
+  val icon: Int
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.facebook.R.string.emoji_facebook_category_activities
-
-  override val emojis = ALL_EMOJIS
-
-  private companion object {
-    val ALL_EMOJIS: List<FacebookEmoji> = ActivitiesCategoryChunk0.EMOJIS
-  }
+  @get:StringRes
+  val categoryName: Int
 }

@@ -16,35 +16,12 @@
 
 package com.vanniktech.emoji
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
-
 /**
  * Interface for defining a category.
- *
- * @since 0.4.0
  */
 interface EmojiCategory {
   /**
-   * Returns all of the emojis it can display.
-   *
-   * @since 0.4.0
+   * Returns all the emojis it can display.
    */
   val emojis: List<Emoji>
-
-  /**
-   * Returns the icon of the category that should be displayed.
-   *
-   * @since 0.4.0
-   */
-  @get:DrawableRes
-  val icon: Int
-
-  /**
-   * Returns category name.
-   *
-   * @since 0.7.0
-   */
-  @get:StringRes
-  val categoryName: Int
 }

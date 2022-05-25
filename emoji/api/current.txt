@@ -17,6 +17,13 @@ package com.vanniktech.emoji {
     property public abstract java.util.List<com.vanniktech.emoji.Emoji> variants;
   }
 
+  public interface EmojiAndroidCategory extends com.vanniktech.emoji.EmojiCategory {
+    method @StringRes public int getCategoryName();
+    method @DrawableRes public int getIcon();
+    property @StringRes public abstract int categoryName;
+    property @DrawableRes public abstract int icon;
+  }
+
   public class EmojiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
     ctor public EmojiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiAutoCompleteTextView(android.content.Context context);
@@ -38,12 +45,8 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiCategory {
-    method @StringRes public int getCategoryName();
     method public java.util.List<com.vanniktech.emoji.Emoji> getEmojis();
-    method @DrawableRes public int getIcon();
-    property @StringRes public abstract int categoryName;
     property public abstract java.util.List<com.vanniktech.emoji.Emoji> emojis;
-    property @DrawableRes public abstract int icon;
   }
 
   public class EmojiCheckbox extends androidx.appcompat.widget.AppCompatCheckBox implements com.vanniktech.emoji.EmojiDisplayable {
