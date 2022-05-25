@@ -381,8 +381,8 @@ async function generateCode(map, targets) {
     });
 
     for (const target of targets) {
-        const srcDir = `../emoji-${target.module}/src/main/kotlin/com/vanniktech/emoji/${target.package}`;
-        const valuesDir = `../emoji-${target.module}/src/main/res/values`;
+        const srcDir = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const valuesDir = `../emoji-${target.module}/src/androidMain/res/values`;
 
         if (target.module !== "google-compat") {
             await fs.emptyDir(srcDir);
@@ -390,8 +390,6 @@ async function generateCode(map, targets) {
         } else {
             await fs.emptyDir(`${srcDir}/category`)
         }
-
-        await fs.emptyDir(valuesDir);
 
         let strips = 0;
         for (const [category, emojis] of entries) {
