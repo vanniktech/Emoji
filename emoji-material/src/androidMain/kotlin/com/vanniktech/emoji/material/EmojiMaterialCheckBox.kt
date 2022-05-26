@@ -27,6 +27,7 @@ import com.google.android.material.checkbox.MaterialCheckBox
 import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.init
+import com.vanniktech.emoji.replaceWithImages
 import kotlin.jvm.JvmOverloads
 
 open class EmojiMaterialCheckBox @JvmOverloads constructor(

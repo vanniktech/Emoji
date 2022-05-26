@@ -16,10 +16,6 @@
 
 package com.vanniktech.emoji
 
-import android.content.Context
-import android.text.Spannable
-import com.vanniktech.emoji.internal.EmojiSpan
-
 /**
  * EmojiManager where an EmojiProvider can be installed for further usage.
  */
@@ -32,12 +28,6 @@ object EmojiManager {
   private var categories: Array<EmojiCategory>? = null
   private var emojiPattern: Regex? = null
   internal var emojiRepetitivePattern: Regex? = null
-  private var emojiReplacer: EmojiReplacer? = null
-
-  @JvmStatic fun replaceWithImages(context: Context?, text: Spannable?, emojiSize: Float) {
-    verifyInstalled()
-    emojiReplacer!!.replaceWithImages(context!!, text!!, emojiSize, DEFAULT_EMOJI_REPLACER)
-  }
 
   internal fun categories(): Array<EmojiCategory> {
     verifyInstalled()
@@ -83,25 +73,6 @@ object EmojiManager {
     }
   }
 
-  private val DEFAULT_EMOJI_REPLACER: EmojiReplacer = EmojiReplacer { context, text, emojiSize, _ ->
-    val existingSpans = text.getSpans(0, text.length, EmojiSpan::class.java)
-    val existingSpanPositions: MutableList<Int> = ArrayList(existingSpans.size)
-    val size = existingSpans.size
-    for (i in 0 until size) {
-      existingSpanPositions.add(text.getSpanStart(existingSpans[i]))
-    }
-    val findAllEmojis = findAllEmojis(text)
-    for (i in findAllEmojis.indices) {
-      val (emoji, range) = findAllEmojis[i]
-      if (!existingSpanPositions.contains(range.first)) {
-        text.setSpan(
-          EmojiSpan(context, emoji, emojiSize),
-          range.first, range.last, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-      }
-    }
-  }
-
   /**
    * Installs the given EmojiProvider.
    *
@@ -114,7 +85,6 @@ object EmojiManager {
       categories = provider.categories
       emojiProvider = provider
       emojiMap.clear()
-      emojiReplacer = if (provider is EmojiReplacer) provider else DEFAULT_EMOJI_REPLACER
       val unicodesForPattern: MutableList<String> = ArrayList(GUESSED_UNICODE_AMOUNT)
       val categoriesSize = provider.categories.size
 
@@ -165,7 +135,6 @@ object EmojiManager {
       categories = null
       emojiPattern = null
       emojiRepetitivePattern = null
-      emojiReplacer = null
     }
   }
 

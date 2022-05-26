@@ -27,6 +27,7 @@ import com.google.android.material.button.MaterialButton
 import com.vanniktech.emoji.EmojiDisplayable
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.init
+import com.vanniktech.emoji.replaceWithImages
 
 open class EmojiMaterialButton @JvmOverloads constructor(
   context: Context,

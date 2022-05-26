@@ -107,8 +107,11 @@ package com.vanniktech.emoji {
     method public static void destroy();
     method public static void install(com.vanniktech.emoji.EmojiProvider provider);
     method public static void release();
-    method public static void replaceWithImages(android.content.Context? context, android.text.Spannable? text, float emojiSize);
     field public static final com.vanniktech.emoji.EmojiManager INSTANCE;
+  }
+
+  public final class EmojiManagers {
+    method public static void replaceWithImages(com.vanniktech.emoji.EmojiManager, android.content.Context context, android.text.Spannable? text, float emojiSize);
   }
 
   public class EmojiMultiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
