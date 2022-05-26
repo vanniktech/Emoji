@@ -400,10 +400,10 @@ async function generateCode(map, targets) {
         const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
 
         if (target.module !== "google-compat") {
-            await fs.emptyDir(srcDir);
-            await fs.mkdir(`${srcDir}/category`);
+            await fs.emptyDir(commonSrcDir);
+            await fs.mkdir(`${commonSrcDir}/category`);
         } else {
-            await fs.emptyDir(`${srcDir}/category`)
+            await fs.emptyDir(`${commonSrcDir}/category`)
         }
 
         let strips = 0;
@@ -430,7 +430,7 @@ async function generateCode(map, targets) {
                 );
             }
 
-            await fs.writeFile(`${srcDir}/category/${category}Category.kt`,
+            await fs.writeFile(`${commonSrcDir}/category/${category}Category.kt`,
                 template(categoryTemplate)({
                     package: target.package,
                     name: target.name,
