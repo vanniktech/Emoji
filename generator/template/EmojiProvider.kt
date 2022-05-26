@@ -32,9 +32,14 @@ import java.lang.ref.SoftReference
 
 class <%= name %>Provider : EmojiProvider, EmojiDrawableProvider {
   override val categories: Array<EmojiCategory>
-    get() = arrayOf(
-      <%= categories %>
+    get() = arrayOf(<% categories.forEach(function(category) { %>
+      <%= category.name %>(),<% }); %>
     )
+
+  override fun getIcon(emojiCategory: EmojiCategory): Int = when (emojiCategory) {<% categories.forEach(function(category) { %>
+    is <%= category.name %> -> R.drawable.emoji_<%= package %>_category_<%= category.icon %><% }); %>
+    else -> error("Unknown $emojiCategory")
+  }
 
   override fun getDrawable(emoji: Emoji, context: Context): Drawable {
     require(emoji is <%= name %>) { "emoji needs to be of type <%= name %>" }

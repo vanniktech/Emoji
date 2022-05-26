@@ -436,7 +436,6 @@ async function generateCode(map, targets) {
                     name: target.name,
                     category: category,
                     chunks: chunkClasses.map(it => `${it}.EMOJIS`).join(" + "),
-                    icon: category.toLowerCase(),
                     categoryNames: categoryInfo.filter(it => it.name == category).flatMap(category => category.i18n.map(it => Object.assign({}, {key: it.key, value: it.value}))),
                 }),
             );
@@ -449,8 +448,8 @@ async function generateCode(map, targets) {
         const categories = entries.map(entry => {
             const [category] = entry;
 
-            return `${category}Category(),`
-        }).join("\n      ");
+            return Object.assign({}, {name: `${category}Category`, icon: category.toLowerCase()})
+        })
 
         if (target.module !== "google-compat") {
             await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderTemplate)({

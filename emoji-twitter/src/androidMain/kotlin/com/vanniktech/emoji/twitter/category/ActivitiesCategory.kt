@@ -16,15 +16,10 @@
 
 package com.vanniktech.emoji.twitter.category
 
-import androidx.annotation.DrawableRes
-import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
-internal class ActivitiesCategory : EmojiCategory, EmojiAndroidCategory {
-  @get:DrawableRes override val icon: Int
-    get() = com.vanniktech.emoji.twitter.R.drawable.emoji_twitter_category_activities
-
+internal class ActivitiesCategory : EmojiCategory {
   override val categoryNames: Map<String, String>
     get() = mapOf(
       "en" to "Activities",

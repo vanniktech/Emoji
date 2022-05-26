@@ -50,6 +50,18 @@ class GoogleEmojiProvider : EmojiProvider, EmojiDrawableProvider {
       FlagsCategory(),
     )
 
+  override fun getIcon(emojiCategory: EmojiCategory): Int = when (emojiCategory) {
+    is SmileysAndPeopleCategory -> R.drawable.emoji_google_category_smileysandpeople
+    is AnimalsAndNatureCategory -> R.drawable.emoji_google_category_animalsandnature
+    is FoodAndDrinkCategory -> R.drawable.emoji_google_category_foodanddrink
+    is ActivitiesCategory -> R.drawable.emoji_google_category_activities
+    is TravelAndPlacesCategory -> R.drawable.emoji_google_category_travelandplaces
+    is ObjectsCategory -> R.drawable.emoji_google_category_objects
+    is SymbolsCategory -> R.drawable.emoji_google_category_symbols
+    is FlagsCategory -> R.drawable.emoji_google_category_flags
+    else -> error("Unknown $emojiCategory")
+  }
+
   override fun getDrawable(emoji: Emoji, context: Context): Drawable {
     require(emoji is GoogleEmoji) { "emoji needs to be of type GoogleEmoji" }
     val x = emoji.x

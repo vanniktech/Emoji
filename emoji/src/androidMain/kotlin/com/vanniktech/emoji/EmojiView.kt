@@ -37,6 +37,7 @@ import com.vanniktech.emoji.internal.EmojiVariantPopup
 import com.vanniktech.emoji.internal.RepeatListener
 import com.vanniktech.emoji.internal.backgroundColor
 import com.vanniktech.emoji.internal.dividerColor
+import com.vanniktech.emoji.internal.emojiDrawableProvider
 import com.vanniktech.emoji.internal.hideKeyboardAndFocus
 import com.vanniktech.emoji.internal.primaryColor
 import com.vanniktech.emoji.internal.secondaryColor
@@ -167,11 +168,12 @@ class EmojiView @JvmOverloads constructor(
     val searchIndex = if (hasSearch) emojiTabs.size - (if (hasBackspace) 2 else 1) else null
     val backspaceIndex = if (hasBackspace) emojiTabs.size - 1 else null
     val languageCode = context.getString(R.string.emoji_language_code)
+    val emojiDrawableProvider = EmojiManager.emojiDrawableProvider()
     for (i in categories.indices) {
       val emojiCategory = categories[i]
-      require(emojiCategory is EmojiAndroidCategory) { "Your category needs to implement EmojiAndroidCategory" }
       val categoryName = emojiCategory.categoryNames[languageCode].orEmpty()
-      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, emojiCategory.icon, categoryName, emojisTab)
+      val categoryIcon = emojiDrawableProvider.getIcon(emojiCategory)
+      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, categoryIcon, categoryName, emojisTab)
     }
     if (searchIndex != null) {
       emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, context.getString(R.string.emoji_search), emojisTab)

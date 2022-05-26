@@ -18,7 +18,9 @@ package com.vanniktech.emoji
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
 
 interface EmojiDrawableProvider {
+  @DrawableRes fun getIcon(emojiCategory: EmojiCategory): Int
   fun getDrawable(emoji: Emoji, context: Context): Drawable
 }

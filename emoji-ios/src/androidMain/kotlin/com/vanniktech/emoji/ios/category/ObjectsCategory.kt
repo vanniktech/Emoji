@@ -16,15 +16,10 @@
 
 package com.vanniktech.emoji.ios.category
 
-import androidx.annotation.DrawableRes
-import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.ios.IosEmoji
 
-internal class ObjectsCategory : EmojiCategory, EmojiAndroidCategory {
-  @get:DrawableRes override val icon: Int
-    get() = com.vanniktech.emoji.ios.R.drawable.emoji_ios_category_objects
-
+internal class ObjectsCategory : EmojiCategory {
   override val categoryNames: Map<String, String>
     get() = mapOf(
       "en" to "Objects",

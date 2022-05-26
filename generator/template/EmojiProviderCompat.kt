@@ -31,9 +31,14 @@ class <%= name %>Provider(
   @Suppress("unused") private val emojiCompat: EmojiCompat,
 ) : EmojiProvider, EmojiDrawableProvider, EmojiReplacer {
   override val categories: Array<EmojiCategory>
-    get() = arrayOf(
-      <%= categories %>
+    get() = arrayOf(<% categories.forEach(function(category) { %>
+      <%= category.name %>(),<% }); %>
     )
+
+  override fun getIcon(emojiCategory: EmojiCategory): Int = when (emojiCategory) {<% categories.forEach(function(category) { %>
+    is <%= category.name %> -> R.drawable.emoji_<%= package %>_category_<%= category.icon %><% }); %>
+    else -> error("Unknown $emojiCategory")
+  }
 
   override fun replaceWithImages(
     context: Context,

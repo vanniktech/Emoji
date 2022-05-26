@@ -16,15 +16,10 @@
 
 package com.vanniktech.emoji.googlecompat.category
 
-import androidx.annotation.DrawableRes
-import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
-internal class TravelAndPlacesCategory : EmojiCategory, EmojiAndroidCategory {
-  @get:DrawableRes override val icon: Int
-    get() = com.vanniktech.emoji.googlecompat.R.drawable.emoji_googlecompat_category_travelandplaces
-
+internal class TravelAndPlacesCategory : EmojiCategory {
   override val categoryNames: Map<String, String>
     get() = mapOf(
       "en" to "Places",

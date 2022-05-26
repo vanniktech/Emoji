@@ -16,15 +16,10 @@
 
 package com.vanniktech.emoji.twitter.category
 
-import androidx.annotation.DrawableRes
-import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.twitter.TwitterEmoji
 
-internal class AnimalsAndNatureCategory : EmojiCategory, EmojiAndroidCategory {
-  @get:DrawableRes override val icon: Int
-    get() = com.vanniktech.emoji.twitter.R.drawable.emoji_twitter_category_animalsandnature
-
+internal class AnimalsAndNatureCategory : EmojiCategory {
   override val categoryNames: Map<String, String>
     get() = mapOf(
       "en" to "Nature",

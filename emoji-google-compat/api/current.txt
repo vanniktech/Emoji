@@ -5,6 +5,7 @@ package com.vanniktech.emoji.googlecompat {
     ctor public GoogleCompatEmojiProvider(androidx.emoji.text.EmojiCompat emojiCompat);
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
+    method public int getIcon(com.vanniktech.emoji.EmojiCategory emojiCategory);
     method public void release();
     method public void replaceWithImages(android.content.Context context, android.text.Spannable text, float emojiSize, com.vanniktech.emoji.EmojiReplacer? fallback);
     property public com.vanniktech.emoji.EmojiCategory![] categories;

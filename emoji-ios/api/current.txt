@@ -5,6 +5,7 @@ package com.vanniktech.emoji.ios {
     ctor public IosEmojiProvider();
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
+    method public int getIcon(com.vanniktech.emoji.EmojiCategory emojiCategory);
     method public void release();
     property public com.vanniktech.emoji.EmojiCategory![] categories;
   }
