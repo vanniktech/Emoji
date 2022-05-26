@@ -17,7 +17,6 @@
 package com.vanniktech.emoji.googlecompat.category
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
@@ -26,8 +25,11 @@ internal class SmileysAndPeopleCategory : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.googlecompat.R.drawable.emoji_googlecompat_category_smileysandpeople
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.googlecompat.R.string.emoji_googlecompat_category_smileysandpeople
+  override val categoryNames: Map<String, String>
+    get() = mapOf(
+      "en" to "Faces",
+      "de" to "Gesichter",
+    )
 
   override val emojis = ALL_EMOJIS
 

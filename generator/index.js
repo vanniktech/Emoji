@@ -70,48 +70,64 @@ const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939
 
 /**
  * Metadata about the categories.
- * @type {{name: string, text: string, textDe: string}[]}
+ * @type {{name: string, i18n: [{{key: string, value: string}}]}[]}
  */
 const categoryInfo = [
     {
       "name": "SmileysAndPeople",
-      "text": "Faces",
-      "textDe": "Gesichter"
+      "i18n": [
+        { "key": "en", "value": "Faces" },
+        { "key": "de", "value": "Gesichter" }
+      ]
     },
     {
       "name": "AnimalsAndNature",
-      "text": "Nature",
-      "textDe": "Natur"
+      "i18n": [
+        { "key": "en", "value": "Nature" },
+        { "key": "de", "value": "Natur" }
+      ]
     },
     {
       "name": "FoodAndDrink",
-      "text": "Food",
-      "textDe": "Essen"
+      "i18n": [
+        { "key": "en", "value": "Food" },
+        { "key": "de", "value": "Essen" }
+      ]
     },
     {
       "name": "Activities",
-      "text": "Activities",
-      "textDe": "Aktivitäten"
+      "i18n": [
+        { "key": "en", "value": "Activities" },
+        { "key": "de", "value": "Aktivitäten" }
+      ]
     },
     {
       "name": "TravelAndPlaces",
-      "text": "Places",
-      "textDe": "Orte"
+      "i18n": [
+        { "key": "en", "value": "Places" },
+        { "key": "de", "value": "Orte" }
+      ]
     },
     {
       "name": "Objects",
-      "text": "Objects",
-      "textDe": "Objekte"
+      "i18n": [
+        { "key": "en", "value": "Objects" },
+        { "key": "de", "value": "Objekte" }
+      ]
     },
     {
       "name": "Symbols",
-      "text": "Symbols",
-      "textDe": "Symbole"
+      "i18n": [
+        { "key": "en", "value": "Symbols" },
+        { "key": "de", "value": "Symbole" }
+      ]
     },
     {
       "name": "Flags",
-      "text": "Flags",
-      "textDe": "Flaggen"
+      "i18n": [
+        { "key": "en", "value": "Flags" },
+        { "key": "de", "value": "Flaggen" }
+      ]
     },
 ];
 
@@ -370,7 +386,6 @@ async function generateCode(map, targets) {
 
     const emojiTemplate = await fs.readFile("template/Emoji.kt", "utf-8");
     const emojiCompatTemplate = await fs.readFile("template/EmojiCompat.kt", "utf-8");
-    const stringsTemplate = await fs.readFile("template/strings.xml", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
@@ -383,7 +398,6 @@ async function generateCode(map, targets) {
     for (const target of targets) {
         const srcDir = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
         const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
-        const valuesDir = `../emoji-${target.module}/src/androidMain/res/values`;
 
         if (target.module !== "google-compat") {
             await fs.emptyDir(srcDir);
@@ -423,6 +437,7 @@ async function generateCode(map, targets) {
                     category: category,
                     chunks: chunkClasses.map(it => `${it}.EMOJIS`).join(" + "),
                     icon: category.toLowerCase(),
+                    categoryNames: categoryInfo.filter(it => it.name == category).flatMap(category => category.i18n.map(it => Object.assign({}, {key: it.key, value: it.value}))),
                 }),
             );
         }
@@ -465,16 +480,6 @@ async function generateCode(map, targets) {
                 name: target.name,
             }));
         }
-
-        await fs.writeFile(`${valuesDir}/strings.xml`, template(stringsTemplate)({
-            package: target.package,
-            categories: categoryInfo.map(it => Object.assign({}, {name: it.name.toLowerCase(), text: it.text})),
-        }));
-
-        await fs.writeFile(`${valuesDir}-de/strings.xml`, template(stringsTemplate)({
-            package: target.package,
-            categories: categoryInfo.map(it => Object.assign({}, {name: it.name.toLowerCase(), text: it.textDe})),
-        }));
     }
 }
 

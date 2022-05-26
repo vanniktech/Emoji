@@ -17,7 +17,6 @@
 package com.vanniktech.emoji
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 
 /**
  * Interface for defining a category.
@@ -25,7 +24,4 @@ import androidx.annotation.StringRes
 interface EmojiAndroidCategory : EmojiCategory {
   @get:DrawableRes
   val icon: Int
-
-  @get:StringRes
-  val categoryName: Int
 }

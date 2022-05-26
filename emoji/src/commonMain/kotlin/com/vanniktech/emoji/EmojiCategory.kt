@@ -24,4 +24,10 @@ interface EmojiCategory {
    * Returns all the emojis it can display.
    */
   val emojis: List<Emoji>
+
+  /**
+   * Map where the key is a ISO 639 language code: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+   * and the value is the associated translated category name
+   */
+  val categoryNames: Map<String, String>
 }

@@ -17,7 +17,6 @@
 package com.vanniktech.emoji.<%= package %>.category
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.<%= package %>.<%= name %>
@@ -26,8 +25,10 @@ internal class <%= category %>Category : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.<%= package %>.R.drawable.emoji_<%= package %>_category_<%= icon %>
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.<%= package %>.R.string.emoji_<%= package %>_category_<%= icon %>
+  override val categoryNames: Map<String, String>
+    get() = mapOf(<% categoryNames.forEach(function(category) { %>
+      "<%= category.key %>" to "<%= category.value %>",<% }); %>
+    )
 
   override val emojis = ALL_EMOJIS
 

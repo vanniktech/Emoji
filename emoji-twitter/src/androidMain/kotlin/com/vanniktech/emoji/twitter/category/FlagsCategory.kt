@@ -17,7 +17,6 @@
 package com.vanniktech.emoji.twitter.category
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.twitter.TwitterEmoji
@@ -26,8 +25,11 @@ internal class FlagsCategory : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.twitter.R.drawable.emoji_twitter_category_flags
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.twitter.R.string.emoji_twitter_category_flags
+  override val categoryNames: Map<String, String>
+    get() = mapOf(
+      "en" to "Flags",
+      "de" to "Flaggen",
+    )
 
   override val emojis = ALL_EMOJIS
 

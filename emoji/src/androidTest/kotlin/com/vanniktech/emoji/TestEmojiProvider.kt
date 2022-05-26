@@ -31,8 +31,11 @@ internal class TestEmojiProvider(
 
         override val icon: Int
           get() = R.drawable.emoji_recent
-        override val categoryName: Int
-          get() = R.string.emoji_category_recent
+
+        override val categoryNames: Map<String, String>
+          get() = mapOf(
+            "en" to "Test",
+          )
       }
     )
 
@@ -55,8 +58,10 @@ object EmptyEmojiProvider : EmojiProvider {
           get() = emptyList()
         override val icon: Int
           get() = 0
-        override val categoryName: Int
-          get() = 0
+        override val categoryNames: Map<String, String>
+          get() = mapOf(
+            "en" to "Test",
+          )
       }
     )
 

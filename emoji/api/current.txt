@@ -18,9 +18,7 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiAndroidCategory extends com.vanniktech.emoji.EmojiCategory {
-    method @StringRes public int getCategoryName();
     method @DrawableRes public int getIcon();
-    property @StringRes public abstract int categoryName;
     property @DrawableRes public abstract int icon;
   }
 
@@ -45,7 +43,9 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiCategory {
+    method public java.util.Map<java.lang.String,java.lang.String> getCategoryNames();
     method public java.util.List<com.vanniktech.emoji.Emoji> getEmojis();
+    property public abstract java.util.Map<java.lang.String,java.lang.String> categoryNames;
     property public abstract java.util.List<com.vanniktech.emoji.Emoji> emojis;
   }
 

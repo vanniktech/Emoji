@@ -17,7 +17,6 @@
 package com.vanniktech.emoji.googlecompat.category
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
@@ -26,8 +25,11 @@ internal class FoodAndDrinkCategory : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.googlecompat.R.drawable.emoji_googlecompat_category_foodanddrink
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.googlecompat.R.string.emoji_googlecompat_category_foodanddrink
+  override val categoryNames: Map<String, String>
+    get() = mapOf(
+      "en" to "Food",
+      "de" to "Essen",
+    )
 
   override val emojis = ALL_EMOJIS
 

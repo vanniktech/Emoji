@@ -3,4 +3,5 @@
     <string name="emoji_category_recent">Zuletzt benutzt</string>
     <string name="emoji_backspace">Rücktaste</string>
     <string name="emoji_search">Suche</string>
+    <string name="emoji_language_code">de</string>
 </resources>

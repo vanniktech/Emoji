@@ -17,7 +17,6 @@
 package com.vanniktech.emoji.google.category
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import com.vanniktech.emoji.EmojiAndroidCategory
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.google.GoogleEmoji
@@ -26,8 +25,11 @@ internal class ObjectsCategory : EmojiCategory, EmojiAndroidCategory {
   @get:DrawableRes override val icon: Int
     get() = com.vanniktech.emoji.google.R.drawable.emoji_google_category_objects
 
-  @get:StringRes override val categoryName: Int
-    get() = com.vanniktech.emoji.google.R.string.emoji_google_category_objects
+  override val categoryNames: Map<String, String>
+    get() = mapOf(
+      "en" to "Objects",
+      "de" to "Objekte",
+    )
 
   override val emojis = ALL_EMOJIS
 

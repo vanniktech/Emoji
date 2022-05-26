@@ -26,7 +26,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -163,17 +162,19 @@ class EmojiView @JvmOverloads constructor(
     val recentAdapterItemCount = emojiPagerAdapter.recentAdapterItemCount()
     emojiTabs = arrayOfNulls(recentAdapterItemCount + categories.size + endIndexes)
     if (emojiPagerAdapter.hasRecentEmoji()) {
-      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, R.string.emoji_category_recent, emojisTab)
+      emojiTabs[0] = inflateButton(context, R.drawable.emoji_recent, context.getString(R.string.emoji_category_recent), emojisTab)
     }
     val searchIndex = if (hasSearch) emojiTabs.size - (if (hasBackspace) 2 else 1) else null
     val backspaceIndex = if (hasBackspace) emojiTabs.size - 1 else null
+    val languageCode = context.getString(R.string.emoji_language_code)
     for (i in categories.indices) {
       val emojiCategory = categories[i]
       require(emojiCategory is EmojiAndroidCategory) { "Your category needs to implement EmojiAndroidCategory" }
-      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, emojiCategory.icon, emojiCategory.categoryName, emojisTab)
+      val categoryName = emojiCategory.categoryNames[languageCode].orEmpty()
+      emojiTabs[i + recentAdapterItemCount] = inflateButton(context, emojiCategory.icon, categoryName, emojisTab)
     }
     if (searchIndex != null) {
-      emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, R.string.emoji_search, emojisTab)
+      emojiTabs[searchIndex] = inflateButton(context, R.drawable.emoji_search, context.getString(R.string.emoji_search), emojisTab)
       emojiTabs[searchIndex]!!.setOnClickListener {
         editText?.hideKeyboardAndFocus()
 
@@ -192,7 +193,7 @@ class EmojiView @JvmOverloads constructor(
       }
     }
     if (backspaceIndex != null) {
-      emojiTabs[backspaceIndex] = inflateButton(context, R.drawable.emoji_backspace, R.string.emoji_backspace, emojisTab)
+      emojiTabs[backspaceIndex] = inflateButton(context, R.drawable.emoji_backspace, context.getString(R.string.emoji_backspace), emojisTab)
       //noinspection AndroidLintClickableViewAccessibility
       emojiTabs[backspaceIndex]?.setOnTouchListener(
         RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL.toLong()) {
@@ -209,13 +210,13 @@ class EmojiView @JvmOverloads constructor(
   private fun inflateButton(
     context: Context,
     @DrawableRes icon: Int,
-    @StringRes categoryName: Int,
+    categoryName: String,
     parent: ViewGroup
   ): ImageButton {
     val button = LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false) as ImageButton
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon))
     button.setColorFilter(theming.primaryColor(context), PorterDuff.Mode.SRC_IN)
-    button.contentDescription = context.getString(categoryName)
+    button.contentDescription = categoryName
     parent.addView(button)
     return button
   }
