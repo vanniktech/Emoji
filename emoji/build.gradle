@@ -19,7 +19,7 @@ version = VERSION_NAME
 kotlin {
   android("android")
 //  ios("ios")
-//  jvm("jvm")
+  jvm("jvm")
 
   sourceSets {
     all {
@@ -53,6 +53,13 @@ kotlin {
         implementation libs.kotlin.test.junit
         implementation libs.robolectric
       }
+    }
+
+    jvmMain.dependencies {
+    }
+
+    jvmTest.dependencies {
+      implementation libs.kotlin.test.junit
     }
   }
 }
