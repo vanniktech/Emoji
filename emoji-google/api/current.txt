@@ -3,7 +3,7 @@ package com.vanniktech.emoji.google {
 
   public final class GoogleEmojiProvider implements com.vanniktech.emoji.EmojiDrawableProvider com.vanniktech.emoji.EmojiProvider {
     ctor public GoogleEmojiProvider();
-    method public void destroy();
+    method public void release();
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
     property public com.vanniktech.emoji.EmojiCategory![] categories;

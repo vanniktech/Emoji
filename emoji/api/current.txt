@@ -65,7 +65,7 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiDrawableProvider {
-    method public void destroy();
+    method public void release();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
   }
 

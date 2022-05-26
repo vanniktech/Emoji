@@ -48,5 +48,5 @@ class <%= name %>Provider(
   }
 
   override fun getDrawable(emoji: Emoji, context: Context): Drawable = GoogleCompatEmojiDrawable(emoji.unicode)
-  override fun destroy() = Unit
+  override fun release() = Unit
 }

@@ -37,7 +37,7 @@ internal class TestEmojiProvider(
     )
 
   override fun getDrawable(emoji: Emoji, context: Context) = error("Not available from tests")
-  override fun destroy() = Unit
+  override fun release() = Unit
 }
 
 object EmptyCategories : EmojiProvider {

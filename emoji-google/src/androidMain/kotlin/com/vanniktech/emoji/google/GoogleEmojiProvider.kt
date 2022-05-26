@@ -82,7 +82,7 @@ class GoogleEmojiProvider : EmojiProvider, EmojiDrawableProvider {
     return strip
   }
 
-  override fun destroy() {
+  override fun release() {
     synchronized(LOCK) {
       BITMAP_CACHE.evictAll()
       for (i in 0 until NUM_STRIPS) {

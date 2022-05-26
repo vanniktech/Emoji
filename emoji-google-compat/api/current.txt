@@ -3,7 +3,7 @@ package com.vanniktech.emoji.googlecompat {
 
   public final class GoogleCompatEmojiProvider implements com.vanniktech.emoji.EmojiDrawableProvider com.vanniktech.emoji.EmojiProvider com.vanniktech.emoji.EmojiReplacer {
     ctor public GoogleCompatEmojiProvider(androidx.emoji.text.EmojiCompat emojiCompat);
-    method public void destroy();
+    method public void release();
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
     method public void replaceWithImages(android.content.Context context, android.text.Spannable text, float emojiSize, com.vanniktech.emoji.EmojiReplacer? fallback);

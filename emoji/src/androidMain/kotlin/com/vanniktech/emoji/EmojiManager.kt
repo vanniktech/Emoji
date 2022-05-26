@@ -181,7 +181,7 @@ object EmojiManager {
    */
   @JvmStatic fun release() {
     synchronized(EmojiManager::class.java) {
-      (emojiDrawableProvider as EmojiDrawableProvider).destroy()
+      (emojiDrawableProvider as EmojiDrawableProvider).release()
     }
   }
 }

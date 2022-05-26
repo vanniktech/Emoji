@@ -3,7 +3,7 @@ package com.vanniktech.emoji.facebook {
 
   public final class FacebookEmojiProvider implements com.vanniktech.emoji.EmojiDrawableProvider com.vanniktech.emoji.EmojiProvider {
     ctor public FacebookEmojiProvider();
-    method public void destroy();
+    method public void release();
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
     property public com.vanniktech.emoji.EmojiCategory![] categories;
