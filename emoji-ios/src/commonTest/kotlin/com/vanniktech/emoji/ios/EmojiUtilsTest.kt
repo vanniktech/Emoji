@@ -11,7 +11,7 @@ import org.junit.Test
 
 class EmojiUtilsTest {
   @Before fun setUp() {
-    EmojiManager.install(IosEmojiProvider())
+    EmojiManager.install(emojiProvider())
   }
 
   @Test fun starWithVariantSelector() {
