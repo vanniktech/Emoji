@@ -21,5 +21,4 @@ import android.graphics.drawable.Drawable
 
 interface EmojiDrawableProvider {
   fun getDrawable(emoji: Emoji, context: Context): Drawable
-  fun release()
 }

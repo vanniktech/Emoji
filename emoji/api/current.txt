@@ -68,7 +68,6 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiDrawableProvider {
-    method public void release();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
   }
 
@@ -146,6 +145,7 @@ package com.vanniktech.emoji {
 
   public interface EmojiProvider {
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    method public void release();
     property public abstract com.vanniktech.emoji.EmojiCategory![] categories;
   }
 

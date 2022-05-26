@@ -43,6 +43,8 @@ internal class TestEmojiProvider(
 object EmptyCategories : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = emptyArray()
+
+  override fun release() = Unit
 }
 
 object EmptyEmojiProvider : EmojiProvider {
@@ -57,4 +59,6 @@ object EmptyEmojiProvider : EmojiProvider {
           get() = 0
       }
     )
+
+  override fun release() = Unit
 }

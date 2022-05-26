@@ -3,9 +3,9 @@ package com.vanniktech.emoji.twitter {
 
   public final class TwitterEmojiProvider implements com.vanniktech.emoji.EmojiDrawableProvider com.vanniktech.emoji.EmojiProvider {
     ctor public TwitterEmojiProvider();
-    method public void release();
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
+    method public void release();
     property public com.vanniktech.emoji.EmojiCategory![] categories;
   }
 

@@ -32,6 +32,8 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import com.vanniktech.emoji.EmojiDrawableProvider
+import com.vanniktech.emoji.EmojiManager
 import kotlin.math.roundToInt
 
 private const val DONT_UPDATE_FLAG = -1
@@ -143,4 +145,10 @@ internal fun EditText.hideKeyboardAndFocus() {
     clearFocus()
     context.inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
   }
+}
+
+internal fun EmojiManager.emojiDrawableProvider(): EmojiDrawableProvider {
+  val emojiProvider = emojiProvider()
+  require(emojiProvider is EmojiDrawableProvider) { "Your provider needs to implement EmojiDrawableProvider" }
+  return emojiProvider
 }

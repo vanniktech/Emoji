@@ -27,4 +27,6 @@ interface EmojiProvider {
    * @since 0.4.0
    */
   val categories: Array<EmojiCategory>
+
+  fun release()
 }
