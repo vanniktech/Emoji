@@ -390,6 +390,7 @@ async function generateCode(map, targets) {
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
     const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
+    const emojiProviderJvm = await fs.readFile("template/EmojiProviderJvm.kt", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
         return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
@@ -398,6 +399,7 @@ async function generateCode(map, targets) {
     for (const target of targets) {
         const srcDir = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
         const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const jvmSrcDir = `../emoji-${target.module}/src/jvmMain/kotlin/com/vanniktech/emoji/${target.package}`;
 
         if (target.module !== "google-compat") {
             await fs.emptyDir(commonSrcDir);
@@ -405,6 +407,8 @@ async function generateCode(map, targets) {
         } else {
             await fs.emptyDir(`${commonSrcDir}/category`)
         }
+
+        await fs.emptyDir(jvmSrcDir);
 
         let strips = 0;
         for (const [category, emojis] of entries) {
@@ -467,6 +471,13 @@ async function generateCode(map, targets) {
                 categories: categories,
             }));
         }
+
+        await fs.writeFile(`${jvmSrcDir}/${target.name}Provider.kt`, template(emojiProviderJvm)({
+            package: target.package,
+            imports: imports,
+            name: target.name,
+            categories: categories,
+        }));
 
         if (target.module !== "google-compat") {
             await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiTemplate)({
