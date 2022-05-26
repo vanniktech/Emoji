@@ -24,4 +24,4 @@ jobs:
           java-version: ${{ matrix.java_version }}
 
       - name: Build with Gradle
-        run: ./gradlew build --stacktrace
+        run: ./gradlew jvmTest ktlint testDebug build --stacktrace
