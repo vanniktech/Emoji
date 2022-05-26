@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji.emoji
+package com.vanniktech.emoji
 
-import com.vanniktech.emoji.TestEmoji
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

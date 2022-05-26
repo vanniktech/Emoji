@@ -16,22 +16,16 @@
 
 package com.vanniktech.emoji
 
-import android.content.Context
-
 internal class TestEmojiProvider(
   vararg val emojis: Emoji,
-) : EmojiProvider, EmojiDrawableProvider {
+) : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
-      object : EmojiCategory, EmojiAndroidCategory {
+      object : EmojiCategory {
         override val emojis: List<Emoji>
           get() {
             return this@TestEmojiProvider.emojis.toList()
           }
-
-        override val icon: Int
-          get() = R.drawable.emoji_recent
-
         override val categoryNames: Map<String, String>
           get() = mapOf(
             "en" to "Test",
@@ -39,7 +33,6 @@ internal class TestEmojiProvider(
       }
     )
 
-  override fun getDrawable(emoji: Emoji, context: Context) = error("Not available from tests")
   override fun release() = Unit
 }
 
@@ -53,11 +46,9 @@ object EmptyCategories : EmojiProvider {
 object EmptyEmojiProvider : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
-      object : EmojiCategory, EmojiAndroidCategory {
+      object : EmojiCategory {
         override val emojis: List<Emoji>
           get() = emptyList()
-        override val icon: Int
-          get() = 0
         override val categoryNames: Map<String, String>
           get() = mapOf(
             "en" to "Test",

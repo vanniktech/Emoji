@@ -20,7 +20,6 @@ import android.text.SpannableString
 import com.vanniktech.emoji.internal.EmojiSpan
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertThrows
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,11 +29,10 @@ import org.robolectric.annotation.Config
 
 @Config(manifest = Config.NONE)
 @RunWith(RobolectricTestRunner::class)
-class EmojiManagerTest {
+class EmojiManagerAndroidTest {
   private lateinit var provider: EmojiProvider
 
-  @Before
-  fun setUp() {
+  @Before fun setUp() {
     val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"), false)
     val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
     val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
@@ -42,95 +40,8 @@ class EmojiManagerTest {
     provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
   }
 
-  @After
-  fun tearDown() {
+  @After fun tearDown() {
     EmojiManager.destroy()
-  }
-
-  @Test fun installNormalCategory() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.categories().isNotEmpty())
-  }
-
-  @Test fun noProviderInstalled() {
-    assertThrows("Please install an EmojiProvider through the EmojiManager.install() method first.", IllegalStateException::class.java) {
-      EmojiManager.findEmoji("test")
-    }
-  }
-
-  @Test fun installEmptyProvider() {
-    assertThrows("Your EmojiProvider must at least have one category with at least one emoji.", IllegalArgumentException::class.java) {
-      EmojiManager.install(EmptyCategories)
-    }
-  }
-
-  @Test fun installEmptyCategory() {
-    assertThrows("Your EmojiProvider must at least have one category with at least one emoji.", IllegalArgumentException::class.java) {
-      EmojiManager.install(EmptyEmojiProvider)
-    }
-  }
-
-  @Test fun installNormalEmoji() {
-    EmojiManager.install(provider)
-    assertEquals(
-      TestEmoji(intArrayOf(0x1234), listOf("test"), false),
-      EmojiManager.findEmoji(String(intArrayOf(0x1234), 0, 1)),
-    )
-  }
-
-  @Test fun installMultiple() {
-    EmojiManager.install(provider)
-    EmojiManager.install(provider)
-
-    // No duplicate categories.
-    assertEquals(1, EmojiManager.categories().size)
-  }
-
-  @Test fun destroy() {
-    EmojiManager.destroy()
-    assertThrows("Please install an EmojiProvider through the EmojiManager.install() method first.", IllegalStateException::class.java) {
-      EmojiManager.findEmoji("test")
-    }
-  }
-
-  @Test fun findEmojiNormal() {
-    EmojiManager.install(provider)
-    assertEquals(
-      TestEmoji(intArrayOf(0x5678), listOf("test"), false),
-      EmojiManager.findEmoji(String(intArrayOf(0x5678), 0, 1)),
-    )
-  }
-
-  @Test fun findEmojiEmpty() {
-    EmojiManager.install(provider)
-    assertEquals(null, EmojiManager.findEmoji(""))
-  }
-
-  @Test fun findAllEmojisNormal() {
-    EmojiManager.install(provider)
-    val text = (
-      "te" + String(intArrayOf(0x5678), 0, 1) +
-        "st" + String(intArrayOf(0x1234), 0, 1)
-      )
-    val firstExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x5678), listOf("test"), false), 2..3)
-    val secondExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x1234), listOf("test"), false), 5..6)
-    assertEquals(
-      listOf(
-        firstExpectedRange,
-        secondExpectedRange,
-      ),
-      EmojiManager.findAllEmojis(text),
-    )
-  }
-
-  @Test fun findAllEmojisEmpty() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.findAllEmojis("").isEmpty())
-  }
-
-  @Test fun findAllEmojisNull() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.findAllEmojis(null).isEmpty())
   }
 
   @Suppress("DEPRECATION")

@@ -16,10 +16,10 @@
 
 package com.vanniktech.emoji
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
-import org.junit.Before
-import org.junit.Test
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 class EmojiInformationTest {
   private lateinit var empty: EmojiInformation
@@ -27,7 +27,7 @@ class EmojiInformationTest {
   private lateinit var one: EmojiInformation
   private lateinit var one2: EmojiInformation
 
-  @Before fun setUp() {
+  @BeforeTest fun setUp() {
     val emptyList: List<EmojiRange> = emptyList()
     empty = EmojiInformation(false, emptyList)
     empty2 = EmojiInformation(false, emptyList)
@@ -37,16 +37,16 @@ class EmojiInformationTest {
   }
 
   @Test fun equality() {
-    assertEquals(empty2, empty)
-    assertEquals(one2, one)
-    assertNotEquals(empty, one)
-    assertNotEquals(one, empty)
+    assertEquals(expected = empty2, actual = empty)
+    assertEquals(expected = one2, actual = one)
+    assertNotEquals(illegal = empty, actual = one)
+    assertNotEquals(illegal = one, actual = empty)
   }
 
   @Test fun hashy() {
-    assertEquals(empty2.hashCode(), empty.hashCode())
-    assertEquals(one2.hashCode(), one.hashCode())
-    assertNotEquals(empty.hashCode(), one.hashCode())
-    assertNotEquals(one.hashCode(), empty.hashCode())
+    assertEquals(expected = empty2.hashCode(), actual = empty.hashCode())
+    assertEquals(expected = one2.hashCode(), actual = one.hashCode())
+    assertNotEquals(illegal = empty.hashCode(), actual = one.hashCode())
+    assertNotEquals(illegal = one.hashCode(), actual = empty.hashCode())
   }
 }

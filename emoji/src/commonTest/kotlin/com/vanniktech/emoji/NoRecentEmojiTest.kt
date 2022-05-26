@@ -17,14 +17,14 @@
 package com.vanniktech.emoji
 
 import com.vanniktech.emoji.recent.NoRecentEmoji
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class NoRecentEmojiTest {
   @Test fun alwaysEmpty() {
-    assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
+    assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
     NoRecentEmoji.addEmoji(TestEmoji(intArrayOf(0x1f55a), listOf("test"), false))
     NoRecentEmoji.persist()
-    assertEquals(emptyList<Emoji>(), NoRecentEmoji.getRecentEmojis())
+    assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
   }
 }

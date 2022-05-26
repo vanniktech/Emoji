@@ -1,9 +1,9 @@
 package com.vanniktech.emoji.search
 
 import com.vanniktech.emoji.TestEmoji
-import org.junit.Assert.assertEquals
-import org.junit.Assert.fail
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.fail
 
 class SearchEmojiResultTest {
   private val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"), false)
