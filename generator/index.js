@@ -388,7 +388,7 @@ async function generateCode(map, targets) {
     const emojiCompatTemplate = await fs.readFile("template/EmojiCompat.kt", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
-    const emojiProviderTemplate = await fs.readFile("template/EmojiProvider.kt", "utf-8");
+    const emojiProviderAndroid = await fs.readFile("template/EmojiProviderAndroid.kt", "utf-8");
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
 
     const entries = stable([...map.entries()], (first, second) => {
@@ -452,7 +452,7 @@ async function generateCode(map, targets) {
         })
 
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderTemplate)({
+            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderAndroid)({
                 package: target.package,
                 imports: imports,
                 name: target.name,

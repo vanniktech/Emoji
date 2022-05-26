@@ -1,7 +1,7 @@
 // Signature format: 4.0
 package com.vanniktech.emoji.googlecompat {
 
-  public final class GoogleCompatEmojiProvider implements com.vanniktech.emoji.EmojiDrawableProvider com.vanniktech.emoji.EmojiProvider com.vanniktech.emoji.EmojiReplacer {
+  public final class GoogleCompatEmojiProvider implements com.vanniktech.emoji.EmojiAndroidProvider com.vanniktech.emoji.EmojiProvider com.vanniktech.emoji.EmojiReplacer {
     ctor public GoogleCompatEmojiProvider(androidx.emoji.text.EmojiCompat emojiCompat);
     method public com.vanniktech.emoji.EmojiCategory![] getCategories();
     method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);

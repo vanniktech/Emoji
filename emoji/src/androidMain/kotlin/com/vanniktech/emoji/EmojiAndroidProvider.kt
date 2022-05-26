@@ -20,7 +20,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 
-interface EmojiDrawableProvider {
+interface EmojiAndroidProvider : EmojiProvider {
   @DrawableRes fun getIcon(emojiCategory: EmojiCategory): Int
   fun getDrawable(emoji: Emoji, context: Context): Drawable
 }

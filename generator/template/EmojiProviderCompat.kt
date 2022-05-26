@@ -21,15 +21,15 @@ import android.graphics.drawable.Drawable
 import android.text.Spannable
 import androidx.emoji.text.EmojiCompat
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiCategory
-import com.vanniktech.emoji.EmojiDrawableProvider
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.EmojiReplacer
 <%= imports %>
 
 class <%= name %>Provider(
   @Suppress("unused") private val emojiCompat: EmojiCompat,
-) : EmojiProvider, EmojiDrawableProvider, EmojiReplacer {
+) : EmojiProvider, EmojiAndroidProvider, EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(<% categories.forEach(function(category) { %>
       <%= category.name %>(),<% }); %>

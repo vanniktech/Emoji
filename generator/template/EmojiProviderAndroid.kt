@@ -24,13 +24,13 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.LruCache
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiCategory
-import com.vanniktech.emoji.EmojiDrawableProvider
 import com.vanniktech.emoji.EmojiProvider
 <%= imports %>
 import java.lang.ref.SoftReference
 
-class <%= name %>Provider : EmojiProvider, EmojiDrawableProvider {
+class <%= name %>Provider : EmojiProvider, EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(<% categories.forEach(function(category) { %>
       <%= category.name %>(),<% }); %>

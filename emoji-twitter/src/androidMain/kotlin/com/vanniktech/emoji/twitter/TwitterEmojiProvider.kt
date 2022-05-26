@@ -24,8 +24,8 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.LruCache
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiCategory
-import com.vanniktech.emoji.EmojiDrawableProvider
 import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.twitter.category.ActivitiesCategory
 import com.vanniktech.emoji.twitter.category.AnimalsAndNatureCategory
@@ -37,7 +37,7 @@ import com.vanniktech.emoji.twitter.category.SymbolsCategory
 import com.vanniktech.emoji.twitter.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
 
-class TwitterEmojiProvider : EmojiProvider, EmojiDrawableProvider {
+class TwitterEmojiProvider : EmojiProvider, EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),

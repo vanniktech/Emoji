@@ -32,7 +32,7 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
-import com.vanniktech.emoji.EmojiDrawableProvider
+import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiManager
 import kotlin.math.roundToInt
 
@@ -147,8 +147,8 @@ internal fun EditText.hideKeyboardAndFocus() {
   }
 }
 
-internal fun EmojiManager.emojiDrawableProvider(): EmojiDrawableProvider {
+internal fun EmojiManager.emojiDrawableProvider(): EmojiAndroidProvider {
   val emojiProvider = emojiProvider()
-  require(emojiProvider is EmojiDrawableProvider) { "Your provider needs to implement EmojiDrawableProvider" }
+  require(emojiProvider is EmojiAndroidProvider) { "Your provider needs to implement EmojiDrawableProvider" }
   return emojiProvider
 }
