@@ -63,8 +63,7 @@ class <%= name %>Provider : EmojiProvider, EmojiDrawableProvider {
         strip = STRIP_REFS[x]?.get() as Bitmap?
         if (strip == null) {
           val resources = context!!.resources
-          val resId = resources.getIdentifier("emoji_<%= package %>_sheet_$x", "drawable", context.packageName)
-          strip = BitmapFactory.decodeResource(resources, resId)
+          strip = BitmapFactory.decodeResource(resources, SHEETS[x])
           STRIP_REFS[x] = SoftReference(strip)
         }
       }
@@ -89,6 +88,10 @@ class <%= name %>Provider : EmojiProvider, EmojiDrawableProvider {
     private const val SPRITE_SIZE = 64
     private const val SPRITE_SIZE_INC_BORDER = 66
     private const val NUM_STRIPS = <%= strips %>
+    private val SHEETS = listOf(<% Array(strips).fill().forEach(function(_, index) { %>
+      R.drawable.emoji_<%= package %>_sheet_<%= index %>,<% }); %>
+    )
+
     private val LOCK = Any()
     private val STRIP_REFS: Array<SoftReference<*>?> = arrayOfNulls(NUM_STRIPS)
     private val BITMAP_CACHE = LruCache<Point, Bitmap>(CACHE_SIZE)
