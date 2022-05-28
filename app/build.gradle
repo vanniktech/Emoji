@@ -10,11 +10,6 @@ dependencyGuard {
   }
 }
 
-// https://github.com/dropbox/dependency-guard/issues/30
-tasks.named("check").configure {
-  it.dependsOn(tasks.named("dependencyGuard"))
-}
-
 android {
   namespace = "com.vanniktech.emoji.sample"
 

@@ -40,4 +40,4 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 metalava = { id = "me.tylerbwong.gradle.metalava", version = "0.2.3" }
-dependencyGuard = { id = "com.dropbox.dependency-guard", version = "0.2.0" }
+dependencyGuard = { id = "com.dropbox.dependency-guard", version = "0.3.0" }
