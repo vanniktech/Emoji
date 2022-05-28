@@ -17,7 +17,9 @@ metalava {
 version = VERSION_NAME
 
 kotlin {
-  android("android")
+  android("android") {
+    publishLibraryVariants("release")
+  }
 //  ios("ios")
   jvm("jvm")
 
