@@ -8,6 +8,7 @@ plugins {
   alias(libs.plugins.kotlin.native.cocoapods) apply false
   alias(libs.plugins.dokka) apply false
   alias(libs.plugins.publish) apply false
+  alias(libs.plugins.licensee) apply false
 }
 
 codeQualityTools {

@@ -6,6 +6,11 @@ plugins {
   alias(libs.plugins.kotlin.parcelize)
   alias(libs.plugins.metalava)
   alias(libs.plugins.publish)
+  alias(libs.plugins.licensee)
+}
+
+licensee {
+  allow("Apache-2.0")
 }
 
 metalava {
