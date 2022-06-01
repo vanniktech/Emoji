@@ -75,7 +75,7 @@ dependencies {
 }
 
 dependencies {
-  debugImplementation libs.leakcanary
+  debugImplementation libs.leakcanary.android
 }
 
 dependencies {
