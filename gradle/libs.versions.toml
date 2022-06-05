@@ -36,6 +36,7 @@ android-cache-fix = { id = "org.gradle.android.cache-fix", version = "2.5.2" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.21.0" }
 dependencyGuard = { id = "com.dropbox.dependency-guard", version = "0.3.0" }
+dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.7.0" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.codequalitytools) apply true
+  alias(libs.plugins.dependencygraphgenerator) apply true
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.cache.fix) apply false
   alias(libs.plugins.android.library) apply false
