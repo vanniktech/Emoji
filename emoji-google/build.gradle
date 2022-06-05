@@ -1,12 +1,12 @@
 plugins {
-  alias(libs.plugins.dokka)
-  alias(libs.plugins.kotlin.multiplatform)
-  alias(libs.plugins.kotlin.native.cocoapods)
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin.parcelize)
-  alias(libs.plugins.metalava)
-  alias(libs.plugins.publish)
-  alias(libs.plugins.licensee)
+  id("org.jetbrains.dokka")
+  id("org.jetbrains.kotlin.multiplatform")
+  id("org.jetbrains.kotlin.native.cocoapods")
+  id("com.android.library")
+  id("org.jetbrains.kotlin.plugin.parcelize")
+  id("me.tylerbwong.gradle.metalava")
+  id("com.vanniktech.maven.publish")
+  id("app.cash.licensee")
 }
 
 licensee {

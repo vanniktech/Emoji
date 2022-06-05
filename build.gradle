@@ -1,16 +1,24 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath(libs.plugin.android.cache.fix)
+    classpath(libs.plugin.androidgradleplugin)
+    classpath(libs.plugin.dependency.guard)
+    classpath(libs.plugin.dokka)
+    classpath(libs.plugin.kotlin)
+    classpath(libs.plugin.licensee)
+    classpath(libs.plugin.metalava)
+    classpath(libs.plugin.publish)
+  }
+}
+
 plugins {
-  alias(libs.plugins.codequalitytools) apply true
-  alias(libs.plugins.dependencygraphgenerator) apply true
-  alias(libs.plugins.android.application) apply false
-  alias(libs.plugins.android.cache.fix) apply false
-  alias(libs.plugins.android.library) apply false
-  alias(libs.plugins.dokka) apply false
-  alias(libs.plugins.kotlin.android) apply false
-  alias(libs.plugins.kotlin.multiplatform) apply false
-  alias(libs.plugins.kotlin.native.cocoapods) apply false
-  alias(libs.plugins.kotlin.parcelize) apply false
-  alias(libs.plugins.licensee) apply false
-  alias(libs.plugins.publish) apply false
+  alias(libs.plugins.codequalitytools)
+  alias(libs.plugins.dependencygraphgenerator)
 }
 
 codeQualityTools {

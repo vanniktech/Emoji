@@ -3,8 +3,7 @@ minSdk = "21"
 compileSdk = "31"
 targetSdk = "31"
 
-agp = "7.0.4"
-dokka = "1.6.21"
+androidgradleplugin = "7.0.4"
 gradle = '7.4.2'
 kotlin = "1.6.21"
 ktlint = "0.45.2"
@@ -26,22 +25,19 @@ kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", versi
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version = "2.9.1" }
 material = { module = "com.google.android.material:material", version = "1.6.0" }
+plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "2.5.3" }
+plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version.ref = "androidgradleplugin" }
+plugin-dependency-guard = { module = "com.dropbox.dependency-guard:dependency-guard", version = "0.3.0" }
+plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.6.21" }
+plugin-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-gradle", version = "2.8.1" }
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.4.1" }
+plugin-metalava = { module = "me.tylerbwong.gradle:metalava-gradle", version = "0.2.3" }
+plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.20.0" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.8.1" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-android-cache-fix = { id = "org.gradle.android.cache-fix", version = "2.5.2" }
-android-library = { id = "com.android.library", version.ref = "agp" }
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.21.0" }
-dependencyGuard = { id = "com.dropbox.dependency-guard", version = "0.3.0" }
 dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.7.0" }
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-native-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-licensee = { id = "app.cash.licensee", version = "1.4.0" }
-metalava = { id = "me.tylerbwong.gradle.metalava", version = "0.2.3" }
-publish = { id = "com.vanniktech.maven.publish", version = "0.20.0" }
