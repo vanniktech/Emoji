@@ -23,7 +23,7 @@ import com.vanniktech.emoji.R
 
 internal open class EmojiGridView @JvmOverloads constructor(
   context: Context,
-  attrs: AttributeSet? = null
+  attrs: AttributeSet? = null,
 ) : GridView(context, attrs) {
   init {
     val width = resources.getDimensionPixelSize(R.dimen.emoji_grid_view_column_width)

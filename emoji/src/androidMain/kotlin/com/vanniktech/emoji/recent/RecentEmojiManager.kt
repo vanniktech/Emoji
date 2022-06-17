@@ -50,7 +50,7 @@ class RecentEmojiManager @JvmOverloads constructor(
               null
             }
           }.sortedByDescending { it.timestamp }.toMutableList(),
-          maxRecents
+          maxRecents,
         )
       }
     }

@@ -112,11 +112,13 @@ class EmojiView @JvmOverloads constructor(
     if (pageTransformer != null) {
       emojisPager.setPageTransformer(true, pageTransformer)
     }
-    emojisPager.addOnPageChangeListener(object : OnPageChangeListener {
-      override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
-      override fun onPageScrollStateChanged(position: Int) = Unit
-      override fun onPageSelected(position: Int) = selectPage(position)
-    })
+    emojisPager.addOnPageChangeListener(
+      object : OnPageChangeListener {
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
+        override fun onPageScrollStateChanged(position: Int) = Unit
+        override fun onPageSelected(position: Int) = selectPage(position)
+      },
+    )
     handleEmojiTabs(context, emojisPager)
     emojisPager.adapter = emojiPagerAdapter
     val startIndex = if (emojiPagerAdapter.hasRecentEmoji()) if (emojiPagerAdapter.numberOfRecentEmojis() > 0) 0 else 1 else 0
@@ -142,7 +144,7 @@ class EmojiView @JvmOverloads constructor(
 
   private fun handleEmojiTabs(
     context: Context,
-    emojisPager: ViewPager
+    emojisPager: ViewPager,
   ) {
     val categories = EmojiManager.categories()
     val emojisTab = findViewById<LinearLayout>(R.id.emojiViewTab)
@@ -154,7 +156,7 @@ class EmojiView @JvmOverloads constructor(
           variantPopup.show(view, emoji)
         }
       },
-      recentEmoji, variantEmoji, theming
+      recentEmoji, variantEmoji, theming,
     )
     val hasBackspace = editText != null || onEmojiBackspaceClickListener != null
     val hasSearch = searchEmoji !is NoSearchEmoji
@@ -190,7 +192,7 @@ class EmojiView @JvmOverloads constructor(
             emojiPagerAdapter.invalidateRecentEmojis()
           },
           searchEmoji,
-          theming
+          theming,
         )
       }
     }
@@ -201,7 +203,7 @@ class EmojiView @JvmOverloads constructor(
         RepeatListener(INITIAL_INTERVAL, NORMAL_INTERVAL.toLong()) {
           editText?.backspace()
           onEmojiBackspaceClickListener?.onEmojiBackspaceClick()
-        }
+        },
       )
     }
     for (i in 0 until emojiTabs.size - endIndexes) {
@@ -213,7 +215,7 @@ class EmojiView @JvmOverloads constructor(
     context: Context,
     @DrawableRes icon: Int,
     categoryName: String,
-    parent: ViewGroup
+    parent: ViewGroup,
   ): ImageButton {
     val button = LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false) as ImageButton
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon))

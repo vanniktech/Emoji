@@ -28,7 +28,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F527), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F527), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F527), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F3ED), 0, 3), listOf("factory_worker"), false,
@@ -38,7 +38,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F3ED), 0, 3), listOf("male-factory-worker"), false,
@@ -48,7 +48,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F3ED), 0, 3), listOf("female-factory-worker"), false,
@@ -58,7 +58,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F3ED), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F4BC), 0, 3), listOf("office_worker"), false,
@@ -68,7 +68,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F4BC), 0, 3), listOf("male-office-worker"), false,
@@ -78,7 +78,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F4BC), 0, 3), listOf("female-office-worker"), false,
@@ -88,7 +88,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F4BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F52C), 0, 3), listOf("scientist"), false,
@@ -98,7 +98,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F52C), 0, 3), listOf("male-scientist"), false,
@@ -108,7 +108,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F52C), 0, 3), listOf("female-scientist"), false,
@@ -118,7 +118,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F52C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F4BB), 0, 3), listOf("technologist"), false,
@@ -128,7 +128,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F4BB), 0, 3), listOf("male-technologist"), false,
@@ -138,7 +138,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F4BB), 0, 3), listOf("female-technologist"), false,
@@ -148,7 +148,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F4BB), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F3A4), 0, 3), listOf("singer"), false,
@@ -158,7 +158,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F3A4), 0, 3), listOf("male-singer"), false,
@@ -168,7 +168,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F3A4), 0, 3), listOf("female-singer"), false,
@@ -178,7 +178,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F3A4), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F3A8), 0, 3), listOf("artist"), false,
@@ -188,7 +188,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F3A8), 0, 3), listOf("male-artist"), false,
@@ -198,7 +198,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F3A8), 0, 3), listOf("female-artist"), false,
@@ -208,7 +208,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F3A8), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x2708, 0xFE0F), 0, 4), listOf("pilot"), false,
@@ -218,7 +218,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x2708, 0xFE0F), 0, 4), listOf("male-pilot"), false,
@@ -228,7 +228,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x2708, 0xFE0F), 0, 4), listOf("female-pilot"), false,
@@ -238,7 +238,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x2708, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F680), 0, 3), listOf("astronaut"), false,
@@ -248,7 +248,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F680), 0, 3), listOf("male-astronaut"), false,
@@ -258,7 +258,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F680), 0, 3), listOf("female-astronaut"), false,
@@ -268,7 +268,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F680), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F692), 0, 3), listOf("firefighter"), false,
@@ -278,7 +278,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F692), 0, 3), listOf("male-firefighter"), false,
@@ -288,7 +288,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F692), 0, 3), listOf("female-firefighter"), false,
@@ -298,7 +298,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F692), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F46E), 0, 1), listOf("cop"), true,
@@ -308,7 +308,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F46E, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male-police-officer"), false,
@@ -318,7 +318,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F46E, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female-police-officer"), false,
@@ -328,7 +328,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F46E, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F575, 0xFE0F), 0, 2), listOf("sleuth_or_spy"), true,
@@ -338,7 +338,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F575, 0xFE0F, 0x200D, 0x2642, 0xFE0F), 0, 5), listOf("male-detective"), false,
@@ -348,7 +348,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F575, 0xFE0F, 0x200D, 0x2640, 0xFE0F), 0, 5), listOf("female-detective"), false,
@@ -358,7 +358,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F575, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F482), 0, 1), listOf("guardsman"), true,
@@ -368,7 +368,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F482, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male-guard"), false,
@@ -378,7 +378,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F482, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female-guard"), false,
@@ -388,7 +388,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F482, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F977), 0, 1), listOf("ninja"), false,
@@ -398,7 +398,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F977, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F977, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F977, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F477), 0, 1), listOf("construction_worker"), true,
@@ -408,7 +408,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F477, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male-construction-worker"), false,
@@ -418,7 +418,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F477, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female-construction-worker"), false,
@@ -428,7 +428,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F477, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1FAC5), 0, 1), listOf("person_with_crown"), false,
@@ -438,7 +438,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1FAC5, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC5, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC5, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F934), 0, 1), listOf("prince"), false,
@@ -448,7 +448,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F934, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F934, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F934, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F478), 0, 1), listOf("princess"), false,
@@ -458,7 +458,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F478, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F478, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F478, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F473), 0, 1), listOf("man_with_turban"), true,
@@ -468,7 +468,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F473, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-wearing-turban"), false,
@@ -478,7 +478,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F473, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-wearing-turban"), false,
@@ -488,7 +488,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F473, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F472), 0, 1), listOf("man_with_gua_pi_mao"), false,
@@ -498,7 +498,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F472, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F472, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F472, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D5), 0, 1), listOf("person_with_headscarf"), false,
@@ -508,7 +508,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D5, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D5, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D5, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F935), 0, 1), listOf("person_in_tuxedo"), false,
@@ -518,7 +518,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F935, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_in_tuxedo"), false,
@@ -528,7 +528,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F935, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_in_tuxedo"), false,
@@ -538,7 +538,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F935, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F470), 0, 1), listOf("bride_with_veil"), false,
@@ -548,7 +548,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F470, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_with_veil"), false,
@@ -558,7 +558,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F470, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_with_veil"), false,
@@ -568,7 +568,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F470, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F930), 0, 1), listOf("pregnant_woman"), false,
@@ -578,7 +578,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F930, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F930, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F930, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1FAC3), 0, 1), listOf("pregnant_man"), false,
@@ -588,7 +588,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1FAC3, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC3, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC3, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1FAC4), 0, 1), listOf("pregnant_person"), false,
@@ -598,7 +598,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1FAC4, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC4, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1FAC4, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F931), 0, 1), listOf("breast-feeding"), false,
@@ -608,7 +608,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F931, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F931, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F931, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F37C), 0, 3), listOf("woman_feeding_baby"), false,
@@ -618,7 +618,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F37C), 0, 3), listOf("man_feeding_baby"), false,
@@ -628,7 +628,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F37C), 0, 3), listOf("person_feeding_baby"), false,
@@ -638,7 +638,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F37C), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F47C), 0, 1), listOf("angel"), false,
@@ -648,7 +648,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F47C, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F47C, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F47C, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F385), 0, 1), listOf("santa"), false,
@@ -658,7 +658,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F385, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F385, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F385, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F936), 0, 1), listOf("mrs_claus", "mother_christmas"), false,
@@ -668,7 +668,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F936, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F936, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F936, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F384), 0, 3), listOf("mx_claus"), false,
@@ -678,7 +678,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F384), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F384), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F384), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B8), 0, 1), listOf("superhero"), false,
@@ -688,7 +688,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B8, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_superhero"), false,
@@ -698,7 +698,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B8, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_superhero"), false,
@@ -708,7 +708,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B8, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B9), 0, 1), listOf("supervillain"), false,
@@ -718,7 +718,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B9, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_supervillain"), false,
@@ -728,7 +728,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9B9, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_supervillain"), false,
@@ -738,7 +738,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9B9, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D9), 0, 1), listOf("mage"), true,
@@ -748,7 +748,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D9, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_mage"), false,
@@ -758,7 +758,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D9, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_mage"), false,
@@ -768,7 +768,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D9, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DA), 0, 1), listOf("fairy"), true,
@@ -778,7 +778,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DA, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_fairy"), false,
@@ -788,7 +788,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DA, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_fairy"), false,
@@ -798,7 +798,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DA, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DB), 0, 1), listOf("vampire"), true,
@@ -808,7 +808,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DB, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_vampire"), false,
@@ -818,7 +818,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DB, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_vampire"), false,
@@ -828,7 +828,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DB, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DC), 0, 1), listOf("merperson"), true,
@@ -838,7 +838,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DC, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("merman"), false,
@@ -848,7 +848,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DC, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("mermaid"), false,
@@ -858,7 +858,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DC, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DD), 0, 1), listOf("elf"), true,
@@ -868,7 +868,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DD, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_elf"), false,
@@ -878,7 +878,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9DD, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("female_elf"), false,
@@ -888,7 +888,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F9DE), 0, 1), listOf("genie"), true),
     GoogleCompatEmoji(String(intArrayOf(0x1F9DE, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("male_genie"), false),
@@ -905,7 +905,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F486, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-getting-massage"), false,
@@ -915,7 +915,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F486, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-getting-massage"), false,
@@ -925,7 +925,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F486, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F487), 0, 1), listOf("haircut"), true,
@@ -935,7 +935,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F487, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-getting-haircut"), false,
@@ -945,7 +945,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F487, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-getting-haircut"), false,
@@ -955,7 +955,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F487, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6B6), 0, 1), listOf("walking"), true,
@@ -965,7 +965,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6B6, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-walking"), false,
@@ -975,7 +975,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6B6, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-walking"), false,
@@ -985,7 +985,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6B6, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CD), 0, 1), listOf("standing_person"), false,
@@ -995,7 +995,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CD, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_standing"), false,
@@ -1005,7 +1005,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CD, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_standing"), false,
@@ -1015,7 +1015,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CD, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CE), 0, 1), listOf("kneeling_person"), false,
@@ -1025,7 +1025,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CE, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_kneeling"), false,
@@ -1035,7 +1035,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9CE, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_kneeling"), false,
@@ -1045,7 +1045,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9CE, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F9AF), 0, 3), listOf("person_with_probing_cane"), false,
@@ -1055,7 +1055,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F9AF), 0, 3), listOf("man_with_probing_cane"), false,
@@ -1065,7 +1065,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F9AF), 0, 3), listOf("woman_with_probing_cane"), false,
@@ -1075,7 +1075,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F9AF), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F9BC), 0, 3), listOf("person_in_motorized_wheelchair"), false,
@@ -1085,7 +1085,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F9BC), 0, 3), listOf("man_in_motorized_wheelchair"), false,
@@ -1095,7 +1095,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F9BC), 0, 3), listOf("woman_in_motorized_wheelchair"), false,
@@ -1105,7 +1105,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F9BC), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D1, 0x200D, 0x1F9BD), 0, 3), listOf("person_in_manual_wheelchair"), false,
@@ -1115,7 +1115,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F468, 0x200D, 0x1F9BD), 0, 3), listOf("man_in_manual_wheelchair"), false,
@@ -1125,7 +1125,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FD, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FE, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F468, 0x1F3FF, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F469, 0x200D, 0x1F9BD), 0, 3), listOf("woman_in_manual_wheelchair"), false,
@@ -1135,7 +1135,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FD, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FE, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F469, 0x1F3FF, 0x200D, 0x1F9BD), 0, 4), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C3), 0, 1), listOf("runner", "running"), true,
@@ -1145,7 +1145,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C3, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-running"), false,
@@ -1155,7 +1155,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C3, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-running"), false,
@@ -1165,7 +1165,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C3, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F483), 0, 1), listOf("dancer"), false,
@@ -1175,7 +1175,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F483, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F483, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F483, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F57A), 0, 1), listOf("man_dancing"), false,
@@ -1185,7 +1185,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F57A, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F57A, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F57A, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F574, 0xFE0F), 0, 2), listOf("man_in_business_suit_levitating"), false,
@@ -1195,7 +1195,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F574, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F574, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F574, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F46F), 0, 1), listOf("dancers"), true),
     GoogleCompatEmoji(String(intArrayOf(0x1F46F, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), false),
@@ -1208,7 +1208,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D6, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_in_steamy_room"), false,
@@ -1218,7 +1218,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D6, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_in_steamy_room"), false,
@@ -1228,7 +1228,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D6, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D7), 0, 1), listOf("person_climbing"), true,
@@ -1238,7 +1238,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FD), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FE), 0, 2), emptyList<String>(), true),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FF), 0, 2), emptyList<String>(), true),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D7, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man_climbing"), false,
@@ -1248,7 +1248,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F9D7, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman_climbing"), false,
@@ -1258,7 +1258,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F9D7, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F93A), 0, 1), listOf("fencer"), false),
     GoogleCompatEmoji(
@@ -1269,7 +1269,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C7, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C7, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C7, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x26F7, 0xFE0F), 0, 2), listOf("skier"), false),
     GoogleCompatEmoji(
@@ -1280,7 +1280,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C2, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C2, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C2, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CC, 0xFE0F), 0, 2), listOf("golfer"), true,
@@ -1290,7 +1290,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CC, 0xFE0F, 0x200D, 0x2642, 0xFE0F), 0, 5), listOf("man-golfing"), false,
@@ -1300,7 +1300,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CC, 0xFE0F, 0x200D, 0x2640, 0xFE0F), 0, 5), listOf("woman-golfing"), false,
@@ -1310,7 +1310,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CC, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C4), 0, 1), listOf("surfer"), true,
@@ -1320,7 +1320,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C4, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-surfing"), false,
@@ -1330,7 +1330,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3C4, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-surfing"), false,
@@ -1340,7 +1340,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3C4, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6A3), 0, 1), listOf("rowboat"), true,
@@ -1350,7 +1350,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6A3, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-rowing-boat"), false,
@@ -1360,7 +1360,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F6A3, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-rowing-boat"), false,
@@ -1370,7 +1370,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F6A3, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CA), 0, 1), listOf("swimmer"), true,
@@ -1380,7 +1380,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CA, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-swimming"), false,
@@ -1390,7 +1390,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FD, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FE, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FF, 0x200D, 0x2642, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x1F3CA, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-swimming"), false,
@@ -1400,7 +1400,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FD, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FE, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F3CA, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), false),
-      )
+      ),
     ),
     GoogleCompatEmoji(
       String(intArrayOf(0x26F9, 0xFE0F), 0, 2), listOf("person_with_ball"), true,
@@ -1410,7 +1410,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji(String(intArrayOf(0x26F9, 0x1F3FD), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x26F9, 0x1F3FE), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x26F9, 0x1F3FF), 0, 2), emptyList<String>(), false),
-      )
+      ),
     ),
   )
 }

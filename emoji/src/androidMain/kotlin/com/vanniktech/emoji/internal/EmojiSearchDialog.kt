@@ -93,26 +93,28 @@ internal class EmojiSearchDialog : DialogFragment() {
     recyclerView?.tint(theming)
     recyclerView?.adapter = adapter
 
-    editText.addTextChangedListener(object : TextWatcher {
-      override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-      override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
-      override fun afterTextChanged(s: Editable) {
-        val query = s.toString()
+    editText.addTextChangedListener(
+      object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+        override fun afterTextChanged(s: Editable) {
+          val query = s.toString()
 
-        future?.cancel(true)
-        handler.removeCallbacksAndMessages(null)
-        future = executorService.schedule({
-          val emojis = searchEmoji?.search(query).orEmpty()
-          handler.post {
-            adapter.update(emojis, marginStart = null)
-          }
-        }, 300, TimeUnit.MILLISECONDS)
-      }
-    })
+          future?.cancel(true)
+          handler.removeCallbacksAndMessages(null)
+          future = executorService.schedule({
+            val emojis = searchEmoji?.search(query).orEmpty()
+            handler.post {
+              adapter.update(emojis, marginStart = null)
+            }
+          }, 300, TimeUnit.MILLISECONDS,)
+        }
+      },
+    )
 
     editText.postDelayed({
       editText.showKeyboardAndFocus()
-    }, 300L)
+    }, 300L,)
 
     return dialog
   }
@@ -202,7 +204,7 @@ internal class EmojiViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(Layo
 internal class DiffUtilHelper<T>(
   private val old: List<T>,
   private val new: List<T>,
-  private val id: (T) -> Int
+  private val id: (T) -> Int,
 ) : DiffUtil.Callback() {
   override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
     id(old[oldItemPosition]) == id(new[newItemPosition])

@@ -43,7 +43,7 @@ internal object Utils {
     return (
       TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, dp,
-        context.resources.displayMetrics
+        context.resources.displayMetrics,
       ) + 0.5f
       ).roundToInt()
   }

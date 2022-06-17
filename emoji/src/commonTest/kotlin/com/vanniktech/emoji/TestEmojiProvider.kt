@@ -30,7 +30,7 @@ internal class TestEmojiProvider(
           get() = mapOf(
             "en" to "Test",
           )
-      }
+      },
     )
 
   override fun release() = Unit
@@ -53,7 +53,7 @@ object EmptyEmojiProvider : EmojiProvider {
           get() = mapOf(
             "en" to "Test",
           )
-      }
+      },
     )
 
   override fun release() = Unit

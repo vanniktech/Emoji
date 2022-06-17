@@ -227,9 +227,9 @@ class EmojiPopup @JvmOverloads constructor(
     editText.postDelayed({
       popupWindow.showAtLocation(
         rootView, Gravity.NO_GRAVITY, 0,
-        Utils.getProperHeight(context) + popupWindowHeight
+        Utils.getProperHeight(context) + popupWindowHeight,
       )
-    }, delay.toLong())
+    }, delay.toLong(),)
     onEmojiPopupShownListener?.onEmojiPopupShown()
   }
 

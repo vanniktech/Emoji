@@ -25,7 +25,7 @@ import com.vanniktech.emoji.variant.VariantEmoji
 
 internal open class CategoryGridView @JvmOverloads constructor(
   context: Context,
-  attrs: AttributeSet? = null
+  attrs: AttributeSet? = null,
 ) : EmojiGridView(context, attrs) {
   fun init(
     onEmojiClickListener: OnEmojiClickListener?,

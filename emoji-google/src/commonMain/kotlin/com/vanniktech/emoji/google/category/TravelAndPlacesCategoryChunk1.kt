@@ -62,7 +62,7 @@ internal object TravelAndPlacesCategoryChunk1 {
       String(intArrayOf(0x2B50), 0, 1), listOf("star"), 59, 24, false,
       variants = listOf(
         GoogleEmoji(String(intArrayOf(0x2B50, 0xFE0F), 0, 2), emptyList<String>(), 59, 24, false),
-      )
+      ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F31F), 0, 1), listOf("star2"), 5, 30, false),
     GoogleEmoji(String(intArrayOf(0x1F320), 0, 1), listOf("stars"), 5, 31, false),

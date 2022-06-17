@@ -30,7 +30,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
         FacebookEmoji(String(intArrayOf(0x1F491, 0x1F3FD), 0, 2), emptyList<String>(), 27, 10, false),
         FacebookEmoji(String(intArrayOf(0x1F491, 0x1F3FE), 0, 2), emptyList<String>(), 27, 11, false),
         FacebookEmoji(String(intArrayOf(0x1F491, 0x1F3FF), 0, 2), emptyList<String>(), 27, 12, false),
-      )
+      ),
     ),
     FacebookEmoji(String(intArrayOf(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F468), 0, 6), listOf("woman-heart-man"), 19, 51, false),
     FacebookEmoji(String(intArrayOf(0x1F468, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F468), 0, 6), listOf("man-heart-man"), 16, 22, false),

@@ -107,7 +107,7 @@ internal class EmojiImageView @JvmOverloads constructor(
             true
           }
           else -> null
-        }
+        },
       )
 
       imageLoadingTask = ImageLoadingTask(this)

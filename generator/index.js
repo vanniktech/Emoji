@@ -255,7 +255,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
         if (hasVariants) {
             const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`\n${indentString}    `)
 
-            return `${result},${newLinePrefix}variants = listOf(${newLinePrefix}  ${generatedVariants}${newLinePrefix})\n${indentString}),`;
+            return `${result},${newLinePrefix}variants = listOf(${newLinePrefix}  ${generatedVariants}${newLinePrefix}),\n${indentString}),`;
         } else {
             return `${result}),`;
         }

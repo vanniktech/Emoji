@@ -24,7 +24,7 @@ import com.vanniktech.emoji.recent.RecentEmoji
 
 internal class RecentEmojiGridView @JvmOverloads constructor(
   context: Context,
-  attrs: AttributeSet? = null
+  attrs: AttributeSet? = null,
 ) : EmojiGridView(context, attrs) {
   private lateinit var emojiArrayAdapter: EmojiArrayAdapter
   private lateinit var recentEmojis: RecentEmoji

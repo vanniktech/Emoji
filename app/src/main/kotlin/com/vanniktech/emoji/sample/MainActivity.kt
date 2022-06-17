@@ -196,8 +196,8 @@ class MainActivity : AppCompatActivity() {
                     "com.google.android.gms",
                     "Noto Color Emoji Compat",
                     R.array.com_google_android_gms_fonts_certs,
-                  )
-                ).setReplaceAll(true)
+                  ),
+                ).setReplaceAll(true),
               )
             }
             EmojiManager.destroy()
