@@ -4,7 +4,7 @@ Project ':app'
 ------------------------------------------------------------
 
 releaseRuntimeClasspath - Runtime classpath of compilation 'release' (target  (androidJvm)).
-+--- androidx.databinding:viewbinding:7.1.3
++--- androidx.databinding:viewbinding:7.2.1
 |    \--- androidx.annotation:annotation:1.0.0 -> 1.3.0
 +--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0
 |    +--- org.jetbrains.kotlin:kotlin-stdlib:1.7.0
