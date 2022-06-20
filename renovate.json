@@ -1,5 +1,10 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["./gradlew app:dependencyGuardBaseline"],
+    "fileFilters": ["**/*.toml"],
+    "executionMode": "update"
+  }
 }
