@@ -1,5 +1,15 @@
+plugins {
+  id("com.dropbox.dependency-guard")
+}
+
 apply plugin: "kotlin"
 apply plugin: "application"
+
+dependencyGuard {
+  configuration("runtimeClasspath") {
+    tree = true
+  }
+}
 
 mainClassName = "com.vanniktech.emoji.jvm.MainKt"
 

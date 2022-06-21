@@ -3,7 +3,7 @@
     "config:base"
   ],
   "postUpgradeTasks": {
-    "commands": ["./gradlew app:dependencyGuardBaseline"],
+    "commands": ["./gradlew dependencyGuardBaseline"],
     "fileFilters": ["**/*.toml"],
     "executionMode": "update"
   }

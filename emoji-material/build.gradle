@@ -7,6 +7,7 @@ plugins {
   id("me.tylerbwong.gradle.metalava")
   id("com.vanniktech.maven.publish")
   id("app.cash.licensee")
+  id("com.dropbox.dependency-guard")
 }
 
 licensee {
@@ -16,6 +17,12 @@ licensee {
 metalava {
   filename = "api/current.txt"
   sourcePaths = ["src/androidMain"]
+}
+
+dependencyGuard {
+  configuration("releaseRuntimeClasspath") {
+    tree = true
+  }
 }
 
 // CocoaPods requires a version.
