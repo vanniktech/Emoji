@@ -39,4 +39,4 @@ timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 
 [plugins]
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.21.0" }
-dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.7.0" }
+dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.8.0" }
