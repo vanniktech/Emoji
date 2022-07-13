@@ -6,9 +6,7 @@ apply plugin: "kotlin"
 apply plugin: "application"
 
 dependencyGuard {
-  configuration("runtimeClasspath") {
-    tree = true
-  }
+  configuration("runtimeClasspath")
 }
 
 mainClassName = "com.vanniktech.emoji.jvm.MainKt"
