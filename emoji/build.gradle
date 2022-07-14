@@ -34,12 +34,6 @@ kotlin {
   jvm("jvm")
 
   sourceSets {
-    all {
-      languageSettings {
-        optIn("kotlin.RequiresOptIn")
-      }
-    }
-
     commonMain {
       dependencies {
       }
