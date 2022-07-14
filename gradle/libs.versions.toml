@@ -38,5 +38,5 @@ screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 
 [plugins]
-codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.21.0" }
+codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.22.0" }
 dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.8.0" }
