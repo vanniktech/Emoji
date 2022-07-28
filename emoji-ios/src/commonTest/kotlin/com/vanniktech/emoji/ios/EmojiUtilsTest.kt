@@ -4,20 +4,20 @@ import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.emojiInformation
 import com.vanniktech.emoji.emojisCount
 import com.vanniktech.emoji.isOnlyEmojis
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Ignore
-import org.junit.Test
+import kotlin.test.BeforeTest
+import kotlin.test.Ignore
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class EmojiUtilsTest {
-  @Before fun setUp() {
+  @BeforeTest fun setUp() {
     EmojiManager.install(emojiProvider())
   }
 
   @Test fun starWithVariantSelector() {
     val s = "⭐️⭐️⭐️"
-    assertEquals(true, s.isOnlyEmojis())
-    assertEquals(3, s.emojisCount())
+    assertEquals(expected = true, actual = s.isOnlyEmojis())
+    assertEquals(expected = 3, actual = s.emojisCount())
   }
 
   @Test fun emojiInformationEmojisOnly() {
@@ -25,16 +25,16 @@ class EmojiUtilsTest {
     val mage2 = """🧙🏿‍♀️"""
     val text = "$mage1$mage2"
     val emojiInformation = text.emojiInformation()
-    assertEquals(true, emojiInformation.isOnlyEmojis)
-    assertEquals(2, emojiInformation.emojis.size)
+    assertEquals(expected = true, actual = emojiInformation.isOnlyEmojis)
+    assertEquals(expected = 2, actual = emojiInformation.emojis.size)
 
-    assertEquals(0..5, emojiInformation.emojis[0].range)
-    assertEquals(mage1, text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
-    assertEquals(mage1, emojiInformation.emojis[0].emoji.unicode)
+    assertEquals(expected = 0..5, actual = emojiInformation.emojis[0].range)
+    assertEquals(expected = mage1, actual = text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
+    assertEquals(expected = mage1, actual = emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(5..12, emojiInformation.emojis[1].range)
-    assertEquals(mage2, text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
-    assertEquals(mage2, emojiInformation.emojis[1].emoji.unicode)
+    assertEquals(expected = 5..12, actual = emojiInformation.emojis[1].range)
+    assertEquals(expected = mage2, actual = text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
+    assertEquals(expected = mage2, actual = emojiInformation.emojis[1].emoji.unicode)
   }
 
   @Test fun emojiInformationEmojisMixed() {
@@ -42,19 +42,19 @@ class EmojiUtilsTest {
     val cheese = """🧀"""
     val text = """I like $hamburger with lots of $cheese"""
     val emojiInformation = text.emojiInformation()
-    assertEquals(false, emojiInformation.isOnlyEmojis)
-    assertEquals(2, emojiInformation.emojis.size)
+    assertEquals(expected = false, actual = emojiInformation.isOnlyEmojis)
+    assertEquals(expected = 2, actual = emojiInformation.emojis.size)
 
-    assertEquals(7..9, emojiInformation.emojis[0].range)
-    assertEquals(hamburger, text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
-    assertEquals(hamburger, emojiInformation.emojis[0].emoji.unicode)
+    assertEquals(expected = 7..9, actual = emojiInformation.emojis[0].range)
+    assertEquals(expected = hamburger, actual = text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
+    assertEquals(expected = hamburger, actual = emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(23..25, emojiInformation.emojis[1].range)
-    assertEquals(cheese, text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
-    assertEquals(cheese, emojiInformation.emojis[1].emoji.unicode)
+    assertEquals(expected = 23..25, actual = emojiInformation.emojis[1].range)
+    assertEquals(expected = cheese, actual = text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
+    assertEquals(expected = cheese, actual = emojiInformation.emojis[1].emoji.unicode)
   }
 
-  @Ignore("https://github.com/vanniktech/Emoji/issues/485")
+  @Ignore // https://github.com/vanniktech/Emoji/issues/485
   @Test fun isOnlyEmojis() {
     val emojis = listOf(
       """🗯""",
@@ -65,10 +65,10 @@ class EmojiUtilsTest {
     )
 
     emojis.forEach {
-      assertEquals(it, false, "f$it".isOnlyEmojis())
-      assertEquals(it, false, "${it}f".isOnlyEmojis())
-      assertEquals(it, 1, it.emojisCount())
-      assertEquals(it, true, it.isOnlyEmojis())
+      assertEquals(message = it, expected = false, actual = "f$it".isOnlyEmojis())
+      assertEquals(message = it, expected = false, actual = "${it}f".isOnlyEmojis())
+      assertEquals(message = it, expected = 1, actual = it.emojisCount())
+      assertEquals(message = it, expected = true, actual = it.isOnlyEmojis())
     }
   }
 }
