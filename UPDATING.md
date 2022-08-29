@@ -17,10 +17,15 @@ The script does three things:
 
 ## Running the script
 
-Before running the script, you need to install the required dependencies.
+Go the the `generator` directory:
 
 ```bash
 cd generator
+```
+
+Before running the script, you need to install the required dependencies.
+
+```bash
 npm install
 ```
 
