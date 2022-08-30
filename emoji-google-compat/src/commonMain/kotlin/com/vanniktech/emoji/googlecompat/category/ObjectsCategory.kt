@@ -29,6 +29,6 @@ internal class ObjectsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: List<GoogleCompatEmoji> = ObjectsCategoryChunk0.EMOJIS + ObjectsCategoryChunk1.EMOJIS
+    val ALL_EMOJIS: List<GoogleCompatEmoji> = ObjectsCategoryChunk0.EMOJIS + ObjectsCategoryChunk1.EMOJIS + ObjectsCategoryChunk2.EMOJIS
   }
 }

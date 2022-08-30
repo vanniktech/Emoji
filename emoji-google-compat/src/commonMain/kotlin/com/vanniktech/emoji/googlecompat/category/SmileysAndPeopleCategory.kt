@@ -29,6 +29,6 @@ internal class SmileysAndPeopleCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: List<GoogleCompatEmoji> = SmileysAndPeopleCategoryChunk0.EMOJIS + SmileysAndPeopleCategoryChunk1.EMOJIS + SmileysAndPeopleCategoryChunk2.EMOJIS + SmileysAndPeopleCategoryChunk3.EMOJIS
+    val ALL_EMOJIS: List<GoogleCompatEmoji> = SmileysAndPeopleCategoryChunk0.EMOJIS + SmileysAndPeopleCategoryChunk1.EMOJIS + SmileysAndPeopleCategoryChunk2.EMOJIS + SmileysAndPeopleCategoryChunk3.EMOJIS + SmileysAndPeopleCategoryChunk4.EMOJIS
   }
 }
