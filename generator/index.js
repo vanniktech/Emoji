@@ -135,7 +135,7 @@ const categoryInfo = [
  * The amount of emojis to put in a chunk.
  * @type {number}
  */
-const chunkSize = 150;
+const chunkSize = 120;
 
 /**
  * Helper function to be used by {@link #copyImages} for copying (and optimizing) the images of a single target

@@ -29,6 +29,6 @@ internal class AnimalsAndNatureCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: List<FacebookEmoji> = AnimalsAndNatureCategoryChunk0.EMOJIS
+    val ALL_EMOJIS: List<FacebookEmoji> = AnimalsAndNatureCategoryChunk0.EMOJIS + AnimalsAndNatureCategoryChunk1.EMOJIS
   }
 }

@@ -29,6 +29,6 @@ internal class FlagsCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: List<IosEmoji> = FlagsCategoryChunk0.EMOJIS + FlagsCategoryChunk1.EMOJIS
+    val ALL_EMOJIS: List<IosEmoji> = FlagsCategoryChunk0.EMOJIS + FlagsCategoryChunk1.EMOJIS + FlagsCategoryChunk2.EMOJIS
   }
 }
