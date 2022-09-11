@@ -71,7 +71,7 @@ internal class EmojiSearchDialog : DialogFragment() {
 
     val root = dialog.findViewById<View>(R.id.root)
     val arguments = requireArguments()
-    val theming = arguments.getParcelable<EmojiTheming>(ARG_THEMING)!!
+    val theming = arguments.parcelable<EmojiTheming>(ARG_THEMING)!!
     root?.setBackgroundColor(theming.backgroundColor(activity))
 
     val editText = dialog.findViewById<EditText>(R.id.editText)!!
