@@ -4,4 +4,4 @@ continuation_indent_size=2
 insert_final_newline=true
 ij_kotlin_allow_trailing_comma=true
 ij_kotlin_allow_trailing_comma_on_call_site=true
-disabled_rules=annotation,argument-list-wrapping,spacing-between-declarations-with-annotations,filename
+ktlint_disabled_rules=annotation,argument-list-wrapping,spacing-between-declarations-with-annotations,filename

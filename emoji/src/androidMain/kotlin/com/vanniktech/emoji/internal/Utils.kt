@@ -60,7 +60,9 @@ internal object Utils {
   internal fun shouldOverrideRegularCondition(context: Context, editText: EditText): Boolean {
     return if (editText.imeOptions and EditorInfo.IME_FLAG_NO_EXTRACT_UI == 0) {
       getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE
-    } else false
+    } else {
+      false
+    }
   }
 
   internal fun getProperHeight(activity: Activity): Int {
