@@ -35,7 +35,9 @@ internal class ImageLoadingTask(imageView: ImageView) : AsyncTask<Emoji, Void?, 
     val context = contextReference.get()
     return if (context != null && !isCancelled) {
       EmojiManager.emojiDrawableProvider().getDrawable(emoji[0], context)
-    } else null
+    } else {
+      null
+    }
   }
 
   @Deprecated("Deprecated in Java")
