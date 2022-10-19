@@ -44,7 +44,7 @@ androidx.vectordrawable:vectordrawable:1.1.0
 androidx.versionedparcelable:versionedparcelable:1.1.1
 androidx.viewpager2:viewpager2:1.0.0
 androidx.viewpager:viewpager:1.0.0
-com.google.android.material:material:1.6.1
+com.google.android.material:material:1.7.0
 com.google.guava:listenablefuture:1.0
 org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.7.20
 org.jetbrains.kotlin:kotlin-parcelize-runtime:1.7.20
