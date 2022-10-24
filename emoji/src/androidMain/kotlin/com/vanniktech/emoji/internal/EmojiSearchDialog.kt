@@ -72,11 +72,11 @@ internal class EmojiSearchDialog : DialogFragment() {
     val root = dialog.findViewById<View>(R.id.root)
     val arguments = requireArguments()
     val theming = arguments.parcelable<EmojiTheming>(ARG_THEMING)!!
-    root?.setBackgroundColor(theming.backgroundColor(activity))
+    root?.setBackgroundColor(theming.backgroundColor)
 
     val editText = dialog.findViewById<EditText>(R.id.editText)!!
-    editText.setTextColor(theming.textColor(activity))
-    val secondaryColor = theming.secondaryColor(activity)
+    editText.setTextColor(theming.textColor)
+    val secondaryColor = theming.secondaryColor
     editText.setCursorDrawableColor(secondaryColor)
     editText.setHandlesColor(secondaryColor)
     editText.highlightColor = secondaryColor
@@ -165,15 +165,15 @@ internal class EmojiAdapter(
   override fun onBindViewHolder(holder: EmojiViewHolder, position: Int) {
     val context = holder.textView.context
     val item = items[position]
-    holder.textView.setTextColor(theming.textColor(context)) // This is just in case there's a glyph shown.
+    holder.textView.setTextColor(theming.textColor) // This is just in case there's a glyph shown.
     holder.textView.text = item.emoji.unicode
 
     (holder.textView.layoutParams as LinearLayout.LayoutParams).marginStart = marginStart ?: context.resources.getDimensionPixelSize(R.dimen.emoji_search_spacing)
 
     val shortCode = item.shortcode
     holder.shortCodes.text = SpannableString(shortCode).apply {
-      setSpan(ForegroundColorSpan(theming.textSecondaryColor(context)), 0, shortCode.length, 0)
-      setSpan(ForegroundColorSpan(theming.secondaryColor(context)), item.range.first, item.range.last + 1, 0)
+      setSpan(ForegroundColorSpan(theming.textSecondaryColor), 0, shortCode.length, 0)
+      setSpan(ForegroundColorSpan(theming.secondaryColor), item.range.first, item.range.last + 1, 0)
     }
 
     holder.itemView.setOnClickListener {

@@ -35,12 +35,8 @@ import com.vanniktech.emoji.internal.EmojiPagerDelegate
 import com.vanniktech.emoji.internal.EmojiSearchDialog
 import com.vanniktech.emoji.internal.EmojiVariantPopup
 import com.vanniktech.emoji.internal.RepeatListener
-import com.vanniktech.emoji.internal.backgroundColor
-import com.vanniktech.emoji.internal.dividerColor
 import com.vanniktech.emoji.internal.emojiDrawableProvider
 import com.vanniktech.emoji.internal.hideKeyboardAndFocus
-import com.vanniktech.emoji.internal.primaryColor
-import com.vanniktech.emoji.internal.secondaryColor
 import com.vanniktech.emoji.internal.setEdgeColor
 import com.vanniktech.emoji.internal.showKeyboardAndFocus
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
@@ -85,7 +81,7 @@ class EmojiView @JvmOverloads constructor(
     onEmojiClickListener: OnEmojiClickListener?,
     onEmojiBackspaceClickListener: OnEmojiBackspaceClickListener?,
     editText: EditText?,
-    theming: EmojiTheming = EmojiTheming(),
+    theming: EmojiTheming = EmojiTheming.from(rootView.context),
     recentEmoji: RecentEmoji = RecentEmojiManager(rootView.context),
     searchEmoji: SearchEmoji = SearchEmojiManager(),
     variantEmoji: VariantEmoji = VariantEmojiManager(rootView.context),
@@ -104,11 +100,11 @@ class EmojiView @JvmOverloads constructor(
       emojiImageView.updateEmoji(emoji) // To reflect new variant in the UI.
       dismissVariantPopup()
     }
-    setBackgroundColor(theming.backgroundColor(context))
+    setBackgroundColor(theming.backgroundColor)
     val emojisPager: ViewPager = findViewById(R.id.emojiViewPager)
-    emojisPager.setEdgeColor(theming.secondaryColor(context))
+    emojisPager.setEdgeColor(theming.secondaryColor)
     val emojiDivider = findViewById<View>(R.id.emojiViewDivider)
-    emojiDivider.setBackgroundColor(theming.dividerColor(context))
+    emojiDivider.setBackgroundColor(theming.dividerColor)
     if (pageTransformer != null) {
       emojisPager.setPageTransformer(true, pageTransformer)
     }
@@ -127,17 +123,16 @@ class EmojiView @JvmOverloads constructor(
   }
 
   internal fun selectPage(index: Int) {
-    val context = context
     if (emojiTabLastSelectedIndex != index) {
       if (index == 0) {
         emojiPagerAdapter.invalidateRecentEmojis()
       }
       if (emojiTabLastSelectedIndex >= 0 && emojiTabLastSelectedIndex < emojiTabs.size) {
         emojiTabs[emojiTabLastSelectedIndex]!!.isSelected = false
-        emojiTabs[emojiTabLastSelectedIndex]!!.setColorFilter(theming.primaryColor(context), PorterDuff.Mode.SRC_IN)
+        emojiTabs[emojiTabLastSelectedIndex]!!.setColorFilter(theming.primaryColor, PorterDuff.Mode.SRC_IN)
       }
       emojiTabs[index]?.isSelected = true
-      emojiTabs[index]?.setColorFilter(theming.secondaryColor(context), PorterDuff.Mode.SRC_IN)
+      emojiTabs[index]?.setColorFilter(theming.secondaryColor, PorterDuff.Mode.SRC_IN)
       emojiTabLastSelectedIndex = index
     }
   }
@@ -219,7 +214,7 @@ class EmojiView @JvmOverloads constructor(
   ): ImageButton {
     val button = LayoutInflater.from(context).inflate(R.layout.emoji_view_category, parent, false) as ImageButton
     button.setImageDrawable(AppCompatResources.getDrawable(context, icon))
-    button.setColorFilter(theming.primaryColor(context), PorterDuff.Mode.SRC_IN)
+    button.setColorFilter(theming.primaryColor, PorterDuff.Mode.SRC_IN)
     button.contentDescription = categoryName
     parent.addView(button)
     return button

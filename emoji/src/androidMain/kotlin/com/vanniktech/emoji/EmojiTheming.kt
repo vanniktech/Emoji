@@ -18,42 +18,27 @@
 
 package com.vanniktech.emoji
 
+import android.content.Context
 import androidx.annotation.ColorInt
+import com.vanniktech.emoji.internal.Utils
 
 /** Control the colors of all Emoji UI components. */
-@Parcelize data class EmojiTheming @JvmOverloads constructor(
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll look for a theme attribute called emojiBackgroundColor.
-   * If that isn't found, the library has a default.
-   */
-  @ColorInt @JvmField val backgroundColor: Int? = null,
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll take the color from your theme.
-   */
-  @ColorInt @JvmField val primaryColor: Int? = null,
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll take the color from your theme.
-   */
-  @ColorInt @JvmField val secondaryColor: Int? = null,
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll look for a theme attribute called emojiDividerColor.
-   * If that isn't found, the library has a default.
-   */
-  @ColorInt @JvmField val dividerColor: Int? = null,
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll look for a theme attribute called emojiTextColor.
-   * If that isn't found, the library has a default.
-   */
-  @ColorInt @JvmField val textColor: Int? = null,
-  /**
-   * If set, it will be taken.
-   * Otherwise it'll look for a theme attribute called emojiTextSecondaryColor.
-   * If that isn't found, the library has a default.
-   */
-  @ColorInt @JvmField val textSecondaryColor: Int? = null,
-) : Parcelable
+@Parcelize data class EmojiTheming(
+  @JvmField @ColorInt val backgroundColor: Int,
+  @JvmField @ColorInt val primaryColor: Int,
+  @JvmField @ColorInt val secondaryColor: Int,
+  @JvmField @ColorInt val dividerColor: Int,
+  @JvmField @ColorInt val textColor: Int,
+  @JvmField @ColorInt val textSecondaryColor: Int,
+) : Parcelable {
+  companion object {
+    fun from(context: Context) = EmojiTheming(
+      backgroundColor = Utils.resolveColor(context, R.attr.emojiBackgroundColor, R.color.emoji_background_color),
+      primaryColor = Utils.resolveColor(context, R.attr.colorPrimary, R.color.emoji_primary_color),
+      secondaryColor = Utils.resolveColor(context, R.attr.colorAccent, R.color.emoji_secondary_color),
+      dividerColor = Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color),
+      textColor = Utils.resolveColor(context, R.attr.emojiTextColor, R.color.emoji_text_color),
+      textSecondaryColor = Utils.resolveColor(context, R.attr.emojiTextSecondaryColor, R.color.emoji_text_secondary_color),
+    )
+  }
+}

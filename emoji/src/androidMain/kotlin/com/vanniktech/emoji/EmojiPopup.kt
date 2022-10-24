@@ -56,7 +56,7 @@ class EmojiPopup @JvmOverloads constructor(
   /** The root View of your layout.xml which will be used for calculating the height of the keyboard. */
   rootView: View,
   private val editText: EditText,
-  internal val theming: EmojiTheming = EmojiTheming(),
+  internal val theming: EmojiTheming = EmojiTheming.from(rootView.context),
   /** Option to customize with your own implementation of recent emojis. To hide use [com.vanniktech.emoji.recent.NoRecentEmoji]. */
   recentEmoji: RecentEmoji = RecentEmojiManager(rootView.context),
   /** Option to customize with your own implementation of searching emojis. To hide use [com.vanniktech.emoji.search.NoSearchEmoji]. */
