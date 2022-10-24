@@ -15,8 +15,8 @@ licensee {
 }
 
 metalava {
-  filename = "api/current.txt"
-  sourcePaths = ["src/commonMain", "src/androidMain", "src/jvmMain"]
+  filename.set("api/current.txt")
+  sourcePaths.setFrom("src/commonMain", "src/androidMain", "src/jvmMain")
 }
 
 dependencyGuard {
