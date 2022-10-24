@@ -176,26 +176,25 @@ package com.vanniktech.emoji {
   }
 
   @kotlinx.parcelize.Parcelize public final class EmojiTheming implements android.os.Parcelable {
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor, optional @ColorInt Integer? primaryColor, optional @ColorInt Integer? secondaryColor, optional @ColorInt Integer? dividerColor, optional @ColorInt Integer? textColor, optional @ColorInt Integer? textSecondaryColor);
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor, optional @ColorInt Integer? primaryColor, optional @ColorInt Integer? secondaryColor, optional @ColorInt Integer? dividerColor, optional @ColorInt Integer? textColor);
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor, optional @ColorInt Integer? primaryColor, optional @ColorInt Integer? secondaryColor, optional @ColorInt Integer? dividerColor);
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor, optional @ColorInt Integer? primaryColor, optional @ColorInt Integer? secondaryColor);
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor, optional @ColorInt Integer? primaryColor);
-    ctor public EmojiTheming(optional @ColorInt Integer? backgroundColor);
-    ctor public EmojiTheming();
-    method public Integer? component1();
-    method public Integer? component2();
-    method public Integer? component3();
-    method public Integer? component4();
-    method public Integer? component5();
-    method public Integer? component6();
-    method public com.vanniktech.emoji.EmojiTheming copy(@ColorInt Integer? backgroundColor, @ColorInt Integer? primaryColor, @ColorInt Integer? secondaryColor, @ColorInt Integer? dividerColor, @ColorInt Integer? textColor, @ColorInt Integer? textSecondaryColor);
-    field public final Integer? backgroundColor;
-    field public final Integer? dividerColor;
-    field public final Integer? primaryColor;
-    field public final Integer? secondaryColor;
-    field public final Integer? textColor;
-    field public final Integer? textSecondaryColor;
+    ctor public EmojiTheming(@ColorInt int backgroundColor, @ColorInt int primaryColor, @ColorInt int secondaryColor, @ColorInt int dividerColor, @ColorInt int textColor, @ColorInt int textSecondaryColor);
+    method public int component1();
+    method public int component2();
+    method public int component3();
+    method public int component4();
+    method public int component5();
+    method public int component6();
+    method public com.vanniktech.emoji.EmojiTheming copy(@ColorInt int backgroundColor, @ColorInt int primaryColor, @ColorInt int secondaryColor, @ColorInt int dividerColor, @ColorInt int textColor, @ColorInt int textSecondaryColor);
+    field public static final com.vanniktech.emoji.EmojiTheming.Companion Companion;
+    field public final int backgroundColor;
+    field public final int dividerColor;
+    field public final int primaryColor;
+    field public final int secondaryColor;
+    field public final int textColor;
+    field public final int textSecondaryColor;
+  }
+
+  public static final class EmojiTheming.Companion {
+    method public com.vanniktech.emoji.EmojiTheming from(android.content.Context context);
   }
 
   public final class EmojiView extends android.widget.LinearLayout {
@@ -235,10 +234,11 @@ package com.vanniktech.emoji.inputfilters {
 
 package com.vanniktech.emoji.internal {
 
-  public final class ThemingKt {
+  public final class ParcelableUtilsKt {
+    method public static inline <reified T extends android.os.Parcelable> T! parcelable(android.os.Bundle, String key);
   }
 
-  public final class ThemingsKt {
+  public final class ThemingKt {
   }
 
   public final class UtilsKt {

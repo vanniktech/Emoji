@@ -88,8 +88,7 @@ internal class EmojiImageView @JvmOverloads constructor(
   }
 
   fun setEmoji(theming: EmojiTheming, emoji: Emoji, variantEmoji: VariantEmoji?) {
-    val context = context
-    variantIndicatorPaint.color = theming.dividerColor(context)
+    variantIndicatorPaint.color = theming.dividerColor
     postInvalidate()
 
     if (emoji != currentEmoji) {
