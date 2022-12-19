@@ -32,7 +32,7 @@ plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.6.0" }
 plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.3.2" }
 plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.22.0" }
-robolectric = { module = "org.robolectric:robolectric", version = "4.9" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.9.1" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 
