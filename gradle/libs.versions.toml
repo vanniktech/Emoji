@@ -4,7 +4,7 @@ compileSdk = "33"
 targetSdk = "33"
 
 androidgradleplugin = "7.3.1"
-kotlin = "1.7.22"
+kotlin = "1.8.0"
 ktlint = "0.47.1"
 
 [libraries]
