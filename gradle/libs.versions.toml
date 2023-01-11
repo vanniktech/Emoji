@@ -8,7 +8,7 @@ kotlin = "1.8.0"
 ktlint = "0.47.1"
 
 [libraries]
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.5.1" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.0" }
 androidx-cardview = { module = "androidx.cardview:cardview", version = "1.0.0" }
 androidx-emoji-appcompat = { module = "androidx.emoji:emoji-appcompat", version = "1.1.0" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.2.1" }
