@@ -7,7 +7,6 @@ buildscript {
   dependencies {
     classpath(libs.plugin.android.cache.fix)
     classpath(libs.plugin.androidgradleplugin)
-    classpath(libs.plugin.dependency.guard)
     classpath(libs.plugin.dokka)
     classpath(libs.plugin.kotlin)
     classpath(libs.plugin.licensee)
