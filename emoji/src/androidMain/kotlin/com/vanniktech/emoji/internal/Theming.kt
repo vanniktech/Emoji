@@ -99,11 +99,21 @@ internal fun TextView.setHandlesColor(@ColorInt color: Int) {
   }
 }
 
+private class CursorDrawable(@ColorInt color: Int) : GradientDrawable(Orientation.BOTTOM_TOP, intArrayOf(color, color)) {
+  override fun setTint(tintColor: Int) {
+    // No-op https://github.com/material-components/material-components-android/issues/3255#issuecomment-1442269086
+  }
+
+  override fun setTintList(tint: ColorStateList?) {
+    // No-op https://github.com/material-components/material-components-android/issues/3255#issuecomment-1442269086
+  }
+}
+
 // https://stackoverflow.com/a/59269370/1979703
 @SuppressLint("PrivateApi")
 internal fun TextView.setCursorDrawableColor(@ColorInt color: Int) {
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-    textCursorDrawable = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(color, color))
+    textCursorDrawable = CursorDrawable(color)
       .apply { setSize(2.spToPx(context).toInt(), textSize.toInt()) }
     return
   }
