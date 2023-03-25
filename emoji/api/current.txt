@@ -238,9 +238,6 @@ package com.vanniktech.emoji.internal {
     method public static inline <reified T extends android.os.Parcelable> T! parcelable(android.os.Bundle, String key);
   }
 
-  public final class ThemingKt {
-  }
-
   public final class UtilsKt {
   }
 
