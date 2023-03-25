@@ -334,13 +334,13 @@ maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 ```
 
 ```groovy
-implementation "com.vanniktech:emoji:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-ios:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-google:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-google-compat:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-twitter:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-facebook:0.16.0-SNAPSHOT"
-implementation "com.vanniktech:emoji-material:0.16.0-SNAPSHOT"
+implementation "com.vanniktech:emoji:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-ios:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-google:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-google-compat:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-twitter:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-facebook:0.17.0-SNAPSHOT"
+implementation "com.vanniktech:emoji-material:0.17.0-SNAPSHOT"
 ```
 
 # Proguard / R8
