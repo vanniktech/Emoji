@@ -46,7 +46,7 @@ kotlin {
       api libs.material
     }
 
-    androidTest.dependencies {
+    androidUnitTest.dependencies {
       implementation libs.kotlin.test.junit
       implementation libs.robolectric
     }
