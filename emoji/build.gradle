@@ -49,7 +49,7 @@ kotlin {
       }
     }
 
-    androidTest {
+    androidUnitTest {
       dependencies {
         implementation libs.kotlin.test.junit
         implementation libs.robolectric

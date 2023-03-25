@@ -45,7 +45,7 @@ kotlin {
     androidMain.dependencies {
     }
 
-    androidTest.dependencies {
+    androidUnitTest.dependencies {
       implementation libs.kotlin.test.junit
       implementation libs.robolectric
     }

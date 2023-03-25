@@ -2,6 +2,8 @@
 <lint>
   <issue id="SyntheticAccessor" severity="error"/>
   <issue id="InvalidPackage" severity="ignore"/>
+  <!-- False positive for the JVM module since we use the new tool mechanism. -->
+  <issue id="JavaPluginLanguageLevel" severity="ignore"/>
   <issue id="ConvertToWebp">
     <ignore regexp="_sheet_.*.png"/>
     <ignore regexp="emoji_.*_category_.*.png"/>
