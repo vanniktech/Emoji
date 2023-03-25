@@ -1,7 +1,13 @@
 # Change Log
 
-Version 0.16.0 *(In development)*
----------------------------------
+Version 0.16.0 *(2023-03-25)*
+-----------------------------
+
+- Android: Target 33. [\#888](https://github.com/vanniktech/Emoji/pull/888) ([vanniktech](https://github.com/vanniktech))
+- Breaking: EmojiTheming constructor requires all colors to be set. New EmojiTheming.from\(Context\) to retrieve colors from your Activity/Fragment. [\#904](https://github.com/vanniktech/Emoji/pull/904) ([vanniktech](https://github.com/vanniktech))
+- Generate smaller Emoji Chunks classes to avoid MethodTooLargeException [\#884](https://github.com/vanniktech/Emoji/pull/884) ([bmarty](https://github.com/bmarty))
+- Technical: Use Android Source Set Layout Version 2. [\#962](https://github.com/vanniktech/Emoji/pull/962) ([vanniktech](https://github.com/vanniktech))
+- Theming: Fix Cursor color with Android Material 1.8.0 and later. [\#954](https://github.com/vanniktech/Emoji/pull/954) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.15.0 *(2022-05-28)*
 -----------------------------
