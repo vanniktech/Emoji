@@ -19,7 +19,6 @@ package com.vanniktech.emoji.internal
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -35,7 +34,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.Px
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
@@ -46,6 +44,8 @@ import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
 import com.vanniktech.emoji.search.SearchEmoji
 import com.vanniktech.emoji.search.SearchEmojiResult
+import com.vanniktech.ui.Color
+import com.vanniktech.ui.themeEditText
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
@@ -76,11 +76,11 @@ internal class EmojiSearchDialog : DialogFragment() {
 
     val editText = dialog.findViewById<EditText>(R.id.editText)!!
     editText.setTextColor(theming.textColor)
-    val secondaryColor = theming.secondaryColor
-    editText.setCursorDrawableColor(secondaryColor)
-    editText.setHandlesColor(secondaryColor)
-    editText.highlightColor = secondaryColor
-    ViewCompat.setBackgroundTintList(editText, ColorStateList.valueOf(secondaryColor))
+    editText.themeEditText(
+      color = Color(theming.secondaryColor),
+      colorText = Color(theming.textColor),
+      colorTextSecondary = Color(theming.textSecondaryColor),
+    )
 
     val recyclerView = dialog.findViewById<MaxHeightSearchRecyclerView>(R.id.recyclerView)
     val adapter = EmojiAdapter(

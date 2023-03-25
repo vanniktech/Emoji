@@ -46,6 +46,7 @@ kotlin {
         api libs.androidx.appcompat
         api libs.androidx.cardview
         api libs.androidx.recyclerview
+        api libs.ui
       }
     }
 
