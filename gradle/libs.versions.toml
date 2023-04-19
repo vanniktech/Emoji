@@ -34,7 +34,7 @@ plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", versio
 robolectric = { module = "org.robolectric:robolectric", version = "4.10" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
-ui = { module = "com.vanniktech:ui", version = "0.5.0" }
+ui = { module = "com.vanniktech:ui", version = "0.6.0" }
 
 [plugins]
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.22.0" }
