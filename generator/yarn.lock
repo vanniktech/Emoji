@@ -730,10 +730,10 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
-emoji-datasource-apple@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-14.0.0.tgz#ee040d210c07e038eb18f1c64a5a2f03ed977903"
-  integrity sha512-92Q53C44DzSqreHVlajEG24O5sFZjY1E9xRLWWyud7+/hW8S2vs4DiHuNuNZ0CLDCmZMQHc95okN9V8Mk6yBRw==
+emoji-datasource-apple@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-15.0.0.tgz#833b032f685f24ea37ae0f37de88b614875a1cf6"
+  integrity sha512-cOJRu9I4B4Qh9iOcLfT5f3U4pqkY9Fi22zs1lkfFyJ6rwoEUH+x3KC2fEbW+bsagVqaqqLsRTtzpyo2QC1jO4g==
 
 emoji-datasource-facebook@^14.0.0:
   version "14.0.0"

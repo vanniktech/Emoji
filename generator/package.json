@@ -12,7 +12,7 @@
   "dependencies": {
     "command-line-args": "^5.2.1",
     "emoji-datasource": "^14.0.0",
-    "emoji-datasource-apple": "^14.0.0",
+    "emoji-datasource-apple": "^15.0.0",
     "emoji-datasource-facebook": "^14.0.0",
     "emoji-datasource-google": "^14.0.0",
     "emoji-datasource-twitter": "^14.0.0",
