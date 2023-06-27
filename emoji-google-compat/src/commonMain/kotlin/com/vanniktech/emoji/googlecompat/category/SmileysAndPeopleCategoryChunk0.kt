@@ -69,6 +69,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F62C), 0, 1), listOf("grimacing"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F62E, 0x200D, 0x1F4A8), 0, 3), listOf("face_exhaling"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F925), 0, 1), listOf("lying_face"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAE8), 0, 1), listOf("shaking_face"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F60C), 0, 1), listOf("relieved"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F614), 0, 1), listOf("pensive"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F62A), 0, 1), listOf("sleepy"), false),
@@ -139,6 +140,5 @@ internal object SmileysAndPeopleCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F639), 0, 1), listOf("joy_cat"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F63B), 0, 1), listOf("heart_eyes_cat"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F63C), 0, 1), listOf("smirk_cat"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F63D), 0, 1), listOf("kissing_cat"), false),
   )
 }

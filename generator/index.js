@@ -146,7 +146,7 @@ const chunkSize = 120;
  * @returns {Promise.<void>} Empty Promise.
  */
 async function copyTargetImages(map, target, shouldOptimize) {
-    await fs.emptyDir(`../emoji-${target.module}/src/main/res/drawable-nodpi`);
+    await fs.emptyDir(`../emoji-${target.module}/src/androidMain/res/drawable-nodpi`);
 
     const allEmoji = emojiData.reduce((all, it) => {
         all.push(it);
@@ -171,7 +171,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
         const strips = sheet.bitmap.width / 66 - 1;
 
         for (let i = 0; i < strips; i++) {
-            const dest = `../emoji-${target.module}/src/main/res/drawable-nodpi/emoji_${target.module}_sheet_${i}.png`;
+            const dest = `../emoji-${target.module}/src/androidMain/res/drawable-nodpi/emoji_${target.module}_sheet_${i}.png`;
             const maxY = emojiByStrip[i].map(it => it.sheet_y).reduce((a, b) => Math.max(a, b), 0);
             const height = (maxY + 1) * 66;
 
@@ -193,7 +193,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
     }
 
     for (const [category] of map) {
-        const dest = `../emoji-${target.module}/src/main/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`
+        const dest = `../emoji-${target.module}/src/androidMain/res/drawable-nodpi/emoji_${target.package}_category_${category.toLowerCase()}.png`
 
         await fs.copy(`img/${category.toLowerCase()}.png`, dest);
     }

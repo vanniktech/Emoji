@@ -20,6 +20,8 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SymbolsCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F4DB), 0, 1), listOf("name_badge"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F530), 0, 1), listOf("beginner"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2B55), 0, 1), listOf("o"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2705), 0, 1), listOf("white_check_mark"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2611, 0xFE0F), 0, 2), listOf("ballot_box_with_check"), false),

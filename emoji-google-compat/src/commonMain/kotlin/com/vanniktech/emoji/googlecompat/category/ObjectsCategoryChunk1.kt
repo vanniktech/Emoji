@@ -20,6 +20,10 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F4D2), 0, 1), listOf("ledger"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4C3), 0, 1), listOf("page_with_curl"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4DC), 0, 1), listOf("scroll"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4C4), 0, 1), listOf("page_facing_up"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4F0), 0, 1), listOf("newspaper"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F5DE, 0xFE0F), 0, 2), listOf("rolled_up_newspaper"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4D1), 0, 1), listOf("bookmark_tabs"), false),
@@ -91,7 +95,7 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F6E0, 0xFE0F), 0, 2), listOf("hammer_and_wrench"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F5E1, 0xFE0F), 0, 2), listOf("dagger_knife"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2694, 0xFE0F), 0, 2), listOf("crossed_swords"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F52B), 0, 1), listOf("gun"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4A3), 0, 1), listOf("bomb"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FA83), 0, 1), listOf("boomerang"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F3F9), 0, 1), listOf("bow_and_arrow"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6E1, 0xFE0F), 0, 2), listOf("shield"), false),
@@ -136,9 +140,5 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F6C1), 0, 1), listOf("bathtub"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA4), 0, 1), listOf("mouse_trap"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FA92), 0, 1), listOf("razor"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F9F4), 0, 1), listOf("lotion_bottle"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F9F7), 0, 1), listOf("safety_pin"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F9F9), 0, 1), listOf("broom"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F9FA), 0, 1), listOf("basket"), false),
   )
 }

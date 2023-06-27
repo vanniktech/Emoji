@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object FoodAndDrinkCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1FAD7), 0, 1), listOf("pouring_liquid"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F964), 0, 1), listOf("cup_with_straw"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9CB), 0, 1), listOf("bubble_tea"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9C3), 0, 1), listOf("beverage_box"), false),
