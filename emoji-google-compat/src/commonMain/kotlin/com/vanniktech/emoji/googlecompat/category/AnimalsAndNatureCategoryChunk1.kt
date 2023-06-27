@@ -20,6 +20,12 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object AnimalsAndNatureCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F99F), 0, 1), listOf("mosquito"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAB0), 0, 1), listOf("fly"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAB1), 0, 1), listOf("worm"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9A0), 0, 1), listOf("microbe"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F490), 0, 1), listOf("bouquet"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F338), 0, 1), listOf("cherry_blossom"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4AE), 0, 1), listOf("white_flower"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB7), 0, 1), listOf("lotus"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), listOf("rosette"), false),
@@ -29,6 +35,7 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F33B), 0, 1), listOf("sunflower"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F33C), 0, 1), listOf("blossom"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F337), 0, 1), listOf("tulip"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FABB), 0, 1), listOf("hyacinth"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F331), 0, 1), listOf("seedling"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB4), 0, 1), listOf("potted_plant"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F332), 0, 1), listOf("evergreen_tree"), false),
@@ -44,5 +51,6 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F343), 0, 1), listOf("leaves"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB9), 0, 1), listOf("empty_nest"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FABA), 0, 1), listOf("nest_with_eggs"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F344), 0, 1), listOf("mushroom"), false),
   )
 }

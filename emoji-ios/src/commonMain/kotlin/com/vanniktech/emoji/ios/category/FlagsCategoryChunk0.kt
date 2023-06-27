@@ -21,7 +21,7 @@ import com.vanniktech.emoji.ios.IosEmoji
 internal object FlagsCategoryChunk0 {
   internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(String(intArrayOf(0x1F3C1), 0, 1), listOf("checkered_flag"), 8, 7, false),
-    IosEmoji(String(intArrayOf(0x1F6A9), 0, 1), listOf("triangular_flag_on_post"), 36, 29, false),
+    IosEmoji(String(intArrayOf(0x1F6A9), 0, 1), listOf("triangular_flag_on_post"), 36, 30, false),
     IosEmoji(String(intArrayOf(0x1F38C), 0, 1), listOf("crossed_flags"), 7, 20, false),
     IosEmoji(String(intArrayOf(0x1F3F4), 0, 1), listOf("waving_black_flag"), 10, 35, false),
     IosEmoji(String(intArrayOf(0x1F3F3, 0xFE0F), 0, 2), listOf("waving_white_flag"), 10, 30, false),

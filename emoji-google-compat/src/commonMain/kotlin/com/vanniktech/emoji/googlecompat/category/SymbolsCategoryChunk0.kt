@@ -79,6 +79,7 @@ internal object SymbolsCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x262E, 0xFE0F), 0, 2), listOf("peace_symbol"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F54E), 0, 1), listOf("menorah_with_nine_branches"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F52F), 0, 1), listOf("six_pointed_star"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAAF), 0, 1), listOf("khanda"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2648), 0, 1), listOf("aries"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2649), 0, 1), listOf("taurus"), false),
     GoogleCompatEmoji(String(intArrayOf(0x264A), 0, 1), listOf("gemini"), false),
@@ -114,6 +115,7 @@ internal object SymbolsCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F505), 0, 1), listOf("low_brightness"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F506), 0, 1), listOf("high_brightness"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4F6), 0, 1), listOf("signal_strength"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6DC), 0, 1), listOf("wireless"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4F3), 0, 1), listOf("vibration_mode"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4F4), 0, 1), listOf("mobile_phone_off"), false),
     GoogleCompatEmoji(String(intArrayOf(0x2640, 0xFE0F), 0, 2), listOf("female_sign"), false),
@@ -138,7 +140,5 @@ internal object SymbolsCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x267B, 0xFE0F), 0, 2), listOf("recycle"), false),
     GoogleCompatEmoji(String(intArrayOf(0x269C, 0xFE0F), 0, 2), listOf("fleur_de_lis"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F531), 0, 1), listOf("trident"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F4DB), 0, 1), listOf("name_badge"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F530), 0, 1), listOf("beginner"), false),
   )
 }

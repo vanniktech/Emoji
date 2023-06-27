@@ -20,15 +20,22 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<FacebookEmoji> = listOf(
-    FacebookEmoji(String(intArrayOf(0x1FAA5), 0, 1), listOf("toothbrush"), 54, 23, false),
-    FacebookEmoji(String(intArrayOf(0x1F9FD), 0, 1), listOf("sponge"), 53, 43, false),
-    FacebookEmoji(String(intArrayOf(0x1F9EF), 0, 1), listOf("fire_extinguisher"), 53, 29, false),
-    FacebookEmoji(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley"), 38, 4, false),
-    FacebookEmoji(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking"), 36, 32, false),
-    FacebookEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), 57, 42, false),
-    FacebookEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), 54, 24, false),
-    FacebookEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), 57, 43, false),
-    FacebookEmoji(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), 32, 19, false),
-    FacebookEmoji(String(intArrayOf(0x1FAA7), 0, 1), listOf("placard"), 54, 25, false),
+    FacebookEmoji(String(intArrayOf(0x1F9FB), 0, 1), listOf("roll_of_paper"), 53, 43, false),
+    FacebookEmoji(String(intArrayOf(0x1FAA3), 0, 1), listOf("bucket"), 54, 28, false),
+    FacebookEmoji(String(intArrayOf(0x1F9FC), 0, 1), listOf("soap"), 53, 44, false),
+    FacebookEmoji(String(intArrayOf(0x1FAE7), 0, 1), listOf("bubbles"), 55, 37, false),
+    FacebookEmoji(String(intArrayOf(0x1FAA5), 0, 1), listOf("toothbrush"), 54, 30, false),
+    FacebookEmoji(String(intArrayOf(0x1F9FD), 0, 1), listOf("sponge"), 53, 45, false),
+    FacebookEmoji(String(intArrayOf(0x1F9EF), 0, 1), listOf("fire_extinguisher"), 53, 31, false),
+    FacebookEmoji(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley"), 38, 5, false),
+    FacebookEmoji(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking"), 36, 33, false),
+    FacebookEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), 58, 12, false),
+    FacebookEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), 54, 31, false),
+    FacebookEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), 58, 13, false),
+    FacebookEmoji(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet"), 53, 47, false),
+    FacebookEmoji(String(intArrayOf(0x1FAAC), 0, 1), listOf("hamsa"), 54, 37, false),
+    FacebookEmoji(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), 32, 20, false),
+    FacebookEmoji(String(intArrayOf(0x1FAA7), 0, 1), listOf("placard"), 54, 32, false),
+    FacebookEmoji(String(intArrayOf(0x1FAAA), 0, 1), listOf("identification_card"), 54, 35, false),
   )
 }

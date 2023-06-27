@@ -20,6 +20,10 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F9F4), 0, 1), listOf("lotion_bottle"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9F7), 0, 1), listOf("safety_pin"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9F9), 0, 1), listOf("broom"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9FA), 0, 1), listOf("basket"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9FB), 0, 1), listOf("roll_of_paper"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA3), 0, 1), listOf("bucket"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9FC), 0, 1), listOf("soap"), false),
@@ -32,6 +36,8 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), false),
     GoogleCompatEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAAC), 0, 1), listOf("hamsa"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA7), 0, 1), listOf("placard"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAAA), 0, 1), listOf("identification_card"), false),
