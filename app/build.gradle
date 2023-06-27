@@ -3,14 +3,20 @@ plugins {
   id("org.jetbrains.kotlin.android")
 }
 
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+
 android {
   namespace = "com.vanniktech.emoji.sample"
 
   compileSdkVersion libs.versions.compileSdk.get() as int
 
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
   }
 
   defaultConfig {
