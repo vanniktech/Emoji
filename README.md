@@ -26,7 +26,7 @@ The library has 4 different sprites providers to choose from ([iOS](#ios-emojis)
 For getting the above iOS Emojis, add the dependency:
 
 ```groovy
-implementation "com.vanniktech:emoji-ios:0.16.0"
+implementation "com.vanniktech:emoji-ios:0.17.0"
 ```
 
 And install the provider in your Application class.
@@ -45,7 +45,7 @@ EmojiManager.install(IosEmojiProvider())
 For getting the above Google Emojis, add the dependency:
 
 ```groovy
-implementation "com.vanniktech:emoji-google:0.16.0"
+implementation "com.vanniktech:emoji-google:0.17.0"
 ```
 
 And install the provider in your Application class.
@@ -64,7 +64,7 @@ EmojiManager.install(GoogleEmojiProvider())
 For getting the above Facebook Emojis, add the dependency:
 
 ```groovy
-implementation "com.vanniktech:emoji-facebook:0.16.0"
+implementation "com.vanniktech:emoji-facebook:0.17.0"
 ```
 
 And install the provider in your Application class.
@@ -83,7 +83,7 @@ EmojiManager.install(FacebookEmojiProvider())
 For getting the above Twitter Emojis, add the dependency:
 
 ```groovy
-implementation "com.vanniktech:emoji-twitter:0.16.0"
+implementation "com.vanniktech:emoji-twitter:0.17.0"
 ```
 
 And install the provider in your Application class.
@@ -102,7 +102,7 @@ EmojiManager.install(TwitterEmojiProvider())
 For getting the above Google Emojis, add the dependency (only works for Android Apps):
 
 ```groovy
-implementation "com.vanniktech:emoji-google-compat:0.16.0"
+implementation "com.vanniktech:emoji-google-compat:0.17.0"
 ```
 
 And install the provider in your Application class.
@@ -150,7 +150,7 @@ If you want to display your own Emojis you can create your own implementation of
 All of the core API lays in `emoji`, which is being pulled in automatically by the providers:
 
 ```groovy
-implementation "com.vanniktech:emoji:0.16.0"
+implementation "com.vanniktech:emoji:0.17.0"
 ```
 
 ## Android Material
@@ -158,7 +158,7 @@ implementation "com.vanniktech:emoji:0.16.0"
 Material Design Library bindings can be included via:
 
 ```groovy
-implementation "com.vanniktech:emoji-material:0.16.0"
+implementation "com.vanniktech:emoji-material:0.17.0"
 ```
 
 - [`EmojiMaterialButton`](./emoji-material/src/androidMain/kotlin/com/vanniktech/emoji/material/mojiMaterialButton.kt)

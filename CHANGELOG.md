@@ -1,7 +1,10 @@
 # Change Log
 
-Version 0.17.0 *(In development)*
----------------------------------
+Version 0.17.0 *(2023-06-27)*
+-----------------------------
+
+- Support Emoji Version 15.0 [\#991](https://github.com/vanniktech/Emoji/pull/991) ([vanniktech](https://github.com/vanniktech))
+- Gradle: Set Jvm Toolchain to 11. [\#990](https://github.com/vanniktech/Emoji/pull/990) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.16.0 *(2023-03-25)*
 -----------------------------

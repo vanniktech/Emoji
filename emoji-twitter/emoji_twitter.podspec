@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'emoji_twitter'
-    spec.version                  = '0.16.0-SNAPSHOT'
+    spec.version                  = '0.17.0'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
