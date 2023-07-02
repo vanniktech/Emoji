@@ -107,14 +107,14 @@ internal class EmojiSearchDialog : DialogFragment() {
             handler.post {
               adapter.update(emojis, marginStart = null)
             }
-          }, 300, TimeUnit.MILLISECONDS,)
+          }, 300, TimeUnit.MILLISECONDS)
         }
       },
     )
 
     editText.postDelayed({
       editText.showKeyboardAndFocus()
-    }, 300L,)
+    }, 300L)
 
     return dialog
   }

@@ -1,7 +1,6 @@
 plugins {
   id("org.jetbrains.dokka")
   id("org.jetbrains.kotlin.multiplatform")
-  id("org.jetbrains.kotlin.native.cocoapods")
   id("com.android.library")
   id("org.jetbrains.kotlin.plugin.parcelize")
   id("me.tylerbwong.gradle.metalava")

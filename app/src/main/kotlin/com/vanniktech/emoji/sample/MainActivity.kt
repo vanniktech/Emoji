@@ -46,6 +46,7 @@ import com.vanniktech.emoji.sample.databinding.ActivityMainBinding
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider
 import timber.log.Timber
+import com.vanniktech.emoji.R as EmojiR
 
 // We don't care about duplicated code in the sample.
 class MainActivity : AppCompatActivity() {
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
       onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
       onEmojiPopupDismissListener = { binding.chatEmoji.setImageResource(R.drawable.ic_emojis) },
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
-      keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+      keyboardAnimationStyle = EmojiR.style.emoji_fade_animation_style,
 //      theming = com.vanniktech.emoji.EmojiTheming( // Uncomment this to use runtime theming.
 //        backgroundColor = android.graphics.Color.BLACK,
 //        primaryColor = android.graphics.Color.BLUE,

@@ -32,6 +32,7 @@ import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory
 import timber.log.Timber
+import com.vanniktech.emoji.R as EmojiR
 
 // We don't care about duplicated code in the sample.
 class MainDialog : DialogFragment() {
@@ -63,7 +64,7 @@ class MainDialog : DialogFragment() {
       onSoftKeyboardOpenListener = { px -> Timber.d(TAG, "Opened soft keyboard with height $px") },
       onEmojiPopupDismissListener = { emojiButton.setImageResource(R.drawable.ic_emojis) },
       onSoftKeyboardCloseListener = { Timber.d(TAG, "Closed soft keyboard") },
-      keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+      keyboardAnimationStyle = EmojiR.style.emoji_fade_animation_style,
     )
 
     emojiButton.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN)

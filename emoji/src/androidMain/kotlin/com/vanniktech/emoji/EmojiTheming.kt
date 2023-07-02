@@ -34,8 +34,8 @@ import com.vanniktech.emoji.internal.Utils
   companion object {
     fun from(context: Context) = EmojiTheming(
       backgroundColor = Utils.resolveColor(context, R.attr.emojiBackgroundColor, R.color.emoji_background_color),
-      primaryColor = Utils.resolveColor(context, R.attr.colorPrimary, R.color.emoji_primary_color),
-      secondaryColor = Utils.resolveColor(context, R.attr.colorAccent, R.color.emoji_secondary_color),
+      primaryColor = Utils.resolveColor(context, android.R.attr.colorPrimary, R.color.emoji_primary_color),
+      secondaryColor = Utils.resolveColor(context, android.R.attr.colorAccent, R.color.emoji_secondary_color),
       dividerColor = Utils.resolveColor(context, R.attr.emojiDividerColor, R.color.emoji_divider_color),
       textColor = Utils.resolveColor(context, R.attr.emojiTextColor, R.color.emoji_text_color),
       textSecondaryColor = Utils.resolveColor(context, R.attr.emojiTextSecondaryColor, R.color.emoji_text_secondary_color),
