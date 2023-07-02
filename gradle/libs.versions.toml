@@ -3,9 +3,9 @@ minSdk = "21"
 compileSdk = "33"
 targetSdk = "33"
 
-androidgradleplugin = "7.4.2"
+androidgradleplugin = "8.0.2"
 kotlin = "1.8.22"
-ktlint = "0.47.1"
+ktlint = "0.50.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.1" }
