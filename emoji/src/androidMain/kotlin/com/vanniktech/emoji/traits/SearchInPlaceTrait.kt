@@ -68,7 +68,7 @@ class SearchInPlaceTrait(
           } else {
             popup.dismiss()
           }
-        }, 300L,)
+        }, 300L)
       }
     }
     editText.addTextChangedListener(watcher)

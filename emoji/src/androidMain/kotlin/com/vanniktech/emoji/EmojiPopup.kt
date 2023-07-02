@@ -229,7 +229,7 @@ class EmojiPopup @JvmOverloads constructor(
         rootView, Gravity.NO_GRAVITY, 0,
         Utils.getProperHeight(context) + popupWindowHeight,
       )
-    }, delay.toLong(),)
+    }, delay.toLong())
     onEmojiPopupShownListener?.onEmojiPopupShown()
   }
 

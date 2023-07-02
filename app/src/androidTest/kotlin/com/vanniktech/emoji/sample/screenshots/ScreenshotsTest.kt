@@ -67,7 +67,6 @@ import tools.fastlane.screengrab.locale.LocaleTestRule
     IOS("iOS"),
     TWITTER("Twitter"),
     FACEBOOK("Facebook"),
-    ;
   }
 
   private fun start(variant: Variant) {

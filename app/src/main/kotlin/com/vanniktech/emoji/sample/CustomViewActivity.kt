@@ -28,6 +28,7 @@ import com.vanniktech.emoji.installDisableKeyboardInput
 import com.vanniktech.emoji.installForceSingleEmoji
 import com.vanniktech.emoji.sample.databinding.ViewCustomBinding
 import com.vanniktech.emoji.traits.EmojiTrait
+import com.vanniktech.emoji.R as EmojiR
 
 class CustomViewActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +74,7 @@ class CustomViewActivity : AppCompatActivity() {
 
       val emojiPopup = EmojiPopup(
         rootView = this,
-        keyboardAnimationStyle = R.style.emoji_fade_animation_style,
+        keyboardAnimationStyle = EmojiR.style.emoji_fade_animation_style,
         editText = binding.editText,
       )
       binding.editText.installDisableKeyboardInput(emojiPopup)
