@@ -2,6 +2,11 @@
 <lint>
   <issue id="SyntheticAccessor" severity="error"/>
   <issue id="InvalidPackage" severity="ignore"/>
+  <!-- Our pace. -->
+  <issue id="GradleDependency" severity="ignore" in="cli,gradle"/>
+  <issue id="NewerVersionAvailable" severity="ignore" in="cli,gradle"/>
+  <issue id="AndroidGradlePluginVersion" severity="ignore" in="cli,gradle"/>
+
   <!-- False positive for the JVM module since we use the new tool mechanism. -->
   <issue id="JavaPluginLanguageLevel" severity="ignore"/>
   <issue id="ConvertToWebp">
