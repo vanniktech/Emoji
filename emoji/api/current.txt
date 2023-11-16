@@ -1,9 +1,6 @@
 // Signature format: 4.0
 package com.vanniktech.emoji {
 
-  public final class CommonParcelableAndroidApiKt {
-  }
-
   public interface Emoji extends android.os.Parcelable {
     method public com.vanniktech.emoji.Emoji getBase();
     method public java.util.List<java.lang.String> getShortcodes();
@@ -23,8 +20,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiAutoCompleteTextView(android.content.Context context);
+    ctor public EmojiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -33,8 +30,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiButton extends androidx.appcompat.widget.AppCompatButton implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiButton(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiButton(android.content.Context context);
+    ctor public EmojiButton(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -50,8 +47,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiCheckbox extends androidx.appcompat.widget.AppCompatCheckBox implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiCheckbox(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiCheckbox(android.content.Context context);
+    ctor public EmojiCheckbox(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -68,8 +65,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiEditText extends androidx.appcompat.widget.AppCompatEditText implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiEditText(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiEditText(android.content.Context context);
+    ctor public EmojiEditText(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -111,8 +108,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiMultiAutoCompleteTextView extends androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiMultiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiMultiAutoCompleteTextView(android.content.Context context);
+    ctor public EmojiMultiAutoCompleteTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -121,20 +118,20 @@ package com.vanniktech.emoji {
   }
 
   public final class EmojiPopup {
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, optional com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener? onEmojiPopupDismissListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji);
-    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming);
     ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener);
+    ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, optional com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener? onEmojiPopupDismissListener);
     method public void dismiss();
     method public boolean isShowing();
     method public void show();
@@ -162,8 +159,8 @@ package com.vanniktech.emoji {
   }
 
   public class EmojiTextView extends androidx.appcompat.widget.AppCompatTextView implements com.vanniktech.emoji.EmojiDisplayable {
-    ctor public EmojiTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiTextView(android.content.Context context);
+    ctor public EmojiTextView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public float getEmojiSize();
     method public void setEmojiSize(@Px int pixels);
     method public void setEmojiSize(@Px int pixels, boolean shouldInvalidate);
@@ -198,14 +195,14 @@ package com.vanniktech.emoji {
   }
 
   public final class EmojiView extends android.widget.LinearLayout {
-    ctor public EmojiView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public EmojiView(android.content.Context context);
-    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer);
-    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji);
-    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji);
-    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji);
-    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming);
+    ctor public EmojiView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji);
+    method public void setUp(android.view.View rootView, com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, android.widget.EditText? editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer);
     method public void tearDown();
   }
 
@@ -235,10 +232,7 @@ package com.vanniktech.emoji.inputfilters {
 package com.vanniktech.emoji.internal {
 
   public final class ParcelableUtilsKt {
-    method public static inline <reified T extends android.os.Parcelable> T! parcelable(android.os.Bundle, String key);
-  }
-
-  public final class UtilsKt {
+    method public static inline <reified T extends android.os.Parcelable> T? parcelable(android.os.Bundle, String key);
   }
 
 }
@@ -287,8 +281,8 @@ package com.vanniktech.emoji.recent {
   }
 
   public final class RecentEmojiManager implements com.vanniktech.emoji.recent.RecentEmoji {
-    ctor public RecentEmojiManager(android.content.Context context, optional int maxRecents);
     ctor public RecentEmojiManager(android.content.Context context);
+    ctor public RecentEmojiManager(android.content.Context context, optional int maxRecents);
     method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
     method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
     method public void persist();
