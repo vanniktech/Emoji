@@ -71,7 +71,5 @@ import com.vanniktech.emoji.Parcelize
     return result
   }
 
-  override fun toString(): String {
-    return "<%= name %>(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "<%= name %>(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
 }

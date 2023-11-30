@@ -22,10 +22,8 @@ import com.vanniktech.emoji.isOnlyEmojis
 
 /** InputFilter that only accepts emojis.  */
 class OnlyEmojisInputFilter : InputFilter {
-  override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? {
-    return when {
-      !source.subSequence(start, end).isOnlyEmojis() -> "" // Reject.
-      else -> null
-    }
+  override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? = when {
+    !source.subSequence(start, end).isOnlyEmojis() -> "" // Reject.
+    else -> null
   }
 }

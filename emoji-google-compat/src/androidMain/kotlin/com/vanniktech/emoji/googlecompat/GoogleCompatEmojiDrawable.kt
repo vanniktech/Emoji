@@ -81,9 +81,7 @@ internal class GoogleCompatEmojiDrawable(
   }
 
   @Suppress("OVERRIDE_DEPRECATION")
-  override fun getOpacity(): Int {
-    return PixelFormat.UNKNOWN
-  }
+  override fun getOpacity(): Int = PixelFormat.UNKNOWN
 
   internal companion object {
     private const val TEXT_SIZE_FACTOR = 0.8f

@@ -71,7 +71,5 @@ import com.vanniktech.emoji.Parcelize
     return result
   }
 
-  override fun toString(): String {
-    return "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
 }
