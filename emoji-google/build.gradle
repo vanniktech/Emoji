@@ -21,14 +21,14 @@ metalava {
 version = VERSION_NAME
 
 kotlin {
+  applyDefaultHierarchyTemplate()
+
   androidTarget("android") {
     publishLibraryVariants("release")
   }
 //  ios("ios")
-  jvm("jvm")
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of(11))
-  }
+  jvm()
+  jvmToolchain(11)
 
   sourceSets {
     commonMain {
