@@ -21,7 +21,7 @@ metalava {
 version = VERSION_NAME
 
 kotlin {
-  android("android") {
+  androidTarget("android") {
     publishLibraryVariants("release")
   }
 //  ios("ios")
@@ -65,7 +65,7 @@ kotlin {
 android {
   namespace "com.vanniktech.emoji.googlecompat"
 
-  compileSdkVersion libs.versions.compileSdk.get() as int
+  compileSdk(libs.versions.compileSdk.get() as int)
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_11
