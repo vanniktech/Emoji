@@ -17,18 +17,15 @@
 package com.vanniktech.emoji.<%= package %>
 
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.IgnoredOnParcel
-import com.vanniktech.emoji.Parcelable
-import com.vanniktech.emoji.Parcelize
 
-@Parcelize internal class <%= name %> internal constructor(
+internal class <%= name %> internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<<%= name %>> = emptyList(),
   private var parent: <%= name %>? = null,
-) : Emoji, Parcelable {
-  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji {
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
