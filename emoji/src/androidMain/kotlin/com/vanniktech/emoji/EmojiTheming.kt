@@ -19,8 +19,10 @@
 package com.vanniktech.emoji
 
 import android.content.Context
+import android.os.Parcelable
 import androidx.annotation.ColorInt
 import com.vanniktech.emoji.internal.Utils
+import kotlinx.parcelize.Parcelize
 
 /** Control the colors of all Emoji UI components. */
 @Parcelize data class EmojiTheming(

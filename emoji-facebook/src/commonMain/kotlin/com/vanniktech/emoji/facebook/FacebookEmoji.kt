@@ -17,11 +17,8 @@
 package com.vanniktech.emoji.facebook
 
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.IgnoredOnParcel
-import com.vanniktech.emoji.Parcelable
-import com.vanniktech.emoji.Parcelize
 
-@Parcelize internal class FacebookEmoji internal constructor(
+internal class FacebookEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   internal val x: Int,
@@ -29,8 +26,8 @@ import com.vanniktech.emoji.Parcelize
   override val isDuplicate: Boolean,
   override val variants: List<FacebookEmoji> = emptyList(),
   private var parent: FacebookEmoji? = null,
-) : Emoji, Parcelable {
-  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji {
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!

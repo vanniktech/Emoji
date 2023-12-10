@@ -1,7 +1,7 @@
 // Signature format: 4.0
 package com.vanniktech.emoji {
 
-  public interface Emoji extends android.os.Parcelable {
+  public interface Emoji {
     method public com.vanniktech.emoji.Emoji getBase();
     method public java.util.List<java.lang.String> getShortcodes();
     method public String getUnicode();

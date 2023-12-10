@@ -16,7 +16,7 @@
 
 package com.vanniktech.emoji
 
-interface Emoji : Parcelable {
+interface Emoji {
   val base: Emoji
   val unicode: String
   val shortcodes: List<String>
