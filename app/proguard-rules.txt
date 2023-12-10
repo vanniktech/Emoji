@@ -1,2 +1,0 @@
--dontwarn kotlin.**
--dontwarn org.jetbrains.annotations.**
