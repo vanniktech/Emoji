@@ -39,6 +39,7 @@ class SearchEmojiManager : SearchEmoji {
             }
           }.firstOrNull()
         }
+        .sortedWith(compareBy({ it.range.first }, { it.shortcode }))
       else -> emptyList()
     }
   }
