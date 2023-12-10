@@ -1,17 +1,17 @@
 [versions]
 minSdk = "21"
-compileSdk = "33"
-targetSdk = "33"
+compileSdk = "34"
+targetSdk = "34"
 
 androidgradleplugin = "8.1.1"
-kotlin = "1.8.22"
-ktlint = "0.50.0"
+kotlin = "1.9.21"
+ktlint = "1.0.1"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.1" }
 androidx-cardview = { module = "androidx.cardview:cardview", version = "1.0.0" }
 androidx-emoji-appcompat = { module = "androidx.emoji:emoji-appcompat", version = "1.1.0" }
-androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.3.1" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.3.2" }
 androidx-test-espresso = { module = "androidx.test.espresso:espresso-core", version = "3.5.1" }
 androidx-test-ext = { module = "androidx.test.ext:junit", version = "1.1.5" }
 androidx-test-rules = { module = "androidx.test:rules", version = "1.5.0" }
@@ -26,16 +26,16 @@ leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", ve
 material = { module = "com.google.android.material:material", version = "1.10.0" }
 plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "3.0" }
 plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version.ref = "androidgradleplugin" }
-plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.9.0" }
+plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.9.10" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.8.0" }
-plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.3.3" }
+plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.3.5" }
 plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.25.3" }
-robolectric = { module = "org.robolectric:robolectric", version = "4.10.3" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.11.1" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 ui = { module = "com.vanniktech:ui", version = "0.8.0" }
 
 [plugins]
-codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.23.0" }
+codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.24.0" }
 dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.8.0" }

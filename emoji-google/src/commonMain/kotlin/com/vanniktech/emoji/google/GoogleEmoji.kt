@@ -17,11 +17,8 @@
 package com.vanniktech.emoji.google
 
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.IgnoredOnParcel
-import com.vanniktech.emoji.Parcelable
-import com.vanniktech.emoji.Parcelize
 
-@Parcelize internal class GoogleEmoji internal constructor(
+internal class GoogleEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   internal val x: Int,
@@ -29,8 +26,8 @@ import com.vanniktech.emoji.Parcelize
   override val isDuplicate: Boolean,
   override val variants: List<GoogleEmoji> = emptyList(),
   private var parent: GoogleEmoji? = null,
-) : Emoji, Parcelable {
-  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji {
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
@@ -71,7 +68,5 @@ import com.vanniktech.emoji.Parcelize
     return result
   }
 
-  override fun toString(): String {
-    return "GoogleEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "GoogleEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
 }

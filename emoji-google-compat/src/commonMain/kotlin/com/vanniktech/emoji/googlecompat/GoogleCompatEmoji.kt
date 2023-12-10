@@ -17,18 +17,15 @@
 package com.vanniktech.emoji.googlecompat
 
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.IgnoredOnParcel
-import com.vanniktech.emoji.Parcelable
-import com.vanniktech.emoji.Parcelize
 
-@Parcelize internal class GoogleCompatEmoji internal constructor(
+internal class GoogleCompatEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   override val isDuplicate: Boolean,
   override val variants: List<GoogleCompatEmoji> = emptyList(),
   private var parent: GoogleCompatEmoji? = null,
-) : Emoji, Parcelable {
-  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji {
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
@@ -57,9 +54,7 @@ import com.vanniktech.emoji.Parcelize
     return true
   }
 
-  override fun toString(): String {
-    return "GoogleCompatEmoji(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "GoogleCompatEmoji(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()

@@ -17,11 +17,8 @@
 package com.vanniktech.emoji.twitter
 
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.IgnoredOnParcel
-import com.vanniktech.emoji.Parcelable
-import com.vanniktech.emoji.Parcelize
 
-@Parcelize internal class TwitterEmoji internal constructor(
+internal class TwitterEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   internal val x: Int,
@@ -29,8 +26,8 @@ import com.vanniktech.emoji.Parcelize
   override val isDuplicate: Boolean,
   override val variants: List<TwitterEmoji> = emptyList(),
   private var parent: TwitterEmoji? = null,
-) : Emoji, Parcelable {
-  @IgnoredOnParcel override val base by lazy(LazyThreadSafetyMode.NONE) {
+) : Emoji {
+  override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
     while (result.parent != null) {
       result = result.parent!!
@@ -71,7 +68,5 @@ import com.vanniktech.emoji.Parcelize
     return result
   }
 
-  override fun toString(): String {
-    return "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
 }

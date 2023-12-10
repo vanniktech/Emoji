@@ -12,7 +12,7 @@ kotlin {
 android {
   namespace = "com.vanniktech.emoji.sample"
 
-  compileSdkVersion libs.versions.compileSdk.get() as int
+  compileSdk(libs.versions.compileSdk.get() as int)
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_11
@@ -54,7 +54,6 @@ android {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
       shrinkResources true
-      zipAlignEnabled true
 
       if (shouldSign) {
         signingConfig signingConfigs.release
