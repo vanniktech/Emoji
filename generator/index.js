@@ -16,7 +16,6 @@
 
 import commandLineArgs from "command-line-args"
 import fs from "fs-extra"
-import stable from "stable"
 import chunk from "lodash.chunk";
 import template from "lodash.template";
 import imagemin from "imagemin";
@@ -279,7 +278,7 @@ async function parse() {
 
     const result = new Map();
     const filteredEmojiData = emojiData.filter(it => it.category !== "Component");
-    const preparedEmojiData = stable(filteredEmojiData, (first, second) => first.sort_order - second.sort_order);
+    const preparedEmojiData = [...filteredEmojiData].sort((first, second) => first.sort_order - second.sort_order);
 
     for (const dataEntry of preparedEmojiData) {
         const category = dataEntry.category.replace(" & ", "And");
@@ -392,7 +391,7 @@ async function generateCode(map, targets) {
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
     const emojiProviderJvm = await fs.readFile("template/EmojiProviderJvm.kt", "utf-8");
 
-    const entries = stable([...map.entries()], (first, second) => {
+    const entries = [...map.entries()].sort((first, second) => {
         return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
     });
 
