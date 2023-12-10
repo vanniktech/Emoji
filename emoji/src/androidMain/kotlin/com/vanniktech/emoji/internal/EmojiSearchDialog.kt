@@ -160,6 +160,8 @@ internal class EmojiAdapter(
     setHasStableIds(true)
   }
 
+  override fun getItemId(position: Int) = items[position].emoji.hashCode().toLong()
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = EmojiViewHolder(parent)
 
   override fun onBindViewHolder(holder: EmojiViewHolder, position: Int) {

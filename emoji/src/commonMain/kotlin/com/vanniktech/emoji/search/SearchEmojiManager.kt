@@ -25,7 +25,7 @@ class SearchEmojiManager : SearchEmoji {
     return when {
       query.length > 1 -> categories.flatMap { it.emojis.toList() }
         .mapNotNull { emoji ->
-          emoji.shortcodes.mapNotNull { shortcode ->
+          emoji.shortcodes.firstNotNullOfOrNull { shortcode ->
             val index = shortcode.indexOf(query, ignoreCase = true)
 
             if (index >= 0) {
@@ -37,7 +37,7 @@ class SearchEmojiManager : SearchEmoji {
             } else {
               null
             }
-          }.firstOrNull()
+          }
         }
       else -> emptyList()
     }
