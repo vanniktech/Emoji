@@ -57,9 +57,7 @@ import com.vanniktech.emoji.Parcelize
     return true
   }
 
-  override fun toString(): String {
-    return "GoogleCompatEmoji(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
-  }
+  override fun toString() = "GoogleCompatEmoji(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()

@@ -1185,7 +1185,7 @@ imagemin-pngquant@^9.0.2:
     execa "^4.0.0"
     is-png "^2.0.0"
     is-stream "^2.0.0"
-    ow "^0.17.0"
+    ow "^0.18.0-SNAPSHOT"
     pngquant-bin "^6.0.0"
 
 imagemin-zopfli@^7.0.0:
@@ -1684,9 +1684,9 @@ os-filter-obj@^2.0.0:
   dependencies:
     arch "^2.1.0"
 
-ow@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.npmjs.org/ow/-/ow-0.17.0.tgz"
+ow@^0.18.0-SNAPSHOT:
+  version "0.18.0-SNAPSHOT"
+  resolved "https://registry.npmjs.org/ow/-/ow-0.18.0-SNAPSHOT.tgz"
   integrity sha512-i3keDzDQP5lWIe4oODyDFey1qVrq2hXKTuTH2VpqwpYtzPiKZt2ziRI4NBQmgW40AnV5Euz17OyWweCb+bNEQA==
   dependencies:
     type-fest "^0.11.0"
