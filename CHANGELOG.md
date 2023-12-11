@@ -1,7 +1,12 @@
 # Change Log
 
-Version 0.18.0 *(In development)*
----------------------------------
+Version 0.18.0 *(2023-12-11)*
+-----------------------------
+
+- Behavior change: SearchEmojiManager sorts by found index and then by shortcode. [\#1041](https://github.com/vanniktech/Emoji/pull/1041) ([vanniktech](https://github.com/vanniktech))
+- Breaking change: Emoji is no longer Parcelable. [\#1043](https://github.com/vanniktech/Emoji/pull/1043) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Correctly use stable ids in EmojiAdapter to prevent showing the same Emoji multiple times. [\#1040](https://github.com/vanniktech/Emoji/pull/1040) ([vanniktech](https://github.com/vanniktech))
+- Technical: Kotlin 1.9.21 & Target Android 34. [\#1044](https://github.com/vanniktech/Emoji/pull/1044) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.17.0 *(2023-06-27)*
 -----------------------------
