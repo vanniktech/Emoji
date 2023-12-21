@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji.search
+package com.vanniktech.emoji.<%= package %>
 
-import com.vanniktech.emoji.Emoji
-import kotlin.jvm.JvmField
+import com.vanniktech.emoji.EmojiCategory
+import com.vanniktech.emoji.EmojiProvider
+<%= imports %>
 
-data class SearchEmojiResult(
-  @JvmField val emoji: Emoji,
-  @JvmField val shortcode: String,
-  /** The range in [shortcode], which matches the query. This is used for highlighting. */
-  @JvmField val range: IntRange,
-) {
-  init {
-    require(range.first in shortcode.indices) { "Index ${range.first} is out of bounds in $shortcode" }
-    require(range.last in shortcode.indices) { "Index ${range.last} is out of bounds in $shortcode" }
-  }
+class <%= name %>Provider : EmojiProvider {
+  override val categories: Array<EmojiCategory>
+    get() = arrayOf(<% categories.forEach(function(category) { %>
+      <%= category.name %>(),<% }); %>
+    )
+
+  override fun release() = Unit
 }

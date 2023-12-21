@@ -23,7 +23,6 @@ kotlin {
   androidTarget {
     publishLibraryVariants("release")
   }
-//  ios("ios")
   jvm()
   jvmToolchain(11)
 

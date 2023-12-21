@@ -16,6 +16,8 @@
 
 package com.vanniktech.emoji
 
+import kotlin.jvm.JvmStatic
+
 /**
  * EmojiManager where an EmojiProvider can be installed for further usage.
  */
@@ -28,6 +30,8 @@ object EmojiManager {
   private var categories: Array<EmojiCategory>? = null
   private var emojiPattern: Regex? = null
   internal var emojiRepetitivePattern: Regex? = null
+
+  private val LOCK = Lock()
 
   internal fun categories(): Array<EmojiCategory> {
     verifyInstalled()
@@ -81,7 +85,7 @@ object EmojiManager {
    * [provider] the provider that should be installed.
    */
   @JvmStatic fun install(provider: EmojiProvider) {
-    synchronized(EmojiManager::class.java) {
+    LOCK.use {
       categories = provider.categories
       emojiProvider = provider
       emojiMap.clear()
@@ -114,7 +118,7 @@ object EmojiManager {
       for (i in 0 until unicodesForPatternSize) {
         patternBuilder.append(Regex.escape(unicodesForPattern[i])).append('|')
       }
-      val regex = patternBuilder.deleteCharAt(patternBuilder.length - 1).toString()
+      val regex = patternBuilder.deleteAt(patternBuilder.length - 1).toString()
       emojiPattern = Regex(regex, RegexOption.IGNORE_CASE)
       emojiRepetitivePattern = Regex("($regex)+", RegexOption.IGNORE_CASE)
     }
@@ -125,10 +129,10 @@ object EmojiManager {
    * all data associated with installed [Emoji]s. For the existing [EmojiProvider]s this
    * means the memory-heavy emoji sheet.
    *
-   * @see .destroy
+   * @see [destroy]
    */
   @JvmStatic fun destroy() {
-    synchronized(EmojiManager::class.java) {
+    LOCK.use {
       release()
       emojiMap.clear()
       emojiProvider = null
@@ -145,10 +149,10 @@ object EmojiManager {
    * In contrast to [destroy], this does **not** destroy the internal
    * data structures and thus, you do not need to [install] again before using the EmojiManager.
    *
-   * @see .destroy
+   * @see [destroy]
    */
   @JvmStatic fun release() {
-    synchronized(EmojiManager::class.java) {
+    LOCK.use {
       emojiProvider?.release()
     }
   }

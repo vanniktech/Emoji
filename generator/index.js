@@ -374,7 +374,7 @@ async function copyImages(map, targets, shouldOptimize) {
 }
 
 /**
- * Generates the relevant java code and saves it to the destinations, specified by the targets. Code generated are the
+ * Generates the relevant code and saves it to the destinations, specified by the targets. Code generated are the
  * categories, the provider and the specific emoji class.
  * @param map The previously created map.
  * @param targets The targets, providing destination for the code files.
@@ -390,24 +390,27 @@ async function generateCode(map, targets) {
     const emojiProviderAndroid = await fs.readFile("template/EmojiProviderAndroid.kt", "utf-8");
     const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
     const emojiProviderJvm = await fs.readFile("template/EmojiProviderJvm.kt", "utf-8");
+    const emojiProviderIos = await fs.readFile("template/EmojiProviderIos.kt", "utf-8");
 
     const entries = [...map.entries()].sort((first, second) => {
         return categoryInfo.findIndex(it => it.name === first[0]) - categoryInfo.findIndex(it => it.name === second[0]);
     });
 
     for (const target of targets) {
-        const srcDir = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
-        const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
-        const jvmSrcDir = `../emoji-${target.module}/src/jvmMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const androidMain = `../emoji-${target.module}/src/androidMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const commonMain = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const jvmMain = `../emoji-${target.module}/src/jvmMain/kotlin/com/vanniktech/emoji/${target.package}`;
+        const iosMain = `../emoji-${target.module}/src/iosMain/kotlin/com/vanniktech/emoji/${target.package}`;
 
         if (target.module !== "google-compat") {
-            await fs.emptyDir(commonSrcDir);
-            await fs.mkdir(`${commonSrcDir}/category`);
+            await fs.emptyDir(commonMain);
+            await fs.mkdir(`${commonMain}/category`);
         } else {
-            await fs.emptyDir(`${commonSrcDir}/category`)
+            await fs.emptyDir(`${commonMain}/category`)
         }
 
-        await fs.emptyDir(jvmSrcDir);
+        await fs.emptyDir(jvmMain);
+        await fs.emptyDir(iosMain);
 
         let strips = 0;
         for (const [category, emojis] of entries) {
@@ -422,7 +425,7 @@ async function generateCode(map, targets) {
 
                 chunkClasses.push(chunkClass)
 
-                await fs.writeFile(`${commonSrcDir}/category/${chunkClass}.kt`,
+                await fs.writeFile(`${commonMain}/category/${chunkClass}.kt`,
                     template(categoryChunkTemplate)({
                         package: target.package,
                         name: target.name,
@@ -433,7 +436,7 @@ async function generateCode(map, targets) {
                 );
             }
 
-            await fs.writeFile(`${commonSrcDir}/category/${category}Category.kt`,
+            await fs.writeFile(`${commonMain}/category/${category}Category.kt`,
                 template(categoryTemplate)({
                     package: target.package,
                     name: target.name,
@@ -455,7 +458,7 @@ async function generateCode(map, targets) {
         })
 
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderAndroid)({
+            await fs.writeFile(`${androidMain}/${target.name}Provider.kt`, template(emojiProviderAndroid)({
                 package: target.package,
                 imports: imports,
                 name: target.name,
@@ -463,7 +466,7 @@ async function generateCode(map, targets) {
                 strips: strips,
             }));
         } else {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderCompatTemplate)({
+            await fs.writeFile(`${androidMain}/${target.name}Provider.kt`, template(emojiProviderCompatTemplate)({
                 package: target.package,
                 imports: imports,
                 name: target.name,
@@ -471,7 +474,14 @@ async function generateCode(map, targets) {
             }));
         }
 
-        await fs.writeFile(`${jvmSrcDir}/${target.name}Provider.kt`, template(emojiProviderJvm)({
+        await fs.writeFile(`${jvmMain}/${target.name}Provider.kt`, template(emojiProviderJvm)({
+            package: target.package,
+            imports: imports,
+            name: target.name,
+            categories: categories,
+        }));
+
+        await fs.writeFile(`${iosMain}/${target.name}Provider.kt`, template(emojiProviderIos)({
             package: target.package,
             imports: imports,
             name: target.name,
@@ -479,12 +489,12 @@ async function generateCode(map, targets) {
         }));
 
         if (target.module !== "google-compat") {
-            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiTemplate)({
+            await fs.writeFile(`${commonMain}/${target.name}.kt`, template(emojiTemplate)({
                 package: target.package,
                 name: target.name,
             }));
         } else {
-            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiCompatTemplate)({
+            await fs.writeFile(`${commonMain}/${target.name}.kt`, template(emojiCompatTemplate)({
                 package: target.package,
                 name: target.name,
             }));
