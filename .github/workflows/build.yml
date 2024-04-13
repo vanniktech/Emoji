@@ -19,7 +19,7 @@ jobs:
         uses: gradle/wrapper-validation-action@v3
 
       - name: Setup gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
 
       - name: Install JDK ${{ matrix.java_version }}
         uses: actions/setup-java@v4
