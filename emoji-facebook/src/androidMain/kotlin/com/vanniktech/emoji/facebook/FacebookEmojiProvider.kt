@@ -108,7 +108,7 @@ class FacebookEmojiProvider : EmojiProvider, EmojiAndroidProvider {
     private const val CACHE_SIZE = 100
     private const val SPRITE_SIZE = 64
     private const val SPRITE_SIZE_INC_BORDER = 66
-    private const val NUM_STRIPS = 60
+    private const val NUM_STRIPS = 61
     private val SHEETS = listOf(
       R.drawable.emoji_facebook_sheet_0,
       R.drawable.emoji_facebook_sheet_1,
@@ -170,6 +170,7 @@ class FacebookEmojiProvider : EmojiProvider, EmojiAndroidProvider {
       R.drawable.emoji_facebook_sheet_57,
       R.drawable.emoji_facebook_sheet_58,
       R.drawable.emoji_facebook_sheet_59,
+      R.drawable.emoji_facebook_sheet_60,
     )
 
     private val LOCK = Any()

@@ -107,6 +107,7 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1FABD), 0, 1), listOf("wing"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F426, 0x200D, 0x2B1B), 0, 3), listOf("black_bird"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FABF), 0, 1), listOf("goose"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F426, 0x200D, 0x1F525), 0, 3), listOf("phoenix"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F438), 0, 1), listOf("frog"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F40A), 0, 1), listOf("crocodile"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F422), 0, 1), listOf("turtle"), false),
@@ -139,6 +140,5 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), listOf("spider"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), listOf("spider_web"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F982), 0, 1), listOf("scorpion"), false),
   )
 }

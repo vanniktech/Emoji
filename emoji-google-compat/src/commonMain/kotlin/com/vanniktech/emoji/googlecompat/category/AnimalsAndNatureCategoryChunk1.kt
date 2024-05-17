@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object AnimalsAndNatureCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F982), 0, 1), listOf("scorpion"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F99F), 0, 1), listOf("mosquito"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB0), 0, 1), listOf("fly"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB1), 0, 1), listOf("worm"), false),

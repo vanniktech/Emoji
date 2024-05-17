@@ -108,6 +108,7 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x2696, 0xFE0F), 0, 2), listOf("scales"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9AF), 0, 1), listOf("probing_cane"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F517), 0, 1), listOf("link"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x26D3, 0xFE0F, 0x200D, 0x1F4A5), 0, 4), listOf("broken_chain"), false),
     GoogleCompatEmoji(String(intArrayOf(0x26D3, 0xFE0F), 0, 2), listOf("chains"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FA9D), 0, 1), listOf("hook"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F0), 0, 1), listOf("toolbox"), false),
@@ -139,6 +140,5 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F6BF), 0, 1), listOf("shower"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6C1), 0, 1), listOf("bathtub"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA4), 0, 1), listOf("mouse_trap"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1FA92), 0, 1), listOf("razor"), false),
   )
 }
