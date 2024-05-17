@@ -23,7 +23,6 @@ data class TestEmoji(
   }
 
   init {
-    @Suppress("LeakingThis")
     for (variant in variants) {
       variant.parent = this
     }

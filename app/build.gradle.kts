@@ -60,12 +60,13 @@ android {
 }
 
 dependencies {
-  implementation(project(":emoji-ios"))
+  implementation(project(":emoji-androidx-emoji2"))
+  implementation(project(":emoji-facebook"))
   implementation(project(":emoji-google"))
   implementation(project(":emoji-google-compat"))
-  implementation(project(":emoji-twitter"))
-  implementation(project(":emoji-facebook"))
+  implementation(project(":emoji-ios"))
   implementation(project(":emoji-material"))
+  implementation(project(":emoji-twitter"))
   implementation(libs.timber)
 }
 

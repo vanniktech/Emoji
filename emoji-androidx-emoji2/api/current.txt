@@ -1,0 +1,22 @@
+// Signature format: 4.0
+package com.vanniktech.emoji.androidxemoji2 {
+
+  public final class AndroidxEmoji2Provider implements com.vanniktech.emoji.EmojiAndroidProvider com.vanniktech.emoji.EmojiProvider com.vanniktech.emoji.EmojiReplacer {
+    ctor public AndroidxEmoji2Provider(androidx.emoji2.text.EmojiCompat emojiCompat);
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    method public android.graphics.drawable.Drawable getDrawable(com.vanniktech.emoji.Emoji emoji, android.content.Context context);
+    method public int getIcon(com.vanniktech.emoji.EmojiCategory emojiCategory);
+    method public void release();
+    method public void replaceWithImages(android.content.Context context, android.text.Spannable text, float emojiSize, com.vanniktech.emoji.EmojiReplacer? fallback);
+    property public com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
+  public final class AndroidxEmoji2Provider implements com.vanniktech.emoji.EmojiProvider {
+    ctor public AndroidxEmoji2Provider();
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    method public void release();
+    property public com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
+}
+

@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji.twitter
+package com.vanniktech.emoji.androidxemoji2
 
 import com.vanniktech.emoji.Emoji
 
-internal class TwitterEmoji internal constructor(
+internal class AndroidxEmoji2 internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
-  internal val x: Int,
-  internal val y: Int,
   override val isDuplicate: Boolean,
-  override val variants: List<TwitterEmoji> = emptyList(),
-  private var parent: TwitterEmoji? = null,
+  override val variants: List<AndroidxEmoji2> = emptyList(),
+  private var parent: AndroidxEmoji2? = null,
 ) : Emoji {
   override val base by lazy(LazyThreadSafetyMode.NONE) {
     var result = this
@@ -45,27 +43,23 @@ internal class TwitterEmoji internal constructor(
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
 
-    other as TwitterEmoji
+    other as AndroidxEmoji2
 
     if (unicode != other.unicode) return false
     if (shortcodes != other.shortcodes) return false
-    if (x != other.x) return false
-    if (y != other.y) return false
     if (isDuplicate != other.isDuplicate) return false
     if (variants != other.variants) return false
 
     return true
   }
 
+  override fun toString() = "AndroidxEmoji2(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
+
   override fun hashCode(): Int {
     var result = unicode.hashCode()
     result = 31 * result + shortcodes.hashCode()
-    result = 31 * result + x
-    result = 31 * result + y
     result = 31 * result + isDuplicate.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }
-
-  override fun toString() = "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
 }

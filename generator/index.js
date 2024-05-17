@@ -48,6 +48,12 @@ const targets = [{
     dataSource: "google",
     dataAttribute: "has_img_google",
 }, {
+    package: "androidxemoji2",
+    module: "androidx-emoji2",
+    name: "AndroidxEmoji2",
+    dataSource: "google",
+    dataAttribute: "has_img_google",
+}, {
     package: "twitter",
     module: "twitter",
     name: "TwitterEmoji",
@@ -164,7 +170,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
         }
     });
 
-    if (target.module !== "google-compat") {
+    if (target.module !== "google-compat" && target.module !== "androidx-emoji2") {
         const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets-clean/64.png`;
         const sheet = await Jimp.read(src);
         const strips = sheet.bitmap.width / 66 - 1;
@@ -233,7 +239,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
         let newLinePrefix = `\n${indentString}  `
         let separator = hasVariants ? newLinePrefix : ""
 
-        if (target.module !== "google-compat") {
+        if (target.module !== "google-compat" && target.module !== "androidx-emoji2") {
             if (unicodeParts.length === 1) {
                 result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
             } else {
@@ -384,11 +390,13 @@ async function generateCode(map, targets) {
     console.log("Generating code...");
 
     const emojiTemplate = await fs.readFile("template/Emoji.kt", "utf-8");
-    const emojiCompatTemplate = await fs.readFile("template/EmojiCompat.kt", "utf-8");
+    const emojiGoogleCompatTemplate = await fs.readFile("template/EmojiCompat.kt", "utf-8");
+    const emojiAndroidx2Template = await fs.readFile("template/EmojiAndroidx2.kt", "utf-8");
     const categoryTemplate = await fs.readFile("template/Category.kt", "utf-8");
     const categoryChunkTemplate = await fs.readFile("template/CategoryChunk.kt", "utf-8");
     const emojiProviderAndroid = await fs.readFile("template/EmojiProviderAndroid.kt", "utf-8");
-    const emojiProviderCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
+    const emojiProviderGoogleCompatTemplate = await fs.readFile("template/EmojiProviderCompat.kt", "utf-8");
+    const emojiProviderAndroidx2Template = await fs.readFile("template/EmojiProviderAndroidx2.kt", "utf-8");
     const emojiProviderJvm = await fs.readFile("template/EmojiProviderJvm.kt", "utf-8");
 
     const entries = [...map.entries()].sort((first, second) => {
@@ -400,11 +408,14 @@ async function generateCode(map, targets) {
         const commonSrcDir = `../emoji-${target.module}/src/commonMain/kotlin/com/vanniktech/emoji/${target.package}`;
         const jvmSrcDir = `../emoji-${target.module}/src/jvmMain/kotlin/com/vanniktech/emoji/${target.package}`;
 
-        if (target.module !== "google-compat") {
+        const isGoogleCompat = target.module === "google-compat"
+        const isAndroidxEmoji2 = target.module === "androidx-emoji2"
+
+        if (isGoogleCompat || isAndroidxEmoji2) {
+            await fs.emptyDir(`${commonSrcDir}/category`)
+        } else {
             await fs.emptyDir(commonSrcDir);
             await fs.mkdir(`${commonSrcDir}/category`);
-        } else {
-            await fs.emptyDir(`${commonSrcDir}/category`)
         }
 
         await fs.emptyDir(jvmSrcDir);
@@ -454,20 +465,27 @@ async function generateCode(map, targets) {
             return Object.assign({}, {name: `${category}Category`, icon: category.toLowerCase()})
         })
 
-        if (target.module !== "google-compat") {
+        if (isGoogleCompat) {
+            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderGoogleCompatTemplate)({
+                package: target.package,
+                imports: imports,
+                name: target.name,
+                categories: categories,
+            }));
+        } else if (isAndroidxEmoji2) {
+            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderAndroidx2Template)({
+                package: target.package,
+                imports: imports,
+                name: target.name,
+                categories: categories,
+            }));
+        } else {
             await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderAndroid)({
                 package: target.package,
                 imports: imports,
                 name: target.name,
                 categories: categories,
                 strips: strips,
-            }));
-        } else {
-            await fs.writeFile(`${srcDir}/${target.name}Provider.kt`, template(emojiProviderCompatTemplate)({
-                package: target.package,
-                imports: imports,
-                name: target.name,
-                categories: categories,
             }));
         }
 
@@ -478,13 +496,18 @@ async function generateCode(map, targets) {
             categories: categories,
         }));
 
-        if (target.module !== "google-compat") {
-            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiTemplate)({
+        if (isGoogleCompat) {
+            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiGoogleCompatTemplate)({
+                package: target.package,
+                name: target.name,
+            }));
+        } else if (isAndroidxEmoji2) {
+            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiAndroidx2Template)({
                 package: target.package,
                 name: target.name,
             }));
         } else {
-            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiCompatTemplate)({
+            await fs.writeFile(`${commonSrcDir}/${target.name}.kt`, template(emojiTemplate)({
                 package: target.package,
                 name: target.name,
             }));
