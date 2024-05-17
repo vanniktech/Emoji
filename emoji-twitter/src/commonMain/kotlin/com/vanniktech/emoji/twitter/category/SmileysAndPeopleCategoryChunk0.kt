@@ -39,7 +39,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F929), 0, 1), listOf("star-struck", "grinning_face_with_star_eyes"), 41, 15, false),
     TwitterEmoji(String(intArrayOf(0x1F618), 0, 1), listOf("kissing_heart"), 33, 8, false),
     TwitterEmoji(String(intArrayOf(0x1F617), 0, 1), listOf("kissing"), 33, 7, false),
-    TwitterEmoji(String(intArrayOf(0x263A, 0xFE0F), 0, 2), listOf("relaxed"), 58, 33, false),
+    TwitterEmoji(
+      String(intArrayOf(0x263A), 0, 1), listOf("relaxed"), 58, 33, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x263A, 0xFE0F), 0, 2), emptyList<String>(), 58, 33, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F61A), 0, 1), listOf("kissing_closed_eyes"), 33, 10, false),
     TwitterEmoji(String(intArrayOf(0x1F619), 0, 1), listOf("kissing_smiling_eyes"), 33, 9, false),
     TwitterEmoji(String(intArrayOf(0x1F972), 0, 1), listOf("smiling_face_with_tear"), 44, 34, false),
@@ -62,7 +67,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F611), 0, 1), listOf("expressionless"), 33, 1, false),
     TwitterEmoji(String(intArrayOf(0x1F636), 0, 1), listOf("no_mouth"), 33, 41, false),
     TwitterEmoji(String(intArrayOf(0x1FAE5), 0, 1), listOf("dotted_line_face"), 56, 35, false),
-    TwitterEmoji(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), listOf("face_in_clouds"), 33, 40, false),
+    TwitterEmoji(
+      String(intArrayOf(0x1F636, 0x200D, 0x1F32B), 0, 3), listOf("face_in_clouds"), 33, 40, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), emptyList<String>(), 33, 40, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F60F), 0, 1), listOf("smirk"), 32, 61, false),
     TwitterEmoji(String(intArrayOf(0x1F612), 0, 1), listOf("unamused"), 33, 2, false),
     TwitterEmoji(String(intArrayOf(0x1F644), 0, 1), listOf("face_with_rolling_eyes"), 33, 57, false),
@@ -97,7 +107,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1FAE4), 0, 1), listOf("face_with_diagonal_mouth"), 56, 34, false),
     TwitterEmoji(String(intArrayOf(0x1F61F), 0, 1), listOf("worried"), 33, 15, false),
     TwitterEmoji(String(intArrayOf(0x1F641), 0, 1), listOf("slightly_frowning_face"), 33, 52, false),
-    TwitterEmoji(String(intArrayOf(0x2639, 0xFE0F), 0, 2), listOf("white_frowning_face"), 58, 32, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2639), 0, 1), listOf("white_frowning_face"), 58, 32, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2639, 0xFE0F), 0, 2), emptyList<String>(), 58, 32, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F62E), 0, 1), listOf("open_mouth"), 33, 31, false),
     TwitterEmoji(String(intArrayOf(0x1F62F), 0, 1), listOf("hushed"), 33, 32, false),
     TwitterEmoji(String(intArrayOf(0x1F632), 0, 1), listOf("astonished"), 33, 35, false),
@@ -126,7 +141,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F608), 0, 1), listOf("smiling_imp"), 32, 54, false),
     TwitterEmoji(String(intArrayOf(0x1F47F), 0, 1), listOf("imp"), 25, 41, false),
     TwitterEmoji(String(intArrayOf(0x1F480), 0, 1), listOf("skull"), 25, 42, false),
-    TwitterEmoji(String(intArrayOf(0x2620, 0xFE0F), 0, 2), listOf("skull_and_crossbones"), 58, 24, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2620), 0, 1), listOf("skull_and_crossbones"), 58, 24, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2620, 0xFE0F), 0, 2), emptyList<String>(), 58, 24, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F4A9), 0, 1), listOf("hankey", "poop", "shit"), 28, 25, false),
     TwitterEmoji(String(intArrayOf(0x1F921), 0, 1), listOf("clown_face"), 40, 52, false),
     TwitterEmoji(String(intArrayOf(0x1F479), 0, 1), listOf("japanese_ogre"), 25, 30, false),

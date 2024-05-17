@@ -39,7 +39,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F929), 0, 1), listOf("star-struck", "grinning_face_with_star_eyes"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F618), 0, 1), listOf("kissing_heart"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F617), 0, 1), listOf("kissing"), false),
-    AndroidxEmoji2(String(intArrayOf(0x263A, 0xFE0F), 0, 2), listOf("relaxed"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x263A), 0, 1), listOf("relaxed"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x263A, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F61A), 0, 1), listOf("kissing_closed_eyes"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F619), 0, 1), listOf("kissing_smiling_eyes"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F972), 0, 1), listOf("smiling_face_with_tear"), false),
@@ -62,7 +67,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F611), 0, 1), listOf("expressionless"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F636), 0, 1), listOf("no_mouth"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAE5), 0, 1), listOf("dotted_line_face"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), listOf("face_in_clouds"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F636, 0x200D, 0x1F32B), 0, 3), listOf("face_in_clouds"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F60F), 0, 1), listOf("smirk"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F612), 0, 1), listOf("unamused"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F644), 0, 1), listOf("face_with_rolling_eyes"), false),
@@ -70,8 +80,18 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F62E, 0x200D, 0x1F4A8), 0, 3), listOf("face_exhaling"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F925), 0, 1), listOf("lying_face"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAE8), 0, 1), listOf("shaking_face"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2194, 0xFE0F), 0, 4), listOf("head_shaking_horizontally"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2195, 0xFE0F), 0, 4), listOf("head_shaking_vertically"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F642, 0x200D, 0x2194), 0, 3), listOf("head_shaking_horizontally"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2194, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F642, 0x200D, 0x2195), 0, 3), listOf("head_shaking_vertically"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2195, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F60C), 0, 1), listOf("relieved"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F614), 0, 1), listOf("pensive"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F62A), 0, 1), listOf("sleepy"), false),
@@ -99,7 +119,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1FAE4), 0, 1), listOf("face_with_diagonal_mouth"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F61F), 0, 1), listOf("worried"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F641), 0, 1), listOf("slightly_frowning_face"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2639, 0xFE0F), 0, 2), listOf("white_frowning_face"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2639), 0, 1), listOf("white_frowning_face"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2639, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F62E), 0, 1), listOf("open_mouth"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F62F), 0, 1), listOf("hushed"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F632), 0, 1), listOf("astonished"), false),
@@ -128,7 +153,12 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F608), 0, 1), listOf("smiling_imp"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F47F), 0, 1), listOf("imp"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F480), 0, 1), listOf("skull"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2620, 0xFE0F), 0, 2), listOf("skull_and_crossbones"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2620), 0, 1), listOf("skull_and_crossbones"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2620, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F4A9), 0, 1), listOf("hankey", "poop", "shit"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F921), 0, 1), listOf("clown_face"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F479), 0, 1), listOf("japanese_ogre"), false),

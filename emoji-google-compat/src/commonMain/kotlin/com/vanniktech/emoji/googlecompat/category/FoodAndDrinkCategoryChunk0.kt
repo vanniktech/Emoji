@@ -45,7 +45,12 @@ internal object FoodAndDrinkCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F954), 0, 1), listOf("potato"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F955), 0, 1), listOf("carrot"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F33D), 0, 1), listOf("corn"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), listOf("hot_pepper"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F336), 0, 1), listOf("hot_pepper"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1FAD1), 0, 1), listOf("bell_pepper"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F952), 0, 1), listOf("cucumber"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F96C), 0, 1), listOf("leafy_green"), false),

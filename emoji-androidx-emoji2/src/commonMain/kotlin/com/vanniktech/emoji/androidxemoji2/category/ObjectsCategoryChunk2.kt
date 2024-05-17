@@ -34,9 +34,19 @@ internal object ObjectsCategoryChunk2 {
     AndroidxEmoji2(String(intArrayOf(0x1F9EF), 0, 1), listOf("fire_extinguisher"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking"), false),
-    AndroidxEmoji2(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x26B0), 0, 1), listOf("coffin"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), false),
-    AndroidxEmoji2(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x26B1), 0, 1), listOf("funeral_urn"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAAC), 0, 1), listOf("hamsa"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), false),

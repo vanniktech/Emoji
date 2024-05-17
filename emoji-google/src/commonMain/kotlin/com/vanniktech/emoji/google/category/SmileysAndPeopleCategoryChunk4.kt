@@ -111,8 +111,18 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F93C), 0, 1), listOf("wrestlers"), 43, 9, true),
-    GoogleEmoji(String(intArrayOf(0x1F93C, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-wrestling"), 43, 8, false),
-    GoogleEmoji(String(intArrayOf(0x1F93C, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-wrestling"), 43, 7, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F93C, 0x200D, 0x2642), 0, 3), listOf("man-wrestling"), 43, 8, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F93C, 0x200D, 0x2642, 0xFE0F), 0, 4), emptyList<String>(), 43, 8, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F93C, 0x200D, 0x2640), 0, 3), listOf("woman-wrestling"), 43, 7, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F93C, 0x200D, 0x2640, 0xFE0F), 0, 4), emptyList<String>(), 43, 7, false),
+      ),
+    ),
     GoogleEmoji(
       String(intArrayOf(0x1F93D), 0, 1), listOf("water_polo"), 43, 22, true,
       variants = listOf(
@@ -638,7 +648,12 @@ internal object SmileysAndPeopleCategoryChunk4 {
     GoogleEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467), 0, 3), listOf("woman-girl"), 18, 32, false),
     GoogleEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466), 0, 5), listOf("woman-girl-boy"), 18, 30, false),
     GoogleEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F467), 0, 5), listOf("woman-girl-girl"), 18, 31, false),
-    GoogleEmoji(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), listOf("speaking_head_in_silhouette"), 32, 36, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5E3), 0, 1), listOf("speaking_head_in_silhouette"), 32, 36, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), emptyList<String>(), 32, 36, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), 13, 41, false),
     GoogleEmoji(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), 13, 42, false),
     GoogleEmoji(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), 55, 59, false),

@@ -36,8 +36,7 @@ kotlin {
 
     val commonTest by getting {
       dependencies {
-        implementation(libs.kotlin.test.common)
-        implementation(libs.kotlin.test.annotations.common)
+        implementation(libs.kotlin.test)
       }
     }
 
@@ -50,7 +49,6 @@ kotlin {
     val androidUnitTest by getting {
       dependencies {
         implementation(libs.kotlin.test.junit)
-        implementation(libs.robolectric)
       }
     }
 

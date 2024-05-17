@@ -34,9 +34,19 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji(String(intArrayOf(0x1F9EF), 0, 1), listOf("fire_extinguisher"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x26B0), 0, 1), listOf("coffin"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x26B1), 0, 1), listOf("funeral_urn"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAAC), 0, 1), listOf("hamsa"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), false),

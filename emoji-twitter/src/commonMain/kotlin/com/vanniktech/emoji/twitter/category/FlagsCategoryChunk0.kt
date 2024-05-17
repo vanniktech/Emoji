@@ -24,10 +24,30 @@ internal object FlagsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F6A9), 0, 1), listOf("triangular_flag_on_post"), 36, 53, false),
     TwitterEmoji(String(intArrayOf(0x1F38C), 0, 1), listOf("crossed_flags"), 7, 15, false),
     TwitterEmoji(String(intArrayOf(0x1F3F4), 0, 1), listOf("waving_black_flag"), 10, 45, false),
-    TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F), 0, 2), listOf("waving_white_flag"), 10, 40, false),
-    TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), 0, 4), listOf("rainbow-flag"), 10, 38, false),
-    TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), 0, 5), listOf("transgender_flag"), 10, 39, false),
-    TwitterEmoji(String(intArrayOf(0x1F3F4, 0x200D, 0x2620, 0xFE0F), 0, 4), listOf("pirate_flag"), 10, 41, false),
+    TwitterEmoji(
+      String(intArrayOf(0x1F3F3), 0, 1), listOf("waving_white_flag"), 10, 40, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F), 0, 2), emptyList<String>(), 10, 40, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x1F3F3, 0x200D, 0x1F308), 0, 3), listOf("rainbow-flag"), 10, 38, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), 0, 4), emptyList<String>(), 10, 38, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x1F3F3, 0x200D, 0x26A7), 0, 3), listOf("transgender_flag"), 10, 39, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), 0, 5), emptyList<String>(), 10, 39, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x1F3F4, 0x200D, 0x2620), 0, 3), listOf("pirate_flag"), 10, 41, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F3F4, 0x200D, 0x2620, 0xFE0F), 0, 4), emptyList<String>(), 10, 41, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F1E6, 0x1F1E8), 0, 2), listOf("flag-ac"), 0, 31, false),
     TwitterEmoji(String(intArrayOf(0x1F1E6, 0x1F1E9), 0, 2), listOf("flag-ad"), 0, 32, false),
     TwitterEmoji(String(intArrayOf(0x1F1E6, 0x1F1EA), 0, 2), listOf("flag-ae"), 0, 33, false),

@@ -19,8 +19,7 @@ androidx-test-rules = { module = "androidx.test:rules", version = "1.5.0" }
 espressocoreutils = { module = "com.vanniktech:espresso-core-utils", version = "0.4.0" }
 falcon = { module = "com.jraska:falcon", version = "2.2.0" }
 junitintegrationrules = { module = "com.vanniktech:junit4-android-integration-rules", version = "0.3.0" }
-kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
-kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version = "2.14" }
 material = { module = "com.google.android.material:material", version = "1.12.0" }

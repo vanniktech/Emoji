@@ -72,12 +72,22 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F439), 0, 1), listOf("hamster"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F430), 0, 1), listOf("rabbit"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F407), 0, 1), listOf("rabbit2"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), listOf("chipmunk"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F43F), 0, 1), listOf("chipmunk"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F9AB), 0, 1), listOf("beaver"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F994), 0, 1), listOf("hedgehog"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F987), 0, 1), listOf("bat"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F43B), 0, 1), listOf("bear"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), listOf("polar_bear"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F43B, 0x200D, 0x2744), 0, 3), listOf("polar_bear"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F428), 0, 1), listOf("koala"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F43C), 0, 1), listOf("panda_face"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9A5), 0, 1), listOf("sloth"), false),
@@ -94,7 +104,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F425), 0, 1), listOf("hatched_chick"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F426), 0, 1), listOf("bird"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F427), 0, 1), listOf("penguin"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), listOf("dove_of_peace"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F54A), 0, 1), listOf("dove_of_peace"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F985), 0, 1), listOf("eagle"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F986), 0, 1), listOf("duck"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9A2), 0, 1), listOf("swan"), false),
@@ -138,7 +153,17 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F41E), 0, 1), listOf("ladybug", "lady_beetle"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F997), 0, 1), listOf("cricket"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), listOf("spider"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), listOf("spider_web"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F577), 0, 1), listOf("spider"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F578), 0, 1), listOf("spider_web"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
   )
 }

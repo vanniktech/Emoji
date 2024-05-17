@@ -38,11 +38,31 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2(String(intArrayOf(0x1F49E), 0, 1), listOf("revolving_hearts"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F495), 0, 1), listOf("two_hearts"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F49F), 0, 1), listOf("heart_decoration"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2763, 0xFE0F), 0, 2), listOf("heavy_heart_exclamation_mark_ornament"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2763), 0, 1), listOf("heavy_heart_exclamation_mark_ornament"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2763, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F494), 0, 1), listOf("broken_heart"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1F525), 0, 4), listOf("heart_on_fire"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1FA79), 0, 4), listOf("mending_heart"), false),
-    AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F), 0, 2), listOf("heart"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2764, 0x200D, 0x1F525), 0, 3), listOf("heart_on_fire"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1F525), 0, 4), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2764, 0x200D, 0x1FA79), 0, 3), listOf("mending_heart"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1FA79), 0, 4), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x2764), 0, 1), listOf("heart"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x2764, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1FA77), 0, 1), listOf("pink_heart"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F9E1), 0, 1), listOf("orange_heart"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F49B), 0, 1), listOf("yellow_heart"), false),
@@ -61,11 +81,31 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2(String(intArrayOf(0x1F4AB), 0, 1), listOf("dizzy"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F4A6), 0, 1), listOf("sweat_drops"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F4A8), 0, 1), listOf("dash"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F573, 0xFE0F), 0, 2), listOf("hole"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F573), 0, 1), listOf("hole"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F573, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F4AC), 0, 1), listOf("speech_balloon"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F441, 0xFE0F, 0x200D, 0x1F5E8, 0xFE0F), 0, 5), listOf("eye-in-speech-bubble"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F5E8, 0xFE0F), 0, 2), listOf("left_speech_bubble"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F5EF, 0xFE0F), 0, 2), listOf("right_anger_bubble"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F441, 0x200D, 0x1F5E8), 0, 3), listOf("eye-in-speech-bubble"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F441, 0xFE0F, 0x200D, 0x1F5E8, 0xFE0F), 0, 5), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F5E8), 0, 1), listOf("left_speech_bubble"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F5E8, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F5EF), 0, 1), listOf("right_anger_bubble"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F5EF, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F4AD), 0, 1), listOf("thought_balloon"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F4A4), 0, 1), listOf("zzz"), false),
     AndroidxEmoji2(
@@ -586,7 +626,12 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2(String(intArrayOf(0x1F9B7), 0, 1), listOf("tooth"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F9B4), 0, 1), listOf("bone"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F440), 0, 1), listOf("eyes"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F441, 0xFE0F), 0, 2), listOf("eye"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F441), 0, 1), listOf("eye"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F441, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F445), 0, 1), listOf("tongue"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F444), 0, 1), listOf("lips"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAE6), 0, 1), listOf("biting_lip"), false),

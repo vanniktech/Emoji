@@ -299,22 +299,7 @@ async function parse() {
             variants: [],
         };
 
-        // Star can have an extra variant selector - https://github.com/vanniktech/Emoji/issues/449
-        if (dataEntry.unified === "2B50") {
-            const variantEmoji = {
-                unicode: dataEntry.unified + "-FE0F",
-                x: dataEntry.sheet_x,
-                y: dataEntry.sheet_y,
-                isDuplicate: isDuplicate,
-                variants: [],
-            };
-
-            for (const target of targets) {
-                variantEmoji[target.package] = true
-            }
-
-            emoji.variants.push(variantEmoji)
-        } else if (dataEntry.skin_variations) {
+        if (dataEntry.skin_variations) {
             for (const variantDataEntry of Object.values(dataEntry.skin_variations)) {
                 const isDuplicate = !!variantDataEntry.obsoleted_by || duplicates.includes(variantDataEntry.unified);
 
@@ -334,6 +319,23 @@ async function parse() {
 
                 emoji.variants.push(variantEmoji)
             }
+        } else if (dataEntry.non_qualified) {
+            // Sneaky, but we change it to get proper support for emojis with variant selectors.
+            emoji.unicode = dataEntry.non_qualified
+
+            const variantEmoji = {
+                unicode: dataEntry.unified,
+                x: dataEntry.sheet_x,
+                y: dataEntry.sheet_y,
+                isDuplicate: isDuplicate,
+                variants: [],
+            };
+
+            for (const target of targets) {
+                variantEmoji[target.package] = true
+            }
+
+            emoji.variants.push(variantEmoji)
         }
 
         for (const target of targets) {

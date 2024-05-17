@@ -20,15 +20,23 @@ package com.vanniktech.emoji
 
 private val SPACE_REMOVAL = Regex("[\\s]")
 
+private const val VARIANT_SELECTOR_16 = '️'
+
 /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
 fun CharSequence?.isOnlyEmojis(): Boolean {
-  if (this != null && this.isNotEmpty()) {
-    EmojiManager.verifyInstalled()
-    val inputWithoutSpaces = replace(SPACE_REMOVAL, "")
-    return EmojiManager.emojiRepetitivePattern!!
-      .matches(inputWithoutSpaces)
+  if (isNullOrEmpty()) {
+    return false
   }
-  return false
+
+  EmojiManager.verifyInstalled()
+  val inputWithoutSpaces = replace(SPACE_REMOVAL, "")
+  return EmojiManager.emojiPattern!!.findAll(inputWithoutSpaces)
+    .map { it.range }
+    .toList()
+    .reversed()
+    .fold(inputWithoutSpaces) { string, range -> string.removeRange(range) }
+    .filterNot { it == VARIANT_SELECTOR_16 }
+    .isEmpty()
 }
 
 /** Returns the emojis that were found in the given text. */

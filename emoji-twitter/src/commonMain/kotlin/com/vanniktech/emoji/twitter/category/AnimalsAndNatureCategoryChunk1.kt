@@ -28,7 +28,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     TwitterEmoji(String(intArrayOf(0x1F338), 0, 1), listOf("cherry_blossom"), 5, 48, false),
     TwitterEmoji(String(intArrayOf(0x1F4AE), 0, 1), listOf("white_flower"), 28, 35, false),
     TwitterEmoji(String(intArrayOf(0x1FAB7), 0, 1), listOf("lotus"), 55, 49, false),
-    TwitterEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), listOf("rosette"), 10, 46, false),
+    TwitterEmoji(
+      String(intArrayOf(0x1F3F5), 0, 1), listOf("rosette"), 10, 46, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList<String>(), 10, 46, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F339), 0, 1), listOf("rose"), 5, 49, false),
     TwitterEmoji(String(intArrayOf(0x1F940), 0, 1), listOf("wilted_flower"), 43, 47, false),
     TwitterEmoji(String(intArrayOf(0x1F33A), 0, 1), listOf("hibiscus"), 5, 50, false),
@@ -44,7 +49,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     TwitterEmoji(String(intArrayOf(0x1F335), 0, 1), listOf("cactus"), 5, 45, false),
     TwitterEmoji(String(intArrayOf(0x1F33E), 0, 1), listOf("ear_of_rice"), 5, 54, false),
     TwitterEmoji(String(intArrayOf(0x1F33F), 0, 1), listOf("herb"), 5, 55, false),
-    TwitterEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), listOf("shamrock"), 58, 17, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2618), 0, 1), listOf("shamrock"), 58, 17, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList<String>(), 58, 17, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F340), 0, 1), listOf("four_leaf_clover"), 5, 56, false),
     TwitterEmoji(String(intArrayOf(0x1F341), 0, 1), listOf("maple_leaf"), 5, 57, false),
     TwitterEmoji(String(intArrayOf(0x1F342), 0, 1), listOf("fallen_leaf"), 5, 58, false),
