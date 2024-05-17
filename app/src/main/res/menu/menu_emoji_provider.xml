@@ -12,6 +12,9 @@
       android:id="@+id/menuEmojiProviderGoogleCompat"
       android:title="Google Compat" />
   <item
+      android:id="@+id/menuEmojiProviderAndroidxEmoji2"
+      android:title="AndroidX Emoji 2" />
+  <item
       android:id="@+id/menuEmojiProviderTwitter"
       android:title="Twitter" />
   <item

@@ -28,12 +28,12 @@ import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.provider.FontRequest
-import androidx.emoji.text.EmojiCompat
 import androidx.emoji.text.FontRequestEmojiCompatConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiPopup
+import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2Provider
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider
 import com.vanniktech.emoji.google.GoogleEmojiProvider
 import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider
@@ -46,6 +46,8 @@ import com.vanniktech.emoji.sample.databinding.ActivityMainBinding
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider
 import timber.log.Timber
+import androidx.emoji.text.EmojiCompat as EmojiCompat1
+import androidx.emoji2.text.EmojiCompat as EmojiCompat2
 import com.vanniktech.emoji.R as EmojiR
 
 // We don't care about duplicated code in the sample.
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity() {
   private lateinit var binding: ActivityMainBinding
   private lateinit var chatAdapter: ChatAdapter
   private lateinit var emojiPopup: EmojiPopup
-  private var emojiCompat: EmojiCompat? = null
+  private var emojiCompat1: EmojiCompat1? = null
+  private var emojiCompat2: EmojiCompat2? = null
   private var searchInPlaceEmojiTrait: EmojiTrait? = null
   private var disableKeyboardInputEmojiTrait: EmojiTrait? = null
   private var forceSingleEmojiTrait: EmojiTrait? = null
@@ -188,8 +191,8 @@ class MainActivity : AppCompatActivity() {
             return@setOnMenuItemClickListener true
           }
           R.id.menuEmojiProviderGoogleCompat -> {
-            if (emojiCompat == null) {
-              emojiCompat = EmojiCompat.init(
+            if (emojiCompat1 == null) {
+              emojiCompat1 = EmojiCompat1.init(
                 FontRequestEmojiCompatConfig(
                   this,
                   FontRequest(
@@ -201,8 +204,23 @@ class MainActivity : AppCompatActivity() {
                 ).setReplaceAll(true),
               )
             }
+
+            emojiCompat2 = null
+
             EmojiManager.destroy()
-            EmojiManager.install(GoogleCompatEmojiProvider(emojiCompat!!))
+            EmojiManager.install(GoogleCompatEmojiProvider(emojiCompat1!!))
+            recreate()
+            return@setOnMenuItemClickListener true
+          }
+          R.id.menuEmojiProviderAndroidxEmoji2 -> {
+            if (emojiCompat2 == null) {
+              emojiCompat2 = EmojiCompat2.init(this)
+            }
+
+            emojiCompat1 = null
+
+            EmojiManager.destroy()
+            EmojiManager.install(AndroidxEmoji2Provider(emojiCompat2!!))
             recreate()
             return@setOnMenuItemClickListener true
           }

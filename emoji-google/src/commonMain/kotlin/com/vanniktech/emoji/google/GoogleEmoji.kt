@@ -36,7 +36,6 @@ internal class GoogleEmoji internal constructor(
   }
 
   init {
-    @Suppress("LeakingThis")
     for (variant in variants) {
       variant.parent = this
     }
