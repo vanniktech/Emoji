@@ -26,8 +26,7 @@ object EmojiManager {
   private val emojiMap: MutableMap<String, Emoji> = LinkedHashMap(GUESSED_UNICODE_AMOUNT)
   private var emojiProvider: EmojiProvider? = null
   private var categories: Array<EmojiCategory>? = null
-  private var emojiPattern: Regex? = null
-  internal var emojiRepetitivePattern: Regex? = null
+  internal var emojiPattern: Regex? = null
 
   internal fun categories(): Array<EmojiCategory> {
     verifyInstalled()
@@ -42,7 +41,7 @@ object EmojiManager {
   internal fun findAllEmojis(text: CharSequence?): List<EmojiRange> {
     verifyInstalled()
 
-    if (text != null && text.isNotEmpty()) {
+    if (!text.isNullOrEmpty()) {
       return emojiPattern?.findAll(text)
         ?.mapNotNull {
           val emoji = findEmoji(it.value)
@@ -107,7 +106,7 @@ object EmojiManager {
       }
       require(unicodesForPattern.isNotEmpty()) { "Your EmojiProvider must at least have one category with at least one emoji." }
 
-      // We need to sort the unicodes by length so the longest one gets matched first.
+      // We need to sort the unicodes by length, so the longest one gets matched first.
       unicodesForPattern.sortWith { first, second -> second.length.compareTo(first.length) }
       val patternBuilder = StringBuilder(GUESSED_TOTAL_PATTERN_LENGTH)
       val unicodesForPatternSize = unicodesForPattern.size
@@ -116,7 +115,6 @@ object EmojiManager {
       }
       val regex = patternBuilder.deleteCharAt(patternBuilder.length - 1).toString()
       emojiPattern = Regex(regex, RegexOption.IGNORE_CASE)
-      emojiRepetitivePattern = Regex("($regex)+", RegexOption.IGNORE_CASE)
     }
   }
 
@@ -134,7 +132,6 @@ object EmojiManager {
       emojiProvider = null
       categories = null
       emojiPattern = null
-      emojiRepetitivePattern = null
     }
   }
 

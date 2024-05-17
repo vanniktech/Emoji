@@ -5,19 +5,12 @@ import com.vanniktech.emoji.emojiInformation
 import com.vanniktech.emoji.emojisCount
 import com.vanniktech.emoji.isOnlyEmojis
 import kotlin.test.BeforeTest
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class EmojiUtilsTest {
   @BeforeTest fun setUp() {
     EmojiManager.install(emojiProvider())
-  }
-
-  @Test fun starWithVariantSelector() {
-    val s = "⭐️⭐️⭐️"
-    assertEquals(expected = true, actual = s.isOnlyEmojis())
-    assertEquals(expected = 3, actual = s.emojisCount())
   }
 
   @Test fun emojiInformationEmojisOnly() {
@@ -54,21 +47,29 @@ class EmojiUtilsTest {
     assertEquals(expected = cheese, actual = emojiInformation.emojis[1].emoji.unicode)
   }
 
-  @Ignore // https://github.com/vanniktech/Emoji/issues/485
-  @Test fun isOnlyEmojis() {
+  @Test fun emojis() {
     val emojis = listOf(
+      """⭐️️""",
       """🗯""",
       """🗨""",
       """🕳""",
       """❤️""",
       """❣️️""",
+      """🧑‍🎤""",
+      """🎗️""",
+      """🎟️""",
+      """⛸️""",
     )
 
     emojis.forEach {
       assertEquals(message = it, expected = false, actual = "f$it".isOnlyEmojis())
       assertEquals(message = it, expected = false, actual = "${it}f".isOnlyEmojis())
+
       assertEquals(message = it, expected = 1, actual = it.emojisCount())
       assertEquals(message = it, expected = true, actual = it.isOnlyEmojis())
+
+      assertEquals(message = it, expected = 3, actual = "$it$it$it".emojisCount())
+      assertEquals(message = it, expected = true, actual = "$it$it$it".isOnlyEmojis())
     }
   }
 }
