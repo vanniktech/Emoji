@@ -25,6 +25,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F349), 0, 1), listOf("watermelon"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F34A), 0, 1), listOf("tangerine"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F34B), 0, 1), listOf("lemon"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F34B, 0x200D, 0x1F7E9), 0, 3), listOf("lime"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F34C), 0, 1), listOf("banana"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F34D), 0, 1), listOf("pineapple"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F96D), 0, 1), listOf("mango"), false),
@@ -56,6 +57,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F330), 0, 1), listOf("chestnut"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FADA), 0, 1), listOf("ginger_root"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FADB), 0, 1), listOf("pea_pod"), false),
+    GoogleCompatEmoji(String(intArrayOf(0x1F344, 0x200D, 0x1F7EB), 0, 3), listOf("brown_mushroom"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F35E), 0, 1), listOf("bread"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F950), 0, 1), listOf("croissant"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F956), 0, 1), listOf("baguette_bread"), false),
@@ -138,7 +140,5 @@ internal object FoodAndDrinkCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F379), 0, 1), listOf("tropical_drink"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F37A), 0, 1), listOf("beer"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F37B), 0, 1), listOf("beers"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F942), 0, 1), listOf("clinking_glasses"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F943), 0, 1), listOf("tumbler_glass"), false),
   )
 }

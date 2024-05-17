@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1FA92), 0, 1), listOf("razor"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F4), 0, 1), listOf("lotion_bottle"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F7), 0, 1), listOf("safety_pin"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F9), 0, 1), listOf("broom"), false),
