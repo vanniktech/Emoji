@@ -33,7 +33,12 @@ internal object SymbolsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F6C3), 0, 1), listOf("customs"), 38, 29, false),
     TwitterEmoji(String(intArrayOf(0x1F6C4), 0, 1), listOf("baggage_claim"), 38, 30, false),
     TwitterEmoji(String(intArrayOf(0x1F6C5), 0, 1), listOf("left_luggage"), 38, 31, false),
-    TwitterEmoji(String(intArrayOf(0x26A0, 0xFE0F), 0, 2), listOf("warning"), 59, 4, false),
+    TwitterEmoji(
+      String(intArrayOf(0x26A0), 0, 1), listOf("warning"), 59, 4, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x26A0, 0xFE0F), 0, 2), emptyList<String>(), 59, 4, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F6B8), 0, 1), listOf("children_crossing"), 38, 13, false),
     TwitterEmoji(String(intArrayOf(0x26D4), 0, 1), listOf("no_entry"), 59, 21, false),
     TwitterEmoji(String(intArrayOf(0x1F6AB), 0, 1), listOf("no_entry_sign"), 36, 55, false),
@@ -44,22 +49,102 @@ internal object SymbolsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F6B7), 0, 1), listOf("no_pedestrians"), 38, 12, false),
     TwitterEmoji(String(intArrayOf(0x1F4F5), 0, 1), listOf("no_mobile_phones"), 29, 44, false),
     TwitterEmoji(String(intArrayOf(0x1F51E), 0, 1), listOf("underage"), 30, 22, false),
-    TwitterEmoji(String(intArrayOf(0x2622, 0xFE0F), 0, 2), listOf("radioactive_sign"), 58, 25, false),
-    TwitterEmoji(String(intArrayOf(0x2623, 0xFE0F), 0, 2), listOf("biohazard_sign"), 58, 26, false),
-    TwitterEmoji(String(intArrayOf(0x2B06, 0xFE0F), 0, 2), listOf("arrow_up"), 60, 48, false),
-    TwitterEmoji(String(intArrayOf(0x2197, 0xFE0F), 0, 2), listOf("arrow_upper_right"), 57, 38, false),
-    TwitterEmoji(String(intArrayOf(0x27A1, 0xFE0F), 0, 2), listOf("arrow_right"), 60, 42, false),
-    TwitterEmoji(String(intArrayOf(0x2198, 0xFE0F), 0, 2), listOf("arrow_lower_right"), 57, 39, false),
-    TwitterEmoji(String(intArrayOf(0x2B07, 0xFE0F), 0, 2), listOf("arrow_down"), 60, 49, false),
-    TwitterEmoji(String(intArrayOf(0x2199, 0xFE0F), 0, 2), listOf("arrow_lower_left"), 57, 40, false),
-    TwitterEmoji(String(intArrayOf(0x2B05, 0xFE0F), 0, 2), listOf("arrow_left"), 60, 47, false),
-    TwitterEmoji(String(intArrayOf(0x2196, 0xFE0F), 0, 2), listOf("arrow_upper_left"), 57, 37, false),
-    TwitterEmoji(String(intArrayOf(0x2195, 0xFE0F), 0, 2), listOf("arrow_up_down"), 57, 36, false),
-    TwitterEmoji(String(intArrayOf(0x2194, 0xFE0F), 0, 2), listOf("left_right_arrow"), 57, 35, false),
-    TwitterEmoji(String(intArrayOf(0x21A9, 0xFE0F), 0, 2), listOf("leftwards_arrow_with_hook"), 57, 41, false),
-    TwitterEmoji(String(intArrayOf(0x21AA, 0xFE0F), 0, 2), listOf("arrow_right_hook"), 57, 42, false),
-    TwitterEmoji(String(intArrayOf(0x2934, 0xFE0F), 0, 2), listOf("arrow_heading_up"), 60, 45, false),
-    TwitterEmoji(String(intArrayOf(0x2935, 0xFE0F), 0, 2), listOf("arrow_heading_down"), 60, 46, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2622), 0, 1), listOf("radioactive_sign"), 58, 25, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2622, 0xFE0F), 0, 2), emptyList<String>(), 58, 25, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2623), 0, 1), listOf("biohazard_sign"), 58, 26, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2623, 0xFE0F), 0, 2), emptyList<String>(), 58, 26, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2B06), 0, 1), listOf("arrow_up"), 60, 48, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2B06, 0xFE0F), 0, 2), emptyList<String>(), 60, 48, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2197), 0, 1), listOf("arrow_upper_right"), 57, 38, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2197, 0xFE0F), 0, 2), emptyList<String>(), 57, 38, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x27A1), 0, 1), listOf("arrow_right"), 60, 42, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x27A1, 0xFE0F), 0, 2), emptyList<String>(), 60, 42, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2198), 0, 1), listOf("arrow_lower_right"), 57, 39, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2198, 0xFE0F), 0, 2), emptyList<String>(), 57, 39, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2B07), 0, 1), listOf("arrow_down"), 60, 49, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2B07, 0xFE0F), 0, 2), emptyList<String>(), 60, 49, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2199), 0, 1), listOf("arrow_lower_left"), 57, 40, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2199, 0xFE0F), 0, 2), emptyList<String>(), 57, 40, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2B05), 0, 1), listOf("arrow_left"), 60, 47, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2B05, 0xFE0F), 0, 2), emptyList<String>(), 60, 47, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2196), 0, 1), listOf("arrow_upper_left"), 57, 37, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2196, 0xFE0F), 0, 2), emptyList<String>(), 57, 37, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2195), 0, 1), listOf("arrow_up_down"), 57, 36, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2195, 0xFE0F), 0, 2), emptyList<String>(), 57, 36, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2194), 0, 1), listOf("left_right_arrow"), 57, 35, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2194, 0xFE0F), 0, 2), emptyList<String>(), 57, 35, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x21A9), 0, 1), listOf("leftwards_arrow_with_hook"), 57, 41, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x21A9, 0xFE0F), 0, 2), emptyList<String>(), 57, 41, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x21AA), 0, 1), listOf("arrow_right_hook"), 57, 42, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x21AA, 0xFE0F), 0, 2), emptyList<String>(), 57, 42, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2934), 0, 1), listOf("arrow_heading_up"), 60, 45, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2934, 0xFE0F), 0, 2), emptyList<String>(), 60, 45, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2935), 0, 1), listOf("arrow_heading_down"), 60, 46, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2935, 0xFE0F), 0, 2), emptyList<String>(), 60, 46, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F503), 0, 1), listOf("arrows_clockwise"), 29, 57, false),
     TwitterEmoji(String(intArrayOf(0x1F504), 0, 1), listOf("arrows_counterclockwise"), 29, 58, false),
     TwitterEmoji(String(intArrayOf(0x1F519), 0, 1), listOf("back"), 30, 17, false),
@@ -68,15 +153,60 @@ internal object SymbolsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F51C), 0, 1), listOf("soon"), 30, 20, false),
     TwitterEmoji(String(intArrayOf(0x1F51D), 0, 1), listOf("top"), 30, 21, false),
     TwitterEmoji(String(intArrayOf(0x1F6D0), 0, 1), listOf("place_of_worship"), 38, 42, false),
-    TwitterEmoji(String(intArrayOf(0x269B, 0xFE0F), 0, 2), listOf("atom_symbol"), 59, 2, false),
-    TwitterEmoji(String(intArrayOf(0x1F549, 0xFE0F), 0, 2), listOf("om_symbol"), 30, 54, false),
-    TwitterEmoji(String(intArrayOf(0x2721, 0xFE0F), 0, 2), listOf("star_of_david"), 60, 23, false),
-    TwitterEmoji(String(intArrayOf(0x2638, 0xFE0F), 0, 2), listOf("wheel_of_dharma"), 58, 31, false),
-    TwitterEmoji(String(intArrayOf(0x262F, 0xFE0F), 0, 2), listOf("yin_yang"), 58, 30, false),
-    TwitterEmoji(String(intArrayOf(0x271D, 0xFE0F), 0, 2), listOf("latin_cross"), 60, 22, false),
-    TwitterEmoji(String(intArrayOf(0x2626, 0xFE0F), 0, 2), listOf("orthodox_cross"), 58, 27, false),
-    TwitterEmoji(String(intArrayOf(0x262A, 0xFE0F), 0, 2), listOf("star_and_crescent"), 58, 28, false),
-    TwitterEmoji(String(intArrayOf(0x262E, 0xFE0F), 0, 2), listOf("peace_symbol"), 58, 29, false),
+    TwitterEmoji(
+      String(intArrayOf(0x269B), 0, 1), listOf("atom_symbol"), 59, 2, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x269B, 0xFE0F), 0, 2), emptyList<String>(), 59, 2, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x1F549), 0, 1), listOf("om_symbol"), 30, 54, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F549, 0xFE0F), 0, 2), emptyList<String>(), 30, 54, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2721), 0, 1), listOf("star_of_david"), 60, 23, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2721, 0xFE0F), 0, 2), emptyList<String>(), 60, 23, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2638), 0, 1), listOf("wheel_of_dharma"), 58, 31, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2638, 0xFE0F), 0, 2), emptyList<String>(), 58, 31, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x262F), 0, 1), listOf("yin_yang"), 58, 30, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x262F, 0xFE0F), 0, 2), emptyList<String>(), 58, 30, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x271D), 0, 1), listOf("latin_cross"), 60, 22, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x271D, 0xFE0F), 0, 2), emptyList<String>(), 60, 22, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2626), 0, 1), listOf("orthodox_cross"), 58, 27, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2626, 0xFE0F), 0, 2), emptyList<String>(), 58, 27, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x262A), 0, 1), listOf("star_and_crescent"), 58, 28, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x262A, 0xFE0F), 0, 2), emptyList<String>(), 58, 28, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x262E), 0, 1), listOf("peace_symbol"), 58, 29, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x262E, 0xFE0F), 0, 2), emptyList<String>(), 58, 29, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F54E), 0, 1), listOf("menorah_with_nine_branches"), 30, 59, false),
     TwitterEmoji(String(intArrayOf(0x1F52F), 0, 1), listOf("six_pointed_star"), 30, 39, false),
     TwitterEmoji(String(intArrayOf(0x1FAAF), 0, 1), listOf("khanda"), 55, 41, false),
@@ -96,21 +226,66 @@ internal object SymbolsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F500), 0, 1), listOf("twisted_rightwards_arrows"), 29, 54, false),
     TwitterEmoji(String(intArrayOf(0x1F501), 0, 1), listOf("repeat"), 29, 55, false),
     TwitterEmoji(String(intArrayOf(0x1F502), 0, 1), listOf("repeat_one"), 29, 56, false),
-    TwitterEmoji(String(intArrayOf(0x25B6, 0xFE0F), 0, 2), listOf("arrow_forward"), 58, 2, false),
+    TwitterEmoji(
+      String(intArrayOf(0x25B6), 0, 1), listOf("arrow_forward"), 58, 2, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x25B6, 0xFE0F), 0, 2), emptyList<String>(), 58, 2, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x23E9), 0, 1), listOf("fast_forward"), 57, 47, false),
-    TwitterEmoji(String(intArrayOf(0x23ED, 0xFE0F), 0, 2), listOf("black_right_pointing_double_triangle_with_vertical_bar"), 57, 51, false),
-    TwitterEmoji(String(intArrayOf(0x23EF, 0xFE0F), 0, 2), listOf("black_right_pointing_triangle_with_double_vertical_bar"), 57, 53, false),
-    TwitterEmoji(String(intArrayOf(0x25C0, 0xFE0F), 0, 2), listOf("arrow_backward"), 58, 3, false),
+    TwitterEmoji(
+      String(intArrayOf(0x23ED), 0, 1), listOf("black_right_pointing_double_triangle_with_vertical_bar"), 57, 51, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23ED, 0xFE0F), 0, 2), emptyList<String>(), 57, 51, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x23EF), 0, 1), listOf("black_right_pointing_triangle_with_double_vertical_bar"), 57, 53, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23EF, 0xFE0F), 0, 2), emptyList<String>(), 57, 53, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x25C0), 0, 1), listOf("arrow_backward"), 58, 3, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x25C0, 0xFE0F), 0, 2), emptyList<String>(), 58, 3, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x23EA), 0, 1), listOf("rewind"), 57, 48, false),
-    TwitterEmoji(String(intArrayOf(0x23EE, 0xFE0F), 0, 2), listOf("black_left_pointing_double_triangle_with_vertical_bar"), 57, 52, false),
+    TwitterEmoji(
+      String(intArrayOf(0x23EE), 0, 1), listOf("black_left_pointing_double_triangle_with_vertical_bar"), 57, 52, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23EE, 0xFE0F), 0, 2), emptyList<String>(), 57, 52, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F53C), 0, 1), listOf("arrow_up_small"), 30, 52, false),
     TwitterEmoji(String(intArrayOf(0x23EB), 0, 1), listOf("arrow_double_up"), 57, 49, false),
     TwitterEmoji(String(intArrayOf(0x1F53D), 0, 1), listOf("arrow_down_small"), 30, 53, false),
     TwitterEmoji(String(intArrayOf(0x23EC), 0, 1), listOf("arrow_double_down"), 57, 50, false),
-    TwitterEmoji(String(intArrayOf(0x23F8, 0xFE0F), 0, 2), listOf("double_vertical_bar"), 57, 58, false),
-    TwitterEmoji(String(intArrayOf(0x23F9, 0xFE0F), 0, 2), listOf("black_square_for_stop"), 57, 59, false),
-    TwitterEmoji(String(intArrayOf(0x23FA, 0xFE0F), 0, 2), listOf("black_circle_for_record"), 57, 60, false),
-    TwitterEmoji(String(intArrayOf(0x23CF, 0xFE0F), 0, 2), listOf("eject"), 57, 46, false),
+    TwitterEmoji(
+      String(intArrayOf(0x23F8), 0, 1), listOf("double_vertical_bar"), 57, 58, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23F8, 0xFE0F), 0, 2), emptyList<String>(), 57, 58, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x23F9), 0, 1), listOf("black_square_for_stop"), 57, 59, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23F9, 0xFE0F), 0, 2), emptyList<String>(), 57, 59, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x23FA), 0, 1), listOf("black_circle_for_record"), 57, 60, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23FA, 0xFE0F), 0, 2), emptyList<String>(), 57, 60, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x23CF), 0, 1), listOf("eject"), 57, 46, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x23CF, 0xFE0F), 0, 2), emptyList<String>(), 57, 46, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F3A6), 0, 1), listOf("cinema"), 7, 36, false),
     TwitterEmoji(String(intArrayOf(0x1F505), 0, 1), listOf("low_brightness"), 29, 59, false),
     TwitterEmoji(String(intArrayOf(0x1F506), 0, 1), listOf("high_brightness"), 29, 60, false),
@@ -118,27 +293,82 @@ internal object SymbolsCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F6DC), 0, 1), listOf("wireless"), 38, 48, false),
     TwitterEmoji(String(intArrayOf(0x1F4F3), 0, 1), listOf("vibration_mode"), 29, 42, false),
     TwitterEmoji(String(intArrayOf(0x1F4F4), 0, 1), listOf("mobile_phone_off"), 29, 43, false),
-    TwitterEmoji(String(intArrayOf(0x2640, 0xFE0F), 0, 2), listOf("female_sign"), 58, 34, false),
-    TwitterEmoji(String(intArrayOf(0x2642, 0xFE0F), 0, 2), listOf("male_sign"), 58, 35, false),
-    TwitterEmoji(String(intArrayOf(0x26A7, 0xFE0F), 0, 2), listOf("transgender_symbol"), 59, 6, false),
-    TwitterEmoji(String(intArrayOf(0x2716, 0xFE0F), 0, 2), listOf("heavy_multiplication_x"), 60, 21, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2640), 0, 1), listOf("female_sign"), 58, 34, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2640, 0xFE0F), 0, 2), emptyList<String>(), 58, 34, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2642), 0, 1), listOf("male_sign"), 58, 35, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2642, 0xFE0F), 0, 2), emptyList<String>(), 58, 35, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x26A7), 0, 1), listOf("transgender_symbol"), 59, 6, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x26A7, 0xFE0F), 0, 2), emptyList<String>(), 59, 6, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2716), 0, 1), listOf("heavy_multiplication_x"), 60, 21, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2716, 0xFE0F), 0, 2), emptyList<String>(), 60, 21, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x2795), 0, 1), listOf("heavy_plus_sign"), 60, 39, false),
     TwitterEmoji(String(intArrayOf(0x2796), 0, 1), listOf("heavy_minus_sign"), 60, 40, false),
     TwitterEmoji(String(intArrayOf(0x2797), 0, 1), listOf("heavy_division_sign"), 60, 41, false),
     TwitterEmoji(String(intArrayOf(0x1F7F0), 0, 1), listOf("heavy_equals_sign"), 39, 22, false),
-    TwitterEmoji(String(intArrayOf(0x267E, 0xFE0F), 0, 2), listOf("infinity"), 58, 55, false),
-    TwitterEmoji(String(intArrayOf(0x203C, 0xFE0F), 0, 2), listOf("bangbang"), 57, 31, false),
-    TwitterEmoji(String(intArrayOf(0x2049, 0xFE0F), 0, 2), listOf("interrobang"), 57, 32, false),
+    TwitterEmoji(
+      String(intArrayOf(0x267E), 0, 1), listOf("infinity"), 58, 55, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x267E, 0xFE0F), 0, 2), emptyList<String>(), 58, 55, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x203C), 0, 1), listOf("bangbang"), 57, 31, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x203C, 0xFE0F), 0, 2), emptyList<String>(), 57, 31, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x2049), 0, 1), listOf("interrobang"), 57, 32, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2049, 0xFE0F), 0, 2), emptyList<String>(), 57, 32, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x2753), 0, 1), listOf("question"), 60, 31, false),
     TwitterEmoji(String(intArrayOf(0x2754), 0, 1), listOf("grey_question"), 60, 32, false),
     TwitterEmoji(String(intArrayOf(0x2755), 0, 1), listOf("grey_exclamation"), 60, 33, false),
     TwitterEmoji(String(intArrayOf(0x2757), 0, 1), listOf("exclamation", "heavy_exclamation_mark"), 60, 34, false),
-    TwitterEmoji(String(intArrayOf(0x3030, 0xFE0F), 0, 2), listOf("wavy_dash"), 60, 54, false),
+    TwitterEmoji(
+      String(intArrayOf(0x3030), 0, 1), listOf("wavy_dash"), 60, 54, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x3030, 0xFE0F), 0, 2), emptyList<String>(), 60, 54, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F4B1), 0, 1), listOf("currency_exchange"), 28, 38, false),
     TwitterEmoji(String(intArrayOf(0x1F4B2), 0, 1), listOf("heavy_dollar_sign"), 28, 39, false),
-    TwitterEmoji(String(intArrayOf(0x2695, 0xFE0F), 0, 2), listOf("medical_symbol", "staff_of_aesculapius"), 58, 60, false),
-    TwitterEmoji(String(intArrayOf(0x267B, 0xFE0F), 0, 2), listOf("recycle"), 58, 54, false),
-    TwitterEmoji(String(intArrayOf(0x269C, 0xFE0F), 0, 2), listOf("fleur_de_lis"), 59, 3, false),
+    TwitterEmoji(
+      String(intArrayOf(0x2695), 0, 1), listOf("medical_symbol", "staff_of_aesculapius"), 58, 60, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x2695, 0xFE0F), 0, 2), emptyList<String>(), 58, 60, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x267B), 0, 1), listOf("recycle"), 58, 54, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x267B, 0xFE0F), 0, 2), emptyList<String>(), 58, 54, false),
+      ),
+    ),
+    TwitterEmoji(
+      String(intArrayOf(0x269C), 0, 1), listOf("fleur_de_lis"), 59, 3, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x269C, 0xFE0F), 0, 2), emptyList<String>(), 59, 3, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1F531), 0, 1), listOf("trident"), 30, 41, false),
   )
 }

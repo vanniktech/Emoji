@@ -45,7 +45,12 @@ internal object FoodAndDrinkCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F954), 0, 1), listOf("potato"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F955), 0, 1), listOf("carrot"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F33D), 0, 1), listOf("corn"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), listOf("hot_pepper"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F336), 0, 1), listOf("hot_pepper"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1FAD1), 0, 1), listOf("bell_pepper"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F952), 0, 1), listOf("cucumber"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F96C), 0, 1), listOf("leafy_green"), false),

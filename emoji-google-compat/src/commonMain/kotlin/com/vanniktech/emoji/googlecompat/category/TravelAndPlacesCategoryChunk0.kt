@@ -24,27 +24,92 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F30E), 0, 1), listOf("earth_americas"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F30F), 0, 1), listOf("earth_asia"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F310), 0, 1), listOf("globe_with_meridians"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F5FA, 0xFE0F), 0, 2), listOf("world_map"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F5FA), 0, 1), listOf("world_map"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F5FA, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F5FE), 0, 1), listOf("japan"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9ED), 0, 1), listOf("compass"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D4, 0xFE0F), 0, 2), listOf("snow_capped_mountain"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x26F0, 0xFE0F), 0, 2), listOf("mountain"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D4), 0, 1), listOf("snow_capped_mountain"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D4, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x26F0), 0, 1), listOf("mountain"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26F0, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F30B), 0, 1), listOf("volcano"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F5FB), 0, 1), listOf("mount_fuji"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D5, 0xFE0F), 0, 2), listOf("camping"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D6, 0xFE0F), 0, 2), listOf("beach_with_umbrella"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DC, 0xFE0F), 0, 2), listOf("desert"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DD, 0xFE0F), 0, 2), listOf("desert_island"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DE, 0xFE0F), 0, 2), listOf("national_park"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DF, 0xFE0F), 0, 2), listOf("stadium"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DB, 0xFE0F), 0, 2), listOf("classical_building"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D7, 0xFE0F), 0, 2), listOf("building_construction"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D5), 0, 1), listOf("camping"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D5, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D6), 0, 1), listOf("beach_with_umbrella"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D6, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DC), 0, 1), listOf("desert"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DC, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DD), 0, 1), listOf("desert_island"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DD, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DE), 0, 1), listOf("national_park"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DE, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DF), 0, 1), listOf("stadium"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DF, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DB), 0, 1), listOf("classical_building"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DB, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D7), 0, 1), listOf("building_construction"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D7, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F1), 0, 1), listOf("bricks"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA8), 0, 1), listOf("rock"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB5), 0, 1), listOf("wood"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6D6), 0, 1), listOf("hut"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D8, 0xFE0F), 0, 2), listOf("house_buildings"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3DA, 0xFE0F), 0, 2), listOf("derelict_house_building"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D8), 0, 1), listOf("house_buildings"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D8, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3DA), 0, 1), listOf("derelict_house_building"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3DA, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F3E0), 0, 1), listOf("house"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F3E1), 0, 1), listOf("house_with_garden"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F3E2), 0, 1), listOf("office"), false),
@@ -67,19 +132,34 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F54C), 0, 1), listOf("mosque"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6D5), 0, 1), listOf("hindu_temple"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F54D), 0, 1), listOf("synagogue"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x26E9, 0xFE0F), 0, 2), listOf("shinto_shrine"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x26E9), 0, 1), listOf("shinto_shrine"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26E9, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F54B), 0, 1), listOf("kaaba"), false),
     GoogleCompatEmoji(String(intArrayOf(0x26F2), 0, 1), listOf("fountain"), false),
     GoogleCompatEmoji(String(intArrayOf(0x26FA), 0, 1), listOf("tent"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F301), 0, 1), listOf("foggy"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F303), 0, 1), listOf("night_with_stars"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3D9, 0xFE0F), 0, 2), listOf("cityscape"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3D9), 0, 1), listOf("cityscape"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3D9, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F304), 0, 1), listOf("sunrise_over_mountains"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F305), 0, 1), listOf("sunrise"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F306), 0, 1), listOf("city_sunset"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F307), 0, 1), listOf("city_sunrise"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F309), 0, 1), listOf("bridge_at_night"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x2668, 0xFE0F), 0, 2), listOf("hotsprings"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x2668), 0, 1), listOf("hotsprings"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2668, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F3A0), 0, 1), listOf("carousel_horse"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6DD), 0, 1), listOf("playground_slide"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F3A1), 0, 1), listOf("ferris_wheel"), false),
@@ -115,8 +195,18 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F69A), 0, 1), listOf("truck"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F69B), 0, 1), listOf("articulated_lorry"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F69C), 0, 1), listOf("tractor"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3CE, 0xFE0F), 0, 2), listOf("racing_car"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3CD, 0xFE0F), 0, 2), listOf("racing_motorcycle"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3CE), 0, 1), listOf("racing_car"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3CE, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3CD), 0, 1), listOf("racing_motorcycle"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3CD, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F6F5), 0, 1), listOf("motor_scooter"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9BD), 0, 1), listOf("manual_wheelchair"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F9BC), 0, 1), listOf("motorized_wheelchair"), false),
@@ -126,9 +216,24 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji(String(intArrayOf(0x1F6F9), 0, 1), listOf("skateboard"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6FC), 0, 1), listOf("roller_skate"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F68F), 0, 1), listOf("busstop"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F6E3, 0xFE0F), 0, 2), listOf("motorway"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F6E4, 0xFE0F), 0, 2), listOf("railway_track"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F6E2, 0xFE0F), 0, 2), listOf("oil_drum"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F6E3), 0, 1), listOf("motorway"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F6E3, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F6E4), 0, 1), listOf("railway_track"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F6E4, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F6E2), 0, 1), listOf("oil_drum"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F6E2, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x26FD), 0, 1), listOf("fuelpump"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6DE), 0, 1), listOf("wheel"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F6A8), 0, 1), listOf("rotating_light"), false),

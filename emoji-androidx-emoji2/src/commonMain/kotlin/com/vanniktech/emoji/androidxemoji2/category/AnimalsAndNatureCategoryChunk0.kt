@@ -72,12 +72,22 @@ internal object AnimalsAndNatureCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F439), 0, 1), listOf("hamster"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F430), 0, 1), listOf("rabbit"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F407), 0, 1), listOf("rabbit2"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), listOf("chipmunk"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F43F), 0, 1), listOf("chipmunk"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F9AB), 0, 1), listOf("beaver"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F994), 0, 1), listOf("hedgehog"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F987), 0, 1), listOf("bat"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F43B), 0, 1), listOf("bear"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), listOf("polar_bear"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F43B, 0x200D, 0x2744), 0, 3), listOf("polar_bear"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F428), 0, 1), listOf("koala"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F43C), 0, 1), listOf("panda_face"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F9A5), 0, 1), listOf("sloth"), false),
@@ -94,7 +104,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F425), 0, 1), listOf("hatched_chick"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F426), 0, 1), listOf("bird"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F427), 0, 1), listOf("penguin"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), listOf("dove_of_peace"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F54A), 0, 1), listOf("dove_of_peace"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F985), 0, 1), listOf("eagle"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F986), 0, 1), listOf("duck"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F9A2), 0, 1), listOf("swan"), false),
@@ -138,7 +153,17 @@ internal object AnimalsAndNatureCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F41E), 0, 1), listOf("ladybug", "lady_beetle"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F997), 0, 1), listOf("cricket"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), listOf("spider"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), listOf("spider_web"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F577), 0, 1), listOf("spider"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F578), 0, 1), listOf("spider_web"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
   )
 }

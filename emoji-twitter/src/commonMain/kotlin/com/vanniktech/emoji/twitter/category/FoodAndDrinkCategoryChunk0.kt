@@ -44,7 +44,12 @@ internal object FoodAndDrinkCategoryChunk0 {
     TwitterEmoji(String(intArrayOf(0x1F954), 0, 1), listOf("potato"), 44, 4, false),
     TwitterEmoji(String(intArrayOf(0x1F955), 0, 1), listOf("carrot"), 44, 5, false),
     TwitterEmoji(String(intArrayOf(0x1F33D), 0, 1), listOf("corn"), 5, 53, false),
-    TwitterEmoji(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), listOf("hot_pepper"), 5, 46, false),
+    TwitterEmoji(
+      String(intArrayOf(0x1F336), 0, 1), listOf("hot_pepper"), 5, 46, false,
+      variants = listOf(
+        TwitterEmoji(String(intArrayOf(0x1F336, 0xFE0F), 0, 2), emptyList<String>(), 5, 46, false),
+      ),
+    ),
     TwitterEmoji(String(intArrayOf(0x1FAD1), 0, 1), listOf("bell_pepper"), 56, 19, false),
     TwitterEmoji(String(intArrayOf(0x1F952), 0, 1), listOf("cucumber"), 44, 2, false),
     TwitterEmoji(String(intArrayOf(0x1F96C), 0, 1), listOf("leafy_green"), 44, 28, false),

@@ -111,8 +111,18 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F93C), 0, 1), listOf("wrestlers"), true),
-    AndroidxEmoji2(String(intArrayOf(0x1F93C, 0x200D, 0x2642, 0xFE0F), 0, 4), listOf("man-wrestling"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F93C, 0x200D, 0x2640, 0xFE0F), 0, 4), listOf("woman-wrestling"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F93C, 0x200D, 0x2642), 0, 3), listOf("man-wrestling"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F93C, 0x200D, 0x2642, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F93C, 0x200D, 0x2640), 0, 3), listOf("woman-wrestling"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F93C, 0x200D, 0x2640, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(
       String(intArrayOf(0x1F93D), 0, 1), listOf("water_polo"), true,
       variants = listOf(
@@ -638,7 +648,12 @@ internal object SmileysAndPeopleCategoryChunk4 {
     AndroidxEmoji2(String(intArrayOf(0x1F469, 0x200D, 0x1F467), 0, 3), listOf("woman-girl"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466), 0, 5), listOf("woman-girl-boy"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F467), 0, 5), listOf("woman-girl-girl"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), listOf("speaking_head_in_silhouette"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F5E3), 0, 1), listOf("speaking_head_in_silhouette"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), false),
     AndroidxEmoji2(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), false),

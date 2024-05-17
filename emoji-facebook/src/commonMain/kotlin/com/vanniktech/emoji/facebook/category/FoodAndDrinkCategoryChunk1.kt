@@ -27,7 +27,12 @@ internal object FoodAndDrinkCategoryChunk1 {
     FacebookEmoji(String(intArrayOf(0x1F9C9), 0, 1), listOf("mate_drink"), 46, 47, false),
     FacebookEmoji(String(intArrayOf(0x1F9CA), 0, 1), listOf("ice_cube"), 46, 48, false),
     FacebookEmoji(String(intArrayOf(0x1F962), 0, 1), listOf("chopsticks"), 44, 18, false),
-    FacebookEmoji(String(intArrayOf(0x1F37D, 0xFE0F), 0, 2), listOf("knife_fork_plate"), 6, 57, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F37D), 0, 1), listOf("knife_fork_plate"), 6, 57, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F37D, 0xFE0F), 0, 2), emptyList<String>(), 6, 57, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F374), 0, 1), listOf("fork_and_knife"), 6, 48, false),
     FacebookEmoji(String(intArrayOf(0x1F944), 0, 1), listOf("spoon"), 43, 51, false),
     FacebookEmoji(String(intArrayOf(0x1F52A), 0, 1), listOf("hocho", "knife"), 30, 34, false),

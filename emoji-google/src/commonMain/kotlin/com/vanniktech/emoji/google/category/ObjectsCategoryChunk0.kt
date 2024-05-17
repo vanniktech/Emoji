@@ -21,7 +21,12 @@ import com.vanniktech.emoji.google.GoogleEmoji
 internal object ObjectsCategoryChunk0 {
   internal val EMOJIS: List<GoogleEmoji> = listOf(
     GoogleEmoji(String(intArrayOf(0x1F453), 0, 1), listOf("eyeglasses"), 13, 24, false),
-    GoogleEmoji(String(intArrayOf(0x1F576, 0xFE0F), 0, 2), listOf("dark_sunglasses"), 31, 49, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F576), 0, 1), listOf("dark_sunglasses"), 31, 49, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F576, 0xFE0F), 0, 2), emptyList<String>(), 31, 49, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F97D), 0, 1), listOf("goggles"), 44, 50, false),
     GoogleEmoji(String(intArrayOf(0x1F97C), 0, 1), listOf("lab_coat"), 44, 49, false),
     GoogleEmoji(String(intArrayOf(0x1F9BA), 0, 1), listOf("safety_vest"), 46, 27, false),
@@ -44,7 +49,12 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F45B), 0, 1), listOf("purse"), 13, 32, false),
     GoogleEmoji(String(intArrayOf(0x1F45C), 0, 1), listOf("handbag"), 13, 33, false),
     GoogleEmoji(String(intArrayOf(0x1F45D), 0, 1), listOf("pouch"), 13, 34, false),
-    GoogleEmoji(String(intArrayOf(0x1F6CD, 0xFE0F), 0, 2), listOf("shopping_bags"), 38, 39, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F6CD), 0, 1), listOf("shopping_bags"), 38, 39, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6CD, 0xFE0F), 0, 2), emptyList<String>(), 38, 39, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F392), 0, 1), listOf("school_satchel"), 7, 21, false),
     GoogleEmoji(String(intArrayOf(0x1FA74), 0, 1), listOf("thong_sandal"), 54, 54, false),
     GoogleEmoji(String(intArrayOf(0x1F45E), 0, 1), listOf("mans_shoe", "shoe"), 13, 35, false),
@@ -62,7 +72,12 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F393), 0, 1), listOf("mortar_board"), 7, 22, false),
     GoogleEmoji(String(intArrayOf(0x1F9E2), 0, 1), listOf("billed_cap"), 54, 20, false),
     GoogleEmoji(String(intArrayOf(0x1FA96), 0, 1), listOf("military_helmet"), 55, 16, false),
-    GoogleEmoji(String(intArrayOf(0x26D1, 0xFE0F), 0, 2), listOf("helmet_with_white_cross"), 59, 18, false),
+    GoogleEmoji(
+      String(intArrayOf(0x26D1), 0, 1), listOf("helmet_with_white_cross"), 59, 18, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x26D1, 0xFE0F), 0, 2), emptyList<String>(), 59, 18, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F4FF), 0, 1), listOf("prayer_beads"), 29, 53, false),
     GoogleEmoji(String(intArrayOf(0x1F484), 0, 1), listOf("lipstick"), 26, 23, false),
     GoogleEmoji(String(intArrayOf(0x1F48D), 0, 1), listOf("ring"), 27, 9, false),
@@ -79,9 +94,24 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F3BC), 0, 1), listOf("musical_score"), 7, 58, false),
     GoogleEmoji(String(intArrayOf(0x1F3B5), 0, 1), listOf("musical_note"), 7, 51, false),
     GoogleEmoji(String(intArrayOf(0x1F3B6), 0, 1), listOf("notes"), 7, 52, false),
-    GoogleEmoji(String(intArrayOf(0x1F399, 0xFE0F), 0, 2), listOf("studio_microphone"), 7, 25, false),
-    GoogleEmoji(String(intArrayOf(0x1F39A, 0xFE0F), 0, 2), listOf("level_slider"), 7, 26, false),
-    GoogleEmoji(String(intArrayOf(0x1F39B, 0xFE0F), 0, 2), listOf("control_knobs"), 7, 27, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F399), 0, 1), listOf("studio_microphone"), 7, 25, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F399, 0xFE0F), 0, 2), emptyList<String>(), 7, 25, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F39A), 0, 1), listOf("level_slider"), 7, 26, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F39A, 0xFE0F), 0, 2), emptyList<String>(), 7, 26, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F39B), 0, 1), listOf("control_knobs"), 7, 27, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F39B, 0xFE0F), 0, 2), emptyList<String>(), 7, 27, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F3A4), 0, 1), listOf("microphone"), 7, 34, false),
     GoogleEmoji(String(intArrayOf(0x1F3A7), 0, 1), listOf("headphones"), 7, 37, false),
     GoogleEmoji(String(intArrayOf(0x1F4FB), 0, 1), listOf("radio"), 29, 50, false),
@@ -98,7 +128,12 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1FA88), 0, 1), listOf("flute"), 55, 9, false),
     GoogleEmoji(String(intArrayOf(0x1F4F1), 0, 1), listOf("iphone"), 29, 40, false),
     GoogleEmoji(String(intArrayOf(0x1F4F2), 0, 1), listOf("calling"), 29, 41, false),
-    GoogleEmoji(String(intArrayOf(0x260E, 0xFE0F), 0, 2), listOf("phone", "telephone"), 58, 13, false),
+    GoogleEmoji(
+      String(intArrayOf(0x260E), 0, 1), listOf("phone", "telephone"), 58, 13, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x260E, 0xFE0F), 0, 2), emptyList<String>(), 58, 13, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F4DE), 0, 1), listOf("telephone_receiver"), 29, 21, false),
     GoogleEmoji(String(intArrayOf(0x1F4DF), 0, 1), listOf("pager"), 29, 22, false),
     GoogleEmoji(String(intArrayOf(0x1F4E0), 0, 1), listOf("fax"), 29, 23, false),
@@ -106,19 +141,54 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1FAAB), 0, 1), listOf("low_battery"), 55, 37, false),
     GoogleEmoji(String(intArrayOf(0x1F50C), 0, 1), listOf("electric_plug"), 30, 4, false),
     GoogleEmoji(String(intArrayOf(0x1F4BB), 0, 1), listOf("computer"), 28, 48, false),
-    GoogleEmoji(String(intArrayOf(0x1F5A5, 0xFE0F), 0, 2), listOf("desktop_computer"), 32, 21, false),
-    GoogleEmoji(String(intArrayOf(0x1F5A8, 0xFE0F), 0, 2), listOf("printer"), 32, 22, false),
-    GoogleEmoji(String(intArrayOf(0x2328, 0xFE0F), 0, 2), listOf("keyboard"), 57, 45, false),
-    GoogleEmoji(String(intArrayOf(0x1F5B1, 0xFE0F), 0, 2), listOf("three_button_mouse"), 32, 23, false),
-    GoogleEmoji(String(intArrayOf(0x1F5B2, 0xFE0F), 0, 2), listOf("trackball"), 32, 24, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5A5), 0, 1), listOf("desktop_computer"), 32, 21, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5A5, 0xFE0F), 0, 2), emptyList<String>(), 32, 21, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5A8), 0, 1), listOf("printer"), 32, 22, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5A8, 0xFE0F), 0, 2), emptyList<String>(), 32, 22, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x2328), 0, 1), listOf("keyboard"), 57, 45, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x2328, 0xFE0F), 0, 2), emptyList<String>(), 57, 45, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5B1), 0, 1), listOf("three_button_mouse"), 32, 23, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5B1, 0xFE0F), 0, 2), emptyList<String>(), 32, 23, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5B2), 0, 1), listOf("trackball"), 32, 24, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5B2, 0xFE0F), 0, 2), emptyList<String>(), 32, 24, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F4BD), 0, 1), listOf("minidisc"), 28, 50, false),
     GoogleEmoji(String(intArrayOf(0x1F4BE), 0, 1), listOf("floppy_disk"), 28, 51, false),
     GoogleEmoji(String(intArrayOf(0x1F4BF), 0, 1), listOf("cd"), 28, 52, false),
     GoogleEmoji(String(intArrayOf(0x1F4C0), 0, 1), listOf("dvd"), 28, 53, false),
     GoogleEmoji(String(intArrayOf(0x1F9EE), 0, 1), listOf("abacus"), 54, 32, false),
     GoogleEmoji(String(intArrayOf(0x1F3A5), 0, 1), listOf("movie_camera"), 7, 35, false),
-    GoogleEmoji(String(intArrayOf(0x1F39E, 0xFE0F), 0, 2), listOf("film_frames"), 7, 28, false),
-    GoogleEmoji(String(intArrayOf(0x1F4FD, 0xFE0F), 0, 2), listOf("film_projector"), 29, 52, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F39E), 0, 1), listOf("film_frames"), 7, 28, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F39E, 0xFE0F), 0, 2), emptyList<String>(), 7, 28, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F4FD), 0, 1), listOf("film_projector"), 29, 52, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F4FD, 0xFE0F), 0, 2), emptyList<String>(), 29, 52, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F3AC), 0, 1), listOf("clapper"), 7, 42, false),
     GoogleEmoji(String(intArrayOf(0x1F4FA), 0, 1), listOf("tv"), 29, 49, false),
     GoogleEmoji(String(intArrayOf(0x1F4F7), 0, 1), listOf("camera"), 29, 46, false),
@@ -127,7 +197,12 @@ internal object ObjectsCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F4FC), 0, 1), listOf("vhs"), 29, 51, false),
     GoogleEmoji(String(intArrayOf(0x1F50D), 0, 1), listOf("mag"), 30, 5, false),
     GoogleEmoji(String(intArrayOf(0x1F50E), 0, 1), listOf("mag_right"), 30, 6, false),
-    GoogleEmoji(String(intArrayOf(0x1F56F, 0xFE0F), 0, 2), listOf("candle"), 31, 22, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F56F), 0, 1), listOf("candle"), 31, 22, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F56F, 0xFE0F), 0, 2), emptyList<String>(), 31, 22, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F4A1), 0, 1), listOf("bulb"), 28, 17, false),
     GoogleEmoji(String(intArrayOf(0x1F526), 0, 1), listOf("flashlight"), 30, 30, false),
     GoogleEmoji(String(intArrayOf(0x1F3EE), 0, 1), listOf("izakaya_lantern", "lantern"), 10, 35, false),

@@ -33,9 +33,19 @@ internal object ObjectsCategoryChunk2 {
     FacebookEmoji(String(intArrayOf(0x1F9EF), 0, 1), listOf("fire_extinguisher"), 54, 33, false),
     FacebookEmoji(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley"), 38, 44, false),
     FacebookEmoji(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking"), 36, 56, false),
-    FacebookEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), listOf("coffin"), 59, 9, false),
+    FacebookEmoji(
+      String(intArrayOf(0x26B0), 0, 1), listOf("coffin"), 59, 9, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), emptyList<String>(), 59, 9, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone"), 55, 32, false),
-    FacebookEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), listOf("funeral_urn"), 59, 10, false),
+    FacebookEmoji(
+      String(intArrayOf(0x26B1), 0, 1), listOf("funeral_urn"), 59, 10, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), emptyList<String>(), 59, 10, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet"), 54, 49, false),
     FacebookEmoji(String(intArrayOf(0x1FAAC), 0, 1), listOf("hamsa"), 55, 38, false),
     FacebookEmoji(String(intArrayOf(0x1F5FF), 0, 1), listOf("moyai"), 32, 45, false),

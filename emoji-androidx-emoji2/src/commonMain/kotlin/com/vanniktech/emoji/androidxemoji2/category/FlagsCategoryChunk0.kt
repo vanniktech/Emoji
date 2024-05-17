@@ -24,10 +24,30 @@ internal object FlagsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F6A9), 0, 1), listOf("triangular_flag_on_post"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F38C), 0, 1), listOf("crossed_flags"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F3F4), 0, 1), listOf("waving_black_flag"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F), 0, 2), listOf("waving_white_flag"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), 0, 4), listOf("rainbow-flag"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), 0, 5), listOf("transgender_flag"), false),
-    AndroidxEmoji2(String(intArrayOf(0x1F3F4, 0x200D, 0x2620, 0xFE0F), 0, 4), listOf("pirate_flag"), false),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F3F3), 0, 1), listOf("waving_white_flag"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F3F3, 0x200D, 0x1F308), 0, 3), listOf("rainbow-flag"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x1F308), 0, 4), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F3F3, 0x200D, 0x26A7), 0, 3), listOf("transgender_flag"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F), 0, 5), emptyList<String>(), false),
+      ),
+    ),
+    AndroidxEmoji2(
+      String(intArrayOf(0x1F3F4, 0x200D, 0x2620), 0, 3), listOf("pirate_flag"), false,
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F3F4, 0x200D, 0x2620, 0xFE0F), 0, 4), emptyList<String>(), false),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F1E6, 0x1F1E8), 0, 2), listOf("flag-ac"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F1E6, 0x1F1E9), 0, 2), listOf("flag-ad"), false),
     AndroidxEmoji2(String(intArrayOf(0x1F1E6, 0x1F1EA), 0, 2), listOf("flag-ae"), false),

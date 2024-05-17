@@ -38,10 +38,25 @@ internal object ActivitiesCategoryChunk0 {
     FacebookEmoji(String(intArrayOf(0x1F9E7), 0, 1), listOf("red_envelope"), 54, 25, false),
     FacebookEmoji(String(intArrayOf(0x1F380), 0, 1), listOf("ribbon"), 6, 60, false),
     FacebookEmoji(String(intArrayOf(0x1F381), 0, 1), listOf("gift"), 6, 61, false),
-    FacebookEmoji(String(intArrayOf(0x1F397, 0xFE0F), 0, 2), listOf("reminder_ribbon"), 7, 24, false),
-    FacebookEmoji(String(intArrayOf(0x1F39F, 0xFE0F), 0, 2), listOf("admission_tickets"), 7, 29, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F397), 0, 1), listOf("reminder_ribbon"), 7, 24, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F397, 0xFE0F), 0, 2), emptyList<String>(), 7, 24, false),
+      ),
+    ),
+    FacebookEmoji(
+      String(intArrayOf(0x1F39F), 0, 1), listOf("admission_tickets"), 7, 29, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F39F, 0xFE0F), 0, 2), emptyList<String>(), 7, 29, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F3AB), 0, 1), listOf("ticket"), 7, 41, false),
-    FacebookEmoji(String(intArrayOf(0x1F396, 0xFE0F), 0, 2), listOf("medal"), 7, 23, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F396), 0, 1), listOf("medal"), 7, 23, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F396, 0xFE0F), 0, 2), emptyList<String>(), 7, 23, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F3C6), 0, 1), listOf("trophy"), 9, 1, false),
     FacebookEmoji(String(intArrayOf(0x1F3C5), 0, 1), listOf("sports_medal"), 9, 0, false),
     FacebookEmoji(String(intArrayOf(0x1F947), 0, 1), listOf("first_place_medal"), 43, 53, false),
@@ -67,7 +82,12 @@ internal object ActivitiesCategoryChunk0 {
     FacebookEmoji(String(intArrayOf(0x1F94B), 0, 1), listOf("martial_arts_uniform"), 43, 57, false),
     FacebookEmoji(String(intArrayOf(0x1F945), 0, 1), listOf("goal_net"), 43, 52, false),
     FacebookEmoji(String(intArrayOf(0x26F3), 0, 1), listOf("golf"), 59, 27, false),
-    FacebookEmoji(String(intArrayOf(0x26F8, 0xFE0F), 0, 2), listOf("ice_skate"), 59, 31, false),
+    FacebookEmoji(
+      String(intArrayOf(0x26F8), 0, 1), listOf("ice_skate"), 59, 31, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x26F8, 0xFE0F), 0, 2), emptyList<String>(), 59, 31, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F3A3), 0, 1), listOf("fishing_pole_and_fish"), 7, 33, false),
     FacebookEmoji(String(intArrayOf(0x1F93F), 0, 1), listOf("diving_mask"), 43, 46, false),
     FacebookEmoji(String(intArrayOf(0x1F3BD), 0, 1), listOf("running_shirt_with_sash"), 7, 59, false),
@@ -82,7 +102,12 @@ internal object ActivitiesCategoryChunk0 {
     FacebookEmoji(String(intArrayOf(0x1F52E), 0, 1), listOf("crystal_ball"), 30, 38, false),
     FacebookEmoji(String(intArrayOf(0x1FA84), 0, 1), listOf("magic_wand"), 55, 5, false),
     FacebookEmoji(String(intArrayOf(0x1F3AE), 0, 1), listOf("video_game"), 7, 44, false),
-    FacebookEmoji(String(intArrayOf(0x1F579, 0xFE0F), 0, 2), listOf("joystick"), 31, 52, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F579), 0, 1), listOf("joystick"), 31, 52, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F579, 0xFE0F), 0, 2), emptyList<String>(), 31, 52, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F3B0), 0, 1), listOf("slot_machine"), 7, 46, false),
     FacebookEmoji(String(intArrayOf(0x1F3B2), 0, 1), listOf("game_die"), 7, 48, false),
     FacebookEmoji(String(intArrayOf(0x1F9E9), 0, 1), listOf("jigsaw"), 54, 27, false),
@@ -90,16 +115,46 @@ internal object ActivitiesCategoryChunk0 {
     FacebookEmoji(String(intArrayOf(0x1FA85), 0, 1), listOf("pinata"), 55, 6, false),
     FacebookEmoji(String(intArrayOf(0x1FAA9), 0, 1), listOf("mirror_ball"), 55, 35, false),
     FacebookEmoji(String(intArrayOf(0x1FA86), 0, 1), listOf("nesting_dolls"), 55, 7, false),
-    FacebookEmoji(String(intArrayOf(0x2660, 0xFE0F), 0, 2), listOf("spades"), 58, 49, false),
-    FacebookEmoji(String(intArrayOf(0x2665, 0xFE0F), 0, 2), listOf("hearts"), 58, 51, false),
-    FacebookEmoji(String(intArrayOf(0x2666, 0xFE0F), 0, 2), listOf("diamonds"), 58, 52, false),
-    FacebookEmoji(String(intArrayOf(0x2663, 0xFE0F), 0, 2), listOf("clubs"), 58, 50, false),
-    FacebookEmoji(String(intArrayOf(0x265F, 0xFE0F), 0, 2), listOf("chess_pawn"), 58, 48, false),
+    FacebookEmoji(
+      String(intArrayOf(0x2660), 0, 1), listOf("spades"), 58, 49, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x2660, 0xFE0F), 0, 2), emptyList<String>(), 58, 49, false),
+      ),
+    ),
+    FacebookEmoji(
+      String(intArrayOf(0x2665), 0, 1), listOf("hearts"), 58, 51, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x2665, 0xFE0F), 0, 2), emptyList<String>(), 58, 51, false),
+      ),
+    ),
+    FacebookEmoji(
+      String(intArrayOf(0x2666), 0, 1), listOf("diamonds"), 58, 52, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x2666, 0xFE0F), 0, 2), emptyList<String>(), 58, 52, false),
+      ),
+    ),
+    FacebookEmoji(
+      String(intArrayOf(0x2663), 0, 1), listOf("clubs"), 58, 50, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x2663, 0xFE0F), 0, 2), emptyList<String>(), 58, 50, false),
+      ),
+    ),
+    FacebookEmoji(
+      String(intArrayOf(0x265F), 0, 1), listOf("chess_pawn"), 58, 48, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x265F, 0xFE0F), 0, 2), emptyList<String>(), 58, 48, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F0CF), 0, 1), listOf("black_joker"), 0, 15, false),
     FacebookEmoji(String(intArrayOf(0x1F004), 0, 1), listOf("mahjong"), 0, 14, false),
     FacebookEmoji(String(intArrayOf(0x1F3B4), 0, 1), listOf("flower_playing_cards"), 7, 50, false),
     FacebookEmoji(String(intArrayOf(0x1F3AD), 0, 1), listOf("performing_arts"), 7, 43, false),
-    FacebookEmoji(String(intArrayOf(0x1F5BC, 0xFE0F), 0, 2), listOf("frame_with_picture"), 32, 25, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F5BC), 0, 1), listOf("frame_with_picture"), 32, 25, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F5BC, 0xFE0F), 0, 2), emptyList<String>(), 32, 25, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F3A8), 0, 1), listOf("art"), 7, 38, false),
     FacebookEmoji(String(intArrayOf(0x1F9F5), 0, 1), listOf("thread"), 54, 39, false),
     FacebookEmoji(String(intArrayOf(0x1FAA1), 0, 1), listOf("sewing_needle"), 55, 27, false),

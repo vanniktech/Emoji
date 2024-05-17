@@ -38,11 +38,31 @@ internal object SmileysAndPeopleCategoryChunk1 {
     IosEmoji(String(intArrayOf(0x1F49E), 0, 1), listOf("revolving_hearts"), 28, 14, false),
     IosEmoji(String(intArrayOf(0x1F495), 0, 1), listOf("two_hearts"), 28, 5, false),
     IosEmoji(String(intArrayOf(0x1F49F), 0, 1), listOf("heart_decoration"), 28, 15, false),
-    IosEmoji(String(intArrayOf(0x2763, 0xFE0F), 0, 2), listOf("heavy_heart_exclamation_mark_ornament"), 60, 35, false),
+    IosEmoji(
+      String(intArrayOf(0x2763), 0, 1), listOf("heavy_heart_exclamation_mark_ornament"), 60, 35, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x2763, 0xFE0F), 0, 2), emptyList<String>(), 60, 35, false),
+      ),
+    ),
     IosEmoji(String(intArrayOf(0x1F494), 0, 1), listOf("broken_heart"), 28, 4, false),
-    IosEmoji(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1F525), 0, 4), listOf("heart_on_fire"), 60, 36, false),
-    IosEmoji(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1FA79), 0, 4), listOf("mending_heart"), 60, 37, false),
-    IosEmoji(String(intArrayOf(0x2764, 0xFE0F), 0, 2), listOf("heart"), 60, 38, false),
+    IosEmoji(
+      String(intArrayOf(0x2764, 0x200D, 0x1F525), 0, 3), listOf("heart_on_fire"), 60, 36, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1F525), 0, 4), emptyList<String>(), 60, 36, false),
+      ),
+    ),
+    IosEmoji(
+      String(intArrayOf(0x2764, 0x200D, 0x1FA79), 0, 3), listOf("mending_heart"), 60, 37, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x2764, 0xFE0F, 0x200D, 0x1FA79), 0, 4), emptyList<String>(), 60, 37, false),
+      ),
+    ),
+    IosEmoji(
+      String(intArrayOf(0x2764), 0, 1), listOf("heart"), 60, 38, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x2764, 0xFE0F), 0, 2), emptyList<String>(), 60, 38, false),
+      ),
+    ),
     IosEmoji(String(intArrayOf(0x1FA77), 0, 1), listOf("pink_heart"), 54, 57, false),
     IosEmoji(String(intArrayOf(0x1F9E1), 0, 1), listOf("orange_heart"), 54, 19, false),
     IosEmoji(String(intArrayOf(0x1F49B), 0, 1), listOf("yellow_heart"), 28, 11, false),
@@ -61,11 +81,31 @@ internal object SmileysAndPeopleCategoryChunk1 {
     IosEmoji(String(intArrayOf(0x1F4AB), 0, 1), listOf("dizzy"), 28, 32, false),
     IosEmoji(String(intArrayOf(0x1F4A6), 0, 1), listOf("sweat_drops"), 28, 22, false),
     IosEmoji(String(intArrayOf(0x1F4A8), 0, 1), listOf("dash"), 28, 24, false),
-    IosEmoji(String(intArrayOf(0x1F573, 0xFE0F), 0, 2), listOf("hole"), 31, 24, false),
+    IosEmoji(
+      String(intArrayOf(0x1F573), 0, 1), listOf("hole"), 31, 24, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x1F573, 0xFE0F), 0, 2), emptyList<String>(), 31, 24, false),
+      ),
+    ),
     IosEmoji(String(intArrayOf(0x1F4AC), 0, 1), listOf("speech_balloon"), 28, 33, false),
-    IosEmoji(String(intArrayOf(0x1F441, 0xFE0F, 0x200D, 0x1F5E8, 0xFE0F), 0, 5), listOf("eye-in-speech-bubble"), 12, 2, false),
-    IosEmoji(String(intArrayOf(0x1F5E8, 0xFE0F), 0, 2), listOf("left_speech_bubble"), 32, 37, false),
-    IosEmoji(String(intArrayOf(0x1F5EF, 0xFE0F), 0, 2), listOf("right_anger_bubble"), 32, 38, false),
+    IosEmoji(
+      String(intArrayOf(0x1F441, 0x200D, 0x1F5E8), 0, 3), listOf("eye-in-speech-bubble"), 12, 2, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x1F441, 0xFE0F, 0x200D, 0x1F5E8, 0xFE0F), 0, 5), emptyList<String>(), 12, 2, false),
+      ),
+    ),
+    IosEmoji(
+      String(intArrayOf(0x1F5E8), 0, 1), listOf("left_speech_bubble"), 32, 37, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x1F5E8, 0xFE0F), 0, 2), emptyList<String>(), 32, 37, false),
+      ),
+    ),
+    IosEmoji(
+      String(intArrayOf(0x1F5EF), 0, 1), listOf("right_anger_bubble"), 32, 38, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x1F5EF, 0xFE0F), 0, 2), emptyList<String>(), 32, 38, false),
+      ),
+    ),
     IosEmoji(String(intArrayOf(0x1F4AD), 0, 1), listOf("thought_balloon"), 28, 34, false),
     IosEmoji(String(intArrayOf(0x1F4A4), 0, 1), listOf("zzz"), 28, 20, false),
     IosEmoji(
@@ -586,7 +626,12 @@ internal object SmileysAndPeopleCategoryChunk1 {
     IosEmoji(String(intArrayOf(0x1F9B7), 0, 1), listOf("tooth"), 45, 52, false),
     IosEmoji(String(intArrayOf(0x1F9B4), 0, 1), listOf("bone"), 45, 39, false),
     IosEmoji(String(intArrayOf(0x1F440), 0, 1), listOf("eyes"), 12, 1, false),
-    IosEmoji(String(intArrayOf(0x1F441, 0xFE0F), 0, 2), listOf("eye"), 12, 3, false),
+    IosEmoji(
+      String(intArrayOf(0x1F441), 0, 1), listOf("eye"), 12, 3, false,
+      variants = listOf(
+        IosEmoji(String(intArrayOf(0x1F441, 0xFE0F), 0, 2), emptyList<String>(), 12, 3, false),
+      ),
+    ),
     IosEmoji(String(intArrayOf(0x1F445), 0, 1), listOf("tongue"), 12, 17, false),
     IosEmoji(String(intArrayOf(0x1F444), 0, 1), listOf("lips"), 12, 16, false),
     IosEmoji(String(intArrayOf(0x1FAE6), 0, 1), listOf("biting_lip"), 56, 36, false),

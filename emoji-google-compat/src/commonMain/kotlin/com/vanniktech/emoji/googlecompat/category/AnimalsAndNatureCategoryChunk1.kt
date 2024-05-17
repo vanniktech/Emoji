@@ -29,7 +29,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F338), 0, 1), listOf("cherry_blossom"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F4AE), 0, 1), listOf("white_flower"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1FAB7), 0, 1), listOf("lotus"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), listOf("rosette"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x1F3F5), 0, 1), listOf("rosette"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F339), 0, 1), listOf("rose"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F940), 0, 1), listOf("wilted_flower"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F33A), 0, 1), listOf("hibiscus"), false),
@@ -45,7 +50,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F335), 0, 1), listOf("cactus"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F33E), 0, 1), listOf("ear_of_rice"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F33F), 0, 1), listOf("herb"), false),
-    GoogleCompatEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), listOf("shamrock"), false),
+    GoogleCompatEmoji(
+      String(intArrayOf(0x2618), 0, 1), listOf("shamrock"), false,
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList<String>(), false),
+      ),
+    ),
     GoogleCompatEmoji(String(intArrayOf(0x1F340), 0, 1), listOf("four_leaf_clover"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F341), 0, 1), listOf("maple_leaf"), false),
     GoogleCompatEmoji(String(intArrayOf(0x1F342), 0, 1), listOf("fallen_leaf"), false),

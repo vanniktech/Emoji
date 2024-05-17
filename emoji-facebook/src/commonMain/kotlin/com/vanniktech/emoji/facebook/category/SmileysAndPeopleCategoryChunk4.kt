@@ -315,7 +315,12 @@ internal object SmileysAndPeopleCategoryChunk4 {
     FacebookEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467), 0, 3), listOf("woman-girl"), 18, 32, false),
     FacebookEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466), 0, 5), listOf("woman-girl-boy"), 18, 30, false),
     FacebookEmoji(String(intArrayOf(0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F467), 0, 5), listOf("woman-girl-girl"), 18, 31, false),
-    FacebookEmoji(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), listOf("speaking_head_in_silhouette"), 32, 36, false),
+    FacebookEmoji(
+      String(intArrayOf(0x1F5E3), 0, 1), listOf("speaking_head_in_silhouette"), 32, 36, false,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F5E3, 0xFE0F), 0, 2), emptyList<String>(), 32, 36, false),
+      ),
+    ),
     FacebookEmoji(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), 13, 41, false),
     FacebookEmoji(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), 13, 42, false),
     FacebookEmoji(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), 55, 59, false),

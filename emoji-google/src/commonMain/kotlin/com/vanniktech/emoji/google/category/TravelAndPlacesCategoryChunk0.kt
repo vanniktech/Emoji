@@ -24,27 +24,92 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F30E), 0, 1), listOf("earth_americas"), 5, 8, false),
     GoogleEmoji(String(intArrayOf(0x1F30F), 0, 1), listOf("earth_asia"), 5, 9, false),
     GoogleEmoji(String(intArrayOf(0x1F310), 0, 1), listOf("globe_with_meridians"), 5, 10, false),
-    GoogleEmoji(String(intArrayOf(0x1F5FA, 0xFE0F), 0, 2), listOf("world_map"), 32, 40, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F5FA), 0, 1), listOf("world_map"), 32, 40, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F5FA, 0xFE0F), 0, 2), emptyList<String>(), 32, 40, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F5FE), 0, 1), listOf("japan"), 32, 44, false),
     GoogleEmoji(String(intArrayOf(0x1F9ED), 0, 1), listOf("compass"), 54, 31, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D4, 0xFE0F), 0, 2), listOf("snow_capped_mountain"), 10, 9, false),
-    GoogleEmoji(String(intArrayOf(0x26F0, 0xFE0F), 0, 2), listOf("mountain"), 59, 24, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D4), 0, 1), listOf("snow_capped_mountain"), 10, 9, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D4, 0xFE0F), 0, 2), emptyList<String>(), 10, 9, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x26F0), 0, 1), listOf("mountain"), 59, 24, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x26F0, 0xFE0F), 0, 2), emptyList<String>(), 59, 24, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F30B), 0, 1), listOf("volcano"), 5, 5, false),
     GoogleEmoji(String(intArrayOf(0x1F5FB), 0, 1), listOf("mount_fuji"), 32, 41, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D5, 0xFE0F), 0, 2), listOf("camping"), 10, 10, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D6, 0xFE0F), 0, 2), listOf("beach_with_umbrella"), 10, 11, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DC, 0xFE0F), 0, 2), listOf("desert"), 10, 17, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DD, 0xFE0F), 0, 2), listOf("desert_island"), 10, 18, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DE, 0xFE0F), 0, 2), listOf("national_park"), 10, 19, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DF, 0xFE0F), 0, 2), listOf("stadium"), 10, 20, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DB, 0xFE0F), 0, 2), listOf("classical_building"), 10, 16, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D7, 0xFE0F), 0, 2), listOf("building_construction"), 10, 12, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D5), 0, 1), listOf("camping"), 10, 10, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D5, 0xFE0F), 0, 2), emptyList<String>(), 10, 10, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D6), 0, 1), listOf("beach_with_umbrella"), 10, 11, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D6, 0xFE0F), 0, 2), emptyList<String>(), 10, 11, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DC), 0, 1), listOf("desert"), 10, 17, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DC, 0xFE0F), 0, 2), emptyList<String>(), 10, 17, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DD), 0, 1), listOf("desert_island"), 10, 18, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DD, 0xFE0F), 0, 2), emptyList<String>(), 10, 18, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DE), 0, 1), listOf("national_park"), 10, 19, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DE, 0xFE0F), 0, 2), emptyList<String>(), 10, 19, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DF), 0, 1), listOf("stadium"), 10, 20, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DF, 0xFE0F), 0, 2), emptyList<String>(), 10, 20, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DB), 0, 1), listOf("classical_building"), 10, 16, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DB, 0xFE0F), 0, 2), emptyList<String>(), 10, 16, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D7), 0, 1), listOf("building_construction"), 10, 12, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D7, 0xFE0F), 0, 2), emptyList<String>(), 10, 12, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F9F1), 0, 1), listOf("bricks"), 54, 35, false),
     GoogleEmoji(String(intArrayOf(0x1FAA8), 0, 1), listOf("rock"), 55, 34, false),
     GoogleEmoji(String(intArrayOf(0x1FAB5), 0, 1), listOf("wood"), 55, 47, false),
     GoogleEmoji(String(intArrayOf(0x1F6D6), 0, 1), listOf("hut"), 38, 46, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D8, 0xFE0F), 0, 2), listOf("house_buildings"), 10, 13, false),
-    GoogleEmoji(String(intArrayOf(0x1F3DA, 0xFE0F), 0, 2), listOf("derelict_house_building"), 10, 15, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D8), 0, 1), listOf("house_buildings"), 10, 13, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D8, 0xFE0F), 0, 2), emptyList<String>(), 10, 13, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3DA), 0, 1), listOf("derelict_house_building"), 10, 15, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3DA, 0xFE0F), 0, 2), emptyList<String>(), 10, 15, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F3E0), 0, 1), listOf("house"), 10, 21, false),
     GoogleEmoji(String(intArrayOf(0x1F3E1), 0, 1), listOf("house_with_garden"), 10, 22, false),
     GoogleEmoji(String(intArrayOf(0x1F3E2), 0, 1), listOf("office"), 10, 23, false),
@@ -67,19 +132,34 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F54C), 0, 1), listOf("mosque"), 30, 57, false),
     GoogleEmoji(String(intArrayOf(0x1F6D5), 0, 1), listOf("hindu_temple"), 38, 45, false),
     GoogleEmoji(String(intArrayOf(0x1F54D), 0, 1), listOf("synagogue"), 30, 58, false),
-    GoogleEmoji(String(intArrayOf(0x26E9, 0xFE0F), 0, 2), listOf("shinto_shrine"), 59, 22, false),
+    GoogleEmoji(
+      String(intArrayOf(0x26E9), 0, 1), listOf("shinto_shrine"), 59, 22, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x26E9, 0xFE0F), 0, 2), emptyList<String>(), 59, 22, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F54B), 0, 1), listOf("kaaba"), 30, 56, false),
     GoogleEmoji(String(intArrayOf(0x26F2), 0, 1), listOf("fountain"), 59, 26, false),
     GoogleEmoji(String(intArrayOf(0x26FA), 0, 1), listOf("tent"), 59, 50, false),
     GoogleEmoji(String(intArrayOf(0x1F301), 0, 1), listOf("foggy"), 4, 57, false),
     GoogleEmoji(String(intArrayOf(0x1F303), 0, 1), listOf("night_with_stars"), 4, 59, false),
-    GoogleEmoji(String(intArrayOf(0x1F3D9, 0xFE0F), 0, 2), listOf("cityscape"), 10, 14, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3D9), 0, 1), listOf("cityscape"), 10, 14, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3D9, 0xFE0F), 0, 2), emptyList<String>(), 10, 14, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F304), 0, 1), listOf("sunrise_over_mountains"), 4, 60, false),
     GoogleEmoji(String(intArrayOf(0x1F305), 0, 1), listOf("sunrise"), 4, 61, false),
     GoogleEmoji(String(intArrayOf(0x1F306), 0, 1), listOf("city_sunset"), 5, 0, false),
     GoogleEmoji(String(intArrayOf(0x1F307), 0, 1), listOf("city_sunrise"), 5, 1, false),
     GoogleEmoji(String(intArrayOf(0x1F309), 0, 1), listOf("bridge_at_night"), 5, 3, false),
-    GoogleEmoji(String(intArrayOf(0x2668, 0xFE0F), 0, 2), listOf("hotsprings"), 58, 53, false),
+    GoogleEmoji(
+      String(intArrayOf(0x2668), 0, 1), listOf("hotsprings"), 58, 53, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x2668, 0xFE0F), 0, 2), emptyList<String>(), 58, 53, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F3A0), 0, 1), listOf("carousel_horse"), 7, 30, false),
     GoogleEmoji(String(intArrayOf(0x1F6DD), 0, 1), listOf("playground_slide"), 38, 49, false),
     GoogleEmoji(String(intArrayOf(0x1F3A1), 0, 1), listOf("ferris_wheel"), 7, 31, false),
@@ -115,8 +195,18 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F69A), 0, 1), listOf("truck"), 36, 21, false),
     GoogleEmoji(String(intArrayOf(0x1F69B), 0, 1), listOf("articulated_lorry"), 36, 22, false),
     GoogleEmoji(String(intArrayOf(0x1F69C), 0, 1), listOf("tractor"), 36, 23, false),
-    GoogleEmoji(String(intArrayOf(0x1F3CE, 0xFE0F), 0, 2), listOf("racing_car"), 10, 3, false),
-    GoogleEmoji(String(intArrayOf(0x1F3CD, 0xFE0F), 0, 2), listOf("racing_motorcycle"), 10, 2, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3CE), 0, 1), listOf("racing_car"), 10, 3, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3CE, 0xFE0F), 0, 2), emptyList<String>(), 10, 3, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F3CD), 0, 1), listOf("racing_motorcycle"), 10, 2, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F3CD, 0xFE0F), 0, 2), emptyList<String>(), 10, 2, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x1F6F5), 0, 1), listOf("motor_scooter"), 39, 2, false),
     GoogleEmoji(String(intArrayOf(0x1F9BD), 0, 1), listOf("manual_wheelchair"), 46, 35, false),
     GoogleEmoji(String(intArrayOf(0x1F9BC), 0, 1), listOf("motorized_wheelchair"), 46, 34, false),
@@ -126,9 +216,24 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleEmoji(String(intArrayOf(0x1F6F9), 0, 1), listOf("skateboard"), 39, 6, false),
     GoogleEmoji(String(intArrayOf(0x1F6FC), 0, 1), listOf("roller_skate"), 39, 9, false),
     GoogleEmoji(String(intArrayOf(0x1F68F), 0, 1), listOf("busstop"), 36, 10, false),
-    GoogleEmoji(String(intArrayOf(0x1F6E3, 0xFE0F), 0, 2), listOf("motorway"), 38, 55, false),
-    GoogleEmoji(String(intArrayOf(0x1F6E4, 0xFE0F), 0, 2), listOf("railway_track"), 38, 56, false),
-    GoogleEmoji(String(intArrayOf(0x1F6E2, 0xFE0F), 0, 2), listOf("oil_drum"), 38, 54, false),
+    GoogleEmoji(
+      String(intArrayOf(0x1F6E3), 0, 1), listOf("motorway"), 38, 55, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E3, 0xFE0F), 0, 2), emptyList<String>(), 38, 55, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F6E4), 0, 1), listOf("railway_track"), 38, 56, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E4, 0xFE0F), 0, 2), emptyList<String>(), 38, 56, false),
+      ),
+    ),
+    GoogleEmoji(
+      String(intArrayOf(0x1F6E2), 0, 1), listOf("oil_drum"), 38, 54, false,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E2, 0xFE0F), 0, 2), emptyList<String>(), 38, 54, false),
+      ),
+    ),
     GoogleEmoji(String(intArrayOf(0x26FD), 0, 1), listOf("fuelpump"), 59, 51, false),
     GoogleEmoji(String(intArrayOf(0x1F6DE), 0, 1), listOf("wheel"), 38, 50, false),
     GoogleEmoji(String(intArrayOf(0x1F6A8), 0, 1), listOf("rotating_light"), 36, 52, false),
