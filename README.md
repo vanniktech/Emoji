@@ -17,7 +17,7 @@ A Kotlin Multiplatform library to add Emoji support to your Android App / JVM Ba
     - [`EmojiTextView`](./emoji/src/androidMain/kotlin/com/vanniktech/emoji/EmojiTextView.kt)
     - For convenience, there's also a [`EmojiLayoutFactory`](./emoji/src/androidMain/kotlin/com/vanniktech/emoji/EmojiLayoutFactory.kt), which can be used to get automatic Emoji support when using normal Android Views such as `TextView`, `Checkbox`, etc.
 
-The library has 4 different sprites providers to choose from ([iOS](#ios-emojis), [Google](#google), [Facebook](#facebook) & [Twitter](#twitter)). The emoji's are packaged as pictures and loaded at runtime. If you want to use a Font provider, check out [Google Compat](#google-compat).
+The library has 4 different sprites providers to choose from ([iOS](#ios-emojis), [Google](#google), [Facebook](#facebook) & [Twitter](#twitter)). The emoji's are packaged as pictures and loaded at runtime. If you want to use a Font provider, check out [Google Compat](#google-compat). Alternatively, we also offer [AndroidX Emoji2 support](#androidx-emoji2).
 
 ## iOS Emojis
 
@@ -26,7 +26,7 @@ The library has 4 different sprites providers to choose from ([iOS](#ios-emojis)
 For getting the above iOS Emojis, add the dependency:
 
 ```groovy
-implementation("com.vanniktech:emoji-ios:0.18.0")
+implementation("com.vanniktech:emoji-ios:0.19.0")
 ```
 
 And install the provider in your Application class.
@@ -45,7 +45,7 @@ EmojiManager.install(IosEmojiProvider())
 For getting the above Google Emojis, add the dependency:
 
 ```groovy
-implementation("com.vanniktech:emoji-google:0.18.0")
+implementation("com.vanniktech:emoji-google:0.19.0")
 ```
 
 And install the provider in your Application class.
@@ -64,7 +64,7 @@ EmojiManager.install(GoogleEmojiProvider())
 For getting the above Facebook Emojis, add the dependency:
 
 ```groovy
-implementation("com.vanniktech:emoji-facebook:0.18.0")
+implementation("com.vanniktech:emoji-facebook:0.19.0")
 ```
 
 And install the provider in your Application class.
@@ -83,7 +83,7 @@ EmojiManager.install(FacebookEmojiProvider())
 For getting the above Twitter Emojis, add the dependency:
 
 ```groovy
-implementation("com.vanniktech:emoji-twitter:0.18.0")
+implementation("com.vanniktech:emoji-twitter:0.19.0")
 ```
 
 And install the provider in your Application class.
@@ -102,7 +102,7 @@ EmojiManager.install(TwitterEmojiProvider())
 For getting the above Google Emojis, add the dependency (only works for Android Apps):
 
 ```groovy
-implementation("com.vanniktech:emoji-google-compat:0.18.0")
+implementation("com.vanniktech:emoji-google-compat:0.19.0")
 ```
 
 And install the provider in your Application class.
@@ -143,6 +143,28 @@ Instead of using pictures, the Emojis are loaded via a Font which is downloaded 
 </string-array>
 ```
 
+## AndroidX Emoji2
+
+<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/androidx_emoji2_1.png" alt="Normal Keyboard" width="270"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/androidx_emoji2_2.png" alt="Emoji Keyboard" width="270" hspace="20"><img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/androidx_emoji2_3.png" alt="Recent Emojis" width="270">
+
+For getting the above Google Emojis, add the dependency (only works for Android Apps):
+
+```groovy
+implementation("com.vanniktech:emoji-androidx-emoji2:0.19.0")
+```
+
+And install the provider in your Application class.
+
+```kotlin
+import androidx.core.provider.FontRequest
+import androidx.emoji2.text.EmojiCompat
+import androidx.emoji.text.FontRequestEmojiCompatConfig
+import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider
+
+EmojiManager.install(GoogleCompatEmojiProvider(EmojiCompat.init(this))
+```
+
 ## Custom Emojis
 
 If you want to display your own Emojis you can create your own implementation of [`EmojiProvider`](./emoji/src/commonMain/kotlin/com/vanniktech/emoji/EmojiProvider.kt) and pass it to `EmojiManager.install`.
@@ -150,7 +172,7 @@ If you want to display your own Emojis you can create your own implementation of
 All of the core API lays in `emoji`, which is being pulled in automatically by the providers:
 
 ```groovy
-implementation("com.vanniktech:emoji:0.18.0")
+implementation("com.vanniktech:emoji:0.19.0")
 ```
 
 ## Android Material
@@ -158,7 +180,7 @@ implementation("com.vanniktech:emoji:0.18.0")
 Material Design Library bindings can be included via:
 
 ```groovy
-implementation("com.vanniktech:emoji-material:0.18.0")
+implementation("com.vanniktech:emoji-material:0.19.0")
 ```
 
 - [`EmojiMaterialButton`](./emoji-material/src/androidMain/kotlin/com/vanniktech/emoji/material/mojiMaterialButton.kt)
@@ -337,6 +359,7 @@ implementation("com.vanniktech:emoji:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-ios:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-google:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-google-compat:0.19.0-SNAPSHOT")
+implementation("com.vanniktech:emoji-androidx-emoji2:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-twitter:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-facebook:0.19.0-SNAPSHOT")
 implementation("com.vanniktech:emoji-material:0.19.0-SNAPSHOT")

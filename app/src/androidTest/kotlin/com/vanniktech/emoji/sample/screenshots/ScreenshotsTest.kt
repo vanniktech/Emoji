@@ -39,31 +39,19 @@ import tools.fastlane.screengrab.locale.LocaleTestRule
 
   @Rule @JvmField val localeTestRule = LocaleTestRule()
 
-  @Test fun takeScreenShotsIos() {
-    start(Variant.IOS)
-  }
-
-  @Test fun takeScreenShotsEmojiGoogle() {
-    start(Variant.GOOGLE)
-  }
-
-  @Test fun takeScreenShotsEmojiGoogleCompat() {
-    start(Variant.GOOGLE_COMPAT)
-  }
-
-  @Test fun takeScreenShotsEmojiTwitter() {
-    start(Variant.TWITTER)
-  }
-
-  @Test fun takeScreenShotsEmojiFacebook() {
-    start(Variant.FACEBOOK)
-  }
+  @Test fun takeScreenShotsIos() = start(Variant.IOS)
+  @Test fun takeScreenShotsEmojiGoogle() = start(Variant.GOOGLE)
+  @Test fun takeScreenShotsEmojiGoogleCompat() = start(Variant.GOOGLE_COMPAT)
+  @Test fun takeScreenShotsEmojiAndroidxEmoji2() = start(Variant.ANDROIDX_EMOJI2)
+  @Test fun takeScreenShotsEmojiTwitter() = start(Variant.TWITTER)
+  @Test fun takeScreenShotsEmojiFacebook() = start(Variant.FACEBOOK)
 
   internal enum class Variant(
     val title: String,
   ) {
     GOOGLE("Google"),
     GOOGLE_COMPAT("Google Compat"),
+    ANDROIDX_EMOJI2("AndroidX Emoji 2"),
     IOS("iOS"),
     TWITTER("Twitter"),
     FACEBOOK("Facebook"),
@@ -78,8 +66,8 @@ import tools.fastlane.screengrab.locale.LocaleTestRule
 
     // First text.
     onView(withId(R.id.chatEmoji)).perform(click())
-    val firstEmojis = intArrayOf(0x1f913, 0x1F60E, 0x1F921, 0x1F920, 0x1F60F, 0x1F3BE)
-    onView(withId(R.id.chatEditText)).perform(appendText("Hello what's up? " + String(firstEmojis, 0, firstEmojis.size)))
+    val firstEmojis = intArrayOf(0x1F600, 0x1F60E, 0x1F921, 0x1F920, 0x1F60F, 0x1F3BE)
+    onView(withId(R.id.chatEditText)).perform(appendText("${variant.title} provider, what's up? " + String(firstEmojis, 0, firstEmojis.size)))
     Thread.sleep(500) // Espresso does not synchronize it right away.
     Screengrab.screenshot(name + "_1")
     onView(withId(R.id.chatSend)).perform(click())
