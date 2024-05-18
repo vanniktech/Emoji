@@ -20,23 +20,23 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object FoodAndDrinkCategoryChunk1 {
   internal val EMOJIS: List<FacebookEmoji> = listOf(
-    FacebookEmoji(String(intArrayOf(0x1FAD7), 0, 1), listOf("pouring_liquid"), 56, 25, false),
-    FacebookEmoji(String(intArrayOf(0x1F964), 0, 1), listOf("cup_with_straw"), 44, 20, false),
-    FacebookEmoji(String(intArrayOf(0x1F9CB), 0, 1), listOf("bubble_tea"), 46, 49, false),
-    FacebookEmoji(String(intArrayOf(0x1F9C3), 0, 1), listOf("beverage_box"), 46, 41, false),
-    FacebookEmoji(String(intArrayOf(0x1F9C9), 0, 1), listOf("mate_drink"), 46, 47, false),
-    FacebookEmoji(String(intArrayOf(0x1F9CA), 0, 1), listOf("ice_cube"), 46, 48, false),
-    FacebookEmoji(String(intArrayOf(0x1F962), 0, 1), listOf("chopsticks"), 44, 18, false),
+    FacebookEmoji(String(intArrayOf(0x1FAD7), 0, 1), listOf("pouring_liquid"), 56, 25),
+    FacebookEmoji(String(intArrayOf(0x1F964), 0, 1), listOf("cup_with_straw"), 44, 20),
+    FacebookEmoji(String(intArrayOf(0x1F9CB), 0, 1), listOf("bubble_tea"), 46, 49),
+    FacebookEmoji(String(intArrayOf(0x1F9C3), 0, 1), listOf("beverage_box"), 46, 41),
+    FacebookEmoji(String(intArrayOf(0x1F9C9), 0, 1), listOf("mate_drink"), 46, 47),
+    FacebookEmoji(String(intArrayOf(0x1F9CA), 0, 1), listOf("ice_cube"), 46, 48),
+    FacebookEmoji(String(intArrayOf(0x1F962), 0, 1), listOf("chopsticks"), 44, 18),
     FacebookEmoji(
-      String(intArrayOf(0x1F37D), 0, 1), listOf("knife_fork_plate"), 6, 57, false,
+      String(intArrayOf(0x1F37D), 0, 1), listOf("knife_fork_plate"), 6, 57,
       variants = listOf(
-        FacebookEmoji(String(intArrayOf(0x1F37D, 0xFE0F), 0, 2), emptyList<String>(), 6, 57, false),
+        FacebookEmoji(String(intArrayOf(0x1F37D, 0xFE0F), 0, 2), emptyList<String>(), 6, 57),
       ),
     ),
-    FacebookEmoji(String(intArrayOf(0x1F374), 0, 1), listOf("fork_and_knife"), 6, 48, false),
-    FacebookEmoji(String(intArrayOf(0x1F944), 0, 1), listOf("spoon"), 43, 51, false),
-    FacebookEmoji(String(intArrayOf(0x1F52A), 0, 1), listOf("hocho", "knife"), 30, 34, false),
-    FacebookEmoji(String(intArrayOf(0x1FAD9), 0, 1), listOf("jar"), 56, 27, false),
-    FacebookEmoji(String(intArrayOf(0x1F3FA), 0, 1), listOf("amphora"), 10, 50, false),
+    FacebookEmoji(String(intArrayOf(0x1F374), 0, 1), listOf("fork_and_knife"), 6, 48),
+    FacebookEmoji(String(intArrayOf(0x1F944), 0, 1), listOf("spoon"), 43, 51),
+    FacebookEmoji(String(intArrayOf(0x1F52A), 0, 1), listOf("hocho", "knife"), 30, 34),
+    FacebookEmoji(String(intArrayOf(0x1FAD9), 0, 1), listOf("jar"), 56, 27),
+    FacebookEmoji(String(intArrayOf(0x1F3FA), 0, 1), listOf("amphora"), 10, 50),
   )
 }
