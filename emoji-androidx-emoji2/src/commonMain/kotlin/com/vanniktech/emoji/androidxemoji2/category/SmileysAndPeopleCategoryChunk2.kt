@@ -431,7 +431,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F926), 0, 1), listOf("face_palm"), true,
+      String(intArrayOf(0x1F926), 0, 1), listOf("face_palm"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F926, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F926, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -461,7 +461,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F937), 0, 1), listOf("shrug"), true,
+      String(intArrayOf(0x1F937), 0, 1), listOf("shrug"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F937, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F937, 0x1F3FC), 0, 2), emptyList<String>(), false),

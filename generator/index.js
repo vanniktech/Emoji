@@ -68,12 +68,6 @@ const targets = [{
 }];
 
 /**
- * Emoji codepoints which are duplicates. These are marked as such in the generated code.
- * @type {string[]}
- */
-const duplicates = ["1F926", "1F937", "1F938", "1F93C", "1F93D", "1F93E", "1F939"];
-
-/**
  * Metadata about the categories.
  * @type {{name: string, i18n: [{{key: string, value: string}}]}[]}
  */
@@ -288,7 +282,7 @@ async function parse() {
 
     for (const dataEntry of preparedEmojiData) {
         const category = dataEntry.category.replace(" & ", "And");
-        const isDuplicate = !!dataEntry.obsoleted_by || duplicates.includes(dataEntry.unified);
+        const isDuplicate = !!dataEntry.obsoleted_by
 
         const emoji = {
             unicode: dataEntry.unified,
@@ -301,7 +295,7 @@ async function parse() {
 
         if (dataEntry.skin_variations) {
             for (const variantDataEntry of Object.values(dataEntry.skin_variations)) {
-                const isDuplicate = !!variantDataEntry.obsoleted_by || duplicates.includes(variantDataEntry.unified);
+                const isDuplicate = !!variantDataEntry.obsoleted_by
 
                 const variantEmoji = {
                     unicode: variantDataEntry.unified,
