@@ -26,8 +26,8 @@ class EmojiRangeTest {
   private lateinit var emoji2: Emoji
 
   @BeforeTest fun setUp() {
-    emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), false)
-    emoji2 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
+    emoji = TestEmoji(intArrayOf(0x1234), listOf("test"))
+    emoji2 = TestEmoji(intArrayOf(0x5678), listOf("test"))
   }
 
   @Test fun equality() {

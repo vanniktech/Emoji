@@ -235,19 +235,19 @@ function generateEmojiCode(target, emojis, indent = 4) {
 
         if (target.module !== "google-compat" && target.module !== "androidx-emoji2") {
             if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}`;
             }
         } else {
             if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}`;
             } else {
                 const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
 
-                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.isDuplicate}`;
+                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}`;
             }
         }
 
@@ -282,12 +282,12 @@ async function parse() {
 
     for (const dataEntry of preparedEmojiData) {
         const category = dataEntry.category.replace(" & ", "And");
+
         const emoji = {
             unicode: dataEntry.unified,
             shortcodes: dataEntry.short_names,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
-            isDuplicate: false,
             variants: [],
         };
 
@@ -297,7 +297,6 @@ async function parse() {
                     unicode: variantDataEntry.unified,
                     x: variantDataEntry.sheet_x,
                     y: variantDataEntry.sheet_y,
-                    isDuplicate: false,
                     variants: [],
                 };
 
@@ -317,7 +316,6 @@ async function parse() {
                 unicode: dataEntry.unified,
                 x: dataEntry.sheet_x,
                 y: dataEntry.sheet_y,
-                isDuplicate: false,
                 variants: [],
             };
 

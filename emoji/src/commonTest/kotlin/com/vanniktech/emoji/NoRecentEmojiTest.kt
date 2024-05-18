@@ -23,7 +23,7 @@ import kotlin.test.assertEquals
 class NoRecentEmojiTest {
   @Test fun alwaysEmpty() {
     assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
-    NoRecentEmoji.addEmoji(TestEmoji(intArrayOf(0x1f55a), listOf("test"), false))
+    NoRecentEmoji.addEmoji(TestEmoji(intArrayOf(0x1f55a), listOf("test")))
     NoRecentEmoji.persist()
     assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
   }

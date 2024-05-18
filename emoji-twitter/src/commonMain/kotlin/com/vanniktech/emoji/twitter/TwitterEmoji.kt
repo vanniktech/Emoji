@@ -23,7 +23,6 @@ internal class TwitterEmoji internal constructor(
   override val shortcodes: List<String>,
   internal val x: Int,
   internal val y: Int,
-  override val isDuplicate: Boolean,
   override val variants: List<TwitterEmoji> = emptyList(),
   private var parent: TwitterEmoji? = null,
 ) : Emoji {
@@ -51,7 +50,6 @@ internal class TwitterEmoji internal constructor(
     if (shortcodes != other.shortcodes) return false
     if (x != other.x) return false
     if (y != other.y) return false
-    if (isDuplicate != other.isDuplicate) return false
     if (variants != other.variants) return false
 
     return true
@@ -62,10 +60,9 @@ internal class TwitterEmoji internal constructor(
     result = 31 * result + shortcodes.hashCode()
     result = 31 * result + x
     result = 31 * result + y
-    result = 31 * result + isDuplicate.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }
 
-  override fun toString() = "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, isDuplicate=$isDuplicate, variants=$variants)"
+  override fun toString() = "TwitterEmoji(unicode='$unicode', shortcodes=$shortcodes, x=$x, y=$y, variants=$variants)"
 }

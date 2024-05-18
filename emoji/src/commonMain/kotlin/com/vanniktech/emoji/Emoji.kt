@@ -20,6 +20,5 @@ interface Emoji {
   val base: Emoji
   val unicode: String
   val shortcodes: List<String>
-  val isDuplicate: Boolean
   val variants: List<Emoji>
 }

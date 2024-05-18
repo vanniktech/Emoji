@@ -21,7 +21,6 @@ import com.vanniktech.emoji.Emoji
 internal class AndroidxEmoji2 internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
-  override val isDuplicate: Boolean,
   override val variants: List<AndroidxEmoji2> = emptyList(),
   private var parent: AndroidxEmoji2? = null,
 ) : Emoji {
@@ -47,18 +46,16 @@ internal class AndroidxEmoji2 internal constructor(
 
     if (unicode != other.unicode) return false
     if (shortcodes != other.shortcodes) return false
-    if (isDuplicate != other.isDuplicate) return false
     if (variants != other.variants) return false
 
     return true
   }
 
-  override fun toString() = "AndroidxEmoji2(unicode='$unicode', shortcodes=$shortcodes, isDuplicate=$isDuplicate, variants=$variants)"
+  override fun toString() = "AndroidxEmoji2(unicode='$unicode', shortcodes=$shortcodes, variants=$variants)"
 
   override fun hashCode(): Int {
     var result = unicode.hashCode()
     result = 31 * result + shortcodes.hashCode()
-    result = 31 * result + isDuplicate.hashCode()
     result = 31 * result + variants.hashCode()
     return result
   }

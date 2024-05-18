@@ -21,34 +21,34 @@ import kotlin.test.assertEquals
 
 class EmojiTest {
   @Test fun multipleCodePoints() {
-    val emoji = TestEmoji(intArrayOf(0x1234, 0x5678), listOf("test"), false)
+    val emoji = TestEmoji(intArrayOf(0x1234, 0x5678), listOf("test"))
     assertEquals(2, emoji.unicode.length)
     assertEquals(String(intArrayOf(0x1234, 0x5678), 0, 2), emoji.unicode)
   }
 
   @Test fun baseWithoutVariant() {
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), false)
+    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"))
     assertEquals(emoji, emoji.base)
   }
 
   @Test fun baseWithVariant() {
-    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), false, listOf(variant))
+    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"))
+    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), listOf(variant))
     assertEquals(emoji, variant.base)
   }
 
   @Test fun baseWithMultipleVariants() {
-    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
-    val variant2 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), false, listOf(variant, variant2))
+    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"))
+    val variant2 = TestEmoji(intArrayOf(0x5678), listOf("test"))
+    val emoji = TestEmoji(codePoints = intArrayOf(0x1234), listOf("test"), listOf(variant, variant2))
     assertEquals(emoji, variant.base)
     assertEquals(emoji, variant2.base)
   }
 
   @Test fun baseWithRecursiveVariant() {
-    val variantOfVariant = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
-    val variant = TestEmoji(intArrayOf(0x5678), listOf("test"), false, listOf(variantOfVariant))
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), false, listOf(variant))
+    val variantOfVariant = TestEmoji(intArrayOf(0x4321), listOf("test"))
+    val variant = TestEmoji(intArrayOf(0x5678), listOf("test"), listOf(variantOfVariant))
+    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), listOf(variant))
     assertEquals(emoji, variantOfVariant.base)
     assertEquals(emoji, variant.base)
   }
