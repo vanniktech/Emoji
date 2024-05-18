@@ -349,6 +349,7 @@ package com.vanniktech.emoji.variant {
   public final class NoVariantEmoji implements com.vanniktech.emoji.variant.VariantEmoji {
     method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
     method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants(com.vanniktech.emoji.Emoji emoji);
     method public void persist();
     field public static final com.vanniktech.emoji.variant.NoVariantEmoji INSTANCE;
   }
@@ -356,6 +357,7 @@ package com.vanniktech.emoji.variant {
   public interface VariantEmoji {
     method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
     method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants(com.vanniktech.emoji.Emoji emoji);
     method public void persist();
   }
 
@@ -363,6 +365,7 @@ package com.vanniktech.emoji.variant {
     ctor public VariantEmojiManager(android.content.Context context);
     method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
     method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
+    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants(com.vanniktech.emoji.Emoji emoji);
     method public void persist();
   }
 

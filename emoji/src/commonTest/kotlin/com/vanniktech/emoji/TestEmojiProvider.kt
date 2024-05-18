@@ -16,16 +16,18 @@
 
 package com.vanniktech.emoji
 
-internal class TestEmojiProvider(
-  vararg val emojis: Emoji,
-) : EmojiProvider {
+internal object TestEmojiProvider : EmojiProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       object : EmojiCategory {
-        override val emojis: List<Emoji>
-          get() {
-            return this@TestEmojiProvider.emojis.toList()
-          }
+        override val emojis = listOf(
+          emojiBalloon,
+          emojiYoYo,
+          emojiReminderRibbon,
+          emojiBaldPerson,
+          emojiSuperhero,
+        )
+
         override val categoryNames: Map<String, String>
           get() = mapOf(
             "en" to "Test",

@@ -19,6 +19,7 @@ package com.vanniktech.emoji.variant
 import android.content.Context
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.isVariantSelector16
 
 class VariantEmojiManager(
   context: Context,
@@ -33,6 +34,14 @@ class VariantEmojiManager(
 
     val baseEmoji = desiredEmoji.base
     return variantsList.firstOrNull { it.base == baseEmoji } ?: desiredEmoji
+  }
+
+  override fun getVariants(emoji: Emoji): List<Emoji> {
+    if (emoji.isVariantSelector16()) {
+      return emptyList()
+    }
+
+    return emoji.variants
   }
 
   override fun addVariant(newVariant: Emoji) {

@@ -28,7 +28,6 @@ import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
-import com.vanniktech.emoji.variant.NoVariantEmoji
 import com.vanniktech.emoji.variant.VariantEmoji
 
 internal class EmojiImageView @JvmOverloads constructor(
@@ -87,14 +86,23 @@ internal class EmojiImageView @JvmOverloads constructor(
     imageLoadingTask = null
   }
 
-  fun setEmoji(theming: EmojiTheming, emoji: Emoji, variantEmoji: VariantEmoji?) {
+  fun setEmoji(
+    theming: EmojiTheming,
+    emoji: Emoji,
+    variantEmoji: VariantEmoji,
+  ) {
     variantIndicatorPaint.color = theming.dividerColor
     postInvalidate()
 
-    if (emoji != currentEmoji) {
+    val variant = variantEmoji.getVariant(emoji)
+
+    if (variant != currentEmoji) {
+      contentDescription = variant.unicode
       setImageDrawable(null)
-      currentEmoji = emoji
-      hasVariants = emoji.base.variants.isNotEmpty() && variantEmoji !is NoVariantEmoji
+      currentEmoji = variant
+
+      val variants = variantEmoji.getVariants(emoji)
+      hasVariants = variants.isNotEmpty()
       cancelFuture()
       setOnClickListener {
         clickListener?.onEmojiClick(currentEmoji!!)
@@ -102,7 +110,7 @@ internal class EmojiImageView @JvmOverloads constructor(
       setOnLongClickListener(
         when {
           hasVariants -> OnLongClickListener {
-            longClickListener?.onEmojiLongClick(this, emoji)
+            longClickListener?.onEmojiLongClick(this, emoji, variants)
             true
           }
           else -> null
@@ -110,7 +118,7 @@ internal class EmojiImageView @JvmOverloads constructor(
       )
 
       imageLoadingTask = ImageLoadingTask(this)
-      imageLoadingTask?.start(emoji)
+      imageLoadingTask?.start(variant)
     }
   }
 
@@ -124,6 +132,7 @@ internal class EmojiImageView @JvmOverloads constructor(
   fun updateEmoji(emoji: Emoji) {
     if (emoji != currentEmoji) {
       currentEmoji = emoji
+      contentDescription = emoji.unicode
       setImageDrawable(EmojiManager.emojiDrawableProvider().getDrawable(emoji, context))
     }
   }

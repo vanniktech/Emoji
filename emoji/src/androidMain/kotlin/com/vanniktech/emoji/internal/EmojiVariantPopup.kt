@@ -39,11 +39,11 @@ internal class EmojiVariantPopup internal constructor(
 ) {
   private var popupWindow: PopupWindow? = null
 
-  fun show(clickedImage: EmojiImageView, emoji: Emoji) {
+  fun show(clickedImage: EmojiImageView, emoji: Emoji, variants: List<Emoji>) {
     dismiss()
 
     val context = clickedImage.context
-    val content = initView(context, emoji, clickedImage.width, clickedImage)
+    val content = initView(context, emoji, variants, clickedImage.width, clickedImage)
     content.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
     val location = Utils.locationOnScreen(clickedImage)
     val desiredLocation = Point(
@@ -68,14 +68,14 @@ internal class EmojiVariantPopup internal constructor(
     popupWindow = null
   }
 
-  private fun initView(context: Context, emoji: Emoji, width: Int, clickedImage: EmojiImageView): View {
+  private fun initView(context: Context, emoji: Emoji, variants: List<Emoji>, width: Int, clickedImage: EmojiImageView): View {
     val result = View.inflate(context, R.layout.emoji_popup_window_skin, null)
     val imageContainer = result.findViewById<LinearLayout>(R.id.emojiPopupWindowSkinPopupContainer)
-    val variants = emoji.base.variants.toMutableList()
-    variants.add(0, emoji.base)
     val inflater = LayoutInflater.from(context)
 
-    for (variant in variants) {
+    val emojis = listOf(emoji) + variants
+
+    for (variant in emojis) {
       val emojiImage = inflater.inflate(R.layout.emoji_adapter_item_emoji, imageContainer, false) as ImageView
       val layoutParams = emojiImage.layoutParams as MarginLayoutParams
       val margin = Utils.dpToPx(context, MARGIN.toFloat())

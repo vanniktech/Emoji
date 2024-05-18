@@ -22,9 +22,7 @@ import kotlin.test.assertEquals
 
 class EmojiUtilsTest {
   @BeforeTest fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), listOf("test"))
-    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), listOf("test"))
-    EmojiManager.install(TestEmojiProvider(emoji1, emoji2))
+    EmojiManager.install(TestEmojiProvider)
   }
 
   @Test fun isOnlyEmojisEmpty() {
@@ -40,31 +38,31 @@ class EmojiUtilsTest {
   }
 
   @Test fun isOnlyEmojisSingleEmoji() {
-    assertEquals(expected = true, actual = EMOJI_1.isOnlyEmojis())
+    assertEquals(expected = true, actual = "🎈".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojis() {
-    assertEquals(expected = true, actual = (EMOJI_1 + EMOJI_2).isOnlyEmojis())
+    assertEquals(expected = true, actual = "🎈🪀".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojisWithSpaces() {
-    assertEquals(expected = true, actual = """ 	$EMOJI_1	    $EMOJI_2  """.isOnlyEmojis())
+    assertEquals(expected = true, actual = """ 	🎈	    🪀  """.isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisSingleEmojiAndText() {
-    assertEquals(expected = false, actual = (EMOJI_1 + "hello").isOnlyEmojis())
+    assertEquals(expected = false, actual = "🎈hello".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisSingleTextAndEmoji() {
-    assertEquals(expected = false, actual = ("hello$EMOJI_1").isOnlyEmojis())
+    assertEquals(expected = false, actual = "hello🎈".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleEmojisAndText() {
-    assertEquals(expected = false, actual = (EMOJI_1 + "hello" + EMOJI_2).isOnlyEmojis())
+    assertEquals(expected = false, actual = "🎈hello 🪀".isOnlyEmojis())
   }
 
   @Test fun isOnlyEmojisMultipleTextAndEmojis() {
-    assertEquals(expected = false, actual = ("hello" + EMOJI_1 + "world").isOnlyEmojis())
+    assertEquals(expected = false, actual = "hello🎈world".isOnlyEmojis())
   }
 
   @Test fun emojisCountEmpty() {
@@ -80,37 +78,30 @@ class EmojiUtilsTest {
   }
 
   @Test fun emojisCountSingleEmoji() {
-    assertEquals(expected = 1, actual = EMOJI_1.emojisCount())
+    assertEquals(expected = 1, actual = "🎈".emojisCount())
   }
 
   @Test fun emojisCountMultipleEmoji() {
-    assertEquals(expected = 2, actual = (EMOJI_1 + EMOJI_2).emojisCount())
+    assertEquals(expected = 2, actual = "🎈🪀".emojisCount())
   }
 
   @Test fun emojisCountMultipleEmojisWithSpaces() {
-    assertEquals(expected = 2, actual = """ $EMOJI_1    $EMOJI_2  """.emojisCount())
+    assertEquals(expected = 2, actual = """ 🎈    🪀  """.emojisCount())
   }
 
   @Test fun emojisCountSingleEmojiAndText() {
-    assertEquals(expected = 1, actual = (EMOJI_1 + "hello").emojisCount())
+    assertEquals(expected = 1, actual = ("🎈hello").emojisCount())
   }
 
   @Test fun emojisCountSingleTextAndEmoji() {
-    assertEquals(expected = 1, actual = ("hello$EMOJI_1").emojisCount())
+    assertEquals(expected = 1, actual = ("hello🎈").emojisCount())
   }
 
   @Test fun emojisCountMultipleEmojisAndText() {
-    assertEquals(expected = 2, actual = (EMOJI_1 + "hello" + EMOJI_2).emojisCount())
+    assertEquals(expected = 2, actual = "🎈hello🪀".emojisCount())
   }
 
   @Test fun emojisCountMultipleTextAndEmojis() {
-    assertEquals(expected = 1, actual = ("hello" + EMOJI_1 + "world").emojisCount())
-  }
-
-  companion object {
-    const val EMOJI_1 = "\u1234"
-    val CODE_POINT_1 = EMOJI_1.codePointAt(0)
-    const val EMOJI_2 = "\u4321"
-    val CODE_POINT_2 = EMOJI_2.codePointAt(0)
+    assertEquals(expected = 1, actual = ("hello🎈world").emojisCount())
   }
 }

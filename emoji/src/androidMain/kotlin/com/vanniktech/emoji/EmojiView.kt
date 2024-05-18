@@ -148,8 +148,8 @@ class EmojiView @JvmOverloads constructor(
       object : EmojiPagerDelegate {
         override fun onEmojiClick(emoji: Emoji) = handleEmojiClick(emoji)
 
-        override fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji) {
-          variantPopup.show(view, emoji)
+        override fun onEmojiLongClick(view: EmojiImageView, emoji: Emoji, variants: List<Emoji>) {
+          variantPopup.show(view, emoji, variants)
         }
       },
       recentEmoji, variantEmoji, theming,

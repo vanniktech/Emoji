@@ -21,6 +21,7 @@ import android.util.AttributeSet
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.recent.RecentEmoji
+import com.vanniktech.emoji.variant.NoVariantEmoji
 
 internal class RecentEmojiGridView @JvmOverloads constructor(
   context: Context,
@@ -37,12 +38,12 @@ internal class RecentEmojiGridView @JvmOverloads constructor(
   ): RecentEmojiGridView {
     recentEmojis = recentEmoji
     emojiArrayAdapter = EmojiArrayAdapter(
-      context,
-      recentEmoji.getRecentEmojis(),
-      null,
-      onEmojiClickListener,
-      onEmojiLongClickListener,
-      theming,
+      context = context,
+      emojis = recentEmoji.getRecentEmojis(),
+      variantEmoji = NoVariantEmoji,
+      listener = onEmojiClickListener,
+      longListener = onEmojiLongClickListener,
+      theming = theming,
     )
     adapter = emojiArrayAdapter
     return this

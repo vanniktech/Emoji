@@ -17,29 +17,18 @@
 package com.vanniktech.emoji
 
 import kotlin.test.AfterTest
-import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
 class EmojiManagerTest {
-  private lateinit var provider: EmojiProvider
-
-  @BeforeTest fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"))
-    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"))
-    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"))
-    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"))
-    provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
-  }
-
   @AfterTest fun tearDown() {
     EmojiManager.destroy()
   }
 
   @Test fun installNormalCategory() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.categories().isNotEmpty())
+    EmojiManager.install(TestEmojiProvider)
+    assertEquals(expected = true, actual = EmojiManager.categories().isNotEmpty())
   }
 
   @Test fun noProviderInstalled() {
@@ -60,20 +49,13 @@ class EmojiManagerTest {
     }
   }
 
-  @Test fun installNormalEmoji() {
-    EmojiManager.install(provider)
-    assertEquals(
-      TestEmoji(intArrayOf(0x1234), listOf("test")),
-      EmojiManager.findEmoji(String(intArrayOf(0x1234), 0, 1)),
-    )
-  }
-
   @Test fun installMultiple() {
-    EmojiManager.install(provider)
-    EmojiManager.install(provider)
+    EmojiManager.install(TestEmojiProvider)
+    EmojiManager.install(TestEmojiProvider)
 
     // No duplicate categories.
-    assertEquals(1, EmojiManager.categories().size)
+    assertEquals(expected = 1, actual = EmojiManager.categories().size)
+    assertEquals(expected = TestEmojiProvider, actual = EmojiManager.emojiProvider())
   }
 
   @Test fun destroy() {
@@ -84,42 +66,36 @@ class EmojiManagerTest {
   }
 
   @Test fun findEmojiNormal() {
-    EmojiManager.install(provider)
-    assertEquals(
-      TestEmoji(intArrayOf(0x5678), listOf("test")),
-      EmojiManager.findEmoji(String(intArrayOf(0x5678), 0, 1)),
-    )
+    EmojiManager.install(TestEmojiProvider)
+    assertEquals(expected = emojiBalloon, actual = EmojiManager.findEmoji(emojiBalloon.unicode))
   }
 
   @Test fun findEmojiEmpty() {
-    EmojiManager.install(provider)
-    assertEquals(null, EmojiManager.findEmoji(""))
+    EmojiManager.install(TestEmojiProvider)
+    assertEquals(expected = null, actual = EmojiManager.findEmoji(""))
   }
 
   @Test fun findAllEmojisNormal() {
-    EmojiManager.install(provider)
-    val text = (
-      "te" + String(intArrayOf(0x5678), 0, 1) +
-        "st" + String(intArrayOf(0x1234), 0, 1)
-      )
-    val firstExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x5678), listOf("test")), 2..3)
-    val secondExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x1234), listOf("test")), 5..6)
+    EmojiManager.install(TestEmojiProvider)
+    val text = "te${emojiBalloon.unicode}st${emojiYoYo.unicode}"
+    val firstExpectedRange = EmojiRange(emojiBalloon, 2..4)
+    val secondExpectedRange = EmojiRange(emojiYoYo, 6..8)
     assertEquals(
-      listOf(
+      expected = listOf(
         firstExpectedRange,
         secondExpectedRange,
       ),
-      EmojiManager.findAllEmojis(text),
+      actual = EmojiManager.findAllEmojis(text),
     )
   }
 
   @Test fun findAllEmojisEmpty() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.findAllEmojis("").isEmpty())
+    EmojiManager.install(TestEmojiProvider)
+    assertEquals(expected = true, actual = EmojiManager.findAllEmojis("").isEmpty())
   }
 
   @Test fun findAllEmojisNull() {
-    EmojiManager.install(provider)
-    assertEquals(true, EmojiManager.findAllEmojis(null).isEmpty())
+    EmojiManager.install(TestEmojiProvider)
+    assertEquals(expected = true, actual = EmojiManager.findAllEmojis(null).isEmpty())
   }
 }
