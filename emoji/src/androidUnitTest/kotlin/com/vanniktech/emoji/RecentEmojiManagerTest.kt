@@ -41,12 +41,12 @@ import org.robolectric.annotation.Config
 
   @Test fun addEmoji() {
     val recentEmojiManager = RecentEmojiManager(context)
-    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f437), listOf("test"), false))
-    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f43d), listOf("test"), false))
+    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f437), listOf("test")))
+    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f43d), listOf("test")))
     assertEquals(
       listOf(
-        TestEmoji(intArrayOf(0x1f43d), listOf("test"), false),
-        TestEmoji(intArrayOf(0x1f437), listOf("test"), false),
+        TestEmoji(intArrayOf(0x1f43d), listOf("test")),
+        TestEmoji(intArrayOf(0x1f437), listOf("test")),
       ),
       recentEmojiManager.getRecentEmojis(),
     )
@@ -54,9 +54,9 @@ import org.robolectric.annotation.Config
 
   @Test fun persist() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val firstEmoji = TestEmoji(intArrayOf(0x1f437), listOf("test"), false)
+    val firstEmoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
     recentEmojiManager.addEmoji(firstEmoji)
-    val secondEmoji = TestEmoji(intArrayOf(0x1f43d), listOf("test"), false)
+    val secondEmoji = TestEmoji(intArrayOf(0x1f43d), listOf("test"))
     recentEmojiManager.addEmoji(secondEmoji)
     recentEmojiManager.persist()
     assertEquals(listOf(secondEmoji, firstEmoji), recentEmojiManager.getRecentEmojis())
@@ -64,7 +64,7 @@ import org.robolectric.annotation.Config
 
   @Test fun duplicateEmojis() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"), false)
+    val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
     recentEmojiManager.addEmoji(emoji)
     recentEmojiManager.addEmoji(emoji)
     recentEmojiManager.persist()
@@ -73,8 +73,8 @@ import org.robolectric.annotation.Config
 
   @Test fun newShouldReplaceOld() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val first = TestEmoji(intArrayOf(0x2764), listOf("test"), false)
-    val second = TestEmoji(intArrayOf(0x1f577), listOf("test"), false)
+    val first = TestEmoji(intArrayOf(0x2764), listOf("test"))
+    val second = TestEmoji(intArrayOf(0x1f577), listOf("test"))
     recentEmojiManager.addEmoji(first)
     assertEquals(listOf(first), recentEmojiManager.getRecentEmojis())
     recentEmojiManager.addEmoji(second)
@@ -85,10 +85,10 @@ import org.robolectric.annotation.Config
 
   @Test fun addSkinTone() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val variant1 = TestEmoji(intArrayOf(0x1f55b), listOf("test"), false)
-    val variant2 = TestEmoji(intArrayOf(0x1f55c), listOf("test"), false)
-    val variant3 = TestEmoji(intArrayOf(0x1f55d), listOf("test"), false)
-    val base = TestEmoji(intArrayOf(0x1f55a), listOf("test"), false, listOf(variant1, variant2, variant3))
+    val variant1 = TestEmoji(intArrayOf(0x1f55b), listOf("test"))
+    val variant2 = TestEmoji(intArrayOf(0x1f55c), listOf("test"))
+    val variant3 = TestEmoji(intArrayOf(0x1f55d), listOf("test"))
+    val base = TestEmoji(intArrayOf(0x1f55a), listOf("test"), listOf(variant1, variant2, variant3))
     recentEmojiManager.addEmoji(base)
     recentEmojiManager.addEmoji(variant1)
     assertEquals(listOf(variant1), recentEmojiManager.getRecentEmojis())
@@ -100,9 +100,9 @@ import org.robolectric.annotation.Config
 
   @Test fun maxRecentsInOrder() {
     val recentEmojiManager = RecentEmojiManager(context, maxRecents = 2)
-    val first = TestEmoji(intArrayOf(0x2764), listOf("first"), false)
-    val second = TestEmoji(intArrayOf(0x1f577), listOf("second"), false)
-    val third = TestEmoji(intArrayOf(0x1f576), listOf("third"), false)
+    val first = TestEmoji(intArrayOf(0x2764), listOf("first"))
+    val second = TestEmoji(intArrayOf(0x1f577), listOf("second"))
+    val third = TestEmoji(intArrayOf(0x1f576), listOf("third"))
     recentEmojiManager.addEmoji(first)
     recentEmojiManager.addEmoji(second)
     recentEmojiManager.addEmoji(third)

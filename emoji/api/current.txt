@@ -6,9 +6,7 @@ package com.vanniktech.emoji {
     method public java.util.List<java.lang.String> getShortcodes();
     method public String getUnicode();
     method public java.util.List<com.vanniktech.emoji.Emoji> getVariants();
-    method public boolean isDuplicate();
     property public abstract com.vanniktech.emoji.Emoji base;
-    property public abstract boolean isDuplicate;
     property public abstract java.util.List<java.lang.String> shortcodes;
     property public abstract String unicode;
     property public abstract java.util.List<com.vanniktech.emoji.Emoji> variants;

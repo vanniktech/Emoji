@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 import kotlin.test.fail
 
 class SearchEmojiResultTest {
-  private val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"), false)
+  private val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
 
   @Test fun valid() {
     val validRanges = listOf(

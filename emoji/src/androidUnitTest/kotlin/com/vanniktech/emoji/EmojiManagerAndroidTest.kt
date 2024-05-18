@@ -33,10 +33,10 @@ class EmojiManagerAndroidTest {
   private lateinit var provider: EmojiProvider
 
   @Before fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"), false)
-    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
-    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
-    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"), false)
+    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"))
+    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"))
+    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"))
+    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"))
     provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
   }
 

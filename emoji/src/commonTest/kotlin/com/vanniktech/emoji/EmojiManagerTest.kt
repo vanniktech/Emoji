@@ -26,10 +26,10 @@ class EmojiManagerTest {
   private lateinit var provider: EmojiProvider
 
   @BeforeTest fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"), false)
-    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"), false)
-    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"), false)
-    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"), false)
+    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"))
+    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"))
+    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"))
+    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"))
     provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
   }
 
@@ -63,7 +63,7 @@ class EmojiManagerTest {
   @Test fun installNormalEmoji() {
     EmojiManager.install(provider)
     assertEquals(
-      TestEmoji(intArrayOf(0x1234), listOf("test"), false),
+      TestEmoji(intArrayOf(0x1234), listOf("test")),
       EmojiManager.findEmoji(String(intArrayOf(0x1234), 0, 1)),
     )
   }
@@ -86,7 +86,7 @@ class EmojiManagerTest {
   @Test fun findEmojiNormal() {
     EmojiManager.install(provider)
     assertEquals(
-      TestEmoji(intArrayOf(0x5678), listOf("test"), false),
+      TestEmoji(intArrayOf(0x5678), listOf("test")),
       EmojiManager.findEmoji(String(intArrayOf(0x5678), 0, 1)),
     )
   }
@@ -102,8 +102,8 @@ class EmojiManagerTest {
       "te" + String(intArrayOf(0x5678), 0, 1) +
         "st" + String(intArrayOf(0x1234), 0, 1)
       )
-    val firstExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x5678), listOf("test"), false), 2..3)
-    val secondExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x1234), listOf("test"), false), 5..6)
+    val firstExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x5678), listOf("test")), 2..3)
+    val secondExpectedRange = EmojiRange(TestEmoji(intArrayOf(0x1234), listOf("test")), 5..6)
     assertEquals(
       listOf(
         firstExpectedRange,

@@ -34,7 +34,7 @@ internal class EmojiArrayAdapter(
   private val listener: OnEmojiClickListener?,
   private val longListener: OnEmojiLongClickListener?,
   private val theming: EmojiTheming,
-) : ArrayAdapter<Emoji>(context, 0, emojis.filterNot { it.isDuplicate }) {
+) : ArrayAdapter<Emoji>(context, 0, emojis.toList()) {
   override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
     var image = convertView as? EmojiImageView
     val context = context

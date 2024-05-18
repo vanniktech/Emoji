@@ -22,8 +22,8 @@ import kotlin.test.assertEquals
 
 class EmojiUtilsTest {
   @BeforeTest fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), listOf("test"), false)
-    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), listOf("test"), false)
+    val emoji1 = TestEmoji(intArrayOf(CODE_POINT_1), listOf("test"))
+    val emoji2 = TestEmoji(intArrayOf(CODE_POINT_2), listOf("test"))
     EmojiManager.install(TestEmojiProvider(emoji1, emoji2))
   }
 
