@@ -28,12 +28,11 @@ class EmojiInformationTest {
   private lateinit var one2: EmojiInformation
 
   @BeforeTest fun setUp() {
-    val emptyList: List<EmojiRange> = emptyList()
-    empty = EmojiInformation(false, emptyList)
-    empty2 = EmojiInformation(false, emptyList)
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"))
-    one = EmojiInformation(false, listOf(EmojiRange(emoji, 0..1)))
-    one2 = EmojiInformation(false, listOf(EmojiRange(emoji, 0..1)))
+    empty = EmojiInformation(false, emptyList())
+    empty2 = EmojiInformation(false, emptyList())
+
+    one = EmojiInformation(false, listOf(EmojiRange(emojiBalloon, 0..1)))
+    one2 = EmojiInformation(false, listOf(EmojiRange(emojiBalloon, 0..1)))
   }
 
   @Test fun equality() {

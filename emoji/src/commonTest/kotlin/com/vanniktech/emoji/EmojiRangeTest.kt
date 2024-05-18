@@ -16,33 +16,24 @@
 
 package com.vanniktech.emoji
 
-import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 class EmojiRangeTest {
-  private lateinit var emoji: Emoji
-  private lateinit var emoji2: Emoji
-
-  @BeforeTest fun setUp() {
-    emoji = TestEmoji(intArrayOf(0x1234), listOf("test"))
-    emoji2 = TestEmoji(intArrayOf(0x5678), listOf("test"))
-  }
-
   @Test fun equality() {
-    assertEquals(EmojiRange(emoji = emoji, range = 0..1), EmojiRange(emoji, 0..1))
-    assertEquals(EmojiRange(emoji = emoji2, range = 0..1), EmojiRange(emoji2, 0..1))
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 0..1), EmojiRange(emoji2, 0..0))
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 1..10), EmojiRange(emoji2, 0..10))
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 0..1), EmojiRange(emoji, 0..1))
+    assertEquals(expected = EmojiRange(emoji = emojiBalloon, range = 0..1), actual = EmojiRange(emojiBalloon, 0..1))
+    assertEquals(expected = EmojiRange(emoji = emojiYoYo, range = 0..1), actual = EmojiRange(emojiYoYo, 0..1))
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 0..1), actual = EmojiRange(emojiYoYo, 0..0))
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 1..10), actual = EmojiRange(emojiYoYo, 0..10))
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 0..1), actual = EmojiRange(emojiBalloon, 0..1))
   }
 
   @Test fun hashy() {
-    assertEquals(EmojiRange(emoji = emoji, range = 0..1).hashCode(), EmojiRange(emoji, 0..1).hashCode())
-    assertEquals(EmojiRange(emoji = emoji2, range = 0..1).hashCode(), EmojiRange(emoji2, 0..1).hashCode())
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 0..1).hashCode(), EmojiRange(emoji2, 0..0).hashCode())
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 1..10).hashCode(), EmojiRange(emoji2, 0..10).hashCode())
-    assertNotEquals(EmojiRange(emoji = emoji2, range = 0..1).hashCode(), EmojiRange(emoji, 0..1).hashCode())
+    assertEquals(expected = EmojiRange(emoji = emojiBalloon, range = 0..1).hashCode(), actual = EmojiRange(emojiBalloon, 0..1).hashCode())
+    assertEquals(expected = EmojiRange(emoji = emojiYoYo, range = 0..1).hashCode(), actual = EmojiRange(emojiYoYo, 0..1).hashCode())
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 0..1).hashCode(), actual = EmojiRange(emojiYoYo, 0..0).hashCode())
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 1..10).hashCode(), actual = EmojiRange(emojiYoYo, 0..10).hashCode())
+    assertNotEquals(illegal = EmojiRange(emoji = emojiYoYo, range = 0..1).hashCode(), actual = EmojiRange(emojiBalloon, 0..1).hashCode())
   }
 }

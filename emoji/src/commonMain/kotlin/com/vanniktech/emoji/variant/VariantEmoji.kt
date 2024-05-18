@@ -25,16 +25,20 @@ import com.vanniktech.emoji.Emoji
  */
 interface VariantEmoji {
   /**
-   * Returns the variant for the passed emoji. Could be loaded from a database, shared preferences or just hard
-   * coded.
-   *
-   * This method will be called more than one time hence it is recommended to hold a collection of
-   * desired emojis.
+   * Returns the variant for the passed emoji that should be displayed as a preview.
+   * Could be loaded from a database, shared preferences or just hard coded.
    *
    * [desiredEmoji] The emoji to retrieve the variant for. If none is found, [desiredEmoji] should be returned.
    * @since 0.5.0
    */
   fun getVariant(desiredEmoji: Emoji): Emoji
+
+  /**
+   * Return the supported variants for the given [emoji].
+   * In contrast to [getVariant], this defines whether an overlay to pick a Variant will be shown or not.
+   * @since 0.20.0
+   */
+  fun getVariants(emoji: Emoji): List<Emoji>
 
   /**
    * Should add the emoji to the variants. After calling this method, [getVariant]

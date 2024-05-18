@@ -30,11 +30,11 @@ import com.vanniktech.emoji.variant.VariantEmoji
 internal class EmojiArrayAdapter(
   context: Context,
   emojis: Collection<Emoji>,
-  private val variantEmoji: VariantEmoji?,
+  private val variantEmoji: VariantEmoji,
   private val listener: OnEmojiClickListener?,
   private val longListener: OnEmojiLongClickListener?,
   private val theming: EmojiTheming,
-) : ArrayAdapter<Emoji>(context, 0, emojis.toList()) {
+) : ArrayAdapter<Emoji>(context, 0, emojis.toMutableList()) {
   override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
     var image = convertView as? EmojiImageView
     val context = context
@@ -43,10 +43,11 @@ internal class EmojiArrayAdapter(
       image.clickListener = listener
       image.longClickListener = longListener
     }
-    val emoji = getItem(position)!!
-    val variantToUse = variantEmoji?.getVariant(emoji) ?: emoji
-    image.contentDescription = emoji.unicode
-    image.setEmoji(theming, variantToUse, variantEmoji)
+    image.setEmoji(
+      theming = theming,
+      emoji = getItem(position)!!,
+      variantEmoji = variantEmoji,
+    )
     return image
   }
 

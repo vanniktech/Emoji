@@ -18,13 +18,14 @@ package com.vanniktech.emoji
 
 import android.content.Context
 import com.vanniktech.emoji.recent.RecentEmojiManager
-import org.junit.Assert.assertEquals
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
+import kotlin.test.assertEquals
 
 @Config(manifest = Config.NONE) @RunWith(RobolectricTestRunner::class) class RecentEmojiManagerTest {
   private lateinit var context: Context
@@ -34,83 +35,74 @@ import org.robolectric.annotation.Config
     context = RuntimeEnvironment.application
   }
 
+  @After fun tearDown() {
+    EmojiManager.destroy()
+  }
+
   @Test fun recentEmojis() {
     val recentEmojiManager = RecentEmojiManager(context)
-    assertEquals(emptyList<Emoji>(), recentEmojiManager.getRecentEmojis())
+    assertEquals(expected = emptyList(), actual = recentEmojiManager.getRecentEmojis())
   }
 
   @Test fun addEmoji() {
     val recentEmojiManager = RecentEmojiManager(context)
-    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f437), listOf("test")))
-    recentEmojiManager.addEmoji(TestEmoji(intArrayOf(0x1f43d), listOf("test")))
+    recentEmojiManager.addEmoji(emojiBalloon)
+    recentEmojiManager.addEmoji(emojiYoYo)
     assertEquals(
-      listOf(
-        TestEmoji(intArrayOf(0x1f43d), listOf("test")),
-        TestEmoji(intArrayOf(0x1f437), listOf("test")),
+      expected = listOf(
+        emojiYoYo,
+        emojiBalloon,
       ),
-      recentEmojiManager.getRecentEmojis(),
+      actual = recentEmojiManager.getRecentEmojis(),
     )
   }
 
   @Test fun persist() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val firstEmoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
-    recentEmojiManager.addEmoji(firstEmoji)
-    val secondEmoji = TestEmoji(intArrayOf(0x1f43d), listOf("test"))
-    recentEmojiManager.addEmoji(secondEmoji)
+    recentEmojiManager.addEmoji(emojiBalloon)
+    recentEmojiManager.addEmoji(emojiYoYo)
     recentEmojiManager.persist()
-    assertEquals(listOf(secondEmoji, firstEmoji), recentEmojiManager.getRecentEmojis())
+    assertEquals(expected = listOf(emojiYoYo, emojiBalloon), actual = recentEmojiManager.getRecentEmojis())
   }
 
   @Test fun duplicateEmojis() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
-    recentEmojiManager.addEmoji(emoji)
-    recentEmojiManager.addEmoji(emoji)
+    recentEmojiManager.addEmoji(emojiBalloon)
+    recentEmojiManager.addEmoji(emojiBalloon)
     recentEmojiManager.persist()
-    assertEquals(listOf(emoji), recentEmojiManager.getRecentEmojis())
+    assertEquals(expected = listOf(emojiBalloon), actual = recentEmojiManager.getRecentEmojis())
   }
 
   @Test fun newShouldReplaceOld() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val first = TestEmoji(intArrayOf(0x2764), listOf("test"))
-    val second = TestEmoji(intArrayOf(0x1f577), listOf("test"))
-    recentEmojiManager.addEmoji(first)
-    assertEquals(listOf(first), recentEmojiManager.getRecentEmojis())
-    recentEmojiManager.addEmoji(second)
-    assertEquals(listOf(second, first), recentEmojiManager.getRecentEmojis())
-    recentEmojiManager.addEmoji(first)
-    assertEquals(listOf(first, second), recentEmojiManager.getRecentEmojis())
+    recentEmojiManager.addEmoji(emojiBalloon)
+    assertEquals(expected = listOf(emojiBalloon), actual = recentEmojiManager.getRecentEmojis())
+    recentEmojiManager.addEmoji(emojiYoYo)
+    assertEquals(expected = listOf(emojiYoYo, emojiBalloon), actual = recentEmojiManager.getRecentEmojis())
+    recentEmojiManager.addEmoji(emojiBalloon)
+    assertEquals(expected = listOf(emojiBalloon, emojiYoYo), actual = recentEmojiManager.getRecentEmojis())
   }
 
   @Test fun addSkinTone() {
     val recentEmojiManager = RecentEmojiManager(context)
-    val variant1 = TestEmoji(intArrayOf(0x1f55b), listOf("test"))
-    val variant2 = TestEmoji(intArrayOf(0x1f55c), listOf("test"))
-    val variant3 = TestEmoji(intArrayOf(0x1f55d), listOf("test"))
-    val base = TestEmoji(intArrayOf(0x1f55a), listOf("test"), listOf(variant1, variant2, variant3))
-    recentEmojiManager.addEmoji(base)
-    recentEmojiManager.addEmoji(variant1)
-    assertEquals(listOf(variant1), recentEmojiManager.getRecentEmojis())
-    recentEmojiManager.addEmoji(variant2)
-    assertEquals(listOf(variant2), recentEmojiManager.getRecentEmojis())
-    recentEmojiManager.addEmoji(variant3)
-    assertEquals(listOf(variant3), recentEmojiManager.getRecentEmojis())
+    recentEmojiManager.addEmoji(emojiSuperhero)
+
+    emojiSuperhero.variants.forEach { variant ->
+      recentEmojiManager.addEmoji(variant)
+      assertEquals(expected = listOf(variant), actual = recentEmojiManager.getRecentEmojis())
+    }
   }
 
   @Test fun maxRecentsInOrder() {
     val recentEmojiManager = RecentEmojiManager(context, maxRecents = 2)
-    val first = TestEmoji(intArrayOf(0x2764), listOf("first"))
-    val second = TestEmoji(intArrayOf(0x1f577), listOf("second"))
-    val third = TestEmoji(intArrayOf(0x1f576), listOf("third"))
-    recentEmojiManager.addEmoji(first)
-    recentEmojiManager.addEmoji(second)
-    recentEmojiManager.addEmoji(third)
+    recentEmojiManager.addEmoji(emojiBalloon)
+    recentEmojiManager.addEmoji(emojiYoYo)
+    recentEmojiManager.addEmoji(emojiSuperhero)
 
     // In Memory.
     assertEquals(
-      listOf(third, second),
-      recentEmojiManager.getRecentEmojis(),
+      expected = listOf(emojiSuperhero, emojiYoYo),
+      actual = recentEmojiManager.getRecentEmojis(),
     )
 
     // Persist.
@@ -118,10 +110,10 @@ import org.robolectric.annotation.Config
 
     try {
       // Reading from preferences.
-      EmojiManager.install(TestEmojiProvider(first, second, third))
+      EmojiManager.install(TestEmojiProvider)
       val recentEmojiManager2 = RecentEmojiManager(context, maxRecents = 2)
       assertEquals(
-        listOf(third, second),
+        listOf(emojiSuperhero, emojiYoYo),
         recentEmojiManager2.getRecentEmojis(),
       )
     } finally {

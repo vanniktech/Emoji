@@ -1,13 +1,11 @@
 package com.vanniktech.emoji.search
 
-import com.vanniktech.emoji.TestEmoji
+import com.vanniktech.emoji.emojiBalloon
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
 
 class SearchEmojiResultTest {
-  private val emoji = TestEmoji(intArrayOf(0x1f437), listOf("test"))
-
   @Test fun valid() {
     val validRanges = listOf(
       0..3,
@@ -19,7 +17,7 @@ class SearchEmojiResultTest {
 
     validRanges.forEach {
       SearchEmojiResult(
-        emoji = emoji,
+        emoji = emojiBalloon,
         shortcode = "test",
         range = it,
       )
@@ -29,24 +27,24 @@ class SearchEmojiResultTest {
   @Test fun invalid() {
     try {
       SearchEmojiResult(
-        emoji = emoji,
+        emoji = emojiBalloon,
         shortcode = "test",
         range = 0..4,
       )
       fail("Should have failed")
     } catch (throwable: Throwable) {
-      assertEquals("Index 4 is out of bounds in test", throwable.message)
+      assertEquals(expected = "Index 4 is out of bounds in test", actual = throwable.message)
     }
 
     try {
       SearchEmojiResult(
-        emoji = emoji,
+        emoji = emojiBalloon,
         shortcode = "test",
         range = -1..4,
       )
       fail("Should have failed")
     } catch (throwable: Throwable) {
-      assertEquals("Index -1 is out of bounds in test", throwable.message)
+      assertEquals(expected = "Index -1 is out of bounds in test", actual = throwable.message)
     }
   }
 }

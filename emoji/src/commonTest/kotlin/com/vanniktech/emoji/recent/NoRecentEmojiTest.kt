@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.vanniktech.emoji
+package com.vanniktech.emoji.recent
 
-import com.vanniktech.emoji.recent.NoRecentEmoji
+import com.vanniktech.emoji.emojiBalloon
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class NoRecentEmojiTest {
   @Test fun alwaysEmpty() {
     assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
-    NoRecentEmoji.addEmoji(TestEmoji(intArrayOf(0x1f55a), listOf("test")))
+    NoRecentEmoji.addEmoji(emojiBalloon)
     NoRecentEmoji.persist()
     assertEquals(expected = emptyList(), actual = NoRecentEmoji.getRecentEmojis())
   }

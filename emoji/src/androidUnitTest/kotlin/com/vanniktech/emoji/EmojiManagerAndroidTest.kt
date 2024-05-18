@@ -19,92 +19,98 @@ package com.vanniktech.emoji
 import android.text.SpannableString
 import com.vanniktech.emoji.internal.EmojiSpan
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
+import kotlin.test.assertEquals
 
 @Config(manifest = Config.NONE)
 @RunWith(RobolectricTestRunner::class)
 class EmojiManagerAndroidTest {
-  private lateinit var provider: EmojiProvider
-
   @Before fun setUp() {
-    val emoji1 = TestEmoji(intArrayOf(0x1234), listOf("test"))
-    val emoji2 = TestEmoji(intArrayOf(0x4321), listOf("test"))
-    val emoji3 = TestEmoji(intArrayOf(0x5678), listOf("test"))
-    val emoji4 = TestEmoji(intArrayOf(0x1234, 0x4321, 0x9999), listOf("test"))
-    provider = TestEmojiProvider(emoji1, emoji2, emoji3, emoji4)
+    EmojiManager.install(TestEmojiProvider)
   }
 
   @After fun tearDown() {
     EmojiManager.destroy()
   }
 
-  @Suppress("DEPRECATION")
   @Test fun simple() {
-    EmojiManager.install(provider)
-    val text = SpannableString(String(intArrayOf(0x1234), 0, 1))
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 44f)
-    assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString(emojiBalloon.unicode)).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
   @Test fun inString() {
-    EmojiManager.install(provider)
-    val text = SpannableString("test" + String(intArrayOf(0x1234), 0, 1) + "abc")
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString("test" + emojiBalloon.unicode + "abc")).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
   @Test fun multiple() {
-    EmojiManager.install(provider)
-    val text = SpannableString(String(intArrayOf(0x1234), 0, 1) + String(intArrayOf(0x5678), 0, 1))
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(2, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    assertEquals(
+      expected = 2,
+      actual = spansFor(SpannableString(emojiBalloon.unicode + emojiYoYo.unicode)).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
   @Test fun multipleInString() {
-    EmojiManager.install(provider)
-    val text = SpannableString("abc" + String(intArrayOf(0x1234), 0, 1) + "cba" + String(intArrayOf(0x5678), 0, 1) + "xyz")
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(2, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    assertEquals(
+      expected = 2,
+      actual = spansFor(SpannableString("abc" + emojiBalloon.unicode + "cba" + emojiYoYo.unicode + "xyz")).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
-  @Test fun halfPath() {
-    EmojiManager.install(provider)
-    val text = SpannableString(String(intArrayOf(0x1234, 0x4321), 0, 1))
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 11f)
-    assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+  @Test fun emoji() {
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString(emojiReminderRibbon.unicode)).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
-  @Test fun fullPath() {
-    EmojiManager.install(provider)
-    val text = SpannableString(String(intArrayOf(0x1234, 0x4321, 0x9999), 0, 1))
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(1, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+  @Test fun emojiVariantSelector16() {
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString(emojiReminderRibbon.variants.first().unicode)).size,
+    )
   }
 
-  @Suppress("DEPRECATION")
+  @Test fun emojiCombined() {
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString(emojiBaldPerson.unicode)).size,
+    )
+  }
+
+  @Test fun emojiCombinedVariant() {
+    assertEquals(
+      expected = 1,
+      actual = spansFor(SpannableString(emojiBaldPerson.variants.first().unicode)).size,
+    )
+  }
+
   @Test fun empty() {
-    EmojiManager.install(provider)
-    val text = SpannableString("")
-    EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(0, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    assertEquals(
+      expected = 0,
+      actual = spansFor(SpannableString("")).size,
+    )
+  }
+
+  @Test fun noneInString() {
+    assertEquals(
+      expected = 0,
+      actual = spansFor(SpannableString("abcdefg")).size,
+    )
   }
 
   @Suppress("DEPRECATION")
-  @Test fun noneInString() {
-    EmojiManager.install(provider)
-    val text = SpannableString("abcdefg")
+  private fun spansFor(text: SpannableString): Array<EmojiSpan> {
     EmojiManager.replaceWithImages(RuntimeEnvironment.application, text, 22f)
-    assertEquals(0, text.getSpans(0, text.length, EmojiSpan::class.java).size)
+    return text.getSpans(0, text.length, EmojiSpan::class.java)
   }
 }

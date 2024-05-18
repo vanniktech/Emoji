@@ -21,35 +21,59 @@ import kotlin.test.assertEquals
 
 class EmojiTest {
   @Test fun multipleCodePoints() {
-    val emoji = TestEmoji(intArrayOf(0x1234, 0x5678), listOf("test"))
-    assertEquals(2, emoji.unicode.length)
-    assertEquals(String(intArrayOf(0x1234, 0x5678), 0, 2), emoji.unicode)
+    val emoji = emojiReminderRibbon.variants.first()
+    assertEquals(expected = 3, actual = emoji.unicode.length)
+    assertEquals(expected = String(intArrayOf(0x1F397, 0xFE0F), 0, 2), actual = emoji.unicode)
   }
 
   @Test fun baseWithoutVariant() {
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"))
-    assertEquals(emoji, emoji.base)
+    assertEquals(expected = emojiBalloon, actual = emojiBalloon.base)
   }
 
   @Test fun baseWithVariant() {
-    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"))
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), listOf(variant))
-    assertEquals(emoji, variant.base)
+    assertEquals(expected = emojiReminderRibbon, actual = emojiReminderRibbon.base)
+    assertEquals(expected = emojiReminderRibbon, actual = emojiReminderRibbon.variants.first().base)
   }
 
   @Test fun baseWithMultipleVariants() {
-    val variant = TestEmoji(intArrayOf(0x4321), listOf("test"))
-    val variant2 = TestEmoji(intArrayOf(0x5678), listOf("test"))
-    val emoji = TestEmoji(codePoints = intArrayOf(0x1234), listOf("test"), listOf(variant, variant2))
-    assertEquals(emoji, variant.base)
-    assertEquals(emoji, variant2.base)
+    emojiSuperhero.variants.forEach {
+      assertEquals(expected = emojiSuperhero, actual = it.base)
+    }
   }
 
   @Test fun baseWithRecursiveVariant() {
-    val variantOfVariant = TestEmoji(intArrayOf(0x4321), listOf("test"))
-    val variant = TestEmoji(intArrayOf(0x5678), listOf("test"), listOf(variantOfVariant))
-    val emoji = TestEmoji(intArrayOf(0x1234), listOf("test"), listOf(variant))
+    val variantOfVariant = TestEmoji(
+      unicode = String(codePoints = intArrayOf(0x4321), offset = 0, length = 1),
+      shortcodes = listOf("test"),
+    )
+    val variant = TestEmoji(
+      unicode = String(codePoints = intArrayOf(0x5678), offset = 0, length = 1),
+      shortcodes = listOf("test"),
+      variants = listOf(variantOfVariant),
+    )
+    val emoji = TestEmoji(
+      unicode = String(codePoints = intArrayOf(0x1234), offset = 0, length = 1),
+      shortcodes = listOf("test"),
+      variants = listOf(variant),
+    )
     assertEquals(emoji, variantOfVariant.base)
     assertEquals(emoji, variant.base)
+  }
+
+  @Test fun isVariant16() {
+    assertEquals(
+      expected = false,
+      actual = emojiBalloon.isVariantSelector16(),
+    )
+
+    assertEquals(
+      expected = true,
+      actual = emojiReminderRibbon.isVariantSelector16(),
+    )
+
+    assertEquals(
+      expected = false,
+      actual = emojiReminderRibbon.variants.first().isVariantSelector16(),
+    )
   }
 }
