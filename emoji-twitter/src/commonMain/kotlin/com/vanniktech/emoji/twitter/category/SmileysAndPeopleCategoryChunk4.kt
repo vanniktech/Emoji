@@ -31,13 +31,13 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     TwitterEmoji(
-      String(intArrayOf(0x1F9D8), 0, 1), listOf("person_in_lotus_position"), 52, 40, true,
+      String(intArrayOf(0x1F9D8), 0, 1), listOf("person_in_lotus_position"), 52, 40, false,
       variants = listOf(
-        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FB), 0, 2), emptyList<String>(), 52, 41, true),
-        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FC), 0, 2), emptyList<String>(), 52, 42, true),
-        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FD), 0, 2), emptyList<String>(), 52, 43, true),
-        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FE), 0, 2), emptyList<String>(), 52, 44, true),
-        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FF), 0, 2), emptyList<String>(), 52, 45, true),
+        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FB), 0, 2), emptyList<String>(), 52, 41, false),
+        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FC), 0, 2), emptyList<String>(), 52, 42, false),
+        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FD), 0, 2), emptyList<String>(), 52, 43, false),
+        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FE), 0, 2), emptyList<String>(), 52, 44, false),
+        TwitterEmoji(String(intArrayOf(0x1F9D8, 0x1F3FF), 0, 2), emptyList<String>(), 52, 45, false),
       ),
     ),
     TwitterEmoji(
@@ -474,7 +474,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
     TwitterEmoji(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), 13, 41, false),
     TwitterEmoji(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), 13, 42, false),
     TwitterEmoji(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), 55, 59, false),
-    TwitterEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, true),
+    TwitterEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, false),
     TwitterEmoji(String(intArrayOf(0x1F463), 0, 1), listOf("footprints"), 13, 40, false),
   )
 }

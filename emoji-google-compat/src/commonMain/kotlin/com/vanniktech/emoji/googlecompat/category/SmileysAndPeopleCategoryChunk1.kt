@@ -686,7 +686,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F471), 0, 1), listOf("person_with_blond_hair"), true,
+      String(intArrayOf(0x1F471), 0, 1), listOf("person_with_blond_hair"), false,
       variants = listOf(
         GoogleCompatEmoji(String(intArrayOf(0x1F471, 0x1F3FB), 0, 2), emptyList<String>(), false),
         GoogleCompatEmoji(String(intArrayOf(0x1F471, 0x1F3FC), 0, 2), emptyList<String>(), false),

@@ -282,26 +282,22 @@ async function parse() {
 
     for (const dataEntry of preparedEmojiData) {
         const category = dataEntry.category.replace(" & ", "And");
-        const isDuplicate = !!dataEntry.obsoleted_by
-
         const emoji = {
             unicode: dataEntry.unified,
             shortcodes: dataEntry.short_names,
             x: dataEntry.sheet_x,
             y: dataEntry.sheet_y,
-            isDuplicate: isDuplicate,
+            isDuplicate: false,
             variants: [],
         };
 
         if (dataEntry.skin_variations) {
             for (const variantDataEntry of Object.values(dataEntry.skin_variations)) {
-                const isDuplicate = !!variantDataEntry.obsoleted_by
-
                 const variantEmoji = {
                     unicode: variantDataEntry.unified,
                     x: variantDataEntry.sheet_x,
                     y: variantDataEntry.sheet_y,
-                    isDuplicate: isDuplicate,
+                    isDuplicate: false,
                     variants: [],
                 };
 
@@ -321,7 +317,7 @@ async function parse() {
                 unicode: dataEntry.unified,
                 x: dataEntry.sheet_x,
                 y: dataEntry.sheet_y,
-                isDuplicate: isDuplicate,
+                isDuplicate: false,
                 variants: [],
             };
 

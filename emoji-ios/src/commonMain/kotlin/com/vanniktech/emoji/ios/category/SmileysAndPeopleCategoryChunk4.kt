@@ -21,7 +21,7 @@ import com.vanniktech.emoji.ios.IosEmoji
 internal object SmileysAndPeopleCategoryChunk4 {
   internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji(
-      String(intArrayOf(0x1F6B4), 0, 1), listOf("bicyclist"), 37, 14, true,
+      String(intArrayOf(0x1F6B4), 0, 1), listOf("bicyclist"), 37, 14, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F6B4, 0x1F3FB), 0, 2), emptyList<String>(), 37, 15, false),
         IosEmoji(String(intArrayOf(0x1F6B4, 0x1F3FC), 0, 2), emptyList<String>(), 37, 16, false),
@@ -51,7 +51,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F6B5), 0, 1), listOf("mountain_bicyclist"), 37, 32, true,
+      String(intArrayOf(0x1F6B5), 0, 1), listOf("mountain_bicyclist"), 37, 32, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F6B5, 0x1F3FB), 0, 2), emptyList<String>(), 37, 33, false),
         IosEmoji(String(intArrayOf(0x1F6B5, 0x1F3FC), 0, 2), emptyList<String>(), 37, 34, false),
@@ -214,13 +214,13 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9D8), 0, 1), listOf("person_in_lotus_position"), 52, 40, true,
+      String(intArrayOf(0x1F9D8), 0, 1), listOf("person_in_lotus_position"), 52, 40, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FB), 0, 2), emptyList<String>(), 52, 41, true),
-        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FC), 0, 2), emptyList<String>(), 52, 42, true),
-        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FD), 0, 2), emptyList<String>(), 52, 43, true),
-        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FE), 0, 2), emptyList<String>(), 52, 44, true),
-        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FF), 0, 2), emptyList<String>(), 52, 45, true),
+        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FB), 0, 2), emptyList<String>(), 52, 41, false),
+        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FC), 0, 2), emptyList<String>(), 52, 42, false),
+        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FD), 0, 2), emptyList<String>(), 52, 43, false),
+        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FE), 0, 2), emptyList<String>(), 52, 44, false),
+        IosEmoji(String(intArrayOf(0x1F9D8, 0x1F3FF), 0, 2), emptyList<String>(), 52, 45, false),
       ),
     ),
     IosEmoji(
@@ -657,7 +657,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
     IosEmoji(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), 13, 41, false),
     IosEmoji(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), 13, 42, false),
     IosEmoji(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), 55, 59, false),
-    IosEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, true),
+    IosEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, false),
     IosEmoji(String(intArrayOf(0x1F9D1, 0x200D, 0x1F9D1, 0x200D, 0x1F9D2), 0, 5), listOf("family_adult_adult_child"), 50, 52, false),
     IosEmoji(String(intArrayOf(0x1F9D1, 0x200D, 0x1F9D1, 0x200D, 0x1F9D2, 0x200D, 0x1F9D2), 0, 7), listOf("family_adult_adult_child_child"), 50, 53, false),
     IosEmoji(String(intArrayOf(0x1F9D1, 0x200D, 0x1F9D2), 0, 3), listOf("family_adult_child"), 50, 55, false),

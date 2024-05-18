@@ -211,13 +211,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9D9), 0, 1), listOf("mage"), 52, 58, true,
+      String(intArrayOf(0x1F9D9), 0, 1), listOf("mage"), 52, 58, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FB), 0, 2), emptyList<String>(), 52, 59, true),
-        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FC), 0, 2), emptyList<String>(), 52, 60, true),
-        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FD), 0, 2), emptyList<String>(), 52, 61, true),
-        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FE), 0, 2), emptyList<String>(), 53, 0, true),
-        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FF), 0, 2), emptyList<String>(), 53, 1, true),
+        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FB), 0, 2), emptyList<String>(), 52, 59, false),
+        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FC), 0, 2), emptyList<String>(), 52, 60, false),
+        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FD), 0, 2), emptyList<String>(), 52, 61, false),
+        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FE), 0, 2), emptyList<String>(), 53, 0, false),
+        IosEmoji(String(intArrayOf(0x1F9D9, 0x1F3FF), 0, 2), emptyList<String>(), 53, 1, false),
       ),
     ),
     IosEmoji(
@@ -241,13 +241,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9DA), 0, 1), listOf("fairy"), 53, 14, true,
+      String(intArrayOf(0x1F9DA), 0, 1), listOf("fairy"), 53, 14, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FB), 0, 2), emptyList<String>(), 53, 15, true),
-        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FC), 0, 2), emptyList<String>(), 53, 16, true),
-        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FD), 0, 2), emptyList<String>(), 53, 17, true),
-        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FE), 0, 2), emptyList<String>(), 53, 18, true),
-        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FF), 0, 2), emptyList<String>(), 53, 19, true),
+        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FB), 0, 2), emptyList<String>(), 53, 15, false),
+        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FC), 0, 2), emptyList<String>(), 53, 16, false),
+        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FD), 0, 2), emptyList<String>(), 53, 17, false),
+        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FE), 0, 2), emptyList<String>(), 53, 18, false),
+        IosEmoji(String(intArrayOf(0x1F9DA, 0x1F3FF), 0, 2), emptyList<String>(), 53, 19, false),
       ),
     ),
     IosEmoji(
@@ -271,13 +271,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9DB), 0, 1), listOf("vampire"), 53, 32, true,
+      String(intArrayOf(0x1F9DB), 0, 1), listOf("vampire"), 53, 32, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FB), 0, 2), emptyList<String>(), 53, 33, true),
-        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FC), 0, 2), emptyList<String>(), 53, 34, true),
-        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FD), 0, 2), emptyList<String>(), 53, 35, true),
-        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FE), 0, 2), emptyList<String>(), 53, 36, true),
-        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FF), 0, 2), emptyList<String>(), 53, 37, true),
+        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FB), 0, 2), emptyList<String>(), 53, 33, false),
+        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FC), 0, 2), emptyList<String>(), 53, 34, false),
+        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FD), 0, 2), emptyList<String>(), 53, 35, false),
+        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FE), 0, 2), emptyList<String>(), 53, 36, false),
+        IosEmoji(String(intArrayOf(0x1F9DB, 0x1F3FF), 0, 2), emptyList<String>(), 53, 37, false),
       ),
     ),
     IosEmoji(
@@ -301,13 +301,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9DC), 0, 1), listOf("merperson"), 53, 50, true,
+      String(intArrayOf(0x1F9DC), 0, 1), listOf("merperson"), 53, 50, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FB), 0, 2), emptyList<String>(), 53, 51, true),
-        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FC), 0, 2), emptyList<String>(), 53, 52, true),
-        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FD), 0, 2), emptyList<String>(), 53, 53, true),
-        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FE), 0, 2), emptyList<String>(), 53, 54, true),
-        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FF), 0, 2), emptyList<String>(), 53, 55, true),
+        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FB), 0, 2), emptyList<String>(), 53, 51, false),
+        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FC), 0, 2), emptyList<String>(), 53, 52, false),
+        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FD), 0, 2), emptyList<String>(), 53, 53, false),
+        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FE), 0, 2), emptyList<String>(), 53, 54, false),
+        IosEmoji(String(intArrayOf(0x1F9DC, 0x1F3FF), 0, 2), emptyList<String>(), 53, 55, false),
       ),
     ),
     IosEmoji(
@@ -331,13 +331,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9DD), 0, 1), listOf("elf"), 54, 6, true,
+      String(intArrayOf(0x1F9DD), 0, 1), listOf("elf"), 54, 6, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FB), 0, 2), emptyList<String>(), 54, 7, true),
-        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FC), 0, 2), emptyList<String>(), 54, 8, true),
-        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FD), 0, 2), emptyList<String>(), 54, 9, true),
-        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FE), 0, 2), emptyList<String>(), 54, 10, true),
-        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF), 0, 2), emptyList<String>(), 54, 11, true),
+        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FB), 0, 2), emptyList<String>(), 54, 7, false),
+        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FC), 0, 2), emptyList<String>(), 54, 8, false),
+        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FD), 0, 2), emptyList<String>(), 54, 9, false),
+        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FE), 0, 2), emptyList<String>(), 54, 10, false),
+        IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF), 0, 2), emptyList<String>(), 54, 11, false),
       ),
     ),
     IosEmoji(
@@ -360,7 +360,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
         IosEmoji(String(intArrayOf(0x1F9DD, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), 53, 61, false),
       ),
     ),
-    IosEmoji(String(intArrayOf(0x1F9DE), 0, 1), listOf("genie"), 54, 14, true),
+    IosEmoji(String(intArrayOf(0x1F9DE), 0, 1), listOf("genie"), 54, 14, false),
     IosEmoji(
       String(intArrayOf(0x1F9DE, 0x200D, 0x2642), 0, 3), listOf("male_genie"), 54, 13, false,
       variants = listOf(
@@ -373,7 +373,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
         IosEmoji(String(intArrayOf(0x1F9DE, 0x200D, 0x2640, 0xFE0F), 0, 4), emptyList<String>(), 54, 12, false),
       ),
     ),
-    IosEmoji(String(intArrayOf(0x1F9DF), 0, 1), listOf("zombie"), 54, 17, true),
+    IosEmoji(String(intArrayOf(0x1F9DF), 0, 1), listOf("zombie"), 54, 17, false),
     IosEmoji(
       String(intArrayOf(0x1F9DF, 0x200D, 0x2642), 0, 3), listOf("male_zombie"), 54, 16, false,
       variants = listOf(
@@ -388,7 +388,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
     ),
     IosEmoji(String(intArrayOf(0x1F9CC), 0, 1), listOf("troll"), 46, 50, false),
     IosEmoji(
-      String(intArrayOf(0x1F486), 0, 1), listOf("massage"), 26, 42, true,
+      String(intArrayOf(0x1F486), 0, 1), listOf("massage"), 26, 42, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F486, 0x1F3FB), 0, 2), emptyList<String>(), 26, 43, false),
         IosEmoji(String(intArrayOf(0x1F486, 0x1F3FC), 0, 2), emptyList<String>(), 26, 44, false),
@@ -418,7 +418,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F487), 0, 1), listOf("haircut"), 26, 60, true,
+      String(intArrayOf(0x1F487), 0, 1), listOf("haircut"), 26, 60, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F487, 0x1F3FB), 0, 2), emptyList<String>(), 26, 61, false),
         IosEmoji(String(intArrayOf(0x1F487, 0x1F3FC), 0, 2), emptyList<String>(), 27, 0, false),
@@ -448,7 +448,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F6B6), 0, 1), listOf("walking"), 38, 6, true,
+      String(intArrayOf(0x1F6B6), 0, 1), listOf("walking"), 38, 6, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F6B6, 0x1F3FB), 0, 2), emptyList<String>(), 38, 7, false),
         IosEmoji(String(intArrayOf(0x1F6B6, 0x1F3FC), 0, 2), emptyList<String>(), 38, 8, false),
@@ -778,7 +778,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F3C3), 0, 1), listOf("runner", "running"), 8, 38, true,
+      String(intArrayOf(0x1F3C3), 0, 1), listOf("runner", "running"), 8, 38, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F3C3, 0x1F3FB), 0, 2), emptyList<String>(), 8, 39, false),
         IosEmoji(String(intArrayOf(0x1F3C3, 0x1F3FC), 0, 2), emptyList<String>(), 8, 40, false),
@@ -867,7 +867,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
         IosEmoji(String(intArrayOf(0x1F574, 0x1F3FF), 0, 2), emptyList<String>(), 31, 30, false),
       ),
     ),
-    IosEmoji(String(intArrayOf(0x1F46F), 0, 1), listOf("dancers"), 23, 51, true),
+    IosEmoji(String(intArrayOf(0x1F46F), 0, 1), listOf("dancers"), 23, 51, false),
     IosEmoji(
       String(intArrayOf(0x1F46F, 0x200D, 0x2642), 0, 3), listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), 23, 50, false,
       variants = listOf(
@@ -881,13 +881,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9D6), 0, 1), listOf("person_in_steamy_room"), 52, 4, true,
+      String(intArrayOf(0x1F9D6), 0, 1), listOf("person_in_steamy_room"), 52, 4, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FB), 0, 2), emptyList<String>(), 52, 5, true),
-        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FC), 0, 2), emptyList<String>(), 52, 6, true),
-        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FD), 0, 2), emptyList<String>(), 52, 7, true),
-        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FE), 0, 2), emptyList<String>(), 52, 8, true),
-        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FF), 0, 2), emptyList<String>(), 52, 9, true),
+        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FB), 0, 2), emptyList<String>(), 52, 5, false),
+        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FC), 0, 2), emptyList<String>(), 52, 6, false),
+        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FD), 0, 2), emptyList<String>(), 52, 7, false),
+        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FE), 0, 2), emptyList<String>(), 52, 8, false),
+        IosEmoji(String(intArrayOf(0x1F9D6, 0x1F3FF), 0, 2), emptyList<String>(), 52, 9, false),
       ),
     ),
     IosEmoji(
@@ -911,13 +911,13 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F9D7), 0, 1), listOf("person_climbing"), 52, 22, true,
+      String(intArrayOf(0x1F9D7), 0, 1), listOf("person_climbing"), 52, 22, false,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FB), 0, 2), emptyList<String>(), 52, 23, true),
-        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FC), 0, 2), emptyList<String>(), 52, 24, true),
-        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FD), 0, 2), emptyList<String>(), 52, 25, true),
-        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FE), 0, 2), emptyList<String>(), 52, 26, true),
-        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FF), 0, 2), emptyList<String>(), 52, 27, true),
+        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FB), 0, 2), emptyList<String>(), 52, 23, false),
+        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FC), 0, 2), emptyList<String>(), 52, 24, false),
+        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FD), 0, 2), emptyList<String>(), 52, 25, false),
+        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FE), 0, 2), emptyList<String>(), 52, 26, false),
+        IosEmoji(String(intArrayOf(0x1F9D7, 0x1F3FF), 0, 2), emptyList<String>(), 52, 27, false),
       ),
     ),
     IosEmoji(
@@ -968,7 +968,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F3CC, 0xFE0F), 0, 2), listOf("golfer"), 9, 58, true,
+      String(intArrayOf(0x1F3CC, 0xFE0F), 0, 2), listOf("golfer"), 9, 58, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F3CC, 0x1F3FB), 0, 2), emptyList<String>(), 9, 59, false),
         IosEmoji(String(intArrayOf(0x1F3CC, 0x1F3FC), 0, 2), emptyList<String>(), 9, 60, false),
@@ -998,7 +998,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F3C4), 0, 1), listOf("surfer"), 8, 56, true,
+      String(intArrayOf(0x1F3C4), 0, 1), listOf("surfer"), 8, 56, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F3C4, 0x1F3FB), 0, 2), emptyList<String>(), 8, 57, false),
         IosEmoji(String(intArrayOf(0x1F3C4, 0x1F3FC), 0, 2), emptyList<String>(), 8, 58, false),
@@ -1028,7 +1028,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F6A3), 0, 1), listOf("rowboat"), 36, 42, true,
+      String(intArrayOf(0x1F6A3), 0, 1), listOf("rowboat"), 36, 42, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F6A3, 0x1F3FB), 0, 2), emptyList<String>(), 36, 43, false),
         IosEmoji(String(intArrayOf(0x1F6A3, 0x1F3FC), 0, 2), emptyList<String>(), 36, 44, false),
@@ -1058,7 +1058,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F3CA), 0, 1), listOf("swimmer"), 9, 22, true,
+      String(intArrayOf(0x1F3CA), 0, 1), listOf("swimmer"), 9, 22, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F3CA, 0x1F3FB), 0, 2), emptyList<String>(), 9, 23, false),
         IosEmoji(String(intArrayOf(0x1F3CA, 0x1F3FC), 0, 2), emptyList<String>(), 9, 24, false),
@@ -1088,7 +1088,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x26F9, 0xFE0F), 0, 2), listOf("person_with_ball"), 59, 44, true,
+      String(intArrayOf(0x26F9, 0xFE0F), 0, 2), listOf("person_with_ball"), 59, 44, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x26F9, 0x1F3FB), 0, 2), emptyList<String>(), 59, 45, false),
         IosEmoji(String(intArrayOf(0x26F9, 0x1F3FC), 0, 2), emptyList<String>(), 59, 46, false),
@@ -1118,7 +1118,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F3CB, 0xFE0F), 0, 2), listOf("weight_lifter"), 9, 40, true,
+      String(intArrayOf(0x1F3CB, 0xFE0F), 0, 2), listOf("weight_lifter"), 9, 40, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F3CB, 0x1F3FB), 0, 2), emptyList<String>(), 9, 41, false),
         IosEmoji(String(intArrayOf(0x1F3CB, 0x1F3FC), 0, 2), emptyList<String>(), 9, 42, false),

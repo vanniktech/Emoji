@@ -686,7 +686,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
       ),
     ),
     IosEmoji(
-      String(intArrayOf(0x1F471), 0, 1), listOf("person_with_blond_hair"), 24, 20, true,
+      String(intArrayOf(0x1F471), 0, 1), listOf("person_with_blond_hair"), 24, 20, false,
       variants = listOf(
         IosEmoji(String(intArrayOf(0x1F471, 0x1F3FB), 0, 2), emptyList<String>(), 24, 21, false),
         IosEmoji(String(intArrayOf(0x1F471, 0x1F3FC), 0, 2), emptyList<String>(), 24, 22, false),
