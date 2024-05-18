@@ -1,13 +1,18 @@
 # Change Log
 
-Version 0.20.0 *(In development)*
----------------------------------
+Version 0.20.0 *(2024-05-18)*
+-----------------------------
+
+- API: Remove no longer needed isDuplicate property from Emoji interface. [\#1090](https://github.com/vanniktech/Emoji/pull/1090) ([vanniktech](https://github.com/vanniktech))
+- API: VariantEmoji\#getVariants method to modify which variants shall be displayed. Also by default filters out the Variant Selector 16 variants. [\#1092](https://github.com/vanniktech/Emoji/pull/1092) ([vanniktech](https://github.com/vanniktech))
+- Behavior change: Stop filtering out emojis which have been obsoleted. This way we also have the neutral version of many emojis such like fairy. Assimilates behavior to Telegram/Whatsapp. [\#1089](https://github.com/vanniktech/Emoji/pull/1089) ([vanniktech](https://github.com/vanniktech))
+- Behavior change: Stop filtering out neutral emojis that contain male & female variants such as juggling, handball, water\_polo, person\_doing\_cartwheel, wrestlers, shrug & facepalm. [\#1088](https://github.com/vanniktech/Emoji/pull/1088) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.19.0 *(2024-05-17)*
 -----------------------------
 
-- Bug fix: Fix EmojiUtils.isOnlyEmojis not detecting emojis with variant selectors. [\#1087](https://github.com/vanniktech/Emoji/pull/1087) ([vanniktech](https://github.com/vanniktech))
 - API: New emoji-androidx-emoji2 module which uses androidx.emoji2:emoji2 [\#1086](https://github.com/vanniktech/Emoji/pull/1086) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Fix EmojiUtils.isOnlyEmojis not detecting emojis with variant selectors. [\#1087](https://github.com/vanniktech/Emoji/pull/1087) ([vanniktech](https://github.com/vanniktech))
 - Technical: Update Emoji source to 15.1.2 to include new emojis. [\#1085](https://github.com/vanniktech/Emoji/pull/1085) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.18.0 *(2023-12-11)*
