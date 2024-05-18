@@ -401,7 +401,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F926), 0, 1), listOf("face_palm"), 41, 7, true,
+      String(intArrayOf(0x1F926), 0, 1), listOf("face_palm"), 41, 7, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F926, 0x1F3FB), 0, 2), emptyList<String>(), 41, 8, false),
         FacebookEmoji(String(intArrayOf(0x1F926, 0x1F3FC), 0, 2), emptyList<String>(), 41, 9, false),
@@ -431,7 +431,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F937), 0, 1), listOf("shrug"), 42, 26, true,
+      String(intArrayOf(0x1F937), 0, 1), listOf("shrug"), 42, 26, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F937, 0x1F3FB), 0, 2), emptyList<String>(), 42, 27, false),
         FacebookEmoji(String(intArrayOf(0x1F937, 0x1F3FC), 0, 2), emptyList<String>(), 42, 28, false),

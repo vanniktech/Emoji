@@ -918,7 +918,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F938), 0, 1), listOf("person_doing_cartwheel"), 42, 44, true,
+      String(intArrayOf(0x1F938), 0, 1), listOf("person_doing_cartwheel"), 42, 44, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F938, 0x1F3FB), 0, 2), emptyList<String>(), 42, 45, false),
         FacebookEmoji(String(intArrayOf(0x1F938, 0x1F3FC), 0, 2), emptyList<String>(), 42, 46, false),
@@ -947,7 +947,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
         FacebookEmoji(String(intArrayOf(0x1F938, 0x1F3FF, 0x200D, 0x2640, 0xFE0F), 0, 5), emptyList<String>(), 42, 37, false),
       ),
     ),
-    FacebookEmoji(String(intArrayOf(0x1F93C), 0, 1), listOf("wrestlers"), 43, 9, true),
+    FacebookEmoji(String(intArrayOf(0x1F93C), 0, 1), listOf("wrestlers"), 43, 9, false),
     FacebookEmoji(
       String(intArrayOf(0x1F93C, 0x200D, 0x2642), 0, 3), listOf("man-wrestling"), 43, 8, false,
       variants = listOf(
@@ -961,7 +961,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F93D), 0, 1), listOf("water_polo"), 43, 22, true,
+      String(intArrayOf(0x1F93D), 0, 1), listOf("water_polo"), 43, 22, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F93D, 0x1F3FB), 0, 2), emptyList<String>(), 43, 23, false),
         FacebookEmoji(String(intArrayOf(0x1F93D, 0x1F3FC), 0, 2), emptyList<String>(), 43, 24, false),
@@ -991,7 +991,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F93E), 0, 1), listOf("handball"), 43, 40, true,
+      String(intArrayOf(0x1F93E), 0, 1), listOf("handball"), 43, 40, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F93E, 0x1F3FB), 0, 2), emptyList<String>(), 43, 41, false),
         FacebookEmoji(String(intArrayOf(0x1F93E, 0x1F3FC), 0, 2), emptyList<String>(), 43, 42, false),
@@ -1021,7 +1021,7 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     FacebookEmoji(
-      String(intArrayOf(0x1F939), 0, 1), listOf("juggling"), 43, 0, true,
+      String(intArrayOf(0x1F939), 0, 1), listOf("juggling"), 43, 0, false,
       variants = listOf(
         FacebookEmoji(String(intArrayOf(0x1F939, 0x1F3FB), 0, 2), emptyList<String>(), 43, 1, false),
         FacebookEmoji(String(intArrayOf(0x1F939, 0x1F3FC), 0, 2), emptyList<String>(), 43, 2, false),
