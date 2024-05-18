@@ -324,7 +324,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
     FacebookEmoji(String(intArrayOf(0x1F464), 0, 1), listOf("bust_in_silhouette"), 13, 41, false),
     FacebookEmoji(String(intArrayOf(0x1F465), 0, 1), listOf("busts_in_silhouette"), 13, 42, false),
     FacebookEmoji(String(intArrayOf(0x1FAC2), 0, 1), listOf("people_hugging"), 55, 59, false),
-    FacebookEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, true),
+    FacebookEmoji(String(intArrayOf(0x1F46A), 0, 1), listOf("family"), 22, 14, false),
     FacebookEmoji(String(intArrayOf(0x1F463), 0, 1), listOf("footprints"), 13, 40, false),
   )
 }

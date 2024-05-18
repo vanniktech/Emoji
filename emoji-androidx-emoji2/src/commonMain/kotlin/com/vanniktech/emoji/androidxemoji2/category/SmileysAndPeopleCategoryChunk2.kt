@@ -191,7 +191,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F64D), 0, 1), listOf("person_frowning"), true,
+      String(intArrayOf(0x1F64D), 0, 1), listOf("person_frowning"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F64D, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F64D, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -221,7 +221,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F64E), 0, 1), listOf("person_with_pouting_face"), true,
+      String(intArrayOf(0x1F64E), 0, 1), listOf("person_with_pouting_face"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F64E, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F64E, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -251,7 +251,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F645), 0, 1), listOf("no_good"), true,
+      String(intArrayOf(0x1F645), 0, 1), listOf("no_good"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F645, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F645, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -281,7 +281,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F646), 0, 1), listOf("ok_woman"), true,
+      String(intArrayOf(0x1F646), 0, 1), listOf("ok_woman"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F646, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F646, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -311,7 +311,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F481), 0, 1), listOf("information_desk_person"), true,
+      String(intArrayOf(0x1F481), 0, 1), listOf("information_desk_person"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F481, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F481, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -341,7 +341,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F64B), 0, 1), listOf("raising_hand"), true,
+      String(intArrayOf(0x1F64B), 0, 1), listOf("raising_hand"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F64B, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F64B, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -971,7 +971,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F46E), 0, 1), listOf("cop"), true,
+      String(intArrayOf(0x1F46E), 0, 1), listOf("cop"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F46E, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F46E, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -1001,7 +1001,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F575, 0xFE0F), 0, 2), listOf("sleuth_or_spy"), true,
+      String(intArrayOf(0x1F575, 0xFE0F), 0, 2), listOf("sleuth_or_spy"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F575, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F575, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -1031,7 +1031,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F482), 0, 1), listOf("guardsman"), true,
+      String(intArrayOf(0x1F482), 0, 1), listOf("guardsman"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F482, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F482, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -1071,7 +1071,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F477), 0, 1), listOf("construction_worker"), true,
+      String(intArrayOf(0x1F477), 0, 1), listOf("construction_worker"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F477, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F477, 0x1F3FC), 0, 2), emptyList<String>(), false),
@@ -1131,7 +1131,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F473), 0, 1), listOf("man_with_turban"), true,
+      String(intArrayOf(0x1F473), 0, 1), listOf("man_with_turban"), false,
       variants = listOf(
         AndroidxEmoji2(String(intArrayOf(0x1F473, 0x1F3FB), 0, 2), emptyList<String>(), false),
         AndroidxEmoji2(String(intArrayOf(0x1F473, 0x1F3FC), 0, 2), emptyList<String>(), false),
