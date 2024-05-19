@@ -29,7 +29,9 @@ import com.vanniktech.emoji.EmojiReplacer
 
 class <%= name %>Provider(
   @Suppress("unused") private val emojiCompat: EmojiCompat,
-) : EmojiProvider, EmojiAndroidProvider, EmojiReplacer {
+) : EmojiProvider,
+  EmojiAndroidProvider,
+  EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(<% categories.forEach(function(category) { %>
       <%= category.name %>(),<% }); %>

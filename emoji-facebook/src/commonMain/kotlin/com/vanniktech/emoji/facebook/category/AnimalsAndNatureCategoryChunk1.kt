@@ -20,6 +20,42 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object AnimalsAndNatureCategoryChunk1 {
   internal val EMOJIS: List<FacebookEmoji> = listOf(
+    FacebookEmoji(String(intArrayOf(0x1F41F), 0, 1), listOf("fish"), 11, 27),
+    FacebookEmoji(String(intArrayOf(0x1F420), 0, 1), listOf("tropical_fish"), 11, 28),
+    FacebookEmoji(String(intArrayOf(0x1F421), 0, 1), listOf("blowfish"), 11, 29),
+    FacebookEmoji(String(intArrayOf(0x1F988), 0, 1), listOf("shark"), 44, 61),
+    FacebookEmoji(String(intArrayOf(0x1F419), 0, 1), listOf("octopus"), 11, 21),
+    FacebookEmoji(String(intArrayOf(0x1F41A), 0, 1), listOf("shell"), 11, 22),
+    FacebookEmoji(String(intArrayOf(0x1FAB8), 0, 1), listOf("coral"), 55, 50),
+    FacebookEmoji(String(intArrayOf(0x1FABC), 0, 1), listOf("jellyfish"), 55, 54),
+    FacebookEmoji(String(intArrayOf(0x1F40C), 0, 1), listOf("snail"), 11, 7),
+    FacebookEmoji(String(intArrayOf(0x1F98B), 0, 1), listOf("butterfly"), 45, 2),
+    FacebookEmoji(String(intArrayOf(0x1F41B), 0, 1), listOf("bug"), 11, 23),
+    FacebookEmoji(String(intArrayOf(0x1F41C), 0, 1), listOf("ant"), 11, 24),
+    FacebookEmoji(String(intArrayOf(0x1F41D), 0, 1), listOf("bee", "honeybee"), 11, 25),
+    FacebookEmoji(String(intArrayOf(0x1FAB2), 0, 1), listOf("beetle"), 55, 44),
+    FacebookEmoji(String(intArrayOf(0x1F41E), 0, 1), listOf("ladybug", "lady_beetle"), 11, 26),
+    FacebookEmoji(String(intArrayOf(0x1F997), 0, 1), listOf("cricket"), 45, 14),
+    FacebookEmoji(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach"), 55, 45),
+    FacebookEmoji(
+      unicode = String(intArrayOf(0x1F577), 0, 1),
+      shortcodes = listOf("spider"),
+      x = 31,
+      y = 50,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), emptyList(), 31, 50),
+      ),
+    ),
+    FacebookEmoji(
+      unicode = String(intArrayOf(0x1F578), 0, 1),
+      shortcodes = listOf("spider_web"),
+      x = 31,
+      y = 51,
+      variants = listOf(
+        FacebookEmoji(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), emptyList(), 31, 51),
+      ),
+    ),
+    FacebookEmoji(String(intArrayOf(0x1F982), 0, 1), listOf("scorpion"), 44, 55),
     FacebookEmoji(String(intArrayOf(0x1F99F), 0, 1), listOf("mosquito"), 45, 22),
     FacebookEmoji(String(intArrayOf(0x1FAB0), 0, 1), listOf("fly"), 55, 42),
     FacebookEmoji(String(intArrayOf(0x1FAB1), 0, 1), listOf("worm"), 55, 43),
@@ -29,9 +65,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     FacebookEmoji(String(intArrayOf(0x1F4AE), 0, 1), listOf("white_flower"), 28, 35),
     FacebookEmoji(String(intArrayOf(0x1FAB7), 0, 1), listOf("lotus"), 55, 49),
     FacebookEmoji(
-      String(intArrayOf(0x1F3F5), 0, 1), listOf("rosette"), 10, 46,
+      unicode = String(intArrayOf(0x1F3F5), 0, 1),
+      shortcodes = listOf("rosette"),
+      x = 10,
+      y = 46,
       variants = listOf(
-        FacebookEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList<String>(), 10, 46),
+        FacebookEmoji(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList(), 10, 46),
       ),
     ),
     FacebookEmoji(String(intArrayOf(0x1F339), 0, 1), listOf("rose"), 5, 49),
@@ -50,9 +89,12 @@ internal object AnimalsAndNatureCategoryChunk1 {
     FacebookEmoji(String(intArrayOf(0x1F33E), 0, 1), listOf("ear_of_rice"), 5, 54),
     FacebookEmoji(String(intArrayOf(0x1F33F), 0, 1), listOf("herb"), 5, 55),
     FacebookEmoji(
-      String(intArrayOf(0x2618), 0, 1), listOf("shamrock"), 58, 17,
+      unicode = String(intArrayOf(0x2618), 0, 1),
+      shortcodes = listOf("shamrock"),
+      x = 58,
+      y = 17,
       variants = listOf(
-        FacebookEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList<String>(), 58, 17),
+        FacebookEmoji(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList(), 58, 17),
       ),
     ),
     FacebookEmoji(String(intArrayOf(0x1F340), 0, 1), listOf("four_leaf_clover"), 5, 56),

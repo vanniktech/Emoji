@@ -33,7 +33,8 @@ open class EmojiMaterialButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   @AttrRes defStyleAttr: Int = com.google.android.material.R.attr.materialButtonStyle,
-) : MaterialButton(context, attrs, defStyleAttr), EmojiDisplayable {
+) : MaterialButton(context, attrs, defStyleAttr),
+  EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {

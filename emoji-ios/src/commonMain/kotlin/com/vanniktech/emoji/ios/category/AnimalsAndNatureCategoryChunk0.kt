@@ -73,9 +73,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     IosEmoji(String(intArrayOf(0x1F430), 0, 1), listOf("rabbit"), 11, 46),
     IosEmoji(String(intArrayOf(0x1F407), 0, 1), listOf("rabbit2"), 11, 1),
     IosEmoji(
-      String(intArrayOf(0x1F43F), 0, 1), listOf("chipmunk"), 12, 0,
+      unicode = String(intArrayOf(0x1F43F), 0, 1),
+      shortcodes = listOf("chipmunk"),
+      x = 12,
+      y = 0,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), emptyList<String>(), 12, 0),
+        IosEmoji(String(intArrayOf(0x1F43F, 0xFE0F), 0, 2), emptyList(), 12, 0),
       ),
     ),
     IosEmoji(String(intArrayOf(0x1F9AB), 0, 1), listOf("beaver"), 45, 34),
@@ -83,9 +86,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     IosEmoji(String(intArrayOf(0x1F987), 0, 1), listOf("bat"), 44, 60),
     IosEmoji(String(intArrayOf(0x1F43B), 0, 1), listOf("bear"), 11, 58),
     IosEmoji(
-      String(intArrayOf(0x1F43B, 0x200D, 0x2744), 0, 3), listOf("polar_bear"), 11, 57,
+      unicode = String(intArrayOf(0x1F43B, 0x200D, 0x2744), 0, 3),
+      shortcodes = listOf("polar_bear"),
+      x = 11,
+      y = 57,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), emptyList<String>(), 11, 57),
+        IosEmoji(String(intArrayOf(0x1F43B, 0x200D, 0x2744, 0xFE0F), 0, 4), emptyList(), 11, 57),
       ),
     ),
     IosEmoji(String(intArrayOf(0x1F428), 0, 1), listOf("koala"), 11, 38),
@@ -105,9 +111,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     IosEmoji(String(intArrayOf(0x1F426), 0, 1), listOf("bird"), 11, 36),
     IosEmoji(String(intArrayOf(0x1F427), 0, 1), listOf("penguin"), 11, 37),
     IosEmoji(
-      String(intArrayOf(0x1F54A), 0, 1), listOf("dove_of_peace"), 30, 55,
+      unicode = String(intArrayOf(0x1F54A), 0, 1),
+      shortcodes = listOf("dove_of_peace"),
+      x = 30,
+      y = 55,
       variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), emptyList<String>(), 30, 55),
+        IosEmoji(String(intArrayOf(0x1F54A, 0xFE0F), 0, 2), emptyList(), 30, 55),
       ),
     ),
     IosEmoji(String(intArrayOf(0x1F985), 0, 1), listOf("eagle"), 44, 58),
@@ -135,35 +144,5 @@ internal object AnimalsAndNatureCategoryChunk0 {
     IosEmoji(String(intArrayOf(0x1F433), 0, 1), listOf("whale"), 11, 49),
     IosEmoji(String(intArrayOf(0x1F40B), 0, 1), listOf("whale2"), 11, 6),
     IosEmoji(String(intArrayOf(0x1F42C), 0, 1), listOf("dolphin", "flipper"), 11, 42),
-    IosEmoji(String(intArrayOf(0x1F9AD), 0, 1), listOf("seal"), 45, 36),
-    IosEmoji(String(intArrayOf(0x1F41F), 0, 1), listOf("fish"), 11, 27),
-    IosEmoji(String(intArrayOf(0x1F420), 0, 1), listOf("tropical_fish"), 11, 28),
-    IosEmoji(String(intArrayOf(0x1F421), 0, 1), listOf("blowfish"), 11, 29),
-    IosEmoji(String(intArrayOf(0x1F988), 0, 1), listOf("shark"), 44, 61),
-    IosEmoji(String(intArrayOf(0x1F419), 0, 1), listOf("octopus"), 11, 21),
-    IosEmoji(String(intArrayOf(0x1F41A), 0, 1), listOf("shell"), 11, 22),
-    IosEmoji(String(intArrayOf(0x1FAB8), 0, 1), listOf("coral"), 55, 50),
-    IosEmoji(String(intArrayOf(0x1FABC), 0, 1), listOf("jellyfish"), 55, 54),
-    IosEmoji(String(intArrayOf(0x1F40C), 0, 1), listOf("snail"), 11, 7),
-    IosEmoji(String(intArrayOf(0x1F98B), 0, 1), listOf("butterfly"), 45, 2),
-    IosEmoji(String(intArrayOf(0x1F41B), 0, 1), listOf("bug"), 11, 23),
-    IosEmoji(String(intArrayOf(0x1F41C), 0, 1), listOf("ant"), 11, 24),
-    IosEmoji(String(intArrayOf(0x1F41D), 0, 1), listOf("bee", "honeybee"), 11, 25),
-    IosEmoji(String(intArrayOf(0x1FAB2), 0, 1), listOf("beetle"), 55, 44),
-    IosEmoji(String(intArrayOf(0x1F41E), 0, 1), listOf("ladybug", "lady_beetle"), 11, 26),
-    IosEmoji(String(intArrayOf(0x1F997), 0, 1), listOf("cricket"), 45, 14),
-    IosEmoji(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach"), 55, 45),
-    IosEmoji(
-      String(intArrayOf(0x1F577), 0, 1), listOf("spider"), 31, 50,
-      variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), emptyList<String>(), 31, 50),
-      ),
-    ),
-    IosEmoji(
-      String(intArrayOf(0x1F578), 0, 1), listOf("spider_web"), 31, 51,
-      variants = listOf(
-        IosEmoji(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), emptyList<String>(), 31, 51),
-      ),
-    ),
   )
 }

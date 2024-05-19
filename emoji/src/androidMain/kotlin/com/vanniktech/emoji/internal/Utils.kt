@@ -39,39 +39,30 @@ import kotlin.math.roundToInt
 private const val DONT_UPDATE_FLAG = -1
 
 internal object Utils {
-  internal fun dpToPx(context: Context, dp: Float): Int {
-    return (
-      TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP, dp,
-        context.resources.displayMetrics,
-      ) + 0.5f
-      ).roundToInt()
-  }
+  internal fun dpToPx(context: Context, dp: Float): Int = (
+    TypedValue.applyDimension(
+      TypedValue.COMPLEX_UNIT_DIP,
+      dp,
+      context.resources.displayMetrics,
+    ) + 0.5f
+    ).roundToInt()
 
-  private fun getOrientation(context: Context): Int {
-    return context.resources.configuration.orientation
-  }
+  private fun getOrientation(context: Context): Int = context.resources.configuration.orientation
 
   internal fun getProperWidth(activity: Activity): Int {
     val rect = windowVisibleDisplayFrame(activity)
     return if (getOrientation(activity) == Configuration.ORIENTATION_PORTRAIT) rect.right else getScreenWidth(activity)
   }
 
-  internal fun shouldOverrideRegularCondition(context: Context, editText: EditText): Boolean {
-    return if (editText.imeOptions and EditorInfo.IME_FLAG_NO_EXTRACT_UI == 0) {
-      getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE
-    } else {
-      false
-    }
+  internal fun shouldOverrideRegularCondition(context: Context, editText: EditText): Boolean = if (editText.imeOptions and EditorInfo.IME_FLAG_NO_EXTRACT_UI == 0) {
+    getOrientation(context) == Configuration.ORIENTATION_LANDSCAPE
+  } else {
+    false
   }
 
-  internal fun getProperHeight(activity: Activity): Int {
-    return windowVisibleDisplayFrame(activity).bottom
-  }
+  internal fun getProperHeight(activity: Activity): Int = windowVisibleDisplayFrame(activity).bottom
 
-  private fun getScreenWidth(context: Activity): Int {
-    return dpToPx(context, context.resources.configuration.screenWidthDp.toFloat())
-  }
+  private fun getScreenWidth(context: Activity): Int = dpToPx(context, context.resources.configuration.screenWidthDp.toFloat())
 
   internal fun locationOnScreen(view: View): Point {
     val location = IntArray(2)

@@ -27,7 +27,8 @@ import androidx.appcompat.widget.AppCompatButton
 open class EmojiButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : AppCompatButton(context, attrs), EmojiDisplayable {
+) : AppCompatButton(context, attrs),
+  EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {

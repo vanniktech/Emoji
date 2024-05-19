@@ -50,7 +50,9 @@ internal val defaultEmojiReplacer = EmojiReplacer { context, text, emojiSize, _ 
     if (!existingSpanPositions.contains(range.first)) {
       text.setSpan(
         EmojiSpan(context, emoji, emojiSize),
-        range.first, range.last, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
+        range.first,
+        range.last,
+        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
       )
     }
   }

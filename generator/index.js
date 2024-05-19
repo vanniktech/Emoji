@@ -134,7 +134,7 @@ const categoryInfo = [
  * The amount of emojis to put in a chunk.
  * @type {number}
  */
-const chunkSize = 120;
+const chunkSize = 100;
 
 /**
  * Helper function to be used by {@link #copyImages} for copying (and optimizing) the images of a single target
@@ -219,7 +219,7 @@ function generateChunkedEmojiCode(target, emojis) {
  * @param indent The indent to use. Defaults to 4.
  * @returns {string[]} The list of generated code parts.
  */
-function generateEmojiCode(target, emojis, indent = 4) {
+function generateEmojiCode(target, emojis, indent = 4, isVariant = false) {
     let indentString = "";
 
     for (let i = 0; i < indent; i++) {
@@ -228,32 +228,25 @@ function generateEmojiCode(target, emojis, indent = 4) {
 
     return emojis.filter(it => it[target.package]).map((it) => {
         const unicodeParts = it.unicode.split("-");
-        let result;
-        let hasVariants = it.variants.filter(it => it[target.package]).length > 0;
-        let newLinePrefix = `\n${indentString}  `
-        let separator = hasVariants ? newLinePrefix : ""
+        const hasVariants = it.variants.filter(it => it[target.package]).length > 0;
+        const newLinePrefix = `\n${indentString}  `
+        const separator = hasVariants ? newLinePrefix : ""
+        const useNamedArguments = !isVariant && hasVariants
+        const conditionalNewLinePrefix = useNamedArguments ? newLinePrefix : " "
+        const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+        const usesSprites = target.module !== "google-compat" && target.module !== "androidx-emoji2"
 
-        if (target.module !== "google-compat" && target.module !== "androidx-emoji2") {
-            if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}`;
-            } else {
-                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
-
-                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}, ${it.x}, ${it.y}`;
-            }
-        } else {
-            if (unicodeParts.length === 1) {
-                result = `${target.name}(${separator}String(intArrayOf(0x${unicodeParts[0]}), 0, 1), ${generateShortcodeCode(it)}`;
-            } else {
-                const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
-
-                result = `${target.name}(${separator}String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length}), ${generateShortcodeCode(it)}`;
-            }
-        }
+        const result = `${target.name}(${separator}` + [
+            (useNamedArguments ? `unicode = ` : "") + `String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length})`,
+            (useNamedArguments ? `${newLinePrefix}shortcodes = ` : " ") + `${generateShortcodeCode(it)}`,
+            usesSprites ? ((useNamedArguments ? `${newLinePrefix}x = ` : " ") + `${it.x}`) : null,
+            usesSprites ? ((useNamedArguments ? `${newLinePrefix}y = ` : " ") + `${it.y}`) : null
+        ]
+        .filter(Boolean)
+        .join(',')
 
         if (hasVariants) {
-            const generatedVariants = generateEmojiCode(target, it.variants, indent + 2).join(`\n${indentString}    `)
-
+            const generatedVariants = generateEmojiCode(target, it.variants, indent + 2, true).join(`\n${indentString}    `)
             return `${result},${newLinePrefix}variants = listOf(${newLinePrefix}  ${generatedVariants}${newLinePrefix}),\n${indentString}),`;
         } else {
             return `${result}),`;
@@ -263,7 +256,7 @@ function generateEmojiCode(target, emojis, indent = 4) {
 
 function generateShortcodeCode(emoji) {
     if (!emoji.shortcodes || emoji.shortcodes.length === 0) {
-        return 'emptyList<String>()'
+        return 'emptyList()'
     } else {
         return `listOf("${emoji.shortcodes.join(`", "`)}")`
     }

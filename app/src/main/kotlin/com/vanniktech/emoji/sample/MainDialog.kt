@@ -41,11 +41,9 @@ class MainDialog : DialogFragment() {
     super.onCreate(savedInstanceState)
   }
 
-  override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-    return AlertDialog.Builder(requireContext())
-      .setView(buildView())
-      .create()
-  }
+  override fun onCreateDialog(savedInstanceState: Bundle?): Dialog = AlertDialog.Builder(requireContext())
+    .setView(buildView())
+    .create()
 
   private fun buildView(): View? {
     val context = requireContext()

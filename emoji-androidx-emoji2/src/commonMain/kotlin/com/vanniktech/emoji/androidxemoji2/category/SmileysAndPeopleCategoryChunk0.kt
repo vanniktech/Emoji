@@ -40,9 +40,10 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F618), 0, 1), listOf("kissing_heart")),
     AndroidxEmoji2(String(intArrayOf(0x1F617), 0, 1), listOf("kissing")),
     AndroidxEmoji2(
-      String(intArrayOf(0x263A), 0, 1), listOf("relaxed"),
+      unicode = String(intArrayOf(0x263A), 0, 1),
+      shortcodes = listOf("relaxed"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x263A, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x263A, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F61A), 0, 1), listOf("kissing_closed_eyes")),
@@ -68,9 +69,10 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F636), 0, 1), listOf("no_mouth")),
     AndroidxEmoji2(String(intArrayOf(0x1FAE5), 0, 1), listOf("dotted_line_face")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F636, 0x200D, 0x1F32B), 0, 3), listOf("face_in_clouds"),
+      unicode = String(intArrayOf(0x1F636, 0x200D, 0x1F32B), 0, 3),
+      shortcodes = listOf("face_in_clouds"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F), 0, 4), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F60F), 0, 1), listOf("smirk")),
@@ -81,15 +83,17 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F925), 0, 1), listOf("lying_face")),
     AndroidxEmoji2(String(intArrayOf(0x1FAE8), 0, 1), listOf("shaking_face")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F642, 0x200D, 0x2194), 0, 3), listOf("head_shaking_horizontally"),
+      unicode = String(intArrayOf(0x1F642, 0x200D, 0x2194), 0, 3),
+      shortcodes = listOf("head_shaking_horizontally"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2194, 0xFE0F), 0, 4), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2194, 0xFE0F), 0, 4), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F642, 0x200D, 0x2195), 0, 3), listOf("head_shaking_vertically"),
+      unicode = String(intArrayOf(0x1F642, 0x200D, 0x2195), 0, 3),
+      shortcodes = listOf("head_shaking_vertically"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2195, 0xFE0F), 0, 4), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F642, 0x200D, 0x2195, 0xFE0F), 0, 4), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F60C), 0, 1), listOf("relieved")),
@@ -120,9 +124,10 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F61F), 0, 1), listOf("worried")),
     AndroidxEmoji2(String(intArrayOf(0x1F641), 0, 1), listOf("slightly_frowning_face")),
     AndroidxEmoji2(
-      String(intArrayOf(0x2639), 0, 1), listOf("white_frowning_face"),
+      unicode = String(intArrayOf(0x2639), 0, 1),
+      shortcodes = listOf("white_frowning_face"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x2639, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x2639, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F62E), 0, 1), listOf("open_mouth")),
@@ -145,30 +150,5 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F613), 0, 1), listOf("sweat")),
     AndroidxEmoji2(String(intArrayOf(0x1F629), 0, 1), listOf("weary")),
     AndroidxEmoji2(String(intArrayOf(0x1F62B), 0, 1), listOf("tired_face")),
-    AndroidxEmoji2(String(intArrayOf(0x1F971), 0, 1), listOf("yawning_face")),
-    AndroidxEmoji2(String(intArrayOf(0x1F624), 0, 1), listOf("triumph")),
-    AndroidxEmoji2(String(intArrayOf(0x1F621), 0, 1), listOf("rage")),
-    AndroidxEmoji2(String(intArrayOf(0x1F620), 0, 1), listOf("angry")),
-    AndroidxEmoji2(String(intArrayOf(0x1F92C), 0, 1), listOf("face_with_symbols_on_mouth", "serious_face_with_symbols_covering_mouth")),
-    AndroidxEmoji2(String(intArrayOf(0x1F608), 0, 1), listOf("smiling_imp")),
-    AndroidxEmoji2(String(intArrayOf(0x1F47F), 0, 1), listOf("imp")),
-    AndroidxEmoji2(String(intArrayOf(0x1F480), 0, 1), listOf("skull")),
-    AndroidxEmoji2(
-      String(intArrayOf(0x2620), 0, 1), listOf("skull_and_crossbones"),
-      variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x2620, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    AndroidxEmoji2(String(intArrayOf(0x1F4A9), 0, 1), listOf("hankey", "poop", "shit")),
-    AndroidxEmoji2(String(intArrayOf(0x1F921), 0, 1), listOf("clown_face")),
-    AndroidxEmoji2(String(intArrayOf(0x1F479), 0, 1), listOf("japanese_ogre")),
-    AndroidxEmoji2(String(intArrayOf(0x1F47A), 0, 1), listOf("japanese_goblin")),
-    AndroidxEmoji2(String(intArrayOf(0x1F47B), 0, 1), listOf("ghost")),
-    AndroidxEmoji2(String(intArrayOf(0x1F47D), 0, 1), listOf("alien")),
-    AndroidxEmoji2(String(intArrayOf(0x1F47E), 0, 1), listOf("space_invader")),
-    AndroidxEmoji2(String(intArrayOf(0x1F916), 0, 1), listOf("robot_face")),
-    AndroidxEmoji2(String(intArrayOf(0x1F63A), 0, 1), listOf("smiley_cat")),
-    AndroidxEmoji2(String(intArrayOf(0x1F638), 0, 1), listOf("smile_cat")),
-    AndroidxEmoji2(String(intArrayOf(0x1F639), 0, 1), listOf("joy_cat")),
   )
 }
