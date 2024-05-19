@@ -20,6 +20,94 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(String(intArrayOf(0x1F527), 0, 1), listOf("wrench")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA9B), 0, 1), listOf("screwdriver")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F529), 0, 1), listOf("nut_and_bolt")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2699), 0, 1),
+      shortcodes = listOf("gear"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2699, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x1F5DC), 0, 1),
+      shortcodes = listOf("compression"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F5DC, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2696), 0, 1),
+      shortcodes = listOf("scales"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2696, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9AF), 0, 1), listOf("probing_cane")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F517), 0, 1), listOf("link")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x26D3, 0x200D, 0x1F4A5), 0, 3),
+      shortcodes = listOf("broken_chain"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26D3, 0xFE0F, 0x200D, 0x1F4A5), 0, 4), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x26D3), 0, 1),
+      shortcodes = listOf("chains"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26D3, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA9D), 0, 1), listOf("hook")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9F0), 0, 1), listOf("toolbox")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9F2), 0, 1), listOf("magnet")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA9C), 0, 1), listOf("ladder")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2697), 0, 1),
+      shortcodes = listOf("alembic"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2697, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9EA), 0, 1), listOf("test_tube")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9EB), 0, 1), listOf("petri_dish")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F9EC), 0, 1), listOf("dna")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F52C), 0, 1), listOf("microscope")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F52D), 0, 1), listOf("telescope")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4E1), 0, 1), listOf("satellite_antenna")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F489), 0, 1), listOf("syringe")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA78), 0, 1), listOf("drop_of_blood")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F48A), 0, 1), listOf("pill")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA79), 0, 1), listOf("adhesive_bandage")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA7C), 0, 1), listOf("crutch")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA7A), 0, 1), listOf("stethoscope")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA7B), 0, 1), listOf("x-ray")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6AA), 0, 1), listOf("door")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6D7), 0, 1), listOf("elevator")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA9E), 0, 1), listOf("mirror")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA9F), 0, 1), listOf("window")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x1F6CF), 0, 1),
+      shortcodes = listOf("bed"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F6CF, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x1F6CB), 0, 1),
+      shortcodes = listOf("couch_and_lamp"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x1F6CB, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1FA91), 0, 1), listOf("chair")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6BD), 0, 1), listOf("toilet")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAA0), 0, 1), listOf("plunger")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6BF), 0, 1), listOf("shower")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F6C1), 0, 1), listOf("bathtub")),
+    GoogleCompatEmoji(String(intArrayOf(0x1FAA4), 0, 1), listOf("mouse_trap")),
     GoogleCompatEmoji(String(intArrayOf(0x1FA92), 0, 1), listOf("razor")),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F4), 0, 1), listOf("lotion_bottle")),
     GoogleCompatEmoji(String(intArrayOf(0x1F9F7), 0, 1), listOf("safety_pin")),
@@ -35,16 +123,18 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji(String(intArrayOf(0x1F6D2), 0, 1), listOf("shopping_trolley")),
     GoogleCompatEmoji(String(intArrayOf(0x1F6AC), 0, 1), listOf("smoking")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x26B0), 0, 1), listOf("coffin"),
+      unicode = String(intArrayOf(0x26B0), 0, 1),
+      shortcodes = listOf("coffin"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x26B0, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1FAA6), 0, 1), listOf("headstone")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x26B1), 0, 1), listOf("funeral_urn"),
+      unicode = String(intArrayOf(0x26B1), 0, 1),
+      shortcodes = listOf("funeral_urn"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x26B1, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F9FF), 0, 1), listOf("nazar_amulet")),

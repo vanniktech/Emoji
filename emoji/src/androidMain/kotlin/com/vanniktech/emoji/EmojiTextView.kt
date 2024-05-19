@@ -27,7 +27,8 @@ import androidx.appcompat.widget.AppCompatTextView
 open class EmojiTextView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : AppCompatTextView(context, attrs), EmojiDisplayable {
+) : AppCompatTextView(context, attrs),
+  EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {

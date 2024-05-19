@@ -20,6 +20,38 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object AnimalsAndNatureCategoryChunk1 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2(String(intArrayOf(0x1F9AD), 0, 1), listOf("seal")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41F), 0, 1), listOf("fish")),
+    AndroidxEmoji2(String(intArrayOf(0x1F420), 0, 1), listOf("tropical_fish")),
+    AndroidxEmoji2(String(intArrayOf(0x1F421), 0, 1), listOf("blowfish")),
+    AndroidxEmoji2(String(intArrayOf(0x1F988), 0, 1), listOf("shark")),
+    AndroidxEmoji2(String(intArrayOf(0x1F419), 0, 1), listOf("octopus")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41A), 0, 1), listOf("shell")),
+    AndroidxEmoji2(String(intArrayOf(0x1FAB8), 0, 1), listOf("coral")),
+    AndroidxEmoji2(String(intArrayOf(0x1FABC), 0, 1), listOf("jellyfish")),
+    AndroidxEmoji2(String(intArrayOf(0x1F40C), 0, 1), listOf("snail")),
+    AndroidxEmoji2(String(intArrayOf(0x1F98B), 0, 1), listOf("butterfly")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41B), 0, 1), listOf("bug")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41C), 0, 1), listOf("ant")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41D), 0, 1), listOf("bee", "honeybee")),
+    AndroidxEmoji2(String(intArrayOf(0x1FAB2), 0, 1), listOf("beetle")),
+    AndroidxEmoji2(String(intArrayOf(0x1F41E), 0, 1), listOf("ladybug", "lady_beetle")),
+    AndroidxEmoji2(String(intArrayOf(0x1F997), 0, 1), listOf("cricket")),
+    AndroidxEmoji2(String(intArrayOf(0x1FAB3), 0, 1), listOf("cockroach")),
+    AndroidxEmoji2(
+      unicode = String(intArrayOf(0x1F577), 0, 1),
+      shortcodes = listOf("spider"),
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F577, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    AndroidxEmoji2(
+      unicode = String(intArrayOf(0x1F578), 0, 1),
+      shortcodes = listOf("spider_web"),
+      variants = listOf(
+        AndroidxEmoji2(String(intArrayOf(0x1F578, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
     AndroidxEmoji2(String(intArrayOf(0x1F982), 0, 1), listOf("scorpion")),
     AndroidxEmoji2(String(intArrayOf(0x1F99F), 0, 1), listOf("mosquito")),
     AndroidxEmoji2(String(intArrayOf(0x1FAB0), 0, 1), listOf("fly")),
@@ -30,9 +62,10 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2(String(intArrayOf(0x1F4AE), 0, 1), listOf("white_flower")),
     AndroidxEmoji2(String(intArrayOf(0x1FAB7), 0, 1), listOf("lotus")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F3F5), 0, 1), listOf("rosette"),
+      unicode = String(intArrayOf(0x1F3F5), 0, 1),
+      shortcodes = listOf("rosette"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F3F5, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F339), 0, 1), listOf("rose")),
@@ -51,9 +84,10 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2(String(intArrayOf(0x1F33E), 0, 1), listOf("ear_of_rice")),
     AndroidxEmoji2(String(intArrayOf(0x1F33F), 0, 1), listOf("herb")),
     AndroidxEmoji2(
-      String(intArrayOf(0x2618), 0, 1), listOf("shamrock"),
+      unicode = String(intArrayOf(0x2618), 0, 1),
+      shortcodes = listOf("shamrock"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x2618, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F340), 0, 1), listOf("four_leaf_clover")),

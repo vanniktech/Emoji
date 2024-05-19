@@ -20,20 +20,96 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SymbolsCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x26A7), 0, 1),
+      shortcodes = listOf("transgender_symbol"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x26A7, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2716), 0, 1),
+      shortcodes = listOf("heavy_multiplication_x"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2716, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x2795), 0, 1), listOf("heavy_plus_sign")),
+    GoogleCompatEmoji(String(intArrayOf(0x2796), 0, 1), listOf("heavy_minus_sign")),
+    GoogleCompatEmoji(String(intArrayOf(0x2797), 0, 1), listOf("heavy_division_sign")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F7F0), 0, 1), listOf("heavy_equals_sign")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x267E), 0, 1),
+      shortcodes = listOf("infinity"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x267E, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x203C), 0, 1),
+      shortcodes = listOf("bangbang"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x203C, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2049), 0, 1),
+      shortcodes = listOf("interrobang"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2049, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x2753), 0, 1), listOf("question")),
+    GoogleCompatEmoji(String(intArrayOf(0x2754), 0, 1), listOf("grey_question")),
+    GoogleCompatEmoji(String(intArrayOf(0x2755), 0, 1), listOf("grey_exclamation")),
+    GoogleCompatEmoji(String(intArrayOf(0x2757), 0, 1), listOf("exclamation", "heavy_exclamation_mark")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x3030), 0, 1),
+      shortcodes = listOf("wavy_dash"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x3030, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4B1), 0, 1), listOf("currency_exchange")),
+    GoogleCompatEmoji(String(intArrayOf(0x1F4B2), 0, 1), listOf("heavy_dollar_sign")),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x2695), 0, 1),
+      shortcodes = listOf("medical_symbol", "staff_of_aesculapius"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x2695, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x267B), 0, 1),
+      shortcodes = listOf("recycle"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x267B, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
+      unicode = String(intArrayOf(0x269C), 0, 1),
+      shortcodes = listOf("fleur_de_lis"),
+      variants = listOf(
+        GoogleCompatEmoji(String(intArrayOf(0x269C, 0xFE0F), 0, 2), emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(String(intArrayOf(0x1F531), 0, 1), listOf("trident")),
     GoogleCompatEmoji(String(intArrayOf(0x1F4DB), 0, 1), listOf("name_badge")),
     GoogleCompatEmoji(String(intArrayOf(0x1F530), 0, 1), listOf("beginner")),
     GoogleCompatEmoji(String(intArrayOf(0x2B55), 0, 1), listOf("o")),
     GoogleCompatEmoji(String(intArrayOf(0x2705), 0, 1), listOf("white_check_mark")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2611), 0, 1), listOf("ballot_box_with_check"),
+      unicode = String(intArrayOf(0x2611), 0, 1),
+      shortcodes = listOf("ballot_box_with_check"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2611, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2611, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2714), 0, 1), listOf("heavy_check_mark"),
+      unicode = String(intArrayOf(0x2714), 0, 1),
+      shortcodes = listOf("heavy_check_mark"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2714, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2714, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x274C), 0, 1), listOf("x")),
@@ -41,117 +117,136 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x27B0), 0, 1), listOf("curly_loop")),
     GoogleCompatEmoji(String(intArrayOf(0x27BF), 0, 1), listOf("loop")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x303D), 0, 1), listOf("part_alternation_mark"),
+      unicode = String(intArrayOf(0x303D), 0, 1),
+      shortcodes = listOf("part_alternation_mark"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x303D, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x303D, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2733), 0, 1), listOf("eight_spoked_asterisk"),
+      unicode = String(intArrayOf(0x2733), 0, 1),
+      shortcodes = listOf("eight_spoked_asterisk"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2733, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2733, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2734), 0, 1), listOf("eight_pointed_black_star"),
+      unicode = String(intArrayOf(0x2734), 0, 1),
+      shortcodes = listOf("eight_pointed_black_star"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2734, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2734, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2747), 0, 1), listOf("sparkle"),
+      unicode = String(intArrayOf(0x2747), 0, 1),
+      shortcodes = listOf("sparkle"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2747, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2747, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x00A9), 0, 1), listOf("copyright"),
+      unicode = String(intArrayOf(0x00A9), 0, 1),
+      shortcodes = listOf("copyright"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x00A9, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x00A9, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x00AE), 0, 1), listOf("registered"),
+      unicode = String(intArrayOf(0x00AE), 0, 1),
+      shortcodes = listOf("registered"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x00AE, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x00AE, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2122), 0, 1), listOf("tm"),
+      unicode = String(intArrayOf(0x2122), 0, 1),
+      shortcodes = listOf("tm"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2122, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2122, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0023, 0x20E3), 0, 2), listOf("hash"),
+      unicode = String(intArrayOf(0x0023, 0x20E3), 0, 2),
+      shortcodes = listOf("hash"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0023, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0023, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x002A, 0x20E3), 0, 2), listOf("keycap_star"),
+      unicode = String(intArrayOf(0x002A, 0x20E3), 0, 2),
+      shortcodes = listOf("keycap_star"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x002A, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x002A, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0030, 0x20E3), 0, 2), listOf("zero"),
+      unicode = String(intArrayOf(0x0030, 0x20E3), 0, 2),
+      shortcodes = listOf("zero"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0030, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0030, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0031, 0x20E3), 0, 2), listOf("one"),
+      unicode = String(intArrayOf(0x0031, 0x20E3), 0, 2),
+      shortcodes = listOf("one"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0031, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0031, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0032, 0x20E3), 0, 2), listOf("two"),
+      unicode = String(intArrayOf(0x0032, 0x20E3), 0, 2),
+      shortcodes = listOf("two"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0032, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0032, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0033, 0x20E3), 0, 2), listOf("three"),
+      unicode = String(intArrayOf(0x0033, 0x20E3), 0, 2),
+      shortcodes = listOf("three"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0033, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0033, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0034, 0x20E3), 0, 2), listOf("four"),
+      unicode = String(intArrayOf(0x0034, 0x20E3), 0, 2),
+      shortcodes = listOf("four"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0034, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0034, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0035, 0x20E3), 0, 2), listOf("five"),
+      unicode = String(intArrayOf(0x0035, 0x20E3), 0, 2),
+      shortcodes = listOf("five"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0035, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0035, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0036, 0x20E3), 0, 2), listOf("six"),
+      unicode = String(intArrayOf(0x0036, 0x20E3), 0, 2),
+      shortcodes = listOf("six"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0036, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0036, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0037, 0x20E3), 0, 2), listOf("seven"),
+      unicode = String(intArrayOf(0x0037, 0x20E3), 0, 2),
+      shortcodes = listOf("seven"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0037, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0037, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0038, 0x20E3), 0, 2), listOf("eight"),
+      unicode = String(intArrayOf(0x0038, 0x20E3), 0, 2),
+      shortcodes = listOf("eight"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0038, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0038, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x0039, 0x20E3), 0, 2), listOf("nine"),
+      unicode = String(intArrayOf(0x0039, 0x20E3), 0, 2),
+      shortcodes = listOf("nine"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x0039, 0xFE0F, 0x20E3), 0, 3), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x0039, 0xFE0F, 0x20E3), 0, 3), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F51F), 0, 1), listOf("keycap_ten")),
@@ -161,47 +256,53 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F523), 0, 1), listOf("symbols")),
     GoogleCompatEmoji(String(intArrayOf(0x1F524), 0, 1), listOf("abc")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F170), 0, 1), listOf("a"),
+      unicode = String(intArrayOf(0x1F170), 0, 1),
+      shortcodes = listOf("a"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F170, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F170, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F18E), 0, 1), listOf("ab")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F171), 0, 1), listOf("b"),
+      unicode = String(intArrayOf(0x1F171), 0, 1),
+      shortcodes = listOf("b"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F171, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F171, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F191), 0, 1), listOf("cl")),
     GoogleCompatEmoji(String(intArrayOf(0x1F192), 0, 1), listOf("cool")),
     GoogleCompatEmoji(String(intArrayOf(0x1F193), 0, 1), listOf("free")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x2139), 0, 1), listOf("information_source"),
+      unicode = String(intArrayOf(0x2139), 0, 1),
+      shortcodes = listOf("information_source"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x2139, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x2139, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F194), 0, 1), listOf("id")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x24C2), 0, 1), listOf("m"),
+      unicode = String(intArrayOf(0x24C2), 0, 1),
+      shortcodes = listOf("m"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x24C2, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x24C2, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F195), 0, 1), listOf("new")),
     GoogleCompatEmoji(String(intArrayOf(0x1F196), 0, 1), listOf("ng")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F17E), 0, 1), listOf("o2"),
+      unicode = String(intArrayOf(0x1F17E), 0, 1),
+      shortcodes = listOf("o2"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F17E, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F17E, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F197), 0, 1), listOf("ok")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F17F), 0, 1), listOf("parking"),
+      unicode = String(intArrayOf(0x1F17F), 0, 1),
+      shortcodes = listOf("parking"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F17F, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F17F, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F198), 0, 1), listOf("sos")),
@@ -209,15 +310,17 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F19A), 0, 1), listOf("vs")),
     GoogleCompatEmoji(String(intArrayOf(0x1F201), 0, 1), listOf("koko")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F202), 0, 1), listOf("sa"),
+      unicode = String(intArrayOf(0x1F202), 0, 1),
+      shortcodes = listOf("sa"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F202, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F202, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x1F237), 0, 1), listOf("u6708"),
+      unicode = String(intArrayOf(0x1F237), 0, 1),
+      shortcodes = listOf("u6708"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x1F237, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x1F237, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F236), 0, 1), listOf("u6709")),
@@ -231,15 +334,17 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x1F234), 0, 1), listOf("u5408")),
     GoogleCompatEmoji(String(intArrayOf(0x1F233), 0, 1), listOf("u7a7a")),
     GoogleCompatEmoji(
-      String(intArrayOf(0x3297), 0, 1), listOf("congratulations"),
+      unicode = String(intArrayOf(0x3297), 0, 1),
+      shortcodes = listOf("congratulations"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x3297, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x3297, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(
-      String(intArrayOf(0x3299), 0, 1), listOf("secret"),
+      unicode = String(intArrayOf(0x3299), 0, 1),
+      shortcodes = listOf("secret"),
       variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x3299, 0xFE0F), 0, 2), emptyList<String>()),
+        GoogleCompatEmoji(String(intArrayOf(0x3299, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     GoogleCompatEmoji(String(intArrayOf(0x1F23A), 0, 1), listOf("u55b6")),
@@ -255,48 +360,5 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji(String(intArrayOf(0x26AA), 0, 1), listOf("white_circle")),
     GoogleCompatEmoji(String(intArrayOf(0x1F7E5), 0, 1), listOf("large_red_square")),
     GoogleCompatEmoji(String(intArrayOf(0x1F7E7), 0, 1), listOf("large_orange_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F7E8), 0, 1), listOf("large_yellow_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F7E9), 0, 1), listOf("large_green_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F7E6), 0, 1), listOf("large_blue_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F7EA), 0, 1), listOf("large_purple_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F7EB), 0, 1), listOf("large_brown_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x2B1B), 0, 1), listOf("black_large_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x2B1C), 0, 1), listOf("white_large_square")),
-    GoogleCompatEmoji(
-      String(intArrayOf(0x25FC), 0, 1), listOf("black_medium_square"),
-      variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x25FC, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      String(intArrayOf(0x25FB), 0, 1), listOf("white_medium_square"),
-      variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x25FB, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    GoogleCompatEmoji(String(intArrayOf(0x25FE), 0, 1), listOf("black_medium_small_square")),
-    GoogleCompatEmoji(String(intArrayOf(0x25FD), 0, 1), listOf("white_medium_small_square")),
-    GoogleCompatEmoji(
-      String(intArrayOf(0x25AA), 0, 1), listOf("black_small_square"),
-      variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x25AA, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      String(intArrayOf(0x25AB), 0, 1), listOf("white_small_square"),
-      variants = listOf(
-        GoogleCompatEmoji(String(intArrayOf(0x25AB, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    GoogleCompatEmoji(String(intArrayOf(0x1F536), 0, 1), listOf("large_orange_diamond")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F537), 0, 1), listOf("large_blue_diamond")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F538), 0, 1), listOf("small_orange_diamond")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F539), 0, 1), listOf("small_blue_diamond")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F53A), 0, 1), listOf("small_red_triangle")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F53B), 0, 1), listOf("small_red_triangle_down")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F4A0), 0, 1), listOf("diamond_shape_with_a_dot_inside")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F518), 0, 1), listOf("radio_button")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F533), 0, 1), listOf("white_square_button")),
-    GoogleCompatEmoji(String(intArrayOf(0x1F532), 0, 1), listOf("black_square_button")),
   )
 }

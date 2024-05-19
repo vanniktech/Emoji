@@ -29,6 +29,6 @@ internal class TravelAndPlacesCategory : EmojiCategory {
   override val emojis = ALL_EMOJIS
 
   private companion object {
-    val ALL_EMOJIS: List<TwitterEmoji> = TravelAndPlacesCategoryChunk0.EMOJIS + TravelAndPlacesCategoryChunk1.EMOJIS
+    val ALL_EMOJIS: List<TwitterEmoji> = TravelAndPlacesCategoryChunk0.EMOJIS + TravelAndPlacesCategoryChunk1.EMOJIS + TravelAndPlacesCategoryChunk2.EMOJIS
   }
 }

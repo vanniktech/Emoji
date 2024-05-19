@@ -24,7 +24,10 @@ import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 import com.vanniktech.emoji.sample.databinding.ActivityEmojisBinding
 
-class EmojisActivity : AppCompatActivity(), OnEmojiClickListener, OnEmojiBackspaceClickListener {
+class EmojisActivity :
+  AppCompatActivity(),
+  OnEmojiClickListener,
+  OnEmojiBackspaceClickListener {
   private lateinit var binding: ActivityEmojisBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {

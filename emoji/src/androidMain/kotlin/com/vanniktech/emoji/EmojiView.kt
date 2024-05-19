@@ -152,7 +152,9 @@ class EmojiView @JvmOverloads constructor(
           variantPopup.show(view, emoji, variants)
         }
       },
-      recentEmoji, variantEmoji, theming,
+      recentEmoji,
+      variantEmoji,
+      theming,
     )
     val hasBackspace = editText != null || onEmojiBackspaceClickListener != null
     val hasSearch = searchEmoji !is NoSearchEmoji

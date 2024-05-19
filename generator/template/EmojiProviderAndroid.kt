@@ -30,7 +30,9 @@ import com.vanniktech.emoji.EmojiProvider
 <%= imports %>
 import java.lang.ref.SoftReference
 
-class <%= name %>Provider : EmojiProvider, EmojiAndroidProvider {
+class <%= name %>Provider :
+  EmojiProvider,
+  EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(<% categories.forEach(function(category) { %>
       <%= category.name %>(),<% }); %>

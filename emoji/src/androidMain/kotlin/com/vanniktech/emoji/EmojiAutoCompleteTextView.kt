@@ -27,7 +27,8 @@ import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 open class EmojiAutoCompleteTextView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-) : AppCompatAutoCompleteTextView(context, attrs), EmojiDisplayable {
+) : AppCompatAutoCompleteTextView(context, attrs),
+  EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {

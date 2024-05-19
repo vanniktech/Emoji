@@ -37,7 +37,9 @@ import com.vanniktech.emoji.twitter.category.SymbolsCategory
 import com.vanniktech.emoji.twitter.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
 
-class TwitterEmojiProvider : EmojiProvider, EmojiAndroidProvider {
+class TwitterEmojiProvider :
+  EmojiProvider,
+  EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),

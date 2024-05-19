@@ -37,7 +37,9 @@ import com.vanniktech.emoji.facebook.category.SymbolsCategory
 import com.vanniktech.emoji.facebook.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
 
-class FacebookEmojiProvider : EmojiProvider, EmojiAndroidProvider {
+class FacebookEmojiProvider :
+  EmojiProvider,
+  EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),

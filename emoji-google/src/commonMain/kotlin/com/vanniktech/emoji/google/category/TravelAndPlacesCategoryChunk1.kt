@@ -20,36 +20,95 @@ import com.vanniktech.emoji.google.GoogleEmoji
 
 internal object TravelAndPlacesCategoryChunk1 {
   internal val EMOJIS: List<GoogleEmoji> = listOf(
+    GoogleEmoji(String(intArrayOf(0x1F6FA), 0, 1), listOf("auto_rickshaw"), 39, 7),
+    GoogleEmoji(String(intArrayOf(0x1F6B2), 0, 1), listOf("bike"), 37, 0),
+    GoogleEmoji(String(intArrayOf(0x1F6F4), 0, 1), listOf("scooter"), 39, 1),
+    GoogleEmoji(String(intArrayOf(0x1F6F9), 0, 1), listOf("skateboard"), 39, 6),
+    GoogleEmoji(String(intArrayOf(0x1F6FC), 0, 1), listOf("roller_skate"), 39, 9),
+    GoogleEmoji(String(intArrayOf(0x1F68F), 0, 1), listOf("busstop"), 36, 10),
+    GoogleEmoji(
+      unicode = String(intArrayOf(0x1F6E3), 0, 1),
+      shortcodes = listOf("motorway"),
+      x = 38,
+      y = 55,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E3, 0xFE0F), 0, 2), emptyList(), 38, 55),
+      ),
+    ),
+    GoogleEmoji(
+      unicode = String(intArrayOf(0x1F6E4), 0, 1),
+      shortcodes = listOf("railway_track"),
+      x = 38,
+      y = 56,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E4, 0xFE0F), 0, 2), emptyList(), 38, 56),
+      ),
+    ),
+    GoogleEmoji(
+      unicode = String(intArrayOf(0x1F6E2), 0, 1),
+      shortcodes = listOf("oil_drum"),
+      x = 38,
+      y = 54,
+      variants = listOf(
+        GoogleEmoji(String(intArrayOf(0x1F6E2, 0xFE0F), 0, 2), emptyList(), 38, 54),
+      ),
+    ),
+    GoogleEmoji(String(intArrayOf(0x26FD), 0, 1), listOf("fuelpump"), 59, 51),
+    GoogleEmoji(String(intArrayOf(0x1F6DE), 0, 1), listOf("wheel"), 38, 50),
+    GoogleEmoji(String(intArrayOf(0x1F6A8), 0, 1), listOf("rotating_light"), 36, 52),
+    GoogleEmoji(String(intArrayOf(0x1F6A5), 0, 1), listOf("traffic_light"), 36, 49),
+    GoogleEmoji(String(intArrayOf(0x1F6A6), 0, 1), listOf("vertical_traffic_light"), 36, 50),
+    GoogleEmoji(String(intArrayOf(0x1F6D1), 0, 1), listOf("octagonal_sign"), 38, 43),
+    GoogleEmoji(String(intArrayOf(0x1F6A7), 0, 1), listOf("construction"), 36, 51),
+    GoogleEmoji(String(intArrayOf(0x2693), 0, 1), listOf("anchor"), 58, 58),
+    GoogleEmoji(String(intArrayOf(0x1F6DF), 0, 1), listOf("ring_buoy"), 38, 51),
+    GoogleEmoji(String(intArrayOf(0x26F5), 0, 1), listOf("boat", "sailboat"), 59, 29),
+    GoogleEmoji(String(intArrayOf(0x1F6F6), 0, 1), listOf("canoe"), 39, 3),
     GoogleEmoji(String(intArrayOf(0x1F6A4), 0, 1), listOf("speedboat"), 36, 48),
     GoogleEmoji(
-      String(intArrayOf(0x1F6F3), 0, 1), listOf("passenger_ship"), 39, 0,
+      unicode = String(intArrayOf(0x1F6F3), 0, 1),
+      shortcodes = listOf("passenger_ship"),
+      x = 39,
+      y = 0,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F6F3, 0xFE0F), 0, 2), emptyList<String>(), 39, 0),
+        GoogleEmoji(String(intArrayOf(0x1F6F3, 0xFE0F), 0, 2), emptyList(), 39, 0),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x26F4), 0, 1), listOf("ferry"), 59, 28,
+      unicode = String(intArrayOf(0x26F4), 0, 1),
+      shortcodes = listOf("ferry"),
+      x = 59,
+      y = 28,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x26F4, 0xFE0F), 0, 2), emptyList<String>(), 59, 28),
+        GoogleEmoji(String(intArrayOf(0x26F4, 0xFE0F), 0, 2), emptyList(), 59, 28),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F6E5), 0, 1), listOf("motor_boat"), 38, 57,
+      unicode = String(intArrayOf(0x1F6E5), 0, 1),
+      shortcodes = listOf("motor_boat"),
+      x = 38,
+      y = 57,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F6E5, 0xFE0F), 0, 2), emptyList<String>(), 38, 57),
+        GoogleEmoji(String(intArrayOf(0x1F6E5, 0xFE0F), 0, 2), emptyList(), 38, 57),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F6A2), 0, 1), listOf("ship"), 36, 29),
     GoogleEmoji(
-      String(intArrayOf(0x2708), 0, 1), listOf("airplane"), 59, 54,
+      unicode = String(intArrayOf(0x2708), 0, 1),
+      shortcodes = listOf("airplane"),
+      x = 59,
+      y = 54,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2708, 0xFE0F), 0, 2), emptyList<String>(), 59, 54),
+        GoogleEmoji(String(intArrayOf(0x2708, 0xFE0F), 0, 2), emptyList(), 59, 54),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F6E9), 0, 1), listOf("small_airplane"), 38, 58,
+      unicode = String(intArrayOf(0x1F6E9), 0, 1),
+      shortcodes = listOf("small_airplane"),
+      x = 38,
+      y = 58,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F6E9, 0xFE0F), 0, 2), emptyList<String>(), 38, 58),
+        GoogleEmoji(String(intArrayOf(0x1F6E9, 0xFE0F), 0, 2), emptyList(), 38, 58),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F6EB), 0, 1), listOf("airplane_departure"), 38, 59),
@@ -61,17 +120,23 @@ internal object TravelAndPlacesCategoryChunk1 {
     GoogleEmoji(String(intArrayOf(0x1F6A0), 0, 1), listOf("mountain_cableway"), 36, 27),
     GoogleEmoji(String(intArrayOf(0x1F6A1), 0, 1), listOf("aerial_tramway"), 36, 28),
     GoogleEmoji(
-      String(intArrayOf(0x1F6F0), 0, 1), listOf("satellite"), 38, 61,
+      unicode = String(intArrayOf(0x1F6F0), 0, 1),
+      shortcodes = listOf("satellite"),
+      x = 38,
+      y = 61,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F6F0, 0xFE0F), 0, 2), emptyList<String>(), 38, 61),
+        GoogleEmoji(String(intArrayOf(0x1F6F0, 0xFE0F), 0, 2), emptyList(), 38, 61),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F680), 0, 1), listOf("rocket"), 35, 57),
     GoogleEmoji(String(intArrayOf(0x1F6F8), 0, 1), listOf("flying_saucer"), 39, 5),
     GoogleEmoji(
-      String(intArrayOf(0x1F6CE), 0, 1), listOf("bellhop_bell"), 38, 40,
+      unicode = String(intArrayOf(0x1F6CE), 0, 1),
+      shortcodes = listOf("bellhop_bell"),
+      x = 38,
+      y = 40,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F6CE, 0xFE0F), 0, 2), emptyList<String>(), 38, 40),
+        GoogleEmoji(String(intArrayOf(0x1F6CE, 0xFE0F), 0, 2), emptyList(), 38, 40),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F9F3), 0, 1), listOf("luggage"), 54, 37),
@@ -80,21 +145,30 @@ internal object TravelAndPlacesCategoryChunk1 {
     GoogleEmoji(String(intArrayOf(0x231A), 0, 1), listOf("watch"), 57, 43),
     GoogleEmoji(String(intArrayOf(0x23F0), 0, 1), listOf("alarm_clock"), 57, 54),
     GoogleEmoji(
-      String(intArrayOf(0x23F1), 0, 1), listOf("stopwatch"), 57, 55,
+      unicode = String(intArrayOf(0x23F1), 0, 1),
+      shortcodes = listOf("stopwatch"),
+      x = 57,
+      y = 55,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x23F1, 0xFE0F), 0, 2), emptyList<String>(), 57, 55),
+        GoogleEmoji(String(intArrayOf(0x23F1, 0xFE0F), 0, 2), emptyList(), 57, 55),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x23F2), 0, 1), listOf("timer_clock"), 57, 56,
+      unicode = String(intArrayOf(0x23F2), 0, 1),
+      shortcodes = listOf("timer_clock"),
+      x = 57,
+      y = 56,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x23F2, 0xFE0F), 0, 2), emptyList<String>(), 57, 56),
+        GoogleEmoji(String(intArrayOf(0x23F2, 0xFE0F), 0, 2), emptyList(), 57, 56),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F570), 0, 1), listOf("mantelpiece_clock"), 31, 23,
+      unicode = String(intArrayOf(0x1F570), 0, 1),
+      shortcodes = listOf("mantelpiece_clock"),
+      x = 31,
+      y = 23,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F570, 0xFE0F), 0, 2), emptyList<String>(), 31, 23),
+        GoogleEmoji(String(intArrayOf(0x1F570, 0xFE0F), 0, 2), emptyList(), 31, 23),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F55B), 0, 1), listOf("clock12"), 31, 9),
@@ -134,15 +208,21 @@ internal object TravelAndPlacesCategoryChunk1 {
     GoogleEmoji(String(intArrayOf(0x1F31B), 0, 1), listOf("first_quarter_moon_with_face"), 5, 21),
     GoogleEmoji(String(intArrayOf(0x1F31C), 0, 1), listOf("last_quarter_moon_with_face"), 5, 22),
     GoogleEmoji(
-      String(intArrayOf(0x1F321), 0, 1), listOf("thermometer"), 5, 27,
+      unicode = String(intArrayOf(0x1F321), 0, 1),
+      shortcodes = listOf("thermometer"),
+      x = 5,
+      y = 27,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F321, 0xFE0F), 0, 2), emptyList<String>(), 5, 27),
+        GoogleEmoji(String(intArrayOf(0x1F321, 0xFE0F), 0, 2), emptyList(), 5, 27),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x2600), 0, 1), listOf("sunny"), 58, 8,
+      unicode = String(intArrayOf(0x2600), 0, 1),
+      shortcodes = listOf("sunny"),
+      x = 58,
+      y = 8,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2600, 0xFE0F), 0, 2), emptyList<String>(), 58, 8),
+        GoogleEmoji(String(intArrayOf(0x2600, 0xFE0F), 0, 2), emptyList(), 58, 8),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x1F31D), 0, 1), listOf("full_moon_with_face"), 5, 23),
@@ -153,110 +233,68 @@ internal object TravelAndPlacesCategoryChunk1 {
     GoogleEmoji(String(intArrayOf(0x1F320), 0, 1), listOf("stars"), 5, 26),
     GoogleEmoji(String(intArrayOf(0x1F30C), 0, 1), listOf("milky_way"), 5, 6),
     GoogleEmoji(
-      String(intArrayOf(0x2601), 0, 1), listOf("cloud"), 58, 9,
+      unicode = String(intArrayOf(0x2601), 0, 1),
+      shortcodes = listOf("cloud"),
+      x = 58,
+      y = 9,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2601, 0xFE0F), 0, 2), emptyList<String>(), 58, 9),
+        GoogleEmoji(String(intArrayOf(0x2601, 0xFE0F), 0, 2), emptyList(), 58, 9),
       ),
     ),
     GoogleEmoji(String(intArrayOf(0x26C5), 0, 1), listOf("partly_sunny"), 59, 14),
     GoogleEmoji(
-      String(intArrayOf(0x26C8), 0, 1), listOf("thunder_cloud_and_rain"), 59, 15,
+      unicode = String(intArrayOf(0x26C8), 0, 1),
+      shortcodes = listOf("thunder_cloud_and_rain"),
+      x = 59,
+      y = 15,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x26C8, 0xFE0F), 0, 2), emptyList<String>(), 59, 15),
+        GoogleEmoji(String(intArrayOf(0x26C8, 0xFE0F), 0, 2), emptyList(), 59, 15),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F324), 0, 1), listOf("mostly_sunny", "sun_small_cloud"), 5, 28,
+      unicode = String(intArrayOf(0x1F324), 0, 1),
+      shortcodes = listOf("mostly_sunny", "sun_small_cloud"),
+      x = 5,
+      y = 28,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F324, 0xFE0F), 0, 2), emptyList<String>(), 5, 28),
+        GoogleEmoji(String(intArrayOf(0x1F324, 0xFE0F), 0, 2), emptyList(), 5, 28),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F325), 0, 1), listOf("barely_sunny", "sun_behind_cloud"), 5, 29,
+      unicode = String(intArrayOf(0x1F325), 0, 1),
+      shortcodes = listOf("barely_sunny", "sun_behind_cloud"),
+      x = 5,
+      y = 29,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F325, 0xFE0F), 0, 2), emptyList<String>(), 5, 29),
+        GoogleEmoji(String(intArrayOf(0x1F325, 0xFE0F), 0, 2), emptyList(), 5, 29),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F326), 0, 1), listOf("partly_sunny_rain", "sun_behind_rain_cloud"), 5, 30,
+      unicode = String(intArrayOf(0x1F326), 0, 1),
+      shortcodes = listOf("partly_sunny_rain", "sun_behind_rain_cloud"),
+      x = 5,
+      y = 30,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F326, 0xFE0F), 0, 2), emptyList<String>(), 5, 30),
+        GoogleEmoji(String(intArrayOf(0x1F326, 0xFE0F), 0, 2), emptyList(), 5, 30),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F327), 0, 1), listOf("rain_cloud"), 5, 31,
+      unicode = String(intArrayOf(0x1F327), 0, 1),
+      shortcodes = listOf("rain_cloud"),
+      x = 5,
+      y = 31,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F327, 0xFE0F), 0, 2), emptyList<String>(), 5, 31),
+        GoogleEmoji(String(intArrayOf(0x1F327, 0xFE0F), 0, 2), emptyList(), 5, 31),
       ),
     ),
     GoogleEmoji(
-      String(intArrayOf(0x1F328), 0, 1), listOf("snow_cloud"), 5, 32,
+      unicode = String(intArrayOf(0x1F328), 0, 1),
+      shortcodes = listOf("snow_cloud"),
+      x = 5,
+      y = 32,
       variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F328, 0xFE0F), 0, 2), emptyList<String>(), 5, 32),
+        GoogleEmoji(String(intArrayOf(0x1F328, 0xFE0F), 0, 2), emptyList(), 5, 32),
       ),
     ),
-    GoogleEmoji(
-      String(intArrayOf(0x1F329), 0, 1), listOf("lightning", "lightning_cloud"), 5, 33,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F329, 0xFE0F), 0, 2), emptyList<String>(), 5, 33),
-      ),
-    ),
-    GoogleEmoji(
-      String(intArrayOf(0x1F32A), 0, 1), listOf("tornado", "tornado_cloud"), 5, 34,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F32A, 0xFE0F), 0, 2), emptyList<String>(), 5, 34),
-      ),
-    ),
-    GoogleEmoji(
-      String(intArrayOf(0x1F32B), 0, 1), listOf("fog"), 5, 35,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F32B, 0xFE0F), 0, 2), emptyList<String>(), 5, 35),
-      ),
-    ),
-    GoogleEmoji(
-      String(intArrayOf(0x1F32C), 0, 1), listOf("wind_blowing_face"), 5, 36,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x1F32C, 0xFE0F), 0, 2), emptyList<String>(), 5, 36),
-      ),
-    ),
-    GoogleEmoji(String(intArrayOf(0x1F300), 0, 1), listOf("cyclone"), 4, 56),
-    GoogleEmoji(String(intArrayOf(0x1F308), 0, 1), listOf("rainbow"), 5, 2),
-    GoogleEmoji(String(intArrayOf(0x1F302), 0, 1), listOf("closed_umbrella"), 4, 58),
-    GoogleEmoji(
-      String(intArrayOf(0x2602), 0, 1), listOf("umbrella"), 58, 10,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2602, 0xFE0F), 0, 2), emptyList<String>(), 58, 10),
-      ),
-    ),
-    GoogleEmoji(String(intArrayOf(0x2614), 0, 1), listOf("umbrella_with_rain_drops"), 58, 15),
-    GoogleEmoji(
-      String(intArrayOf(0x26F1), 0, 1), listOf("umbrella_on_ground"), 59, 25,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x26F1, 0xFE0F), 0, 2), emptyList<String>(), 59, 25),
-      ),
-    ),
-    GoogleEmoji(String(intArrayOf(0x26A1), 0, 1), listOf("zap"), 59, 5),
-    GoogleEmoji(
-      String(intArrayOf(0x2744), 0, 1), listOf("snowflake"), 60, 27,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2744, 0xFE0F), 0, 2), emptyList<String>(), 60, 27),
-      ),
-    ),
-    GoogleEmoji(
-      String(intArrayOf(0x2603), 0, 1), listOf("snowman"), 58, 11,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2603, 0xFE0F), 0, 2), emptyList<String>(), 58, 11),
-      ),
-    ),
-    GoogleEmoji(String(intArrayOf(0x26C4), 0, 1), listOf("snowman_without_snow"), 59, 13),
-    GoogleEmoji(
-      String(intArrayOf(0x2604), 0, 1), listOf("comet"), 58, 12,
-      variants = listOf(
-        GoogleEmoji(String(intArrayOf(0x2604, 0xFE0F), 0, 2), emptyList<String>(), 58, 12),
-      ),
-    ),
-    GoogleEmoji(String(intArrayOf(0x1F525), 0, 1), listOf("fire"), 30, 29),
-    GoogleEmoji(String(intArrayOf(0x1F4A7), 0, 1), listOf("droplet"), 28, 23),
-    GoogleEmoji(String(intArrayOf(0x1F30A), 0, 1), listOf("ocean"), 5, 4),
   )
 }

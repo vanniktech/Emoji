@@ -22,9 +22,10 @@ internal object ObjectsCategoryChunk0 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
     AndroidxEmoji2(String(intArrayOf(0x1F453), 0, 1), listOf("eyeglasses")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F576), 0, 1), listOf("dark_sunglasses"),
+      unicode = String(intArrayOf(0x1F576), 0, 1),
+      shortcodes = listOf("dark_sunglasses"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F576, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F576, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F97D), 0, 1), listOf("goggles")),
@@ -50,9 +51,10 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F45C), 0, 1), listOf("handbag")),
     AndroidxEmoji2(String(intArrayOf(0x1F45D), 0, 1), listOf("pouch")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F6CD), 0, 1), listOf("shopping_bags"),
+      unicode = String(intArrayOf(0x1F6CD), 0, 1),
+      shortcodes = listOf("shopping_bags"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F6CD, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F6CD, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F392), 0, 1), listOf("school_satchel")),
@@ -73,9 +75,10 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F9E2), 0, 1), listOf("billed_cap")),
     AndroidxEmoji2(String(intArrayOf(0x1FA96), 0, 1), listOf("military_helmet")),
     AndroidxEmoji2(
-      String(intArrayOf(0x26D1), 0, 1), listOf("helmet_with_white_cross"),
+      unicode = String(intArrayOf(0x26D1), 0, 1),
+      shortcodes = listOf("helmet_with_white_cross"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x26D1, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x26D1, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F4FF), 0, 1), listOf("prayer_beads")),
@@ -95,21 +98,24 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F3B5), 0, 1), listOf("musical_note")),
     AndroidxEmoji2(String(intArrayOf(0x1F3B6), 0, 1), listOf("notes")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F399), 0, 1), listOf("studio_microphone"),
+      unicode = String(intArrayOf(0x1F399), 0, 1),
+      shortcodes = listOf("studio_microphone"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F399, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F399, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F39A), 0, 1), listOf("level_slider"),
+      unicode = String(intArrayOf(0x1F39A), 0, 1),
+      shortcodes = listOf("level_slider"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F39A, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F39A, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F39B), 0, 1), listOf("control_knobs"),
+      unicode = String(intArrayOf(0x1F39B), 0, 1),
+      shortcodes = listOf("control_knobs"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F39B, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F39B, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F3A4), 0, 1), listOf("microphone")),
@@ -129,9 +135,10 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F4F1), 0, 1), listOf("iphone")),
     AndroidxEmoji2(String(intArrayOf(0x1F4F2), 0, 1), listOf("calling")),
     AndroidxEmoji2(
-      String(intArrayOf(0x260E), 0, 1), listOf("phone", "telephone"),
+      unicode = String(intArrayOf(0x260E), 0, 1),
+      shortcodes = listOf("phone", "telephone"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x260E, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x260E, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F4DE), 0, 1), listOf("telephone_receiver")),
@@ -142,33 +149,38 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F50C), 0, 1), listOf("electric_plug")),
     AndroidxEmoji2(String(intArrayOf(0x1F4BB), 0, 1), listOf("computer")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F5A5), 0, 1), listOf("desktop_computer"),
+      unicode = String(intArrayOf(0x1F5A5), 0, 1),
+      shortcodes = listOf("desktop_computer"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F5A5, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F5A5, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F5A8), 0, 1), listOf("printer"),
+      unicode = String(intArrayOf(0x1F5A8), 0, 1),
+      shortcodes = listOf("printer"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F5A8, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F5A8, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x2328), 0, 1), listOf("keyboard"),
+      unicode = String(intArrayOf(0x2328), 0, 1),
+      shortcodes = listOf("keyboard"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x2328, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x2328, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F5B1), 0, 1), listOf("three_button_mouse"),
+      unicode = String(intArrayOf(0x1F5B1), 0, 1),
+      shortcodes = listOf("three_button_mouse"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F5B1, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F5B1, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F5B2), 0, 1), listOf("trackball"),
+      unicode = String(intArrayOf(0x1F5B2), 0, 1),
+      shortcodes = listOf("trackball"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F5B2, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F5B2, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F4BD), 0, 1), listOf("minidisc")),
@@ -178,42 +190,19 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2(String(intArrayOf(0x1F9EE), 0, 1), listOf("abacus")),
     AndroidxEmoji2(String(intArrayOf(0x1F3A5), 0, 1), listOf("movie_camera")),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F39E), 0, 1), listOf("film_frames"),
+      unicode = String(intArrayOf(0x1F39E), 0, 1),
+      shortcodes = listOf("film_frames"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F39E, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F39E, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(
-      String(intArrayOf(0x1F4FD), 0, 1), listOf("film_projector"),
+      unicode = String(intArrayOf(0x1F4FD), 0, 1),
+      shortcodes = listOf("film_projector"),
       variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F4FD, 0xFE0F), 0, 2), emptyList<String>()),
+        AndroidxEmoji2(String(intArrayOf(0x1F4FD, 0xFE0F), 0, 2), emptyList()),
       ),
     ),
     AndroidxEmoji2(String(intArrayOf(0x1F3AC), 0, 1), listOf("clapper")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4FA), 0, 1), listOf("tv")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4F7), 0, 1), listOf("camera")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4F8), 0, 1), listOf("camera_with_flash")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4F9), 0, 1), listOf("video_camera")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4FC), 0, 1), listOf("vhs")),
-    AndroidxEmoji2(String(intArrayOf(0x1F50D), 0, 1), listOf("mag")),
-    AndroidxEmoji2(String(intArrayOf(0x1F50E), 0, 1), listOf("mag_right")),
-    AndroidxEmoji2(
-      String(intArrayOf(0x1F56F), 0, 1), listOf("candle"),
-      variants = listOf(
-        AndroidxEmoji2(String(intArrayOf(0x1F56F, 0xFE0F), 0, 2), emptyList<String>()),
-      ),
-    ),
-    AndroidxEmoji2(String(intArrayOf(0x1F4A1), 0, 1), listOf("bulb")),
-    AndroidxEmoji2(String(intArrayOf(0x1F526), 0, 1), listOf("flashlight")),
-    AndroidxEmoji2(String(intArrayOf(0x1F3EE), 0, 1), listOf("izakaya_lantern", "lantern")),
-    AndroidxEmoji2(String(intArrayOf(0x1FA94), 0, 1), listOf("diya_lamp")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D4), 0, 1), listOf("notebook_with_decorative_cover")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D5), 0, 1), listOf("closed_book")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D6), 0, 1), listOf("book", "open_book")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D7), 0, 1), listOf("green_book")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D8), 0, 1), listOf("blue_book")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D9), 0, 1), listOf("orange_book")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4DA), 0, 1), listOf("books")),
-    AndroidxEmoji2(String(intArrayOf(0x1F4D3), 0, 1), listOf("notebook")),
   )
 }

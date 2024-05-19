@@ -32,7 +32,8 @@ open class EmojiTextInputEditText @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   @AttrRes defStyleAttr: Int = com.google.android.material.R.attr.editTextStyle,
-) : TextInputEditText(context, attrs, defStyleAttr), EmojiDisplayable {
+) : TextInputEditText(context, attrs, defStyleAttr),
+  EmojiDisplayable {
   @Px private var emojiSize: Float
 
   init {

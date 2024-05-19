@@ -36,7 +36,9 @@ import com.vanniktech.emoji.androidxemoji2.category.TravelAndPlacesCategory
 
 class AndroidxEmoji2Provider(
   @Suppress("unused") private val emojiCompat: EmojiCompat,
-) : EmojiProvider, EmojiAndroidProvider, EmojiReplacer {
+) : EmojiProvider,
+  EmojiAndroidProvider,
+  EmojiReplacer {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),

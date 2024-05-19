@@ -18,4 +18,6 @@ package com.vanniktech.emoji.internal
 
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 
-internal interface EmojiPagerDelegate : OnEmojiClickListener, OnEmojiLongClickListener
+internal interface EmojiPagerDelegate :
+  OnEmojiClickListener,
+  OnEmojiLongClickListener

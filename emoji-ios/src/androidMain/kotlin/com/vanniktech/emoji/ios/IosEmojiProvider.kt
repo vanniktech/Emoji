@@ -37,7 +37,9 @@ import com.vanniktech.emoji.ios.category.SymbolsCategory
 import com.vanniktech.emoji.ios.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
 
-class IosEmojiProvider : EmojiProvider, EmojiAndroidProvider {
+class IosEmojiProvider :
+  EmojiProvider,
+  EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),

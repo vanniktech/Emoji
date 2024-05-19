@@ -37,7 +37,9 @@ import com.vanniktech.emoji.google.category.SymbolsCategory
 import com.vanniktech.emoji.google.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
 
-class GoogleEmojiProvider : EmojiProvider, EmojiAndroidProvider {
+class GoogleEmojiProvider :
+  EmojiProvider,
+  EmojiAndroidProvider {
   override val categories: Array<EmojiCategory>
     get() = arrayOf(
       SmileysAndPeopleCategory(),
