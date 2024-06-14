@@ -73,7 +73,7 @@ class MainDialog : DialogFragment() {
       val text = editText.text.toString().trim { it <= ' ' }
       if (text.isNotEmpty()) {
         chatAdapter.add(text)
-        editText.setText("")
+        editText.setText(null)
       }
     }
     val recyclerView: RecyclerView = result.findViewById(R.id.main_dialog_recycler_view)

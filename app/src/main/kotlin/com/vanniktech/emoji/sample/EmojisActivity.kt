@@ -62,7 +62,7 @@ class EmojisActivity :
   }
 
   override fun onEmojiBackspaceClick() {
-    binding.selectedEmoji.text = ""
+    binding.selectedEmoji.text = null
   }
 
   override fun onEmojiClick(emoji: Emoji) {
