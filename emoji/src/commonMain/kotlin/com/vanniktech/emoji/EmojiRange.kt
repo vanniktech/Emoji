@@ -16,6 +16,8 @@
 
 package com.vanniktech.emoji
 
+import kotlin.jvm.JvmField
+
 data class EmojiRange(
   @JvmField val emoji: Emoji,
   @JvmField val range: IntRange,
