@@ -233,11 +233,18 @@ function generateEmojiCode(target, emojis, indent = 4, isVariant = false) {
         const separator = hasVariants ? newLinePrefix : ""
         const useNamedArguments = !isVariant && hasVariants
         const conditionalNewLinePrefix = useNamedArguments ? newLinePrefix : " "
-        const transformedUnicodeParts = unicodeParts.map(it => "0x" + it).join(", ")
+        const transformedUnicodeParts = unicodeParts
+            .map(unicodePart => parseInt(unicodePart, 16))
+            .map(codePoint=> String.fromCodePoint(codePoint))
+            .join('')
+            .split('')
+            .map(char => char.charCodeAt(0))
+            .map(charCode => "\\u" + charCode.toString(16).padStart(4, "0"))
+            .join('')
         const usesSprites = target.module !== "google-compat" && target.module !== "androidx-emoji2"
 
         const result = `${target.name}(${separator}` + [
-            (useNamedArguments ? `unicode = ` : "") + `String(intArrayOf(${transformedUnicodeParts}), 0, ${unicodeParts.length})`,
+            (useNamedArguments ? `unicode = ` : "") + `"${transformedUnicodeParts}"`,
             (useNamedArguments ? `${newLinePrefix}shortcodes = ` : " ") + `${generateShortcodeCode(it)}`,
             usesSprites ? ((useNamedArguments ? `${newLinePrefix}x = ` : " ") + `${it.x}`) : null,
             usesSprites ? ((useNamedArguments ? `${newLinePrefix}y = ` : " ") + `${it.y}`) : null
