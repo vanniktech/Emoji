@@ -17,6 +17,7 @@
 package com.vanniktech.emoji.search
 
 import com.vanniktech.emoji.Emoji
+import kotlin.jvm.JvmField
 
 data class SearchEmojiResult(
   @JvmField val emoji: Emoji,

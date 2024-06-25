@@ -18,6 +18,8 @@
 
 package com.vanniktech.emoji
 
+import kotlin.jvm.JvmName
+
 private val SPACE_REMOVAL = Regex("[\\s]")
 
 internal const val VARIANT_SELECTOR_16 = '️'

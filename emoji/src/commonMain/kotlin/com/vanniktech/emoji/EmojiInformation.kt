@@ -16,6 +16,8 @@
 
 package com.vanniktech.emoji
 
+import kotlin.jvm.JvmField
+
 data class EmojiInformation internal constructor(
   @JvmField val isOnlyEmojis: Boolean,
   @JvmField val emojis: List<EmojiRange>,
