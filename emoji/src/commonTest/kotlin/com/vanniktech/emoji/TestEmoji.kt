@@ -1,44 +1,44 @@
 package com.vanniktech.emoji
 
 val emojiBalloon = TestEmoji(
-  unicode = String(codePoints = intArrayOf(0x1F388), offset = 0, length = 1),
+  unicode = "\ud83c\udf88",
   shortcodes = listOf("balloon"),
 )
 
 val emojiYoYo = TestEmoji(
-  unicode = String(codePoints = intArrayOf(0x1FA80), offset = 0, length = 1),
+  unicode = "\ud83e\ude80",
   shortcodes = listOf("yo-yo"),
 )
 
 val emojiReminderRibbon = TestEmoji(
-  unicode = String(intArrayOf(0x1F397), 0, 1),
+  unicode = "\ud83c\udf97",
   shortcodes = listOf("reminder_ribbon"),
   variants = listOf(
-    TestEmoji(String(intArrayOf(0x1F397, 0xFE0F), 0, 2), emptyList()),
+    TestEmoji("\ud83c\udf97\ufe0f", emptyList()),
   ),
 )
 
 val emojiBaldPerson = TestEmoji(
-  unicode = String(intArrayOf(0x1F9D1, 0x200D, 0x1F9B2), 0, 3),
+  unicode = "\ud83e\uddd1\u200d\ud83e\uddb2",
   shortcodes = listOf("bald_person"),
   variants = listOf(
-    TestEmoji(String(intArrayOf(0x1F9D1, 0x1F3FB, 0x200D, 0x1F9B2), 0, 4), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9D1, 0x1F3FC, 0x200D, 0x1F9B2), 0, 4), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9D1, 0x1F3FD, 0x200D, 0x1F9B2), 0, 4), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9D1, 0x1F3FE, 0x200D, 0x1F9B2), 0, 4), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9D1, 0x1F3FF, 0x200D, 0x1F9B2), 0, 4), emptyList()),
+    TestEmoji("\ud83e\uddd1\ud83c\udffb\u200d\ud83e\uddb2", emptyList()),
+    TestEmoji("\ud83e\uddd1\ud83c\udffc\u200d\ud83e\uddb2", emptyList()),
+    TestEmoji("\ud83e\uddd1\ud83c\udffd\u200d\ud83e\uddb2", emptyList()),
+    TestEmoji("\ud83e\uddd1\ud83c\udffe\u200d\ud83e\uddb2", emptyList()),
+    TestEmoji("\ud83e\uddd1\ud83c\udfff\u200d\ud83e\uddb2", emptyList()),
   ),
 )
 
 val emojiSuperhero = TestEmoji(
-  unicode = String(intArrayOf(0x1F9B8), 0, 1),
+  unicode = "\ud83e\uddb8",
   shortcodes = listOf("superhero"),
   variants = listOf(
-    TestEmoji(String(intArrayOf(0x1F9B8, 0x1F3FB), 0, 2), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9B8, 0x1F3FC), 0, 2), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9B8, 0x1F3FD), 0, 2), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9B8, 0x1F3FE), 0, 2), emptyList()),
-    TestEmoji(String(intArrayOf(0x1F9B8, 0x1F3FF), 0, 2), emptyList()),
+    TestEmoji("\ud83e\uddb8\ud83c\udffb", emptyList()),
+    TestEmoji("\ud83e\uddb8\ud83c\udffc", emptyList()),
+    TestEmoji("\ud83e\uddb8\ud83c\udffd", emptyList()),
+    TestEmoji("\ud83e\uddb8\ud83c\udffe", emptyList()),
+    TestEmoji("\ud83e\uddb8\ud83c\udfff", emptyList()),
   ),
 )
 

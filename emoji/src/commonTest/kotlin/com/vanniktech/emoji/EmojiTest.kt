@@ -23,7 +23,7 @@ class EmojiTest {
   @Test fun multipleCodePoints() {
     val emoji = emojiReminderRibbon.variants.first()
     assertEquals(expected = 3, actual = emoji.unicode.length)
-    assertEquals(expected = String(intArrayOf(0x1F397, 0xFE0F), 0, 2), actual = emoji.unicode)
+    assertEquals(expected = "\ud83c\udf97\ufe0f", actual = emoji.unicode)
   }
 
   @Test fun baseWithoutVariant() {
@@ -43,16 +43,16 @@ class EmojiTest {
 
   @Test fun baseWithRecursiveVariant() {
     val variantOfVariant = TestEmoji(
-      unicode = String(codePoints = intArrayOf(0x4321), offset = 0, length = 1),
+      unicode = "\u26f8",
       shortcodes = listOf("test"),
     )
     val variant = TestEmoji(
-      unicode = String(codePoints = intArrayOf(0x5678), offset = 0, length = 1),
+      unicode = "\uFE0F",
       shortcodes = listOf("test"),
       variants = listOf(variantOfVariant),
     )
     val emoji = TestEmoji(
-      unicode = String(codePoints = intArrayOf(0x1234), offset = 0, length = 1),
+      unicode = "\uDD79",
       shortcodes = listOf("test"),
       variants = listOf(variant),
     )
