@@ -17,5 +17,12 @@ package com.vanniktech.emoji.facebook {
     property public com.vanniktech.emoji.EmojiCategory![] categories;
   }
 
+  public final class FacebookEmojiProvider implements com.vanniktech.emoji.EmojiProvider {
+    ctor public FacebookEmojiProvider();
+    method public com.vanniktech.emoji.EmojiCategory![] getCategories();
+    method public void release();
+    property public com.vanniktech.emoji.EmojiCategory![] categories;
+  }
+
 }
 
