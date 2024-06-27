@@ -1,7 +1,16 @@
 # Change Log
 
-Version 0.21.0 *(In development)*
----------------------------------
+Version 0.21.0 *(2024-06-27)*
+-----------------------------
+
+- Multiplatform: Add iOS target. [\#834](https://github.com/vanniktech/Emoji/pull/834) ([vanniktech](https://github.com/vanniktech))
+- Technical: Import JvmField annotation for Multiplatform. [\#1107](https://github.com/vanniktech/Emoji/pull/1107) ([vanniktech](https://github.com/vanniktech))
+- Technical: Update Android Gradle Plugin to 8.5.0 [\#1101](https://github.com/vanniktech/Emoji/pull/1101) ([vanniktech](https://github.com/vanniktech))
+- Technical: Update Kotlin to 2.0.0 [\#1095](https://github.com/vanniktech/Emoji/pull/1095) ([renovate[bot]](https://github.com/apps/renovate))
+- Technical: Use equals without referencing javaClass. [\#1106](https://github.com/vanniktech/Emoji/pull/1106) ([vanniktech](https://github.com/vanniktech))
+- Use generator to create `unicode` String [\#1109](https://github.com/vanniktech/Emoji/pull/1109) ([cketti](https://github.com/cketti))
+
+Huge thanks to [cketti](https://github.com/cketti) for helping making this library available on iOS!
 
 Version 0.20.0 *(2024-05-18)*
 -----------------------------
