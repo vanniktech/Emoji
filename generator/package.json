@@ -10,7 +10,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "command-line-args": "^5.2.1",
+    "command-line-args": "^6.0.0",
     "emoji-datasource": "^15.0.1",
     "emoji-datasource-apple": "^15.0.1",
     "emoji-datasource-facebook": "^15.0.1",
