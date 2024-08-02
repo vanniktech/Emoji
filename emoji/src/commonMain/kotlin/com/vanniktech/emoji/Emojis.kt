@@ -28,6 +28,7 @@ internal fun Emoji.isVariantSelector16() =
   variants.isNotEmpty() && variants.all { it.unicode == "$unicode$VARIANT_SELECTOR_16" }
 
 /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
+@Deprecated("Please use emojiInformation() function", replaceWith = ReplaceWith(expression = "this.emojiInformation().isOnlyEmojis"))
 fun CharSequence?.isOnlyEmojis(): Boolean {
   if (isNullOrEmpty()) {
     return false
@@ -43,14 +44,16 @@ fun CharSequence?.isOnlyEmojis(): Boolean {
 }
 
 /** Returns the emojis that were found in the given text. */
+@Deprecated("Please use emojiInformation() function", replaceWith = ReplaceWith(expression = "this.emojiInformation().emojiRanges"))
 fun CharSequence?.emojis(): List<EmojiRange> = EmojiManager.findAllEmojis(this)
 
 /** Returns the number of all emojis that were found in the given text. */
-fun CharSequence?.emojisCount() = emojis().size
+@Deprecated("Please use emojiInformation() function", replaceWith = ReplaceWith(expression = "this.emojiInformation().emojiCount"))
+fun CharSequence?.emojisCount() = EmojiManager.findAllEmojis(this).size
 
 /** Returns the [EmojiInformation] on the given [CharSequence]. */
 fun CharSequence.emojiInformation(): EmojiInformation {
-  val emojiRanges = emojis()
+  val emojiRanges = EmojiManager.findAllEmojis(this)
   return EmojiInformation(
     visualLength = length - emojiRanges.sumOf { it.range.last + 1 - it.range.first } + emojiRanges.size,
     isOnlyEmojis = isNotBlank() && emojiRanges.reversed().fold(this) { string, emojiRange -> string.removeRange(emojiRange.range) }.isBlank(),
