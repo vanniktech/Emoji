@@ -19,6 +19,11 @@ package com.vanniktech.emoji
 import kotlin.jvm.JvmField
 
 data class EmojiInformation internal constructor(
+  /**
+   * The visual length with respect to the found [emojis].
+   * One [Emoji] can be made up of a bunch of characters but still displayed as a single one.
+   */
+  @JvmField val visualLength: Int,
   @JvmField val isOnlyEmojis: Boolean,
   @JvmField val emojis: List<EmojiRange>,
 )
