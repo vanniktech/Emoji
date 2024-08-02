@@ -207,7 +207,7 @@ package com.vanniktech.emoji {
   }
 
   public final class Emojis {
-    method public static com.vanniktech.emoji.EmojiInformation emojiInformation(CharSequence?);
+    method public static com.vanniktech.emoji.EmojiInformation emojiInformation(CharSequence);
     method public static java.util.List<com.vanniktech.emoji.EmojiRange> emojis(CharSequence?);
     method public static int emojisCount(CharSequence?);
     method public static boolean isOnlyEmojis(CharSequence?);
