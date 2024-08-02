@@ -51,7 +51,10 @@ object EmojiManager {
           val emoji = findEmoji(it.value)
 
           if (emoji != null) {
-            EmojiRange(emoji, IntRange(it.range.first, it.range.last + 1))
+            EmojiRange(
+              emoji = emoji,
+              range = it.range,
+            )
           } else {
             null
           }

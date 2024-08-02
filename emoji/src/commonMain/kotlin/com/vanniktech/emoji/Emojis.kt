@@ -51,4 +51,11 @@ fun CharSequence?.emojis(): List<EmojiRange> = EmojiManager.findAllEmojis(this)
 fun CharSequence?.emojisCount() = emojis().size
 
 /** Returns a class that contains all of the emoji information that was found in the given text. */
-fun CharSequence?.emojiInformation(): EmojiInformation = EmojiInformation(isOnlyEmojis(), emojis())
+fun CharSequence?.emojiInformation(): EmojiInformation {
+  val emojis = emojis()
+  val isOnlyEmojis = isOnlyEmojis()
+  return EmojiInformation(
+    isOnlyEmojis = isOnlyEmojis,
+    emojis = emojis,
+  )
+}

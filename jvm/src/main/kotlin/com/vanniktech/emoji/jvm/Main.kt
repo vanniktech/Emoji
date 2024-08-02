@@ -9,7 +9,7 @@ fun main() {
   EmojiManager.install(IosEmojiProvider())
 
   val emojiString = """Hello from JVM ❤️💚💙"""
-  println("\nGetting emoji information from $emojiString:")
+  println("\nGetting emoji information from: $emojiString")
   val emojiInformation = emojiString.emojiInformation()
   println(emojiInformation)
 
