@@ -81,11 +81,13 @@ package com.vanniktech.emoji {
   }
 
   public final class EmojiInformation {
-    method public boolean component1();
-    method public java.util.List<com.vanniktech.emoji.EmojiRange> component2();
-    method public com.vanniktech.emoji.EmojiInformation copy(boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojis);
+    method public int component1();
+    method public boolean component2();
+    method public java.util.List<com.vanniktech.emoji.EmojiRange> component3();
+    method public com.vanniktech.emoji.EmojiInformation copy(int visualLength, boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojis);
     field public final java.util.List<com.vanniktech.emoji.EmojiRange> emojis;
     field public final boolean isOnlyEmojis;
+    field public final int visualLength;
   }
 
   public class EmojiLayoutFactory implements android.view.LayoutInflater.Factory2 {
