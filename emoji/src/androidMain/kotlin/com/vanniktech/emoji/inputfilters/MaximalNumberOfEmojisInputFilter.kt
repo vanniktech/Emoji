@@ -25,9 +25,9 @@ class MaximalNumberOfEmojisInputFilter(
   private val maxCount: Int,
 ) : InputFilter {
   override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? {
-    val (_, emojis) = dest.subSequence(0, dest.length).emojiInformation()
+    val emojiInformation = dest.subSequence(0, dest.length).emojiInformation()
     return when {
-      emojis.size >= maxCount -> "" // Reject.
+      emojiInformation.emojis.size >= maxCount -> "" // Reject.
       else -> null
     }
   }

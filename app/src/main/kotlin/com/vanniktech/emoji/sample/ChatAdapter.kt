@@ -34,10 +34,10 @@ internal class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
 
   override fun onBindViewHolder(chatViewHolder: ChatViewHolder, position: Int) {
     val text = texts[position]
-    val (isOnlyEmojis, emojis) = text.emojiInformation()
+    val emojiInformation = text.emojiInformation()
     val res: Int = when {
-      isOnlyEmojis && emojis.size == 1 -> R.dimen.emoji_size_single_emoji
-      isOnlyEmojis && emojis.size > 1 -> R.dimen.emoji_size_only_emojis
+      emojiInformation.isOnlyEmojis && emojiInformation.emojis.size == 1 -> R.dimen.emoji_size_single_emoji
+      emojiInformation.isOnlyEmojis && emojiInformation.emojis.size > 1 -> R.dimen.emoji_size_only_emojis
       else -> R.dimen.emoji_size_default
     }
     chatViewHolder.textView.setEmojiSizeRes(res, false)

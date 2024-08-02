@@ -21,12 +21,12 @@ class EmojiUtilsTest {
     assertEquals(expected = true, actual = emojiInformation.isOnlyEmojis)
     assertEquals(expected = 2, actual = emojiInformation.emojis.size)
 
-    assertEquals(expected = 0..5, actual = emojiInformation.emojis[0].range)
-    assertEquals(expected = mage1, actual = text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
+    assertEquals(expected = 0..4, actual = emojiInformation.emojis[0].range)
+    assertEquals(expected = mage1, actual = text.substring(emojiInformation.emojis[0].range))
     assertEquals(expected = mage1, actual = emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(expected = 5..12, actual = emojiInformation.emojis[1].range)
-    assertEquals(expected = mage2, actual = text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
+    assertEquals(expected = 5..11, actual = emojiInformation.emojis[1].range)
+    assertEquals(expected = mage2, actual = text.substring(emojiInformation.emojis[1].range))
     assertEquals(expected = mage2, actual = emojiInformation.emojis[1].emoji.unicode)
   }
 
@@ -38,12 +38,12 @@ class EmojiUtilsTest {
     assertEquals(expected = false, actual = emojiInformation.isOnlyEmojis)
     assertEquals(expected = 2, actual = emojiInformation.emojis.size)
 
-    assertEquals(expected = 7..9, actual = emojiInformation.emojis[0].range)
-    assertEquals(expected = hamburger, actual = text.substring(emojiInformation.emojis[0].range.first, emojiInformation.emojis[0].range.last))
+    assertEquals(expected = 7..8, actual = emojiInformation.emojis[0].range)
+    assertEquals(expected = hamburger, actual = text.substring(emojiInformation.emojis[0].range))
     assertEquals(expected = hamburger, actual = emojiInformation.emojis[0].emoji.unicode)
 
-    assertEquals(expected = 23..25, actual = emojiInformation.emojis[1].range)
-    assertEquals(expected = cheese, actual = text.substring(emojiInformation.emojis[1].range.first, emojiInformation.emojis[1].range.last))
+    assertEquals(expected = 23..24, actual = emojiInformation.emojis[1].range)
+    assertEquals(expected = cheese, actual = text.substring(emojiInformation.emojis[1].range))
     assertEquals(expected = cheese, actual = emojiInformation.emojis[1].emoji.unicode)
   }
 

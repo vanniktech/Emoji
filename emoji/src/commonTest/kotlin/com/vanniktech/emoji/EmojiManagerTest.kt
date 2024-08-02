@@ -78,14 +78,22 @@ class EmojiManagerTest {
   @Test fun findAllEmojisNormal() {
     EmojiManager.install(TestEmojiProvider)
     val text = "te${emojiBalloon.unicode}st${emojiYoYo.unicode}"
-    val firstExpectedRange = EmojiRange(emojiBalloon, 2..4)
-    val secondExpectedRange = EmojiRange(emojiYoYo, 6..8)
+    val firstExpectedRange = EmojiRange(emojiBalloon, 2..3)
+    val secondExpectedRange = EmojiRange(emojiYoYo, 6..7)
     assertEquals(
       expected = listOf(
         firstExpectedRange,
         secondExpectedRange,
       ),
       actual = EmojiManager.findAllEmojis(text),
+    )
+    assertEquals(
+      expected = """🎈""",
+      actual = text.substring(firstExpectedRange.range),
+    )
+    assertEquals(
+      expected = """🪀""",
+      actual = text.substring(secondExpectedRange.range),
     )
   }
 
