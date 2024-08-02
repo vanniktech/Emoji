@@ -50,10 +50,10 @@ fun CharSequence?.emojisCount() = emojis().size
 
 /** Returns the [EmojiInformation] on the given [CharSequence]. */
 fun CharSequence.emojiInformation(): EmojiInformation {
-  val emojis = emojis()
+  val emojiRanges = emojis()
   return EmojiInformation(
-    visualLength = length - emojis.sumOf { it.range.last + 1 - it.range.first } + emojis.size,
-    isOnlyEmojis = isNotBlank() && emojis.reversed().fold(this) { string, emojiRange -> string.removeRange(emojiRange.range) }.isBlank(),
-    emojis = emojis,
+    visualLength = length - emojiRanges.sumOf { it.range.last + 1 - it.range.first } + emojiRanges.size,
+    isOnlyEmojis = isNotBlank() && emojiRanges.reversed().fold(this) { string, emojiRange -> string.removeRange(emojiRange.range) }.isBlank(),
+    emojiRanges = emojiRanges,
   )
 }

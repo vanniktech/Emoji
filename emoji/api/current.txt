@@ -84,8 +84,10 @@ package com.vanniktech.emoji {
     method public int component1();
     method public boolean component2();
     method public java.util.List<com.vanniktech.emoji.EmojiRange> component3();
-    method public com.vanniktech.emoji.EmojiInformation copy(int visualLength, boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojis);
-    field public final java.util.List<com.vanniktech.emoji.EmojiRange> emojis;
+    method public com.vanniktech.emoji.EmojiInformation copy(int visualLength, boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges);
+    method public int getEmojiCount();
+    property public final int emojiCount;
+    field public final java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges;
     field public final boolean isOnlyEmojis;
     field public final int visualLength;
   }
