@@ -36,8 +36,8 @@ internal class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
     val text = texts[position]
     val emojiInformation = text.emojiInformation()
     val res: Int = when {
-      emojiInformation.isOnlyEmojis && emojiInformation.emojis.size == 1 -> R.dimen.emoji_size_single_emoji
-      emojiInformation.isOnlyEmojis && emojiInformation.emojis.size > 1 -> R.dimen.emoji_size_only_emojis
+      emojiInformation.isOnlyEmojis && emojiInformation.emojiCount == 1 -> R.dimen.emoji_size_single_emoji
+      emojiInformation.isOnlyEmojis && emojiInformation.emojiCount > 1 -> R.dimen.emoji_size_only_emojis
       else -> R.dimen.emoji_size_default
     }
     chatViewHolder.textView.setEmojiSizeRes(res, false)
