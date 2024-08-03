@@ -18,12 +18,13 @@ package com.vanniktech.emoji.inputfilters
 
 import android.text.InputFilter
 import android.text.Spanned
+import com.vanniktech.emoji.emojiInformation
 import com.vanniktech.emoji.isOnlyEmojis
 
 /** InputFilter that only accepts emojis.  */
 class OnlyEmojisInputFilter : InputFilter {
   override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, dstart: Int, dend: Int): CharSequence? = when {
-    !source.subSequence(start, end).isOnlyEmojis() -> "" // Reject.
+    !source.subSequence(start, end).emojiInformation().isOnlyEmojis -> "" // Reject.
     else -> null
   }
 }
