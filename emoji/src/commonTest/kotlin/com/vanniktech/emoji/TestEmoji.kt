@@ -42,7 +42,7 @@ val emojiSuperhero = TestEmoji(
   ),
 )
 
-data class TestEmoji internal constructor(
+@ConsistentCopyVisibility data class TestEmoji internal constructor(
   override val unicode: String,
   override val shortcodes: List<String>,
   override val variants: List<TestEmoji> = emptyList(),
