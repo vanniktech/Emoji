@@ -20,7 +20,7 @@
     "imagemin": "^9.0.0",
     "imagemin-pngquant": "^10.0.0",
     "imagemin-zopfli": "^7.0.0",
-    "jimp": "^0.22.0",
+    "jimp": "^1.0.0",
     "lodash.chunk": "^4.2.0",
     "lodash.template": "^4.5.0"
   }
