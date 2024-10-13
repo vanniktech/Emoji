@@ -29,7 +29,7 @@ plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.11.0" }
 plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.3.5" }
-plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.29.0" }
+plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.30.0" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.13" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
