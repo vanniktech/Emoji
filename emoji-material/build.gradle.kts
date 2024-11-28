@@ -14,7 +14,6 @@ licensee {
 
 metalava {
   filename.set("api/current.txt")
-  sourcePaths.setFrom("src/androidMain")
 }
 
 kotlin {
