@@ -28,7 +28,7 @@ plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", versio
 plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.9.20" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.12.0" }
-plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.3.5" }
+plugin-metalava = { module = "me.tylerbwong.gradle.metalava:plugin", version = "0.4.0-alpha02" }
 plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version = "0.30.0" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.14.1" }
 screengrab = { module = "tools.fastlane:screengrab", version = "2.1.1" }
