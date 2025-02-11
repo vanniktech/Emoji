@@ -2,12 +2,5 @@
   "extends": [
     "config:base",
     ":disableDependencyDashboard"
-  ],
-  "packageRules": [
-    {
-      "description": "Automerge updates",
-      "matchUpdateTypes": ["major", "minor", "patch"],
-      "automerge": true
-    }
   ]
 }
