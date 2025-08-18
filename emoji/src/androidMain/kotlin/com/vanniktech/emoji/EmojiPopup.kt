@@ -279,10 +279,11 @@ class EmojiPopup @JvmOverloads constructor(
           0
         }
 
-        val offset = if (systemWindowInsetBottom < (stableInsetBottom + gesturesInsetBottom)) {
+        val insetBottom = stableInsetBottom + gesturesInsetBottom
+        val offset = if (systemWindowInsetBottom < insetBottom) {
           systemWindowInsetBottom
         } else {
-          systemWindowInsetBottom - stableInsetBottom - gesturesInsetBottom
+          systemWindowInsetBottom - insetBottom
         }
 
         if (offset != previousOffset || offset == 0) {
