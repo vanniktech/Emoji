@@ -41,10 +41,9 @@ internal class MaxHeightSearchRecyclerView @JvmOverloads constructor(
   fun tint(emojiTheming: EmojiTheming) {
     setBackgroundColor(emojiTheming.backgroundColor)
     edgeEffectFactory = object : RecyclerView.EdgeEffectFactory() {
-      override fun createEdgeEffect(view: RecyclerView, direction: Int) =
-        EdgeEffect(view.context).apply {
-          color = emojiTheming.secondaryColor
-        }
+      override fun createEdgeEffect(view: RecyclerView, direction: Int) = EdgeEffect(view.context).apply {
+        color = emojiTheming.secondaryColor
+      }
     }
   }
 }
