@@ -8,7 +8,7 @@ on:
 jobs:
   publish:
 
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     if: github.repository == 'vanniktech/Emoji'
 
     steps:
