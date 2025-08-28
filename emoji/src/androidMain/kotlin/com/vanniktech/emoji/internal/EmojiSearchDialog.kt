@@ -208,11 +208,9 @@ internal class DiffUtilHelper<T>(
   private val new: List<T>,
   private val id: (T) -> Int,
 ) : DiffUtil.Callback() {
-  override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-    id(old[oldItemPosition]) == id(new[newItemPosition])
+  override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) = id(old[oldItemPosition]) == id(new[newItemPosition])
 
-  override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-    old[oldItemPosition] == new[newItemPosition]
+  override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) = old[oldItemPosition] == new[newItemPosition]
 
   override fun getOldListSize() = old.size
 

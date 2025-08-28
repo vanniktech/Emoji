@@ -67,6 +67,5 @@ open class EmojiMaterialRadioButton @JvmOverloads constructor(
 
   override fun setEmojiSizeRes(@DimenRes res: Int) = setEmojiSizeRes(res, true)
 
-  override fun setEmojiSizeRes(@DimenRes res: Int, shouldInvalidate: Boolean) =
-    setEmojiSize(resources.getDimensionPixelSize(res), shouldInvalidate)
+  override fun setEmojiSizeRes(@DimenRes res: Int, shouldInvalidate: Boolean) = setEmojiSize(resources.getDimensionPixelSize(res), shouldInvalidate)
 }

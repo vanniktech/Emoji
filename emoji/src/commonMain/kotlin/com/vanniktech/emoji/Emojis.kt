@@ -24,8 +24,7 @@ private val SPACE_REMOVAL = Regex("[\\s]")
 
 internal const val VARIANT_SELECTOR_16 = '️'
 
-internal fun Emoji.isVariantSelector16() =
-  variants.isNotEmpty() && variants.all { it.unicode == "$unicode$VARIANT_SELECTOR_16" }
+internal fun Emoji.isVariantSelector16() = variants.isNotEmpty() && variants.all { it.unicode == "$unicode$VARIANT_SELECTOR_16" }
 
 /** Returns true when the string contains only emojis. Note that whitespace will be filtered out. */
 @Deprecated("Please use emojiInformation() function", replaceWith = ReplaceWith(expression = "this.emojiInformation().isOnlyEmojis"))

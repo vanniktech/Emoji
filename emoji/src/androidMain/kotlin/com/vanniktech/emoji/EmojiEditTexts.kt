@@ -50,13 +50,10 @@ fun EditText.input(emoji: Emoji, addWhitespace: Boolean = false) {
 }
 
 /** Disables the keyboard. Only [emojiPopup] will be shown. */
-fun EditText.installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait =
-  DisableKeyboardInputTrait(emojiPopup).install(this)
+fun EditText.installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait = DisableKeyboardInputTrait(emojiPopup).install(this)
 
 /** Forces this EditText to contain only one Emoji. */
-fun EditText.installForceSingleEmoji(): EmojiTrait =
-  ForceSingleEmojiTrait().install(this)
+fun EditText.installForceSingleEmoji(): EmojiTrait = ForceSingleEmojiTrait().install(this)
 
 /** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */
-fun EditText.installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait =
-  SearchInPlaceTrait(emojiPopup).install(this)
+fun EditText.installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait = SearchInPlaceTrait(emojiPopup).install(this)

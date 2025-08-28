@@ -36,6 +36,5 @@ open class EmojiLayoutFactory(
     else -> null
   }
 
-  override fun onCreateView(name: String, context: Context, attrs: AttributeSet) =
-    onCreateView(null, name, context, attrs)
+  override fun onCreateView(name: String, context: Context, attrs: AttributeSet) = onCreateView(null, name, context, attrs)
 }
