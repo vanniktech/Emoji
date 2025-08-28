@@ -1,3 +1,7 @@
+import com.android.build.gradle.api.AndroidBasePlugin
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 buildscript {
   repositories {
     mavenCentral()
@@ -52,13 +56,20 @@ allprojects {
 }
 
 subprojects {
-  plugins.withType(com.android.build.gradle.api.AndroidBasePlugin) {
-    project.apply plugin: "org.gradle.android.cache-fix"
+  plugins.withType<AndroidBasePlugin> {
+    apply(plugin = "org.gradle.android.cache-fix")
   }
 
-  project.tasks.withType(Test) {
-    testLogging {
-      testLogging.exceptionFormat = "full"
+  tasks.withType<Test>().configureEach {
+    testLogging.exceptionFormat = TestExceptionFormat.FULL
+  }
+
+  tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+      freeCompilerArgs.addAll(
+        "-Xconsistent-data-class-copy-visibility",
+        "-Xannotation-default-target=param-property",
+      )
     }
   }
 }
