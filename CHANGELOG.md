@@ -1,7 +1,14 @@
 # Change Log
 
-Version 0.22.0 *(In development)*
----------------------------------
+Version 0.22.0 *(2025-09-08)*
+-----------------------------
+
+- API: Deprecate emojisCount(), emojis() and isOnlyEmojis() function calls on CharSequence. Instead use CharSequence#emojiInformation() [\#1121](https://github.com/vanniktech/Emoji/pull/1121) ([vanniktech](https://github.com/vanniktech))
+- API: EmojiInformation#visualLength to get text length respecting that an Emoji can consist of multiple characters. [\#1118](https://github.com/vanniktech/Emoji/pull/1118) ([vanniktech](https://github.com/vanniktech))
+- Breaking: EmojiInformation rename emojis to emojiRanges & add new emojiCount property. [\#1120](https://github.com/vanniktech/Emoji/pull/1120) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Only allow non null CharSequence#emojiInformation() call. [\#1119](https://github.com/vanniktech/Emoji/pull/1119) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Correct range of EmojiRange. It was off by one. [\#1117](https://github.com/vanniktech/Emoji/pull/1117) ([vanniktech](https://github.com/vanniktech))
+- Fix: correct Emoji Popup height on devices with gesture navigation [\#1188](https://github.com/vanniktech/Emoji/pull/1188) ([DavidImbox](https://github.com/DavidImbox))
 
 Version 0.21.0 *(2024-06-27)*
 -----------------------------
