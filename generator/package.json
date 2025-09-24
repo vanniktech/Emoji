@@ -14,7 +14,7 @@
     "emoji-datasource": "^15.0.1",
     "emoji-datasource-apple": "^15.0.1",
     "emoji-datasource-facebook": "^15.0.1",
-    "emoji-datasource-google": "^15.0.1",
+    "emoji-datasource-google": "^16.0.0",
     "emoji-datasource-twitter": "^15.0.1",
     "fs-extra": "^11.0.0",
     "imagemin": "^9.0.0",
