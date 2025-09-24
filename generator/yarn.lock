@@ -741,10 +741,10 @@ duplexer3@^0.1.4:
   resolved "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.5.tgz"
   integrity sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==
 
-emoji-datasource-apple@^15.0.1:
-  version "15.1.2"
-  resolved "https://registry.npmjs.org/emoji-datasource-apple/-/emoji-datasource-apple-15.1.2.tgz"
-  integrity sha512-32UZTK36x4DlvgD1smkmBlKmmJH7qUr5Qut4U/on2uQLGqNXGbZiheq6/LEA8xRQEUrmNrGEy25wpEI6wvYmTg==
+emoji-datasource-apple@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-apple/-/emoji-datasource-apple-16.0.0.tgz#c6e0794c1fd1b88765b880b2137e11d8efa94020"
+  integrity sha512-dVYjsK0FnCry9F+PBtnivhG2K0xdwlmqYaSgiUtztUdAGPYiHYhZcVKvNBqC791g2qyEcFNTBO6utg4eQ3uLTw==
 
 emoji-datasource-facebook@^15.0.1:
   version "15.1.2"
