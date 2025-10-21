@@ -761,10 +761,10 @@ emoji-datasource-twitter@^15.0.1:
   resolved "https://registry.npmjs.org/emoji-datasource-twitter/-/emoji-datasource-twitter-15.1.2.tgz"
   integrity sha512-Xz60XJ2v8W1POg8I/UkkxJXw2FnKIPO6y20nFXjHhhGV07MqXYh3O085WaYElW8UAwUgxmASaZxvYiUUepw3qg==
 
-emoji-datasource@^15.0.1:
-  version "15.1.2"
-  resolved "https://registry.npmjs.org/emoji-datasource/-/emoji-datasource-15.1.2.tgz"
-  integrity sha512-tXAqGsrDVhgCRpFePtaD9P4Z8Ro2SUQSL/4MIJBG0SxqQJaMslEbin8J53OaFwEBu6e7JxFaIF6s4mw9+8acAQ==
+emoji-datasource@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource/-/emoji-datasource-16.0.0.tgz#7977edaa5b0099696bc720e43dd608d91ae2f208"
+  integrity sha512-/qHKqK5Nr3+8zhgO6kHmF43Fm5C8HNn0AaFRIpgw8HF3+uF0Vfc8jgLI1ZQS5ba1vBzksS8NBCjHejwLb2D/Sg==
 
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.4"
