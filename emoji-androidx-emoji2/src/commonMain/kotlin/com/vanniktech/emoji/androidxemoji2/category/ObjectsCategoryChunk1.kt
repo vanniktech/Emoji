@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object ObjectsCategoryChunk1 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83c\udfac", listOf("clapper")),
     AndroidxEmoji2("\ud83d\udcfa", listOf("tv")),
     AndroidxEmoji2("\ud83d\udcf7", listOf("camera")),
     AndroidxEmoji2("\ud83d\udcf8", listOf("camera_with_flash")),
@@ -275,6 +276,5 @@ internal object ObjectsCategoryChunk1 {
         AndroidxEmoji2("\ud83d\udee1\ufe0f", emptyList()),
       ),
     ),
-    AndroidxEmoji2("\ud83e\ude9a", listOf("carpentry_saw")),
   )
 }

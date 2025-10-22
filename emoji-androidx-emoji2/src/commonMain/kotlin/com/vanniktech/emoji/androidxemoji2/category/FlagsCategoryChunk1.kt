@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object FlagsCategoryChunk1 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83c\uddec\ud83c\uddf5", listOf("flag-gp")),
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf6", listOf("flag-gq")),
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf7", listOf("flag-gr")),
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf8", listOf("flag-gs")),
@@ -119,6 +120,5 @@ internal object FlagsCategoryChunk1 {
     AndroidxEmoji2("\ud83c\uddf5\ud83c\uddf8", listOf("flag-ps")),
     AndroidxEmoji2("\ud83c\uddf5\ud83c\uddf9", listOf("flag-pt")),
     AndroidxEmoji2("\ud83c\uddf5\ud83c\uddfc", listOf("flag-pw")),
-    AndroidxEmoji2("\ud83c\uddf5\ud83c\uddfe", listOf("flag-py")),
   )
 }

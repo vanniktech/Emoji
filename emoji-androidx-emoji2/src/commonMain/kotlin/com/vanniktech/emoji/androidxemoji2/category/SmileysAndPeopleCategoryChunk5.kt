@@ -21,6 +21,17 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 internal object SmileysAndPeopleCategoryChunk5 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
     AndroidxEmoji2(
+      unicode = "\ud83e\udd39\u200d\u2642\ufe0f",
+      shortcodes = listOf("man-juggling"),
+      variants = listOf(
+        AndroidxEmoji2("\ud83e\udd39\ud83c\udffb\u200d\u2642\ufe0f", emptyList()),
+        AndroidxEmoji2("\ud83e\udd39\ud83c\udffc\u200d\u2642\ufe0f", emptyList()),
+        AndroidxEmoji2("\ud83e\udd39\ud83c\udffd\u200d\u2642\ufe0f", emptyList()),
+        AndroidxEmoji2("\ud83e\udd39\ud83c\udffe\u200d\u2642\ufe0f", emptyList()),
+        AndroidxEmoji2("\ud83e\udd39\ud83c\udfff\u200d\u2642\ufe0f", emptyList()),
+      ),
+    ),
+    AndroidxEmoji2(
       unicode = "\ud83e\udd39\u200d\u2640\ufe0f",
       shortcodes = listOf("woman-juggling"),
       variants = listOf(
@@ -499,5 +510,6 @@ internal object SmileysAndPeopleCategoryChunk5 {
     AndroidxEmoji2("\ud83e\uddd1\u200d\ud83e\uddd2", listOf("family_adult_child")),
     AndroidxEmoji2("\ud83e\uddd1\u200d\ud83e\uddd2\u200d\ud83e\uddd2", listOf("family_adult_child_child")),
     AndroidxEmoji2("\ud83d\udc63", listOf("footprints")),
+    AndroidxEmoji2("\ud83e\udec6", listOf("fingerprint")),
   )
 }

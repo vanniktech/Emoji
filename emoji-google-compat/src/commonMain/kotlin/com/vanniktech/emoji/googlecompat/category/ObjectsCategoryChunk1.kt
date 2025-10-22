@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji("\ud83c\udfac", listOf("clapper")),
     GoogleCompatEmoji("\ud83d\udcfa", listOf("tv")),
     GoogleCompatEmoji("\ud83d\udcf7", listOf("camera")),
     GoogleCompatEmoji("\ud83d\udcf8", listOf("camera_with_flash")),
@@ -275,6 +276,5 @@ internal object ObjectsCategoryChunk1 {
         GoogleCompatEmoji("\ud83d\udee1\ufe0f", emptyList()),
       ),
     ),
-    GoogleCompatEmoji("\ud83e\ude9a", listOf("carpentry_saw")),
   )
 }

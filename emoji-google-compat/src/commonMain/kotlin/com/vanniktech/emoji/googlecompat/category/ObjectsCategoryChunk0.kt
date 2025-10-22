@@ -132,6 +132,7 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\ude98", listOf("long_drum")),
     GoogleCompatEmoji("\ud83e\ude87", listOf("maracas")),
     GoogleCompatEmoji("\ud83e\ude88", listOf("flute")),
+    GoogleCompatEmoji("\ud83e\ude89", listOf("harp")),
     GoogleCompatEmoji("\ud83d\udcf1", listOf("iphone")),
     GoogleCompatEmoji("\ud83d\udcf2", listOf("calling")),
     GoogleCompatEmoji(
@@ -203,6 +204,5 @@ internal object ObjectsCategoryChunk0 {
         GoogleCompatEmoji("\ud83d\udcfd\ufe0f", emptyList()),
       ),
     ),
-    GoogleCompatEmoji("\ud83c\udfac", listOf("clapper")),
   )
 }

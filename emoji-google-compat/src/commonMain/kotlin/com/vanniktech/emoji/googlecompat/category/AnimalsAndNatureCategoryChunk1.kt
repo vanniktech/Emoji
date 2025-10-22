@@ -29,6 +29,11 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udc1a", listOf("shell")),
     GoogleCompatEmoji("\ud83e\udeb8", listOf("coral")),
     GoogleCompatEmoji("\ud83e\udebc", listOf("jellyfish")),
+    GoogleCompatEmoji("\ud83e\udd80", listOf("crab")),
+    GoogleCompatEmoji("\ud83e\udd9e", listOf("lobster")),
+    GoogleCompatEmoji("\ud83e\udd90", listOf("shrimp")),
+    GoogleCompatEmoji("\ud83e\udd91", listOf("squid")),
+    GoogleCompatEmoji("\ud83e\uddaa", listOf("oyster")),
     GoogleCompatEmoji("\ud83d\udc0c", listOf("snail")),
     GoogleCompatEmoji("\ud83e\udd8b", listOf("butterfly")),
     GoogleCompatEmoji("\ud83d\udc1b", listOf("bug")),
@@ -97,5 +102,6 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji("\ud83e\udeb9", listOf("empty_nest")),
     GoogleCompatEmoji("\ud83e\udeba", listOf("nest_with_eggs")),
     GoogleCompatEmoji("\ud83c\udf44", listOf("mushroom")),
+    GoogleCompatEmoji("\ud83e\udebe", listOf("leafless_tree")),
   )
 }
