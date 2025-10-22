@@ -165,6 +165,7 @@ internal object SymbolsCategoryChunk1 {
         GoogleCompatEmoji("\u2122\ufe0f", emptyList()),
       ),
     ),
+    GoogleCompatEmoji("\ud83e\udedf", listOf("splatter")),
     GoogleCompatEmoji(
       unicode = "\u0023\u20e3",
       shortcodes = listOf("hash"),
@@ -359,6 +360,5 @@ internal object SymbolsCategoryChunk1 {
     GoogleCompatEmoji("\u26ab", listOf("black_circle")),
     GoogleCompatEmoji("\u26aa", listOf("white_circle")),
     GoogleCompatEmoji("\ud83d\udfe5", listOf("large_red_square")),
-    GoogleCompatEmoji("\ud83d\udfe7", listOf("large_orange_square")),
   )
 }

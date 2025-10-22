@@ -103,6 +103,7 @@ internal object FlagsCategoryChunk0 {
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddf3", listOf("cn", "flag-cn")),
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddf4", listOf("flag-co")),
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddf5", listOf("flag-cp")),
+    AndroidxEmoji2("\ud83c\udde8\ud83c\uddf6", listOf("flag-sark")),
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddf7", listOf("flag-cr")),
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddfa", listOf("flag-cu")),
     AndroidxEmoji2("\ud83c\udde8\ud83c\uddfb", listOf("flag-cv")),
@@ -143,6 +144,5 @@ internal object FlagsCategoryChunk0 {
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf1", listOf("flag-gl")),
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf2", listOf("flag-gm")),
     AndroidxEmoji2("\ud83c\uddec\ud83c\uddf3", listOf("flag-gn")),
-    AndroidxEmoji2("\ud83c\uddec\ud83c\uddf5", listOf("flag-gp")),
   )
 }

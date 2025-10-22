@@ -20,10 +20,6 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object FoodAndDrinkCategoryChunk1 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
-    AndroidxEmoji2("\ud83c\udf70", listOf("cake")),
-    AndroidxEmoji2("\ud83e\uddc1", listOf("cupcake")),
-    AndroidxEmoji2("\ud83e\udd67", listOf("pie")),
-    AndroidxEmoji2("\ud83c\udf6b", listOf("chocolate_bar")),
     AndroidxEmoji2("\ud83c\udf6c", listOf("candy")),
     AndroidxEmoji2("\ud83c\udf6d", listOf("lollipop")),
     AndroidxEmoji2("\ud83c\udf6e", listOf("custard")),

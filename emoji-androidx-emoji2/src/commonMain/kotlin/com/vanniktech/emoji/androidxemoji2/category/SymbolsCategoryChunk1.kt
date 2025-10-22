@@ -165,6 +165,7 @@ internal object SymbolsCategoryChunk1 {
         AndroidxEmoji2("\u2122\ufe0f", emptyList()),
       ),
     ),
+    AndroidxEmoji2("\ud83e\udedf", listOf("splatter")),
     AndroidxEmoji2(
       unicode = "\u0023\u20e3",
       shortcodes = listOf("hash"),
@@ -359,6 +360,5 @@ internal object SymbolsCategoryChunk1 {
     AndroidxEmoji2("\u26ab", listOf("black_circle")),
     AndroidxEmoji2("\u26aa", listOf("white_circle")),
     AndroidxEmoji2("\ud83d\udfe5", listOf("large_red_square")),
-    AndroidxEmoji2("\ud83d\udfe7", listOf("large_orange_square")),
   )
 }

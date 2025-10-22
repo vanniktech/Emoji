@@ -101,6 +101,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83d\ude2a", listOf("sleepy")),
     AndroidxEmoji2("\ud83e\udd24", listOf("drooling_face")),
     AndroidxEmoji2("\ud83d\ude34", listOf("sleeping")),
+    AndroidxEmoji2("\ud83e\udee9", listOf("face_with_bags_under_eyes")),
     AndroidxEmoji2("\ud83d\ude37", listOf("mask")),
     AndroidxEmoji2("\ud83e\udd12", listOf("face_with_thermometer")),
     AndroidxEmoji2("\ud83e\udd15", listOf("face_with_head_bandage")),
@@ -149,6 +150,5 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83d\ude1e", listOf("disappointed")),
     AndroidxEmoji2("\ud83d\ude13", listOf("sweat")),
     AndroidxEmoji2("\ud83d\ude29", listOf("weary")),
-    AndroidxEmoji2("\ud83d\ude2b", listOf("tired_face")),
   )
 }

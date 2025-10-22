@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object FlagsCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf5", listOf("flag-gp")),
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf6", listOf("flag-gq")),
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf7", listOf("flag-gr")),
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf8", listOf("flag-gs")),
@@ -119,6 +120,5 @@ internal object FlagsCategoryChunk1 {
     GoogleCompatEmoji("\ud83c\uddf5\ud83c\uddf8", listOf("flag-ps")),
     GoogleCompatEmoji("\ud83c\uddf5\ud83c\uddf9", listOf("flag-pt")),
     GoogleCompatEmoji("\ud83c\uddf5\ud83c\uddfc", listOf("flag-pw")),
-    GoogleCompatEmoji("\ud83c\uddf5\ud83c\uddfe", listOf("flag-py")),
   )
 }

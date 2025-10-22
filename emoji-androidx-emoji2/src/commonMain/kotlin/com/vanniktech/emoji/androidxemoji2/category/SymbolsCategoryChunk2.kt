@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object SymbolsCategoryChunk2 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83d\udfe7", listOf("large_orange_square")),
     AndroidxEmoji2("\ud83d\udfe8", listOf("large_yellow_square")),
     AndroidxEmoji2("\ud83d\udfe9", listOf("large_green_square")),
     AndroidxEmoji2("\ud83d\udfe6", listOf("large_blue_square")),

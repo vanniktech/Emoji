@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji("\ud83e\ude9a", listOf("carpentry_saw")),
     GoogleCompatEmoji("\ud83d\udd27", listOf("wrench")),
     GoogleCompatEmoji("\ud83e\ude9b", listOf("screwdriver")),
     GoogleCompatEmoji("\ud83d\udd29", listOf("nut_and_bolt")),
@@ -64,6 +65,7 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji("\ud83e\uddf0", listOf("toolbox")),
     GoogleCompatEmoji("\ud83e\uddf2", listOf("magnet")),
     GoogleCompatEmoji("\ud83e\ude9c", listOf("ladder")),
+    GoogleCompatEmoji("\ud83e\ude8f", listOf("shovel")),
     GoogleCompatEmoji(
       unicode = "\u2697",
       shortcodes = listOf("alembic"),
