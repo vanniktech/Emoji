@@ -29,6 +29,11 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2("\ud83d\udc1a", listOf("shell")),
     AndroidxEmoji2("\ud83e\udeb8", listOf("coral")),
     AndroidxEmoji2("\ud83e\udebc", listOf("jellyfish")),
+    AndroidxEmoji2("\ud83e\udd80", listOf("crab")),
+    AndroidxEmoji2("\ud83e\udd9e", listOf("lobster")),
+    AndroidxEmoji2("\ud83e\udd90", listOf("shrimp")),
+    AndroidxEmoji2("\ud83e\udd91", listOf("squid")),
+    AndroidxEmoji2("\ud83e\uddaa", listOf("oyster")),
     AndroidxEmoji2("\ud83d\udc0c", listOf("snail")),
     AndroidxEmoji2("\ud83e\udd8b", listOf("butterfly")),
     AndroidxEmoji2("\ud83d\udc1b", listOf("bug")),
@@ -97,5 +102,6 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2("\ud83e\udeb9", listOf("empty_nest")),
     AndroidxEmoji2("\ud83e\udeba", listOf("nest_with_eggs")),
     AndroidxEmoji2("\ud83c\udf44", listOf("mushroom")),
+    AndroidxEmoji2("\ud83e\udebe", listOf("leafless_tree")),
   )
 }

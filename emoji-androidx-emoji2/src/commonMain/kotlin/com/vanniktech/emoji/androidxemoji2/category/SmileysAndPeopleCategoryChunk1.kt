@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object SmileysAndPeopleCategoryChunk1 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83d\ude2b", listOf("tired_face")),
     AndroidxEmoji2("\ud83e\udd71", listOf("yawning_face")),
     AndroidxEmoji2("\ud83d\ude24", listOf("triumph")),
     AndroidxEmoji2("\ud83d\ude21", listOf("rage")),
@@ -481,17 +482,6 @@ internal object SmileysAndPeopleCategoryChunk1 {
         AndroidxEmoji2("\ud83d\udc4a\ud83c\udffd", emptyList()),
         AndroidxEmoji2("\ud83d\udc4a\ud83c\udffe", emptyList()),
         AndroidxEmoji2("\ud83d\udc4a\ud83c\udfff", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83e\udd1b",
-      shortcodes = listOf("left-facing_fist"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffb", emptyList()),
-        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffc", emptyList()),
-        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffd", emptyList()),
-        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffe", emptyList()),
-        AndroidxEmoji2("\ud83e\udd1b\ud83c\udfff", emptyList()),
       ),
     ),
   )
