@@ -746,10 +746,10 @@ emoji-datasource-apple@^15.0.1:
   resolved "https://registry.npmjs.org/emoji-datasource-apple/-/emoji-datasource-apple-15.1.2.tgz"
   integrity sha512-32UZTK36x4DlvgD1smkmBlKmmJH7qUr5Qut4U/on2uQLGqNXGbZiheq6/LEA8xRQEUrmNrGEy25wpEI6wvYmTg==
 
-emoji-datasource-facebook@^15.0.1:
-  version "15.1.2"
-  resolved "https://registry.npmjs.org/emoji-datasource-facebook/-/emoji-datasource-facebook-15.1.2.tgz"
-  integrity sha512-6uQXO3FOpkkxclzI0YvoHorSoUyA4NnCWCXBMWDgy5mymtnWGLDkoY+/wTQCmW1/3PIUUh47SOWPp3hdq4+Svg==
+emoji-datasource-facebook@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-datasource-facebook/-/emoji-datasource-facebook-16.0.0.tgz#42802fe5f3174d5b965edd0104f56e3811616bd9"
+  integrity sha512-b9ZxJdB7nMWGckH1vyCjPSosaa6MJYuojPPFiQ0LmDIZS8vlG454XKcmTFKrXIMAA72O4MRJMYFhvWI8pjyciQ==
 
 emoji-datasource-google@^15.0.1:
   version "15.1.2"
