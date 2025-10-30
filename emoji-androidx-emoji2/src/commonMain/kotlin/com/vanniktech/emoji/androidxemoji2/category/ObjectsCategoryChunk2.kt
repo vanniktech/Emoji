@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object ObjectsCategoryChunk2 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83e\ude9a", listOf("carpentry_saw")),
     AndroidxEmoji2("\ud83d\udd27", listOf("wrench")),
     AndroidxEmoji2("\ud83e\ude9b", listOf("screwdriver")),
     AndroidxEmoji2("\ud83d\udd29", listOf("nut_and_bolt")),
@@ -64,6 +65,7 @@ internal object ObjectsCategoryChunk2 {
     AndroidxEmoji2("\ud83e\uddf0", listOf("toolbox")),
     AndroidxEmoji2("\ud83e\uddf2", listOf("magnet")),
     AndroidxEmoji2("\ud83e\ude9c", listOf("ladder")),
+    AndroidxEmoji2("\ud83e\ude8f", listOf("shovel")),
     AndroidxEmoji2(
       unicode = "\u2697",
       shortcodes = listOf("alembic"),

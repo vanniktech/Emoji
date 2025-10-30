@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object SymbolsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji("\ud83d\udfe7", listOf("large_orange_square")),
     GoogleCompatEmoji("\ud83d\udfe8", listOf("large_yellow_square")),
     GoogleCompatEmoji("\ud83d\udfe9", listOf("large_green_square")),
     GoogleCompatEmoji("\ud83d\udfe6", listOf("large_blue_square")),

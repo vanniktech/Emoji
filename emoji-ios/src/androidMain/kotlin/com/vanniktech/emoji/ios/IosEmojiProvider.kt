@@ -110,7 +110,7 @@ class IosEmojiProvider :
     private const val CACHE_SIZE = 100
     private const val SPRITE_SIZE = 64
     private const val SPRITE_SIZE_INC_BORDER = 66
-    private const val NUM_STRIPS = 61
+    private const val NUM_STRIPS = 62
     private val SHEETS = listOf(
       R.drawable.emoji_ios_sheet_0,
       R.drawable.emoji_ios_sheet_1,
@@ -173,6 +173,7 @@ class IosEmojiProvider :
       R.drawable.emoji_ios_sheet_58,
       R.drawable.emoji_ios_sheet_59,
       R.drawable.emoji_ios_sheet_60,
+      R.drawable.emoji_ios_sheet_61,
     )
 
     private val LOCK = Any()
