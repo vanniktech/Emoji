@@ -33,7 +33,7 @@ import kotlin.jvm.JvmOverloads
 open class EmojiMaterialRadioButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
-  @AttrRes defStyleAttr: Int = com.google.android.material.R.attr.radioButtonStyle,
+  @AttrRes defStyleAttr: Int = androidx.appcompat.R.attr.radioButtonStyle,
 ) : MaterialRadioButton(context, attrs, defStyleAttr),
   EmojiDisplayable {
   @Px private var emojiSize: Float
