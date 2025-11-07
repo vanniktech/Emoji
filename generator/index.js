@@ -167,7 +167,7 @@ async function copyTargetImages(map, target, shouldOptimize) {
     if (target.module !== "google-compat" && target.module !== "androidx-emoji2") {
         const src = `node_modules/emoji-datasource-${target.dataSource}/img/${target.dataSource}/sheets-clean/64.png`;
         const sheet = await Jimp.read(src);
-        const strips = sheet.bitmap.width / 66 - 1;
+        const strips = Math.max(...allEmoji.map(it => it.sheet_x)) + 1
 
         for (let i = 0; i < strips; i++) {
             const dest = `../emoji-${target.module}/src/androidMain/res/drawable-nodpi/emoji_${target.module}_sheet_${i}.png`;
