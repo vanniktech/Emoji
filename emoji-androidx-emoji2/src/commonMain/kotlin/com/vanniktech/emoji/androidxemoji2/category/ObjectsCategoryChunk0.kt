@@ -132,6 +132,7 @@ internal object ObjectsCategoryChunk0 {
     AndroidxEmoji2("\ud83e\ude98", listOf("long_drum")),
     AndroidxEmoji2("\ud83e\ude87", listOf("maracas")),
     AndroidxEmoji2("\ud83e\ude88", listOf("flute")),
+    AndroidxEmoji2("\ud83e\ude89", listOf("harp")),
     AndroidxEmoji2("\ud83d\udcf1", listOf("iphone")),
     AndroidxEmoji2("\ud83d\udcf2", listOf("calling")),
     AndroidxEmoji2(
@@ -203,6 +204,5 @@ internal object ObjectsCategoryChunk0 {
         AndroidxEmoji2("\ud83d\udcfd\ufe0f", emptyList()),
       ),
     ),
-    AndroidxEmoji2("\ud83c\udfac", listOf("clapper")),
   )
 }

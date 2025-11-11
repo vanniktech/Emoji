@@ -20,10 +20,6 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object FoodAndDrinkCategoryChunk1 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
-    GoogleCompatEmoji("\ud83c\udf70", listOf("cake")),
-    GoogleCompatEmoji("\ud83e\uddc1", listOf("cupcake")),
-    GoogleCompatEmoji("\ud83e\udd67", listOf("pie")),
-    GoogleCompatEmoji("\ud83c\udf6b", listOf("chocolate_bar")),
     GoogleCompatEmoji("\ud83c\udf6c", listOf("candy")),
     GoogleCompatEmoji("\ud83c\udf6d", listOf("lollipop")),
     GoogleCompatEmoji("\ud83c\udf6e", listOf("custard")),

@@ -101,6 +101,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\ude2a", listOf("sleepy")),
     GoogleCompatEmoji("\ud83e\udd24", listOf("drooling_face")),
     GoogleCompatEmoji("\ud83d\ude34", listOf("sleeping")),
+    GoogleCompatEmoji("\ud83e\udee9", listOf("face_with_bags_under_eyes")),
     GoogleCompatEmoji("\ud83d\ude37", listOf("mask")),
     GoogleCompatEmoji("\ud83e\udd12", listOf("face_with_thermometer")),
     GoogleCompatEmoji("\ud83e\udd15", listOf("face_with_head_bandage")),
@@ -149,6 +150,5 @@ internal object SmileysAndPeopleCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\ude1e", listOf("disappointed")),
     GoogleCompatEmoji("\ud83d\ude13", listOf("sweat")),
     GoogleCompatEmoji("\ud83d\ude29", listOf("weary")),
-    GoogleCompatEmoji("\ud83d\ude2b", listOf("tired_face")),
   )
 }

@@ -21,6 +21,17 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 internal object SmileysAndPeopleCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji(
+      unicode = "\ud83e\udd1b",
+      shortcodes = listOf("left-facing_fist"),
+      variants = listOf(
+        GoogleCompatEmoji("\ud83e\udd1b\ud83c\udffb", emptyList()),
+        GoogleCompatEmoji("\ud83e\udd1b\ud83c\udffc", emptyList()),
+        GoogleCompatEmoji("\ud83e\udd1b\ud83c\udffd", emptyList()),
+        GoogleCompatEmoji("\ud83e\udd1b\ud83c\udffe", emptyList()),
+        GoogleCompatEmoji("\ud83e\udd1b\ud83c\udfff", emptyList()),
+      ),
+    ),
+    GoogleCompatEmoji(
       unicode = "\ud83e\udd1c",
       shortcodes = listOf("right-facing_fist"),
       variants = listOf(
@@ -1013,17 +1024,6 @@ internal object SmileysAndPeopleCategoryChunk2 {
         GoogleCompatEmoji("\ud83d\udc69\ud83c\udffd\u200d\u2696\ufe0f", emptyList()),
         GoogleCompatEmoji("\ud83d\udc69\ud83c\udffe\u200d\u2696\ufe0f", emptyList()),
         GoogleCompatEmoji("\ud83d\udc69\ud83c\udfff\u200d\u2696\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83e\uddd1\u200d\ud83c\udf3e",
-      shortcodes = listOf("farmer"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83e\uddd1\ud83c\udffb\u200d\ud83c\udf3e", emptyList()),
-        GoogleCompatEmoji("\ud83e\uddd1\ud83c\udffc\u200d\ud83c\udf3e", emptyList()),
-        GoogleCompatEmoji("\ud83e\uddd1\ud83c\udffd\u200d\ud83c\udf3e", emptyList()),
-        GoogleCompatEmoji("\ud83e\uddd1\ud83c\udffe\u200d\ud83c\udf3e", emptyList()),
-        GoogleCompatEmoji("\ud83e\uddd1\ud83c\udfff\u200d\ud83c\udf3e", emptyList()),
       ),
     ),
   )

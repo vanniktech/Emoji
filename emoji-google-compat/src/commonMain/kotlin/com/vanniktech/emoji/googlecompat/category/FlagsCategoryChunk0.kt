@@ -103,6 +103,7 @@ internal object FlagsCategoryChunk0 {
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddf3", listOf("cn", "flag-cn")),
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddf4", listOf("flag-co")),
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddf5", listOf("flag-cp")),
+    GoogleCompatEmoji("\ud83c\udde8\ud83c\uddf6", listOf("flag-sark")),
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddf7", listOf("flag-cr")),
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddfa", listOf("flag-cu")),
     GoogleCompatEmoji("\ud83c\udde8\ud83c\uddfb", listOf("flag-cv")),
@@ -143,6 +144,5 @@ internal object FlagsCategoryChunk0 {
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf1", listOf("flag-gl")),
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf2", listOf("flag-gm")),
     GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf3", listOf("flag-gn")),
-    GoogleCompatEmoji("\ud83c\uddec\ud83c\uddf5", listOf("flag-gp")),
   )
 }

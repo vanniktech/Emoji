@@ -20,6 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object FlagsCategoryChunk2 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
+    AndroidxEmoji2("\ud83c\uddf5\ud83c\uddfe", listOf("flag-py")),
     AndroidxEmoji2("\ud83c\uddf6\ud83c\udde6", listOf("flag-qa")),
     AndroidxEmoji2("\ud83c\uddf7\ud83c\uddea", listOf("flag-re")),
     AndroidxEmoji2("\ud83c\uddf7\ud83c\uddf4", listOf("flag-ro")),

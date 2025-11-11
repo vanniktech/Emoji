@@ -20,6 +20,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object FlagsCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
+    GoogleCompatEmoji("\ud83c\uddf5\ud83c\uddfe", listOf("flag-py")),
     GoogleCompatEmoji("\ud83c\uddf6\ud83c\udde6", listOf("flag-qa")),
     GoogleCompatEmoji("\ud83c\uddf7\ud83c\uddea", listOf("flag-re")),
     GoogleCompatEmoji("\ud83c\uddf7\ud83c\uddf4", listOf("flag-ro")),

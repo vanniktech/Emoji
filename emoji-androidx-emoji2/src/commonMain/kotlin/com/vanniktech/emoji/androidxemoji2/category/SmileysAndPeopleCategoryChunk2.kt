@@ -21,6 +21,17 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 internal object SmileysAndPeopleCategoryChunk2 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
     AndroidxEmoji2(
+      unicode = "\ud83e\udd1b",
+      shortcodes = listOf("left-facing_fist"),
+      variants = listOf(
+        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffb", emptyList()),
+        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffc", emptyList()),
+        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffd", emptyList()),
+        AndroidxEmoji2("\ud83e\udd1b\ud83c\udffe", emptyList()),
+        AndroidxEmoji2("\ud83e\udd1b\ud83c\udfff", emptyList()),
+      ),
+    ),
+    AndroidxEmoji2(
       unicode = "\ud83e\udd1c",
       shortcodes = listOf("right-facing_fist"),
       variants = listOf(
@@ -1013,17 +1024,6 @@ internal object SmileysAndPeopleCategoryChunk2 {
         AndroidxEmoji2("\ud83d\udc69\ud83c\udffd\u200d\u2696\ufe0f", emptyList()),
         AndroidxEmoji2("\ud83d\udc69\ud83c\udffe\u200d\u2696\ufe0f", emptyList()),
         AndroidxEmoji2("\ud83d\udc69\ud83c\udfff\u200d\u2696\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83e\uddd1\u200d\ud83c\udf3e",
-      shortcodes = listOf("farmer"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\uddd1\ud83c\udffb\u200d\ud83c\udf3e", emptyList()),
-        AndroidxEmoji2("\ud83e\uddd1\ud83c\udffc\u200d\ud83c\udf3e", emptyList()),
-        AndroidxEmoji2("\ud83e\uddd1\ud83c\udffd\u200d\ud83c\udf3e", emptyList()),
-        AndroidxEmoji2("\ud83e\uddd1\ud83c\udffe\u200d\ud83c\udf3e", emptyList()),
-        AndroidxEmoji2("\ud83e\uddd1\ud83c\udfff\u200d\ud83c\udf3e", emptyList()),
       ),
     ),
   )
