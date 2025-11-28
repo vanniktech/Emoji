@@ -1,7 +1,11 @@
 # Change Log
 
-Version 0.23.0 *(In development)*
----------------------------------
+Version 0.23.0 *(2025-11-27)*
+-----------------------------
+
+- API: SearchEmojiManager trim query by default. [\#1218](https://github.com/vanniktech/Emoji/pull/1218) ([vanniktech](https://github.com/vanniktech))
+- API: Support Emoji Unicode List v16. [\#1209](https://github.com/vanniktech/Emoji/pull/1209) ([vanniktech](https://github.com/vanniktech))
+- Technical: Update com.google.android.material to 1.13.0 [\#1211](https://github.com/vanniktech/Emoji/pull/1211) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.22.0 *(2025-09-08)*
 -----------------------------
