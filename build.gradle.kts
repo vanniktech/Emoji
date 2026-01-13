@@ -39,9 +39,6 @@ codeQualityTools {
   ktlint {
     toolVersion = libs.versions.ktlint.get()
   }
-  detekt {
-    enabled = false
-  }
   cpd {
     enabled = false
   }
