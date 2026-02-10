@@ -2,10 +2,10 @@
 package com.vanniktech.emoji {
 
   public interface Emoji {
-    method public com.vanniktech.emoji.Emoji getBase();
-    method public java.util.List<java.lang.String> getShortcodes();
-    method public String getUnicode();
-    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants();
+    method @InaccessibleFromKotlin public com.vanniktech.emoji.Emoji getBase();
+    method @InaccessibleFromKotlin public java.util.List<java.lang.String> getShortcodes();
+    method @InaccessibleFromKotlin public String getUnicode();
+    method @InaccessibleFromKotlin public java.util.List<com.vanniktech.emoji.Emoji> getVariants();
     property public abstract com.vanniktech.emoji.Emoji base;
     property public abstract java.util.List<java.lang.String> shortcodes;
     property public abstract String unicode;
@@ -38,8 +38,8 @@ package com.vanniktech.emoji {
   }
 
   public interface EmojiCategory {
-    method public java.util.Map<java.lang.String,java.lang.String> getCategoryNames();
-    method public java.util.List<com.vanniktech.emoji.Emoji> getEmojis();
+    method @InaccessibleFromKotlin public java.util.Map<java.lang.String,java.lang.String> getCategoryNames();
+    method @InaccessibleFromKotlin public java.util.List<com.vanniktech.emoji.Emoji> getEmojis();
     property public abstract java.util.Map<java.lang.String,java.lang.String> categoryNames;
     property public abstract java.util.List<com.vanniktech.emoji.Emoji> emojis;
   }
@@ -84,15 +84,19 @@ package com.vanniktech.emoji {
     method public int component1();
     method public boolean component2();
     method public java.util.List<com.vanniktech.emoji.EmojiRange> component3();
-    method public com.vanniktech.emoji.EmojiInformation copy(int visualLength, boolean isOnlyEmojis, java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges);
-    method public int getEmojiCount();
-    property public final int emojiCount;
+    method public com.vanniktech.emoji.EmojiInformation copy(optional int visualLength, optional boolean isOnlyEmojis, optional java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges);
+    method @InaccessibleFromKotlin public int getEmojiCount();
+    property public int emojiCount;
+    property public java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges;
+    property public boolean isOnlyEmojis;
+    property public int visualLength;
     field public final java.util.List<com.vanniktech.emoji.EmojiRange> emojiRanges;
     field public final boolean isOnlyEmojis;
     field public final int visualLength;
   }
 
   public class EmojiLayoutFactory implements android.view.LayoutInflater.Factory2 {
+    ctor public EmojiLayoutFactory();
     ctor public EmojiLayoutFactory(optional android.view.LayoutInflater.Factory2? delegate);
     method public android.view.View? onCreateView(android.view.View? parent, String name, android.content.Context context, android.util.AttributeSet attrs);
     method public android.view.View? onCreateView(String name, android.content.Context context, android.util.AttributeSet attrs);
@@ -135,14 +139,14 @@ package com.vanniktech.emoji {
     ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener);
     ctor public EmojiPopup(android.view.View rootView, android.widget.EditText editText, optional com.vanniktech.emoji.EmojiTheming theming, optional com.vanniktech.emoji.recent.RecentEmoji recentEmoji, optional com.vanniktech.emoji.search.SearchEmoji searchEmoji, optional com.vanniktech.emoji.variant.VariantEmoji variantEmoji, optional androidx.viewpager.widget.ViewPager.PageTransformer? pageTransformer, optional @StyleRes int keyboardAnimationStyle, optional int popupWindowHeight, optional com.vanniktech.emoji.listeners.OnEmojiPopupShownListener? onEmojiPopupShownListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardCloseListener? onSoftKeyboardCloseListener, optional com.vanniktech.emoji.listeners.OnSoftKeyboardOpenListener? onSoftKeyboardOpenListener, optional com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener? onEmojiBackspaceClickListener, optional com.vanniktech.emoji.listeners.OnEmojiClickListener? onEmojiClickListener, optional com.vanniktech.emoji.listeners.OnEmojiPopupDismissListener? onEmojiPopupDismissListener);
     method public void dismiss();
-    method public boolean isShowing();
+    method @InaccessibleFromKotlin public boolean isShowing();
     method public void show();
     method public void toggle();
-    property public final boolean isShowing;
+    property public boolean isShowing;
   }
 
   public interface EmojiProvider {
-    method public com.vanniktech.emoji.EmojiCategory[] getCategories();
+    method @InaccessibleFromKotlin public com.vanniktech.emoji.EmojiCategory[] getCategories();
     method public void release();
     property public abstract com.vanniktech.emoji.EmojiCategory[] categories;
   }
@@ -151,7 +155,9 @@ package com.vanniktech.emoji {
     ctor public EmojiRange(com.vanniktech.emoji.Emoji emoji, kotlin.ranges.IntRange range);
     method public com.vanniktech.emoji.Emoji component1();
     method public kotlin.ranges.IntRange component2();
-    method public com.vanniktech.emoji.EmojiRange copy(com.vanniktech.emoji.Emoji emoji, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.EmojiRange copy(optional com.vanniktech.emoji.Emoji emoji, optional kotlin.ranges.IntRange range);
+    property public com.vanniktech.emoji.Emoji emoji;
+    property public kotlin.ranges.IntRange range;
     field public final com.vanniktech.emoji.Emoji emoji;
     field public final kotlin.ranges.IntRange range;
   }
@@ -182,7 +188,13 @@ package com.vanniktech.emoji {
     method public int component4();
     method public int component5();
     method public int component6();
-    method public com.vanniktech.emoji.EmojiTheming copy(@ColorInt int backgroundColor, @ColorInt int primaryColor, @ColorInt int secondaryColor, @ColorInt int dividerColor, @ColorInt int textColor, @ColorInt int textSecondaryColor);
+    method public com.vanniktech.emoji.EmojiTheming copy(optional @ColorInt int backgroundColor, optional @ColorInt int primaryColor, optional @ColorInt int secondaryColor, optional @ColorInt int dividerColor, optional @ColorInt int textColor, optional @ColorInt int textSecondaryColor);
+    property public int backgroundColor;
+    property public int dividerColor;
+    property public int primaryColor;
+    property public int secondaryColor;
+    property public int textColor;
+    property public int textSecondaryColor;
     field public static final com.vanniktech.emoji.EmojiTheming.Companion Companion;
     field public final int backgroundColor;
     field public final int dividerColor;
@@ -234,7 +246,7 @@ package com.vanniktech.emoji.inputfilters {
 package com.vanniktech.emoji.internal {
 
   public final class ParcelableUtilsKt {
-    method public static inline <reified T extends android.os.Parcelable> T? parcelable(android.os.Bundle, String key);
+    method @KotlinOnly public static inline <reified T extends android.os.Parcelable> T? parcelable(android.os.Bundle, String key);
   }
 
 }
@@ -313,7 +325,10 @@ package com.vanniktech.emoji.search {
     method public com.vanniktech.emoji.Emoji component1();
     method public String component2();
     method public kotlin.ranges.IntRange component3();
-    method public com.vanniktech.emoji.search.SearchEmojiResult copy(com.vanniktech.emoji.Emoji emoji, String shortcode, kotlin.ranges.IntRange range);
+    method public com.vanniktech.emoji.search.SearchEmojiResult copy(optional com.vanniktech.emoji.Emoji emoji, optional String shortcode, optional kotlin.ranges.IntRange range);
+    property public com.vanniktech.emoji.Emoji emoji;
+    property public kotlin.ranges.IntRange range;
+    property public String shortcode;
     field public final com.vanniktech.emoji.Emoji emoji;
     field public final kotlin.ranges.IntRange range;
     field public final String shortcode;
