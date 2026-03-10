@@ -27,7 +27,7 @@ kotlin {
   iosArm64()
   iosSimulatorArm64()
   jvm()
-  jvmToolchain(11)
+  jvmToolchain(21)
 
   sourceSets {
     val commonMain by getting {
@@ -77,11 +77,6 @@ android {
   namespace = "com.vanniktech.emoji.androidxemoji2"
 
   compileSdk = libs.versions.compileSdk.get().toInt()
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-  }
 
   defaultConfig {
     minSdk = libs.versions.minSdk.get().toInt()

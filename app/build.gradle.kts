@@ -4,7 +4,7 @@ plugins {
 }
 
 kotlin {
-  jvmToolchain(11)
+  jvmToolchain(21)
 }
 
 android {
@@ -16,11 +16,6 @@ android {
   namespace = "com.vanniktech.emoji.sample"
 
   compileSdk = libs.versions.compileSdk.get().toInt()
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-  }
 
   defaultConfig {
     applicationId = "com.vanniktech.emoji.sample"
