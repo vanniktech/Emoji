@@ -17,6 +17,7 @@
 package com.vanniktech.emoji.variant
 
 import android.content.Context
+import androidx.core.content.edit
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.isVariantSelector16
@@ -64,15 +65,15 @@ class VariantEmojiManager(
   }
 
   override fun persist() {
-    if (variantsList.size > 0) {
+    if (variantsList.isNotEmpty()) {
       val stringBuilder = StringBuilder(variantsList.size * EMOJI_GUESS_SIZE)
       for (i in variantsList.indices) {
         stringBuilder.append(variantsList[i].unicode).append(EMOJI_DELIMITER)
       }
       stringBuilder.setLength(stringBuilder.length - EMOJI_DELIMITER.length)
-      preferences.edit().putString(VARIANT_EMOJIS, stringBuilder.toString()).apply()
+      preferences.edit { putString(VARIANT_EMOJIS, stringBuilder.toString()) }
     } else {
-      preferences.edit().remove(VARIANT_EMOJIS).apply()
+      preferences.edit { remove(VARIANT_EMOJIS) }
     }
   }
 

@@ -21,6 +21,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Paint.FontMetricsInt
 import android.text.style.DynamicDrawableSpan
+import androidx.core.graphics.withTranslation
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 import kotlin.math.abs
@@ -86,9 +87,8 @@ internal class EmojiSpan(
     val fontHeight = paintFontMetrics.descent - paintFontMetrics.ascent
     val centerY = y + paintFontMetrics.descent - fontHeight / 2
     val transitionY = centerY - size / 2
-    canvas.save()
-    canvas.translate(x, transitionY)
-    drawable.draw(canvas)
-    canvas.restore()
+    canvas.withTranslation(x, transitionY) {
+      drawable.draw(this)
+    }
   }
 }

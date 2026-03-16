@@ -55,6 +55,7 @@ internal class EmojiVariantPopup internal constructor(
       isFocusable = true
       isOutsideTouchable = true
       inputMethodMode = PopupWindow.INPUT_METHOD_NOT_NEEDED
+      //noinspection AndroidLintUseKtx https://issuetracker.google.com/issues/492246721
       setBackgroundDrawable(BitmapDrawable(context.resources, null as Bitmap?)) // To avoid borders and overdraw.
       showAtLocation(rootView, Gravity.NO_GRAVITY, desiredLocation.x, desiredLocation.y)
       Utils.fixPopupLocation(this, desiredLocation)
