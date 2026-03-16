@@ -106,6 +106,7 @@ class EmojiPopup @JvmOverloads constructor(
     )
     popupWindow.contentView = emojiView
     popupWindow.inputMethodMode = PopupWindow.INPUT_METHOD_NOT_NEEDED
+    //noinspection AndroidLintUseKtx https://issuetracker.google.com/issues/492246721
     popupWindow.setBackgroundDrawable(BitmapDrawable(context.resources, null as Bitmap?)) // To avoid borders and overdraw.
     popupWindow.setOnDismissListener(onDismissListener)
     if (keyboardAnimationStyle != 0) {

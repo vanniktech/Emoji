@@ -20,9 +20,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Point
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.LruCache
+import androidx.core.graphics.drawable.toDrawable
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiCategory
@@ -71,12 +71,12 @@ class TwitterEmojiProvider :
     val key = Point(x, y)
     val bitmap = BITMAP_CACHE[key]
     if (bitmap != null) {
-      return BitmapDrawable(context.resources, bitmap)
+      return bitmap.toDrawable(context.resources)
     }
     val strip = loadStrip(x, context)
     val cut = Bitmap.createBitmap(strip!!, 1, y * SPRITE_SIZE_INC_BORDER + 1, SPRITE_SIZE, SPRITE_SIZE)
     BITMAP_CACHE.put(key, cut)
-    return BitmapDrawable(context.resources, cut)
+    return cut.toDrawable(context.resources)
   }
 
   private fun loadStrip(x: Int, context: Context?): Bitmap? {

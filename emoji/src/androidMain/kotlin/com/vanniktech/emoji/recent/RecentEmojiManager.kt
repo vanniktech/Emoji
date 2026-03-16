@@ -17,6 +17,7 @@
 package com.vanniktech.emoji.recent
 
 import android.content.Context
+import androidx.core.content.edit
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 
@@ -73,7 +74,7 @@ class RecentEmojiManager @JvmOverloads constructor(
           .append(EMOJI_DELIMITER)
       }
       stringBuilder.setLength(stringBuilder.length - EMOJI_DELIMITER.length)
-      sharedPreferences.edit().putString(RECENT_EMOJIS, stringBuilder.toString()).apply()
+      sharedPreferences.edit { putString(RECENT_EMOJIS, stringBuilder.toString()) }
     }
   }
 
