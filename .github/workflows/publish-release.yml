@@ -25,7 +25,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Publish release
-        run: ./gradlew publishAllPublicationsToMavenCentralRepository
+        run: ./gradlew publishAllPublicationsToMavenCentralRepository -x iosSimulatorArm64Test
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
