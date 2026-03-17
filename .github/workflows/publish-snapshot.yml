@@ -8,7 +8,7 @@ on:
 jobs:
   publish:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     if: github.repository == 'vanniktech/Emoji'
 
     steps:
@@ -29,7 +29,7 @@ jobs:
           echo "VERSION_NAME=$(cat gradle.properties | grep -w "VERSION_NAME" | cut -d'=' -f2)" >> $GITHUB_ENV
 
       - name: Publish snapshot
-        run: ./gradlew publishAllPublicationsToMavenCentralRepository
+        run: ./gradlew publishAllPublicationsToMavenCentralRepository -x iosSimulatorArm64Test
         if: endsWith(env.VERSION_NAME, '-SNAPSHOT')
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
