@@ -28,8 +28,8 @@ jobs:
           java-version: ${{ matrix.java_version }}
 
       - name: Test spawn standalone iOS 26.2
-         timeout-minutes: 2
-         run: xcrun simctl spawn --standalone CB3DAAF1-A853-4818-BFF6-1CE5393DBEE7 /usr/bin/true && echo "OK 26.2"
+        timeout-minutes: 2
+        run: xcrun simctl spawn --standalone CB3DAAF1-A853-4818-BFF6-1CE5393DBEE7 /usr/bin/true && echo "OK 26.2"
 
       - name: Test spawn standalone iOS 26.1
         timeout-minutes: 2
