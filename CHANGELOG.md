@@ -1,7 +1,12 @@
 # Change Log
 
-Version 0.24.0 *(In development)*
----------------------------------
+Version 0.24.0 *(2026-03-23)*
+-----------------------------
+
+- Publishing: Use mac-os-latest to fix KT-84975 [\#1236](https://github.com/vanniktech/Emoji/pull/1236) ([vanniktech](https://github.com/vanniktech))
+- Technical: Update Android Gradle Plugin to 8.13.2 [\#1237](https://github.com/vanniktech/Emoji/pull/1237) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Use Java 21 instead of 11. [\#1234](https://github.com/vanniktech/Emoji/pull/1234) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Bump minSdk from 21 to 23. [\#1233](https://github.com/vanniktech/Emoji/pull/1233) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.23.0 *(2025-11-27)*
 -----------------------------
