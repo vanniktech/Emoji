@@ -48,3 +48,10 @@ jobs:
       - name: Show CoreSimulator log
         if: always()
         run: tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log || echo "no log"
+
+      - name: Upload CoreSimulator log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coresimulator-log
+          path: ~/Library/Logs/CoreSimulator/CoreSimulator.log
