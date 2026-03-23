@@ -1,6 +1,6 @@
 # Change Log
 
-Version 0.24.0 *(2026-03-23)*
+Version 0.24.1 *(2026-03-23)*
 -----------------------------
 
 - Publishing: Use mac-os-latest to fix KT-84975 [\#1236](https://github.com/vanniktech/Emoji/pull/1236) ([vanniktech](https://github.com/vanniktech))
