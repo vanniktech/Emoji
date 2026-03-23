@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'EmojiGoogle'
-    spec.version                  = '0.24.1'
+    spec.version                  = '0.25.0-SNAPSHOT'
     spec.homepage                 = 'https://github.com/vanniktech/Emoji'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
