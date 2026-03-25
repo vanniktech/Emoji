@@ -1,102 +1,83 @@
 name: Build
 
-on: [push, pull_request, merge_group]
+on:
+  push:
+    branches:
+      - KT-84975-hanging
 
 jobs:
   build:
-    name: JDK ${{ matrix.java_version }}
     runs-on: macos-latest
     timeout-minutes: 40
-
-    strategy:
-      matrix:
-        java_version: [17]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Gradle Wrapper Validation
-        uses: gradle/actions/wrapper-validation@v5
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Install JDK ${{ matrix.java_version }}
+      - name: Install JDK 17
         uses: actions/setup-java@v5
         with:
           distribution: zulu
-          java-version: ${{ matrix.java_version }}
+          java-version: 17
 
-      - name: Test spawn standalone iOS 26.2
-        timeout-minutes: 2
-        run: xcrun simctl spawn --standalone CB3DAAF1-A853-4818-BFF6-1CE5393DBEE7 /usr/bin/true && echo "OK 26.2"
-
-      - name: Test spawn standalone iOS 26.1
-        timeout-minutes: 2
-        run: xcrun simctl spawn --standalone 3C8FC54B-47D7-4289-95E1-693973B7FFB7 /usr/bin/true && echo "OK 26.1"
-
-      - name: Show available devices
-        run: xcrun simctl list devices available
-
-      - name: Show available runtimes
-        run: xcrun simctl list runtimes
-
-      - name: Create Gradle log marker
-        run: touch /tmp/gradle_start_marker
+      - name: Create diagnostics dir
+        run: mkdir -p diagnostics
 
       - name: Run iOS Simulator Arm64 Tests
         timeout-minutes: 20
         run: |
-          ./gradlew iosSimulatorArm64Test \
+          ./gradlew :emoji:iosSimulatorArm64Test \
             --no-daemon \
             --stacktrace \
             --debug \
             --console=plain \
-            > gradle.log 2>&1
+            > diagnostics/gradle.log 2>&1
 
       - name: Show short diagnostics
         if: failure() || cancelled()
         run: |
-          echo "=== PROCESSES ==="
-          ps -eo pid,ppid,%cpu,%mem,stat,etime,command | \
-            grep -Ei "gradle|java|simulator|coresimulator|xctest|simctl|xcode|konan" || true
-
-          echo "=== JPS ==="
-          jps -lv || true
-
-          echo "=== SIMCTL DEVICES ==="
-          xcrun simctl list devices available || true
-
-          echo "=== SIMCTL RUNTIMES ==="
-          xcrun simctl list runtimes || true
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command > diagnostics/processes.txt
+          jps -lv > diagnostics/jps.txt || true
 
       - name: Save thread dumps
         if: failure() || cancelled()
         run: |
-          : > jstack.txt
+          : > diagnostics/jstack.txt
           for pid in $(jps | awk '{print $1}'); do
-            echo "--- jstack $pid ---" >> jstack.txt
-            jstack "$pid" >> jstack.txt 2>&1 || true
+            echo "--- jstack $pid ---" >> diagnostics/jstack.txt
+            jstack "$pid" >> diagnostics/jstack.txt 2>&1 || true
           done
 
-      - name: Show Gradle daemon log
-        if: always()
+      - name: Sample hanging processes
+        if: failure() || cancelled()
         run: |
-          find ~/.gradle/daemon -name "*.out.log" -newer /tmp/gradle_start_marker \
-            -exec tail -5000 {} + || echo "no daemon log found"
+          TEST_PID="$(ps -eo pid=,command= | grep 'emoji/build/bin/iosSimulatorArm64/debugTest/test.kexe' | grep -v grep | awk 'NR==1{print $1}')"
+          SIMCTL_PID="$(ps -eo pid=,command= | grep 'simctl spawn --standalone' | grep 'test.kexe' | grep -v grep | awk 'NR==1{print $1}')"
 
-      - name: Show CoreSimulator log
+          {
+            echo "TEST_PID=$TEST_PID"
+            echo "SIMCTL_PID=$SIMCTL_PID"
+          } > diagnostics/pids.txt
+
+          if [ -n "$TEST_PID" ]; then
+            sample "$TEST_PID" 10 1 -file diagnostics/test-kexe-sample.txt || true
+          fi
+
+          if [ -n "$SIMCTL_PID" ]; then
+            sample "$SIMCTL_PID" 10 1 -file diagnostics/simctl-sample.txt || true
+          fi
+
+      - name: Save CoreSimulator log
         if: always()
         run: |
-          tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log || echo "no log"
+          tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log > diagnostics/CoreSimulator.log || echo "no log" > diagnostics/CoreSimulator.log
 
       - name: Upload diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ios-test-diagnostics
-          path: |
-            gradle.log
-            jstack.txt
-            ~/Library/Logs/CoreSimulator/CoreSimulator.log
+          path: diagnostics
