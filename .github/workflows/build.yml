@@ -36,7 +36,13 @@ jobs:
         run: xcrun simctl spawn --standalone 3C8FC54B-47D7-4289-95E1-693973B7FFB7 /usr/bin/true && echo "OK 26.1"
 
       - name: Show available simulators
+        run: xcrun simctl list runtimes
+
+      - name: Show available simulators
         run: xcrun simctl list devices available
+
+      - name: Show available runtimes
+        run: xcrun simctl list runtimes
 
       - name: Run iOS Simulator Arm64 Tests
         run: ./gradlew iosSimulatorArm64Test --info
