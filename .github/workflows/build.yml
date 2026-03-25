@@ -41,11 +41,16 @@ jobs:
       - name: Show available simulators
         run: xcrun simctl list devices available
 
-      - name: Show available runtimes
-        run: xcrun simctl list runtimes
-
       - name: Run iOS Simulator Arm64 Tests
-        run: ./gradlew iosSimulatorArm64Test --info
+        timeout-minutes: 20
+        run: ./gradlew :emoji:iosSimulatorArm64Test --info --debug > /tmp/gradle-debug.log 2>&1 || true
+
+      - name: Upload Gradle debug log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-debug-log
+          path: /tmp/gradle-debug.log
 
       - name: Show Gradle daemon log
         if: always()
