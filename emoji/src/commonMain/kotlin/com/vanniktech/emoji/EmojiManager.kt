@@ -134,7 +134,7 @@ object EmojiManager {
    */
   @JvmStatic fun destroy() {
     LOCK.use {
-      release()
+      emojiProvider?.release()
       emojiMap.clear()
       emojiProvider = null
       categories = null
