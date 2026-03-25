@@ -7,24 +7,32 @@ on:
 
 jobs:
   build:
+    name: JDK ${{ matrix.java_version }}
     runs-on: macos-latest
     timeout-minutes: 40
+
+    strategy:
+      matrix:
+        java_version: [17]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Gradle Wrapper Validation
+        uses: gradle/actions/wrapper-validation@v5
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Install JDK 17
+      - name: Install JDK ${{ matrix.java_version }}
         uses: actions/setup-java@v5
         with:
           distribution: zulu
-          java-version: 17
+          java-version: ${{ matrix.java_version }}
 
-      - name: Create diagnostics dir
-        run: mkdir -p diagnostics
+      - name: Create log marker
+        run: touch /tmp/gradle_start_marker
 
       - name: Run iOS Simulator Arm64 Tests
         timeout-minutes: 20
@@ -34,50 +42,80 @@ jobs:
             --stacktrace \
             --debug \
             --console=plain \
-            > diagnostics/gradle.log 2>&1
+            > gradle.log 2>&1
 
       - name: Show short diagnostics
         if: failure() || cancelled()
         run: |
-          ps -eo pid,ppid,%cpu,%mem,stat,etime,command > diagnostics/processes.txt
-          jps -lv > diagnostics/jps.txt || true
+          echo "=== PROCESSES ==="
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command | \
+            grep -Ei "gradle|java|simulator|coresimulator|xctest|simctl|xcode|konan|kexe" || true
 
-      - name: Save thread dumps
+          echo "=== JPS ==="
+          jps -lv || true
+
+      - name: Save Java thread dumps
         if: failure() || cancelled()
         run: |
-          : > diagnostics/jstack.txt
+          : > jstack.txt
           for pid in $(jps | awk '{print $1}'); do
-            echo "--- jstack $pid ---" >> diagnostics/jstack.txt
-            jstack "$pid" >> diagnostics/jstack.txt 2>&1 || true
+            echo "--- jstack $pid ---" >> jstack.txt
+            jstack "$pid" >> jstack.txt 2>&1 || true
+            echo >> jstack.txt
           done
 
-      - name: Sample hanging processes
+      - name: Save native samples
         if: failure() || cancelled()
         run: |
-          TEST_PID="$(ps -eo pid=,command= | grep 'emoji/build/bin/iosSimulatorArm64/debugTest/test.kexe' | grep -v grep | awk 'NR==1{print $1}')"
-          SIMCTL_PID="$(ps -eo pid=,command= | grep 'simctl spawn --standalone' | grep 'test.kexe' | grep -v grep | awk 'NR==1{print $1}')"
+          : > native-samples.txt
 
-          {
-            echo "TEST_PID=$TEST_PID"
-            echo "SIMCTL_PID=$SIMCTL_PID"
-          } > diagnostics/pids.txt
+          echo "=== process list ===" >> native-samples.txt
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command >> native-samples.txt 2>&1 || true
+          echo >> native-samples.txt
 
-          if [ -n "$TEST_PID" ]; then
-            sample "$TEST_PID" 10 1 -file diagnostics/test-kexe-sample.txt || true
-          fi
+          SIMCTL_PID=$(ps -eo pid=,command= | grep "simctl spawn --standalone" | grep -v grep | awk '{print $1}' | head -1)
+          KEXE_PID=$(ps -eo pid=,command= | grep "/emoji/build/bin/iosSimulatorArm64/debugTest/test.kexe" | grep -v grep | awk '{print $1}' | head -1)
+
+          echo "SIMCTL_PID=$SIMCTL_PID" >> native-samples.txt
+          echo "KEXE_PID=$KEXE_PID" >> native-samples.txt
+          echo >> native-samples.txt
 
           if [ -n "$SIMCTL_PID" ]; then
-            sample "$SIMCTL_PID" 10 1 -file diagnostics/simctl-sample.txt || true
+            echo "--- sample simctl pid=$SIMCTL_PID ---" >> native-samples.txt
+            sample "$SIMCTL_PID" 5 1 >> native-samples.txt 2>&1 || true
+            echo >> native-samples.txt
+          else
+            echo "simctl pid not found" >> native-samples.txt
+            echo >> native-samples.txt
           fi
 
-      - name: Save CoreSimulator log
+          if [ -n "$KEXE_PID" ]; then
+            echo "--- sample test.kexe pid=$KEXE_PID ---" >> native-samples.txt
+            sample "$KEXE_PID" 5 1 >> native-samples.txt 2>&1 || true
+            echo >> native-samples.txt
+          else
+            echo "test.kexe pid not found" >> native-samples.txt
+            echo >> native-samples.txt
+          fi
+
+      - name: Show Gradle daemon log
         if: always()
         run: |
-          tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log > diagnostics/CoreSimulator.log || echo "no log" > diagnostics/CoreSimulator.log
+          find ~/.gradle/daemon -name "*.out.log" -newer /tmp/gradle_start_marker \
+            -exec tail -5000 {} + || echo "no daemon log found"
+
+      - name: Show CoreSimulator log
+        if: always()
+        run: |
+          tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log || echo "no log"
 
       - name: Upload diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ios-test-diagnostics
-          path: diagnostics
+          path: |
+            gradle.log
+            jstack.txt
+            native-samples.txt
+            ~/Library/Logs/CoreSimulator/CoreSimulator.log
