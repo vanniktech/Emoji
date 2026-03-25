@@ -1,121 +1,104 @@
-name: Build
+name: KT-84975 hanging diagnostics
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - KT-84975-hanging
 
 jobs:
-  build:
-    name: JDK ${{ matrix.java_version }}
-    runs-on: macos-latest
-    timeout-minutes: 40
-
-    strategy:
-      matrix:
-        java_version: [17]
+  ios-simulator-hang:
+    runs-on: macos-15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Gradle Wrapper Validation
-        uses: gradle/actions/wrapper-validation@v5
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Install JDK ${{ matrix.java_version }}
+      - name: Set up Java 17
         uses: actions/setup-java@v5
         with:
           distribution: zulu
-          java-version: ${{ matrix.java_version }}
+          java-version: 17
 
-      - name: Create log marker
-        run: touch /tmp/gradle_start_marker
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
 
-      - name: Run iOS Simulator Arm64 Tests
-        timeout-minutes: 20
+      - name: Run iosSimulatorArm64 tests in background
+        shell: bash
         run: |
-          ./gradlew :emoji:iosSimulatorArm64Test \
-            --no-daemon \
-            --stacktrace \
-            --debug \
-            --console=plain \
-            > gradle.log 2>&1
+          set -euxo pipefail
+          chmod +x ./gradlew
+          ./gradlew :emoji:iosSimulatorArm64Test --no-daemon --stacktrace --debug --console=plain > gradle.log 2>&1 &
+          echo $! > gradle_pid.txt
 
-      - name: Show short diagnostics
-        if: failure() || cancelled()
+      - name: Wait for simctl and test.kexe
+        shell: bash
         run: |
-          echo "=== PROCESSES ==="
-          ps -eo pid,ppid,%cpu,%mem,stat,etime,command | \
-            grep -Ei "gradle|java|simulator|coresimulator|xctest|simctl|xcode|konan|kexe" || true
+          set -euxo pipefail
 
-          echo "=== JPS ==="
-          jps -lv || true
+          for i in {1..120}; do
+            SIMCTL_PID="$(pgrep -f 'simctl spawn --standalone.*test.kexe' | head -n1 || true)"
 
-      - name: Save Java thread dumps
-        if: failure() || cancelled()
-        run: |
-          : > jstack.txt
-          for pid in $(jps | awk '{print $1}'); do
-            echo "--- jstack $pid ---" >> jstack.txt
-            jstack "$pid" >> jstack.txt 2>&1 || true
-            echo >> jstack.txt
+            if [[ -n "${SIMCTL_PID}" ]]; then
+              KEXE_PID="$(ps -eo pid=,ppid=,command= | awk -v p="$SIMCTL_PID" '$2==p && $0 ~ /test\.kexe/ {print $1; exit}')"
+            else
+              KEXE_PID=""
+            fi
+
+            echo "attempt=$i SIMCTL_PID=${SIMCTL_PID:-} KEXE_PID=${KEXE_PID:-}"
+
+            if [[ -n "${SIMCTL_PID}" && -n "${KEXE_PID}" ]]; then
+              echo "SIMCTL_PID=$SIMCTL_PID" >> "$GITHUB_ENV"
+              echo "KEXE_PID=$KEXE_PID" >> "$GITHUB_ENV"
+              exit 0
+            fi
+
+            sleep 5
           done
 
-      - name: Save native samples
-        if: failure() || cancelled()
+          echo "Failed to find simctl/test.kexe"
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command || true
+          exit 1
+
+      - name: Capture samples
+        shell: bash
         run: |
-          : > native-samples.txt
+          set -euxo pipefail
+          mkdir -p samples
 
-          echo "=== process list ===" >> native-samples.txt
-          ps -eo pid,ppid,%cpu,%mem,stat,etime,command >> native-samples.txt 2>&1 || true
-          echo >> native-samples.txt
+          echo "SIMCTL_PID=$SIMCTL_PID"
+          echo "KEXE_PID=$KEXE_PID"
 
-          SIMCTL_PID=$(ps -eo pid=,command= | grep "simctl spawn --standalone" | grep -v grep | awk '{print $1}' | head -1)
-          KEXE_PID=$(ps -eo pid=,command= | grep "/emoji/build/bin/iosSimulatorArm64/debugTest/test.kexe" | grep -v grep | awk '{print $1}' | head -1)
+          ps -p "$SIMCTL_PID" -o pid=,ppid=,command=
+          ps -p "$KEXE_PID" -o pid=,ppid=,command=
 
-          echo "SIMCTL_PID=$SIMCTL_PID" >> native-samples.txt
-          echo "KEXE_PID=$KEXE_PID" >> native-samples.txt
-          echo >> native-samples.txt
+          sample "$SIMCTL_PID" 5 1 -file "samples/simctl.sample.txt" || true
+          sample "$KEXE_PID" 5 1 -file "samples/test.kexe.sample.txt" || true
 
-          if [ -n "$SIMCTL_PID" ]; then
-            echo "--- sample simctl pid=$SIMCTL_PID ---" >> native-samples.txt
-            sample "$SIMCTL_PID" 5 1 >> native-samples.txt 2>&1 || true
-            echo >> native-samples.txt
-          else
-            echo "simctl pid not found" >> native-samples.txt
-            echo >> native-samples.txt
-          fi
-
-          if [ -n "$KEXE_PID" ]; then
-            echo "--- sample test.kexe pid=$KEXE_PID ---" >> native-samples.txt
-            sample "$KEXE_PID" 5 1 >> native-samples.txt 2>&1 || true
-            echo >> native-samples.txt
-          else
-            echo "test.kexe pid not found" >> native-samples.txt
-            echo >> native-samples.txt
-          fi
-
-      - name: Show Gradle daemon log
+      - name: Show process tree
         if: always()
+        shell: bash
         run: |
-          find ~/.gradle/daemon -name "*.out.log" -newer /tmp/gradle_start_marker \
-            -exec tail -5000 {} + || echo "no daemon log found"
+          set -euxo pipefail
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command > process-list.txt || true
+          cat process-list.txt || true
 
-      - name: Show CoreSimulator log
+      - name: Wait for Gradle
         if: always()
+        shell: bash
         run: |
-          tail -2000 ~/Library/Logs/CoreSimulator/CoreSimulator.log || echo "no log"
+          set +e
+          if [[ -f gradle_pid.txt ]]; then
+            wait "$(cat gradle_pid.txt)"
+          fi
+          exit 0
 
       - name: Upload diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ios-test-diagnostics
+          name: ios-simulator-hang-diagnostics
           path: |
+            samples/
+            process-list.txt
             gradle.log
-            jstack.txt
-            native-samples.txt
-            ~/Library/Logs/CoreSimulator/CoreSimulator.log
