@@ -1,31 +1,104 @@
-name: Build
+name: KT-84975 hanging diagnostics
 
-on: [push, pull_request, merge_group]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - KT-84975-hanging
 
 jobs:
-  build:
-    name: JDK ${{ matrix.java_version }}
-    runs-on: macos-latest
-
-    strategy:
-      matrix:
-        java_version: [17]
+  ios-simulator-hang:
+    runs-on: macos-15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Gradle Wrapper Validation
-        uses: gradle/actions/wrapper-validation@v5
-
-      - name: Setup gradle
-        uses: gradle/gradle-build-action@v3
-
-      - name: Install JDK ${{ matrix.java_version }}
+      - name: Set up Java 17
         uses: actions/setup-java@v5
         with:
-          distribution: 'zulu'
-          java-version: ${{ matrix.java_version }}
+          distribution: zulu
+          java-version: 17
 
-      - name: Build with Gradle
-        run: ./gradlew licensee jvmTest ktlint testDebug build --stacktrace -x iosSimulatorArm64Test
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Run iosSimulatorArm64 tests in background
+        shell: bash
+        run: |
+          set -euxo pipefail
+          chmod +x ./gradlew
+          ./gradlew :emoji:iosSimulatorArm64Test --no-daemon --stacktrace --debug --console=plain > gradle.log 2>&1 &
+          echo $! > gradle_pid.txt
+
+      - name: Wait for simctl and test.kexe
+        shell: bash
+        run: |
+          set -euxo pipefail
+
+          for i in {1..120}; do
+            SIMCTL_PID="$(pgrep -f 'simctl spawn --standalone.*test.kexe' | head -n1 || true)"
+
+            if [[ -n "${SIMCTL_PID}" ]]; then
+              KEXE_PID="$(ps -eo pid=,ppid=,command= | awk -v p="$SIMCTL_PID" '$2==p && $0 ~ /test\.kexe/ {print $1; exit}')"
+            else
+              KEXE_PID=""
+            fi
+
+            echo "attempt=$i SIMCTL_PID=${SIMCTL_PID:-} KEXE_PID=${KEXE_PID:-}"
+
+            if [[ -n "${SIMCTL_PID}" && -n "${KEXE_PID}" ]]; then
+              echo "SIMCTL_PID=$SIMCTL_PID" >> "$GITHUB_ENV"
+              echo "KEXE_PID=$KEXE_PID" >> "$GITHUB_ENV"
+              exit 0
+            fi
+
+            sleep 5
+          done
+
+          echo "Failed to find simctl/test.kexe"
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command || true
+          exit 1
+
+      - name: Capture samples
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p samples
+
+          echo "SIMCTL_PID=$SIMCTL_PID"
+          echo "KEXE_PID=$KEXE_PID"
+
+          ps -p "$SIMCTL_PID" -o pid=,ppid=,command=
+          ps -p "$KEXE_PID" -o pid=,ppid=,command=
+
+          sample "$SIMCTL_PID" 5 1 -file "samples/simctl.sample.txt" || true
+          sample "$KEXE_PID" 5 1 -file "samples/test.kexe.sample.txt" || true
+
+      - name: Show process tree
+        if: always()
+        shell: bash
+        run: |
+          set -euxo pipefail
+          ps -eo pid,ppid,%cpu,%mem,stat,etime,command > process-list.txt || true
+          cat process-list.txt || true
+
+      - name: Wait for Gradle
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [[ -f gradle_pid.txt ]]; then
+            wait "$(cat gradle_pid.txt)"
+          fi
+          exit 0
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-hang-diagnostics
+          path: |
+            samples/
+            process-list.txt
+            gradle.log
