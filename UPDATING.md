@@ -17,7 +17,7 @@ The script does three things:
 
 ## Running the script
 
-Go the the `generator` directory:
+Go to the `generator` directory:
 
 ```bash
 cd generator
