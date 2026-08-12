@@ -18,6 +18,7 @@
 
 package com.vanniktech.emoji
 
+import com.vanniktech.emoji.variant.VariantEmoji
 import kotlin.jvm.JvmName
 
 private val SPACE_REMOVAL = Regex("[\\s]")
@@ -58,4 +59,33 @@ fun CharSequence.emojiInformation(): EmojiInformation {
     isOnlyEmojis = isNotBlank() && emojiRanges.reversed().fold(this) { string, emojiRange -> string.removeRange(emojiRange.range) }.isBlank(),
     emojiRanges = emojiRanges,
   )
+}
+
+/**
+ * Returns the preferred Unicode representation of this emoji, preferring Variation Selector 16
+ * (\uFE0F) to ensure full-color graphical presentation.
+ */
+fun Emoji.preferredUnicode(): String {
+  if (unicode.contains(VARIANT_SELECTOR_16)) {
+    return unicode
+  }
+  val vs16Variant = variants.firstOrNull { it.unicode.contains(VARIANT_SELECTOR_16) }
+    ?: base.variants.firstOrNull { it.unicode.contains(VARIANT_SELECTOR_16) }
+  return vs16Variant?.unicode ?: unicode
+}
+
+/**
+ * Filters and returns the list of skin tone variants for the given [emoji].
+ * Excludes non-variant selector entries (`isVariantSelector16`) and base duplicates.
+ */
+fun filterMeaningfulVariants(emoji: Emoji, variantEmoji: VariantEmoji? = null): List<Emoji> {
+  val rootBase = emoji.base
+  if (rootBase.isVariantSelector16()) {
+    return emptyList()
+  }
+  val managedVariants = variantEmoji?.getVariants(rootBase).orEmpty()
+  val candidates = managedVariants.ifEmpty { rootBase.variants }
+  return candidates.filterNot { variant ->
+    variant.isVariantSelector16() || variant.unicode == rootBase.unicode
+  }
 }

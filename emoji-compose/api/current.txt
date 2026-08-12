@@ -1,0 +1,10 @@
+// Signature format: 4.0
+package com.vanniktech.emoji.compose {
+
+  public final class EmojiPickerKt {
+  }
+
+  public final class EmojiPickerVariantPopupKt {
+  }
+
+}

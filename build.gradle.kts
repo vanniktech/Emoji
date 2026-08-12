@@ -11,6 +11,8 @@ buildscript {
   dependencies {
     classpath(libs.plugin.android.cache.fix)
     classpath(libs.plugin.androidgradleplugin)
+    classpath(libs.plugin.compose)
+    classpath(libs.plugin.compose.multiplatform)
     classpath(libs.plugin.dokka)
     classpath(libs.plugin.kotlin)
     classpath(libs.plugin.licensee)

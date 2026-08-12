@@ -9,6 +9,7 @@ pluginManagement {
 include(":app")
 include(":emoji")
 include(":emoji-androidx-emoji2")
+include(":emoji-compose")
 include(":emoji-facebook")
 include(":emoji-google")
 include(":emoji-google-compat")
