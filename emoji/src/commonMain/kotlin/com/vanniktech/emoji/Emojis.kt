@@ -18,7 +18,6 @@
 
 package com.vanniktech.emoji
 
-import com.vanniktech.emoji.variant.VariantEmoji
 import kotlin.jvm.JvmName
 
 private val SPACE_REMOVAL = Regex("[\\s]")
