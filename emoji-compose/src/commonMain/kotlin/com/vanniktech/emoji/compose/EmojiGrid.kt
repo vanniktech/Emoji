@@ -39,7 +39,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.filterMeaningfulVariants
+import com.vanniktech.emoji.variant.VariantEmoji
 
 /**
  * Modular building block displaying a grid of emojis.
@@ -59,6 +59,7 @@ fun EmojiGrid(
   onEmojiLongClick: (Emoji) -> Unit,
   modifier: Modifier = Modifier,
   provider: EmojiProvider? = null,
+  variantEmoji: VariantEmoji? = null,
 ) {
   EmojiGrid(
     emojis = emojis,
@@ -67,6 +68,7 @@ fun EmojiGrid(
     onEmojiLongClick = { emoji, _ -> onEmojiLongClick(emoji) },
     modifier = modifier,
     provider = provider,
+    variantEmoji = variantEmoji,
   )
 }
 
@@ -95,6 +97,7 @@ fun EmojiGrid(
   colors: EmojiPickerColors = EmojiPickerDefaults.colors(),
   showVariants: Boolean = true,
   provider: EmojiProvider? = null,
+  variantEmoji: VariantEmoji? = null,
 ) {
   val gridModifier = if (emojiGridRows != null) {
     modifier.height((emojiGridRows * 44 + 12).dp)
@@ -119,6 +122,7 @@ fun EmojiGrid(
         colors = colors,
         showVariants = showVariants,
         provider = provider,
+        variantEmoji = variantEmoji,
       )
     }
   }
@@ -134,9 +138,11 @@ private fun EmojiCell(
   colors: EmojiPickerColors = EmojiPickerDefaults.colors(),
   showVariants: Boolean = true,
   provider: EmojiProvider? = null,
+  variantEmoji: VariantEmoji? = null,
 ) {
-  val hasVariants = remember(emoji, showVariants) {
-    showVariants && filterMeaningfulVariants(emoji).isNotEmpty()
+  val hasVariants = remember(emoji, variantEmoji) {
+    val variants = variantEmoji?.getVariants(emoji.base) ?: emoji.base.variants
+    variants.isNotEmpty()
   }
   var cellBounds by remember { mutableStateOf<Rect?>(null) }
 
@@ -155,7 +161,9 @@ private fun EmojiCell(
         .clip(RoundedCornerShape(10.dp))
         .combinedClickable(
           onClick = { onEmojiClick(emoji) },
-          onLongClick = { onEmojiLongClick(emoji, cellBounds ?: Rect.Zero) },
+          onLongClick = if (hasVariants) {
+            { onEmojiLongClick(emoji, cellBounds ?: Rect.Zero) }
+          } else null,
         ),
       contentAlignment = Alignment.Center,
     ) {
@@ -166,7 +174,7 @@ private fun EmojiCell(
       )
     }
 
-    if (hasVariants) {
+    if (showVariants && hasVariants) {
       val indicatorColor = colors.variantIndicatorColor
       Canvas(
         modifier = Modifier

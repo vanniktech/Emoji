@@ -43,7 +43,7 @@ import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.filterMeaningfulVariants
+import com.vanniktech.emoji.variant.VariantEmoji
 
 private class EmojiPickerVariantPopupPositionProvider(
   private val targetBounds: Rect,
@@ -91,11 +91,12 @@ fun EmojiPickerVariantPopup(
   targetBounds: Rect? = null,
   colors: EmojiPickerColors = EmojiPickerDefaults.colors(),
   provider: EmojiProvider? = null,
+  variantEmoji: VariantEmoji? = null,
 ) {
-  val allVariants = remember(baseEmoji) {
+  val allVariants = remember(baseEmoji, variantEmoji) {
     val rootBase = baseEmoji.base
-    val meaningful = filterMeaningfulVariants(rootBase)
-    listOf(rootBase) + meaningful
+    val meaningfulVariants = variantEmoji?.getVariants(rootBase) ?: rootBase.variants
+    listOf(rootBase) + meaningfulVariants
   }
 
   val popupPositionProvider = remember(targetBounds) {

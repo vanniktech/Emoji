@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.preferredUnicode
 
 /**
  * Tab bar displaying category icons (and optional recents tab icon) for [EmojiPicker].
@@ -58,7 +57,7 @@ fun EmojiCategoryTabBar(
     ) {
       if (hasRecentsTab) {
         val isSelected = selectedTabIndex == 0
-        val recentFallbackEmoji = recentEmojis.firstOrNull()?.preferredUnicode() ?: ""
+        val recentFallbackEmoji = recentEmojis.firstOrNull()?.unicode ?: ""
         Box(
           modifier = Modifier
             .size(36.dp)
@@ -83,7 +82,7 @@ fun EmojiCategoryTabBar(
       categories.forEachIndexed { index, category ->
         val tabIndex = if (hasRecentsTab) index + 1 else index
         val isSelected = selectedTabIndex == tabIndex
-        val iconEmoji = onCategoryIcon?.invoke(category) ?: category.emojis.firstOrNull()?.preferredUnicode() ?: ""
+        val iconEmoji = onCategoryIcon?.invoke(category) ?: category.emojis.firstOrNull()?.unicode ?: ""
         Box(
           modifier = Modifier
             .size(36.dp)

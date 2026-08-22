@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.sp
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.preferredUnicode
 import kotlin.math.roundToInt
 
 /**
@@ -66,7 +65,7 @@ import kotlin.math.roundToInt
     ) {
       val fontSize = (minOf(maxWidth, maxHeight).value * 0.75f).sp
       Text(
-        text = emoji.preferredUnicode(),
+        text = emoji.unicode,
         fontSize = fontSize,
         textAlign = TextAlign.Center,
       )

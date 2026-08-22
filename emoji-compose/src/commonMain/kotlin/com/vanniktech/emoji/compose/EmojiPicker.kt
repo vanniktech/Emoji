@@ -34,7 +34,6 @@ import androidx.compose.ui.unit.dp
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiCategory
 import com.vanniktech.emoji.EmojiProvider
-import com.vanniktech.emoji.filterMeaningfulVariants
 import com.vanniktech.emoji.recent.RecentEmoji
 import com.vanniktech.emoji.variant.VariantEmoji
 
@@ -102,19 +101,12 @@ fun EmojiPicker(
 
     val isRecentTab = hasRecentsTab && selectedTabIndex == 0
 
-    val activeEmojis = remember(selectedTabIndex, hasRecentsTab, categories, recentEmojis, variantEmoji, emojiProvider) {
-      val baseList = if (isRecentTab) {
-        val providerEmojisMap = categories.flatMap { it.emojis }.flatMap { listOf(it) + it.variants }.associateBy { it.unicode }
-        recentEmojis.map { raw -> providerEmojisMap[raw.unicode] ?: raw }
+    val activeEmojis = remember(selectedTabIndex, hasRecentsTab, categories, recentEmojis, variantEmoji) {
+      if (isRecentTab) {
+        recentEmojis
       } else {
         val categoryIndex = if (hasRecentsTab) selectedTabIndex - 1 else selectedTabIndex
-        categories.getOrNull(categoryIndex)?.emojis?.toList().orEmpty()
-      }
-
-      if (isRecentTab) {
-        baseList
-      } else {
-        baseList.map { variantEmoji.getVariant(it) }
+        categories.getOrNull(categoryIndex)?.emojis?.map { variantEmoji.getVariant(it) }.orEmpty()
       }
     }
 
@@ -129,7 +121,7 @@ fun EmojiPicker(
         onEmojiPicked(emoji)
       },
       onEmojiLongClick = { emoji, bounds ->
-        if (!isRecentTab && filterMeaningfulVariants(emoji).isNotEmpty()) {
+        if (!isRecentTab && variantEmoji.getVariants(emoji.base).isNotEmpty()) {
           emojiForVariantPicker = emoji to bounds
         }
       },
@@ -138,6 +130,7 @@ fun EmojiPicker(
       colors = colors,
       showVariants = !isRecentTab,
       provider = emojiProvider,
+      variantEmoji = variantEmoji,
     )
   }
 
@@ -157,6 +150,7 @@ fun EmojiPicker(
       targetBounds = bounds,
       colors = colors,
       provider = emojiProvider,
+      variantEmoji = variantEmoji,
     )
   }
 }
