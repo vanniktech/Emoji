@@ -15,20 +15,9 @@
  */
 
 package com.vanniktech.emoji.compose
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.vanniktech.emoji.EmojiAndroidProvider
-import com.vanniktech.emoji.EmojiCategory
-import com.vanniktech.emoji.EmojiManager
-import com.vanniktech.emoji.EmojiProvider
 import com.vanniktech.emoji.recent.RecentEmoji
 import com.vanniktech.emoji.recent.RecentEmojiManager
 import com.vanniktech.emoji.variant.VariantEmoji
@@ -50,37 +39,4 @@ import com.vanniktech.emoji.variant.VariantEmojiManager
   return remember(context) { VariantEmojiManager(context) }
 }
 
-/**
- * Renders the category tab icon using Android vector resources or a text emoji fallback.
- */
-@Composable actual fun CategoryTabIcon(
-  category: EmojiCategory?,
-  isRecent: Boolean,
-  isSelected: Boolean,
-  colors: EmojiPickerColors,
-  fallbackEmoji: String,
-  provider: EmojiProvider?,
-) {
-  val tint = if (isSelected) colors.tabSelectedColor else colors.tabUnselectedColor
-  val iconRes = remember(category, isRecent, provider) {
-    if (isRecent) {
-      com.vanniktech.emoji.R.drawable.emoji_recent
-    } else if (category != null && provider is EmojiAndroidProvider) {
-      try { provider.getIcon(category) } catch (_: Exception) { null }
-    } else null
-  }
 
-  if (iconRes != null && iconRes != 0) {
-    Icon(
-      painter = painterResource(iconRes),
-      contentDescription = null,
-      tint = tint,
-      modifier = Modifier.size(22.dp),
-    )
-  } else if (fallbackEmoji.isNotEmpty()) {
-    Text(
-      text = fallbackEmoji,
-      fontSize = 18.sp,
-    )
-  }
-}
