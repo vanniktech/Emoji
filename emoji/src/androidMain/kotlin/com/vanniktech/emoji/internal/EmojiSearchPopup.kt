@@ -29,6 +29,7 @@ import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiTheming
 import com.vanniktech.emoji.R
 import com.vanniktech.emoji.search.SearchEmojiResult
+import com.vanniktech.emoji.traits.SearchInPlacePosition
 
 internal fun interface EmojiSearchDelegate {
   fun onEmojiClicked(emoji: Emoji)
@@ -38,6 +39,7 @@ internal class EmojiSearchPopup(
   private val rootView: View,
   private val editText: EditText,
   private val theming: EmojiTheming,
+  private val position: SearchInPlacePosition,
 ) {
   private var popupWindow: PopupWindow? = null
 
@@ -69,9 +71,13 @@ internal class EmojiSearchPopup(
       )
 
       val height = recyclerView.measuredHeight
+      val y = when (position) {
+        SearchInPlacePosition.ABOVE_EDIT_TEXT -> editTextLocation.y - height
+        SearchInPlacePosition.UNDER_EDIT_TEXT_CURSOR -> (editText.getCursorLineBottomOnScreen() ?: editTextLocation.y) + context.resources.getDimensionPixelSize(R.dimen.emoji_search_cursor_spacing)
+      }
       val desiredLocation = Point(
         rootView.x.toInt(),
-        editTextLocation.y - height,
+        y,
       )
 
       popupWindow = PopupWindow(recyclerView, WindowManager.LayoutParams.MATCH_PARENT, height).apply {
@@ -92,4 +98,19 @@ internal class EmojiSearchPopup(
     popupWindow?.dismiss()
     popupWindow = null
   }
+}
+
+internal fun EditText.getCursorLineBottomOnScreen(): Int? {
+  val localY = getCursorLineBottomY() ?: return null
+  val loc = IntArray(2)
+  getLocationOnScreen(loc)
+  return loc[1] + localY
+}
+
+internal fun EditText.getCursorLineBottomY(): Int? {
+  val layout = layout ?: return null
+  val offset = selectionStart.coerceIn(0, length())
+  val line = layout.getLineForOffset(offset)
+  val lineBottom = layout.getLineBottom(line)
+  return totalPaddingTop + lineBottom - scrollY
 }
