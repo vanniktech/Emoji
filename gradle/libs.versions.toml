@@ -3,7 +3,7 @@ minSdk = "23"
 compileSdk = "34"
 targetSdk = "34"
 
-androidgradleplugin = "9.3.2"
+androidgradleplugin = "9.4.0"
 kotlin = "2.4.20"
 ktlint = "1.8.0"
 
