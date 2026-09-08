@@ -21,22 +21,35 @@ import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.internal.EmojiSearchPopup
 import com.vanniktech.emoji.search.NoSearchEmoji
+
+enum class SearchInPlacePosition {
+  ABOVE_EDIT_TEXT,
+  UNDER_EDIT_TEXT_CURSOR,
+}
 
 /**
  * Popup similar to how Telegram and Slack does it to search for an Emoji
  */
 class SearchInPlaceTrait(
   private val emojiPopup: EmojiPopup,
+  private val position: SearchInPlacePosition,
+  private val onEmojiClicked: (Emoji) -> Unit,
 ) : EmojiTraitable {
   override fun install(editText: EditText): EmojiTrait {
     if (emojiPopup.searchEmoji is NoSearchEmoji) {
       return EmptyEmojiTrait
     }
 
-    val popup = EmojiSearchPopup(emojiPopup.rootView, editText, emojiPopup.theming)
+    val popup = EmojiSearchPopup(
+      rootView = emojiPopup.rootView,
+      editText = editText,
+      theming = emojiPopup.theming,
+      position = position,
+    )
     val handler = Handler(Looper.getMainLooper())
 
     val watcher = object : TextWatcher {
@@ -60,6 +73,7 @@ class SearchInPlaceTrait(
                 delegate = {
                   val new = "${it.unicode} "
                   editText.text.replace(lastColon, s.length, new, 0, new.length)
+                  onEmojiClicked(it)
                 },
               )
             } else {

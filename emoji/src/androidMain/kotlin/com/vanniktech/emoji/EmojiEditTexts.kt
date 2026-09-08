@@ -23,6 +23,7 @@ import android.widget.EditText
 import com.vanniktech.emoji.traits.DisableKeyboardInputTrait
 import com.vanniktech.emoji.traits.EmojiTrait
 import com.vanniktech.emoji.traits.ForceSingleEmojiTrait
+import com.vanniktech.emoji.traits.SearchInPlacePosition
 import com.vanniktech.emoji.traits.SearchInPlaceTrait
 import kotlin.math.max
 import kotlin.math.min
@@ -56,4 +57,12 @@ fun EditText.installDisableKeyboardInput(emojiPopup: EmojiPopup): EmojiTrait = D
 fun EditText.installForceSingleEmoji(): EmojiTrait = ForceSingleEmojiTrait().install(this)
 
 /** When typing :query it will display a Popup similar to how Telegram and Slack does it to search for an Emoji. */
-fun EditText.installSearchInPlace(emojiPopup: EmojiPopup): EmojiTrait = SearchInPlaceTrait(emojiPopup).install(this)
+fun EditText.installSearchInPlace(
+  emojiPopup: EmojiPopup,
+  position: SearchInPlacePosition = SearchInPlacePosition.ABOVE_EDIT_TEXT,
+  onEmojiClicked: (Emoji) -> Unit = { },
+): EmojiTrait = SearchInPlaceTrait(
+  emojiPopup = emojiPopup,
+  position = position,
+  onEmojiClicked = onEmojiClicked,
+).install(this)

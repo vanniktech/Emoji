@@ -77,7 +77,7 @@ package com.vanniktech.emoji {
     method public static void input(android.widget.EditText, com.vanniktech.emoji.Emoji emoji, optional boolean addWhitespace);
     method public static com.vanniktech.emoji.traits.EmojiTrait installDisableKeyboardInput(android.widget.EditText, com.vanniktech.emoji.EmojiPopup emojiPopup);
     method public static com.vanniktech.emoji.traits.EmojiTrait installForceSingleEmoji(android.widget.EditText);
-    method public static com.vanniktech.emoji.traits.EmojiTrait installSearchInPlace(android.widget.EditText, com.vanniktech.emoji.EmojiPopup emojiPopup);
+    method public static com.vanniktech.emoji.traits.EmojiTrait installSearchInPlace(android.widget.EditText, com.vanniktech.emoji.EmojiPopup emojiPopup, optional com.vanniktech.emoji.traits.SearchInPlacePosition position, optional kotlin.jvm.functions.Function1<? super com.vanniktech.emoji.Emoji,kotlin.Unit> onEmojiClicked);
   }
 
   public final class EmojiInformation {
@@ -359,8 +359,13 @@ package com.vanniktech.emoji.traits {
     method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
   }
 
+  public enum SearchInPlacePosition {
+    enum_constant public static final com.vanniktech.emoji.traits.SearchInPlacePosition ABOVE_EDIT_TEXT;
+    enum_constant public static final com.vanniktech.emoji.traits.SearchInPlacePosition UNDER_EDIT_TEXT_CURSOR;
+  }
+
   public final class SearchInPlaceTrait implements com.vanniktech.emoji.traits.EmojiTraitable {
-    ctor public SearchInPlaceTrait(com.vanniktech.emoji.EmojiPopup emojiPopup);
+    ctor public SearchInPlaceTrait(com.vanniktech.emoji.EmojiPopup emojiPopup, com.vanniktech.emoji.traits.SearchInPlacePosition position, kotlin.jvm.functions.Function1<? super com.vanniktech.emoji.Emoji,kotlin.Unit> onEmojiClicked);
     method public com.vanniktech.emoji.traits.EmojiTrait install(android.widget.EditText editText);
   }
 
