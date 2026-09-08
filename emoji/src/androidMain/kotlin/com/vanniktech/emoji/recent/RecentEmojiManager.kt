@@ -63,10 +63,16 @@ class RecentEmojiManager @JvmOverloads constructor(
     emojiList.add(emoji)
   }
 
+  override fun removeEmoji(emoji: Emoji) {
+    emojiList.remove(emoji)
+  }
+
   override fun persist() {
-    if (emojiList.size() > 0) {
-      val stringBuilder = StringBuilder(emojiList.size() * EMOJI_GUESS_SIZE)
-      for (i in 0 until emojiList.size()) {
+    val size = emojiList.size()
+    val stringBuilder = StringBuilder(size * EMOJI_GUESS_SIZE)
+
+    if (size > 0) {
+      for (i in 0 until size) {
         val data = emojiList[i]
         stringBuilder.append(data.emoji.unicode)
           .append(TIME_DELIMITER)
@@ -74,8 +80,9 @@ class RecentEmojiManager @JvmOverloads constructor(
           .append(EMOJI_DELIMITER)
       }
       stringBuilder.setLength(stringBuilder.length - EMOJI_DELIMITER.length)
-      sharedPreferences.edit { putString(RECENT_EMOJIS, stringBuilder.toString()) }
     }
+
+    sharedPreferences.edit { putString(RECENT_EMOJIS, stringBuilder.toString()) }
   }
 
   internal class EmojiList(
@@ -97,6 +104,16 @@ class RecentEmojiManager @JvmOverloads constructor(
 
       if (emojis.size > maxRecents) {
         emojis.removeAt(maxRecents)
+      }
+    }
+
+    fun remove(emoji: Emoji) {
+      val iterator = emojis.iterator()
+
+      while (iterator.hasNext()) {
+        if (iterator.next().emoji.unicode == emoji.unicode) {
+          iterator.remove()
+        }
       }
     }
 

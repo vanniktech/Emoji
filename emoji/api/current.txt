@@ -285,6 +285,7 @@ package com.vanniktech.emoji.recent {
     method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
     method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
     method public void persist();
+    method public void removeEmoji(com.vanniktech.emoji.Emoji emoji);
     field public static final com.vanniktech.emoji.recent.NoRecentEmoji INSTANCE;
   }
 
@@ -292,6 +293,7 @@ package com.vanniktech.emoji.recent {
     method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
     method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
     method public void persist();
+    method public void removeEmoji(com.vanniktech.emoji.Emoji emoji);
   }
 
   public final class RecentEmojiManager implements com.vanniktech.emoji.recent.RecentEmoji {
@@ -300,6 +302,7 @@ package com.vanniktech.emoji.recent {
     method public void addEmoji(com.vanniktech.emoji.Emoji emoji);
     method public java.util.Collection<com.vanniktech.emoji.Emoji> getRecentEmojis();
     method public void persist();
+    method public void removeEmoji(com.vanniktech.emoji.Emoji emoji);
   }
 
 }

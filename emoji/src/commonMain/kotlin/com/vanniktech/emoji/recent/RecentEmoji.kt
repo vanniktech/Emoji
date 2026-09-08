@@ -36,12 +36,20 @@ interface RecentEmoji {
   fun getRecentEmojis(): Collection<Emoji>
 
   /**
-   * Should add the emoji to the recent ones. After calling this method, [.getRecentEmojis]
+   * Should add the emoji to the recent ones. After calling this method, [getRecentEmojis]
    * should return the emoji that was just added.
    *
    * @since 0.2.0
    */
   fun addEmoji(emoji: Emoji)
+
+  /**
+   * Should remove the emoji to the recent ones. After calling this method, [getRecentEmojis]
+   * should not return the emoji that was just removed.
+   *
+   * @since 0.25.0
+   */
+  fun removeEmoji(emoji: Emoji)
 
   /**
    * Should persist all emojis.

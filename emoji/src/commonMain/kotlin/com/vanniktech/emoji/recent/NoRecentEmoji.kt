@@ -24,5 +24,6 @@ import com.vanniktech.emoji.Emoji
 object NoRecentEmoji : RecentEmoji {
   override fun getRecentEmojis(): Collection<Emoji> = emptyList()
   override fun addEmoji(emoji: Emoji) = Unit
+  override fun removeEmoji(emoji: Emoji) = Unit
   override fun persist() = Unit
 }
