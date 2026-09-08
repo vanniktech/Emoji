@@ -1,11 +1,12 @@
 plugins {
   id("org.jetbrains.dokka")
   id("org.jetbrains.kotlin.multiplatform")
-  id("com.android.library")
+  id("com.android.kotlin.multiplatform.library")
   id("org.jetbrains.kotlin.plugin.parcelize")
   id("me.tylerbwong.gradle.metalava")
   id("com.vanniktech.maven.publish")
   id("app.cash.licensee")
+  id("com.android.lint")
 }
 
 licensee {
@@ -19,53 +20,52 @@ metalava {
 kotlin {
   applyDefaultHierarchyTemplate()
 
-  androidTarget {
-    publishLibraryVariants("release")
+  android {
+    namespace = "com.vanniktech.emoji.material"
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    minSdk = libs.versions.minSdk.get().toInt()
+    androidResources.resourcePrefix = "emoji"
+
+    withHostTest {
+      isIncludeAndroidResources = true
+    }
+
+    androidResources {
+      enable = true
+    }
   }
   jvm()
   jvmToolchain(21)
 
   sourceSets {
-    val commonMain by getting {
+    commonMain {
       dependencies {
         api(project(":emoji"))
       }
     }
 
-    val commonTest by getting {
+    commonTest {
       dependencies {
         implementation(libs.kotlin.test)
       }
     }
 
-    val androidMain by getting {
+    androidMain {
       dependencies {
         api(libs.material)
       }
     }
 
-    val androidUnitTest by getting {
+    androidUnitTest {
       dependencies {
         implementation(libs.kotlin.test.junit)
       }
     }
 
-    val jvmTest by getting {
+    jvmTest {
       dependencies {
         implementation(libs.kotlin.test.junit)
       }
     }
   }
-}
-
-android {
-  namespace = "com.vanniktech.emoji.material"
-
-  compileSdk = libs.versions.compileSdk.get().toInt()
-
-  defaultConfig {
-    minSdk = libs.versions.minSdk.get().toInt()
-  }
-
-  resourcePrefix = "emoji"
 }

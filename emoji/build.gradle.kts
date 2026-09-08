@@ -2,11 +2,12 @@ plugins {
   id("org.jetbrains.dokka")
   id("org.jetbrains.kotlin.multiplatform")
   id("org.jetbrains.kotlin.native.cocoapods")
-  id("com.android.library")
+  id("com.android.kotlin.multiplatform.library")
   id("org.jetbrains.kotlin.plugin.parcelize")
   id("me.tylerbwong.gradle.metalava")
   id("com.vanniktech.maven.publish")
   id("app.cash.licensee")
+  id("com.android.lint")
 }
 
 licensee {
@@ -20,8 +21,19 @@ metalava {
 kotlin {
   applyDefaultHierarchyTemplate()
 
-  androidTarget {
-    publishLibraryVariants("release")
+  android {
+    namespace = "com.vanniktech.emoji"
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    minSdk = libs.versions.minSdk.get().toInt()
+    androidResources.resourcePrefix = "emoji_"
+
+    withHostTest {
+      isIncludeAndroidResources = true
+    }
+
+    androidResources {
+      enable = true
+    }
   }
   iosX64()
   iosArm64()
@@ -30,18 +42,18 @@ kotlin {
   jvmToolchain(21)
 
   sourceSets {
-    val commonMain by getting {
+    commonMain {
       dependencies {
       }
     }
 
-    val commonTest by getting {
+    commonTest {
       dependencies {
         implementation(libs.kotlin.test)
       }
     }
 
-    val androidMain by getting {
+    androidMain {
       dependencies {
         api(libs.androidx.appcompat)
         api(libs.androidx.cardview)
@@ -50,14 +62,14 @@ kotlin {
       }
     }
 
-    val androidUnitTest by getting {
+    androidUnitTest {
       dependencies {
         implementation(libs.kotlin.test.junit)
         implementation(libs.robolectric)
       }
     }
 
-    val jvmTest by getting {
+    jvmTest {
       dependencies {
         implementation(libs.kotlin.test.junit)
       }
@@ -74,16 +86,4 @@ kotlin {
       isStatic = true
     }
   }
-}
-
-android {
-  namespace = "com.vanniktech.emoji"
-
-  compileSdk = libs.versions.compileSdk.get().toInt()
-
-  defaultConfig {
-    minSdk = libs.versions.minSdk.get().toInt()
-  }
-
-  resourcePrefix = "emoji_"
 }

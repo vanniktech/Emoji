@@ -65,7 +65,6 @@ subprojects {
     compilerOptions {
       freeCompilerArgs.addAll(
         "-Xconsistent-data-class-copy-visibility",
-        "-Xannotation-default-target=param-property",
       )
     }
   }

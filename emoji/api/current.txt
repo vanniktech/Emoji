@@ -307,7 +307,7 @@ package com.vanniktech.emoji.recent {
 package com.vanniktech.emoji.search {
 
   public final class NoSearchEmoji implements com.vanniktech.emoji.search.SearchEmoji {
-    method public java.util.List<com.vanniktech.emoji.search.SearchEmojiResult> search(String query);
+    method public error.NonExistentClass search(String query);
     field public static final com.vanniktech.emoji.search.NoSearchEmoji INSTANCE;
   }
 
@@ -368,7 +368,7 @@ package com.vanniktech.emoji.variant {
   public final class NoVariantEmoji implements com.vanniktech.emoji.variant.VariantEmoji {
     method public void addVariant(com.vanniktech.emoji.Emoji newVariant);
     method public com.vanniktech.emoji.Emoji getVariant(com.vanniktech.emoji.Emoji desiredEmoji);
-    method public java.util.List<com.vanniktech.emoji.Emoji> getVariants(com.vanniktech.emoji.Emoji emoji);
+    method public error.NonExistentClass getVariants(com.vanniktech.emoji.Emoji emoji);
     method public void persist();
     field public static final com.vanniktech.emoji.variant.NoVariantEmoji INSTANCE;
   }
