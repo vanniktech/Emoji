@@ -73,6 +73,8 @@ class SearchInPlaceTrait(
                 delegate = {
                   val new = "${it.unicode} "
                   editText.text.replace(lastColon, s.length, new, 0, new.length)
+                  emojiPopup.recentEmoji.addEmoji(it)
+                  emojiPopup.recentEmoji.persist()
                   onEmojiClicked(it)
                 },
               )
