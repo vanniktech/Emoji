@@ -58,7 +58,7 @@ class EmojiPopup @JvmOverloads constructor(
   private val editText: EditText,
   internal val theming: EmojiTheming = EmojiTheming.from(rootView.context),
   /** Option to customize with your own implementation of recent emojis. To hide use [com.vanniktech.emoji.recent.NoRecentEmoji]. */
-  recentEmoji: RecentEmoji = RecentEmojiManager(rootView.context),
+  internal val recentEmoji: RecentEmoji = RecentEmojiManager(rootView.context),
   /** Option to customize with your own implementation of searching emojis. To hide use [com.vanniktech.emoji.search.NoSearchEmoji]. */
   internal val searchEmoji: SearchEmoji = SearchEmojiManager(),
   /** Option to customize with your own implementation of variant emojis. To hide use [com.vanniktech.emoji.variant.NoVariantEmoji]. */
