@@ -65,7 +65,7 @@ class SearchInPlaceTrait(
 
           if (lastColon >= 0) {
             val query = s.drop(lastColon + 1).toString()
-            val isProperQuery = query.all { it.isLetterOrDigit() || it == '_' }
+            val isProperQuery = query.all { it.isLetterOrDigit() || it == '_' || it == '-' }
 
             if (isProperQuery) {
               popup.show(
