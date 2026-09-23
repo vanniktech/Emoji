@@ -16,6 +16,7 @@
 
 package com.vanniktech.emoji.search
 
+import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiManager
 
 class SearchEmojiManager : SearchEmoji {
@@ -31,7 +32,7 @@ class SearchEmojiManager : SearchEmoji {
 
             if (index >= 0) {
               SearchEmojiResult(
-                emoji = emoji,
+                emoji = emoji.search(),
                 shortcode = shortcode,
                 range = index until (index + trimmed.length),
               )
@@ -44,4 +45,9 @@ class SearchEmojiManager : SearchEmoji {
       else -> emptyList()
     }
   }
+}
+
+internal fun Emoji.search() = when {
+  variants.size == 1 -> variants.first()
+  else -> this
 }
