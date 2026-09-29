@@ -20,75 +20,21 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 
 internal object TravelAndPlacesCategoryChunk2 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf29",
-      shortcodes = listOf("lightning", "lightning_cloud"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf29\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf2a",
-      shortcodes = listOf("tornado", "tornado_cloud"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf2a\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf2b",
-      shortcodes = listOf("fog"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf2b\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf2c",
-      shortcodes = listOf("wind_blowing_face"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf2c\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf29\ufe0f", listOf("lightning", "lightning_cloud")),
+    GoogleCompatEmoji("\ud83c\udf2a\ufe0f", listOf("tornado", "tornado_cloud")),
+    GoogleCompatEmoji("\ud83c\udf2b\ufe0f", listOf("fog")),
+    GoogleCompatEmoji("\ud83c\udf2c\ufe0f", listOf("wind_blowing_face")),
     GoogleCompatEmoji("\ud83c\udf00", listOf("cyclone")),
     GoogleCompatEmoji("\ud83c\udf08", listOf("rainbow")),
     GoogleCompatEmoji("\ud83c\udf02", listOf("closed_umbrella")),
-    GoogleCompatEmoji(
-      unicode = "\u2602",
-      shortcodes = listOf("umbrella"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2602\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2602\ufe0f", listOf("umbrella")),
     GoogleCompatEmoji("\u2614", listOf("umbrella_with_rain_drops")),
-    GoogleCompatEmoji(
-      unicode = "\u26f1",
-      shortcodes = listOf("umbrella_on_ground"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26f1\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26f1\ufe0f", listOf("umbrella_on_ground")),
     GoogleCompatEmoji("\u26a1", listOf("zap")),
-    GoogleCompatEmoji(
-      unicode = "\u2744",
-      shortcodes = listOf("snowflake"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2744\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2603",
-      shortcodes = listOf("snowman"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2603\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2744\ufe0f", listOf("snowflake")),
+    GoogleCompatEmoji("\u2603\ufe0f", listOf("snowman")),
     GoogleCompatEmoji("\u26c4", listOf("snowman_without_snow")),
-    GoogleCompatEmoji(
-      unicode = "\u2604",
-      shortcodes = listOf("comet"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2604\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2604\ufe0f", listOf("comet")),
     GoogleCompatEmoji("\ud83d\udd25", listOf("fire")),
     GoogleCompatEmoji("\ud83d\udca7", listOf("droplet")),
     GoogleCompatEmoji("\ud83c\udf0a", listOf("ocean")),

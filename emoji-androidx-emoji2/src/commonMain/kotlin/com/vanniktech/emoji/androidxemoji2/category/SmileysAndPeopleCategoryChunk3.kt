@@ -1066,27 +1066,9 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     AndroidxEmoji2("\ud83e\uddde", listOf("genie")),
-    AndroidxEmoji2(
-      unicode = "\ud83e\uddde\u200d\u2642",
-      shortcodes = listOf("male_genie"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\uddde\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83e\uddde\u200d\u2640",
-      shortcodes = listOf("female_genie"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\uddde\u200d\u2640\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83e\uddde\u200d\u2642\ufe0f", listOf("male_genie")),
+    AndroidxEmoji2("\ud83e\uddde\u200d\u2640\ufe0f", listOf("female_genie")),
     AndroidxEmoji2("\ud83e\udddf", listOf("zombie")),
-    AndroidxEmoji2(
-      unicode = "\ud83e\udddf\u200d\u2642",
-      shortcodes = listOf("male_zombie"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\udddf\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83e\udddf\u200d\u2642\ufe0f", listOf("male_zombie")),
   )
 }

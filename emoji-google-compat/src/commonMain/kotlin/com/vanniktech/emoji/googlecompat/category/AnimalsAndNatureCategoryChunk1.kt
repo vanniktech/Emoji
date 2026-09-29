@@ -43,20 +43,8 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udc1e", listOf("ladybug", "lady_beetle")),
     GoogleCompatEmoji("\ud83e\udd97", listOf("cricket")),
     GoogleCompatEmoji("\ud83e\udeb3", listOf("cockroach")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd77",
-      shortcodes = listOf("spider"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd77\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd78",
-      shortcodes = listOf("spider_web"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd78\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd77\ufe0f", listOf("spider")),
+    GoogleCompatEmoji("\ud83d\udd78\ufe0f", listOf("spider_web")),
     GoogleCompatEmoji("\ud83e\udd82", listOf("scorpion")),
     GoogleCompatEmoji("\ud83e\udd9f", listOf("mosquito")),
     GoogleCompatEmoji("\ud83e\udeb0", listOf("fly")),
@@ -66,13 +54,7 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji("\ud83c\udf38", listOf("cherry_blossom")),
     GoogleCompatEmoji("\ud83d\udcae", listOf("white_flower")),
     GoogleCompatEmoji("\ud83e\udeb7", listOf("lotus")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff5",
-      shortcodes = listOf("rosette"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff5\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udff5\ufe0f", listOf("rosette")),
     GoogleCompatEmoji("\ud83c\udf39", listOf("rose")),
     GoogleCompatEmoji("\ud83e\udd40", listOf("wilted_flower")),
     GoogleCompatEmoji("\ud83c\udf3a", listOf("hibiscus")),
@@ -88,13 +70,7 @@ internal object AnimalsAndNatureCategoryChunk1 {
     GoogleCompatEmoji("\ud83c\udf35", listOf("cactus")),
     GoogleCompatEmoji("\ud83c\udf3e", listOf("ear_of_rice")),
     GoogleCompatEmoji("\ud83c\udf3f", listOf("herb")),
-    GoogleCompatEmoji(
-      unicode = "\u2618",
-      shortcodes = listOf("shamrock"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2618\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2618\ufe0f", listOf("shamrock")),
     GoogleCompatEmoji("\ud83c\udf40", listOf("four_leaf_clover")),
     GoogleCompatEmoji("\ud83c\udf41", listOf("maple_leaf")),
     GoogleCompatEmoji("\ud83c\udf42", listOf("fallen_leaf")),

@@ -25,44 +25,12 @@ internal object SymbolsCategoryChunk2 {
     IosEmoji("\ud83d\udfeb", listOf("large_brown_square"), 39, 22),
     IosEmoji("\u2b1b", listOf("black_large_square"), 60, 58),
     IosEmoji("\u2b1c", listOf("white_large_square"), 60, 59),
-    IosEmoji(
-      unicode = "\u25fc",
-      shortcodes = listOf("black_medium_square"),
-      x = 58,
-      y = 13,
-      variants = listOf(
-        IosEmoji("\u25fc\ufe0f", emptyList(), 58, 13),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\u25fb",
-      shortcodes = listOf("white_medium_square"),
-      x = 58,
-      y = 12,
-      variants = listOf(
-        IosEmoji("\u25fb\ufe0f", emptyList(), 58, 12),
-      ),
-    ),
+    IosEmoji("\u25fc\ufe0f", listOf("black_medium_square"), 58, 13),
+    IosEmoji("\u25fb\ufe0f", listOf("white_medium_square"), 58, 12),
     IosEmoji("\u25fe", listOf("black_medium_small_square"), 58, 15),
     IosEmoji("\u25fd", listOf("white_medium_small_square"), 58, 14),
-    IosEmoji(
-      unicode = "\u25aa",
-      shortcodes = listOf("black_small_square"),
-      x = 58,
-      y = 8,
-      variants = listOf(
-        IosEmoji("\u25aa\ufe0f", emptyList(), 58, 8),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\u25ab",
-      shortcodes = listOf("white_small_square"),
-      x = 58,
-      y = 9,
-      variants = listOf(
-        IosEmoji("\u25ab\ufe0f", emptyList(), 58, 9),
-      ),
-    ),
+    IosEmoji("\u25aa\ufe0f", listOf("black_small_square"), 58, 8),
+    IosEmoji("\u25ab\ufe0f", listOf("white_small_square"), 58, 9),
     IosEmoji("\ud83d\udd36", listOf("large_orange_diamond"), 30, 47),
     IosEmoji("\ud83d\udd37", listOf("large_blue_diamond"), 30, 48),
     IosEmoji("\ud83d\udd38", listOf("small_orange_diamond"), 30, 49),

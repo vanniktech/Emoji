@@ -21,15 +21,7 @@ import com.vanniktech.emoji.ios.IosEmoji
 internal object ObjectsCategoryChunk0 {
   internal val EMOJIS: List<IosEmoji> = listOf(
     IosEmoji("\ud83d\udc53", listOf("eyeglasses"), 13, 25),
-    IosEmoji(
-      unicode = "\ud83d\udd76",
-      shortcodes = listOf("dark_sunglasses"),
-      x = 31,
-      y = 50,
-      variants = listOf(
-        IosEmoji("\ud83d\udd76\ufe0f", emptyList(), 31, 50),
-      ),
-    ),
+    IosEmoji("\ud83d\udd76\ufe0f", listOf("dark_sunglasses"), 31, 50),
     IosEmoji("\ud83e\udd7d", listOf("goggles"), 44, 51),
     IosEmoji("\ud83e\udd7c", listOf("lab_coat"), 44, 50),
     IosEmoji("\ud83e\uddba", listOf("safety_vest"), 46, 28),
@@ -52,15 +44,7 @@ internal object ObjectsCategoryChunk0 {
     IosEmoji("\ud83d\udc5b", listOf("purse"), 13, 33),
     IosEmoji("\ud83d\udc5c", listOf("handbag"), 13, 34),
     IosEmoji("\ud83d\udc5d", listOf("pouch"), 13, 35),
-    IosEmoji(
-      unicode = "\ud83d\udecd",
-      shortcodes = listOf("shopping_bags"),
-      x = 38,
-      y = 40,
-      variants = listOf(
-        IosEmoji("\ud83d\udecd\ufe0f", emptyList(), 38, 40),
-      ),
-    ),
+    IosEmoji("\ud83d\udecd\ufe0f", listOf("shopping_bags"), 38, 40),
     IosEmoji("\ud83c\udf92", listOf("school_satchel"), 7, 22),
     IosEmoji("\ud83e\ude74", listOf("thong_sandal"), 54, 55),
     IosEmoji("\ud83d\udc5e", listOf("mans_shoe", "shoe"), 13, 36),
@@ -78,15 +62,7 @@ internal object ObjectsCategoryChunk0 {
     IosEmoji("\ud83c\udf93", listOf("mortar_board"), 7, 23),
     IosEmoji("\ud83e\udde2", listOf("billed_cap"), 54, 21),
     IosEmoji("\ud83e\ude96", listOf("military_helmet"), 55, 19),
-    IosEmoji(
-      unicode = "\u26d1",
-      shortcodes = listOf("helmet_with_white_cross"),
-      x = 59,
-      y = 26,
-      variants = listOf(
-        IosEmoji("\u26d1\ufe0f", emptyList(), 59, 26),
-      ),
-    ),
+    IosEmoji("\u26d1\ufe0f", listOf("helmet_with_white_cross"), 59, 26),
     IosEmoji("\ud83d\udcff", listOf("prayer_beads"), 29, 54),
     IosEmoji("\ud83d\udc84", listOf("lipstick"), 26, 24),
     IosEmoji("\ud83d\udc8d", listOf("ring"), 27, 10),
@@ -103,33 +79,9 @@ internal object ObjectsCategoryChunk0 {
     IosEmoji("\ud83c\udfbc", listOf("musical_score"), 7, 59),
     IosEmoji("\ud83c\udfb5", listOf("musical_note"), 7, 52),
     IosEmoji("\ud83c\udfb6", listOf("notes"), 7, 53),
-    IosEmoji(
-      unicode = "\ud83c\udf99",
-      shortcodes = listOf("studio_microphone"),
-      x = 7,
-      y = 26,
-      variants = listOf(
-        IosEmoji("\ud83c\udf99\ufe0f", emptyList(), 7, 26),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83c\udf9a",
-      shortcodes = listOf("level_slider"),
-      x = 7,
-      y = 27,
-      variants = listOf(
-        IosEmoji("\ud83c\udf9a\ufe0f", emptyList(), 7, 27),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83c\udf9b",
-      shortcodes = listOf("control_knobs"),
-      x = 7,
-      y = 28,
-      variants = listOf(
-        IosEmoji("\ud83c\udf9b\ufe0f", emptyList(), 7, 28),
-      ),
-    ),
+    IosEmoji("\ud83c\udf99\ufe0f", listOf("studio_microphone"), 7, 26),
+    IosEmoji("\ud83c\udf9a\ufe0f", listOf("level_slider"), 7, 27),
+    IosEmoji("\ud83c\udf9b\ufe0f", listOf("control_knobs"), 7, 28),
     IosEmoji("\ud83c\udfa4", listOf("microphone"), 7, 35),
     IosEmoji("\ud83c\udfa7", listOf("headphones"), 7, 38),
     IosEmoji("\ud83d\udcfb", listOf("radio"), 29, 51),
@@ -147,15 +99,7 @@ internal object ObjectsCategoryChunk0 {
     IosEmoji("\ud83e\ude89", listOf("harp"), 55, 11),
     IosEmoji("\ud83d\udcf1", listOf("iphone"), 29, 41),
     IosEmoji("\ud83d\udcf2", listOf("calling"), 29, 42),
-    IosEmoji(
-      unicode = "\u260e",
-      shortcodes = listOf("phone", "telephone"),
-      x = 58,
-      y = 21,
-      variants = listOf(
-        IosEmoji("\u260e\ufe0f", emptyList(), 58, 21),
-      ),
-    ),
+    IosEmoji("\u260e\ufe0f", listOf("phone", "telephone"), 58, 21),
     IosEmoji("\ud83d\udcde", listOf("telephone_receiver"), 29, 22),
     IosEmoji("\ud83d\udcdf", listOf("pager"), 29, 23),
     IosEmoji("\ud83d\udce0", listOf("fax"), 29, 24),
@@ -163,74 +107,18 @@ internal object ObjectsCategoryChunk0 {
     IosEmoji("\ud83e\udeab", listOf("low_battery"), 55, 40),
     IosEmoji("\ud83d\udd0c", listOf("electric_plug"), 30, 5),
     IosEmoji("\ud83d\udcbb", listOf("computer"), 28, 49),
-    IosEmoji(
-      unicode = "\ud83d\udda5",
-      shortcodes = listOf("desktop_computer"),
-      x = 32,
-      y = 22,
-      variants = listOf(
-        IosEmoji("\ud83d\udda5\ufe0f", emptyList(), 32, 22),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83d\udda8",
-      shortcodes = listOf("printer"),
-      x = 32,
-      y = 23,
-      variants = listOf(
-        IosEmoji("\ud83d\udda8\ufe0f", emptyList(), 32, 23),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\u2328",
-      shortcodes = listOf("keyboard"),
-      x = 57,
-      y = 53,
-      variants = listOf(
-        IosEmoji("\u2328\ufe0f", emptyList(), 57, 53),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83d\uddb1",
-      shortcodes = listOf("three_button_mouse"),
-      x = 32,
-      y = 24,
-      variants = listOf(
-        IosEmoji("\ud83d\uddb1\ufe0f", emptyList(), 32, 24),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83d\uddb2",
-      shortcodes = listOf("trackball"),
-      x = 32,
-      y = 25,
-      variants = listOf(
-        IosEmoji("\ud83d\uddb2\ufe0f", emptyList(), 32, 25),
-      ),
-    ),
+    IosEmoji("\ud83d\udda5\ufe0f", listOf("desktop_computer"), 32, 22),
+    IosEmoji("\ud83d\udda8\ufe0f", listOf("printer"), 32, 23),
+    IosEmoji("\u2328\ufe0f", listOf("keyboard"), 57, 53),
+    IosEmoji("\ud83d\uddb1\ufe0f", listOf("three_button_mouse"), 32, 24),
+    IosEmoji("\ud83d\uddb2\ufe0f", listOf("trackball"), 32, 25),
     IosEmoji("\ud83d\udcbd", listOf("minidisc"), 28, 51),
     IosEmoji("\ud83d\udcbe", listOf("floppy_disk"), 28, 52),
     IosEmoji("\ud83d\udcbf", listOf("cd"), 28, 53),
     IosEmoji("\ud83d\udcc0", listOf("dvd"), 28, 54),
     IosEmoji("\ud83e\uddee", listOf("abacus"), 54, 33),
     IosEmoji("\ud83c\udfa5", listOf("movie_camera"), 7, 36),
-    IosEmoji(
-      unicode = "\ud83c\udf9e",
-      shortcodes = listOf("film_frames"),
-      x = 7,
-      y = 29,
-      variants = listOf(
-        IosEmoji("\ud83c\udf9e\ufe0f", emptyList(), 7, 29),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83d\udcfd",
-      shortcodes = listOf("film_projector"),
-      x = 29,
-      y = 53,
-      variants = listOf(
-        IosEmoji("\ud83d\udcfd\ufe0f", emptyList(), 29, 53),
-      ),
-    ),
+    IosEmoji("\ud83c\udf9e\ufe0f", listOf("film_frames"), 7, 29),
+    IosEmoji("\ud83d\udcfd\ufe0f", listOf("film_projector"), 29, 53),
   )
 }

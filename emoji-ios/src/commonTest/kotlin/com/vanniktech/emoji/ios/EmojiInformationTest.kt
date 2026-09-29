@@ -67,9 +67,9 @@ class EmojiInformationTest {
   @Test fun single() {
     val emojis = listOf(
       """⭐""",
-      """🗯""",
-      """🗨""",
-      """🕳""",
+      """🗯️""",
+      """🗨️""",
+      """🕳️""",
       """❤️""",
       """❣️""",
       """🧑‍🎤""",

@@ -29,13 +29,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\ude08", listOf("smiling_imp")),
     GoogleCompatEmoji("\ud83d\udc7f", listOf("imp")),
     GoogleCompatEmoji("\ud83d\udc80", listOf("skull")),
-    GoogleCompatEmoji(
-      unicode = "\u2620",
-      shortcodes = listOf("skull_and_crossbones"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2620\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2620\ufe0f", listOf("skull_and_crossbones")),
     GoogleCompatEmoji("\ud83d\udca9", listOf("hankey", "poop", "shit")),
     GoogleCompatEmoji("\ud83e\udd21", listOf("clown_face")),
     GoogleCompatEmoji("\ud83d\udc79", listOf("japanese_ogre")),
@@ -65,35 +59,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udc9e", listOf("revolving_hearts")),
     GoogleCompatEmoji("\ud83d\udc95", listOf("two_hearts")),
     GoogleCompatEmoji("\ud83d\udc9f", listOf("heart_decoration")),
-    GoogleCompatEmoji(
-      unicode = "\u2763",
-      shortcodes = listOf("heavy_heart_exclamation_mark_ornament"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2763\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2763\ufe0f", listOf("heavy_heart_exclamation_mark_ornament")),
     GoogleCompatEmoji("\ud83d\udc94", listOf("broken_heart")),
-    GoogleCompatEmoji(
-      unicode = "\u2764\u200d\ud83d\udd25",
-      shortcodes = listOf("heart_on_fire"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2764\ufe0f\u200d\ud83d\udd25", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2764\u200d\ud83e\ude79",
-      shortcodes = listOf("mending_heart"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2764\ufe0f\u200d\ud83e\ude79", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2764",
-      shortcodes = listOf("heart"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2764\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2764\ufe0f\u200d\ud83d\udd25", listOf("heart_on_fire")),
+    GoogleCompatEmoji("\u2764\ufe0f\u200d\ud83e\ude79", listOf("mending_heart")),
+    GoogleCompatEmoji("\u2764\ufe0f", listOf("heart")),
     GoogleCompatEmoji("\ud83e\ude77", listOf("pink_heart")),
     GoogleCompatEmoji("\ud83e\udde1", listOf("orange_heart")),
     GoogleCompatEmoji("\ud83d\udc9b", listOf("yellow_heart")),
@@ -112,35 +82,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udcab", listOf("dizzy")),
     GoogleCompatEmoji("\ud83d\udca6", listOf("sweat_drops")),
     GoogleCompatEmoji("\ud83d\udca8", listOf("dash")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd73",
-      shortcodes = listOf("hole"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd73\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd73\ufe0f", listOf("hole")),
     GoogleCompatEmoji("\ud83d\udcac", listOf("speech_balloon")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udc41\u200d\ud83d\udde8",
-      shortcodes = listOf("eye-in-speech-bubble"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udde8",
-      shortcodes = listOf("left_speech_bubble"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udde8\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddef",
-      shortcodes = listOf("right_anger_bubble"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddef\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", listOf("eye-in-speech-bubble")),
+    GoogleCompatEmoji("\ud83d\udde8\ufe0f", listOf("left_speech_bubble")),
+    GoogleCompatEmoji("\ud83d\uddef\ufe0f", listOf("right_anger_bubble")),
     GoogleCompatEmoji("\ud83d\udcad", listOf("thought_balloon")),
     GoogleCompatEmoji("\ud83d\udca4", listOf("zzz")),
     GoogleCompatEmoji(

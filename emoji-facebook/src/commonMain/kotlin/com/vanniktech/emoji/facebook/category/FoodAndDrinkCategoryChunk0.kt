@@ -44,15 +44,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     FacebookEmoji("\ud83e\udd54", listOf("potato"), 44, 5),
     FacebookEmoji("\ud83e\udd55", listOf("carrot"), 44, 6),
     FacebookEmoji("\ud83c\udf3d", listOf("corn"), 5, 54),
-    FacebookEmoji(
-      unicode = "\ud83c\udf36",
-      shortcodes = listOf("hot_pepper"),
-      x = 5,
-      y = 47,
-      variants = listOf(
-        FacebookEmoji("\ud83c\udf36\ufe0f", emptyList(), 5, 47),
-      ),
-    ),
+    FacebookEmoji("\ud83c\udf36\ufe0f", listOf("hot_pepper"), 5, 47),
     FacebookEmoji("\ud83e\uded1", listOf("bell_pepper"), 56, 24),
     FacebookEmoji("\ud83e\udd52", listOf("cucumber"), 44, 3),
     FacebookEmoji("\ud83e\udd6c", listOf("leafy_green"), 44, 29),

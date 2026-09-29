@@ -43,20 +43,8 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2("\ud83d\udc1e", listOf("ladybug", "lady_beetle")),
     AndroidxEmoji2("\ud83e\udd97", listOf("cricket")),
     AndroidxEmoji2("\ud83e\udeb3", listOf("cockroach")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd77",
-      shortcodes = listOf("spider"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd77\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd78",
-      shortcodes = listOf("spider_web"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd78\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udd77\ufe0f", listOf("spider")),
+    AndroidxEmoji2("\ud83d\udd78\ufe0f", listOf("spider_web")),
     AndroidxEmoji2("\ud83e\udd82", listOf("scorpion")),
     AndroidxEmoji2("\ud83e\udd9f", listOf("mosquito")),
     AndroidxEmoji2("\ud83e\udeb0", listOf("fly")),
@@ -66,13 +54,7 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2("\ud83c\udf38", listOf("cherry_blossom")),
     AndroidxEmoji2("\ud83d\udcae", listOf("white_flower")),
     AndroidxEmoji2("\ud83e\udeb7", listOf("lotus")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udff5",
-      shortcodes = listOf("rosette"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udff5\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udff5\ufe0f", listOf("rosette")),
     AndroidxEmoji2("\ud83c\udf39", listOf("rose")),
     AndroidxEmoji2("\ud83e\udd40", listOf("wilted_flower")),
     AndroidxEmoji2("\ud83c\udf3a", listOf("hibiscus")),
@@ -88,13 +70,7 @@ internal object AnimalsAndNatureCategoryChunk1 {
     AndroidxEmoji2("\ud83c\udf35", listOf("cactus")),
     AndroidxEmoji2("\ud83c\udf3e", listOf("ear_of_rice")),
     AndroidxEmoji2("\ud83c\udf3f", listOf("herb")),
-    AndroidxEmoji2(
-      unicode = "\u2618",
-      shortcodes = listOf("shamrock"),
-      variants = listOf(
-        AndroidxEmoji2("\u2618\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2618\ufe0f", listOf("shamrock")),
     AndroidxEmoji2("\ud83c\udf40", listOf("four_leaf_clover")),
     AndroidxEmoji2("\ud83c\udf41", listOf("maple_leaf")),
     AndroidxEmoji2("\ud83c\udf42", listOf("fallen_leaf")),

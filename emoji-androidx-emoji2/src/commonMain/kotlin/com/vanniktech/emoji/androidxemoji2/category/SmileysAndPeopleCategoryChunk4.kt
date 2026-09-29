@@ -20,13 +20,7 @@ import com.vanniktech.emoji.androidxemoji2.AndroidxEmoji2
 
 internal object SmileysAndPeopleCategoryChunk4 {
   internal val EMOJIS: List<AndroidxEmoji2> = listOf(
-    AndroidxEmoji2(
-      unicode = "\ud83e\udddf\u200d\u2640",
-      shortcodes = listOf("female_zombie"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\udddf\u200d\u2640\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83e\udddf\u200d\u2640\ufe0f", listOf("female_zombie")),
     AndroidxEmoji2("\ud83e\uddcc", listOf("troll")),
     AndroidxEmoji2(
       unicode = "\ud83d\udc86",
@@ -557,20 +551,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     AndroidxEmoji2("\ud83d\udc6f", listOf("dancers")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc6f\u200d\u2642",
-      shortcodes = listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc6f\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc6f\u200d\u2640",
-      shortcodes = listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc6f\u200d\u2640\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udc6f\u200d\u2642\ufe0f", listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying")),
+    AndroidxEmoji2("\ud83d\udc6f\u200d\u2640\ufe0f", listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying")),
     AndroidxEmoji2(
       unicode = "\ud83e\uddd6",
       shortcodes = listOf("person_in_steamy_room"),
@@ -649,13 +631,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
         AndroidxEmoji2("\ud83c\udfc7\ud83c\udfff", emptyList()),
       ),
     ),
-    AndroidxEmoji2(
-      unicode = "\u26f7",
-      shortcodes = listOf("skier"),
-      variants = listOf(
-        AndroidxEmoji2("\u26f7\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26f7\ufe0f", listOf("skier")),
     AndroidxEmoji2(
       unicode = "\ud83c\udfc2",
       shortcodes = listOf("snowboarder"),
@@ -965,20 +941,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     AndroidxEmoji2("\ud83e\udd3c", listOf("wrestlers")),
-    AndroidxEmoji2(
-      unicode = "\ud83e\udd3c\u200d\u2642",
-      shortcodes = listOf("man-wrestling"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\udd3c\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83e\udd3c\u200d\u2640",
-      shortcodes = listOf("woman-wrestling"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83e\udd3c\u200d\u2640\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83e\udd3c\u200d\u2642\ufe0f", listOf("man-wrestling")),
+    AndroidxEmoji2("\ud83e\udd3c\u200d\u2640\ufe0f", listOf("woman-wrestling")),
     AndroidxEmoji2(
       unicode = "\ud83e\udd3d",
       shortcodes = listOf("water_polo"),

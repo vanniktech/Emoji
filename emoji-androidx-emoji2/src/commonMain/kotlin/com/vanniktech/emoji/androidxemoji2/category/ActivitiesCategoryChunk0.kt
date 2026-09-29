@@ -38,28 +38,10 @@ internal object ActivitiesCategoryChunk0 {
     AndroidxEmoji2("\ud83e\udde7", listOf("red_envelope")),
     AndroidxEmoji2("\ud83c\udf80", listOf("ribbon")),
     AndroidxEmoji2("\ud83c\udf81", listOf("gift")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udf97",
-      shortcodes = listOf("reminder_ribbon"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udf97\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udf9f",
-      shortcodes = listOf("admission_tickets"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udf9f\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udf97\ufe0f", listOf("reminder_ribbon")),
+    AndroidxEmoji2("\ud83c\udf9f\ufe0f", listOf("admission_tickets")),
     AndroidxEmoji2("\ud83c\udfab", listOf("ticket")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udf96",
-      shortcodes = listOf("medal"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udf96\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udf96\ufe0f", listOf("medal")),
     AndroidxEmoji2("\ud83c\udfc6", listOf("trophy")),
     AndroidxEmoji2("\ud83c\udfc5", listOf("sports_medal")),
     AndroidxEmoji2("\ud83e\udd47", listOf("first_place_medal")),
@@ -85,13 +67,7 @@ internal object ActivitiesCategoryChunk0 {
     AndroidxEmoji2("\ud83e\udd4b", listOf("martial_arts_uniform")),
     AndroidxEmoji2("\ud83e\udd45", listOf("goal_net")),
     AndroidxEmoji2("\u26f3", listOf("golf")),
-    AndroidxEmoji2(
-      unicode = "\u26f8",
-      shortcodes = listOf("ice_skate"),
-      variants = listOf(
-        AndroidxEmoji2("\u26f8\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26f8\ufe0f", listOf("ice_skate")),
     AndroidxEmoji2("\ud83c\udfa3", listOf("fishing_pole_and_fish")),
     AndroidxEmoji2("\ud83e\udd3f", listOf("diving_mask")),
     AndroidxEmoji2("\ud83c\udfbd", listOf("running_shirt_with_sash")),
@@ -106,13 +82,7 @@ internal object ActivitiesCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udd2e", listOf("crystal_ball")),
     AndroidxEmoji2("\ud83e\ude84", listOf("magic_wand")),
     AndroidxEmoji2("\ud83c\udfae", listOf("video_game")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd79",
-      shortcodes = listOf("joystick"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd79\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udd79\ufe0f", listOf("joystick")),
     AndroidxEmoji2("\ud83c\udfb0", listOf("slot_machine")),
     AndroidxEmoji2("\ud83c\udfb2", listOf("game_die")),
     AndroidxEmoji2("\ud83e\udde9", listOf("jigsaw")),
@@ -120,52 +90,16 @@ internal object ActivitiesCategoryChunk0 {
     AndroidxEmoji2("\ud83e\ude85", listOf("pinata")),
     AndroidxEmoji2("\ud83e\udea9", listOf("mirror_ball")),
     AndroidxEmoji2("\ud83e\ude86", listOf("nesting_dolls")),
-    AndroidxEmoji2(
-      unicode = "\u2660",
-      shortcodes = listOf("spades"),
-      variants = listOf(
-        AndroidxEmoji2("\u2660\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2665",
-      shortcodes = listOf("hearts"),
-      variants = listOf(
-        AndroidxEmoji2("\u2665\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2666",
-      shortcodes = listOf("diamonds"),
-      variants = listOf(
-        AndroidxEmoji2("\u2666\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2663",
-      shortcodes = listOf("clubs"),
-      variants = listOf(
-        AndroidxEmoji2("\u2663\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u265f",
-      shortcodes = listOf("chess_pawn"),
-      variants = listOf(
-        AndroidxEmoji2("\u265f\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2660\ufe0f", listOf("spades")),
+    AndroidxEmoji2("\u2665\ufe0f", listOf("hearts")),
+    AndroidxEmoji2("\u2666\ufe0f", listOf("diamonds")),
+    AndroidxEmoji2("\u2663\ufe0f", listOf("clubs")),
+    AndroidxEmoji2("\u265f\ufe0f", listOf("chess_pawn")),
     AndroidxEmoji2("\ud83c\udccf", listOf("black_joker")),
     AndroidxEmoji2("\ud83c\udc04", listOf("mahjong")),
     AndroidxEmoji2("\ud83c\udfb4", listOf("flower_playing_cards")),
     AndroidxEmoji2("\ud83c\udfad", listOf("performing_arts")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\uddbc",
-      shortcodes = listOf("frame_with_picture"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\uddbc\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\uddbc\ufe0f", listOf("frame_with_picture")),
     AndroidxEmoji2("\ud83c\udfa8", listOf("art")),
     AndroidxEmoji2("\ud83e\uddf5", listOf("thread")),
     AndroidxEmoji2("\ud83e\udea1", listOf("sewing_needle")),

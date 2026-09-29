@@ -20,93 +20,21 @@ import com.vanniktech.emoji.facebook.FacebookEmoji
 
 internal object TravelAndPlacesCategoryChunk2 {
   internal val EMOJIS: List<FacebookEmoji> = listOf(
-    FacebookEmoji(
-      unicode = "\ud83c\udf29",
-      shortcodes = listOf("lightning", "lightning_cloud"),
-      x = 5,
-      y = 34,
-      variants = listOf(
-        FacebookEmoji("\ud83c\udf29\ufe0f", emptyList(), 5, 34),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83c\udf2a",
-      shortcodes = listOf("tornado", "tornado_cloud"),
-      x = 5,
-      y = 35,
-      variants = listOf(
-        FacebookEmoji("\ud83c\udf2a\ufe0f", emptyList(), 5, 35),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83c\udf2b",
-      shortcodes = listOf("fog"),
-      x = 5,
-      y = 36,
-      variants = listOf(
-        FacebookEmoji("\ud83c\udf2b\ufe0f", emptyList(), 5, 36),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83c\udf2c",
-      shortcodes = listOf("wind_blowing_face"),
-      x = 5,
-      y = 37,
-      variants = listOf(
-        FacebookEmoji("\ud83c\udf2c\ufe0f", emptyList(), 5, 37),
-      ),
-    ),
+    FacebookEmoji("\ud83c\udf29\ufe0f", listOf("lightning", "lightning_cloud"), 5, 34),
+    FacebookEmoji("\ud83c\udf2a\ufe0f", listOf("tornado", "tornado_cloud"), 5, 35),
+    FacebookEmoji("\ud83c\udf2b\ufe0f", listOf("fog"), 5, 36),
+    FacebookEmoji("\ud83c\udf2c\ufe0f", listOf("wind_blowing_face"), 5, 37),
     FacebookEmoji("\ud83c\udf00", listOf("cyclone"), 4, 57),
     FacebookEmoji("\ud83c\udf08", listOf("rainbow"), 5, 3),
     FacebookEmoji("\ud83c\udf02", listOf("closed_umbrella"), 4, 59),
-    FacebookEmoji(
-      unicode = "\u2602",
-      shortcodes = listOf("umbrella"),
-      x = 58,
-      y = 18,
-      variants = listOf(
-        FacebookEmoji("\u2602\ufe0f", emptyList(), 58, 18),
-      ),
-    ),
+    FacebookEmoji("\u2602\ufe0f", listOf("umbrella"), 58, 18),
     FacebookEmoji("\u2614", listOf("umbrella_with_rain_drops"), 58, 23),
-    FacebookEmoji(
-      unicode = "\u26f1",
-      shortcodes = listOf("umbrella_on_ground"),
-      x = 59,
-      y = 33,
-      variants = listOf(
-        FacebookEmoji("\u26f1\ufe0f", emptyList(), 59, 33),
-      ),
-    ),
+    FacebookEmoji("\u26f1\ufe0f", listOf("umbrella_on_ground"), 59, 33),
     FacebookEmoji("\u26a1", listOf("zap"), 59, 13),
-    FacebookEmoji(
-      unicode = "\u2744",
-      shortcodes = listOf("snowflake"),
-      x = 60,
-      y = 35,
-      variants = listOf(
-        FacebookEmoji("\u2744\ufe0f", emptyList(), 60, 35),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\u2603",
-      shortcodes = listOf("snowman"),
-      x = 58,
-      y = 19,
-      variants = listOf(
-        FacebookEmoji("\u2603\ufe0f", emptyList(), 58, 19),
-      ),
-    ),
+    FacebookEmoji("\u2744\ufe0f", listOf("snowflake"), 60, 35),
+    FacebookEmoji("\u2603\ufe0f", listOf("snowman"), 58, 19),
     FacebookEmoji("\u26c4", listOf("snowman_without_snow"), 59, 21),
-    FacebookEmoji(
-      unicode = "\u2604",
-      shortcodes = listOf("comet"),
-      x = 58,
-      y = 20,
-      variants = listOf(
-        FacebookEmoji("\u2604\ufe0f", emptyList(), 58, 20),
-      ),
-    ),
+    FacebookEmoji("\u2604\ufe0f", listOf("comet"), 58, 20),
     FacebookEmoji("\ud83d\udd25", listOf("fire"), 30, 30),
     FacebookEmoji("\ud83d\udca7", listOf("droplet"), 28, 24),
     FacebookEmoji("\ud83c\udf0a", listOf("ocean"), 5, 5),

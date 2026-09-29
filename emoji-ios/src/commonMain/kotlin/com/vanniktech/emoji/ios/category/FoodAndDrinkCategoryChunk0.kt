@@ -45,15 +45,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     IosEmoji("\ud83e\udd54", listOf("potato"), 44, 5),
     IosEmoji("\ud83e\udd55", listOf("carrot"), 44, 6),
     IosEmoji("\ud83c\udf3d", listOf("corn"), 5, 54),
-    IosEmoji(
-      unicode = "\ud83c\udf36",
-      shortcodes = listOf("hot_pepper"),
-      x = 5,
-      y = 47,
-      variants = listOf(
-        IosEmoji("\ud83c\udf36\ufe0f", emptyList(), 5, 47),
-      ),
-    ),
+    IosEmoji("\ud83c\udf36\ufe0f", listOf("hot_pepper"), 5, 47),
     IosEmoji("\ud83e\uded1", listOf("bell_pepper"), 56, 24),
     IosEmoji("\ud83e\udd52", listOf("cucumber"), 44, 3),
     IosEmoji("\ud83e\udd6c", listOf("leafy_green"), 44, 29),

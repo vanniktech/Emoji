@@ -1204,43 +1204,11 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     FacebookEmoji("\ud83e\uddde", listOf("genie"), 54, 15),
-    FacebookEmoji(
-      unicode = "\ud83e\uddde\u200d\u2642",
-      shortcodes = listOf("male_genie"),
-      x = 54,
-      y = 14,
-      variants = listOf(
-        FacebookEmoji("\ud83e\uddde\u200d\u2642\ufe0f", emptyList(), 54, 14),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83e\uddde\u200d\u2640",
-      shortcodes = listOf("female_genie"),
-      x = 54,
-      y = 13,
-      variants = listOf(
-        FacebookEmoji("\ud83e\uddde\u200d\u2640\ufe0f", emptyList(), 54, 13),
-      ),
-    ),
+    FacebookEmoji("\ud83e\uddde\u200d\u2642\ufe0f", listOf("male_genie"), 54, 14),
+    FacebookEmoji("\ud83e\uddde\u200d\u2640\ufe0f", listOf("female_genie"), 54, 13),
     FacebookEmoji("\ud83e\udddf", listOf("zombie"), 54, 18),
-    FacebookEmoji(
-      unicode = "\ud83e\udddf\u200d\u2642",
-      shortcodes = listOf("male_zombie"),
-      x = 54,
-      y = 17,
-      variants = listOf(
-        FacebookEmoji("\ud83e\udddf\u200d\u2642\ufe0f", emptyList(), 54, 17),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83e\udddf\u200d\u2640",
-      shortcodes = listOf("female_zombie"),
-      x = 54,
-      y = 16,
-      variants = listOf(
-        FacebookEmoji("\ud83e\udddf\u200d\u2640\ufe0f", emptyList(), 54, 16),
-      ),
-    ),
+    FacebookEmoji("\ud83e\udddf\u200d\u2642\ufe0f", listOf("male_zombie"), 54, 17),
+    FacebookEmoji("\ud83e\udddf\u200d\u2640\ufe0f", listOf("female_zombie"), 54, 16),
     FacebookEmoji("\ud83e\uddcc", listOf("troll"), 46, 51),
     FacebookEmoji(
       unicode = "\ud83d\udc86",

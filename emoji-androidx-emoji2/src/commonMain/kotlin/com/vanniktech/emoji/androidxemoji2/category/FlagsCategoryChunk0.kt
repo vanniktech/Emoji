@@ -24,34 +24,10 @@ internal object FlagsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udea9", listOf("triangular_flag_on_post")),
     AndroidxEmoji2("\ud83c\udf8c", listOf("crossed_flags")),
     AndroidxEmoji2("\ud83c\udff4", listOf("waving_black_flag")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udff3",
-      shortcodes = listOf("waving_white_flag"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udff3\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udff3\u200d\ud83c\udf08",
-      shortcodes = listOf("rainbow-flag"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udff3\u200d\u26a7",
-      shortcodes = listOf("transgender_flag"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udff4\u200d\u2620",
-      shortcodes = listOf("pirate_flag"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udff4\u200d\u2620\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udff3\ufe0f", listOf("waving_white_flag")),
+    AndroidxEmoji2("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", listOf("rainbow-flag")),
+    AndroidxEmoji2("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", listOf("transgender_flag")),
+    AndroidxEmoji2("\ud83c\udff4\u200d\u2620\ufe0f", listOf("pirate_flag")),
     AndroidxEmoji2("\ud83c\udde6\ud83c\udde8", listOf("flag-ac")),
     AndroidxEmoji2("\ud83c\udde6\ud83c\udde9", listOf("flag-ad")),
     AndroidxEmoji2("\ud83c\udde6\ud83c\uddea", listOf("flag-ae")),

@@ -1256,33 +1256,9 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     IosEmoji("\ud83e\uddde", listOf("genie"), 54, 15),
-    IosEmoji(
-      unicode = "\ud83e\uddde\u200d\u2642",
-      shortcodes = listOf("male_genie"),
-      x = 54,
-      y = 14,
-      variants = listOf(
-        IosEmoji("\ud83e\uddde\u200d\u2642\ufe0f", emptyList(), 54, 14),
-      ),
-    ),
-    IosEmoji(
-      unicode = "\ud83e\uddde\u200d\u2640",
-      shortcodes = listOf("female_genie"),
-      x = 54,
-      y = 13,
-      variants = listOf(
-        IosEmoji("\ud83e\uddde\u200d\u2640\ufe0f", emptyList(), 54, 13),
-      ),
-    ),
+    IosEmoji("\ud83e\uddde\u200d\u2642\ufe0f", listOf("male_genie"), 54, 14),
+    IosEmoji("\ud83e\uddde\u200d\u2640\ufe0f", listOf("female_genie"), 54, 13),
     IosEmoji("\ud83e\udddf", listOf("zombie"), 54, 18),
-    IosEmoji(
-      unicode = "\ud83e\udddf\u200d\u2642",
-      shortcodes = listOf("male_zombie"),
-      x = 54,
-      y = 17,
-      variants = listOf(
-        IosEmoji("\ud83e\udddf\u200d\u2642\ufe0f", emptyList(), 54, 17),
-      ),
-    ),
+    IosEmoji("\ud83e\udddf\u200d\u2642\ufe0f", listOf("male_zombie"), 54, 17),
   )
 }

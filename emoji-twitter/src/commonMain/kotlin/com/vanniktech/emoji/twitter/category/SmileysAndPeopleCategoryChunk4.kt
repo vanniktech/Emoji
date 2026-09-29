@@ -20,15 +20,7 @@ import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object SmileysAndPeopleCategoryChunk4 {
   internal val EMOJIS: List<TwitterEmoji> = listOf(
-    TwitterEmoji(
-      unicode = "\ud83e\udddf\u200d\u2640",
-      shortcodes = listOf("female_zombie"),
-      x = 54,
-      y = 16,
-      variants = listOf(
-        TwitterEmoji("\ud83e\udddf\u200d\u2640\ufe0f", emptyList(), 54, 16),
-      ),
-    ),
+    TwitterEmoji("\ud83e\udddf\u200d\u2640\ufe0f", listOf("female_zombie"), 54, 16),
     TwitterEmoji("\ud83e\uddcc", listOf("troll"), 46, 51),
     TwitterEmoji(
       unicode = "\ud83d\udc86",
@@ -655,24 +647,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     TwitterEmoji("\ud83d\udc6f", listOf("dancers"), 23, 52),
-    TwitterEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2642",
-      shortcodes = listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"),
-      x = 23,
-      y = 51,
-      variants = listOf(
-        TwitterEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", emptyList(), 23, 51),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2640",
-      shortcodes = listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"),
-      x = 23,
-      y = 50,
-      variants = listOf(
-        TwitterEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", emptyList(), 23, 50),
-      ),
-    ),
+    TwitterEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), 23, 51),
+    TwitterEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"), 23, 50),
     TwitterEmoji(
       unicode = "\ud83e\uddd6",
       shortcodes = listOf("person_in_steamy_room"),
@@ -765,15 +741,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
         TwitterEmoji("\ud83c\udfc7\ud83c\udfff", emptyList(), 9, 8),
       ),
     ),
-    TwitterEmoji(
-      unicode = "\u26f7",
-      shortcodes = listOf("skier"),
-      x = 59,
-      y = 38,
-      variants = listOf(
-        TwitterEmoji("\u26f7\ufe0f", emptyList(), 59, 38),
-      ),
-    ),
+    TwitterEmoji("\u26f7\ufe0f", listOf("skier"), 59, 38),
     TwitterEmoji(
       unicode = "\ud83c\udfc2",
       shortcodes = listOf("snowboarder"),
@@ -1139,24 +1107,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     TwitterEmoji("\ud83e\udd3c", listOf("wrestlers"), 43, 10),
-    TwitterEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2642",
-      shortcodes = listOf("man-wrestling"),
-      x = 43,
-      y = 9,
-      variants = listOf(
-        TwitterEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", emptyList(), 43, 9),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2640",
-      shortcodes = listOf("woman-wrestling"),
-      x = 43,
-      y = 8,
-      variants = listOf(
-        TwitterEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", emptyList(), 43, 8),
-      ),
-    ),
+    TwitterEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", listOf("man-wrestling"), 43, 9),
+    TwitterEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", listOf("woman-wrestling"), 43, 8),
     TwitterEmoji(
       unicode = "\ud83e\udd3d",
       shortcodes = listOf("water_polo"),

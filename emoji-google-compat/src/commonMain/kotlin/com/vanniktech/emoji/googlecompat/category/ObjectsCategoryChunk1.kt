@@ -28,13 +28,7 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udcfc", listOf("vhs")),
     GoogleCompatEmoji("\ud83d\udd0d", listOf("mag")),
     GoogleCompatEmoji("\ud83d\udd0e", listOf("mag_right")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd6f",
-      shortcodes = listOf("candle"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd6f\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd6f\ufe0f", listOf("candle")),
     GoogleCompatEmoji("\ud83d\udca1", listOf("bulb")),
     GoogleCompatEmoji("\ud83d\udd26", listOf("flashlight")),
     GoogleCompatEmoji("\ud83c\udfee", listOf("izakaya_lantern", "lantern")),
@@ -52,22 +46,10 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udcdc", listOf("scroll")),
     GoogleCompatEmoji("\ud83d\udcc4", listOf("page_facing_up")),
     GoogleCompatEmoji("\ud83d\udcf0", listOf("newspaper")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddde",
-      shortcodes = listOf("rolled_up_newspaper"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddde\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddde\ufe0f", listOf("rolled_up_newspaper")),
     GoogleCompatEmoji("\ud83d\udcd1", listOf("bookmark_tabs")),
     GoogleCompatEmoji("\ud83d\udd16", listOf("bookmark")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff7",
-      shortcodes = listOf("label"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff7\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udff7\ufe0f", listOf("label")),
     GoogleCompatEmoji("\ud83d\udcb0", listOf("moneybag")),
     GoogleCompatEmoji("\ud83e\ude99", listOf("coin")),
     GoogleCompatEmoji("\ud83d\udcb4", listOf("yen")),
@@ -78,13 +60,7 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udcb3", listOf("credit_card")),
     GoogleCompatEmoji("\ud83e\uddfe", listOf("receipt")),
     GoogleCompatEmoji("\ud83d\udcb9", listOf("chart")),
-    GoogleCompatEmoji(
-      unicode = "\u2709",
-      shortcodes = listOf("email", "envelope"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2709\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2709\ufe0f", listOf("email", "envelope")),
     GoogleCompatEmoji("\ud83d\udce7", listOf("e-mail")),
     GoogleCompatEmoji("\ud83d\udce8", listOf("incoming_envelope")),
     GoogleCompatEmoji("\ud83d\udce9", listOf("envelope_with_arrow")),
@@ -96,82 +72,22 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udcec", listOf("mailbox_with_mail")),
     GoogleCompatEmoji("\ud83d\udced", listOf("mailbox_with_no_mail")),
     GoogleCompatEmoji("\ud83d\udcee", listOf("postbox")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddf3",
-      shortcodes = listOf("ballot_box_with_ballot"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddf3\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u270f",
-      shortcodes = listOf("pencil2"),
-      variants = listOf(
-        GoogleCompatEmoji("\u270f\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2712",
-      shortcodes = listOf("black_nib"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2712\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd8b",
-      shortcodes = listOf("lower_left_fountain_pen"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd8b\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd8a",
-      shortcodes = listOf("lower_left_ballpoint_pen"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd8a\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd8c",
-      shortcodes = listOf("lower_left_paintbrush"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd8c\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd8d",
-      shortcodes = listOf("lower_left_crayon"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd8d\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddf3\ufe0f", listOf("ballot_box_with_ballot")),
+    GoogleCompatEmoji("\u270f\ufe0f", listOf("pencil2")),
+    GoogleCompatEmoji("\u2712\ufe0f", listOf("black_nib")),
+    GoogleCompatEmoji("\ud83d\udd8b\ufe0f", listOf("lower_left_fountain_pen")),
+    GoogleCompatEmoji("\ud83d\udd8a\ufe0f", listOf("lower_left_ballpoint_pen")),
+    GoogleCompatEmoji("\ud83d\udd8c\ufe0f", listOf("lower_left_paintbrush")),
+    GoogleCompatEmoji("\ud83d\udd8d\ufe0f", listOf("lower_left_crayon")),
     GoogleCompatEmoji("\ud83d\udcdd", listOf("memo", "pencil")),
     GoogleCompatEmoji("\ud83d\udcbc", listOf("briefcase")),
     GoogleCompatEmoji("\ud83d\udcc1", listOf("file_folder")),
     GoogleCompatEmoji("\ud83d\udcc2", listOf("open_file_folder")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddc2",
-      shortcodes = listOf("card_index_dividers"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddc2\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddc2\ufe0f", listOf("card_index_dividers")),
     GoogleCompatEmoji("\ud83d\udcc5", listOf("date")),
     GoogleCompatEmoji("\ud83d\udcc6", listOf("calendar")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddd2",
-      shortcodes = listOf("spiral_note_pad"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddd2\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddd3",
-      shortcodes = listOf("spiral_calendar_pad"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddd3\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddd2\ufe0f", listOf("spiral_note_pad")),
+    GoogleCompatEmoji("\ud83d\uddd3\ufe0f", listOf("spiral_calendar_pad")),
     GoogleCompatEmoji("\ud83d\udcc7", listOf("card_index")),
     GoogleCompatEmoji("\ud83d\udcc8", listOf("chart_with_upwards_trend")),
     GoogleCompatEmoji("\ud83d\udcc9", listOf("chart_with_downwards_trend")),
@@ -180,101 +96,29 @@ internal object ObjectsCategoryChunk1 {
     GoogleCompatEmoji("\ud83d\udccc", listOf("pushpin")),
     GoogleCompatEmoji("\ud83d\udccd", listOf("round_pushpin")),
     GoogleCompatEmoji("\ud83d\udcce", listOf("paperclip")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd87",
-      shortcodes = listOf("linked_paperclips"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd87\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd87\ufe0f", listOf("linked_paperclips")),
     GoogleCompatEmoji("\ud83d\udccf", listOf("straight_ruler")),
     GoogleCompatEmoji("\ud83d\udcd0", listOf("triangular_ruler")),
-    GoogleCompatEmoji(
-      unicode = "\u2702",
-      shortcodes = listOf("scissors"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2702\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddc3",
-      shortcodes = listOf("card_file_box"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddc3\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddc4",
-      shortcodes = listOf("file_cabinet"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddc4\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddd1",
-      shortcodes = listOf("wastebasket"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddd1\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2702\ufe0f", listOf("scissors")),
+    GoogleCompatEmoji("\ud83d\uddc3\ufe0f", listOf("card_file_box")),
+    GoogleCompatEmoji("\ud83d\uddc4\ufe0f", listOf("file_cabinet")),
+    GoogleCompatEmoji("\ud83d\uddd1\ufe0f", listOf("wastebasket")),
     GoogleCompatEmoji("\ud83d\udd12", listOf("lock")),
     GoogleCompatEmoji("\ud83d\udd13", listOf("unlock")),
     GoogleCompatEmoji("\ud83d\udd0f", listOf("lock_with_ink_pen")),
     GoogleCompatEmoji("\ud83d\udd10", listOf("closed_lock_with_key")),
     GoogleCompatEmoji("\ud83d\udd11", listOf("key")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udddd",
-      shortcodes = listOf("old_key"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udddd\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udddd\ufe0f", listOf("old_key")),
     GoogleCompatEmoji("\ud83d\udd28", listOf("hammer")),
     GoogleCompatEmoji("\ud83e\ude93", listOf("axe")),
-    GoogleCompatEmoji(
-      unicode = "\u26cf",
-      shortcodes = listOf("pick"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26cf\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2692",
-      shortcodes = listOf("hammer_and_pick"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2692\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udee0",
-      shortcodes = listOf("hammer_and_wrench"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udee0\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udde1",
-      shortcodes = listOf("dagger_knife"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udde1\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2694",
-      shortcodes = listOf("crossed_swords"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2694\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26cf\ufe0f", listOf("pick")),
+    GoogleCompatEmoji("\u2692\ufe0f", listOf("hammer_and_pick")),
+    GoogleCompatEmoji("\ud83d\udee0\ufe0f", listOf("hammer_and_wrench")),
+    GoogleCompatEmoji("\ud83d\udde1\ufe0f", listOf("dagger_knife")),
+    GoogleCompatEmoji("\u2694\ufe0f", listOf("crossed_swords")),
     GoogleCompatEmoji("\ud83d\udca3", listOf("bomb")),
     GoogleCompatEmoji("\ud83e\ude83", listOf("boomerang")),
     GoogleCompatEmoji("\ud83c\udff9", listOf("bow_and_arrow")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udee1",
-      shortcodes = listOf("shield"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udee1\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udee1\ufe0f", listOf("shield")),
   )
 }

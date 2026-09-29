@@ -28,36 +28,12 @@ internal object SymbolsCategoryChunk2 {
     GoogleCompatEmoji("\ud83d\udfeb", listOf("large_brown_square")),
     GoogleCompatEmoji("\u2b1b", listOf("black_large_square")),
     GoogleCompatEmoji("\u2b1c", listOf("white_large_square")),
-    GoogleCompatEmoji(
-      unicode = "\u25fc",
-      shortcodes = listOf("black_medium_square"),
-      variants = listOf(
-        GoogleCompatEmoji("\u25fc\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u25fb",
-      shortcodes = listOf("white_medium_square"),
-      variants = listOf(
-        GoogleCompatEmoji("\u25fb\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u25fc\ufe0f", listOf("black_medium_square")),
+    GoogleCompatEmoji("\u25fb\ufe0f", listOf("white_medium_square")),
     GoogleCompatEmoji("\u25fe", listOf("black_medium_small_square")),
     GoogleCompatEmoji("\u25fd", listOf("white_medium_small_square")),
-    GoogleCompatEmoji(
-      unicode = "\u25aa",
-      shortcodes = listOf("black_small_square"),
-      variants = listOf(
-        GoogleCompatEmoji("\u25aa\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u25ab",
-      shortcodes = listOf("white_small_square"),
-      variants = listOf(
-        GoogleCompatEmoji("\u25ab\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u25aa\ufe0f", listOf("black_small_square")),
+    GoogleCompatEmoji("\u25ab\ufe0f", listOf("white_small_square")),
     GoogleCompatEmoji("\ud83d\udd36", listOf("large_orange_diamond")),
     GoogleCompatEmoji("\ud83d\udd37", listOf("large_blue_diamond")),
     GoogleCompatEmoji("\ud83d\udd38", listOf("small_orange_diamond")),

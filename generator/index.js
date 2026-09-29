@@ -309,21 +309,7 @@ async function parse() {
                 emoji.variants.push(variantEmoji)
             }
         } else if (dataEntry.non_qualified) {
-            // Sneaky, but we change it to get proper support for emojis with variant selectors.
-            emoji.unicode = dataEntry.non_qualified
-
-            const variantEmoji = {
-                unicode: dataEntry.unified,
-                x: dataEntry.sheet_x,
-                y: dataEntry.sheet_y,
-                variants: [],
-            };
-
-            for (const target of targets) {
-                variantEmoji[target.package] = true
-            }
-
-            emoji.variants.push(variantEmoji)
+            emoji.unicode = dataEntry.unified
         }
 
         for (const target of targets) {

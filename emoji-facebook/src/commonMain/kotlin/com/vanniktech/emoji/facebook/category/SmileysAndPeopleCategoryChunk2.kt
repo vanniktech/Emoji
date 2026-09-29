@@ -230,15 +230,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
     FacebookEmoji("\ud83e\uddb7", listOf("tooth"), 45, 53),
     FacebookEmoji("\ud83e\uddb4", listOf("bone"), 45, 40),
     FacebookEmoji("\ud83d\udc40", listOf("eyes"), 12, 2),
-    FacebookEmoji(
-      unicode = "\ud83d\udc41",
-      shortcodes = listOf("eye"),
-      x = 12,
-      y = 4,
-      variants = listOf(
-        FacebookEmoji("\ud83d\udc41\ufe0f", emptyList(), 12, 4),
-      ),
-    ),
+    FacebookEmoji("\ud83d\udc41\ufe0f", listOf("eye"), 12, 4),
     FacebookEmoji("\ud83d\udc45", listOf("tongue"), 12, 18),
     FacebookEmoji("\ud83d\udc44", listOf("lips"), 12, 17),
     FacebookEmoji("\ud83e\udee6", listOf("biting_lip"), 56, 43),

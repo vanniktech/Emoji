@@ -72,24 +72,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udc39", listOf("hamster")),
     AndroidxEmoji2("\ud83d\udc30", listOf("rabbit")),
     AndroidxEmoji2("\ud83d\udc07", listOf("rabbit2")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc3f",
-      shortcodes = listOf("chipmunk"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc3f\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udc3f\ufe0f", listOf("chipmunk")),
     AndroidxEmoji2("\ud83e\uddab", listOf("beaver")),
     AndroidxEmoji2("\ud83e\udd94", listOf("hedgehog")),
     AndroidxEmoji2("\ud83e\udd87", listOf("bat")),
     AndroidxEmoji2("\ud83d\udc3b", listOf("bear")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc3b\u200d\u2744",
-      shortcodes = listOf("polar_bear"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc3b\u200d\u2744\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udc3b\u200d\u2744\ufe0f", listOf("polar_bear")),
     AndroidxEmoji2("\ud83d\udc28", listOf("koala")),
     AndroidxEmoji2("\ud83d\udc3c", listOf("panda_face")),
     AndroidxEmoji2("\ud83e\udda5", listOf("sloth")),
@@ -106,13 +94,7 @@ internal object AnimalsAndNatureCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udc25", listOf("hatched_chick")),
     AndroidxEmoji2("\ud83d\udc26", listOf("bird")),
     AndroidxEmoji2("\ud83d\udc27", listOf("penguin")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd4a",
-      shortcodes = listOf("dove_of_peace"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd4a\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udd4a\ufe0f", listOf("dove_of_peace")),
     AndroidxEmoji2("\ud83e\udd85", listOf("eagle")),
     AndroidxEmoji2("\ud83e\udd86", listOf("duck")),
     AndroidxEmoji2("\ud83e\udda2", listOf("swan")),

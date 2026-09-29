@@ -20,15 +20,7 @@ import com.vanniktech.emoji.google.GoogleEmoji
 
 internal object SmileysAndPeopleCategoryChunk4 {
   internal val EMOJIS: List<GoogleEmoji> = listOf(
-    GoogleEmoji(
-      unicode = "\ud83e\udddf\u200d\u2640",
-      shortcodes = listOf("female_zombie"),
-      x = 54,
-      y = 16,
-      variants = listOf(
-        GoogleEmoji("\ud83e\udddf\u200d\u2640\ufe0f", emptyList(), 54, 16),
-      ),
-    ),
+    GoogleEmoji("\ud83e\udddf\u200d\u2640\ufe0f", listOf("female_zombie"), 54, 16),
     GoogleEmoji("\ud83e\uddcc", listOf("troll"), 46, 51),
     GoogleEmoji(
       unicode = "\ud83d\udc86",
@@ -655,24 +647,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     GoogleEmoji("\ud83d\udc6f", listOf("dancers"), 23, 52),
-    GoogleEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2642",
-      shortcodes = listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"),
-      x = 23,
-      y = 51,
-      variants = listOf(
-        GoogleEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", emptyList(), 23, 51),
-      ),
-    ),
-    GoogleEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2640",
-      shortcodes = listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"),
-      x = 23,
-      y = 50,
-      variants = listOf(
-        GoogleEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", emptyList(), 23, 50),
-      ),
-    ),
+    GoogleEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), 23, 51),
+    GoogleEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"), 23, 50),
     GoogleEmoji(
       unicode = "\ud83e\uddd6",
       shortcodes = listOf("person_in_steamy_room"),
@@ -765,15 +741,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
         GoogleEmoji("\ud83c\udfc7\ud83c\udfff", emptyList(), 9, 8),
       ),
     ),
-    GoogleEmoji(
-      unicode = "\u26f7",
-      shortcodes = listOf("skier"),
-      x = 59,
-      y = 38,
-      variants = listOf(
-        GoogleEmoji("\u26f7\ufe0f", emptyList(), 59, 38),
-      ),
-    ),
+    GoogleEmoji("\u26f7\ufe0f", listOf("skier"), 59, 38),
     GoogleEmoji(
       unicode = "\ud83c\udfc2",
       shortcodes = listOf("snowboarder"),
@@ -1139,24 +1107,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     GoogleEmoji("\ud83e\udd3c", listOf("wrestlers"), 43, 10),
-    GoogleEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2642",
-      shortcodes = listOf("man-wrestling"),
-      x = 43,
-      y = 9,
-      variants = listOf(
-        GoogleEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", emptyList(), 43, 9),
-      ),
-    ),
-    GoogleEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2640",
-      shortcodes = listOf("woman-wrestling"),
-      x = 43,
-      y = 8,
-      variants = listOf(
-        GoogleEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", emptyList(), 43, 8),
-      ),
-    ),
+    GoogleEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", listOf("man-wrestling"), 43, 9),
+    GoogleEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", listOf("woman-wrestling"), 43, 8),
     GoogleEmoji(
       unicode = "\ud83e\udd3d",
       shortcodes = listOf("water_polo"),
