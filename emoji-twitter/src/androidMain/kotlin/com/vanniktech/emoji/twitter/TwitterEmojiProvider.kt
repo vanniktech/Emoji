@@ -22,7 +22,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.util.LruCache
-import androidx.core.graphics.drawable.toDrawable
 import com.vanniktech.emoji.Emoji
 import com.vanniktech.emoji.EmojiAndroidProvider
 import com.vanniktech.emoji.EmojiCategory
@@ -36,6 +35,7 @@ import com.vanniktech.emoji.twitter.category.SmileysAndPeopleCategory
 import com.vanniktech.emoji.twitter.category.SymbolsCategory
 import com.vanniktech.emoji.twitter.category.TravelAndPlacesCategory
 import java.lang.ref.SoftReference
+import androidx.core.graphics.drawable.toDrawable
 
 class TwitterEmojiProvider :
   EmojiProvider,

@@ -28,44 +28,12 @@ internal object SymbolsCategoryChunk2 {
     GoogleEmoji("\ud83d\udfeb", listOf("large_brown_square"), 39, 22),
     GoogleEmoji("\u2b1b", listOf("black_large_square"), 60, 58),
     GoogleEmoji("\u2b1c", listOf("white_large_square"), 60, 59),
-    GoogleEmoji(
-      unicode = "\u25fc",
-      shortcodes = listOf("black_medium_square"),
-      x = 58,
-      y = 13,
-      variants = listOf(
-        GoogleEmoji("\u25fc\ufe0f", emptyList(), 58, 13),
-      ),
-    ),
-    GoogleEmoji(
-      unicode = "\u25fb",
-      shortcodes = listOf("white_medium_square"),
-      x = 58,
-      y = 12,
-      variants = listOf(
-        GoogleEmoji("\u25fb\ufe0f", emptyList(), 58, 12),
-      ),
-    ),
+    GoogleEmoji("\u25fc\ufe0f", listOf("black_medium_square"), 58, 13),
+    GoogleEmoji("\u25fb\ufe0f", listOf("white_medium_square"), 58, 12),
     GoogleEmoji("\u25fe", listOf("black_medium_small_square"), 58, 15),
     GoogleEmoji("\u25fd", listOf("white_medium_small_square"), 58, 14),
-    GoogleEmoji(
-      unicode = "\u25aa",
-      shortcodes = listOf("black_small_square"),
-      x = 58,
-      y = 8,
-      variants = listOf(
-        GoogleEmoji("\u25aa\ufe0f", emptyList(), 58, 8),
-      ),
-    ),
-    GoogleEmoji(
-      unicode = "\u25ab",
-      shortcodes = listOf("white_small_square"),
-      x = 58,
-      y = 9,
-      variants = listOf(
-        GoogleEmoji("\u25ab\ufe0f", emptyList(), 58, 9),
-      ),
-    ),
+    GoogleEmoji("\u25aa\ufe0f", listOf("black_small_square"), 58, 8),
+    GoogleEmoji("\u25ab\ufe0f", listOf("white_small_square"), 58, 9),
     GoogleEmoji("\ud83d\udd36", listOf("large_orange_diamond"), 30, 47),
     GoogleEmoji("\ud83d\udd37", listOf("large_blue_diamond"), 30, 48),
     GoogleEmoji("\ud83d\udd38", listOf("small_orange_diamond"), 30, 49),

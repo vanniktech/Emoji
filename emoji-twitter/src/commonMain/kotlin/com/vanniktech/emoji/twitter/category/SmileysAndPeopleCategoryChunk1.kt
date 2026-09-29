@@ -29,15 +29,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
     TwitterEmoji("\ud83d\ude08", listOf("smiling_imp"), 32, 55),
     TwitterEmoji("\ud83d\udc7f", listOf("imp"), 25, 42),
     TwitterEmoji("\ud83d\udc80", listOf("skull"), 25, 43),
-    TwitterEmoji(
-      unicode = "\u2620",
-      shortcodes = listOf("skull_and_crossbones"),
-      x = 58,
-      y = 32,
-      variants = listOf(
-        TwitterEmoji("\u2620\ufe0f", emptyList(), 58, 32),
-      ),
-    ),
+    TwitterEmoji("\u2620\ufe0f", listOf("skull_and_crossbones"), 58, 32),
     TwitterEmoji("\ud83d\udca9", listOf("hankey", "poop", "shit"), 28, 26),
     TwitterEmoji("\ud83e\udd21", listOf("clown_face"), 40, 53),
     TwitterEmoji("\ud83d\udc79", listOf("japanese_ogre"), 25, 31),
@@ -67,43 +59,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     TwitterEmoji("\ud83d\udc9e", listOf("revolving_hearts"), 28, 15),
     TwitterEmoji("\ud83d\udc95", listOf("two_hearts"), 28, 6),
     TwitterEmoji("\ud83d\udc9f", listOf("heart_decoration"), 28, 16),
-    TwitterEmoji(
-      unicode = "\u2763",
-      shortcodes = listOf("heavy_heart_exclamation_mark_ornament"),
-      x = 60,
-      y = 43,
-      variants = listOf(
-        TwitterEmoji("\u2763\ufe0f", emptyList(), 60, 43),
-      ),
-    ),
+    TwitterEmoji("\u2763\ufe0f", listOf("heavy_heart_exclamation_mark_ornament"), 60, 43),
     TwitterEmoji("\ud83d\udc94", listOf("broken_heart"), 28, 5),
-    TwitterEmoji(
-      unicode = "\u2764\u200d\ud83d\udd25",
-      shortcodes = listOf("heart_on_fire"),
-      x = 60,
-      y = 44,
-      variants = listOf(
-        TwitterEmoji("\u2764\ufe0f\u200d\ud83d\udd25", emptyList(), 60, 44),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\u2764\u200d\ud83e\ude79",
-      shortcodes = listOf("mending_heart"),
-      x = 60,
-      y = 45,
-      variants = listOf(
-        TwitterEmoji("\u2764\ufe0f\u200d\ud83e\ude79", emptyList(), 60, 45),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\u2764",
-      shortcodes = listOf("heart"),
-      x = 60,
-      y = 46,
-      variants = listOf(
-        TwitterEmoji("\u2764\ufe0f", emptyList(), 60, 46),
-      ),
-    ),
+    TwitterEmoji("\u2764\ufe0f\u200d\ud83d\udd25", listOf("heart_on_fire"), 60, 44),
+    TwitterEmoji("\u2764\ufe0f\u200d\ud83e\ude79", listOf("mending_heart"), 60, 45),
+    TwitterEmoji("\u2764\ufe0f", listOf("heart"), 60, 46),
     TwitterEmoji("\ud83e\ude77", listOf("pink_heart"), 54, 58),
     TwitterEmoji("\ud83e\udde1", listOf("orange_heart"), 54, 20),
     TwitterEmoji("\ud83d\udc9b", listOf("yellow_heart"), 28, 12),
@@ -122,43 +82,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     TwitterEmoji("\ud83d\udcab", listOf("dizzy"), 28, 33),
     TwitterEmoji("\ud83d\udca6", listOf("sweat_drops"), 28, 23),
     TwitterEmoji("\ud83d\udca8", listOf("dash"), 28, 25),
-    TwitterEmoji(
-      unicode = "\ud83d\udd73",
-      shortcodes = listOf("hole"),
-      x = 31,
-      y = 25,
-      variants = listOf(
-        TwitterEmoji("\ud83d\udd73\ufe0f", emptyList(), 31, 25),
-      ),
-    ),
+    TwitterEmoji("\ud83d\udd73\ufe0f", listOf("hole"), 31, 25),
     TwitterEmoji("\ud83d\udcac", listOf("speech_balloon"), 28, 34),
-    TwitterEmoji(
-      unicode = "\ud83d\udc41\u200d\ud83d\udde8",
-      shortcodes = listOf("eye-in-speech-bubble"),
-      x = 12,
-      y = 3,
-      variants = listOf(
-        TwitterEmoji("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", emptyList(), 12, 3),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83d\udde8",
-      shortcodes = listOf("left_speech_bubble"),
-      x = 32,
-      y = 38,
-      variants = listOf(
-        TwitterEmoji("\ud83d\udde8\ufe0f", emptyList(), 32, 38),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83d\uddef",
-      shortcodes = listOf("right_anger_bubble"),
-      x = 32,
-      y = 39,
-      variants = listOf(
-        TwitterEmoji("\ud83d\uddef\ufe0f", emptyList(), 32, 39),
-      ),
-    ),
+    TwitterEmoji("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", listOf("eye-in-speech-bubble"), 12, 3),
+    TwitterEmoji("\ud83d\udde8\ufe0f", listOf("left_speech_bubble"), 32, 38),
+    TwitterEmoji("\ud83d\uddef\ufe0f", listOf("right_anger_bubble"), 32, 39),
     TwitterEmoji("\ud83d\udcad", listOf("thought_balloon"), 28, 35),
     TwitterEmoji("\ud83d\udca4", listOf("zzz"), 28, 21),
     TwitterEmoji(

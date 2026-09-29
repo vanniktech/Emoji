@@ -45,15 +45,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     TwitterEmoji("\ud83e\udd54", listOf("potato"), 44, 5),
     TwitterEmoji("\ud83e\udd55", listOf("carrot"), 44, 6),
     TwitterEmoji("\ud83c\udf3d", listOf("corn"), 5, 54),
-    TwitterEmoji(
-      unicode = "\ud83c\udf36",
-      shortcodes = listOf("hot_pepper"),
-      x = 5,
-      y = 47,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udf36\ufe0f", emptyList(), 5, 47),
-      ),
-    ),
+    TwitterEmoji("\ud83c\udf36\ufe0f", listOf("hot_pepper"), 5, 47),
     TwitterEmoji("\ud83e\uded1", listOf("bell_pepper"), 56, 24),
     TwitterEmoji("\ud83e\udd52", listOf("cucumber"), 44, 3),
     TwitterEmoji("\ud83e\udd6c", listOf("leafy_green"), 44, 29),

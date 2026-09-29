@@ -33,13 +33,7 @@ internal object SymbolsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udec3", listOf("customs")),
     AndroidxEmoji2("\ud83d\udec4", listOf("baggage_claim")),
     AndroidxEmoji2("\ud83d\udec5", listOf("left_luggage")),
-    AndroidxEmoji2(
-      unicode = "\u26a0",
-      shortcodes = listOf("warning"),
-      variants = listOf(
-        AndroidxEmoji2("\u26a0\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26a0\ufe0f", listOf("warning")),
     AndroidxEmoji2("\ud83d\udeb8", listOf("children_crossing")),
     AndroidxEmoji2("\u26d4", listOf("no_entry")),
     AndroidxEmoji2("\ud83d\udeab", listOf("no_entry_sign")),
@@ -50,118 +44,22 @@ internal object SymbolsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udeb7", listOf("no_pedestrians")),
     AndroidxEmoji2("\ud83d\udcf5", listOf("no_mobile_phones")),
     AndroidxEmoji2("\ud83d\udd1e", listOf("underage")),
-    AndroidxEmoji2(
-      unicode = "\u2622",
-      shortcodes = listOf("radioactive_sign"),
-      variants = listOf(
-        AndroidxEmoji2("\u2622\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2623",
-      shortcodes = listOf("biohazard_sign"),
-      variants = listOf(
-        AndroidxEmoji2("\u2623\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2b06",
-      shortcodes = listOf("arrow_up"),
-      variants = listOf(
-        AndroidxEmoji2("\u2b06\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2197",
-      shortcodes = listOf("arrow_upper_right"),
-      variants = listOf(
-        AndroidxEmoji2("\u2197\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u27a1",
-      shortcodes = listOf("arrow_right"),
-      variants = listOf(
-        AndroidxEmoji2("\u27a1\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2198",
-      shortcodes = listOf("arrow_lower_right"),
-      variants = listOf(
-        AndroidxEmoji2("\u2198\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2b07",
-      shortcodes = listOf("arrow_down"),
-      variants = listOf(
-        AndroidxEmoji2("\u2b07\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2199",
-      shortcodes = listOf("arrow_lower_left"),
-      variants = listOf(
-        AndroidxEmoji2("\u2199\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2b05",
-      shortcodes = listOf("arrow_left"),
-      variants = listOf(
-        AndroidxEmoji2("\u2b05\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2196",
-      shortcodes = listOf("arrow_upper_left"),
-      variants = listOf(
-        AndroidxEmoji2("\u2196\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2195",
-      shortcodes = listOf("arrow_up_down"),
-      variants = listOf(
-        AndroidxEmoji2("\u2195\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2194",
-      shortcodes = listOf("left_right_arrow"),
-      variants = listOf(
-        AndroidxEmoji2("\u2194\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u21a9",
-      shortcodes = listOf("leftwards_arrow_with_hook"),
-      variants = listOf(
-        AndroidxEmoji2("\u21a9\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u21aa",
-      shortcodes = listOf("arrow_right_hook"),
-      variants = listOf(
-        AndroidxEmoji2("\u21aa\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2934",
-      shortcodes = listOf("arrow_heading_up"),
-      variants = listOf(
-        AndroidxEmoji2("\u2934\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2935",
-      shortcodes = listOf("arrow_heading_down"),
-      variants = listOf(
-        AndroidxEmoji2("\u2935\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2622\ufe0f", listOf("radioactive_sign")),
+    AndroidxEmoji2("\u2623\ufe0f", listOf("biohazard_sign")),
+    AndroidxEmoji2("\u2b06\ufe0f", listOf("arrow_up")),
+    AndroidxEmoji2("\u2197\ufe0f", listOf("arrow_upper_right")),
+    AndroidxEmoji2("\u27a1\ufe0f", listOf("arrow_right")),
+    AndroidxEmoji2("\u2198\ufe0f", listOf("arrow_lower_right")),
+    AndroidxEmoji2("\u2b07\ufe0f", listOf("arrow_down")),
+    AndroidxEmoji2("\u2199\ufe0f", listOf("arrow_lower_left")),
+    AndroidxEmoji2("\u2b05\ufe0f", listOf("arrow_left")),
+    AndroidxEmoji2("\u2196\ufe0f", listOf("arrow_upper_left")),
+    AndroidxEmoji2("\u2195\ufe0f", listOf("arrow_up_down")),
+    AndroidxEmoji2("\u2194\ufe0f", listOf("left_right_arrow")),
+    AndroidxEmoji2("\u21a9\ufe0f", listOf("leftwards_arrow_with_hook")),
+    AndroidxEmoji2("\u21aa\ufe0f", listOf("arrow_right_hook")),
+    AndroidxEmoji2("\u2934\ufe0f", listOf("arrow_heading_up")),
+    AndroidxEmoji2("\u2935\ufe0f", listOf("arrow_heading_down")),
     AndroidxEmoji2("\ud83d\udd03", listOf("arrows_clockwise")),
     AndroidxEmoji2("\ud83d\udd04", listOf("arrows_counterclockwise")),
     AndroidxEmoji2("\ud83d\udd19", listOf("back")),
@@ -170,69 +68,15 @@ internal object SymbolsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udd1c", listOf("soon")),
     AndroidxEmoji2("\ud83d\udd1d", listOf("top")),
     AndroidxEmoji2("\ud83d\uded0", listOf("place_of_worship")),
-    AndroidxEmoji2(
-      unicode = "\u269b",
-      shortcodes = listOf("atom_symbol"),
-      variants = listOf(
-        AndroidxEmoji2("\u269b\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd49",
-      shortcodes = listOf("om_symbol"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd49\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2721",
-      shortcodes = listOf("star_of_david"),
-      variants = listOf(
-        AndroidxEmoji2("\u2721\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2638",
-      shortcodes = listOf("wheel_of_dharma"),
-      variants = listOf(
-        AndroidxEmoji2("\u2638\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u262f",
-      shortcodes = listOf("yin_yang"),
-      variants = listOf(
-        AndroidxEmoji2("\u262f\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u271d",
-      shortcodes = listOf("latin_cross"),
-      variants = listOf(
-        AndroidxEmoji2("\u271d\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2626",
-      shortcodes = listOf("orthodox_cross"),
-      variants = listOf(
-        AndroidxEmoji2("\u2626\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u262a",
-      shortcodes = listOf("star_and_crescent"),
-      variants = listOf(
-        AndroidxEmoji2("\u262a\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u262e",
-      shortcodes = listOf("peace_symbol"),
-      variants = listOf(
-        AndroidxEmoji2("\u262e\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u269b\ufe0f", listOf("atom_symbol")),
+    AndroidxEmoji2("\ud83d\udd49\ufe0f", listOf("om_symbol")),
+    AndroidxEmoji2("\u2721\ufe0f", listOf("star_of_david")),
+    AndroidxEmoji2("\u2638\ufe0f", listOf("wheel_of_dharma")),
+    AndroidxEmoji2("\u262f\ufe0f", listOf("yin_yang")),
+    AndroidxEmoji2("\u271d\ufe0f", listOf("latin_cross")),
+    AndroidxEmoji2("\u2626\ufe0f", listOf("orthodox_cross")),
+    AndroidxEmoji2("\u262a\ufe0f", listOf("star_and_crescent")),
+    AndroidxEmoji2("\u262e\ufe0f", listOf("peace_symbol")),
     AndroidxEmoji2("\ud83d\udd4e", listOf("menorah_with_nine_branches")),
     AndroidxEmoji2("\ud83d\udd2f", listOf("six_pointed_star")),
     AndroidxEmoji2("\ud83e\udeaf", listOf("khanda")),
@@ -252,75 +96,21 @@ internal object SymbolsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udd00", listOf("twisted_rightwards_arrows")),
     AndroidxEmoji2("\ud83d\udd01", listOf("repeat")),
     AndroidxEmoji2("\ud83d\udd02", listOf("repeat_one")),
-    AndroidxEmoji2(
-      unicode = "\u25b6",
-      shortcodes = listOf("arrow_forward"),
-      variants = listOf(
-        AndroidxEmoji2("\u25b6\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u25b6\ufe0f", listOf("arrow_forward")),
     AndroidxEmoji2("\u23e9", listOf("fast_forward")),
-    AndroidxEmoji2(
-      unicode = "\u23ed",
-      shortcodes = listOf("black_right_pointing_double_triangle_with_vertical_bar"),
-      variants = listOf(
-        AndroidxEmoji2("\u23ed\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u23ef",
-      shortcodes = listOf("black_right_pointing_triangle_with_double_vertical_bar"),
-      variants = listOf(
-        AndroidxEmoji2("\u23ef\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u25c0",
-      shortcodes = listOf("arrow_backward"),
-      variants = listOf(
-        AndroidxEmoji2("\u25c0\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u23ed\ufe0f", listOf("black_right_pointing_double_triangle_with_vertical_bar")),
+    AndroidxEmoji2("\u23ef\ufe0f", listOf("black_right_pointing_triangle_with_double_vertical_bar")),
+    AndroidxEmoji2("\u25c0\ufe0f", listOf("arrow_backward")),
     AndroidxEmoji2("\u23ea", listOf("rewind")),
-    AndroidxEmoji2(
-      unicode = "\u23ee",
-      shortcodes = listOf("black_left_pointing_double_triangle_with_vertical_bar"),
-      variants = listOf(
-        AndroidxEmoji2("\u23ee\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u23ee\ufe0f", listOf("black_left_pointing_double_triangle_with_vertical_bar")),
     AndroidxEmoji2("\ud83d\udd3c", listOf("arrow_up_small")),
     AndroidxEmoji2("\u23eb", listOf("arrow_double_up")),
     AndroidxEmoji2("\ud83d\udd3d", listOf("arrow_down_small")),
     AndroidxEmoji2("\u23ec", listOf("arrow_double_down")),
-    AndroidxEmoji2(
-      unicode = "\u23f8",
-      shortcodes = listOf("double_vertical_bar"),
-      variants = listOf(
-        AndroidxEmoji2("\u23f8\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u23f9",
-      shortcodes = listOf("black_square_for_stop"),
-      variants = listOf(
-        AndroidxEmoji2("\u23f9\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u23fa",
-      shortcodes = listOf("black_circle_for_record"),
-      variants = listOf(
-        AndroidxEmoji2("\u23fa\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u23cf",
-      shortcodes = listOf("eject"),
-      variants = listOf(
-        AndroidxEmoji2("\u23cf\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u23f8\ufe0f", listOf("double_vertical_bar")),
+    AndroidxEmoji2("\u23f9\ufe0f", listOf("black_square_for_stop")),
+    AndroidxEmoji2("\u23fa\ufe0f", listOf("black_circle_for_record")),
+    AndroidxEmoji2("\u23cf\ufe0f", listOf("eject")),
     AndroidxEmoji2("\ud83c\udfa6", listOf("cinema")),
     AndroidxEmoji2("\ud83d\udd05", listOf("low_brightness")),
     AndroidxEmoji2("\ud83d\udd06", listOf("high_brightness")),
@@ -328,19 +118,7 @@ internal object SymbolsCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udedc", listOf("wireless")),
     AndroidxEmoji2("\ud83d\udcf3", listOf("vibration_mode")),
     AndroidxEmoji2("\ud83d\udcf4", listOf("mobile_phone_off")),
-    AndroidxEmoji2(
-      unicode = "\u2640",
-      shortcodes = listOf("female_sign"),
-      variants = listOf(
-        AndroidxEmoji2("\u2640\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2642",
-      shortcodes = listOf("male_sign"),
-      variants = listOf(
-        AndroidxEmoji2("\u2642\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2640\ufe0f", listOf("female_sign")),
+    AndroidxEmoji2("\u2642\ufe0f", listOf("male_sign")),
   )
 }

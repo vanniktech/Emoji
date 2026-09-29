@@ -24,55 +24,19 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji("\ud83d\udd27", listOf("wrench")),
     GoogleCompatEmoji("\ud83e\ude9b", listOf("screwdriver")),
     GoogleCompatEmoji("\ud83d\udd29", listOf("nut_and_bolt")),
-    GoogleCompatEmoji(
-      unicode = "\u2699",
-      shortcodes = listOf("gear"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2699\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udddc",
-      shortcodes = listOf("compression"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udddc\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2696",
-      shortcodes = listOf("scales"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2696\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2699\ufe0f", listOf("gear")),
+    GoogleCompatEmoji("\ud83d\udddc\ufe0f", listOf("compression")),
+    GoogleCompatEmoji("\u2696\ufe0f", listOf("scales")),
     GoogleCompatEmoji("\ud83e\uddaf", listOf("probing_cane")),
     GoogleCompatEmoji("\ud83d\udd17", listOf("link")),
-    GoogleCompatEmoji(
-      unicode = "\u26d3\u200d\ud83d\udca5",
-      shortcodes = listOf("broken_chain"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26d3\ufe0f\u200d\ud83d\udca5", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u26d3",
-      shortcodes = listOf("chains"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26d3\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26d3\ufe0f\u200d\ud83d\udca5", listOf("broken_chain")),
+    GoogleCompatEmoji("\u26d3\ufe0f", listOf("chains")),
     GoogleCompatEmoji("\ud83e\ude9d", listOf("hook")),
     GoogleCompatEmoji("\ud83e\uddf0", listOf("toolbox")),
     GoogleCompatEmoji("\ud83e\uddf2", listOf("magnet")),
     GoogleCompatEmoji("\ud83e\ude9c", listOf("ladder")),
     GoogleCompatEmoji("\ud83e\ude8f", listOf("shovel")),
-    GoogleCompatEmoji(
-      unicode = "\u2697",
-      shortcodes = listOf("alembic"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2697\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2697\ufe0f", listOf("alembic")),
     GoogleCompatEmoji("\ud83e\uddea", listOf("test_tube")),
     GoogleCompatEmoji("\ud83e\uddeb", listOf("petri_dish")),
     GoogleCompatEmoji("\ud83e\uddec", listOf("dna")),
@@ -90,20 +54,8 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji("\ud83d\uded7", listOf("elevator")),
     GoogleCompatEmoji("\ud83e\ude9e", listOf("mirror")),
     GoogleCompatEmoji("\ud83e\ude9f", listOf("window")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udecf",
-      shortcodes = listOf("bed"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udecf\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udecb",
-      shortcodes = listOf("couch_and_lamp"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udecb\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udecf\ufe0f", listOf("bed")),
+    GoogleCompatEmoji("\ud83d\udecb\ufe0f", listOf("couch_and_lamp")),
     GoogleCompatEmoji("\ud83e\ude91", listOf("chair")),
     GoogleCompatEmoji("\ud83d\udebd", listOf("toilet")),
     GoogleCompatEmoji("\ud83e\udea0", listOf("plunger")),
@@ -124,21 +76,9 @@ internal object ObjectsCategoryChunk2 {
     GoogleCompatEmoji("\ud83e\uddef", listOf("fire_extinguisher")),
     GoogleCompatEmoji("\ud83d\uded2", listOf("shopping_trolley")),
     GoogleCompatEmoji("\ud83d\udeac", listOf("smoking")),
-    GoogleCompatEmoji(
-      unicode = "\u26b0",
-      shortcodes = listOf("coffin"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26b0\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26b0\ufe0f", listOf("coffin")),
     GoogleCompatEmoji("\ud83e\udea6", listOf("headstone")),
-    GoogleCompatEmoji(
-      unicode = "\u26b1",
-      shortcodes = listOf("funeral_urn"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26b1\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26b1\ufe0f", listOf("funeral_urn")),
     GoogleCompatEmoji("\ud83e\uddff", listOf("nazar_amulet")),
     GoogleCompatEmoji("\ud83e\udeac", listOf("hamsa")),
     GoogleCompatEmoji("\ud83d\uddff", listOf("moyai")),

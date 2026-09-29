@@ -29,13 +29,7 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2("\ud83d\ude08", listOf("smiling_imp")),
     AndroidxEmoji2("\ud83d\udc7f", listOf("imp")),
     AndroidxEmoji2("\ud83d\udc80", listOf("skull")),
-    AndroidxEmoji2(
-      unicode = "\u2620",
-      shortcodes = listOf("skull_and_crossbones"),
-      variants = listOf(
-        AndroidxEmoji2("\u2620\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2620\ufe0f", listOf("skull_and_crossbones")),
     AndroidxEmoji2("\ud83d\udca9", listOf("hankey", "poop", "shit")),
     AndroidxEmoji2("\ud83e\udd21", listOf("clown_face")),
     AndroidxEmoji2("\ud83d\udc79", listOf("japanese_ogre")),
@@ -65,35 +59,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2("\ud83d\udc9e", listOf("revolving_hearts")),
     AndroidxEmoji2("\ud83d\udc95", listOf("two_hearts")),
     AndroidxEmoji2("\ud83d\udc9f", listOf("heart_decoration")),
-    AndroidxEmoji2(
-      unicode = "\u2763",
-      shortcodes = listOf("heavy_heart_exclamation_mark_ornament"),
-      variants = listOf(
-        AndroidxEmoji2("\u2763\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2763\ufe0f", listOf("heavy_heart_exclamation_mark_ornament")),
     AndroidxEmoji2("\ud83d\udc94", listOf("broken_heart")),
-    AndroidxEmoji2(
-      unicode = "\u2764\u200d\ud83d\udd25",
-      shortcodes = listOf("heart_on_fire"),
-      variants = listOf(
-        AndroidxEmoji2("\u2764\ufe0f\u200d\ud83d\udd25", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2764\u200d\ud83e\ude79",
-      shortcodes = listOf("mending_heart"),
-      variants = listOf(
-        AndroidxEmoji2("\u2764\ufe0f\u200d\ud83e\ude79", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2764",
-      shortcodes = listOf("heart"),
-      variants = listOf(
-        AndroidxEmoji2("\u2764\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2764\ufe0f\u200d\ud83d\udd25", listOf("heart_on_fire")),
+    AndroidxEmoji2("\u2764\ufe0f\u200d\ud83e\ude79", listOf("mending_heart")),
+    AndroidxEmoji2("\u2764\ufe0f", listOf("heart")),
     AndroidxEmoji2("\ud83e\ude77", listOf("pink_heart")),
     AndroidxEmoji2("\ud83e\udde1", listOf("orange_heart")),
     AndroidxEmoji2("\ud83d\udc9b", listOf("yellow_heart")),
@@ -112,35 +82,11 @@ internal object SmileysAndPeopleCategoryChunk1 {
     AndroidxEmoji2("\ud83d\udcab", listOf("dizzy")),
     AndroidxEmoji2("\ud83d\udca6", listOf("sweat_drops")),
     AndroidxEmoji2("\ud83d\udca8", listOf("dash")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udd73",
-      shortcodes = listOf("hole"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udd73\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udd73\ufe0f", listOf("hole")),
     AndroidxEmoji2("\ud83d\udcac", listOf("speech_balloon")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc41\u200d\ud83d\udde8",
-      shortcodes = listOf("eye-in-speech-bubble"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udde8",
-      shortcodes = listOf("left_speech_bubble"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udde8\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\uddef",
-      shortcodes = listOf("right_anger_bubble"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\uddef\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udc41\ufe0f\u200d\ud83d\udde8\ufe0f", listOf("eye-in-speech-bubble")),
+    AndroidxEmoji2("\ud83d\udde8\ufe0f", listOf("left_speech_bubble")),
+    AndroidxEmoji2("\ud83d\uddef\ufe0f", listOf("right_anger_bubble")),
     AndroidxEmoji2("\ud83d\udcad", listOf("thought_balloon")),
     AndroidxEmoji2("\ud83d\udca4", listOf("zzz")),
     AndroidxEmoji2(

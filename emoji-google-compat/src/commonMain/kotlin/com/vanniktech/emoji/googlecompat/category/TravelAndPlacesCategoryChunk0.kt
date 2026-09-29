@@ -24,105 +24,27 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji("\ud83c\udf0e", listOf("earth_americas")),
     GoogleCompatEmoji("\ud83c\udf0f", listOf("earth_asia")),
     GoogleCompatEmoji("\ud83c\udf10", listOf("globe_with_meridians")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddfa",
-      shortcodes = listOf("world_map"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddfa\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddfa\ufe0f", listOf("world_map")),
     GoogleCompatEmoji("\ud83d\uddfe", listOf("japan")),
     GoogleCompatEmoji("\ud83e\udded", listOf("compass")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd4",
-      shortcodes = listOf("snow_capped_mountain"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd4\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u26f0",
-      shortcodes = listOf("mountain"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26f0\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udfd4\ufe0f", listOf("snow_capped_mountain")),
+    GoogleCompatEmoji("\u26f0\ufe0f", listOf("mountain")),
     GoogleCompatEmoji("\ud83c\udf0b", listOf("volcano")),
     GoogleCompatEmoji("\ud83d\uddfb", listOf("mount_fuji")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd5",
-      shortcodes = listOf("camping"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd5\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd6",
-      shortcodes = listOf("beach_with_umbrella"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd6\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfdc",
-      shortcodes = listOf("desert"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfdc\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfdd",
-      shortcodes = listOf("desert_island"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfdd\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfde",
-      shortcodes = listOf("national_park"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfde\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfdf",
-      shortcodes = listOf("stadium"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfdf\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfdb",
-      shortcodes = listOf("classical_building"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfdb\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd7",
-      shortcodes = listOf("building_construction"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd7\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udfd5\ufe0f", listOf("camping")),
+    GoogleCompatEmoji("\ud83c\udfd6\ufe0f", listOf("beach_with_umbrella")),
+    GoogleCompatEmoji("\ud83c\udfdc\ufe0f", listOf("desert")),
+    GoogleCompatEmoji("\ud83c\udfdd\ufe0f", listOf("desert_island")),
+    GoogleCompatEmoji("\ud83c\udfde\ufe0f", listOf("national_park")),
+    GoogleCompatEmoji("\ud83c\udfdf\ufe0f", listOf("stadium")),
+    GoogleCompatEmoji("\ud83c\udfdb\ufe0f", listOf("classical_building")),
+    GoogleCompatEmoji("\ud83c\udfd7\ufe0f", listOf("building_construction")),
     GoogleCompatEmoji("\ud83e\uddf1", listOf("bricks")),
     GoogleCompatEmoji("\ud83e\udea8", listOf("rock")),
     GoogleCompatEmoji("\ud83e\udeb5", listOf("wood")),
     GoogleCompatEmoji("\ud83d\uded6", listOf("hut")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd8",
-      shortcodes = listOf("house_buildings"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd8\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfda",
-      shortcodes = listOf("derelict_house_building"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfda\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udfd8\ufe0f", listOf("house_buildings")),
+    GoogleCompatEmoji("\ud83c\udfda\ufe0f", listOf("derelict_house_building")),
     GoogleCompatEmoji("\ud83c\udfe0", listOf("house")),
     GoogleCompatEmoji("\ud83c\udfe1", listOf("house_with_garden")),
     GoogleCompatEmoji("\ud83c\udfe2", listOf("office")),
@@ -145,37 +67,19 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udd4c", listOf("mosque")),
     GoogleCompatEmoji("\ud83d\uded5", listOf("hindu_temple")),
     GoogleCompatEmoji("\ud83d\udd4d", listOf("synagogue")),
-    GoogleCompatEmoji(
-      unicode = "\u26e9",
-      shortcodes = listOf("shinto_shrine"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26e9\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26e9\ufe0f", listOf("shinto_shrine")),
     GoogleCompatEmoji("\ud83d\udd4b", listOf("kaaba")),
     GoogleCompatEmoji("\u26f2", listOf("fountain")),
     GoogleCompatEmoji("\u26fa", listOf("tent")),
     GoogleCompatEmoji("\ud83c\udf01", listOf("foggy")),
     GoogleCompatEmoji("\ud83c\udf03", listOf("night_with_stars")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfd9",
-      shortcodes = listOf("cityscape"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfd9\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udfd9\ufe0f", listOf("cityscape")),
     GoogleCompatEmoji("\ud83c\udf04", listOf("sunrise_over_mountains")),
     GoogleCompatEmoji("\ud83c\udf05", listOf("sunrise")),
     GoogleCompatEmoji("\ud83c\udf06", listOf("city_sunset")),
     GoogleCompatEmoji("\ud83c\udf07", listOf("city_sunrise")),
     GoogleCompatEmoji("\ud83c\udf09", listOf("bridge_at_night")),
-    GoogleCompatEmoji(
-      unicode = "\u2668",
-      shortcodes = listOf("hotsprings"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2668\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2668\ufe0f", listOf("hotsprings")),
     GoogleCompatEmoji("\ud83c\udfa0", listOf("carousel_horse")),
     GoogleCompatEmoji("\ud83d\udedd", listOf("playground_slide")),
     GoogleCompatEmoji("\ud83c\udfa1", listOf("ferris_wheel")),
@@ -211,20 +115,8 @@ internal object TravelAndPlacesCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\ude9a", listOf("truck")),
     GoogleCompatEmoji("\ud83d\ude9b", listOf("articulated_lorry")),
     GoogleCompatEmoji("\ud83d\ude9c", listOf("tractor")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfce",
-      shortcodes = listOf("racing_car"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfce\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udfcd",
-      shortcodes = listOf("racing_motorcycle"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udfcd\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udfce\ufe0f", listOf("racing_car")),
+    GoogleCompatEmoji("\ud83c\udfcd\ufe0f", listOf("racing_motorcycle")),
     GoogleCompatEmoji("\ud83d\udef5", listOf("motor_scooter")),
     GoogleCompatEmoji("\ud83e\uddbd", listOf("manual_wheelchair")),
     GoogleCompatEmoji("\ud83e\uddbc", listOf("motorized_wheelchair")),

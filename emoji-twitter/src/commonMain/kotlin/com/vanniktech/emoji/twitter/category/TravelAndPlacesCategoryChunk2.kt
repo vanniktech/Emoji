@@ -20,93 +20,21 @@ import com.vanniktech.emoji.twitter.TwitterEmoji
 
 internal object TravelAndPlacesCategoryChunk2 {
   internal val EMOJIS: List<TwitterEmoji> = listOf(
-    TwitterEmoji(
-      unicode = "\ud83c\udf29",
-      shortcodes = listOf("lightning", "lightning_cloud"),
-      x = 5,
-      y = 34,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udf29\ufe0f", emptyList(), 5, 34),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udf2a",
-      shortcodes = listOf("tornado", "tornado_cloud"),
-      x = 5,
-      y = 35,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udf2a\ufe0f", emptyList(), 5, 35),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udf2b",
-      shortcodes = listOf("fog"),
-      x = 5,
-      y = 36,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udf2b\ufe0f", emptyList(), 5, 36),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udf2c",
-      shortcodes = listOf("wind_blowing_face"),
-      x = 5,
-      y = 37,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udf2c\ufe0f", emptyList(), 5, 37),
-      ),
-    ),
+    TwitterEmoji("\ud83c\udf29\ufe0f", listOf("lightning", "lightning_cloud"), 5, 34),
+    TwitterEmoji("\ud83c\udf2a\ufe0f", listOf("tornado", "tornado_cloud"), 5, 35),
+    TwitterEmoji("\ud83c\udf2b\ufe0f", listOf("fog"), 5, 36),
+    TwitterEmoji("\ud83c\udf2c\ufe0f", listOf("wind_blowing_face"), 5, 37),
     TwitterEmoji("\ud83c\udf00", listOf("cyclone"), 4, 57),
     TwitterEmoji("\ud83c\udf08", listOf("rainbow"), 5, 3),
     TwitterEmoji("\ud83c\udf02", listOf("closed_umbrella"), 4, 59),
-    TwitterEmoji(
-      unicode = "\u2602",
-      shortcodes = listOf("umbrella"),
-      x = 58,
-      y = 18,
-      variants = listOf(
-        TwitterEmoji("\u2602\ufe0f", emptyList(), 58, 18),
-      ),
-    ),
+    TwitterEmoji("\u2602\ufe0f", listOf("umbrella"), 58, 18),
     TwitterEmoji("\u2614", listOf("umbrella_with_rain_drops"), 58, 23),
-    TwitterEmoji(
-      unicode = "\u26f1",
-      shortcodes = listOf("umbrella_on_ground"),
-      x = 59,
-      y = 33,
-      variants = listOf(
-        TwitterEmoji("\u26f1\ufe0f", emptyList(), 59, 33),
-      ),
-    ),
+    TwitterEmoji("\u26f1\ufe0f", listOf("umbrella_on_ground"), 59, 33),
     TwitterEmoji("\u26a1", listOf("zap"), 59, 13),
-    TwitterEmoji(
-      unicode = "\u2744",
-      shortcodes = listOf("snowflake"),
-      x = 60,
-      y = 35,
-      variants = listOf(
-        TwitterEmoji("\u2744\ufe0f", emptyList(), 60, 35),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\u2603",
-      shortcodes = listOf("snowman"),
-      x = 58,
-      y = 19,
-      variants = listOf(
-        TwitterEmoji("\u2603\ufe0f", emptyList(), 58, 19),
-      ),
-    ),
+    TwitterEmoji("\u2744\ufe0f", listOf("snowflake"), 60, 35),
+    TwitterEmoji("\u2603\ufe0f", listOf("snowman"), 58, 19),
     TwitterEmoji("\u26c4", listOf("snowman_without_snow"), 59, 21),
-    TwitterEmoji(
-      unicode = "\u2604",
-      shortcodes = listOf("comet"),
-      x = 58,
-      y = 20,
-      variants = listOf(
-        TwitterEmoji("\u2604\ufe0f", emptyList(), 58, 20),
-      ),
-    ),
+    TwitterEmoji("\u2604\ufe0f", listOf("comet"), 58, 20),
     TwitterEmoji("\ud83d\udd25", listOf("fire"), 30, 30),
     TwitterEmoji("\ud83d\udca7", listOf("droplet"), 28, 24),
     TwitterEmoji("\ud83c\udf0a", listOf("ocean"), 5, 5),

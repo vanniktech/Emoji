@@ -24,42 +24,10 @@ internal object FlagsCategoryChunk0 {
     TwitterEmoji("\ud83d\udea9", listOf("triangular_flag_on_post"), 36, 54),
     TwitterEmoji("\ud83c\udf8c", listOf("crossed_flags"), 7, 16),
     TwitterEmoji("\ud83c\udff4", listOf("waving_black_flag"), 10, 46),
-    TwitterEmoji(
-      unicode = "\ud83c\udff3",
-      shortcodes = listOf("waving_white_flag"),
-      x = 10,
-      y = 41,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udff3\ufe0f", emptyList(), 10, 41),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udff3\u200d\ud83c\udf08",
-      shortcodes = listOf("rainbow-flag"),
-      x = 10,
-      y = 39,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", emptyList(), 10, 39),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udff3\u200d\u26a7",
-      shortcodes = listOf("transgender_flag"),
-      x = 10,
-      y = 40,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", emptyList(), 10, 40),
-      ),
-    ),
-    TwitterEmoji(
-      unicode = "\ud83c\udff4\u200d\u2620",
-      shortcodes = listOf("pirate_flag"),
-      x = 10,
-      y = 42,
-      variants = listOf(
-        TwitterEmoji("\ud83c\udff4\u200d\u2620\ufe0f", emptyList(), 10, 42),
-      ),
-    ),
+    TwitterEmoji("\ud83c\udff3\ufe0f", listOf("waving_white_flag"), 10, 41),
+    TwitterEmoji("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", listOf("rainbow-flag"), 10, 39),
+    TwitterEmoji("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", listOf("transgender_flag"), 10, 40),
+    TwitterEmoji("\ud83c\udff4\u200d\u2620\ufe0f", listOf("pirate_flag"), 10, 42),
     TwitterEmoji("\ud83c\udde6\ud83c\udde8", listOf("flag-ac"), 0, 31),
     TwitterEmoji("\ud83c\udde6\ud83c\udde9", listOf("flag-ad"), 0, 32),
     TwitterEmoji("\ud83c\udde6\ud83c\uddea", listOf("flag-ae"), 0, 33),

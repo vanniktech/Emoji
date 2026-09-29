@@ -24,55 +24,19 @@ internal object ObjectsCategoryChunk2 {
     AndroidxEmoji2("\ud83d\udd27", listOf("wrench")),
     AndroidxEmoji2("\ud83e\ude9b", listOf("screwdriver")),
     AndroidxEmoji2("\ud83d\udd29", listOf("nut_and_bolt")),
-    AndroidxEmoji2(
-      unicode = "\u2699",
-      shortcodes = listOf("gear"),
-      variants = listOf(
-        AndroidxEmoji2("\u2699\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udddc",
-      shortcodes = listOf("compression"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udddc\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u2696",
-      shortcodes = listOf("scales"),
-      variants = listOf(
-        AndroidxEmoji2("\u2696\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2699\ufe0f", listOf("gear")),
+    AndroidxEmoji2("\ud83d\udddc\ufe0f", listOf("compression")),
+    AndroidxEmoji2("\u2696\ufe0f", listOf("scales")),
     AndroidxEmoji2("\ud83e\uddaf", listOf("probing_cane")),
     AndroidxEmoji2("\ud83d\udd17", listOf("link")),
-    AndroidxEmoji2(
-      unicode = "\u26d3\u200d\ud83d\udca5",
-      shortcodes = listOf("broken_chain"),
-      variants = listOf(
-        AndroidxEmoji2("\u26d3\ufe0f\u200d\ud83d\udca5", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u26d3",
-      shortcodes = listOf("chains"),
-      variants = listOf(
-        AndroidxEmoji2("\u26d3\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26d3\ufe0f\u200d\ud83d\udca5", listOf("broken_chain")),
+    AndroidxEmoji2("\u26d3\ufe0f", listOf("chains")),
     AndroidxEmoji2("\ud83e\ude9d", listOf("hook")),
     AndroidxEmoji2("\ud83e\uddf0", listOf("toolbox")),
     AndroidxEmoji2("\ud83e\uddf2", listOf("magnet")),
     AndroidxEmoji2("\ud83e\ude9c", listOf("ladder")),
     AndroidxEmoji2("\ud83e\ude8f", listOf("shovel")),
-    AndroidxEmoji2(
-      unicode = "\u2697",
-      shortcodes = listOf("alembic"),
-      variants = listOf(
-        AndroidxEmoji2("\u2697\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2697\ufe0f", listOf("alembic")),
     AndroidxEmoji2("\ud83e\uddea", listOf("test_tube")),
     AndroidxEmoji2("\ud83e\uddeb", listOf("petri_dish")),
     AndroidxEmoji2("\ud83e\uddec", listOf("dna")),
@@ -90,20 +54,8 @@ internal object ObjectsCategoryChunk2 {
     AndroidxEmoji2("\ud83d\uded7", listOf("elevator")),
     AndroidxEmoji2("\ud83e\ude9e", listOf("mirror")),
     AndroidxEmoji2("\ud83e\ude9f", listOf("window")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udecf",
-      shortcodes = listOf("bed"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udecf\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udecb",
-      shortcodes = listOf("couch_and_lamp"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udecb\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udecf\ufe0f", listOf("bed")),
+    AndroidxEmoji2("\ud83d\udecb\ufe0f", listOf("couch_and_lamp")),
     AndroidxEmoji2("\ud83e\ude91", listOf("chair")),
     AndroidxEmoji2("\ud83d\udebd", listOf("toilet")),
     AndroidxEmoji2("\ud83e\udea0", listOf("plunger")),
@@ -124,21 +76,9 @@ internal object ObjectsCategoryChunk2 {
     AndroidxEmoji2("\ud83e\uddef", listOf("fire_extinguisher")),
     AndroidxEmoji2("\ud83d\uded2", listOf("shopping_trolley")),
     AndroidxEmoji2("\ud83d\udeac", listOf("smoking")),
-    AndroidxEmoji2(
-      unicode = "\u26b0",
-      shortcodes = listOf("coffin"),
-      variants = listOf(
-        AndroidxEmoji2("\u26b0\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26b0\ufe0f", listOf("coffin")),
     AndroidxEmoji2("\ud83e\udea6", listOf("headstone")),
-    AndroidxEmoji2(
-      unicode = "\u26b1",
-      shortcodes = listOf("funeral_urn"),
-      variants = listOf(
-        AndroidxEmoji2("\u26b1\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26b1\ufe0f", listOf("funeral_urn")),
     AndroidxEmoji2("\ud83e\uddff", listOf("nazar_amulet")),
     AndroidxEmoji2("\ud83e\udeac", listOf("hamsa")),
     AndroidxEmoji2("\ud83d\uddff", listOf("moyai")),

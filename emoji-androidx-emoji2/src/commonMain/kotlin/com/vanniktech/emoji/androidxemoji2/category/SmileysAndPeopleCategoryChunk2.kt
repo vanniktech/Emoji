@@ -246,13 +246,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
     AndroidxEmoji2("\ud83e\uddb7", listOf("tooth")),
     AndroidxEmoji2("\ud83e\uddb4", listOf("bone")),
     AndroidxEmoji2("\ud83d\udc40", listOf("eyes")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\udc41",
-      shortcodes = listOf("eye"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\udc41\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\udc41\ufe0f", listOf("eye")),
     AndroidxEmoji2("\ud83d\udc45", listOf("tongue")),
     AndroidxEmoji2("\ud83d\udc44", listOf("lips")),
     AndroidxEmoji2("\ud83e\udee6", listOf("biting_lip")),

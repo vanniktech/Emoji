@@ -28,36 +28,12 @@ internal object SymbolsCategoryChunk2 {
     AndroidxEmoji2("\ud83d\udfeb", listOf("large_brown_square")),
     AndroidxEmoji2("\u2b1b", listOf("black_large_square")),
     AndroidxEmoji2("\u2b1c", listOf("white_large_square")),
-    AndroidxEmoji2(
-      unicode = "\u25fc",
-      shortcodes = listOf("black_medium_square"),
-      variants = listOf(
-        AndroidxEmoji2("\u25fc\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u25fb",
-      shortcodes = listOf("white_medium_square"),
-      variants = listOf(
-        AndroidxEmoji2("\u25fb\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u25fc\ufe0f", listOf("black_medium_square")),
+    AndroidxEmoji2("\u25fb\ufe0f", listOf("white_medium_square")),
     AndroidxEmoji2("\u25fe", listOf("black_medium_small_square")),
     AndroidxEmoji2("\u25fd", listOf("white_medium_small_square")),
-    AndroidxEmoji2(
-      unicode = "\u25aa",
-      shortcodes = listOf("black_small_square"),
-      variants = listOf(
-        AndroidxEmoji2("\u25aa\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u25ab",
-      shortcodes = listOf("white_small_square"),
-      variants = listOf(
-        AndroidxEmoji2("\u25ab\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u25aa\ufe0f", listOf("black_small_square")),
+    AndroidxEmoji2("\u25ab\ufe0f", listOf("white_small_square")),
     AndroidxEmoji2("\ud83d\udd36", listOf("large_orange_diamond")),
     AndroidxEmoji2("\ud83d\udd37", listOf("large_blue_diamond")),
     AndroidxEmoji2("\ud83d\udd38", listOf("small_orange_diamond")),

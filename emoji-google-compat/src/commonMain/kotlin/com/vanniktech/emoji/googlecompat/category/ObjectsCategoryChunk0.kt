@@ -21,13 +21,7 @@ import com.vanniktech.emoji.googlecompat.GoogleCompatEmoji
 internal object ObjectsCategoryChunk0 {
   internal val EMOJIS: List<GoogleCompatEmoji> = listOf(
     GoogleCompatEmoji("\ud83d\udc53", listOf("eyeglasses")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd76",
-      shortcodes = listOf("dark_sunglasses"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd76\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd76\ufe0f", listOf("dark_sunglasses")),
     GoogleCompatEmoji("\ud83e\udd7d", listOf("goggles")),
     GoogleCompatEmoji("\ud83e\udd7c", listOf("lab_coat")),
     GoogleCompatEmoji("\ud83e\uddba", listOf("safety_vest")),
@@ -50,13 +44,7 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udc5b", listOf("purse")),
     GoogleCompatEmoji("\ud83d\udc5c", listOf("handbag")),
     GoogleCompatEmoji("\ud83d\udc5d", listOf("pouch")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udecd",
-      shortcodes = listOf("shopping_bags"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udecd\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udecd\ufe0f", listOf("shopping_bags")),
     GoogleCompatEmoji("\ud83c\udf92", listOf("school_satchel")),
     GoogleCompatEmoji("\ud83e\ude74", listOf("thong_sandal")),
     GoogleCompatEmoji("\ud83d\udc5e", listOf("mans_shoe", "shoe")),
@@ -74,13 +62,7 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83c\udf93", listOf("mortar_board")),
     GoogleCompatEmoji("\ud83e\udde2", listOf("billed_cap")),
     GoogleCompatEmoji("\ud83e\ude96", listOf("military_helmet")),
-    GoogleCompatEmoji(
-      unicode = "\u26d1",
-      shortcodes = listOf("helmet_with_white_cross"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26d1\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26d1\ufe0f", listOf("helmet_with_white_cross")),
     GoogleCompatEmoji("\ud83d\udcff", listOf("prayer_beads")),
     GoogleCompatEmoji("\ud83d\udc84", listOf("lipstick")),
     GoogleCompatEmoji("\ud83d\udc8d", listOf("ring")),
@@ -97,27 +79,9 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83c\udfbc", listOf("musical_score")),
     GoogleCompatEmoji("\ud83c\udfb5", listOf("musical_note")),
     GoogleCompatEmoji("\ud83c\udfb6", listOf("notes")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf99",
-      shortcodes = listOf("studio_microphone"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf99\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf9a",
-      shortcodes = listOf("level_slider"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf9a\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf9b",
-      shortcodes = listOf("control_knobs"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf9b\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf99\ufe0f", listOf("studio_microphone")),
+    GoogleCompatEmoji("\ud83c\udf9a\ufe0f", listOf("level_slider")),
+    GoogleCompatEmoji("\ud83c\udf9b\ufe0f", listOf("control_knobs")),
     GoogleCompatEmoji("\ud83c\udfa4", listOf("microphone")),
     GoogleCompatEmoji("\ud83c\udfa7", listOf("headphones")),
     GoogleCompatEmoji("\ud83d\udcfb", listOf("radio")),
@@ -135,13 +99,7 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\ude89", listOf("harp")),
     GoogleCompatEmoji("\ud83d\udcf1", listOf("iphone")),
     GoogleCompatEmoji("\ud83d\udcf2", listOf("calling")),
-    GoogleCompatEmoji(
-      unicode = "\u260e",
-      shortcodes = listOf("phone", "telephone"),
-      variants = listOf(
-        GoogleCompatEmoji("\u260e\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u260e\ufe0f", listOf("phone", "telephone")),
     GoogleCompatEmoji("\ud83d\udcde", listOf("telephone_receiver")),
     GoogleCompatEmoji("\ud83d\udcdf", listOf("pager")),
     GoogleCompatEmoji("\ud83d\udce0", listOf("fax")),
@@ -149,60 +107,18 @@ internal object ObjectsCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\udeab", listOf("low_battery")),
     GoogleCompatEmoji("\ud83d\udd0c", listOf("electric_plug")),
     GoogleCompatEmoji("\ud83d\udcbb", listOf("computer")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udda5",
-      shortcodes = listOf("desktop_computer"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udda5\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udda8",
-      shortcodes = listOf("printer"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udda8\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2328",
-      shortcodes = listOf("keyboard"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2328\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddb1",
-      shortcodes = listOf("three_button_mouse"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddb1\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddb2",
-      shortcodes = listOf("trackball"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddb2\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udda5\ufe0f", listOf("desktop_computer")),
+    GoogleCompatEmoji("\ud83d\udda8\ufe0f", listOf("printer")),
+    GoogleCompatEmoji("\u2328\ufe0f", listOf("keyboard")),
+    GoogleCompatEmoji("\ud83d\uddb1\ufe0f", listOf("three_button_mouse")),
+    GoogleCompatEmoji("\ud83d\uddb2\ufe0f", listOf("trackball")),
     GoogleCompatEmoji("\ud83d\udcbd", listOf("minidisc")),
     GoogleCompatEmoji("\ud83d\udcbe", listOf("floppy_disk")),
     GoogleCompatEmoji("\ud83d\udcbf", listOf("cd")),
     GoogleCompatEmoji("\ud83d\udcc0", listOf("dvd")),
     GoogleCompatEmoji("\ud83e\uddee", listOf("abacus")),
     GoogleCompatEmoji("\ud83c\udfa5", listOf("movie_camera")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf9e",
-      shortcodes = listOf("film_frames"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf9e\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udcfd",
-      shortcodes = listOf("film_projector"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udcfd\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf9e\ufe0f", listOf("film_frames")),
+    GoogleCompatEmoji("\ud83d\udcfd\ufe0f", listOf("film_projector")),
   )
 }

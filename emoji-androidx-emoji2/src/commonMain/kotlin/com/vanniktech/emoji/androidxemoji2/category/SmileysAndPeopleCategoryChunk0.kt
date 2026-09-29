@@ -39,13 +39,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83e\udd29", listOf("star-struck", "grinning_face_with_star_eyes")),
     AndroidxEmoji2("\ud83d\ude18", listOf("kissing_heart")),
     AndroidxEmoji2("\ud83d\ude17", listOf("kissing")),
-    AndroidxEmoji2(
-      unicode = "\u263a",
-      shortcodes = listOf("relaxed"),
-      variants = listOf(
-        AndroidxEmoji2("\u263a\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u263a\ufe0f", listOf("relaxed")),
     AndroidxEmoji2("\ud83d\ude1a", listOf("kissing_closed_eyes")),
     AndroidxEmoji2("\ud83d\ude19", listOf("kissing_smiling_eyes")),
     AndroidxEmoji2("\ud83e\udd72", listOf("smiling_face_with_tear")),
@@ -68,13 +62,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83d\ude11", listOf("expressionless")),
     AndroidxEmoji2("\ud83d\ude36", listOf("no_mouth")),
     AndroidxEmoji2("\ud83e\udee5", listOf("dotted_line_face")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\ude36\u200d\ud83c\udf2b",
-      shortcodes = listOf("face_in_clouds"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\ude36\u200d\ud83c\udf2b\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\ude36\u200d\ud83c\udf2b\ufe0f", listOf("face_in_clouds")),
     AndroidxEmoji2("\ud83d\ude0f", listOf("smirk")),
     AndroidxEmoji2("\ud83d\ude12", listOf("unamused")),
     AndroidxEmoji2("\ud83d\ude44", listOf("face_with_rolling_eyes")),
@@ -82,20 +70,8 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83d\ude2e\u200d\ud83d\udca8", listOf("face_exhaling")),
     AndroidxEmoji2("\ud83e\udd25", listOf("lying_face")),
     AndroidxEmoji2("\ud83e\udee8", listOf("shaking_face")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\ude42\u200d\u2194",
-      shortcodes = listOf("head_shaking_horizontally"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\ude42\u200d\u2194\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83d\ude42\u200d\u2195",
-      shortcodes = listOf("head_shaking_vertically"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\ude42\u200d\u2195\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\ude42\u200d\u2194\ufe0f", listOf("head_shaking_horizontally")),
+    AndroidxEmoji2("\ud83d\ude42\u200d\u2195\ufe0f", listOf("head_shaking_vertically")),
     AndroidxEmoji2("\ud83d\ude0c", listOf("relieved")),
     AndroidxEmoji2("\ud83d\ude14", listOf("pensive")),
     AndroidxEmoji2("\ud83d\ude2a", listOf("sleepy")),
@@ -124,13 +100,7 @@ internal object SmileysAndPeopleCategoryChunk0 {
     AndroidxEmoji2("\ud83e\udee4", listOf("face_with_diagonal_mouth")),
     AndroidxEmoji2("\ud83d\ude1f", listOf("worried")),
     AndroidxEmoji2("\ud83d\ude41", listOf("slightly_frowning_face")),
-    AndroidxEmoji2(
-      unicode = "\u2639",
-      shortcodes = listOf("white_frowning_face"),
-      variants = listOf(
-        AndroidxEmoji2("\u2639\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2639\ufe0f", listOf("white_frowning_face")),
     AndroidxEmoji2("\ud83d\ude2e", listOf("open_mouth")),
     AndroidxEmoji2("\ud83d\ude2f", listOf("hushed")),
     AndroidxEmoji2("\ud83d\ude32", listOf("astonished")),

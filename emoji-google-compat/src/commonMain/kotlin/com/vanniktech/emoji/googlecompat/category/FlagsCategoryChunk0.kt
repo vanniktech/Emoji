@@ -24,34 +24,10 @@ internal object FlagsCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udea9", listOf("triangular_flag_on_post")),
     GoogleCompatEmoji("\ud83c\udf8c", listOf("crossed_flags")),
     GoogleCompatEmoji("\ud83c\udff4", listOf("waving_black_flag")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff3",
-      shortcodes = listOf("waving_white_flag"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff3\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff3\u200d\ud83c\udf08",
-      shortcodes = listOf("rainbow-flag"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff3\u200d\u26a7",
-      shortcodes = listOf("transgender_flag"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udff4\u200d\u2620",
-      shortcodes = listOf("pirate_flag"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udff4\u200d\u2620\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udff3\ufe0f", listOf("waving_white_flag")),
+    GoogleCompatEmoji("\ud83c\udff3\ufe0f\u200d\ud83c\udf08", listOf("rainbow-flag")),
+    GoogleCompatEmoji("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", listOf("transgender_flag")),
+    GoogleCompatEmoji("\ud83c\udff4\u200d\u2620\ufe0f", listOf("pirate_flag")),
     GoogleCompatEmoji("\ud83c\udde6\ud83c\udde8", listOf("flag-ac")),
     GoogleCompatEmoji("\ud83c\udde6\ud83c\udde9", listOf("flag-ad")),
     GoogleCompatEmoji("\ud83c\udde6\ud83c\uddea", listOf("flag-ae")),

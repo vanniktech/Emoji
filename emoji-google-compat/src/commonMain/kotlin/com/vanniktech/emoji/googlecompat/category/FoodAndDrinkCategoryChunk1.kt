@@ -45,13 +45,7 @@ internal object FoodAndDrinkCategoryChunk1 {
     GoogleCompatEmoji("\ud83e\uddc9", listOf("mate_drink")),
     GoogleCompatEmoji("\ud83e\uddca", listOf("ice_cube")),
     GoogleCompatEmoji("\ud83e\udd62", listOf("chopsticks")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf7d",
-      shortcodes = listOf("knife_fork_plate"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf7d\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf7d\ufe0f", listOf("knife_fork_plate")),
     GoogleCompatEmoji("\ud83c\udf74", listOf("fork_and_knife")),
     GoogleCompatEmoji("\ud83e\udd44", listOf("spoon")),
     GoogleCompatEmoji("\ud83d\udd2a", listOf("hocho", "knife")),

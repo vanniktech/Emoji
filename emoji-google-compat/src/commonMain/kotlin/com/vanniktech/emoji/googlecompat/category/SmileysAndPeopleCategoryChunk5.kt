@@ -494,13 +494,7 @@ internal object SmileysAndPeopleCategoryChunk5 {
     GoogleCompatEmoji("\ud83d\udc69\u200d\ud83d\udc67", listOf("woman-girl")),
     GoogleCompatEmoji("\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66", listOf("woman-girl-boy")),
     GoogleCompatEmoji("\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc67", listOf("woman-girl-girl")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udde3",
-      shortcodes = listOf("speaking_head_in_silhouette"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udde3\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udde3\ufe0f", listOf("speaking_head_in_silhouette")),
     GoogleCompatEmoji("\ud83d\udc64", listOf("bust_in_silhouette")),
     GoogleCompatEmoji("\ud83d\udc65", listOf("busts_in_silhouette")),
     GoogleCompatEmoji("\ud83e\udec2", listOf("people_hugging")),

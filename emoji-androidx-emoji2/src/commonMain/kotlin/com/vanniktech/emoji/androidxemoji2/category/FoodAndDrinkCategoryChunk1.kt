@@ -45,13 +45,7 @@ internal object FoodAndDrinkCategoryChunk1 {
     AndroidxEmoji2("\ud83e\uddc9", listOf("mate_drink")),
     AndroidxEmoji2("\ud83e\uddca", listOf("ice_cube")),
     AndroidxEmoji2("\ud83e\udd62", listOf("chopsticks")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udf7d",
-      shortcodes = listOf("knife_fork_plate"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udf7d\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udf7d\ufe0f", listOf("knife_fork_plate")),
     AndroidxEmoji2("\ud83c\udf74", listOf("fork_and_knife")),
     AndroidxEmoji2("\ud83e\udd44", listOf("spoon")),
     AndroidxEmoji2("\ud83d\udd2a", listOf("hocho", "knife")),

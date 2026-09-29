@@ -385,24 +385,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     FacebookEmoji("\ud83d\udc6f", listOf("dancers"), 23, 52),
-    FacebookEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2642",
-      shortcodes = listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"),
-      x = 23,
-      y = 51,
-      variants = listOf(
-        FacebookEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", emptyList(), 23, 51),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83d\udc6f\u200d\u2640",
-      shortcodes = listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"),
-      x = 23,
-      y = 50,
-      variants = listOf(
-        FacebookEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", emptyList(), 23, 50),
-      ),
-    ),
+    FacebookEmoji("\ud83d\udc6f\u200d\u2642\ufe0f", listOf("men-with-bunny-ears-partying", "man-with-bunny-ears-partying"), 23, 51),
+    FacebookEmoji("\ud83d\udc6f\u200d\u2640\ufe0f", listOf("women-with-bunny-ears-partying", "woman-with-bunny-ears-partying"), 23, 50),
     FacebookEmoji(
       unicode = "\ud83e\uddd6",
       shortcodes = listOf("person_in_steamy_room"),
@@ -495,15 +479,7 @@ internal object SmileysAndPeopleCategoryChunk4 {
         FacebookEmoji("\ud83c\udfc7\ud83c\udfff", emptyList(), 9, 8),
       ),
     ),
-    FacebookEmoji(
-      unicode = "\u26f7",
-      shortcodes = listOf("skier"),
-      x = 59,
-      y = 38,
-      variants = listOf(
-        FacebookEmoji("\u26f7\ufe0f", emptyList(), 59, 38),
-      ),
-    ),
+    FacebookEmoji("\u26f7\ufe0f", listOf("skier"), 59, 38),
     FacebookEmoji(
       unicode = "\ud83c\udfc2",
       shortcodes = listOf("snowboarder"),
@@ -869,24 +845,8 @@ internal object SmileysAndPeopleCategoryChunk4 {
       ),
     ),
     FacebookEmoji("\ud83e\udd3c", listOf("wrestlers"), 43, 10),
-    FacebookEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2642",
-      shortcodes = listOf("man-wrestling"),
-      x = 43,
-      y = 9,
-      variants = listOf(
-        FacebookEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", emptyList(), 43, 9),
-      ),
-    ),
-    FacebookEmoji(
-      unicode = "\ud83e\udd3c\u200d\u2640",
-      shortcodes = listOf("woman-wrestling"),
-      x = 43,
-      y = 8,
-      variants = listOf(
-        FacebookEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", emptyList(), 43, 8),
-      ),
-    ),
+    FacebookEmoji("\ud83e\udd3c\u200d\u2642\ufe0f", listOf("man-wrestling"), 43, 9),
+    FacebookEmoji("\ud83e\udd3c\u200d\u2640\ufe0f", listOf("woman-wrestling"), 43, 8),
     FacebookEmoji(
       unicode = "\ud83e\udd3d",
       shortcodes = listOf("water_polo"),

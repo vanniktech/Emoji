@@ -532,15 +532,7 @@ internal object SmileysAndPeopleCategoryChunk5 {
     GoogleEmoji("\ud83d\udc69\u200d\ud83d\udc67", listOf("woman-girl"), 18, 33),
     GoogleEmoji("\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66", listOf("woman-girl-boy"), 18, 31),
     GoogleEmoji("\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc67", listOf("woman-girl-girl"), 18, 32),
-    GoogleEmoji(
-      unicode = "\ud83d\udde3",
-      shortcodes = listOf("speaking_head_in_silhouette"),
-      x = 32,
-      y = 37,
-      variants = listOf(
-        GoogleEmoji("\ud83d\udde3\ufe0f", emptyList(), 32, 37),
-      ),
-    ),
+    GoogleEmoji("\ud83d\udde3\ufe0f", listOf("speaking_head_in_silhouette"), 32, 37),
     GoogleEmoji("\ud83d\udc64", listOf("bust_in_silhouette"), 13, 42),
     GoogleEmoji("\ud83d\udc65", listOf("busts_in_silhouette"), 13, 43),
     GoogleEmoji("\ud83e\udec2", listOf("people_hugging"), 56, 1),

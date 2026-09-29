@@ -24,105 +24,27 @@ internal object TravelAndPlacesCategoryChunk0 {
     AndroidxEmoji2("\ud83c\udf0e", listOf("earth_americas")),
     AndroidxEmoji2("\ud83c\udf0f", listOf("earth_asia")),
     AndroidxEmoji2("\ud83c\udf10", listOf("globe_with_meridians")),
-    AndroidxEmoji2(
-      unicode = "\ud83d\uddfa",
-      shortcodes = listOf("world_map"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83d\uddfa\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83d\uddfa\ufe0f", listOf("world_map")),
     AndroidxEmoji2("\ud83d\uddfe", listOf("japan")),
     AndroidxEmoji2("\ud83e\udded", listOf("compass")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd4",
-      shortcodes = listOf("snow_capped_mountain"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd4\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\u26f0",
-      shortcodes = listOf("mountain"),
-      variants = listOf(
-        AndroidxEmoji2("\u26f0\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udfd4\ufe0f", listOf("snow_capped_mountain")),
+    AndroidxEmoji2("\u26f0\ufe0f", listOf("mountain")),
     AndroidxEmoji2("\ud83c\udf0b", listOf("volcano")),
     AndroidxEmoji2("\ud83d\uddfb", listOf("mount_fuji")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd5",
-      shortcodes = listOf("camping"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd5\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd6",
-      shortcodes = listOf("beach_with_umbrella"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd6\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfdc",
-      shortcodes = listOf("desert"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfdc\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfdd",
-      shortcodes = listOf("desert_island"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfdd\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfde",
-      shortcodes = listOf("national_park"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfde\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfdf",
-      shortcodes = listOf("stadium"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfdf\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfdb",
-      shortcodes = listOf("classical_building"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfdb\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd7",
-      shortcodes = listOf("building_construction"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd7\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udfd5\ufe0f", listOf("camping")),
+    AndroidxEmoji2("\ud83c\udfd6\ufe0f", listOf("beach_with_umbrella")),
+    AndroidxEmoji2("\ud83c\udfdc\ufe0f", listOf("desert")),
+    AndroidxEmoji2("\ud83c\udfdd\ufe0f", listOf("desert_island")),
+    AndroidxEmoji2("\ud83c\udfde\ufe0f", listOf("national_park")),
+    AndroidxEmoji2("\ud83c\udfdf\ufe0f", listOf("stadium")),
+    AndroidxEmoji2("\ud83c\udfdb\ufe0f", listOf("classical_building")),
+    AndroidxEmoji2("\ud83c\udfd7\ufe0f", listOf("building_construction")),
     AndroidxEmoji2("\ud83e\uddf1", listOf("bricks")),
     AndroidxEmoji2("\ud83e\udea8", listOf("rock")),
     AndroidxEmoji2("\ud83e\udeb5", listOf("wood")),
     AndroidxEmoji2("\ud83d\uded6", listOf("hut")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd8",
-      shortcodes = listOf("house_buildings"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd8\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfda",
-      shortcodes = listOf("derelict_house_building"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfda\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udfd8\ufe0f", listOf("house_buildings")),
+    AndroidxEmoji2("\ud83c\udfda\ufe0f", listOf("derelict_house_building")),
     AndroidxEmoji2("\ud83c\udfe0", listOf("house")),
     AndroidxEmoji2("\ud83c\udfe1", listOf("house_with_garden")),
     AndroidxEmoji2("\ud83c\udfe2", listOf("office")),
@@ -145,37 +67,19 @@ internal object TravelAndPlacesCategoryChunk0 {
     AndroidxEmoji2("\ud83d\udd4c", listOf("mosque")),
     AndroidxEmoji2("\ud83d\uded5", listOf("hindu_temple")),
     AndroidxEmoji2("\ud83d\udd4d", listOf("synagogue")),
-    AndroidxEmoji2(
-      unicode = "\u26e9",
-      shortcodes = listOf("shinto_shrine"),
-      variants = listOf(
-        AndroidxEmoji2("\u26e9\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u26e9\ufe0f", listOf("shinto_shrine")),
     AndroidxEmoji2("\ud83d\udd4b", listOf("kaaba")),
     AndroidxEmoji2("\u26f2", listOf("fountain")),
     AndroidxEmoji2("\u26fa", listOf("tent")),
     AndroidxEmoji2("\ud83c\udf01", listOf("foggy")),
     AndroidxEmoji2("\ud83c\udf03", listOf("night_with_stars")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfd9",
-      shortcodes = listOf("cityscape"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfd9\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udfd9\ufe0f", listOf("cityscape")),
     AndroidxEmoji2("\ud83c\udf04", listOf("sunrise_over_mountains")),
     AndroidxEmoji2("\ud83c\udf05", listOf("sunrise")),
     AndroidxEmoji2("\ud83c\udf06", listOf("city_sunset")),
     AndroidxEmoji2("\ud83c\udf07", listOf("city_sunrise")),
     AndroidxEmoji2("\ud83c\udf09", listOf("bridge_at_night")),
-    AndroidxEmoji2(
-      unicode = "\u2668",
-      shortcodes = listOf("hotsprings"),
-      variants = listOf(
-        AndroidxEmoji2("\u2668\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\u2668\ufe0f", listOf("hotsprings")),
     AndroidxEmoji2("\ud83c\udfa0", listOf("carousel_horse")),
     AndroidxEmoji2("\ud83d\udedd", listOf("playground_slide")),
     AndroidxEmoji2("\ud83c\udfa1", listOf("ferris_wheel")),
@@ -211,20 +115,8 @@ internal object TravelAndPlacesCategoryChunk0 {
     AndroidxEmoji2("\ud83d\ude9a", listOf("truck")),
     AndroidxEmoji2("\ud83d\ude9b", listOf("articulated_lorry")),
     AndroidxEmoji2("\ud83d\ude9c", listOf("tractor")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfce",
-      shortcodes = listOf("racing_car"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfce\ufe0f", emptyList()),
-      ),
-    ),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udfcd",
-      shortcodes = listOf("racing_motorcycle"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udfcd\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udfce\ufe0f", listOf("racing_car")),
+    AndroidxEmoji2("\ud83c\udfcd\ufe0f", listOf("racing_motorcycle")),
     AndroidxEmoji2("\ud83d\udef5", listOf("motor_scooter")),
     AndroidxEmoji2("\ud83e\uddbd", listOf("manual_wheelchair")),
     AndroidxEmoji2("\ud83e\uddbc", listOf("motorized_wheelchair")),

@@ -38,28 +38,10 @@ internal object ActivitiesCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\udde7", listOf("red_envelope")),
     GoogleCompatEmoji("\ud83c\udf80", listOf("ribbon")),
     GoogleCompatEmoji("\ud83c\udf81", listOf("gift")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf97",
-      shortcodes = listOf("reminder_ribbon"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf97\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf9f",
-      shortcodes = listOf("admission_tickets"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf9f\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf97\ufe0f", listOf("reminder_ribbon")),
+    GoogleCompatEmoji("\ud83c\udf9f\ufe0f", listOf("admission_tickets")),
     GoogleCompatEmoji("\ud83c\udfab", listOf("ticket")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf96",
-      shortcodes = listOf("medal"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf96\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf96\ufe0f", listOf("medal")),
     GoogleCompatEmoji("\ud83c\udfc6", listOf("trophy")),
     GoogleCompatEmoji("\ud83c\udfc5", listOf("sports_medal")),
     GoogleCompatEmoji("\ud83e\udd47", listOf("first_place_medal")),
@@ -85,13 +67,7 @@ internal object ActivitiesCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\udd4b", listOf("martial_arts_uniform")),
     GoogleCompatEmoji("\ud83e\udd45", listOf("goal_net")),
     GoogleCompatEmoji("\u26f3", listOf("golf")),
-    GoogleCompatEmoji(
-      unicode = "\u26f8",
-      shortcodes = listOf("ice_skate"),
-      variants = listOf(
-        GoogleCompatEmoji("\u26f8\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u26f8\ufe0f", listOf("ice_skate")),
     GoogleCompatEmoji("\ud83c\udfa3", listOf("fishing_pole_and_fish")),
     GoogleCompatEmoji("\ud83e\udd3f", listOf("diving_mask")),
     GoogleCompatEmoji("\ud83c\udfbd", listOf("running_shirt_with_sash")),
@@ -106,13 +82,7 @@ internal object ActivitiesCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udd2e", listOf("crystal_ball")),
     GoogleCompatEmoji("\ud83e\ude84", listOf("magic_wand")),
     GoogleCompatEmoji("\ud83c\udfae", listOf("video_game")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd79",
-      shortcodes = listOf("joystick"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd79\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd79\ufe0f", listOf("joystick")),
     GoogleCompatEmoji("\ud83c\udfb0", listOf("slot_machine")),
     GoogleCompatEmoji("\ud83c\udfb2", listOf("game_die")),
     GoogleCompatEmoji("\ud83e\udde9", listOf("jigsaw")),
@@ -120,52 +90,16 @@ internal object ActivitiesCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\ude85", listOf("pinata")),
     GoogleCompatEmoji("\ud83e\udea9", listOf("mirror_ball")),
     GoogleCompatEmoji("\ud83e\ude86", listOf("nesting_dolls")),
-    GoogleCompatEmoji(
-      unicode = "\u2660",
-      shortcodes = listOf("spades"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2660\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2665",
-      shortcodes = listOf("hearts"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2665\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2666",
-      shortcodes = listOf("diamonds"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2666\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u2663",
-      shortcodes = listOf("clubs"),
-      variants = listOf(
-        GoogleCompatEmoji("\u2663\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\u265f",
-      shortcodes = listOf("chess_pawn"),
-      variants = listOf(
-        GoogleCompatEmoji("\u265f\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\u2660\ufe0f", listOf("spades")),
+    GoogleCompatEmoji("\u2665\ufe0f", listOf("hearts")),
+    GoogleCompatEmoji("\u2666\ufe0f", listOf("diamonds")),
+    GoogleCompatEmoji("\u2663\ufe0f", listOf("clubs")),
+    GoogleCompatEmoji("\u265f\ufe0f", listOf("chess_pawn")),
     GoogleCompatEmoji("\ud83c\udccf", listOf("black_joker")),
     GoogleCompatEmoji("\ud83c\udc04", listOf("mahjong")),
     GoogleCompatEmoji("\ud83c\udfb4", listOf("flower_playing_cards")),
     GoogleCompatEmoji("\ud83c\udfad", listOf("performing_arts")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\uddbc",
-      shortcodes = listOf("frame_with_picture"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\uddbc\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\uddbc\ufe0f", listOf("frame_with_picture")),
     GoogleCompatEmoji("\ud83c\udfa8", listOf("art")),
     GoogleCompatEmoji("\ud83e\uddf5", listOf("thread")),
     GoogleCompatEmoji("\ud83e\udea1", listOf("sewing_needle")),

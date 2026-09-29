@@ -72,24 +72,12 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udc39", listOf("hamster")),
     GoogleCompatEmoji("\ud83d\udc30", listOf("rabbit")),
     GoogleCompatEmoji("\ud83d\udc07", listOf("rabbit2")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udc3f",
-      shortcodes = listOf("chipmunk"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udc3f\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udc3f\ufe0f", listOf("chipmunk")),
     GoogleCompatEmoji("\ud83e\uddab", listOf("beaver")),
     GoogleCompatEmoji("\ud83e\udd94", listOf("hedgehog")),
     GoogleCompatEmoji("\ud83e\udd87", listOf("bat")),
     GoogleCompatEmoji("\ud83d\udc3b", listOf("bear")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udc3b\u200d\u2744",
-      shortcodes = listOf("polar_bear"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udc3b\u200d\u2744\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udc3b\u200d\u2744\ufe0f", listOf("polar_bear")),
     GoogleCompatEmoji("\ud83d\udc28", listOf("koala")),
     GoogleCompatEmoji("\ud83d\udc3c", listOf("panda_face")),
     GoogleCompatEmoji("\ud83e\udda5", listOf("sloth")),
@@ -106,13 +94,7 @@ internal object AnimalsAndNatureCategoryChunk0 {
     GoogleCompatEmoji("\ud83d\udc25", listOf("hatched_chick")),
     GoogleCompatEmoji("\ud83d\udc26", listOf("bird")),
     GoogleCompatEmoji("\ud83d\udc27", listOf("penguin")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udd4a",
-      shortcodes = listOf("dove_of_peace"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udd4a\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udd4a\ufe0f", listOf("dove_of_peace")),
     GoogleCompatEmoji("\ud83e\udd85", listOf("eagle")),
     GoogleCompatEmoji("\ud83e\udd86", listOf("duck")),
     GoogleCompatEmoji("\ud83e\udda2", listOf("swan")),

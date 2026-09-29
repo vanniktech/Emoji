@@ -45,13 +45,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     AndroidxEmoji2("\ud83e\udd54", listOf("potato")),
     AndroidxEmoji2("\ud83e\udd55", listOf("carrot")),
     AndroidxEmoji2("\ud83c\udf3d", listOf("corn")),
-    AndroidxEmoji2(
-      unicode = "\ud83c\udf36",
-      shortcodes = listOf("hot_pepper"),
-      variants = listOf(
-        AndroidxEmoji2("\ud83c\udf36\ufe0f", emptyList()),
-      ),
-    ),
+    AndroidxEmoji2("\ud83c\udf36\ufe0f", listOf("hot_pepper")),
     AndroidxEmoji2("\ud83e\uded1", listOf("bell_pepper")),
     AndroidxEmoji2("\ud83e\udd52", listOf("cucumber")),
     AndroidxEmoji2("\ud83e\udd6c", listOf("leafy_green")),

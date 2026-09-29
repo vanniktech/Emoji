@@ -45,15 +45,7 @@ internal object FoodAndDrinkCategoryChunk1 {
     IosEmoji("\ud83e\uddc9", listOf("mate_drink"), 46, 48),
     IosEmoji("\ud83e\uddca", listOf("ice_cube"), 46, 49),
     IosEmoji("\ud83e\udd62", listOf("chopsticks"), 44, 19),
-    IosEmoji(
-      unicode = "\ud83c\udf7d",
-      shortcodes = listOf("knife_fork_plate"),
-      x = 6,
-      y = 58,
-      variants = listOf(
-        IosEmoji("\ud83c\udf7d\ufe0f", emptyList(), 6, 58),
-      ),
-    ),
+    IosEmoji("\ud83c\udf7d\ufe0f", listOf("knife_fork_plate"), 6, 58),
     IosEmoji("\ud83c\udf74", listOf("fork_and_knife"), 6, 49),
     IosEmoji("\ud83e\udd44", listOf("spoon"), 43, 52),
     IosEmoji("\ud83d\udd2a", listOf("hocho", "knife"), 30, 35),

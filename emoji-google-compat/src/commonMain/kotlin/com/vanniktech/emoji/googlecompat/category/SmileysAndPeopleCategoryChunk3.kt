@@ -1066,27 +1066,9 @@ internal object SmileysAndPeopleCategoryChunk3 {
       ),
     ),
     GoogleCompatEmoji("\ud83e\uddde", listOf("genie")),
-    GoogleCompatEmoji(
-      unicode = "\ud83e\uddde\u200d\u2642",
-      shortcodes = listOf("male_genie"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83e\uddde\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
-    GoogleCompatEmoji(
-      unicode = "\ud83e\uddde\u200d\u2640",
-      shortcodes = listOf("female_genie"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83e\uddde\u200d\u2640\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83e\uddde\u200d\u2642\ufe0f", listOf("male_genie")),
+    GoogleCompatEmoji("\ud83e\uddde\u200d\u2640\ufe0f", listOf("female_genie")),
     GoogleCompatEmoji("\ud83e\udddf", listOf("zombie")),
-    GoogleCompatEmoji(
-      unicode = "\ud83e\udddf\u200d\u2642",
-      shortcodes = listOf("male_zombie"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83e\udddf\u200d\u2642\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83e\udddf\u200d\u2642\ufe0f", listOf("male_zombie")),
   )
 }

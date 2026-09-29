@@ -45,13 +45,7 @@ internal object FoodAndDrinkCategoryChunk0 {
     GoogleCompatEmoji("\ud83e\udd54", listOf("potato")),
     GoogleCompatEmoji("\ud83e\udd55", listOf("carrot")),
     GoogleCompatEmoji("\ud83c\udf3d", listOf("corn")),
-    GoogleCompatEmoji(
-      unicode = "\ud83c\udf36",
-      shortcodes = listOf("hot_pepper"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83c\udf36\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83c\udf36\ufe0f", listOf("hot_pepper")),
     GoogleCompatEmoji("\ud83e\uded1", listOf("bell_pepper")),
     GoogleCompatEmoji("\ud83e\udd52", listOf("cucumber")),
     GoogleCompatEmoji("\ud83e\udd6c", listOf("leafy_green")),

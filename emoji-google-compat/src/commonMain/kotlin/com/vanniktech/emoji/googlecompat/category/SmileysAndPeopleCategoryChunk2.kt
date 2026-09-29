@@ -246,13 +246,7 @@ internal object SmileysAndPeopleCategoryChunk2 {
     GoogleCompatEmoji("\ud83e\uddb7", listOf("tooth")),
     GoogleCompatEmoji("\ud83e\uddb4", listOf("bone")),
     GoogleCompatEmoji("\ud83d\udc40", listOf("eyes")),
-    GoogleCompatEmoji(
-      unicode = "\ud83d\udc41",
-      shortcodes = listOf("eye"),
-      variants = listOf(
-        GoogleCompatEmoji("\ud83d\udc41\ufe0f", emptyList()),
-      ),
-    ),
+    GoogleCompatEmoji("\ud83d\udc41\ufe0f", listOf("eye")),
     GoogleCompatEmoji("\ud83d\udc45", listOf("tongue")),
     GoogleCompatEmoji("\ud83d\udc44", listOf("lips")),
     GoogleCompatEmoji("\ud83e\udee6", listOf("biting_lip")),
